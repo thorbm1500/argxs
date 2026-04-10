@@ -1,0 +1,8 @@
+{
+  name: "YouTrack",
+  href: "https://www.jetbrains.com/youtrack/",
+  source: {
+    name: "JetBrains",
+    href: "https://www.jetbrains.com/company/brand"
+  }
+}

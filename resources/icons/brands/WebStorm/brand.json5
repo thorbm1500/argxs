@@ -1,0 +1,8 @@
+{
+  name: "WebStorm",
+  href: "https://www.jetbrains.com/webstorm/",
+  source: {
+    name: "JetBrains",
+    href: "https://www.jetbrains.com/company/brand"
+  }
+}

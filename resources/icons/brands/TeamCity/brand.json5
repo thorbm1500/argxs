@@ -1,0 +1,8 @@
+{
+  name: "TeamCity",
+  href: "https://www.jetbrains.com/teamcity/",
+  source: {
+    name: "JetBrains",
+    href: "https://www.jetbrains.com/company/brand"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  name: "GitHub",
+  href: "https://github.com",
+  source: {
+    name: "GitHub",
+    href: "https://brand.github.com/foundations/logo"
+  }
+}
