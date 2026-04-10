@@ -8,6 +8,7 @@
 :root {
     --theme-text-primary: #0D0D0D;
     --theme-text-secondary: #727E94;
+    --theme-text-third: #c1c9d5;
     --theme-ui-line: #DDE1E8;
     --theme-ui-line-highlight: #727E94;
 }
