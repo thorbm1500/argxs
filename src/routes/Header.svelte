@@ -4,9 +4,9 @@
 
 <section class="header-section">
 	<div class="nav">
-		<div class="resx">resx</div>
+		<div class="argxs">argxs</div>
 		<nav>
-			<a href="https://github.com/thorbm1500/resx" target="_blank" rel="external">GitHub</a>
+			<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">GitHub</a>
 		</nav>
 	</div>
 </section>
@@ -37,7 +37,7 @@
 
           font-family: 'Lexend', sans-serif;
 
-					.resx {
+					.argxs {
               font-size: 1.5rem;
 							font-weight: 500;
 
