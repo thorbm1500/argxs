@@ -2,10 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import 'tailwindcss';
+
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
 :root {
+    --theme-color-primary: #0D0D0D;
+    --theme-color-secondary: #727E94;
+
     --theme-text-primary: #0D0D0D;
     --theme-text-secondary: #727E94;
     --theme-text-third: #c1c9d5;
@@ -14,10 +18,47 @@
 }
 
 body {
-    background: #ebf0f5;
+    background: #f7f9fc;
     font-family: 'Lexend', sans-serif;
 
     .coming-soon {
         color: var(--theme-text-secondary);
     }
+
+    .content-header {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        padding-bottom: 2rem;
+        user-select: none;
+
+        .text {
+            .title {
+                font-size: 2rem;
+                font-weight: 550;
+            }
+            .subtitle {
+                font-size: 1rem;
+                color: var(--theme-text-secondary);
+            }
+        }
+
+        .actions {
+
+        }
+    }
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--theme-color-secondary) transparent;
+    scroll-behavior: smooth;
+    transition: color 120ms ease,
+    border-color 120ms ease,
+    background-color 120ms ease,
+    fill 120ms ease,
+    stroke 120ms ease,
+    filter 120ms ease;
 }

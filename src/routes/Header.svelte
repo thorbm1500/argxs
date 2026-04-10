@@ -1,12 +1,16 @@
 <script lang="ts">
 
+import GitHubLogo from '$lib/assets/icons/GitHubLogo.svelte';
 </script>
 
 <section class="header-section">
 	<div class="nav">
-		<div class="argxs">argxs</div>
+		<a href="/" class="argxs">argxs</a>
 		<nav>
-			<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">GitHub</a>
+			<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
+				<GitHubLogo />
+				GitHub
+			</a>
 		</nav>
 	</div>
 </section>
@@ -26,6 +30,9 @@
       justify-content: center;
 
 			border-bottom: 1px solid var(--theme-ui-line);
+			background: #f4f6f8;
+
+			user-select: none;
 
 			.nav {
 					display: flex;
@@ -45,7 +52,13 @@
 					}
 
 					a {
-              font-size: .9rem;
+							display: flex;
+							flex-flow: row nowrap;
+							align-items: center;
+							justify-content: center;
+							gap: .1rem;
+
+              font-size: .91rem;
               font-weight: 375;
 							color: var(--theme-text-secondary);
 					}

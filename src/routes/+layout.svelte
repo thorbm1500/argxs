@@ -25,7 +25,7 @@
 			top: 3rem;
 			left: 14rem;
 
-			padding: 3rem 3rem 0 3rem;
+			padding: 5rem 6rem 0 6rem;
 
 			box-sizing: border-box;
 			overflow-y: scroll;

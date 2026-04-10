@@ -1,8 +1,8 @@
 <script lang="ts">
-	let { icon = null, content = '', type = 'SVG' } = $props();
+	let { theme = $bindable(), icon = null, content = '', type = 'SVG' } = $props();
 </script>
 
-<div class="copyable-container">
+<div class="copyable-container {theme}">
 	<div class="inner-content">
 		{#if icon !== null}
 			{@html icon.html}
@@ -24,7 +24,7 @@
         padding: 1rem;
 
         border: 1px solid var(--theme-ui-line);
-        border-radius: .5rem;
+        border-radius: .65rem;
 
         .inner-content :global {
             svg {
@@ -36,6 +36,12 @@
 						max-height: 2.5rem;
         }
     }
+
+		.copyable-container.dark {
+				background: linear-gradient(to top, #0D0D0D 0%, #161617 100%);
+				border-color: #52555d;
+				box-shadow: 0 0 .5rem rgb(13 13 13 / .15);
+		}
 
     .copyable-container:hover {
         border-color: var(--theme-ui-line-highlight);

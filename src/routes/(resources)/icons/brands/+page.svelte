@@ -1,12 +1,33 @@
-<script lang="ts">
+<script module lang="ts">
 	import CopyableComponent from '$lib/components/CopyableComponent.svelte';
 	import type { Brand } from '$lib/components/interfaces';
 	import LinkIcon from '$lib/assets/icons/LinkIcon.svelte';
+</script>
+
+<script lang="ts">
+	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
 	let { data } = $props();
 
 	const brands: Brand[] = $derived(data.brands ?? []);
+
+	let theme: 'light' | 'dark' = $state('light');
 </script>
+
+<section class="content-header">
+	<div class="text">
+		<h1 class="title">
+			Brand Icons
+		</h1>
+		<h3 class="subtitle">
+			<!--todo: Write subtitle-->
+			This page contains a bunch of brand assets.
+		</h3>
+	</div>
+	<div class="actions">
+		<ThemeSwitcher bind:theme />
+	</div>
+</section>
 
 <section class="icons-brands-sec">
 	{#each brands as brand}
@@ -21,23 +42,30 @@
 			</div>
 			<div class="icons">
 				{#each brand.icons as icon}
-					<CopyableComponent content={icon.regular} />
+					<CopyableComponent bind:theme content={theme === 'light' ? icon.regular : icon.dark} />
 				{/each}
 				{#each brand.logos as icon}
-					<CopyableComponent content={icon.regular} />
+					<CopyableComponent bind:theme content={theme === 'light' ? icon.regular : icon.dark} />
 				{/each}
 			</div>
-			{#if brand.info.source}
-				<a href="{brand.info.source.href}" class="extra source">
-					Sourced from <strong>{brand.info.source.name}</strong>
-				</a>
-			{/if}
+			<div class="extra source">
+				{#if brand.info.source}
+					<a href="{brand.info.source.href}" class="extra source">
+						Sourced from <strong>{brand.info.source.name}</strong>
+					</a>
+				{/if}
+			</div>
 		</div>
 	{/each}
 </section>
 
 <style>
     .icons-brands-sec {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 1rem;
+
         font-family: 'Lexend', sans-serif;
 
         .brand {
@@ -50,17 +78,18 @@
             margin-bottom: 1rem;
 
             .title {
-								display: flex;
-								flex-flow: row nowrap;
-								align-items: center;
-								justify-content: flex-start;
-								gap: .15rem;
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: flex-start;
+                gap: .15rem;
 
                 font-size: 1.25rem;
                 font-weight: 500;
             }
 
             .extra.source {
+								height: 1.25rem;
                 font-size: .75rem;
                 color: var(--theme-text-third);
             }

@@ -36,9 +36,9 @@
 
 	<div class="nav-section">
 		<h1 class="title {page.url.pathname.startsWith('/colors') ? 'selected' : ''}">Colors</h1>
-		<a class={{selected: page.url.pathname === '/colors/base'}} href="/colors/base" target="_self">
+		<a class={{selected: page.url.pathname === '/colors/general'}} href="/colors/general" target="_self">
 			<BaseColorIcon />
-			Base
+			General
 		</a>
 		<a class={{selected: page.url.pathname === '/colors/gradients'}} href="/colors/gradients" target="_self">
 			<GradientIcon />
@@ -66,7 +66,7 @@
       height: calc(100vh - 3rem);
 			width: 14rem;
 			top: 3rem;
-			padding: 1rem;
+			padding: 1.5rem;
 
 			border-right: 1px solid var(--theme-ui-line);
 

@@ -10,7 +10,7 @@
 
 <style>
 	svg {
-			height: 3.5rem;
+			height: auto;
 			width: 3.5rem;
 	}
 </style>

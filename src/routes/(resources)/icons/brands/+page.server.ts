@@ -5,7 +5,7 @@ import type { Brand, BrandInfo, Icon } from '$lib/components/interfaces';
 
 export const load: PageServerLoad = async () => {
 	const brands: Brand[] = [];
-	const dir: Dir = await fs.opendir(process.cwd() + '/icons/brands');
+	const dir: Dir = await fs.opendir(process.cwd() + '/resources/icons/brands');
 	let file: Dirent | null = dir.readSync();
 
 	while (file !== null) {
