@@ -2,6 +2,7 @@
 	import './layout.css';
 	import Header from './Header.svelte';
 	import Sidebar from './Sidebar.svelte';
+	import Footer from './Footer.svelte';
 
 	const { children } = $props();
 </script>
@@ -11,6 +12,7 @@
 
 <section class="main-container">
 	{@render children()}
+	<Footer />
 </section>
 
 <style>
@@ -23,7 +25,7 @@
 			top: 3rem;
 			left: 14rem;
 
-			padding: 3rem;
+			padding: 3rem 3rem 0 3rem;
 
 			box-sizing: border-box;
 			overflow-y: scroll;
