@@ -12,7 +12,7 @@ export class Resources {
 	}
 
 	private async loadBrandIcons(): Promise<void> {
-		const dir: Dir = await fs.opendir(process.cwd() + '/resources/icons/brands');
+		const dir: Dir = await fs.opendir(process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + 'resources/icons/brands');
 		let file: Dirent | null = dir.readSync();
 
 		while (file !== null) {
