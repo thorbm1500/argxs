@@ -1,5 +1,5 @@
 import { building } from '$app/environment';
-import { error, type Handle } from '@sveltejs/kit';
+import { error, type Handle, type ServerInit } from '@sveltejs/kit';
 import { RateLimiter } from 'sveltekit-rate-limiter/server';
 import { Resources } from '$lib/server/Resources';
 
@@ -7,7 +7,7 @@ const limiter = new RateLimiter({ IP: [3, 's'] });
 
 export const RESOURCES: Resources = new Resources();
 
-export const load = async () => {
+export const init: ServerInit = async () => {
 	await RESOURCES.init();
 };
 
