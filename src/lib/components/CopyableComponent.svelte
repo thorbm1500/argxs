@@ -3,13 +3,16 @@
 	import DownloadIcon from '$lib/assets/icons/DownloadIcon.svelte';
 
 	let { theme = $bindable(), icon = null, content = '', type = 'SVG' } = $props();
+
+	//todo: Add manual loading for connections with reduced data usage
+	//todo: navigator.connection.saveData
 </script>
 
 <div class="copyable-container {theme}">
 	{#if type === 'SVG'}
 		<div class="actions svg">
 			<button class="copy" onclick="{() => navigator.clipboard.writeText(content)}"><ClipboardIcon /></button>
-			<a class="download" href={content} download><DownloadIcon /></a>
+			<button class="download"><DownloadIcon /></button>
 		</div>
 	{/if}
 	<div class="inner-content">
