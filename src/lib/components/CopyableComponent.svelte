@@ -12,7 +12,7 @@
 	{#if type === 'SVG'}
 		<div class="actions svg">
 			<button class="copy" onclick="{() => navigator.clipboard.writeText(content)}"><ClipboardIcon /></button>
-			<button class="download"><DownloadIcon /></button>
+			<!--<button class="download"><DownloadIcon /></button>-->
 		</div>
 	{/if}
 	<div class="inner-content">
