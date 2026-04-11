@@ -6,7 +6,7 @@
 	<a class="sponsor" href="https://vivabit.io">Powered by
 		<VivaBitLogo />
 	</a>
-	<p class="subtitle">All Rights Reserved.</p>
+	<p class="subtitle">All rights reserved.</p>
 	<p class="disclaimer"><strong>argxs</strong> is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any brands showcased on this website, or any of their
 		affiliates.</p>
 </section>
