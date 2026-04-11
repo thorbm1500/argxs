@@ -1,1 +1,5 @@
-<span class="coming-soon">Coming soon.</span>
+<script>
+	import ComingSoonComponent from '$lib/components/ComingSoonComponent.svelte';
+</script>
+
+<ComingSoonComponent />
