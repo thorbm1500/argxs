@@ -11,7 +11,10 @@
 <div class="copyable-container {theme}">
 	{#if type === 'SVG'}
 		<div class="actions svg">
-			<button class="copy" onclick="{() => navigator.clipboard.writeText(content)}"><ClipboardIcon /></button>
+			<button class="copy" onclick="{() => navigator.clipboard?.writeText(content)}">
+				Copy SVG
+				<!--<ClipboardIcon />-->
+			</button>
 			<!--<button class="download"><DownloadIcon /></button>-->
 		</div>
 	{/if}
@@ -35,13 +38,11 @@
         width: 10rem;
         padding: 1rem;
 
-        border: 1px solid var(--theme-ui-line);
-        border-radius: .65rem;
+        border-radius: .45rem;
 
         box-sizing: border-box;
 
         .actions {
-            opacity: 0;
             position: absolute;
 
             display: flex;
@@ -53,41 +54,55 @@
             height: 10rem;
             width: 10rem;
 
-            border-radius: .65rem;
+            border: 1px solid var(--theme-ui-line);
+            border-radius: .45rem;
 
             .copy, .download {
+								opacity: 0;
 								display: flex;
 								align-items: center;
 								justify-content: center;
 								align-content: center;
 
-                width: 2rem;
-								height: 2rem;
+                width: fit-content;
+								height: fit-content;
+								padding: .25rem .5rem;
 
-                color: #202026;
+                color: #f7f9fc;
+								font-family: 'Lexend', sans-serif;
+								font-weight: 500;
+								font-size: .8rem;
 
-                border: 1px solid var(--theme-ui-line);
-                border-radius: .35rem;
+                border-radius: .5rem;
 								cursor: pointer;
 
-                background: #e6e8ee;
+                background: var(--theme-color-accent);
+								border: 1px solid transparent;
 
 								filter: blur(1px);
 								transform: scale(.95);
-                transition: 65ms ease;
+                transition: 120ms ease;
             }
 
-            transition: 65ms ease;
+						.copy:hover,.download:hover {
+                border-color: #6091fa;
+
+                transition: 65ms ease;
+						}
+
+            transition: 25ms 120ms ease;
         }
 
         .actions:hover {
-            opacity: 1;
+						backdrop-filter: blur(.15rem) grayscale(.1);
 
 						.copy,.download {
+								opacity: 1;
+
 								filter: blur(0px);
                 transform: scale(1);
 
-								transition: 65ms ease;
+                transition: 35ms ease;
 						}
 
             transition: 35ms ease;
@@ -115,6 +130,6 @@
     }
 
     .copyable-container:hover {
-        border-color: var(--theme-ui-line-highlight);
+        /*border-color: var(--theme-ui-line-highlight);*/
     }
 </style>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 @import 'tailwindcss';
 
 @plugin '@tailwindcss/forms';
@@ -9,6 +10,7 @@
 :root {
     --theme-color-primary: #0D0D0D;
     --theme-color-secondary: #727E94;
+    --theme-color-accent: #4271D7;
 
     --theme-text-primary: #0D0D0D;
     --theme-text-secondary: #727E94;

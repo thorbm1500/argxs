@@ -40,7 +40,7 @@
 				}
 
 				button.selected {
-						color: #4271d7;
+						color: var(--theme-color-accent);
             border-color: rgb(98 122 245 / .5);
             border-radius: .5rem;
 						background-color: rgb(98 118 245 / .1);
@@ -49,7 +49,7 @@
 				}
 
 				button:hover {
-						color: #4271d7;
+            color: var(--theme-color-accent);
 				}
     }
 </style>

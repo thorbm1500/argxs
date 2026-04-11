@@ -28,8 +28,12 @@
 			padding: 5rem 6rem 0 6rem;
 
 			box-sizing: border-box;
+
+			/*noinspection CssOverwrittenProperties*/
 			overflow-y: scroll;
+      /*noinspection CssOverwrittenProperties*/
 			overflow-x: hidden;
+      /*noinspection CssOverwrittenProperties*/
 			overflow: auto;
 	}
 </style>
