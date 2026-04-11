@@ -19,10 +19,11 @@
 		<h1 class="title">
 			Brand Icons
 		</h1>
-		<h3 class="subtitle">
+		<div class="subtitle">
 			<!--todo: Write subtitle-->
-			This page contains a bunch of brand assets.
-		</h3>
+			<p>This page contains a bunch of brand assets.</p>
+			<p>There are currently a total of <strong>{brands.length}</strong> brands showcased.</p>
+		</div>
 	</div>
 	<div class="actions">
 		<ThemeSwitcher bind:theme />

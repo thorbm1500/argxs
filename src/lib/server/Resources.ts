@@ -9,7 +9,7 @@ export class Resources {
 		const startTime: number = Bun.nanoseconds();
 		console.log('Initializing resources...');
 		await this.loadBrandIcons();
-		console.log(`Resource loading completed [${Bun.nanoseconds() - startTime / 1000000}ms]`);
+		console.log(`Resource loading completed [${((Bun.nanoseconds() - startTime) / 1000000).toFixed(0)}ms]`);
 	}
 
 	private async loadBrandIcons(): Promise<void> {

@@ -5,6 +5,7 @@ import { Resources } from '$lib/server/Resources';
 
 const limiter = new RateLimiter({ IP: [3, 's'] });
 
+export const VERSION: string = await Bun.file('./package.json').json().then(pkg => pkg.version);
 export const RESOURCES: Resources = new Resources();
 
 export const init: ServerInit = async () => {

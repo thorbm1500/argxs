@@ -4,11 +4,11 @@
 	import Sidebar from './Sidebar.svelte';
 	import Footer from './Footer.svelte';
 
-	const { children } = $props();
+	const { children, data } = $props();
 </script>
 
 <Header />
-<Sidebar />
+<Sidebar version="{data.version ?? '0.0.0'}" />
 
 <section class="main-container">
 	{@render children()}

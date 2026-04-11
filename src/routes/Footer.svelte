@@ -22,7 +22,7 @@
         width: 100%;
 
         padding-top: 2.5rem;
-				padding-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
 
         font-family: 'Lexend', sans-serif;
 

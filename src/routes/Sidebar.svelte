@@ -8,9 +8,13 @@
 	import GradientIcon from '$lib/assets/icons/GradientIcon.svelte';
 	import ExternalIcon from '$lib/assets/icons/ExternalIcon.svelte';
 	import TypographyIcon from '$lib/assets/icons/TypographyIcon.svelte';
+
+	let { version = '0.0.0' } = $props();
 </script>
 
 <section class="sidebar-section">
+	<div class="version">ver. {version}</div>
+
 	<div class="nav-top">
 		<a class={{selected: page.url.pathname === '/'}} href="/" target="_self">
 			<HomeIcon />
@@ -75,6 +79,18 @@
 			align-items: flex-start;
 			justify-content: flex-start;
 			gap: 1rem;
+
+			.version {
+					position: absolute;
+					bottom: 1rem;
+					align-self: center;
+					width: fit-content;
+
+					color: var(--theme-text-third);
+					font-family: 'Lexend', sans-serif;
+					font-size: .75rem;
+					font-weight: 550;
+			}
 
 			.nav-top {
           display: flex;
