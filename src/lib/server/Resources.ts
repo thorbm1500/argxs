@@ -5,10 +5,11 @@ import * as fs from 'node:fs/promises';
 export class Resources {
 	readonly BRAND_ICONS: Brand[] = [];
 
-	constructor() {
+	async init(): Promise<void> {
+		const startTime: number = Bun.nanoseconds();
 		console.log('Initializing resources...');
-		this.loadBrandIcons();
-		console.log('Resource loading completed.');
+		await this.loadBrandIcons();
+		console.log(`Resource loading completed [${Bun.nanoseconds() - startTime / 1000000}ms]`);
 	}
 
 	private async loadBrandIcons(): Promise<void> {
