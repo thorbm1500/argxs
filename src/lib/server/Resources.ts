@@ -7,7 +7,7 @@ export class Resources {
 
 	constructor() {
 		console.log('Initializing resources...');
-		Promise.all([this.loadBrandIcons()]);
+		this.loadBrandIcons();
 		console.log('Resource loading completed.');
 	}
 
