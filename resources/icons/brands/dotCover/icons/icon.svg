@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewBox="0 0 64 64">
     <defs>
-        <linearGradient id="a" x1="56.3294" x2="2.87438" y1="-.391251" y2="24.3925" gradientUnits="userSpaceOnUse">
+        <linearGradient id="d_cover_gr_a" x1="56.3294" x2="2.87438" y1="-.391251" y2="24.3925" gradientUnits="userSpaceOnUse">
             <stop offset=".18" stop-color="#6B57FF"/>
             <stop offset=".54" stop-color="#FF45ED"/>
         </linearGradient>
-        <linearGradient id="b" x1="4.0675" x2="62.6638" y1="4.32348" y2="62.9197" gradientUnits="userSpaceOnUse">
+        <linearGradient id="d_cover_gr_b" x1="4.0675" x2="62.6638" y1="4.32348" y2="62.9197" gradientUnits="userSpaceOnUse">
             <stop offset=".12" stop-color="#FF45ED"/>
             <stop offset=".92" stop-color="#FC801D"/>
         </linearGradient>
     </defs>
     <path fill="#6B57FF"
           d="M58 16.4501V4.19132C58 1.88757 56.1131.03007 53.8094.066946l-11.0431.17625C41.585.261946 40.4688.786321 39.7 1.6832L6.99312 39.8413C6.3525 40.5888 6 41.5413 6 42.5257v11.3494c0 2.2781 1.84687 4.125 4.125 4.125h11.0031c1.1894 0 2.3213-.5138 3.1044-1.4088l32.7469-37.425C57.6375 18.4144 58 17.4494 58 16.4501Z"/>
-    <path fill="url(#a)"
+    <path fill="url(#d_cover_gr_a)"
           d="M58 14.9875V4.125C58 1.84687 56.1531 0 53.875 0H41.3094c-.2 0-.4.014375-.5981.04375L3.52688 5.49188C1.50125 5.78875 0 7.52625 0 9.57312V24.9706c0 2.2788 1.8475 4.1256 4.12625 4.125l18.50435-.0044c.4256 0 .8488-.0662 1.2538-.1956L55.13 18.9169c1.7094-.5463 2.87-2.135 2.87-3.9294Z"/>
-    <path fill="url(#b)"
+    <path fill="url(#d_cover_gr_b)"
           d="M64 59.8747V25.7472c0-1.6581-.9931-3.155-2.5206-3.8L24.0581 6.14973c-.5181-.21875-1.0756-.32937-1.6381-.32437l-18.32875.15C1.82625 5.99348 0 7.83473 0 10.0997v17.6657c0 .8056.235625 1.5931.678125 2.2662L21.7869 62.141c.7625 1.1606 2.0581 1.8587 3.4468 1.8587H59.875c2.2781 0 4.125-1.8468 4.125-4.125Z"/>
     <path fill="#000" d="M52 12H12v40h40V12Z"/>
     <path fill="#fff"

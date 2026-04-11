@@ -100,7 +100,11 @@
             }
 
             height: 100%;
+						width: 100%;
+						max-width: 8rem;
             max-height: 2.5rem;
+
+						box-sizing: content-box;
         }
     }
 
