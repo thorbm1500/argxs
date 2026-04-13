@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { theme = $bindable(), icon = null, content = '', type = 'SVG' } = $props();
+	let { theme = $bindable(), content = '', type = 'SVG' } = $props();
 
 	//todo: Add manual loading for connections with reduced data usage
 	//todo: navigator.connection.saveData
@@ -15,11 +15,7 @@
 		</div>
 	{/if}
 	<div class="inner-content">
-		{#if icon !== null}
-			{@html icon.html}
-		{:else}
-			{@html content}
-		{/if}
+		{@html content}
 	</div>
 </div>
 
@@ -105,15 +101,15 @@
         }
 
         .inner-content :global {
-            svg {
+						svg :global {
                 height: 100%;
                 width: 100%;
             }
 
-            height: 100%;
-						width: 100%;
+            height: 2.5rem;
+						width: auto;
+
 						max-width: 8rem;
-            max-height: 2.5rem;
 
 						box-sizing: content-box;
         }

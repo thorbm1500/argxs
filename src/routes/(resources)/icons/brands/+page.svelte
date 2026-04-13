@@ -9,15 +9,10 @@
 </script>
 
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	let { data } = $props();
 
-	onMount(async () => {
-		for (const brand of data.brands) {
-			brands.push(brand);
-		}
-	});
+	// svelte-ignore state_referenced_locally
+	brands = data.brands;
 </script>
 
 <section class="content-header">

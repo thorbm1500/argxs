@@ -4,7 +4,7 @@ import { RateLimiter } from 'sveltekit-rate-limiter/server';
 import { Resources } from '$lib/server/Resources';
 import { env } from '$env/dynamic/private';
 
-const limiter = new RateLimiter({ IP: [3, 's'] });
+const limiter = new RateLimiter({ IP: [1, '100ms'] });
 
 export const VERSION: string = await Bun.file('./package.json').json().then(pkg => pkg.version);
 export const RESOURCES: Resources = new Resources();
