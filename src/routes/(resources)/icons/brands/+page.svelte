@@ -21,7 +21,7 @@
 		</h1>
 		<div class="subtitle">
 			<!--todo: Write subtitle-->
-			<p>Current showcase includes <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">{brands.length}</strong> different brands</p>
+			<p>argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">{brands.length}</strong> different brands</p>
 		</div>
 	</div>
 	<div class="actions">
