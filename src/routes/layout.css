@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 @import 'tailwindcss';
 @import '$lib/styles/components/custom-icon.css';
 
@@ -39,11 +41,25 @@ body {
 
         .text {
             .title {
-                font-size: 2rem;
-                font-weight: 550;
+                font-family: 'Outfit', sans-serif;
+                font-size: 2.25rem;
+                font-weight: 700;
+
+                background-image: linear-gradient(5deg, transparent 40%, #222234 80%),
+                linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
+                background-clip: text;
+                color: transparent;
+
+                max-height: 6.75rem;
+
+                animation: titleAnim 1s infinite ease;
             }
+
             .subtitle {
-                font-size: 1rem;
+                font-size: .95rem;
+                font-family: 'Google Sans', sans-serif;
+                font-weight: 500;
+
                 color: var(--theme-text-secondary);
             }
         }
