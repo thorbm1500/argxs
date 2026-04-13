@@ -1,7 +1,4 @@
 <script lang="ts">
-	import ClipboardIcon from '$lib/assets/icons/ClipboardIcon.svelte';
-	import DownloadIcon from '$lib/assets/icons/DownloadIcon.svelte';
-
 	let { theme = $bindable(), icon = null, content = '', type = 'SVG' } = $props();
 
 	//todo: Add manual loading for connections with reduced data usage
@@ -13,7 +10,6 @@
 		<div class="actions svg">
 			<button class="copy" onclick="{() => navigator.clipboard?.writeText(content)}">
 				Copy SVG
-				<!--<ClipboardIcon />-->
 			</button>
 			<!--<button class="download"><DownloadIcon /></button>-->
 		</div>

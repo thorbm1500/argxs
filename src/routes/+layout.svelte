@@ -1,14 +1,17 @@
-<script lang="ts">
-	import './layout.css';
+<script module>
 	import Header from './Header.svelte';
 	import Sidebar from './Sidebar.svelte';
 	import Footer from './Footer.svelte';
+</script>
+
+<script lang="ts">
+	import './layout.css';
 
 	const { children, data } = $props();
 </script>
 
 <Header />
-<Sidebar version="{data.version ?? '0.0.0'}" />
+<Sidebar version={data.version} />
 
 <section class="main-container">
 	{@render children()}

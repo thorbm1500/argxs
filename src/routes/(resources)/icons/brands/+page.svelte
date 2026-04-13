@@ -2,16 +2,22 @@
 	import CopyableComponent from '$lib/components/CopyableComponent.svelte';
 	import type { Brand } from '$lib/components/interfaces';
 	import LinkIcon from '$lib/assets/icons/LinkIcon.svelte';
+	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
+
+	let brands: Brand[] = $state([]);
+	let theme: 'light' | 'dark' = $state('light');
 </script>
 
 <script lang="ts">
-	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
+	import { onMount } from 'svelte';
 
 	let { data } = $props();
 
-	const brands: Brand[] = $derived(data.brands ?? []);
-
-	let theme: 'light' | 'dark' = $state('light');
+	onMount(async () => {
+		for (const brand of data.brands) {
+			brands.push(brand);
+		}
+	});
 </script>
 
 <section class="content-header">
@@ -43,10 +49,10 @@
 				{/if}
 			</div>
 			<div class="icons">
-				{#each brand.icons as icon}
+				{#each $state.eager(brand.icons) as icon}
 					<CopyableComponent bind:theme content={theme === 'light' ? icon.regular : icon.dark} />
 				{/each}
-				{#each brand.logos as icon}
+				{#each $state.eager(brand.logos) as icon}
 					<CopyableComponent bind:theme content={theme === 'light' ? icon.regular : icon.dark} />
 				{/each}
 			</div>
