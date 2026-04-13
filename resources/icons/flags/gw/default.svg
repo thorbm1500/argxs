@@ -1,0 +1,13 @@
+<svg id="argxs" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="-2 -3 12 6" preserveAspectRatio="xMidYMid meet">
+    <rect x="-2" y="-3" width="12" height="6" fill="#fcd116"/>
+    <rect x="-2" width="12" height="3" fill="#009e49"/>
+    <rect x="-2" y="-3" width="4" height="6" fill="#ce1126"/>
+    <g id="argxs_guinea_bissau_attr_1">
+        <path id="argxs_guinea_bissau_attr_2" d="M 0,-1 v 1 h .5" transform="rotate(18 0,-1)" fill="#000"/>
+        <use xlink:href="#argxs_guinea_bissau_attr_2" transform="scale(-1,1)"/>
+    </g>
+    <use xlink:href="#argxs_guinea_bissau_attr_1" transform="rotate(72)"/>
+    <use xlink:href="#argxs_guinea_bissau_attr_1" transform="rotate(144)"/>
+    <use xlink:href="#argxs_guinea_bissau_attr_1" transform="rotate(216)"/>
+    <use xlink:href="#argxs_guinea_bissau_attr_1" transform="rotate(288)"/>
+</svg>
