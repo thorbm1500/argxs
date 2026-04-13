@@ -47,6 +47,7 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						gap: .25rem;
 
 						cursor: pointer;
             color: var(--theme-color-secondary);
@@ -56,6 +57,11 @@
 						padding: .25rem .5rem;
 
             backdrop-filter: brightness(1) opacity(0);
+
+						svg {
+								width: 1.15rem;
+								height: 1.15rem;
+						}
 				}
 
 				button.selected {

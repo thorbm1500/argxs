@@ -35,6 +35,7 @@
         width: 10rem;
         padding: 1rem;
 
+				perspective: 250px;
         border-radius: .45rem;
 
         box-sizing: border-box;
@@ -80,20 +81,20 @@
 
                 filter: blur(1px);
                 transform: scale(.95);
-                transition: 120ms ease;
+                transition: 200ms ease-out;
             }
 
             .copy:hover, .download:hover {
                 border-color: #6091fa;
 
-                transition: 65ms ease;
+                transition: 50ms ease;
             }
 
-            transition: 25ms 120ms ease;
+            transition: 200ms ease-out;
         }
 
         .actions:hover {
-            backdrop-filter: blur(.15rem) grayscale(.1);
+            backdrop-filter: blur(.1rem) grayscale(.15);
 
             .copy, .download {
                 opacity: 1;
@@ -147,10 +148,10 @@
                 pointer-events: none !important;
 
 								.content {
-                    filter: blur(.35rem) brightness(1.25);
-                    opacity: .35;
+                    filter: blur(.4rem) brightness(1.25);
+                    opacity: .2;
 
-                    transform: rotate3d(1, 0, 0, 28deg) scale(1.4);
+                    transform: rotate3d(1, 0, 0, 28deg) scale(1.3);
 
                     z-index: initial;
 								}

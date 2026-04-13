@@ -1,7 +1,6 @@
 <script module lang="ts">
 	import CopyableComponent from '$lib/components/CopyableComponent.svelte';
 	import type { Brand } from '$lib/components/interfaces';
-	import LinkIcon from '$lib/assets/icons/LinkIcon.svelte';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
 	let brands: Brand[] = $state([]);
@@ -37,9 +36,19 @@
 				{#if brand.info.href}
 					<a href="{brand.info.href}" rel="external" target="_blank" class="extra external">
 						{brand.info.name}
-						<div class="icon"><LinkIcon /></div>
+						<div class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M12.7076 18.3639L11.2933 19.7781C9.34072 21.7308 6.1749 21.7308 4.22228 19.7781C2.26966 17.8255 2.26966 14.6597 4.22228 12.7071L5.63649 11.2929M18.3644 12.7071L19.7786 11.2929C21.7312 9.34024 21.7312 6.17441 19.7786 4.22179C17.826 2.26917 14.6602 2.26917 12.7076 4.22179L11.2933 5.636M8.50045 15.4999L15.5005 8.49994"
+									stroke="currentColor"
+									stroke-width="2.25"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</div>
 					</a>
-					{:else}
+				{:else}
 					{brand.info.name}
 				{/if}
 			</div>
@@ -71,7 +80,7 @@
 
         font-family: 'Lexend', sans-serif;
 
-				user-select: none;
+        user-select: none;
 
         .brand {
             display: flex;
@@ -88,30 +97,36 @@
                 align-items: center;
                 justify-content: flex-start;
 
-								font-family: 'Google Sans', 'Lexend', sans-serif;
+                font-family: 'Google Sans', 'Lexend', sans-serif;
                 font-size: 1.25rem;
                 font-weight: 600;
 
-								.extra.external {
-										.icon {
+                .extra.external {
+                    .icon {
+												svg {
+                            width: 1.15rem;
+                            height: 1.15rem;
+												}
+
                         opacity: 0;
                         transition: 200ms 120ms ease;
-										}
+                    }
 
                     display: flex;
                     flex-flow: row nowrap;
                     align-items: center;
                     justify-content: flex-start;
                     gap: .15rem;
-								}
+                }
             }
-						.title:hover .extra.external .icon {
-								opacity: 1;
+
+            .title:hover .extra.external .icon {
+                opacity: 1;
                 transition: 65ms ease;
-						}
+            }
 
             .extra.source {
-								height: 1.25rem;
+                height: 1.25rem;
                 font-size: .75rem;
                 color: var(--theme-text-third);
             }
