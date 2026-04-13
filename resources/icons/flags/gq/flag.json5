@@ -1,0 +1,7 @@
+{
+  country: "Equatorial Guinea",
+  source: {
+    name: "Wikipedia",
+    href: "https://en.wikipedia.org"
+  }
+}
