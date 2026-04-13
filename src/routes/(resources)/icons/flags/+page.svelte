@@ -33,17 +33,17 @@
 			<div class="icons">
 				{#if flag.icons }
 					{#if flag.icons.default }
-						<CopyableComponent content={flag.icons.default} />
+						<CopyableComponent content={flag.icons.default} blur_content_bg={true} />
 					{/if}
 					{#if flag.icons.square }
-						<CopyableComponent content={flag.icons.square} />
+						<CopyableComponent content={flag.icons.square} blur_content_bg={true} />
 					{/if}
 					{#if flag.icons.circular }
-						<CopyableComponent content={flag.icons.circular} />
+						<CopyableComponent content={flag.icons.circular} blur_content_bg={true} />
 					{/if}
 
 					{#each flag.icons.extras as extra}
-						<CopyableComponent content={extra} />
+						<CopyableComponent content={extra} blur_content_bg={true} />
 					{/each}
 				{/if}
 			</div>

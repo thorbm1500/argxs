@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { theme = $bindable(), content = '', type = 'SVG' } = $props();
+	let { theme = $bindable(), content = '', type = 'SVG', blur_content_bg = false } = $props();
 
 	//todo: Add manual loading for connections with reduced data usage
 	//todo: navigator.connection.saveData
@@ -15,6 +15,11 @@
 		</div>
 	{/if}
 	<div class="inner-content">
+		{#if blur_content_bg}
+			<div class="blurred">
+				<div class="content">{@html content}</div>
+			</div>
+		{/if}
 		{@html content}
 	</div>
 </div>
@@ -49,69 +54,107 @@
             border: 1px solid var(--theme-ui-line);
             border-radius: .45rem;
 
+            z-index: 200;
+
             .copy, .download {
-								opacity: 0;
-								display: flex;
-								align-items: center;
-								justify-content: center;
-								align-content: center;
+                opacity: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
 
                 width: fit-content;
-								height: fit-content;
-								padding: .25rem .5rem;
+                height: fit-content;
+                padding: .25rem .5rem;
 
                 color: #f7f9fc;
-								font-family: 'Lexend', sans-serif;
-								font-weight: 500;
-								font-size: .8rem;
+                font-family: 'Lexend', sans-serif;
+                font-weight: 500;
+                font-size: .8rem;
 
                 border-radius: .5rem;
-								cursor: pointer;
+                cursor: pointer;
 
                 background: var(--theme-color-accent);
-								border: 1px solid transparent;
+                border: 1px solid transparent;
 
-								filter: blur(1px);
-								transform: scale(.95);
+                filter: blur(1px);
+                transform: scale(.95);
                 transition: 120ms ease;
             }
 
-						.copy:hover,.download:hover {
+            .copy:hover, .download:hover {
                 border-color: #6091fa;
 
                 transition: 65ms ease;
-						}
+            }
 
             transition: 25ms 120ms ease;
         }
 
         .actions:hover {
-						backdrop-filter: blur(.15rem) grayscale(.1);
+            backdrop-filter: blur(.15rem) grayscale(.1);
 
-						.copy,.download {
-								opacity: 1;
+            .copy, .download {
+                opacity: 1;
 
-								filter: blur(0px);
+                filter: blur(0px);
                 transform: scale(1);
 
                 transition: 35ms ease;
-						}
+            }
 
             transition: 35ms ease;
         }
 
         .inner-content :global {
-						svg :global {
+            position: relative;
+						
+            svg :global {
+                position: relative;
+
                 height: 100%;
                 width: 100%;
             }
 
             height: 2.5rem;
-						width: auto;
+            width: auto;
 
-						max-width: 8rem;
+            max-width: 8rem;
 
-						box-sizing: content-box;
+            box-sizing: content-box;
+
+            z-index: 100 !important;
+
+						.blurred {
+								position: absolute;
+
+                svg :global {
+                    height: 100%;
+                    width: 100%;
+
+										mask-image: linear-gradient(to bottom, rgb(0 0 0 / .025) 0%, rgb(0 0 0 / .35) 50%, rgb(0 0 0 / 1) 100%);
+										mask-type: luminance;
+
+                    pointer-events: none !important;
+                }
+
+                height: 2.5rem;
+                width: auto;
+
+								perspective: 250px;
+
+                pointer-events: none !important;
+
+								.content {
+                    filter: blur(.35rem) brightness(1.25);
+                    opacity: .35;
+
+                    transform: rotate3d(1, 0, 0, 28deg) scale(1.4);
+
+                    z-index: initial;
+								}
+						}
         }
     }
 
@@ -119,9 +162,5 @@
         background: linear-gradient(to top, #0D0D0D 0%, #161617 100%);
         border-color: #52555d;
         box-shadow: 0 0 .5rem rgb(13 13 13 / .15);
-    }
-
-    .copyable-container:hover {
-        /*border-color: var(--theme-ui-line-highlight);*/
     }
 </style>
