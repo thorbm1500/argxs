@@ -1,4 +1,5 @@
 {
   name: "Threads",
-  href: "https://www.threads.com"
+  href: "https://www.threads.com",
+  assets: {}
 }

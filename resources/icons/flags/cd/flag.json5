@@ -1,7 +1,3 @@
 {
-  country: "Democratic Republic of the Congo",
-  source: {
-    name: "Wikipedia",
-    href: "https://en.wikipedia.org"
-  }
+  country: "Democratic Republic of the Congo"
 }

@@ -1,8 +1,5 @@
 {
   name: "IntelliJ IDEA",
   href: "https://www.jetbrains.com/idea/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

@@ -33,9 +33,9 @@
 	{#each brands as brand}
 		<div class="brand">
 			<div class="title">
-				{#if brand.info.href}
-					<a href="{brand.info.href}" rel="external" target="_blank" class="extra external">
-						{brand.info.name}
+				{#if brand.href}
+					<a href="{brand.href}" rel="external" target="_blank" class="extra external">
+						{brand.name}
 						<div class="icon">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
@@ -49,24 +49,28 @@
 						</div>
 					</a>
 				{:else}
-					{brand.info.name}
+					{brand.name}
 				{/if}
 			</div>
 			<div class="icons">
-				{#each $state.eager(brand.icons) as icon}
-					<CopyableComponent bind:theme content={theme === 'light' ? icon.regular : icon.dark} />
-				{/each}
-				{#each $state.eager(brand.logos) as icon}
-					<CopyableComponent bind:theme content={theme === 'light' ? icon.regular : icon.dark} />
+				{#if brand.assets.icon !== undefined }
+					<CopyableComponent bind:theme content={theme === 'light' ? brand.assets.icon.default.svg : brand.assets.icon.dark?.svg ?? brand.assets.icon.default.svg } />
+				{/if}
+				{#if brand.assets.logo !== undefined }
+					<CopyableComponent bind:theme content={theme === 'light' ? brand.assets.logo.default.svg : brand.assets.logo.dark?.svg ?? brand.assets.logo.default.svg } />
+				{/if}
+				{#each brand.assets.extra as icon }
+					<CopyableComponent bind:theme content={theme === 'light' ? icon.default.svg : icon.dark?.svg ?? icon.default.svg } />
 				{/each}
 			</div>
+			<!--todo: Implement showing source for each individual SVG shown
 			<div class="extra source">
 				{#if brand.info.source}
 					<a href="{brand.info.source.href}" class="extra source">
 						Sourced from <strong>{brand.info.source.name}</strong>
 					</a>
 				{/if}
-			</div>
+			</div>-->
 		</div>
 	{/each}
 </section>

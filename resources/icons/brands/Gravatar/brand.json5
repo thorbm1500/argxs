@@ -1,4 +1,5 @@
 {
   name: "Gravatar",
-  href: "https://gravatar.com"
+  href: "https://gravatar.com",
+  assets: {}
 }

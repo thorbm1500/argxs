@@ -1,8 +1,5 @@
 {
   name: "Junie",
   href: "https://www.jetbrains.com/junie/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

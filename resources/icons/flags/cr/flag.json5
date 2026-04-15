@@ -1,7 +1,3 @@
 {
-  country: "Costa Rica",
-  source: {
-    name: "Wikipedia",
-    href: "https://en.wikipedia.org"
-  }
+  country: "Costa Rica"
 }

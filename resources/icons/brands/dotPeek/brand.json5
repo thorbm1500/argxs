@@ -1,8 +1,5 @@
 {
   name: "dotPeek",
   href: "https://www.jetbrains.com/decompiler/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

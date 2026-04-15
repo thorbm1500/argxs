@@ -1,0 +1,18 @@
+{
+  default: {
+    svg: 'undefined',
+    date_added: "2026/4/10",
+    source: {
+      name: "Discord",
+      href: "https://discord.com/branding"
+    }
+  },
+  dark: {
+    svg: 'undefined',
+    date_added: "2026/4/10",
+    source: {
+      name: "Discord",
+      href: "https://discord.com/branding"
+    }
+  }
+}

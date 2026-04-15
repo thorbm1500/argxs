@@ -1,8 +1,5 @@
 {
   name: "RubyMine",
   href: "https://www.jetbrains.com/ruby/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

@@ -1,8 +1,5 @@
 {
   name: "RustRover",
   href: "https://www.jetbrains.com/rust/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

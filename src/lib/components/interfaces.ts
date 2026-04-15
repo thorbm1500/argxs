@@ -4,29 +4,32 @@ declare interface Source {
 }
 
 export interface Brand {
-	info: BrandInfo,
-	icons?: Icon[],
-	logos?: Icon[]
-}
-
-export interface BrandInfo {
 	name: string,
 	href?: string,
-	source?: Source
+	assets: {
+		icon?: BrandIcon,
+		logo?: BrandIcon,
+		extra: BrandIcon[]
+	}
+}
+
+export interface BrandIcon {
+	default: Icon,
+	dark?: Icon,
+	monochrome?: Icon,
+	variable?: Icon
 }
 
 export interface Icon {
-	regular: string,
-	dark?: string
+	svg: string,
+	date_added?: string,
+	source?: Source
 }
 
 export interface Flag {
 	country: string,
-	icons: {
-		default: string,
-		square?: string,
-		circular?: string,
-		extras?: string[]
-	},
-	source?: Source
+	assets: {
+		flag: Icon,
+		extra: Icon[]
+	}
 }

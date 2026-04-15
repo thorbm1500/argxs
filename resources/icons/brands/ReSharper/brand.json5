@@ -1,8 +1,5 @@
 {
   name: "ReSharper",
   href: "https://www.jetbrains.com/resharper/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

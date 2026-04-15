@@ -1,7 +1,3 @@
 {
-  country: "Bosnia and Herzegovina",
-  source: {
-    name: "Wikipedia",
-    href: "https://en.wikipedia.org"
-  }
+  country: "Bosnia and Herzegovina"
 }

@@ -1,4 +1,5 @@
 {
   name: "Google",
-  href: "https://google.com"
+  href: "https://google.com",
+  assets: {}
 }

@@ -1,0 +1,18 @@
+{
+  default: {
+    svg: 'undefined',
+    date_added: "2026/4/10",
+    source: {
+      name: "JetBrains",
+      href: "https://www.jetbrains.com/company/brand"
+    }
+  },
+  dark: {
+    svg: 'undefined',
+    date_added: "2026/4/10",
+    source: {
+      name: "JetBrains",
+      href: "https://www.jetbrains.com/company/brand"
+    }
+  }
+}

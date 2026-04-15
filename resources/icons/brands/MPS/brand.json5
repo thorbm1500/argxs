@@ -1,8 +1,5 @@
 {
   name: "MPS",
   href: "https://www.jetbrains.com/mps/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

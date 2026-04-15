@@ -1,8 +1,5 @@
 {
   name: "DataGrip",
   href: "https://www.jetbrains.com/datagrip/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  assets: {}
 }

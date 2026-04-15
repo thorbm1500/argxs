@@ -1,7 +1,3 @@
 {
-  country: "Guinea",
-  source: {
-    name: "Wikipedia",
-    href: "https://en.wikipedia.org"
-  }
+  country: "Guinea"
 }

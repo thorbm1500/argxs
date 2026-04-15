@@ -1,8 +1,6 @@
 {
   name: "Fleet",
   href: "https://www.jetbrains.com/fleet/",
-  source: {
-    name: "JetBrains",
-    href: "https://www.jetbrains.com/company/brand"
-  }
+  date_added: "2026/4/10",
+  assets: {}
 }

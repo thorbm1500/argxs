@@ -31,29 +31,20 @@
 				{flag.country}
 			</div>
 			<div class="icons">
-				{#if flag.icons }
-					{#if flag.icons.default }
-						<CopyableComponent content={flag.icons.default} blur_content_bg={true} />
-					{/if}
-					{#if flag.icons.square }
-						<CopyableComponent content={flag.icons.square} blur_content_bg={true} />
-					{/if}
-					{#if flag.icons.circular }
-						<CopyableComponent content={flag.icons.circular} blur_content_bg={true} />
-					{/if}
+				<CopyableComponent content={flag.assets.flag.svg} blur_content_bg={true} />
 
-					{#each flag.icons.extras as extra}
-						<CopyableComponent content={extra} blur_content_bg={true} />
-					{/each}
-				{/if}
+				{#each flag.assets.extra as extra}
+					<CopyableComponent content={extra.svg} blur_content_bg={true} />
+				{/each}
 			</div>
+			<!--todo: Implement showing source for each individual SVG shown
 			<div class="extra source">
 				{#if flag.source}
 					<a href="{flag.source.href}" class="extra source">
 						Sourced from <strong>{flag.source.name}</strong>
 					</a>
 				{/if}
-			</div>
+			</div>-->
 		</div>
 	{/each}
 </section>
