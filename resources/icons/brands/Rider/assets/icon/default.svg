@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewBox="0 0 64 64">
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewBox="0 0 64 64">
     <defs>
-        <linearGradient id="ri_gr_a" x1="64.7178" x2="39.855" y1="56.3782" y2="2.75258" gradientUnits="userSpaceOnUse">
+        <linearGradient id="argxs_rider_attr_1" x1="64.7178" x2="39.855" y1="56.3782" y2="2.75258" gradientUnits="userSpaceOnUse">
             <stop offset=".21" stop-color="#007DFE"/>
             <stop offset=".55" stop-color="#FFB700"/>
         </linearGradient>
-        <linearGradient id="ri_gr_b" x1="59.7777" x2="1.07287" y1="3.98138" y2="62.6868" gradientUnits="userSpaceOnUse">
+        <linearGradient id="argxs_rider_attr_2" x1="59.7777" x2="1.07287" y1="3.98138" y2="62.6868" gradientUnits="userSpaceOnUse">
             <stop offset=".23" stop-color="#FFB700"/>
             <stop offset=".73" stop-color="#FF0A67"/>
         </linearGradient>
     </defs>
     <path fill="#007DFE"
           d="m48.0521 58.18 11.8755-.0017c2.2493 0 4.0722-1.8234 4.0722-4.0727V42.599c0-1.1887-.5196-2.3186-1.422-3.0924L24.4164 6.79677c-.7384-.63244-1.6786-.98036-2.6508-.98036H9.89011c-2.24931 0-4.07273 1.82341-4.07273 4.07272V21.3975c0 1.1887.51957 2.3185 1.42197 3.0924L45.4002 57.1991c.7383.633 1.6786.9804 2.6514.9804l.0005.0005Z"/>
-    <path fill="url(#ri_gr_a)"
+    <path fill="url(#argxs_rider_attr_1)"
           d="M49.4812 58.1818h10.4465c2.2493 0 4.0727-1.8234 4.0727-4.0727V41.0164c0-.1925-.0139-.3851-.0407-.576L58.682 3.49673C58.3952 1.49004 56.6771 0 54.65 0H38.977c-2.2499 0-4.0733 1.824-4.0727 4.07389l.0047 18.53851c0 .4375.0704.8721.2088 1.2869l10.4995 31.4979c.5545 1.6629 2.1109 2.7846 3.8639 2.7846Z"/>
-    <path fill="url(#ri_gr_b)"
+    <path fill="url(#argxs_rider_attr_2)"
           d="M4.07273 64H38.041c1.6291 0 3.1017-.9711 3.7434-2.4681l16.0681-37.4906c.217-.5068.3293-1.0531.3293-1.6046V4.07273C58.1818 1.82342 56.3584 0 54.1091 0h-17.966c-.8046 0-1.5912.238545-2.2609.685382L1.81353 22.0881C.681309 22.8439.001745 24.1146.001745 25.4755L0 59.9273C0 62.1766 1.82342 64 4.07273 64Z"/>
     <path fill="#000" d="M52 12H12v40h40V12Z"/>
     <path fill="#fff" fill-rule="evenodd"

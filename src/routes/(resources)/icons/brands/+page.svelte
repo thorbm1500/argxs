@@ -31,7 +31,7 @@
 			<div class="title">
 				{#if brand.href}
 					<a href="{brand.href}" rel="external" target="_blank" class="extra external">
-						{brand.name}
+						<p>{brand.name}</p>
 						<div class="icon">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
@@ -45,7 +45,7 @@
 						</div>
 					</a>
 				{:else}
-					{brand.name}
+					<p>{brand.name}</p>
 				{/if}
 			</div>
 			<div class="icons">

@@ -70,20 +70,9 @@
             margin-bottom: 1rem;
 
             .title {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: center;
-                justify-content: flex-start;
-
                 font-family: 'Google Sans', 'Lexend', sans-serif;
                 font-size: 1.25rem;
                 font-weight: 600;
-            }
-
-            .extra.source {
-                height: 1.25rem;
-                font-size: .75rem;
-                color: var(--theme-text-third);
             }
 
             .icons {
