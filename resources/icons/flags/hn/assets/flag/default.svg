@@ -1,0 +1,10 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="0 0 72 36" fill="#0d3b99" preserveAspectRatio="xMidYMid meet">
+    <path fill="#fff" d="m0 0h72v36H0z"/>
+    <path d="m0 0h72v12H0zm0 24h72v12H0z"/>
+    <g id="argxs_honduras_attr_1">
+        <path id="argxs_honduras_attr_2" d="m26 13 1.1756 3.618-3.0777-2.236h3.8042l-3.0777 2.236z"/>
+        <use xlink:href="#argxs_honduras_attr_2" y="6"/>
+    </g>
+    <use xlink:href="#argxs_honduras_attr_2" x="10" y="3"/>
+    <use xlink:href="#argxs_honduras_attr_1" x="20"/>
+</svg>

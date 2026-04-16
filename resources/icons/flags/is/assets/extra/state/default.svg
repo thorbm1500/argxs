@@ -1,0 +1,12 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 32 18" preserveAspectRatio="xMidYMid meet">
+    <defs>
+        <clipPath id="argxs_iceland_attr_2">
+            <use href="#argxs_iceland_attr_1"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#argxs_iceland_attr_2)">
+        <path d="M0,0H32L20,8v2L32,18H0z" id="argxs_iceland_attr_1" fill="#02529C"/>
+        <path d="M0 9H25M9 0V18" stroke-width="4" stroke="#FFF"/>
+        <path d="M0 9H25M9 0V18" stroke-width="2" stroke="#DC1E35"/>
+    </g>
+</svg>
