@@ -157,6 +157,8 @@
 			justify-content: flex-start;
 			gap: 1rem;
 
+			user-select: none !important;
+
 			.version {
 					position: absolute;
 					bottom: 1rem;

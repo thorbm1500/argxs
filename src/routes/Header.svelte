@@ -36,6 +36,8 @@
 
 			user-select: none;
 
+			z-index: 99999;
+
 			.nav {
 					display: flex;
 					flex-flow: row nowrap;

@@ -1,17 +1,13 @@
-<script module lang="ts">
+<script lang="ts">
 	import CopyableComponent from '$lib/components/CopyableComponent.svelte';
 	import type { Brand } from '$lib/components/interfaces';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 
-	let brands: Brand[] = $state([]);
-	let theme: 'light' | 'dark' = $state('light');
-</script>
-
-<script lang="ts">
-	let { data } = $props();
+	const { data } = $props();
 
 	// svelte-ignore state_referenced_locally
-	brands = data.brands;
+	let brands: Brand[] = $derived(data.brands ?? []);
+	let theme: 'light' | 'dark' = $state('light');
 </script>
 
 <section class="content-header">
@@ -54,13 +50,13 @@
 			</div>
 			<div class="icons">
 				{#if brand.assets.icon !== undefined }
-					<CopyableComponent bind:theme content={theme === 'light' ? brand.assets.icon.default.svg : brand.assets.icon.dark?.svg ?? brand.assets.icon.default.svg } />
+					<CopyableComponent bind:theme icon={theme === 'light' ? brand.assets.icon.default : brand.assets.icon.dark ?? brand.assets.icon.default } />
 				{/if}
 				{#if brand.assets.logo !== undefined }
-					<CopyableComponent bind:theme content={theme === 'light' ? brand.assets.logo.default.svg : brand.assets.logo.dark?.svg ?? brand.assets.logo.default.svg } />
+					<CopyableComponent bind:theme icon={theme === 'light' ? brand.assets.logo.default : brand.assets.logo.dark ?? brand.assets.logo.default } />
 				{/if}
 				{#each brand.assets.extra as icon }
-					<CopyableComponent bind:theme content={theme === 'light' ? icon.default.svg : icon.dark?.svg ?? icon.default.svg } />
+					<CopyableComponent bind:theme icon={theme === 'light' ? icon.default : icon.dark ?? icon.default } />
 				{/each}
 			</div>
 			<!--todo: Implement showing source for each individual SVG shown

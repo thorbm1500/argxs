@@ -11,15 +11,25 @@
 @plugin '@tailwindcss/typography';
 
 :root {
+    --theme-color-primary-reverse: #F7F9FC;
     --theme-color-primary: #0D0D0D;
     --theme-color-secondary: #727E94;
     --theme-color-accent: #4271D7;
+    --theme-color-alert: oklch(58.6% 0.253 17.585);
+    --theme-color-success: oklch(84.1% 0.238 128.85);
+    --theme-color-success-light: oklch(89.2% 0.223 127.706);
 
     --theme-text-primary: #0D0D0D;
     --theme-text-secondary: #727E94;
     --theme-text-third: #c1c9d5;
     --theme-ui-line: #DDE1E8;
     --theme-ui-line-highlight: #727E94;
+    --theme-ui-white: #F7F9FC;
+}
+
+.dark {
+    --theme-color-primary-reverse: #0D0D0D;
+    --theme-color-primary: #F7F9FC;
 }
 
 body {
