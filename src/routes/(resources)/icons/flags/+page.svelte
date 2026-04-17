@@ -27,7 +27,7 @@
 <section class="icons-flags-sec">
 	{#each flags as flag}
 		<div class="country">
-			<div class="title">
+			<div class="title" style="max-width: calc(9rem * {1 + flag.assets.extra.length})">
 				{flag.country}
 			</div>
 			<div class="icons">
@@ -64,15 +64,19 @@
             display: flex;
             flex-flow: column nowrap;
             align-items: flex-start;
-            justify-content: center;
+            justify-content: flex-end;
             gap: .25rem;
 
-            margin-bottom: 1rem;
+						padding-top: 1.25rem;
+            margin-bottom: .75rem;
+
+						width: fit-content;
 
             .title {
                 font-family: 'Google Sans', 'Lexend', sans-serif;
-                font-size: 1.25rem;
+                font-size: 1.1rem;
                 font-weight: 600;
+								text-wrap: pretty;
             }
 
             .icons {

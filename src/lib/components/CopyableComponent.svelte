@@ -366,29 +366,20 @@
 
             .blurred {
                 position: absolute;
+								pointer-events: none !important;
 
                 svg :global {
                     height: 100%;
                     width: 100%;
-
-                    mask-image: linear-gradient(to bottom, rgb(0 0 0 / .025) 0%, rgb(0 0 0 / .35) 50%, rgb(0 0 0 / 1) 100%);
-                    mask-type: luminance;
-
-                    pointer-events: none !important;
                 }
-
-                height: 2.5rem;
-                width: auto;
 
                 perspective: 250px;
 
-                pointer-events: none !important;
-
                 .content {
-                    filter: blur(.4rem) brightness(1.25);
-                    opacity: .2;
+                    filter: blur(.75rem) contrast(1.5) brightness(1.25);
+                    opacity: .125;
 
-                    transform: rotate3d(1, 0, 0, 28deg) scale(1.3);
+                    transform: rotate3d(1, 0, 0, 28deg) scale(1.35);
 
                     z-index: initial;
                 }
