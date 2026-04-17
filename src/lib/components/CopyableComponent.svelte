@@ -31,7 +31,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let { theme = $bindable(), icon, blur_content_bg = false } = $props();
+	let { theme = $bindable(), icon, title = undefined, blur_content_bg = false } = $props();
 
 	let sendToast: any = $state.raw(undefined);
 
@@ -48,6 +48,21 @@
 		navigator.clipboard?.writeText(icon.svg);
 
 		if (sendToast && sendToast instanceof Function) sendToast({message: 'Copied', duration: 1250, type: 'copy', status: 'success'});
+	}
+
+	function downloadIcon(): void {
+		const blob = new Blob([icon.svg], { type: 'image/svg+xml' });
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.type = 'image/svg+xml';
+		link.download = title ? "argxs_".concat(title,(theme === 'dark' ? '_dark' : '')).replaceAll(" ","_").replaceAll("-","_") : "argxs_icon";
+
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+
+		setTimeout(() => URL.revokeObjectURL(url), 250);
 	}
 
 	onMount(() => register(document));
@@ -102,6 +117,9 @@
 		</button>
 		<button class="copy" onclick="{copyIcon}">
 			Copy SVG
+		</button>
+		<button class="download" onclick="{downloadIcon}">
+			Download SVG
 		</button>
 		<!--<button class="download"><DownloadIcon /></button>-->
 	</div>
@@ -179,6 +197,8 @@
 
 						opacity: .5;
 
+						z-index: 10;
+
 						pointer-events: none !important;
         }
 
@@ -190,7 +210,9 @@
 
 						margin: 1rem 0 .5rem 0;
 
-						.copy {
+						z-index: 300;
+
+						.copy, .download {
 								padding: .25rem .5rem;
 								border: 1px solid #4b66bb;
 								border-radius: .7rem;
@@ -200,17 +222,19 @@
 								background: #1d306b;
 								color: var(--theme-ui-white);
 
+								z-index: 300;
+
 								transition: 175ms ease-in;
 						}
 
-						.copy:hover {
+						.copy:hover, .download:hover {
 								border-color: #91adff;
 								background: #2f51b2;
 								filter: brightness(1.05);
 								transition: 35ms ease-out;
 						}
 
-						.copy:active {
+						.copy:active, .download:active {
 								background: var(--theme-color-accent);
 								filter: drop-shadow(0 0 .75rem rgb(81 129 241 / .45));
 								transform: scale(.95);
@@ -226,6 +250,8 @@
 						gap: 1.5rem;
 
             color: var(--theme-text-primary);
+
+						z-index: 300;
         }
     }
 
@@ -248,7 +274,7 @@
             position: absolute;
 
             display: flex;
-            flex-flow: row nowrap;
+            flex-flow: column nowrap;
             align-items: center;
             justify-content: center;
             gap: .25rem;
@@ -300,17 +326,19 @@
                 align-items: center;
                 justify-content: center;
                 align-content: center;
+								gap: .2rem;
 
                 width: fit-content;
                 height: fit-content;
-                padding: .25rem .5rem;
+                padding: .185rem .45rem;
 
                 color: #f7f9fc;
                 font-family: 'Lexend', sans-serif;
-                font-weight: 500;
+								text-rendering: geometricPrecision;
+                font-weight: 550;
                 font-size: .8rem;
 
-                border-radius: .5rem;
+                border-radius: .75rem;
                 cursor: pointer;
 
                 background: var(--theme-color-accent);
@@ -331,7 +359,7 @@
         }
 
         .actions:hover {
-            backdrop-filter: blur(.1rem) grayscale(.15);
+            backdrop-filter: blur(.1rem) grayscale(.75);
 
             .copy, .download, .info-button {
                 opacity: 1;
@@ -367,6 +395,7 @@
             .blurred {
                 position: absolute;
 								pointer-events: none !important;
+								z-index: 50;
 
                 svg :global {
                     height: 100%;

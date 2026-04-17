@@ -31,10 +31,10 @@
 				{flag.country}
 			</div>
 			<div class="icons">
-				<CopyableComponent icon={flag.assets.flag} blur_content_bg={true} />
+				<CopyableComponent icon={flag.assets.flag} title={flag.country} blur_content_bg={true} />
 
 				{#each flag.assets.extra as extra}
-					<CopyableComponent icon={extra} blur_content_bg={true} />
+					<CopyableComponent icon={extra} title={flag.country} blur_content_bg={true} />
 				{/each}
 			</div>
 			<!--todo: Implement showing source for each individual SVG shown

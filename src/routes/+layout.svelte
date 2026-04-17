@@ -3,8 +3,16 @@
 	import Header from './Header.svelte';
 	import Sidebar from './Sidebar.svelte';
 	import Footer from './Footer.svelte';
+	import { beforeNavigate } from '$app/navigation';
+	import { updated } from '$app/state';
 
 	const { children, data } = $props();
+
+	beforeNavigate(({ willUnload, to }) => {
+		if (updated.current && !willUnload && to?.url) {
+			location.href = to.url.href;
+		}
+	});
 </script>
 
 <Header />

@@ -50,23 +50,15 @@
 			</div>
 			<div class="icons">
 				{#if brand.assets.icon !== undefined }
-					<CopyableComponent bind:theme icon={theme === 'light' ? brand.assets.icon.default : brand.assets.icon.dark ?? brand.assets.icon.default } />
+					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.assets.icon.dark ? '_dark' : '')} icon={theme === 'light' ? brand.assets.icon.default : brand.assets.icon.dark ?? brand.assets.icon.default } />
 				{/if}
 				{#if brand.assets.logo !== undefined }
-					<CopyableComponent bind:theme icon={theme === 'light' ? brand.assets.logo.default : brand.assets.logo.dark ?? brand.assets.logo.default } />
+					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.assets.logo.dark ? '_dark' : '')} icon={theme === 'light' ? brand.assets.logo.default : brand.assets.logo.dark ?? brand.assets.logo.default } />
 				{/if}
 				{#each brand.assets.extra as icon }
-					<CopyableComponent bind:theme icon={theme === 'light' ? icon.default : icon.dark ?? icon.default } />
+					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && icon.dark ? '_dark' : '')} icon={theme === 'light' ? icon.default : icon.dark ?? icon.default } />
 				{/each}
 			</div>
-			<!--todo: Implement showing source for each individual SVG shown
-			<div class="extra source">
-				{#if brand.info.source}
-					<a href="{brand.info.source.href}" class="extra source">
-						Sourced from <strong>{brand.info.source.name}</strong>
-					</a>
-				{/if}
-			</div>-->
 		</div>
 	{/each}
 </section>
