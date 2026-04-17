@@ -3,6 +3,7 @@
 	import type { Icon } from '$lib/components/interfaces';
 	import { fade } from 'svelte/transition';
 	import moment from 'moment';
+	import { onMount } from 'svelte';
 
 	let highlightedIcon: Icon | null = $state.raw(null);
 	let isRegistered: boolean = false;
@@ -29,8 +30,6 @@
 </script>
 
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	let { theme = $bindable(), icon, title = undefined, blur_content_bg = false } = $props();
 
 	let sendToast: any = $state.raw(undefined);
@@ -63,6 +62,8 @@
 		document.body.removeChild(link);
 
 		setTimeout(() => URL.revokeObjectURL(url), 250);
+
+		if (sendToast && sendToast instanceof Function) sendToast({message: 'Downloaded', duration: 1250, type: 'download', status: 'success'});
 	}
 
 	onMount(() => register(document));
