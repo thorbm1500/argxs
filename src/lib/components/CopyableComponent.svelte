@@ -55,7 +55,7 @@
 		const link = document.createElement('a');
 		link.href = url;
 		link.type = 'image/svg+xml';
-		link.download = title ? "argxs_".concat(title,(theme === 'dark' ? '_dark' : '')).replaceAll(" ","_").replaceAll("-","_") : "argxs_icon";
+		link.download = title ? "argxs_".concat(title).replaceAll(" ","_").replaceAll("-","_") : "argxs_icon";
 
 		document.body.appendChild(link);
 		link.click();
