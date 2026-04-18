@@ -1,19 +1,25 @@
-declare interface Source {
-	name: string,
-	href: string
+export interface Brand extends BrandConfiguration{
+	icon?: VariableIcon,
+	logo?: VariableIcon,
+	extra: VariableIcon[]
 }
 
-export interface Brand {
+export interface BrandConfiguration {
 	name: string,
-	href?: string,
-	assets: {
-		icon?: BrandIcon,
-		logo?: BrandIcon,
-		extra: BrandIcon[]
-	}
+	href?: string
 }
 
-export interface BrandIcon {
+export interface Flag extends FlagConfiguration{
+	flag: Icon,
+	extra: Icon[]
+}
+
+export interface FlagConfiguration {
+	country: string,
+	href?: string
+}
+
+export interface VariableIcon {
 	default: Icon,
 	dark?: Icon,
 	monochrome?: Icon,
@@ -26,10 +32,7 @@ export interface Icon {
 	source?: Source
 }
 
-export interface Flag {
-	country: string,
-	assets: {
-		flag: Icon,
-		extra: Icon[]
-	}
+declare interface Source {
+	name: string,
+	href: string
 }

@@ -9,16 +9,14 @@
 	let isRegistered: boolean = false;
 
 	function register(document: Document) {
-		if (isRegistered) return;
-
-		if (document) {
+		if (!isRegistered && document) {
 			document.addEventListener('click', (e) => {
 				if (highlightedIcon === null) return;
 
 				let element: HTMLElement | null = e.target as HTMLElement;
 
 				while (element !== null) {
-					if (element.className.includes('highlighted-icon')) return;
+					if (!element.className.includes || element.className.includes('highlighted-icon')) return;
 					element = element.parentElement;
 				}
 
@@ -90,6 +88,9 @@
 				<button class="copy" onclick="{copyIcon}">
 					Copy SVG
 				</button>
+				<button class="download" onclick="{downloadIcon}">
+					Download SVG
+				</button>
 			</div>
 			<div class="info">
 				{#if highlightedIcon?.source}
@@ -122,7 +123,6 @@
 		<button class="download" onclick="{downloadIcon}">
 			Download SVG
 		</button>
-		<!--<button class="download"><DownloadIcon /></button>-->
 	</div>
 	<div class="inner-content">
 		{#if blur_content_bg}
@@ -208,6 +208,7 @@
 						flex-flow: row nowrap;
 						align-items: center;
 						justify-content: center;
+						gap: .3rem;
 
 						margin: 1rem 0 .5rem 0;
 
@@ -360,7 +361,7 @@
         }
 
         .actions:hover {
-            backdrop-filter: blur(.1rem) grayscale(.75);
+            backdrop-filter: blur(.115rem) grayscale(.15) saturate(.5);
 
             .copy, .download, .info-button {
                 opacity: 1;
@@ -418,8 +419,7 @@
     }
 
     .copyable-container.dark {
-        background: linear-gradient(to top, #0D0D0D 0%, #161617 100%);
-        border-color: #52555d;
-        box-shadow: 0 0 .5rem rgb(13 13 13 / .15);
+        background: linear-gradient(to bottom, transparent 0%, #0f0f15 100%);
+        border-color: var(--theme-ui-line);
     }
 </style>

@@ -2,15 +2,29 @@
 	import CopyableComponent from '$lib/components/CopyableComponent.svelte';
 	import type { Brand } from '$lib/components/interfaces';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
+	import { getContext, onMount } from 'svelte';
 
 	const { data } = $props();
 
 	// svelte-ignore state_referenced_locally
 	let brands: Brand[] = $derived(data.brands ?? []);
-	let theme: 'light' | 'dark' = $state('light');
+	let theme: 'light' | 'dark' = $state(getContext('theme'));
+
+	onMount(async () => {
+		window.cookieStore.addEventListener('change', async (e) => {
+			for (const cookie of e.changed) {
+				if (cookie.name === 'argxs_theme') {
+					const currentTheme = await window.cookieStore.get('argxs_theme');
+					if (currentTheme !== null) {
+						theme = currentTheme.value === 'light' || currentTheme.value === 'dark' ? currentTheme.value : 'light';
+					}
+				}
+			}
+		});
+	});
 </script>
 
-<section class="content-header">
+<section class="content-header {theme}">
 	<div class="text">
 		<h1 class="title">
 			Brand Icons
@@ -49,13 +63,13 @@
 				{/if}
 			</div>
 			<div class="icons">
-				{#if brand.assets.icon !== undefined }
-					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.assets.icon.dark ? '_dark' : '')} icon={theme === 'light' ? brand.assets.icon.default : brand.assets.icon.dark ?? brand.assets.icon.default } />
+				{#if brand.icon !== undefined }
+					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.icon.dark ? '_dark' : '')} icon={theme === 'light' ? brand.icon.default : brand.icon.dark ?? brand.icon.default } />
 				{/if}
-				{#if brand.assets.logo !== undefined }
-					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.assets.logo.dark ? '_dark' : '')} icon={theme === 'light' ? brand.assets.logo.default : brand.assets.logo.dark ?? brand.assets.logo.default } />
+				{#if brand.logo !== undefined }
+					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.logo.dark ? '_dark' : '')} icon={theme === 'light' ? brand.logo.default : brand.logo.dark ?? brand.logo.default } />
 				{/if}
-				{#each brand.assets.extra as icon }
+				{#each brand.extra as icon }
 					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && icon.dark ? '_dark' : '')} icon={theme === 'light' ? icon.default : icon.dark ?? icon.default } />
 				{/each}
 			</div>
@@ -92,6 +106,8 @@
                 font-family: 'Google Sans', 'Lexend', sans-serif;
                 font-size: 1.25rem;
                 font-weight: 600;
+
+								color: var(--theme-text-primary);
 
                 .extra.external {
                     .icon {

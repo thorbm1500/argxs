@@ -6,13 +6,29 @@
 </script>
 
 <script lang="ts">
+	import { getContext, onMount } from 'svelte';
+
 	let { data } = $props();
 
 	// svelte-ignore state_referenced_locally
 	flags = data.flags;
+	let theme: 'light' | 'dark' = $state(getContext('theme'));
+
+	onMount(async () => {
+		window.cookieStore.addEventListener('change', async (e) => {
+			for (const cookie of e.changed) {
+				if (cookie.name === 'argxs_theme') {
+					const currentTheme = await window.cookieStore.get('argxs_theme');
+					if (currentTheme !== null) {
+						theme = currentTheme.value === 'light' || currentTheme.value === 'dark' ? currentTheme.value : 'light';
+					}
+				}
+			}
+		});
+	});
 </script>
 
-<section class="content-header">
+<section class="content-header {theme}">
 	<div class="text">
 		<h1 class="title">
 			Flag Icons
@@ -24,27 +40,18 @@
 	</div>
 </section>
 
-<section class="icons-flags-sec">
+<section class="icons-flags-sec {theme}">
 	{#each flags as flag}
 		<div class="country">
-			<div class="title" style="max-width: calc(9rem * {1 + flag.assets.extra.length})">
-				{flag.country}
-			</div>
 			<div class="icons">
-				<CopyableComponent icon={flag.assets.flag} title={flag.country} blur_content_bg={true} />
-
-				{#each flag.assets.extra as extra}
+				<CopyableComponent icon={flag.flag} title={flag.country} blur_content_bg={true} />
+				{#each flag.extra as extra}
 					<CopyableComponent icon={extra} title={flag.country} blur_content_bg={true} />
 				{/each}
 			</div>
-			<!--todo: Implement showing source for each individual SVG shown
-			<div class="extra source">
-				{#if flag.source}
-					<a href="{flag.source.href}" class="extra source">
-						Sourced from <strong>{flag.source.name}</strong>
-					</a>
-				{/if}
-			</div>-->
+			<div class="title" style="max-width: calc(9rem * {1 + flag.extra.length})">
+				{flag.country}
+			</div>
 		</div>
 	{/each}
 </section>
@@ -64,7 +71,7 @@
             display: flex;
             flex-flow: column nowrap;
             align-items: flex-start;
-            justify-content: flex-end;
+            justify-content: flex-start;
             gap: .25rem;
 
 						padding-top: 1.25rem;
@@ -74,9 +81,11 @@
 
             .title {
                 font-family: 'Google Sans', 'Lexend', sans-serif;
-                font-size: 1.1rem;
+                font-size: .95rem;
                 font-weight: 600;
 								text-wrap: pretty;
+
+								color: var(--theme-text-primary);
             }
 
             .icons {

@@ -5,6 +5,7 @@
 	import Footer from './Footer.svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { updated } from '$app/state';
+	import { setContext } from 'svelte';
 
 	const { children, data } = $props();
 
@@ -13,12 +14,17 @@
 			location.href = to.url.href;
 		}
 	});
+
+	//svelte-ignore state_referenced_locally
+	let theme: 'light' | 'dark' = $state(data.theme);
+	//svelte-ignore state_referenced_locally
+	setContext('theme', theme);
 </script>
 
-<Header />
-<Sidebar version={data.version} />
+<Header bind:theme />
+<Sidebar bind:theme version={data.version} />
 
-<section class="main-container">
+<section class="main-container {theme}">
 	{#if children}
 		{@render children()}
 		<Footer />
@@ -40,6 +46,8 @@
         padding: 5rem 6rem 0 6rem;
 
         box-sizing: border-box;
+
+				background: var(--theme-ui-background);
 
         /*noinspection CssOverwrittenProperties*/
         overflow-y: scroll;

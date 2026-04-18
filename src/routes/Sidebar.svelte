@@ -1,10 +1,10 @@
 <script lang="ts">
 	import {page} from '$app/state';
 
-	let { version = 'x.x.x' } = $props();
+	let { theme = $bindable(), version = 'x.x.x' } = $props();
 </script>
 
-<section class="sidebar-section">
+<section class="sidebar-section {theme}">
 	<div class="version">ver. {version}</div>
 
 	<div class="nav-top">
@@ -149,6 +149,7 @@
 			top: 3rem;
 			padding: 1.5rem;
 
+			background: var(--theme-ui-sidebar);
 			border-right: 1px solid var(--theme-ui-line);
 
 			display: flex;

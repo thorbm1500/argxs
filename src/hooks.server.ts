@@ -19,5 +19,16 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 	if (await limiter.isLimited(event).catch(() => true)) {
 		return building ? resolve(event) : error(429);
 	}
+	const theme = event.cookies.get('argxs_theme');
+	if (theme === undefined || (theme !== 'light' && theme !== 'dark')) {
+		event.cookies.set('argxs_theme', 'light', {
+			path: '/',
+			sameSite: 'lax',
+			secure: false,
+			priority: 'high'
+		});
+		event.locals.theme = 'light';
+	} else event.locals.theme = theme;
+
 	return resolve(event);
 };

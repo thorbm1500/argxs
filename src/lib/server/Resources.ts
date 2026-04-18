@@ -1,13 +1,13 @@
-import type { Icon, Brand, BrandIcon, Flag } from '$lib/components/interfaces';
+import type { Icon, Brand, VariableIcon, Flag, BrandConfiguration, FlagConfiguration } from '$lib/components/interfaces';
 import type { Dir } from 'node:fs';
 import * as fs from 'node:fs/promises';
 
 class BrandUtil {
-	static async getIcon(path: string[]): Promise<BrandIcon | null> {
-		let icon: BrandIcon | null = null;
+	static async getIcon(path: string[]): Promise<VariableIcon | null> {
+		let icon: VariableIcon | null = null;
 
 		try {
-			icon = Bun.JSON5.parse(await Bun.file(path.join("/").concat("/asset.json5")).text()) as BrandIcon;
+			icon = Bun.JSON5.parse(await Bun.file(path.join("/").concat("/asset.json5")).text()) as VariableIcon;
 		} catch (ignored) {
 			return null;
 		}
@@ -36,14 +36,14 @@ class BrandUtil {
 		return icon;
 	}
 
-	static async getExtraIcons(path: string): Promise<BrandIcon[]> {
-		const icons: BrandIcon[] = [];
+	static async getExtraIcons(path: string): Promise<VariableIcon[]> {
+		const icons: VariableIcon[] = [];
 
 		try {
 			const dir: Dir = await fs.opendir(path.concat("/assets","/extra"));
 
 			for await (const extra of dir) {
-				const icon: BrandIcon | null = await this.getIcon([path,"assets","extra",extra.name]);
+				const icon: VariableIcon | null = await this.getIcon([path,"assets","extra",extra.name]);
 				if (icon !== null) icons.push(icon);
 			}
 		} catch (ignored) {}
@@ -53,13 +53,13 @@ class BrandUtil {
 }
 
 class Util {
-	static async getIcon(path: string[]): Promise<Icon | null> {
+	static async getIcon(path: string[]): Promise<Icon> {
 		let icon: Icon | null = null;
 
 		try {
 			icon = Bun.JSON5.parse(await Bun.file(path.join("/").concat("/asset.json5")).text()) as Icon;
 		} catch (ignored) {
-			return null;
+			return { svg: 'undefined' };
 		}
 
 		if (icon !== null) {
@@ -101,7 +101,7 @@ export class Resources {
 
 	private async loadBrandIcons(): Promise<void> {
 		console.log("Loading brand icons...");
-		const dir: Dir = await fs.opendir(process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + 'resources/icons/brands');
+		const dir: Dir = await fs.opendir(process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + 'src/lib/resources/icons/brands');
 
 		for await (const dirent of dir) {
 			if (!dirent.isDirectory()) continue;
@@ -109,19 +109,21 @@ export class Resources {
 			const path: string = dirent.parentPath.concat("/", dirent.name);
 			if (!(await Bun.file(path.concat("/brand.json5")).exists())) continue;
 
-			const brand: Brand = Bun.JSON5.parse(await Bun.file(path.concat("/brand.json5")).text()) as Brand;
-			brand.assets = {
+			const conf: BrandConfiguration = Bun.JSON5.parse(await Bun.file(path.concat("/brand.json5")).text()) as BrandConfiguration;
+			const brand: Brand = {
+				name: conf.name,
 				extra: await BrandUtil.getExtraIcons(path)
-			};
+			}
+			if (conf.href) brand.href = conf.href;
 
-			const icon: BrandIcon | null = await BrandUtil.getIcon([path,"assets","icon"]);
+			const icon: VariableIcon | null = await BrandUtil.getIcon([path,"assets","icon"]);
 			if (icon !== null) {
-				brand.assets.icon = icon;
+				brand.icon = icon;
 			}
 
-			const logo: BrandIcon | null = await BrandUtil.getIcon([path,"assets","logo"]);
+			const logo: VariableIcon | null = await BrandUtil.getIcon([path,"assets","logo"]);
 			if (logo !== null) {
-				brand.assets.logo = logo;
+				brand.logo = logo;
 			}
 
 			this.BRAND_ICONS.push(brand);
@@ -130,7 +132,7 @@ export class Resources {
 
 	private async loadFlagIcons(): Promise<void> {
 		console.log("Loading flag icons...");
-		const dir: Dir = await fs.opendir(process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + 'resources/icons/flags');
+		const dir: Dir = await fs.opendir(process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + 'src/lib/resources/icons/flags');
 
 		for await (const dirent of dir) {
 			if (!dirent.isDirectory()) continue;
@@ -138,17 +140,13 @@ export class Resources {
 			const path: string = dirent.parentPath.concat("/", dirent.name);
 			if (!(await Bun.file(path.concat("/flag.json5")).exists())) continue;
 
-			const country: Flag = Bun.JSON5.parse(await Bun.file(path.concat("/flag.json5")).text()) as Flag;
+			const conf: FlagConfiguration = Bun.JSON5.parse(await Bun.file(path.concat("/flag.json5")).text()) as FlagConfiguration;
 
-			const flag: Icon | null = await Util.getIcon([path,"assets","flag"]);
-			if (flag !== null) {
-				country.assets = {
-					flag,
-					extra: await Util.getExtraIcons(path)
-				};
-			}
-
-			this.FLAG_ICONS.push(country);
+			this.FLAG_ICONS.push({
+				country: conf.country,
+				flag: await Util.getIcon([path,"assets","flag"]),
+				extra: await Util.getExtraIcons(path)
+			});
 		}
 	}
 }
