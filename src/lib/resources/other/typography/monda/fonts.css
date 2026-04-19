@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Monda Variable';
+    font-display: swap;
+    font-weight: 400 700;
+    src: url('./monda_5.2.10_latin-wght-normal.woff2') format('woff2-variations');
+}

@@ -5,7 +5,7 @@
 	let theme: 'light' | 'dark' = $state(getContext('theme'));
 
 	let activePangram = $state.raw('');
-	let activeFontSize = $state.raw(22);
+	let activeFontSize = $state.raw(24);
 	let activeFontWeight = $state.raw(500);
 	let isItalic = $state.raw(false);
 	let isLowercase = $state.raw(false);
@@ -33,7 +33,7 @@
 		</h1>
 		<div class="subtitle">
 			<!--todo: Write subtitle-->
-			<p>argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">9</strong> different fonts</p>
+			<p>argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">36</strong> different fonts</p>
 		</div>
 	</div>
 </section>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="action">
 			Font Weight
-			<input type="range" bind:value={activeFontWeight} min="300" max="900" />
+			<input type="range" bind:value={activeFontWeight} min="100" max="1000" />
 		</div>
 		<div class="action text-actions">
 			<button class={{selected: isItalic}} onclick="{() => isItalic = !isItalic}" title="">
@@ -100,6 +100,62 @@
 	<FontDisplayComponent name="Outfit" font="Outfit Variable" italic="none" href="https://fonts.google.com/specimen/Outfit?preview.script=Latn"
 	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
 	<FontDisplayComponent name="Ubuntu" font="Ubuntu" italic="Ubuntu Italic" href="https://design.ubuntu.com/font"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Sora" font="Sora Variable" italic="none" href="https://github.com/sora-xor/sora-font"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Mulish" font="Mulish Variable" italic="none" href="https://github.com/googlefonts/mulish"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Lexend" font="Lexend Variable" italic="none" href="https://github.com/googlefonts/lexend"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Bricolage Grotesque" font="Bricolage Grotesque Variable" italic="none" href="https://github.com/ateliertriay/bricolage"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Syne" font="Syne Variable" italic="none" href="https://gitlab.com/bonjour-monde/fonderie/syne-typeface"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Chivo" font="Chivo Variable" italic="none" href="https://github.com/Omnibus-Type/Chivo"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Jura" font="Jura Variable" italic="none" href="https://github.com/ossobuffo/jura"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Azeret Mono" font="Azeret Mono Variable" italic="none" href="https://github.com/displaay/azeret"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Zalando Sans Expanded" font="Zalando Sans Expanded Variable" italic="none" href="https://github.com/zalando/sans"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Grandstander" font="Grandstander Variable" italic="none" href="https://github.com/Etcetera-Type-Co/Grandstander"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Unbounded" font="Unbounded Variable" italic="none" href="https://github.com/googlefonts/unbounded"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Pixelify Sans" font="Pixelify Sans Variable" italic="none" href="https://github.com/eifetx/Pixelify-Sans"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Exo" font="Exo Variable" italic="none" href="https://github.com/NDISCOVER/Exo-1.0"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Gabarito" font="Gabarito Variable" italic="none" href="https://github.com/naipefoundry/gabarito"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Darker Grotesque" font="Darker Grotesque Variable" italic="none" href="https://github.com/bettergui/DarkerGrotesque"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="MuseoModerno" font="MuseoModerno Variable" italic="none" href="https://github.com/Omnibus-Type/MuseoModerno"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Stack Sans Headline" font="Stack Sans Headline Variable" italic="none" href="https://github.com/DylanYoungKoto/Stack-Sans"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Stack Sans Text" font="Stack Sans Text Variable" italic="none" href="https://github.com/DylanYoungKoto/Stack-Sans"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Stack Sans Notch" font="Stack Sans Notch Variable" italic="none" href="https://github.com/DylanYoungKoto/Stack-Sans"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Alan Sans" font="Alan Sans Variable" italic="none" href="https://github.com/alan-eu/Alan-Sans"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Geom" font="Geom Variable" italic="none" href="https://github.com/ThanosPoulakidas/Geom"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Sometype Mono" font="Sometype Mono Variable" italic="none" href="https://github.com/googlefonts/sometype-mono"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Kode Mono" font="Kode Mono Variable" italic="none" href="https://github.com/isaozler/kode-mono"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Kalnia" font="Kalnia Variable" italic="none" href="https://github.com/fridamedrano/Kalnia-Typeface"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Tektur" font="Tektur Variable" italic="none" href="https://github.com/hyvyys/Tektur"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Lilex" font="Lilex Variable" italic="none" href="https://github.com/mishamyrt/Lilex"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Monda" font="Monda Variable" italic="none" href="https://github.com/googlefonts/mondaFont"
+	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
+	<FontDisplayComponent name="Hubot Sans" font="Hubot Sans Variable" italic="none" href="https://github.com/github/hubot-sans"
 	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
 </section>
 
