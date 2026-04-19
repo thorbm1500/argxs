@@ -2,6 +2,8 @@ import type { Icon, Brand, VariableIcon, Flag, BrandConfiguration, FlagConfigura
 import type { Dir } from 'node:fs';
 import * as fs from 'node:fs/promises';
 
+const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/');
+
 class BrandUtil {
 	static async getIcon(path: string[]): Promise<VariableIcon | null> {
 		let icon: VariableIcon | null = null;
@@ -101,7 +103,7 @@ export class Resources {
 
 	private async loadBrandIcons(): Promise<void> {
 		console.log("Loading brand icons...");
-		const dir: Dir = await fs.opendir(process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + 'src/lib/resources/icons/brands');
+		const dir: Dir = await fs.opendir(root.concat('src/lib/resources/icons/brands'));
 
 		for await (const dirent of dir) {
 			if (!dirent.isDirectory()) continue;
@@ -111,7 +113,7 @@ export class Resources {
 
 			const conf: BrandConfiguration = Bun.JSON5.parse(await Bun.file(path.concat("/brand.json5")).text()) as BrandConfiguration;
 			const brand: Brand = {
-				name: conf.name,
+				...conf,
 				extra: await BrandUtil.getExtraIcons(path)
 			}
 			if (conf.href) brand.href = conf.href;
@@ -132,7 +134,7 @@ export class Resources {
 
 	private async loadFlagIcons(): Promise<void> {
 		console.log("Loading flag icons...");
-		const dir: Dir = await fs.opendir(process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + 'src/lib/resources/icons/flags');
+		const dir: Dir = await fs.opendir(root.concat('src/lib/resources/icons/flags'));
 
 		for await (const dirent of dir) {
 			if (!dirent.isDirectory()) continue;
@@ -143,7 +145,7 @@ export class Resources {
 			const conf: FlagConfiguration = Bun.JSON5.parse(await Bun.file(path.concat("/flag.json5")).text()) as FlagConfiguration;
 
 			this.FLAG_ICONS.push({
-				country: conf.country,
+				...conf,
 				flag: await Util.getIcon([path,"assets","flag"]),
 				extra: await Util.getExtraIcons(path)
 			});

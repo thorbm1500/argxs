@@ -23,12 +23,12 @@
     --theme-text-secondary: #727E94;
     --theme-text-third: #c1c9d5;
     --theme-ui-line: #DDE1E8;
-    --theme-ui-line-highlight: #727E94;
+    --theme-ui-line-highlight: #c0c5cc;
     --theme-ui-white: #F7F9FC;
     --theme-ui-container: #eceef3;
     --theme-ui-background: #f7f9fc;
-    --theme-ui-header: #f4f6f8;
-    --theme-ui-sidebar: #f2f5f8;
+    --theme-ui-header: #eff1f3;
+    --theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
 
     --theme-text-gradient: linear-gradient(5deg, transparent 40%, #222234 80%),
     linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
@@ -38,10 +38,12 @@
     --theme-text-primary: #F7F9FC;
     --theme-color-primary-reverse: #0D0D0D;
     --theme-color-primary: #F7F9FC;
+    --theme-ui-container: #23283a;
     --theme-ui-background: #111217;
     --theme-ui-header: #1b1d26;
-    --theme-ui-sidebar: #111217;
-    --theme-ui-line: #23283a;
+    --theme-ui-line: #2e3244;
+    --theme-ui-line-highlight: #38455d;
+    --theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
 
     --theme-text-gradient: linear-gradient(5deg, transparent 40%, rgb(42 59 79 / .25) 80%),
     linear-gradient(-170deg, #b8c4d2 20%, #F7F9FC 75%);

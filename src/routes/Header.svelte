@@ -120,7 +120,7 @@
                         top: .05rem;
                         left: .15rem;
 
-                        backdrop-filter: blur(1px) brightness(1.1) contrast(1.15);
+                        backdrop-filter: blur(1px) brightness(1.15) contrast(1.15);
                         width: 1.125rem;
                         height: 1.125rem;
                         border-radius: 100%;
