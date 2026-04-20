@@ -92,7 +92,7 @@
             align-items: center;
             justify-content: space-between;
 
-            width: 75vw;
+            width: 80vw;
 
             font-family: 'Lexend', sans-serif;
 

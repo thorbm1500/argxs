@@ -38,10 +38,10 @@
         position: absolute;
 
         height: calc(100vh - 3rem);
-        width: calc(100vw - 14rem);
+        width: calc(100vw - 16rem);
 
         top: 3rem;
-        left: 14rem;
+        left: 16rem;
 
         padding: 5rem 6rem 0 6rem;
 

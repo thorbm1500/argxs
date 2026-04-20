@@ -64,7 +64,7 @@
 
 	<div class="nav-section">
 		<h1 class="title {page.url.pathname.startsWith('/colors') ? 'selected' : ''}">Colors</h1>
-		<a class={{selected: page.url.pathname === '/colors/general'}} href="/colors/general" target="_self">
+		<div class={{selected: page.url.pathname === '/colors/general', planned: true}}>
 			<svg class="theme-custom-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M8.99997 11.2224L12.7778 15.0002M7.97485 20.975C6.60801 22.3419 4 22.0002 2 22.0002C3.0251 20.0002 1.65827 17.3921 3.0251 16.0253C4.39194 14.6585 6.60801 14.6585 7.97485 16.0253C9.34168 17.3921 9.34168 19.6082 7.97485 20.975ZM11.9216 15.9248L21.0587 6.05671C21.8635 5.18755 21.8375 3.83776 20.9999 3.00017C20.1624 2.16258 18.8126 2.13663 17.9434 2.94141L8.07534 12.0785C7.5654 12.5507 7.31043 12.7868 7.16173 13.0385C6.80514 13.6423 6.79079 14.3887 7.12391 15.0057C7.26283 15.2631 7.50853 15.5088 7.99995 16.0002C8.49136 16.4916 8.73707 16.7373 8.99438 16.8762C9.6114 17.2093 10.3578 17.195 10.9616 16.8384C11.2134 16.6897 11.4494 16.4347 11.9216 15.9248Z"
@@ -74,9 +74,9 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			General
-		</a>
-		<a class={{selected: page.url.pathname === '/colors/gradients'}} href="/colors/gradients" target="_self">
+			Color Palettes
+		</div>
+		<div class={{selected: page.url.pathname === '/colors/gradients', planned: true}}>
 			<svg class="theme-custom-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M2 12C2 17.5228 6.47715 22 12 22C13.6569 22 15 20.6569 15 19V18.5C15 18.0356 15 17.8034 15.0257 17.6084C15.2029 16.2622 16.2622 15.2029 17.6084 15.0257C17.8034 15 18.0356 15 18.5 15H19C20.6569 15 22 13.6569 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12Z"
@@ -108,7 +108,7 @@
 				/>
 			</svg>
 			Gradients
-		</a>
+		</div>
 	</div>
 
 	<div class="nav-section">
@@ -125,7 +125,7 @@
 			</svg>
 			Typography
 		</a>
-		<a class={{selected: page.url.pathname === '/other/external'}} href="/other/external" target="_self">
+		<div class={{selected: page.url.pathname === '/other/external', planned: true}}>
 			<svg class="theme-custom-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M9.99999 13C10.4294 13.5741 10.9773 14.0491 11.6065 14.3929C12.2357 14.7367 12.9315 14.9411 13.6466 14.9923C14.3618 15.0435 15.0796 14.9403 15.7513 14.6897C16.4231 14.4392 17.0331 14.047 17.54 13.54L20.54 10.54C21.4508 9.59695 21.9547 8.33394 21.9434 7.02296C21.932 5.71198 21.4061 4.45791 20.4791 3.53087C19.552 2.60383 18.298 2.07799 16.987 2.0666C15.676 2.0552 14.413 2.55918 13.47 3.46997L11.75 5.17997M14 11C13.5705 10.4258 13.0226 9.95078 12.3934 9.60703C11.7642 9.26327 11.0685 9.05885 10.3533 9.00763C9.63819 8.95641 8.9204 9.0596 8.24864 9.31018C7.57688 9.56077 6.96687 9.9529 6.45999 10.46L3.45999 13.46C2.5492 14.403 2.04522 15.666 2.05662 16.977C2.06801 18.288 2.59385 19.542 3.52089 20.4691C4.44793 21.3961 5.702 21.9219 7.01298 21.9333C8.32396 21.9447 9.58697 21.4408 10.53 20.53L12.24 18.82"
@@ -136,7 +136,7 @@
 				/>
 			</svg>
 			External
-		</a>
+		</div>
 	</div>
 </section>
 
@@ -145,9 +145,10 @@
 			position: absolute;
 
       height: calc(100vh - 3rem);
-			width: 14rem;
-			top: 3rem;
-			padding: 1.5rem;
+			width: 16rem;
+			bottom: 0;
+
+			padding: 1.5rem 1.25rem;
 
 			background: var(--theme-ui-sidebar);
 			border-right: 1px solid var(--theme-ui-line);
@@ -156,7 +157,6 @@
 			flex-flow: column nowrap;
 			align-items: flex-start;
 			justify-content: flex-start;
-			gap: 1rem;
 
 			user-select: none !important;
 
@@ -164,10 +164,10 @@
 					position: absolute;
 					bottom: 1rem;
 					align-self: center;
+					justify-self: center;
 					width: fit-content;
 
 					color: var(--theme-text-third);
-					font-family: 'Lexend', sans-serif;
 					font-size: .75rem;
 					font-weight: 550;
 			}
@@ -186,9 +186,10 @@
           align-items: flex-start;
           justify-content: flex-start;
 					width: 100%;
+					margin-top: 1rem;
 
 					.title {
-							font-size: .95rem;
+							font-size: .9rem;
               color: var(--theme-text-secondary);
 							margin-bottom: .25rem;
 							font-family: 'Google Sans', sans-serif;
@@ -200,32 +201,55 @@
 					}
 			}
 
-			.nav-top, .nav-section {
-          a {
-              height: 1.5rem;
-              width: 100%;
-              padding: 1rem .55rem;
-              border-radius: .8rem;
-              margin-bottom: .25rem;
-          }
-
-          a.selected,a:hover {
-              backdrop-filter: brightness(1.25);
-          }
+			.planned {
+					cursor: no-drop;
 			}
 
-			a {
+			a,.planned {
 					display: flex;
 					flex-flow: row nowrap;
 					align-items: center;
-					justify-content: flex-start	;
-					font-size: .9rem;
+					justify-content: flex-start;
+
+          height: 1.5rem;
+          width: 100%;
+
+          padding: 1rem .6rem;
+
+          border-radius: .8rem;
+          margin-bottom: .25rem;
+
+					font-size: .85rem;
 					font-weight: 375;
 					color: var(--theme-text-secondary);
 			}
 
-			a.selected,a:hover {
+			a.selected,a:hover,.planned:hover {
 					color: var(--theme-text-primary);
+          backdrop-filter: brightness(1.25);
+			}
+
+      .planned:hover::after {
+          background: var(--theme-ui-container);
+			}
+
+			.planned::after {
+					content: 'Planned';
+					color: var(--theme-text-secondary);
+					font-size: .6rem;
+					font-weight: 550;
+
+					padding: .25rem .5rem;
+					backdrop-filter: brightness(1.25) !important;
+					border-radius: .7rem;
+
+					align-self: center;
+					margin-left: auto;
+			}
+
+			a.planned.selected::after {
+					color: var(--theme-color-accent);
+					background: var(--theme-ui-container);
 			}
 	}
 </style>
