@@ -39,7 +39,7 @@
 <section class="main-container {theme}">
 	{#if children}
 		{@render children()}
-		<Footer bind:theme />
+		<Footer />
 	{:else}
 		<p>Loading...</p>
 	{/if}
