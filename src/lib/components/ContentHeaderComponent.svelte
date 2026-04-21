@@ -16,7 +16,7 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
 				.content-header {
 						.text {
 								.title {
@@ -30,7 +30,7 @@
     }
 
     /* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
 				.content-header {
 						.text {
 								.title {

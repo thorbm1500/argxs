@@ -106,7 +106,7 @@
 
 <style>
 		/* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
 				:root :global {
             --sidebar-width: 16rem;
 				}
@@ -149,7 +149,7 @@
 		}
 
 		/* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
 				:root :global {
             --sidebar-width: 0;
 				}

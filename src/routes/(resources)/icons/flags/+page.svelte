@@ -31,7 +31,7 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
 				.icons-flags-sec {
             flex-flow: row wrap;
             align-items: flex-end;
@@ -57,7 +57,7 @@
     }
 
     /* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
 				.icons-flags-sec {
             flex-flow: column nowrap;
             align-items: flex-start;

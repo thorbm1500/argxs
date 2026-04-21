@@ -55,7 +55,7 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
 				.icons-brands-sec {
             justify-content: space-between;
 						gap: 1rem;
@@ -74,7 +74,7 @@
     }
 
     /* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
 				.icons-brands-sec {
             justify-content: center;
             gap: 1.25rem;

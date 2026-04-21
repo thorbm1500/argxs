@@ -136,7 +136,7 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
 				.other-typography-sec {
             padding-right: 16rem;
 
@@ -150,7 +150,7 @@
     }
 
     /* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
 				.font-actions {
 						position: relative;
 						width: 100%;

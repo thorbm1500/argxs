@@ -136,7 +136,7 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
         .highlighted-icon {
             height: 20rem;
             width: calc(100vw - 14rem);
@@ -153,7 +153,7 @@
     }
 
     /* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
         .highlighted-icon {
             height: 20rem;
             width: 100vw;

@@ -58,7 +58,7 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
 				.main-container {
             left: var(--sidebar-width);
             padding: 5rem 6rem 0 6rem;
@@ -66,7 +66,7 @@
     }
 
     /* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
 				.main-container {
 						left: 0;
             padding: 3rem 2rem 0 2rem;

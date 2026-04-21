@@ -29,7 +29,7 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 450px) {
+    @media (width >= 44rem) {
         :root :global {
             --header-height: 3rem;
         }
@@ -58,7 +58,7 @@
     }
 
     /* Phone */
-    @media (width < 450px) {
+    @media (width < 44rem) {
         :root :global {
             --header-height: 3.5rem;
         }
