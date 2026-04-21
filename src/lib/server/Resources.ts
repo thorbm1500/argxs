@@ -1,8 +1,9 @@
 import type { Icon, Brand, VariableIcon, Flag, BrandConfiguration, FlagConfiguration } from '$lib/components/interfaces';
 import type { Dir } from 'node:fs';
 import * as fs from 'node:fs/promises';
+import { NODE_ENV } from '$env/static/private';
 
-const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/');
+const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + NODE_ENV === 'production' ? 'resources' : 'src/lib/resources';
 
 class BrandUtil {
 	static async getIcon(path: string[]): Promise<VariableIcon | null> {
@@ -103,7 +104,7 @@ export class Resources {
 
 	private async loadBrandIcons(): Promise<void> {
 		console.log('Loading brand icons...');
-		const dir: Dir = await fs.opendir(root.concat('src/lib/resources/icons/brands'));
+		const dir: Dir = await fs.opendir(root.concat('/icons/brands'));
 
 		for await (const dirent of dir) {
 			if (!dirent.isDirectory()) continue;
@@ -134,7 +135,7 @@ export class Resources {
 
 	private async loadFlagIcons(): Promise<void> {
 		console.log('Loading flag icons...');
-		const dir: Dir = await fs.opendir(root.concat('src/lib/resources/icons/flags'));
+		const dir: Dir = await fs.opendir(root.concat('/icons/flags'));
 
 		for await (const dirent of dir) {
 			if (!dirent.isDirectory()) continue;
