@@ -80,7 +80,7 @@
 
 	<div class="nav-section">
 		<h1 class="title {page.url.pathname.startsWith('/colors') ? 'selected' : ''}">Colors</h1>
-		<div class={{ selected: page.url.pathname === '/colors/colors', planned: true }}>
+		<div class={{ selected: page.url.pathname === '/colors/colors', in_progress: true }}>
 			<svg viewBox="0 0 24 24" fill="none">
 				<path
 					d="M8.99997 11.2224L12.7778 15.0002M7.97485 20.975C6.60801 22.3419 4 22.0002 2 22.0002C3.0251 20.0002 1.65827 17.3921 3.0251 16.0253C4.39194 14.6585 6.60801 14.6585 7.97485 16.0253C9.34168 17.3921 9.34168 19.6082 7.97485 20.975ZM11.9216 15.9248L21.0587 6.05671C21.8635 5.18755 21.8375 3.83776 20.9999 3.00017C20.1624 2.16258 18.8126 2.13663 17.9434 2.94141L8.07534 12.0785C7.5654 12.5507 7.31043 12.7868 7.16173 13.0385C6.80514 13.6423 6.79079 14.3887 7.12391 15.0057C7.26283 15.2631 7.50853 15.5088 7.99995 16.0002C8.49136 16.4916 8.73707 16.7373 8.99438 16.8762C9.6114 17.2093 10.3578 17.195 10.9616 16.8384C11.2134 16.6897 11.4494 16.4347 11.9216 15.9248Z"
@@ -207,7 +207,7 @@
     /* Desktop & Tablet */
     @media (width >= 44rem) {
         :root :global {
-            --sidebar-width: 16.5rem;
+            --sidebar-width: 18.5rem;
         }
 
         .sidebar-section {
@@ -228,7 +228,7 @@
                 }
             }
 
-            a, .planned {
+            a, .planned, .in_progress {
                 padding: 1rem 0.6rem;
                 font-size: 0.865rem;
 								text-wrap: nowrap;
@@ -241,8 +241,9 @@
                 }
             }
 
-            .planned::after {
-                font-size: 0.6rem;
+            .planned::after, .in_progress::after {
+                font-size: 0.65rem;
+								font-weight: 600;
                 padding: 0.25rem 0.5rem;
             }
         }
@@ -280,8 +281,7 @@
                 }
             }
 
-            a,
-            .planned {
+            a, .planned, .in_progress {
                 padding: 1.3rem 0.85rem;
                 font-size: 1.15rem;
 
@@ -293,8 +293,9 @@
                 }
             }
 
-            .planned::after {
+            .planned::after, .in_progress::after {
                 font-size: 0.8rem;
+                font-weight: 550;
                 padding: 0.275rem 0.575rem;
             }
         }
@@ -375,8 +376,7 @@
             cursor: no-drop;
         }
 
-        a,
-        .planned {
+        a, .planned, .in_progress {
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
@@ -395,19 +395,29 @@
 
         a.selected,
         a:hover,
-        .planned:hover {
+        .planned:hover,
+				.in_progress:hover{
             color: var(--theme-text-primary);
             backdrop-filter: brightness(1.25);
         }
 
-        .planned:hover::after {
+        .planned:hover::after, .in_progress:hover::after{
             background: var(--theme-ui-container);
         }
 
-        .planned::after {
-            content: 'Planned';
+				.planned::after {
+						content: 'Planned';
             color: var(--theme-text-secondary);
-            font-weight: 550;
+				}
+        .in_progress::after {
+						content: 'In Progress';
+						color: var(--theme-ui-white);
+            background: var(--theme-color-aware);
+
+						transition: 50ms ease;
+				}
+
+        .planned::after, .in_progress::after {
 
             backdrop-filter: brightness(1.25) !important;
             border-radius: 0.625rem;
@@ -417,7 +427,7 @@
             margin-left: auto;
         }
 
-        a.planned.selected::after {
+        a.planned.selected::after, a.in_progress.selected::after {
             color: var(--theme-color-accent);
             background: var(--theme-ui-container);
         }

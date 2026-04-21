@@ -1,6 +1,4 @@
 <script lang="ts">
-	console.log('Layout mounted');
-
 	import './layout.css';
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';

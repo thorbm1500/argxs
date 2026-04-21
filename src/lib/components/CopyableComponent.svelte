@@ -135,7 +135,7 @@
 	@media (width >= 44rem) {
 		.highlighted-icon {
 			height: 20rem;
-			width: calc(100vw - 14rem);
+			width: calc(100vw - var(--sidebar-width));
 
 			.icon :global {
 				height: 8rem;
