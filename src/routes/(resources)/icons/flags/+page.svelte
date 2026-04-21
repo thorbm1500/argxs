@@ -8,7 +8,7 @@
 	let { data } = $props();
 
 	// svelte-ignore state_referenced_locally
-	let flags: Flag[] = $derived(data.flags ?? []);
+	const flags: Flag[] = $state.raw(data.flags ?? []);
 </script>
 
 <ContentHeaderComponent title="Flag Icons" type="countries" amount={flags.length} />

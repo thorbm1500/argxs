@@ -80,7 +80,7 @@
 
 	<div class="nav-section">
 		<h1 class="title {page.url.pathname.startsWith('/colors') ? 'selected' : ''}">Colors</h1>
-		<div class={{ selected: page.url.pathname === '/colors/palettes', planned: true }}>
+		<div class={{ selected: page.url.pathname === '/colors/colors', planned: true }}>
 			<svg viewBox="0 0 24 24" fill="none">
 				<path
 					d="M8.99997 11.2224L12.7778 15.0002M7.97485 20.975C6.60801 22.3419 4 22.0002 2 22.0002C3.0251 20.0002 1.65827 17.3921 3.0251 16.0253C4.39194 14.6585 6.60801 14.6585 7.97485 16.0253C9.34168 17.3921 9.34168 19.6082 7.97485 20.975ZM11.9216 15.9248L21.0587 6.05671C21.8635 5.18755 21.8375 3.83776 20.9999 3.00017C20.1624 2.16258 18.8126 2.13663 17.9434 2.94141L8.07534 12.0785C7.5654 12.5507 7.31043 12.7868 7.16173 13.0385C6.80514 13.6423 6.79079 14.3887 7.12391 15.0057C7.26283 15.2631 7.50853 15.5088 7.99995 16.0002C8.49136 16.4916 8.73707 16.7373 8.99438 16.8762C9.6114 17.2093 10.3578 17.195 10.9616 16.8384C11.2134 16.6897 11.4494 16.4347 11.9216 15.9248Z"
@@ -89,6 +89,17 @@
 					stroke-linecap="round"
 					stroke-linejoin="round"
 				/>
+			</svg>
+			Colors
+		</div>
+		<div class={{ selected: page.url.pathname === '/colors/gradients', planned: true }}>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+			     class="icon icon-tabler icons-tabler-outline icon-tabler-color-swatch">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
+				<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9" />
+				<path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12" />
+				<path d="M17 17l0 .01" />
 			</svg>
 			Color Palettes
 		</div>
@@ -128,6 +139,42 @@
 	</div>
 
 	<div class="nav-section">
+		<h1 class="title {page.url.pathname.startsWith('/cheat-sheets') ? 'selected' : ''}">Cheat Sheets</h1>
+		<div class={{ selected: page.url.pathname === '/cheat-sheets/transition-easing', planned: true }}>
+			<svg viewBox="0 0 24 24" fill="currentColor">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path
+					d="M19 17a3 3 0 1 1 -2.829 4h-1.171a1 1 0 0 1 0 -2h1.17a3 3 0 0 1 2.83 -2m-14 -16c1.306 0 2.418 .835 2.83 2h1.17a1 1 0 1 1 0 2h-1.171a3.001 3.001 0 1 1 -2.829 -4m9 2a1 1 0 0 1 0 2h-2a1 1 0 0 1 0 -2zm-2 16a1 1 0 0 1 0 2h-2a1 1 0 0 1 0 -2z" />
+				<path d="M21 3a1 1 0 0 1 0 2c-2.83 0 -4.6 1.845 -8.152 7.53c-3.947 6.315 -6.012 8.47 -9.848 8.47a1 1 0 0 1 0 -2c2.83 0 4.6 -1.845 8.152 -7.53c3.947 -6.315 6.012 -8.47 9.848 -8.47" />
+			</svg>
+			Transition Easing
+		</div>
+		<div class={{ selected: page.url.pathname === '/icons/brands', planned: true }}>
+			<svg viewBox="0 0 24 24" fill="none">
+				<path
+					d="M12 2.50008V12.0001M12 12.0001L20.5 7.27779M12 12.0001L3.5 7.27779M12 12.0001V21.5001M20.5 16.7223L12.777 12.4318C12.4934 12.2742 12.3516 12.1954 12.2015 12.1645C12.0685 12.1372 11.9315 12.1372 11.7986 12.1645C11.6484 12.1954 11.5066 12.2742 11.223 12.4318L3.5 16.7223M21 16.0586V7.94153C21 7.59889 21 7.42757 20.9495 7.27477C20.9049 7.13959 20.8318 7.01551 20.7354 6.91082C20.6263 6.79248 20.4766 6.70928 20.177 6.54288L12.777 2.43177C12.4934 2.27421 12.3516 2.19543 12.2015 2.16454C12.0685 2.13721 11.9315 2.13721 11.7986 2.16454C11.6484 2.19543 11.5066 2.27421 11.223 2.43177L3.82297 6.54288C3.52345 6.70928 3.37369 6.79248 3.26463 6.91082C3.16816 7.01551 3.09515 7.13959 3.05048 7.27477C3 7.42757 3 7.59889 3 7.94153V16.0586C3 16.4013 3 16.5726 3.05048 16.7254C3.09515 16.8606 3.16816 16.9847 3.26463 17.0893C3.37369 17.2077 3.52345 17.2909 3.82297 17.4573L11.223 21.5684C11.5066 21.726 11.6484 21.8047 11.7986 21.8356C11.9315 21.863 12.0685 21.863 12.2015 21.8356C12.3516 21.8047 12.4934 21.726 12.777 21.5684L20.177 17.4573C20.4766 17.2909 20.6263 17.2077 20.7354 17.0893C20.8318 16.9847 20.9049 16.8606 20.9495 16.7254C21 16.5726 21 16.4013 21 16.0586Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+			Flexbox
+		</div>
+		<div class={{ selected: page.url.pathname === '/icons/brands', planned: true }}>
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M14 3v4a1 1 0 0 0 1 1h4" />
+				<path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+				<path d="M8 16.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" />
+				<path d="M11 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
+				<path d="M17 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
+			</svg>
+			CSS Guide
+		</div>
+	</div>
+
+	<div class="nav-section">
 		<h1 class="title {page.url.pathname.startsWith('/other') ? 'selected' : ''}">Other</h1>
 		<a class={{ selected: page.url.pathname === '/other/typography' }} href="/other/typography" target="_self">
 			<svg viewBox="0 0 24 24" fill="none">
@@ -157,221 +204,222 @@
 </section>
 
 <style>
-	/* Desktop & Tablet */
-	@media (width >= 44rem) {
-		:root :global {
-			--sidebar-width: 16rem;
-		}
+    /* Desktop & Tablet */
+    @media (width >= 44rem) {
+        :root :global {
+            --sidebar-width: 16.5rem;
+        }
 
-		.sidebar-section {
-			width: var(--sidebar-width);
+        .sidebar-section {
+            width: var(--sidebar-width);
 
-			border-right: 1px solid var(--theme-ui-line);
+            border-right: 1px solid var(--theme-ui-line);
 
-			.version {
-				width: var(--sidebar-width);
+            .version {
+                width: var(--sidebar-width);
 
-				.github {
-					visibility: hidden;
-					position: absolute;
-				}
+                .github {
+                    visibility: hidden;
+                    position: absolute;
+                }
 
-				.text {
-					font-size: 0.75rem;
-				}
-			}
+                .text {
+                    font-size: 0.75rem;
+                }
+            }
 
-			a,
-			.planned {
-				padding: 1rem 0.6rem;
-				font-size: 0.85rem;
+            a, .planned {
+                padding: 1rem 0.6rem;
+                font-size: 0.865rem;
+								text-wrap: nowrap;
 
-				svg {
-					height: 1.15rem;
-					width: 1.15rem;
+                svg {
+                    height: 1.15rem;
+                    width: 1.15rem;
 
-					margin-right: 0.15rem;
-				}
-			}
+                    margin-right: 0.15rem;
+                }
+            }
 
-			.planned::after {
-				font-size: 0.6rem;
-				padding: 0.25rem 0.5rem;
-			}
-		}
-	}
+            .planned::after {
+                font-size: 0.6rem;
+                padding: 0.25rem 0.5rem;
+            }
+        }
+    }
 
-	/* Phone */
-	@media (width < 44rem) {
-		:root :global {
-			--sidebar-width: 0;
-		}
+    /* Phone */
+    @media (width < 44rem) {
+        :root :global {
+            --sidebar-width: 0;
+        }
 
-		.sidebar-section.res-hidden {
-			transform: translateX(-150vw);
-			transition: 200ms cubic-bezier(0.6, 0.04, 0.98, 0.335);
-		}
+        .sidebar-section.res-hidden {
+            transform: translateX(-150vw);
+            transition: 200ms cubic-bezier(0.6, 0.04, 0.98, 0.335);
+        }
 
-		.sidebar-section.res-visible {
-			transform: translateX(0);
-			transition: 100ms cubic-bezier(0.075, 0.82, 0.165, 1);
-		}
+        .sidebar-section.res-visible {
+            transform: translateX(0);
+            transition: 100ms cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
 
-		.sidebar-section {
-			width: 100vw;
-			border: none;
+        .sidebar-section {
+            width: 100vw;
+            border: none;
 
-			.version {
-				width: 100vw;
+            .version {
+                width: 100vw;
 
-				.github {
-					visibility: visible;
-				}
-				.text {
-					font-size: 0.8rem;
-				}
-			}
+                .github {
+                    visibility: visible;
+                }
 
-			a,
-			.planned {
-				padding: 1.3rem 0.85rem;
-				font-size: 1.15rem;
+                .text {
+                    font-size: 0.8rem;
+                }
+            }
 
-				svg {
-					height: 1.35rem;
-					width: 1.35rem;
+            a,
+            .planned {
+                padding: 1.3rem 0.85rem;
+                font-size: 1.15rem;
 
-					margin-right: 0.25rem;
-				}
-			}
+                svg {
+                    height: 1.35rem;
+                    width: 1.35rem;
 
-			.planned::after {
-				font-size: 0.8rem;
-				padding: 0.275rem 0.575rem;
-			}
-		}
-	}
+                    margin-right: 0.25rem;
+                }
+            }
 
-	.sidebar-section {
-		position: absolute;
+            .planned::after {
+                font-size: 0.8rem;
+                padding: 0.275rem 0.575rem;
+            }
+        }
+    }
 
-		height: calc(100vh - var(--header-height));
-		top: var(--header-height);
+    .sidebar-section {
+        position: absolute;
 
-		padding: 1.5rem 1.25rem;
+        height: calc(100vh - var(--header-height));
+        top: var(--header-height);
 
-		background: var(--theme-ui-sidebar);
+        padding: 1.5rem 1.25rem;
 
-		display: flex;
-		flex-flow: column nowrap;
-		align-items: flex-start;
-		justify-content: flex-start;
+        background: var(--theme-ui-sidebar);
 
-		user-select: none !important;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
 
-		z-index: 89999;
+        user-select: none !important;
 
-		.version {
-			position: absolute;
-			bottom: 1rem;
-			left: 0;
+        z-index: 89999;
 
-			display: flex;
-			flex-flow: column nowrap;
-			align-items: center;
-			justify-content: center;
+        .version {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
 
-			.github {
-				svg {
-					width: 1.25rem;
-					height: 1.25rem;
-				}
-			}
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
 
-			.text {
-				color: var(--theme-text-third);
-				font-weight: 550;
-			}
-		}
+            .github {
+                svg {
+                    width: 1.25rem;
+                    height: 1.25rem;
+                }
+            }
 
-		.nav-top {
-			display: flex;
-			flex-flow: column nowrap;
-			align-items: flex-start;
-			justify-content: flex-start;
-			width: 100%;
-		}
+            .text {
+                color: var(--theme-text-third);
+                font-weight: 550;
+            }
+        }
 
-		.nav-section {
-			display: flex;
-			flex-flow: column nowrap;
-			align-items: flex-start;
-			justify-content: flex-start;
-			width: 100%;
-			margin-top: 1rem;
+        .nav-top {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100%;
+        }
 
-			.title {
-				font-size: 0.9rem;
-				color: var(--theme-text-secondary);
-				margin-bottom: 0.25rem;
-				font-family: 'Google Sans', sans-serif;
-				font-weight: 700;
-			}
+        .nav-section {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100%;
+            margin-top: 1rem;
 
-			.title.selected {
-				color: var(--theme-text-primary);
-			}
-		}
+            .title {
+                font-size: 0.9rem;
+                color: var(--theme-text-secondary);
+                margin-bottom: 0.25rem;
+                font-family: 'Google Sans', sans-serif;
+                font-weight: 700;
+            }
 
-		.planned {
-			cursor: no-drop;
-		}
+            .title.selected {
+                color: var(--theme-text-primary);
+            }
+        }
 
-		a,
-		.planned {
-			display: flex;
-			flex-flow: row nowrap;
-			align-items: center;
-			justify-content: flex-start;
-			gap: 0.25rem;
+        .planned {
+            cursor: no-drop;
+        }
 
-			height: 1.5rem;
-			width: 100%;
+        a,
+        .planned {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.25rem;
 
-			border-radius: 0.8rem;
-			margin-bottom: 0.25rem;
+            height: 1.5rem;
+            width: 100%;
 
-			font-weight: 375;
-			color: var(--theme-text-secondary);
-		}
+            border-radius: 0.8rem;
+            margin-bottom: 0.25rem;
 
-		a.selected,
-		a:hover,
-		.planned:hover {
-			color: var(--theme-text-primary);
-			backdrop-filter: brightness(1.25);
-		}
+            font-weight: 375;
+            color: var(--theme-text-secondary);
+        }
 
-		.planned:hover::after {
-			background: var(--theme-ui-container);
-		}
+        a.selected,
+        a:hover,
+        .planned:hover {
+            color: var(--theme-text-primary);
+            backdrop-filter: brightness(1.25);
+        }
 
-		.planned::after {
-			content: 'Planned';
-			color: var(--theme-text-secondary);
-			font-weight: 550;
+        .planned:hover::after {
+            background: var(--theme-ui-container);
+        }
 
-			backdrop-filter: brightness(1.25) !important;
-			border-radius: 0.625rem;
-			transform: translateX(0.25rem);
+        .planned::after {
+            content: 'Planned';
+            color: var(--theme-text-secondary);
+            font-weight: 550;
 
-			align-self: center;
-			margin-left: auto;
-		}
+            backdrop-filter: brightness(1.25) !important;
+            border-radius: 0.625rem;
+            transform: translateX(0.25rem);
 
-		a.planned.selected::after {
-			color: var(--theme-color-accent);
-			background: var(--theme-ui-container);
-		}
-	}
+            align-self: center;
+            margin-left: auto;
+        }
+
+        a.planned.selected::after {
+            color: var(--theme-color-accent);
+            background: var(--theme-ui-container);
+        }
+    }
 </style>

@@ -7,7 +7,9 @@
 
 <section class="header-section {theme}">
 	<div class="content">
-		<a href="/" class="argxs">argxs</a>
+		<a href="/" class="argxs">
+			argxs
+		</a>
 		<div class="actions">
 			<ThemeSwitcher bind:theme />
 			<nav class="desktop-action github">
@@ -32,119 +34,165 @@
 </section>
 
 <style>
-	/* Desktop & Tablet */
-	@media (width >= 44rem) {
-		:root :global {
-			--header-height: 3rem;
-		}
+    /* Desktop & Tablet */
+    @media (width >= 44rem) {
+        :root :global {
+            --header-height: 3rem;
+        }
 
-		.header-section {
-			.content {
-				width: 80vw;
+        .header-section {
+            .content {
+                width: 80vw;
 
-				.actions {
-					gap: 1rem;
+                .actions {
+                    gap: 1rem;
 
-					.github svg {
-						margin-right: 0.25rem;
-					}
+                    .github svg {
+                        margin-right: 0.25rem;
+                    }
 
-					.desktop-action {
-						visibility: visible;
-					}
+                    .desktop-action {
+                        visibility: visible;
+                    }
 
-					.phone-action {
-						visibility: hidden;
-					}
+                    .phone-action {
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Phone */
+    @media (width < 44rem) {
+        :root :global {
+            --header-height: 3.5rem;
+        }
+
+        .header-section {
+            .content {
+                width: 90vw;
+
+                .actions {
+                    gap: 0.75rem;
+
+                    .desktop-action {
+                        visibility: hidden !important;
+                        position: absolute;
+                    }
+
+                    .phone-action {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        height: var(--header-height);
+        width: 100vw;
+        overflow: hidden;
+
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+
+        border-bottom: 1px solid var(--theme-ui-line);
+        background: var(--theme-ui-header);
+
+        user-select: none;
+
+        z-index: 99999;
+
+        .content {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+
+            font-family: 'Lexend', sans-serif;
+
+            .actions {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .argxs {
+                font-size: 1.65rem;
+                font-weight: 650;
+								font-family: 'Funnel Display', sans-serif;
+
+								color: transparent;
+                background-clip: text;
+
+                padding: 1.5rem;
+
+                background-repeat: no-repeat;
+                background-color: var(--theme-text-primary);
+
+                animation: argxsAnim 12s infinite;
+            }
+						.argxs::before {
+								position: absolute;
+
+								filter: blur(.3rem);
+								opacity: .8;
+								content: 'argxs';
+
+                font-size: 1.65rem;
+                font-weight: 650;
+                font-family: 'Funnel Display', sans-serif;
+
+                color: transparent;
+                background-clip: text;
+
+                padding: 1.5rem;
+
+                background-repeat: no-repeat;
+                background-color: transparent;
+
+                animation: argxsAnim 12s infinite;
+						}
+
+            a {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: center;
+                gap: 0.1rem;
+
+                font-size: 0.91rem;
+                font-weight: 375;
+                color: var(--theme-text-secondary);
+            }
+
+            a:hover {
+                color: var(--theme-text-primary);
+            }
+        }
+    }
+
+		@keyframes argxsAnim {
+				0%,5%,100% {
+            background-position: -6rem 0;
 				}
-			}
-		}
-	}
-
-	/* Phone */
-	@media (width < 44rem) {
-		:root :global {
-			--header-height: 3.5rem;
-		}
-
-		.header-section {
-			.content {
-				width: 90vw;
-
-				.actions {
-					gap: 0.75rem;
-
-					.desktop-action {
-						visibility: hidden !important;
-						position: absolute;
-					}
-
-					.phone-action {
-						visibility: visible;
-					}
+				18%,29%,30% {
+            background-position: 6rem 0;
 				}
-			}
+				0%, 25%, 100% {
+            background-image: radial-gradient(circle at 35% 45%, transparent 0%);
+				}
+				5%,15%,20% {
+            transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.050);
+            background-image: radial-gradient(circle at 35% 45%, transparent 0%, rgb(222, 168, 248) 5%, rgb(168, 222, 248) 15.8%, rgb(189, 250, 205) 23.6%, rgb(243, 250, 189) 35%, transparent 50%, rgb(250, 227, 189) 65%, rgb(248, 172, 172) 70%, rgb(254, 211, 252) 80%, transparent 100%);
+				}
 		}
-	}
-
-	.header-section {
-		position: absolute;
-		top: 0;
-		left: 0;
-
-		height: var(--header-height);
-		width: 100vw;
-		overflow: hidden;
-
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: center;
-		justify-content: center;
-
-		border-bottom: 1px solid var(--theme-ui-line);
-		background: var(--theme-ui-header);
-
-		user-select: none;
-
-		z-index: 99999;
-
-		.content {
-			display: flex;
-			flex-flow: row nowrap;
-			align-items: center;
-			justify-content: space-between;
-
-			font-family: 'Lexend', sans-serif;
-
-			.actions {
-				display: flex;
-				flex-flow: row nowrap;
-				align-items: center;
-				justify-content: space-between;
-			}
-
-			.argxs {
-				font-size: 1.5rem;
-				font-weight: 500;
-
-				color: var(--theme-text-primary);
-			}
-
-			a {
-				display: flex;
-				flex-flow: row nowrap;
-				align-items: center;
-				justify-content: center;
-				gap: 0.1rem;
-
-				font-size: 0.91rem;
-				font-weight: 375;
-				color: var(--theme-text-secondary);
-			}
-
-			a:hover {
-				color: var(--theme-text-primary);
-			}
-		}
-	}
 </style>

@@ -1,8 +1,4 @@
 <script module lang="ts">
-	let sidebarState: boolean = $state.raw(false);
-</script>
-
-<script lang="ts">
 	import './layout.css';
 	import Header from './Header.svelte';
 	import Sidebar from './Sidebar.svelte';
@@ -11,6 +7,10 @@
 	import { updated } from '$app/state';
 	import { setContext } from 'svelte';
 
+	let sidebarState: boolean = $state.raw(false);
+</script>
+
+<script lang="ts">
 	const { children, data } = $props();
 
 	beforeNavigate(({ willUnload, to }) => {
