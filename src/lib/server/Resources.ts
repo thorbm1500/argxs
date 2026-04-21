@@ -1,9 +1,9 @@
 import type { Icon, Brand, VariableIcon, Flag, BrandConfiguration, FlagConfiguration } from '$lib/components/interfaces';
 import type { Dir } from 'node:fs';
 import * as fs from 'node:fs/promises';
-import { NODE_ENV } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
-const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + NODE_ENV === 'production' ? 'resources' : 'src/lib/resources';
+const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources';
 
 class BrandUtil {
 	static async getIcon(path: string[]): Promise<VariableIcon | null> {
