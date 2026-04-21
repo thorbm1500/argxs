@@ -1,21 +1,21 @@
-<script module lang="ts">
+<script lang="ts">
+	console.log('Layout mounted');
+
 	import './layout.css';
-	import Header from './Header.svelte';
-	import Sidebar from './Sidebar.svelte';
-	import Footer from './Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Sidebar from '$lib/components/Sidebar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { updated } from '$app/state';
 	import { setContext } from 'svelte';
 
-	let sidebarState: boolean = $state.raw(false);
-</script>
-
-<script lang="ts">
 	const { children, data } = $props();
 
+	let sidebarState: boolean = $state.raw(false);
+
 	beforeNavigate(({ willUnload, to }) => {
-		sidebarState = false;
 		if (updated.current && !willUnload && to?.url) {
+			sidebarState = false;
 			location.href = to.url.href;
 		}
 	});
