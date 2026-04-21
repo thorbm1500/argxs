@@ -1,5 +1,5 @@
 {
-  name: "CLion",
-  href: "https://www.jetbrains.com/clion/",
-  assets: {}
+	name: 'CLion',
+	href: 'https://www.jetbrains.com/clion/',
+	assets: {}
 }

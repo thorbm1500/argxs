@@ -1,5 +1,5 @@
 {
-  name: "Bubble",
-  href: "https://bubble.io",
-  assets: {}
+	name: 'Bubble',
+	href: 'https://bubble.io',
+	assets: {}
 }

@@ -6,7 +6,9 @@ import { env } from '$env/dynamic/private';
 
 const limiter = new RateLimiter({ IP: [1, '100ms'] });
 
-export const VERSION: string = await Bun.file('./package.json').json().then(pkg => pkg.version);
+export const VERSION: string = await Bun.file('./package.json')
+	.json()
+	.then((pkg) => pkg.version);
 export const RESOURCES: Resources = new Resources();
 
 // noinspection JSUnusedGlobalSymbols
@@ -24,8 +26,7 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 		event.cookies.set('argxs_theme', 'light', {
 			path: '/',
 			sameSite: 'lax',
-			secure: false,
-			priority: 'high'
+			secure: false
 		});
 		event.locals.theme = 'light';
 	} else event.locals.theme = theme;

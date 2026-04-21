@@ -1,38 +1,38 @@
-export interface Brand extends BrandConfiguration{
-	icon?: VariableIcon,
-	logo?: VariableIcon,
-	extra: VariableIcon[]
+export interface Brand extends BrandConfiguration {
+	icon?: VariableIcon;
+	logo?: VariableIcon;
+	extra: VariableIcon[];
 }
 
 export interface BrandConfiguration {
-	name: string,
-	href?: string
+	name: string;
+	href?: string;
 }
 
-export interface Flag extends FlagConfiguration{
-	flag: Icon,
-	extra: Icon[]
+export interface Flag extends FlagConfiguration {
+	flag: Icon;
+	extra: Icon[];
 }
 
 export interface FlagConfiguration {
-	country: string,
-	href?: string
+	country: string;
+	href?: string;
 }
 
 export interface VariableIcon {
-	default: Icon,
-	dark?: Icon,
-	monochrome?: Icon,
-	variable?: Icon
+	default: Icon;
+	dark?: Icon;
+	monochrome?: Icon;
+	variable?: Icon;
 }
 
 export interface Icon {
-	svg: string,
-	date_added?: string,
-	source?: Source
+	svg: string;
+	date_added?: string;
+	source?: Source;
 }
 
 declare interface Source {
-	name: string,
-	href: string
+	name: string;
+	href: string;
 }

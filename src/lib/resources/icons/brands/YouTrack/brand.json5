@@ -1,5 +1,5 @@
 {
-  name: "YouTrack",
-  href: "https://www.jetbrains.com/youtrack/",
-  assets: {}
+	name: 'YouTrack',
+	href: 'https://www.jetbrains.com/youtrack/',
+	assets: {}
 }

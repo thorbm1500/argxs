@@ -1,5 +1,5 @@
 {
-  name: "Qodana",
-  href: "https://www.jetbrains.com/qodana/",
-  assets: {}
+	name: 'Qodana',
+	href: 'https://www.jetbrains.com/qodana/',
+	assets: {}
 }

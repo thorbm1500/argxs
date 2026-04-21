@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'Funnel Sans';
-    src: url('./FunnelSans[wght].ttf');
+	font-family: 'Funnel Sans';
+	src: url('./FunnelSans[wght].ttf');
 }
 @font-face {
-    font-family: 'Funnel Sans Italic';
-    src: url('./FunnelSans-Italic[wght].ttf');
+	font-family: 'Funnel Sans Italic';
+	src: url('./FunnelSans-Italic[wght].ttf');
 }
 @font-face {
-    font-family: 'Funnel Display';
-    src: url('./FunnelDisplay[wght].ttf');
+	font-family: 'Funnel Display';
+	src: url('./FunnelDisplay[wght].ttf');
 }

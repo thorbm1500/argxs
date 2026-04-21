@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Tektur Variable';
-    font-display: swap;
-    font-weight: 400 900;
-    src: url('./tektur_5.2.7_latin-wght-normal.woff2') format('woff2-variations');
+	font-family: 'Tektur Variable';
+	font-display: swap;
+	font-weight: 400 900;
+	src: url('./tektur_5.2.7_latin-wght-normal.woff2') format('woff2-variations');
 }

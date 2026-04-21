@@ -1,5 +1,5 @@
 {
-  name: "AdonisJS",
-  href: "https://adonisjs.com",
-  assets: {}
+	name: 'AdonisJS',
+	href: 'https://adonisjs.com',
+	assets: {}
 }

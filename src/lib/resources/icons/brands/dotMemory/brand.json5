@@ -1,5 +1,5 @@
 {
-  name: "dotMemory",
-  href: "https://www.jetbrains.com/dotmemory/",
-  assets: {}
+	name: 'dotMemory',
+	href: 'https://www.jetbrains.com/dotmemory/',
+	assets: {}
 }

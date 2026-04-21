@@ -1,5 +1,5 @@
 {
-  name: "Junie",
-  href: "https://www.jetbrains.com/junie/",
-  assets: {}
+	name: 'Junie',
+	href: 'https://www.jetbrains.com/junie/',
+	assets: {}
 }

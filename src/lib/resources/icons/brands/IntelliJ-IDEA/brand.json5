@@ -1,5 +1,5 @@
 {
-  name: "IntelliJ IDEA",
-  href: "https://www.jetbrains.com/idea/",
-  assets: {}
+	name: 'IntelliJ IDEA',
+	href: 'https://www.jetbrains.com/idea/',
+	assets: {}
 }

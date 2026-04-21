@@ -1,5 +1,5 @@
 {
-  name: "WebStorm",
-  href: "https://www.jetbrains.com/webstorm/",
-  assets: {}
+	name: 'WebStorm',
+	href: 'https://www.jetbrains.com/webstorm/',
+	assets: {}
 }

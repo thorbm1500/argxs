@@ -1,18 +1,18 @@
 {
-  default: {
-    svg: 'undefined',
-    date_added: "2026/4/10",
-    source: {
-      name: "InfluxData",
-      href: "https://www.influxdata.com"
-    }
-  },
-  dark: {
-    svg: 'undefined',
-    date_added: "2026/4/10",
-    source: {
-      name: "InfluxData",
-      href: "https://www.influxdata.com"
-    }
-  }
+	default: {
+		svg: 'undefined',
+		date_added: '2026/4/10',
+		source: {
+			name: 'InfluxData',
+			href: 'https://www.influxdata.com'
+		}
+	},
+	dark: {
+		svg: 'undefined',
+		date_added: '2026/4/10',
+		source: {
+			name: 'InfluxData',
+			href: 'https://www.influxdata.com'
+		}
+	}
 }

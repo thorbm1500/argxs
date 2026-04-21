@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Bricolage Grotesque Variable';
-    font-display: swap;
-    font-weight: 200 800;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/bricolage-grotesque:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+	font-family: 'Bricolage Grotesque Variable';
+	font-display: swap;
+	font-weight: 200 800;
+	src: url(https://cdn.jsdelivr.net/fontsource/fonts/bricolage-grotesque:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
 }

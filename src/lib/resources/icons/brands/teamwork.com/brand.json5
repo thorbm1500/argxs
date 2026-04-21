@@ -1,5 +1,5 @@
 {
-  name: "teamwork.com",
-  href: "https://www.teamwork.com",
-  assets: {}
+	name: 'teamwork.com',
+	href: 'https://www.teamwork.com',
+	assets: {}
 }

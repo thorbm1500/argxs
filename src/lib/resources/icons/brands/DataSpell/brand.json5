@@ -1,5 +1,5 @@
 {
-  name: "DataSpell",
-  href: "https://www.jetbrains.com/dataspell/",
-  assets: {}
+	name: 'DataSpell',
+	href: 'https://www.jetbrains.com/dataspell/',
+	assets: {}
 }

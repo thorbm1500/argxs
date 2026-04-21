@@ -1,5 +1,5 @@
 {
-  name: "Grok",
-  href: "https://grok.com",
-  assets: {}
+	name: 'Grok',
+	href: 'https://grok.com',
+	assets: {}
 }

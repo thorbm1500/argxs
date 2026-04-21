@@ -1,5 +1,5 @@
 {
-  name: "DeepSeek",
-  href: "https://www.deepseek.com",
-  assets: {}
+	name: 'DeepSeek',
+	href: 'https://www.deepseek.com',
+	assets: {}
 }

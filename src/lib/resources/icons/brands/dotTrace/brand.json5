@@ -1,5 +1,5 @@
 {
-  name: "dotTrace",
-  href: "https://www.jetbrains.com/profiler/",
-  assets: {}
+	name: 'dotTrace',
+	href: 'https://www.jetbrains.com/profiler/',
+	assets: {}
 }

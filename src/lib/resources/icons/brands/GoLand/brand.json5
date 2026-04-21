@@ -1,5 +1,5 @@
 {
-  name: "GoLand",
-  href: "https://www.jetbrains.com/go/",
-  assets: {}
+	name: 'GoLand',
+	href: 'https://www.jetbrains.com/go/',
+	assets: {}
 }

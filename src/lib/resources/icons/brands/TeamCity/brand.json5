@@ -1,5 +1,5 @@
 {
-  name: "TeamCity",
-  href: "https://www.jetbrains.com/teamcity/",
-  assets: {}
+	name: 'TeamCity',
+	href: 'https://www.jetbrains.com/teamcity/',
+	assets: {}
 }

@@ -1,5 +1,5 @@
 {
-  name: "Cloudflare",
-  href: "https://www.cloudflare.com/",
-  assets: {}
+	name: 'Cloudflare',
+	href: 'https://www.cloudflare.com/',
+	assets: {}
 }

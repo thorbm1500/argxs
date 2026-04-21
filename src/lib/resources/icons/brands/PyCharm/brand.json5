@@ -1,5 +1,5 @@
 {
-  name: "PyCharm",
-  href: "https://www.jetbrains.com/pycharm/",
-  assets: {}
+	name: 'PyCharm',
+	href: 'https://www.jetbrains.com/pycharm/',
+	assets: {}
 }

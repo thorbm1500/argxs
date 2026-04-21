@@ -24,19 +24,19 @@
 </section>
 
 <style>
-		.color-palette-content {
-				padding: 2rem;
-		}
+	.color-palette-content {
+		padding: 2rem;
+	}
 
-    .color-palette-sec {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+	.color-palette-sec {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 
-        padding: 2rem;
+		padding: 2rem;
 
-        width: 100%;
-        height: fit-content;
-    }
+		width: 100%;
+		height: fit-content;
+	}
 </style>

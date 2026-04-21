@@ -1,5 +1,5 @@
 {
-  name: "Kotlin",
-  href: "https://kotlinlang.org",
-  assets: {}
+	name: 'Kotlin',
+	href: 'https://kotlinlang.org',
+	assets: {}
 }

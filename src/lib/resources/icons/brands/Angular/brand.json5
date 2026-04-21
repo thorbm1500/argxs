@@ -1,5 +1,5 @@
 {
-  name: "Angular",
-  href: "https://angular.dev",
-  assets: {}
+	name: 'Angular',
+	href: 'https://angular.dev',
+	assets: {}
 }

@@ -1,5 +1,5 @@
 {
-  name: "dotCover",
-  href: "https://www.jetbrains.com/dotcover/",
-  assets: {}
+	name: 'dotCover',
+	href: 'https://www.jetbrains.com/dotcover/',
+	assets: {}
 }

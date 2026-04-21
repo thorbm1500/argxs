@@ -1,14 +1,14 @@
 {
-  default: {
-    svg: 'undefined',
-    date_added: "2026/4/11",
-    source: {
-      name: "Cloudflare",
-      href: "https://www.cloudflare.com/"
-    }
-  },
-  dark: {
-    svg: 'undefined',
-    date_added: "2026/4/11"
-  }
+	default: {
+		svg: 'undefined',
+		date_added: '2026/4/11',
+		source: {
+			name: 'Cloudflare',
+			href: 'https://www.cloudflare.com/'
+		}
+	},
+	dark: {
+		svg: 'undefined',
+		date_added: '2026/4/11'
+	}
 }

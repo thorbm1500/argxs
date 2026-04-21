@@ -7,90 +7,88 @@
 @import 'tailwindcss';
 
 :root {
-    --theme-color-primary-reverse: #F7F9FC;
-    --theme-color-primary: #0D0D0D;
-    --theme-color-secondary: #727E94;
-    --theme-color-accent: #4271D7;
-    --theme-color-alert: oklch(58.6% 0.253 17.585);
-    --theme-color-success: oklch(84.1% 0.238 128.85);
-    --theme-color-success-light: oklch(89.2% 0.223 127.706);
+	--theme-color-primary-reverse: #f7f9fc;
+	--theme-color-primary: #0d0d0d;
+	--theme-color-secondary: #727e94;
+	--theme-color-accent: #4271d7;
+	--theme-color-alert: oklch(58.6% 0.253 17.585);
+	--theme-color-success: oklch(84.1% 0.238 128.85);
+	--theme-color-success-light: oklch(89.2% 0.223 127.706);
 
-    --theme-text-primary: #0D0D0D;
-    --theme-text-secondary: #727E94;
-    --theme-text-third: #c1c9d5;
+	--theme-text-primary: #0d0d0d;
+	--theme-text-secondary: #727e94;
+	--theme-text-third: #c1c9d5;
 
-    --theme-ui-line: #DDE1E8;
-    --theme-ui-line-highlight: #c0c5cc;
-    --theme-ui-white: #F7F9FC;
-    --theme-ui-container: #eceef3;
-    --theme-ui-background: #f7f9fc;
-    --theme-ui-header: #eff1f3;
-    --theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
-    --theme-ui-icon: #5d697e;
+	--theme-ui-line: #dde1e8;
+	--theme-ui-line-highlight: #c0c5cc;
+	--theme-ui-white: #f7f9fc;
+	--theme-ui-container: #eceef3;
+	--theme-ui-background: #f7f9fc;
+	--theme-ui-header: #eff1f3;
+	--theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
+	--theme-ui-icon: #5d697e;
 
-    --theme-text-gradient: linear-gradient(5deg, transparent 40%, #222234 80%),
-    linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
+	--theme-text-gradient: linear-gradient(5deg, transparent 40%, #222234 80%), linear-gradient(-170deg, #242433 20%, #0d0d0d 75%);
 }
 
 .dark {
-    --theme-text-primary: #F7F9FC;
-    --theme-text-secondary: #c1c9d5;
-    --theme-text-third: #5e687a;
+	--theme-text-primary: #f7f9fc;
+	--theme-text-secondary: #c1c9d5;
+	--theme-text-third: #5e687a;
 
-    --theme-color-primary-reverse: #0D0D0D;
-    --theme-color-primary: #F7F9FC;
-    --theme-ui-container: #23283a;
-    --theme-ui-background: #111217;
-    --theme-ui-header: #1b1d26;
-    --theme-ui-line: #2e3244;
-    --theme-ui-line-highlight: #38455d;
-    --theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
-    --theme-ui-icon: #5e687a;
+	--theme-color-primary-reverse: #0d0d0d;
+	--theme-color-primary: #f7f9fc;
+	--theme-ui-container: #23283a;
+	--theme-ui-background: #111217;
+	--theme-ui-header: #1b1d26;
+	--theme-ui-line: #2e3244;
+	--theme-ui-line-highlight: #38455d;
+	--theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
+	--theme-ui-icon: #5e687a;
 
-    --theme-text-gradient: linear-gradient(5deg, transparent 40%, rgb(42 59 79 / .25) 80%),
-    linear-gradient(-170deg, #b8c4d2 20%, #F7F9FC 75%);
+	--theme-text-gradient: linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #b8c4d2 20%, #f7f9fc 75%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-    }
+	* {
+		transition: none !important;
+	}
 }
 
 /* Desktop & Tablet */
 @media (width >= 44rem) {
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: var(--theme-color-secondary) transparent;
-    }
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: var(--theme-color-secondary) transparent;
+	}
 
-    body {
-        transition: 150ms ease-out;
-    }
+	body {
+		transition: 150ms ease-out;
+	}
 }
 
 /* Phone */
 @media (width < 44rem) {
-    * {
-        scrollbar-width: none;
-    }
+	* {
+		scrollbar-width: none;
+	}
 
-    body {
-        transition: 75ms ease;
-    }
+	body {
+		transition: 75ms ease;
+	}
 }
 
 * {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-    max-height: 100vh !important;
-    overflow: hidden !important;
+	max-height: 100vh !important;
+	overflow: hidden !important;
 
-    font-family: 'Lexend', sans-serif;
+	font-family: 'Lexend', sans-serif;
 
-    .coming-soon {
-        color: var(--theme-text-secondary);
-    }
+	.coming-soon {
+		color: var(--theme-text-secondary);
+	}
 }

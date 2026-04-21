@@ -1,5 +1,5 @@
 {
-  name: "PhpStorm",
-  href: "https://www.jetbrains.com/phpstorm/",
-  assets: {}
+	name: 'PhpStorm',
+	href: 'https://www.jetbrains.com/phpstorm/',
+	assets: {}
 }

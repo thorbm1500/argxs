@@ -1,5 +1,5 @@
 {
-  name: "Claude",
-  href: "https://claude.ai",
-  assets: {}
+	name: 'Claude',
+	href: 'https://claude.ai',
+	assets: {}
 }

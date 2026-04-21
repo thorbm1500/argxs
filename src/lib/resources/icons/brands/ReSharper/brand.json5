@@ -1,5 +1,5 @@
 {
-  name: "ReSharper",
-  href: "https://www.jetbrains.com/resharper/",
-  assets: {}
+	name: 'ReSharper',
+	href: 'https://www.jetbrains.com/resharper/',
+	assets: {}
 }

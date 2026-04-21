@@ -1,5 +1,5 @@
 {
-  name: "AI Assistant by JetBrains",
-  href: "https://www.jetbrains.com/ai/",
-  assets: {}
+	name: 'AI Assistant by JetBrains',
+	href: 'https://www.jetbrains.com/ai/',
+	assets: {}
 }

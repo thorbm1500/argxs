@@ -1,5 +1,5 @@
 {
-  name: "Discord",
-  href: "https://discord.com",
-  assets: {}
+	name: 'Discord',
+	href: 'https://discord.com',
+	assets: {}
 }

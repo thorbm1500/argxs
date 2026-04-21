@@ -9,13 +9,13 @@
 	import Footer from './Footer.svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { updated } from '$app/state';
-	import { onMount, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 
 	const { children, data } = $props();
 
-	beforeNavigate(async ({ willUnload, to }) => {
+	beforeNavigate(({ willUnload, to }) => {
 		sidebarState = false;
-		if (await updated.check() && !willUnload && to?.url) {
+		if (updated.current && !willUnload && to?.url) {
 			location.href = to.url.href;
 		}
 	});
@@ -31,17 +31,6 @@
 		}
 	};
 	setContext('toggleTheme', toggleFn);
-
-	onMount(async () => {
-		const themeCookie = await window.cookieStore.get('argxs_theme');
-
-		if (themeCookie == null || !(themeCookie.value === 'dark' || themeCookie.value === 'light')) {
-			await window.cookieStore.set('argxs_theme', theme);
-		}
-		else {
-			theme = themeCookie.value;
-		}
-	});
 </script>
 
 <Header bind:theme bind:sidebarState />
@@ -57,39 +46,39 @@
 </section>
 
 <style>
-    /* Desktop & Tablet */
-    @media (width >= 44rem) {
-				.main-container {
-            left: var(--sidebar-width);
-            padding: 5rem 6rem 0 6rem;
-				}
-    }
+	/* Desktop & Tablet */
+	@media (width >= 44rem) {
+		.main-container {
+			left: var(--sidebar-width);
+			padding: 5rem 6rem 0 6rem;
+		}
+	}
 
-    /* Phone */
-    @media (width < 44rem) {
-				.main-container {
-						left: 0;
-            padding: 3rem 2rem 0 2rem;
-				}
-    }
+	/* Phone */
+	@media (width < 44rem) {
+		.main-container {
+			left: 0;
+			padding: 3rem 2rem 0 2rem;
+		}
+	}
 
-    .main-container {
-        position: absolute;
+	.main-container {
+		position: absolute;
 
-        height: calc(100vh - var(--header-height) + 1px);
-        width: calc(100vw - var(--sidebar-width));
+		height: calc(100vh - var(--header-height) + 1px);
+		width: calc(100vw - var(--sidebar-width));
 
-        bottom: 0;
+		bottom: 0;
 
-        box-sizing: border-box;
+		box-sizing: border-box;
 
-				background: var(--theme-ui-background);
+		background: var(--theme-ui-background);
 
-        /*noinspection CssOverwrittenProperties*/
-        overflow-y: scroll;
-        /*noinspection CssOverwrittenProperties*/
-        overflow-x: hidden;
-        /*noinspection CssOverwrittenProperties*/
-        overflow: auto;
-    }
+		/*noinspection CssOverwrittenProperties*/
+		overflow-y: scroll;
+		/*noinspection CssOverwrittenProperties*/
+		overflow-x: hidden;
+		/*noinspection CssOverwrittenProperties*/
+		overflow: auto;
+	}
 </style>

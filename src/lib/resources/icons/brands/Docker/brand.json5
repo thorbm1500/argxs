@@ -1,5 +1,5 @@
 {
-  name: "Docker",
-  href: "https://www.docker.com",
-  assets: {}
+	name: 'Docker',
+	href: 'https://www.docker.com',
+	assets: {}
 }

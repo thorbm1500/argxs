@@ -1,18 +1,18 @@
 {
-  default: {
-    svg: 'undefined',
-    date_added: "2026/4/10",
-    source: {
-      name: "GitHub",
-      href: "https://brand.github.com/foundations/logo"
-    }
-  },
-  dark: {
-    svg: 'undefined',
-    date_added: "2026/4/10",
-    source: {
-      name: "GitHub",
-      href: "https://brand.github.com/foundations/logo"
-    }
-  }
+	default: {
+		svg: 'undefined',
+		date_added: '2026/4/10',
+		source: {
+			name: 'GitHub',
+			href: 'https://brand.github.com/foundations/logo'
+		}
+	},
+	dark: {
+		svg: 'undefined',
+		date_added: '2026/4/10',
+		source: {
+			name: 'GitHub',
+			href: 'https://brand.github.com/foundations/logo'
+		}
+	}
 }

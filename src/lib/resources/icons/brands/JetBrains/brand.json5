@@ -1,5 +1,5 @@
 {
-  name: "JetBrains",
-  href: "https://www.jetbrains.com",
-  assets: {}
+	name: 'JetBrains',
+	href: 'https://www.jetbrains.com',
+	assets: {}
 }

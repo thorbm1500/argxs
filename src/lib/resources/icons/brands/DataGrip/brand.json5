@@ -1,5 +1,5 @@
 {
-  name: "DataGrip",
-  href: "https://www.jetbrains.com/datagrip/",
-  assets: {}
+	name: 'DataGrip',
+	href: 'https://www.jetbrains.com/datagrip/',
+	assets: {}
 }

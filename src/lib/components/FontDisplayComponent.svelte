@@ -38,13 +38,18 @@
 </script>
 
 <script lang="ts">
-	const { name, font, italic, href,
+	const {
+		name,
+		font,
+		italic,
+		href,
 		activeFontSize = $bindable(),
 		activeFontWeight = $bindable(),
 		activePangram = $bindable(),
 		isItalic = $bindable(),
 		isLowercase = $bindable(),
-		isUppercase = $bindable() } = $props();
+		isUppercase = $bindable()
+	} = $props();
 
 	function getCurrentText(): string {
 		const text = !!activePangram ? activePangram : defaultPangram;
@@ -60,62 +65,65 @@
 	<div class="typography">
 		<div class="header">
 			<h1 class="title">{name}</h1>
-			<a class="link" href={href} rel="external" target="_blank">Get this font</a>
+			<a class="link" {href} rel="external" target="_blank">Get this font</a>
 		</div>
 		<div class="preview">
-			<div class="pangram" style="font-size:{activeFontSize}px;{isItalic && italic === 'none'?'font-style:italic;':''}font-family:'{isItalic && italic !== 'none' ? italic : font}', sans-serif;font-weight: {activeFontWeight};">
+			<div
+				class="pangram"
+				style="font-size:{activeFontSize}px;{isItalic && italic === 'none' ? 'font-style:italic;' : ''}font-family:'{isItalic && italic !== 'none'
+					? italic
+					: font}', sans-serif;font-weight: {activeFontWeight};"
+			>
 				{getCurrentText()}
 			</div>
 		</div>
-		<div class="actions">
-		</div>
+		<div class="actions"></div>
 	</div>
 </section>
 
 <style>
-    .font-display {
-				padding-bottom: 2rem;
+	.font-display {
+		padding-bottom: 2rem;
 
-        .typography {
-            color: var(--theme-text-primary);
+		.typography {
+			color: var(--theme-text-primary);
 
-            .header {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: flex-end;
-                justify-content: space-between;
+			.header {
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: flex-end;
+				justify-content: space-between;
 
-                .title {
-										margin-left: .5rem;
-										margin-bottom: .25rem;
-                    font-size: 1.25rem;
-                    font-weight: 900;
-                    font-family: 'Google Sans', sans-serif;
-                }
+				.title {
+					margin-left: 0.5rem;
+					margin-bottom: 0.25rem;
+					font-size: 1.25rem;
+					font-weight: 900;
+					font-family: 'Google Sans', sans-serif;
+				}
 
-                .link {
-                    margin-right: .75rem;
-                    margin-bottom: .15rem;
-                }
+				.link {
+					margin-right: 0.75rem;
+					margin-bottom: 0.15rem;
+				}
 
-                .link:hover {
-                    text-decoration: underline;
-                }
-            }
+				.link:hover {
+					text-decoration: underline;
+				}
+			}
 
-            .preview {
-                border: 1px solid var(--theme-ui-line);
-                padding: 1.25rem 1.5rem;
-                border-radius: .75rem;
-                backdrop-filter: contrast(1.05);
+			.preview {
+				border: 1px solid var(--theme-ui-line);
+				padding: 1.25rem 1.5rem;
+				border-radius: 0.75rem;
+				backdrop-filter: contrast(1.05);
 
-                .pangram {
-                    font-weight: initial;
-                    text-wrap: pretty;
-                    text-rendering: geometricPrecision;
-                }
-
-            }
-        }
-    }
+				.pangram {
+					font-weight: initial;
+					text-wrap: pretty;
+					text-rendering: geometricPrecision;
+				}
+			}
+		}
+	}
 </style>

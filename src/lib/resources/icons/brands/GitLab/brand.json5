@@ -1,5 +1,5 @@
 {
-  name: "GitLab",
-  href: "https://about.gitlab.com",
-  assets: {}
+	name: 'GitLab',
+	href: 'https://about.gitlab.com',
+	assets: {}
 }

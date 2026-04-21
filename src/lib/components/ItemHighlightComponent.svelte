@@ -2,12 +2,9 @@
 	let { icon = $bindable() } = $props();
 </script>
 
-<section class="item-highlight-sec">
-
-</section>
+<section class="item-highlight-sec"></section>
 
 <style>
 	.item-highlight-sec {
-
 	}
 </style>

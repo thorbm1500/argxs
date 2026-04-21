@@ -1,5 +1,5 @@
 {
-  name: "Toolbox App",
-  href: "https://www.jetbrains.com/toolbox-app/",
-  assets: {}
+	name: 'Toolbox App',
+	href: 'https://www.jetbrains.com/toolbox-app/',
+	assets: {}
 }

@@ -1,18 +1,18 @@
 @font-face {
-    font-family: 'Stack Sans Headline Variable';
-    font-display: swap;
-    font-weight: 200 700;
-    src: url('./stack-sans-headline_5.2.1_latin-wght-normal.woff2') format('woff2-variations');
+	font-family: 'Stack Sans Headline Variable';
+	font-display: swap;
+	font-weight: 200 700;
+	src: url('./stack-sans-headline_5.2.1_latin-wght-normal.woff2') format('woff2-variations');
 }
 @font-face {
-    font-family: 'Stack Sans Text Variable';
-    font-display: swap;
-    font-weight: 200 700;
-    src: url('./stack-sans-text_5.2.1_latin-wght-normal.woff2') format('woff2-variations');
+	font-family: 'Stack Sans Text Variable';
+	font-display: swap;
+	font-weight: 200 700;
+	src: url('./stack-sans-text_5.2.1_latin-wght-normal.woff2') format('woff2-variations');
 }
 @font-face {
-    font-family: 'Stack Sans Notch Variable';
-    font-display: swap;
-    font-weight: 200 700;
-    src: url('./stack-sans-notch_5.2.1_latin-wght-normal.woff2') format('woff2-variations');
+	font-family: 'Stack Sans Notch Variable';
+	font-display: swap;
+	font-weight: 200 700;
+	src: url('./stack-sans-notch_5.2.1_latin-wght-normal.woff2') format('woff2-variations');
 }

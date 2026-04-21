@@ -1,6 +1,6 @@
 {
-  name: "Fleet",
-  href: "https://www.jetbrains.com/fleet/",
-  date_added: "2026/4/10",
-  assets: {}
+	name: 'Fleet',
+	href: 'https://www.jetbrains.com/fleet/',
+	date_added: '2026/4/10',
+	assets: {}
 }

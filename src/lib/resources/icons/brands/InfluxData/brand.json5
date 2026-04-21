@@ -1,5 +1,5 @@
 {
-  name: "InfluxData",
-  href: "https://www.influxdata.com",
-  assets: {}
+	name: 'InfluxData',
+	href: 'https://www.influxdata.com',
+	assets: {}
 }

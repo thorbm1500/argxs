@@ -1,5 +1,5 @@
 {
-  name: "ReSharper C++",
-  href: "https://www.jetbrains.com/resharper-cpp/",
-  assets: {}
+	name: 'ReSharper C++',
+	href: 'https://www.jetbrains.com/resharper-cpp/',
+	assets: {}
 }

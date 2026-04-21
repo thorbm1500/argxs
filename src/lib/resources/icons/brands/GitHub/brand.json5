@@ -1,5 +1,5 @@
 {
-  name: "GitHub",
-  href: "https://github.com",
-  assets: {}
+	name: 'GitHub',
+	href: 'https://github.com',
+	assets: {}
 }

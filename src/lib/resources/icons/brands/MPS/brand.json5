@@ -1,5 +1,5 @@
 {
-  name: "MPS",
-  href: "https://www.jetbrains.com/mps/",
-  assets: {}
+	name: 'MPS',
+	href: 'https://www.jetbrains.com/mps/',
+	assets: {}
 }
