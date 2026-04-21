@@ -13,7 +13,7 @@ export const RESOURCES: Resources = new Resources();
 
 // noinspection JSUnusedGlobalSymbols
 export const init: ServerInit = async () => {
-	//if (env.NODE_ENV === 'production' && !building) return;
+	if (building) return;
 	await RESOURCES.init();
 };
 
