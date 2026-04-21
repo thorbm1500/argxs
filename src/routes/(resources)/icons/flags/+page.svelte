@@ -1,99 +1,107 @@
 <script module lang="ts">
 	import CopyableComponent from '$lib/components/CopyableComponent.svelte';
 	import type { Flag } from '$lib/components/interfaces';
-
-	let flags: Flag[] = $state([]);
+	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 </script>
 
 <script lang="ts">
-	import { getContext, onMount } from 'svelte';
-
 	let { data } = $props();
 
 	// svelte-ignore state_referenced_locally
-	flags = data.flags;
-	let theme: 'light' | 'dark' = $state(getContext('theme'));
-
-	onMount(async () => {
-		window.cookieStore.addEventListener('change', async (e) => {
-			for (const cookie of e.changed) {
-				if (cookie.name === 'argxs_theme') {
-					const currentTheme = await window.cookieStore.get('argxs_theme');
-					if (currentTheme !== null) {
-						theme = currentTheme.value === 'light' || currentTheme.value === 'dark' ? currentTheme.value : 'light';
-					}
-				}
-			}
-		});
-	});
+	let flags: Flag[] = $derived(data.flags ?? []);
 </script>
 
-<section class="content-header {theme}">
-	<div class="text">
-		<h1 class="title">
-			Flag Icons
-		</h1>
-		<div class="subtitle">
-			<!--todo: Write subtitle-->
-			<p>argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">{flags.length}</strong> different countries</p>
-		</div>
-	</div>
-</section>
+<ContentHeaderComponent title="Flag Icons" type="countries" amount={flags.length} />
 
-<section class="icons-flags-sec {theme}">
+<section class="icons-flags-sec">
 	{#each flags as flag}
 		<div class="country">
+			<div class="title" style="--max-width: calc(9rem * {1 + flag.extra.length})">
+				{flag.country}
+			</div>
 			<div class="icons">
 				<CopyableComponent icon={flag.flag} title={flag.country} blur_content_bg={true} />
 				{#each flag.extra as extra}
 					<CopyableComponent icon={extra} title={flag.country} blur_content_bg={true} />
 				{/each}
 			</div>
-			<div class="title" style="max-width: calc(9rem * {1 + flag.extra.length})">
-				{flag.country}
-			</div>
 		</div>
 	{/each}
 </section>
 
 <style>
+    /* Desktop & Tablet */
+    @media (width >= 450px) {
+				.icons-flags-sec {
+            flex-flow: row wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+
+						.country {
+                width: fit-content;
+								padding-top: .65rem;
+
+								.title {
+                    font-size: 1.05rem;
+										max-width: var(--max-width);
+								}
+
+								.icons {
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: .5rem;
+								}
+						}
+				}
+    }
+
+    /* Phone */
+    @media (width < 450px) {
+				.icons-flags-sec {
+            flex-flow: column nowrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1.5rem;
+						width: 100%;
+
+						.country {
+								width: 100%;
+
+								.title {
+										align-self: flex-start;
+                    font-size: 1.05rem;
+										max-width: 80%;
+								}
+
+								.icons {
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 1rem;
+								}
+						}
+				}
+    }
+
     .icons-flags-sec {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        gap: 1rem;
-
-        font-family: 'Lexend', sans-serif;
-
         user-select: none;
 
         .country {
             display: flex;
             flex-flow: column nowrap;
-            align-items: flex-start;
-            justify-content: flex-start;
             gap: .25rem;
-
-						padding-top: 1.25rem;
-            margin-bottom: .75rem;
-
-						width: fit-content;
 
             .title {
                 font-family: 'Google Sans', 'Lexend', sans-serif;
-                font-size: .95rem;
                 font-weight: 600;
-								text-wrap: pretty;
-
+								text-wrap-style: avoid-orphans;
 								color: var(--theme-text-primary);
             }
 
             .icons {
                 display: flex;
                 flex-flow: row wrap;
-                align-items: flex-start;
-                justify-content: flex-start;
-                gap: .5rem;
             }
         }
     }

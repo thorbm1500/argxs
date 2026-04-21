@@ -1,42 +1,16 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte';
 	import FontDisplayComponent from '$lib/components/FontDisplayComponent.svelte';
-
-	let theme: 'light' | 'dark' = $state(getContext('theme'));
+	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 
 	let activePangram = $state.raw('');
-	let activeFontSize = $state.raw(24);
+	let activeFontSize = $state.raw(20);
 	let activeFontWeight = $state.raw(500);
 	let isItalic = $state.raw(false);
 	let isLowercase = $state.raw(false);
 	let isUppercase = $state.raw(false);
-
-	onMount(async () => {
-		window.cookieStore.addEventListener('change', async (e) => {
-			for (const cookie of e.changed) {
-				if (cookie.name === 'argxs_theme') {
-					const currentTheme = await window.cookieStore.get('argxs_theme');
-					if (currentTheme !== null) {
-						theme = currentTheme.value === 'light' || currentTheme.value === 'dark' ? currentTheme.value : 'light';
-					}
-				}
-			}
-		});
-	});
 </script>
 
-
-<section class="content-header {theme}">
-	<div class="text">
-		<h1 class="title">
-			Typography
-		</h1>
-		<div class="subtitle">
-			<!--todo: Write subtitle-->
-			<p>argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">36</strong> different fonts</p>
-		</div>
-	</div>
-</section>
+<ContentHeaderComponent title="Typography" type="fonts" amount={36} />
 
 <section class="other-typography-sec">
 	<div class="font-actions">
@@ -83,6 +57,7 @@
 			</button>
 		</div>
 	</div>
+
 	<FontDisplayComponent name="JetBrains Mono" font="JetBrainsMono" italic="JetBrainsMono-Italic" href="https://www.jetbrains.com/lp/mono/"
 	                      bind:activeFontSize bind:activeFontWeight bind:activePangram bind:isItalic bind:isLowercase bind:isUppercase/>
 	<FontDisplayComponent name="Funnel Sans" font="Funnel Sans" italic="Funnel Sans Italic" href="https://github.com/Dicotype/Funnel"
@@ -160,8 +135,31 @@
 </section>
 
 <style>
+    /* Desktop & Tablet */
+    @media (width >= 450px) {
+				.other-typography-sec {
+            padding-right: 16rem;
+
+            .font-actions {
+                position: fixed;
+                right: 4rem;
+
+                width: 14rem;
+            }
+				}
+    }
+
+    /* Phone */
+    @media (width < 450px) {
+				.font-actions {
+						position: relative;
+						width: 100%;
+
+						margin-bottom: 2rem;
+				}
+    }
+
     .other-typography-sec {
-        padding-right: 16rem;
         width: 100%;
 
         .font-actions {
@@ -171,11 +169,7 @@
             justify-content: center;
             gap: .75rem;
 
-            position: fixed;
-            right: 4rem;
-
             height: fit-content;
-            width: 14rem;
 
             backdrop-filter: contrast(1.025);
             border: 1px solid var(--theme-ui-line);

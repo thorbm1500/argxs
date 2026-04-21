@@ -1,35 +1,10 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte';
 	import ColorPaletteComponent from '$lib/components/ColorPaletteComponent.svelte';
-
-	let theme: 'light' | 'dark' = $state(getContext('theme'));
-
-	onMount(async () => {
-		window.cookieStore.addEventListener('change', async (e) => {
-			for (const cookie of e.changed) {
-				if (cookie.name === 'argxs_theme') {
-					const currentTheme = await window.cookieStore.get('argxs_theme');
-					if (currentTheme !== null) {
-						theme = currentTheme.value === 'light' || currentTheme.value === 'dark' ? currentTheme.value : 'light';
-					}
-				}
-			}
-		});
-	});
+	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 </script>
 
 <section class="color-palette-content">
-	<section class="content-header {theme}">
-		<div class="text">
-			<h1 class="title">
-				Color Palettes
-			</h1>
-			<div class="subtitle">
-				<!--todo: Write subtitle-->
-				<p>argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">0</strong> different palettes</p>
-			</div>
-		</div>
-	</section>
+	<ContentHeaderComponent title="Color Palettes" type="palettes" amount={13} />
 
 	<section class="color-palette-sec">
 		<ColorPaletteComponent title="Red" color="red" />

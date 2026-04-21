@@ -1,43 +1,19 @@
 <script lang="ts">
 	import CopyableComponent from '$lib/components/CopyableComponent.svelte';
 	import type { Brand } from '$lib/components/interfaces';
-	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
-	import { getContext, onMount } from 'svelte';
+	import { getContext } from 'svelte';
+	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 
 	const { data } = $props();
 
+	const getTheme = getContext('theme') as Function;
+	let theme: 'dark' | 'light' = $derived(getTheme());
+
 	// svelte-ignore state_referenced_locally
 	let brands: Brand[] = $derived(data.brands ?? []);
-	let theme: 'light' | 'dark' = $state(getContext('theme'));
-
-	onMount(async () => {
-		window.cookieStore.addEventListener('change', async (e) => {
-			for (const cookie of e.changed) {
-				if (cookie.name === 'argxs_theme') {
-					const currentTheme = await window.cookieStore.get('argxs_theme');
-					if (currentTheme !== null) {
-						theme = currentTheme.value === 'light' || currentTheme.value === 'dark' ? currentTheme.value : 'light';
-					}
-				}
-			}
-		});
-	});
 </script>
 
-<section class="content-header {theme}">
-	<div class="text">
-		<h1 class="title">
-			Brand Icons
-		</h1>
-		<div class="subtitle">
-			<!--todo: Write subtitle-->
-			<p>argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">{brands.length}</strong> different brands</p>
-		</div>
-	</div>
-	<div class="actions">
-		<ThemeSwitcher bind:theme />
-	</div>
-</section>
+<ContentHeaderComponent title="Brand Icons" type="brands" amount={brands.length} />
 
 <section class="icons-brands-sec">
 	{#each brands as brand}
@@ -64,13 +40,13 @@
 			</div>
 			<div class="icons">
 				{#if brand.icon !== undefined }
-					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.icon.dark ? '_dark' : '')} icon={theme === 'light' ? brand.icon.default : brand.icon.dark ?? brand.icon.default } />
+					<CopyableComponent title={brand.name.concat(theme === 'dark' && brand.icon.dark ? '_dark' : '')} icon={theme === 'light' ? brand.icon.default : brand.icon.dark ?? brand.icon.default } />
 				{/if}
 				{#if brand.logo !== undefined }
-					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && brand.logo.dark ? '_dark' : '')} icon={theme === 'light' ? brand.logo.default : brand.logo.dark ?? brand.logo.default } />
+					<CopyableComponent title={brand.name.concat(theme === 'dark' && brand.logo.dark ? '_dark' : '')} icon={theme === 'light' ? brand.logo.default : brand.logo.dark ?? brand.logo.default } />
 				{/if}
 				{#each brand.extra as icon }
-					<CopyableComponent bind:theme title={brand.name.concat(theme === 'dark' && icon.dark ? '_dark' : '')} icon={theme === 'light' ? icon.default : icon.dark ?? icon.default } />
+					<CopyableComponent title={brand.name.concat(theme === 'dark' && icon.dark ? '_dark' : '')} icon={theme === 'light' ? icon.default : icon.dark ?? icon.default } />
 				{/each}
 			</div>
 		</div>
@@ -78,11 +54,50 @@
 </section>
 
 <style>
+    /* Desktop & Tablet */
+    @media (width >= 450px) {
+				.icons-brands-sec {
+            justify-content: space-between;
+						gap: 1rem;
+
+            .brand {
+                align-items: flex-start;
+
+                .title {
+                    font-size: 1.25rem;
+                }
+								.icons {
+                    gap: .5rem;
+								}
+            }
+        }
+    }
+
+    /* Phone */
+    @media (width < 450px) {
+				.icons-brands-sec {
+            justify-content: center;
+            gap: 1.25rem;
+
+            .brand {
+                align-items: center;
+								width: 100%;
+
+                .title {
+										align-self: flex-start;
+                    font-size: 1.15rem;
+										margin-left: .5rem;
+                }
+								.icons {
+                    gap: 1.25rem;
+								}
+            }
+				}
+    }
+
     .icons-brands-sec {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
-        gap: 1rem;
 
         font-family: 'Lexend', sans-serif;
 
@@ -91,7 +106,6 @@
         .brand {
             display: flex;
             flex-flow: column nowrap;
-            align-items: flex-start;
             justify-content: center;
             gap: .25rem;
 
@@ -104,7 +118,6 @@
                 justify-content: flex-start;
 
                 font-family: 'Google Sans', 'Lexend', sans-serif;
-                font-size: 1.25rem;
                 font-weight: 600;
 
 								color: var(--theme-text-primary);
@@ -142,9 +155,8 @@
             .icons {
                 display: flex;
                 flex-flow: row wrap;
-                align-items: flex-start;
-                justify-content: flex-start;
-                gap: .5rem;
+                align-items: center;
+                justify-content: center;
             }
         }
     }

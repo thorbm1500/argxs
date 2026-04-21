@@ -1,4 +1,8 @@
-<section class="footer-section">
+<script lang="ts">
+	let { theme = $bindable() } = $props();
+</script>
+
+<section class="footer-section {theme}">
 	<a class="sponsor" href="https://vivabit.io">Powered by
 		<svg width="113" height="22" viewBox="0 0 113 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path

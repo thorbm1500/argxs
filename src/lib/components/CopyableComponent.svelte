@@ -28,7 +28,7 @@
 </script>
 
 <script lang="ts">
-	let { theme = $bindable(), icon, title = undefined, blur_content_bg = false } = $props();
+	let { icon, title = undefined, blur_content_bg = false } = $props();
 
 	let sendToast: any = $state.raw(undefined);
 
@@ -108,7 +108,7 @@
 	</div>
 {/if}
 
-<div class="copyable-container {theme}">
+<div class="copyable-container">
 	<div class="actions svg">
 		<button title="" class="info-button" onclick="{highlightClick}">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,14 +135,46 @@
 </div>
 
 <style>
+    /* Desktop & Tablet */
+    @media (width >= 450px) {
+        .highlighted-icon {
+            height: 20rem;
+            width: calc(100vw - 14rem);
+
+            .icon :global {
+                height: 8rem;
+            }
+        }
+
+				.copyable-container {
+            --box-size: 10rem;
+            padding: 1rem;
+				}
+    }
+
+    /* Phone */
+    @media (width < 450px) {
+        .highlighted-icon {
+            height: 20rem;
+            width: 100vw;
+
+            .icon :global {
+                height: 3.5rem;
+								max-width: 60vw;
+						}
+        }
+
+				.copyable-container {
+            --box-size: 30vw;
+            padding: 1rem;
+				}
+    }
+
     .highlighted-icon {
         position: fixed;
 
         bottom: 0;
         right: 0;
-
-        height: 20rem;
-        width: calc(100vw - 14rem);
 
         backdrop-filter: blur(.25rem) grayscale(.15) brightness(.85);
         border-top: 1px solid var(--theme-ui-line);
@@ -183,7 +215,6 @@
                 width: 100%;
             }
 
-            height: 8rem;
             width: auto;
 
             margin: 1rem;
@@ -263,9 +294,8 @@
         align-items: center;
         justify-content: center;
 
-        height: 10rem;
-        width: 10rem;
-        padding: 1rem;
+        height: var(--box-size);
+        width: var(--box-size);
 
         perspective: 250px;
         border-radius: .45rem;
@@ -275,14 +305,14 @@
         .actions {
             position: absolute;
 
+            height: var(--box-size);
+            width: var(--box-size);
+
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
             justify-content: center;
             gap: .25rem;
-
-            height: 10rem;
-            width: 10rem;
 
             border: 1px solid var(--theme-ui-line);
             border-radius: .45rem;
@@ -360,7 +390,7 @@
             transition: 200ms ease-in;
         }
 
-        .actions:hover {
+        .actions:hover,.actions:active,.actions:focus {
             backdrop-filter: blur(.115rem) grayscale(.15) saturate(.5);
 
             .copy, .download, .info-button {
@@ -418,7 +448,7 @@
         }
     }
 
-    .copyable-container.dark {
+    .dark .copyable-container {
         background: linear-gradient(to bottom, transparent 0%, #0f0f15 100%);
         border-color: var(--theme-ui-line);
     }
