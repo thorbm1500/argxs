@@ -113,10 +113,10 @@
 			}
 
 			.preview {
-				border: 1px solid var(--theme-ui-line);
+				border: 1px solid rgba(from var(--theme-ui-line) r g b / .35);
 				padding: 1.25rem 1.5rem;
 				border-radius: 0.75rem;
-				backdrop-filter: contrast(1.05);
+				background: var(--theme-ui-container);
 
 				.pangram {
 					font-weight: initial;

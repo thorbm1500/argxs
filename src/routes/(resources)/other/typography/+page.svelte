@@ -579,7 +579,7 @@
 
 			height: fit-content;
 
-			backdrop-filter: contrast(1.025);
+			background: var(--theme-ui-container);
 			border: 1px solid var(--theme-ui-line);
 			border-radius: 0.75rem;
 
