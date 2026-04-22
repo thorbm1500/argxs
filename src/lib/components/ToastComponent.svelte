@@ -3,9 +3,7 @@
 	import { elasticOut, expoIn } from 'svelte/easing';
 	import { flushSync } from 'svelte';
 
-	//todo: Check matchMedia('prefers-reduced-motion').matches on Windows
-
-	declare interface ToastRequest {
+	export interface ToastRequest {
 		message: string;
 		duration?: number;
 		type?: 'info' | 'copy' | 'download';

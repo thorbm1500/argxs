@@ -42,7 +42,7 @@
 
 	--theme-color-primary-reverse: #0d0d0d;
 	--theme-color-primary: #f7f9fc;
-	--theme-ui-container: #23283a;
+	--theme-ui-container: #1b1f2c;
 	--theme-ui-background: #111217;
 	--theme-ui-header: #1b1d26;
 	--theme-ui-line: #2e3244;
@@ -94,6 +94,8 @@ body {
 	overflow: hidden !important;
 
 	font-family: 'Lexend', sans-serif;
+
+	transition: background-color 150ms ease;
 
 	.coming-soon {
 		color: var(--theme-text-secondary);

@@ -140,7 +140,7 @@
 
 	<div class="nav-section">
 		<h1 class="title {page.url.pathname.startsWith('/cheat-sheets') ? 'selected' : ''}">Cheat Sheets</h1>
-		<div class={{ selected: page.url.pathname === '/cheat-sheets/transition-easing', planned: true }}>
+		<a class={{ selected: page.url.pathname === '/cheat-sheets/transition-easing' }} href="/cheat-sheets/transition-easing">
 			<svg viewBox="0 0 24 24" fill="currentColor">
 				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 				<path
@@ -148,7 +148,7 @@
 				<path d="M21 3a1 1 0 0 1 0 2c-2.83 0 -4.6 1.845 -8.152 7.53c-3.947 6.315 -6.012 8.47 -9.848 8.47a1 1 0 0 1 0 -2c2.83 0 4.6 -1.845 8.152 -7.53c3.947 -6.315 6.012 -8.47 9.848 -8.47" />
 			</svg>
 			Transition Easing
-		</div>
+		</a>
 		<div class={{ selected: page.url.pathname === '/icons/brands', planned: true }}>
 			<svg viewBox="0 0 24 24" fill="none">
 				<path
@@ -372,7 +372,7 @@
             }
         }
 
-        .planned {
+        .planned, .in_progress {
             cursor: no-drop;
         }
 
@@ -418,7 +418,6 @@
 				}
 
         .planned::after, .in_progress::after {
-
             backdrop-filter: brightness(1.25) !important;
             border-radius: 0.625rem;
             transform: translateX(0.25rem);

@@ -6,6 +6,7 @@
 	import { beforeNavigate } from '$app/navigation';
 	import { updated } from '$app/state';
 	import { setContext } from 'svelte';
+	import ToastComponent, { type ToastRequest } from '$lib/components/ToastComponent.svelte';
 
 	const { children, data } = $props();
 
@@ -24,12 +25,15 @@
 
 	const toggleFn = () => {
 		theme = theme === 'light' ? 'dark' : 'light';
-		if (window?.cookieStore) {
-			window.cookieStore.set('argxs_theme', theme);
-		}
+		window?.cookieStore?.set('argxs_theme', theme);
 	};
 	setContext('toggleTheme', toggleFn);
+
+	let sendToast: any = $state.raw(undefined);
+	setContext('sendToast', (req: ToastRequest) => sendToast?.(req));
 </script>
+
+<ToastComponent bind:sendFunction={sendToast} />
 
 <Header bind:theme bind:sidebarState />
 <Sidebar bind:theme bind:sidebarState version={data.version} />
