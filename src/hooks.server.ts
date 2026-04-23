@@ -7,6 +7,7 @@ import MetricsHandler from '$lib/server/MetricsHandler';
 import Database from '$lib/server/Database';
 
 const limiter = new RateLimiter({ IP: [1, '100ms'] });
+const database = new Database();
 const metricsHandler = new MetricsHandler();
 
 export const VERSION: string = await Bun.file('./package.json')
