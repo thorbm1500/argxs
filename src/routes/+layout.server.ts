@@ -4,6 +4,7 @@ export const ssr = true;
 
 export const load = async ({ locals }) => {
 	return {
+		requests: locals.requests,
 		theme: locals.theme,
 		version: VERSION
 	};

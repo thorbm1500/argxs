@@ -31,6 +31,7 @@
         font-family: 'Lexend', sans-serif;
 
         user-select: none;
+				box-sizing: border-box !important;
 
         .sponsor {
             display: flex;
@@ -66,5 +67,7 @@
 
             opacity: 0.75;
         }
+
+
     }
 </style>

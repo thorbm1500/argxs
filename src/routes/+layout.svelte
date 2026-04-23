@@ -36,7 +36,7 @@
 <ToastComponent bind:sendFunction={sendToast} />
 
 <Header bind:theme bind:sidebarState />
-<Sidebar bind:theme bind:sidebarState version={data.version} />
+<Sidebar bind:theme bind:sidebarState version={data.version} requests={data.requests} />
 
 <section class="main-container {theme}">
 	{#if children}

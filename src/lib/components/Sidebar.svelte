@@ -1,28 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/state';
 
-	let { theme = $bindable(), sidebarState = $bindable(), version = 'x.x.x' } = $props();
+	let { theme = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests = 0 } = $props();
+
+	// svelte-ignore state_referenced_locally
+	const formattedRequests = requests.toLocaleString('da-DK');
+	let requestChars: string[] = [];
+
+	for (let i = 0; i < formattedRequests.length; i++) {
+		requestChars.push(formattedRequests[i] ?? '');
+	}
 </script>
 
 <section class="sidebar-section {theme} {sidebarState ? 'res-visible' : 'res-hidden'}">
-	<div class="version">
-		<nav class="github">
-			<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
-				<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
-					<path
-						d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
-						fill-rule="evenodd"
-						clip-rule="evenodd"
-						transform="scale(64)"
-						fill="currentColor"
-					/>
-				</svg>
-				GitHub
-			</a>
-		</nav>
-		<p class="text">ver. {version}</p>
-	</div>
-
 	<div class="nav-top">
 		<a data-sveltekit-replacestate class={{ selected: page.url.pathname === '/' }} href="/">
 			<svg viewBox="0 0 24 24" fill="none">
@@ -34,7 +24,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Home
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Home</p>
 		</a>
 		<a data-sveltekit-replacestate class={{ selected: page.url.pathname === '/concept' }} href="/concept">
 			<svg viewBox="0 0 24 24" fill="none">
@@ -46,7 +36,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Core Concept
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Core Concept</p>
 		</a>
 	</div>
 
@@ -62,7 +52,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Flags
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Flags</p>
 		</a>
 		<a data-sveltekit-replacestate class={{ selected: page.url.pathname === '/icons/brands' }} href="/icons/brands">
 			<svg viewBox="0 0 24 24" fill="none">
@@ -74,7 +64,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Brands
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Brands</p>
 		</a>
 	</div>
 
@@ -90,7 +80,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Colors
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Colors</p>
 		</div>
 		<div class={{ selected: page.url.pathname === '/colors/gradients', planned: true }}>
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -101,7 +91,7 @@
 				<path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12" />
 				<path d="M17 17l0 .01" />
 			</svg>
-			Color Palettes
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Color Palettes</p>
 		</div>
 		<div class={{ selected: page.url.pathname === '/colors/gradients', planned: true }}>
 			<svg viewBox="0 0 24 24" fill="none">
@@ -134,7 +124,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Gradients
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Gradients</p>
 		</div>
 	</div>
 
@@ -147,7 +137,7 @@
 					d="M19 17a3 3 0 1 1 -2.829 4h-1.171a1 1 0 0 1 0 -2h1.17a3 3 0 0 1 2.83 -2m-14 -16c1.306 0 2.418 .835 2.83 2h1.17a1 1 0 1 1 0 2h-1.171a3.001 3.001 0 1 1 -2.829 -4m9 2a1 1 0 0 1 0 2h-2a1 1 0 0 1 0 -2zm-2 16a1 1 0 0 1 0 2h-2a1 1 0 0 1 0 -2z" />
 				<path d="M21 3a1 1 0 0 1 0 2c-2.83 0 -4.6 1.845 -8.152 7.53c-3.947 6.315 -6.012 8.47 -9.848 8.47a1 1 0 0 1 0 -2c2.83 0 4.6 -1.845 8.152 -7.53c3.947 -6.315 6.012 -8.47 9.848 -8.47" />
 			</svg>
-			Transition Easing
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Transition Easing</p>
 		</a>
 		<div class={{ selected: page.url.pathname === '/icons/brands', planned: true }}>
 			<svg viewBox="0 0 24 24" fill="none">
@@ -159,9 +149,77 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Flexbox
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Flexbox Layout</p>
 		</div>
-		<div class={{ selected: page.url.pathname === '/icons/brands', planned: true }}>
+		<div class={{planned: true }}>
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M19 6C19.5523 6 20 5.55228 20 5C20 4.44772 19.5523 4 19 4C18.4477 4 18 4.44772 18 5C18 5.55228 18.4477 6 19 6Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 12.5523 18.4477 13 19 13Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M19 20C19.5523 20 20 19.5523 20 19C20 18.4477 19.5523 18 19 18C18.4477 18 18 18.4477 18 19C18 19.5523 18.4477 20 19 20Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M5 6C5.55228 6 6 5.55228 6 5C6 4.44772 5.55228 4 5 4C4.44772 4 4 4.44772 4 5C4 5.55228 4.44772 6 5 6Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+				<path
+					d="M5 20C5.55228 20 6 19.5523 6 19C6 18.4477 5.55228 18 5 18C4.44772 18 4 18.4477 4 19C4 19.5523 4.44772 20 5 20Z"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Grid Layout</p>
+		</div>
+		<div class={{planned: true }}>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 				<path d="M14 3v4a1 1 0 0 0 1 1h4" />
@@ -170,7 +228,7 @@
 				<path d="M11 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
 				<path d="M17 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
 			</svg>
-			CSS Guide
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">CSS Guide</p>
 		</div>
 	</div>
 
@@ -186,7 +244,7 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			Typography
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Typography</p>
 		</a>
 		<div class={{ selected: page.url.pathname === '/other/external', planned: true }}>
 			<svg viewBox="0 0 24 24" fill="none">
@@ -198,8 +256,53 @@
 					stroke-linejoin="round"
 				/>
 			</svg>
-			External
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">External</p>
 		</div>
+	</div>
+
+	<div class="version">
+		<nav class="github">
+			<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
+				<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+					<path
+						d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+						transform="scale(64)"
+						fill="currentColor"
+					/>
+				</svg>
+				GitHub
+			</a>
+		</nav>
+		<div class="metrics">
+			<div class="metrics-text">
+				<p class="title"># Developers helped</p>
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M6.5 13L7.28446 14.5689C7.54995 15.0999 7.68269 15.3654 7.86003 15.5954C8.01739 15.7996 8.20041 15.9826 8.40455 16.14C8.63462 16.3173 8.9001 16.4501 9.43108 16.7155L11 17.5L9.43108 18.2845C8.9001 18.5499 8.63462 18.6827 8.40455 18.86C8.20041 19.0174 8.01739 19.2004 7.86003 19.4046C7.68269 19.6346 7.54995 19.9001 7.28446 20.4311L6.5 22L5.71554 20.4311C5.45005 19.9001 5.31731 19.6346 5.13997 19.4046C4.98261 19.2004 4.79959 19.0174 4.59545 18.86C4.36538 18.6827 4.0999 18.5499 3.56892 18.2845L2 17.5L3.56892 16.7155C4.0999 16.4501 4.36538 16.3173 4.59545 16.14C4.79959 15.9826 4.98261 15.7996 5.13997 15.5954C5.31731 15.3654 5.45005 15.0999 5.71554 14.5689L6.5 13Z"
+						stroke="currentColor"
+						stroke-width="2.25"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+					<path
+						d="M15 2L16.1786 5.06442C16.4606 5.79765 16.6016 6.16426 16.8209 6.47264C17.0153 6.74595 17.254 6.98475 17.5274 7.17909C17.8357 7.39836 18.2024 7.53937 18.9356 7.82138L22 9L18.9356 10.1786C18.2024 10.4606 17.8357 10.6016 17.5274 10.8209C17.254 11.0153 17.0153 11.254 16.8209 11.5274C16.6016 11.8357 16.4606 12.2024 16.1786 12.9356L15 16L13.8214 12.9356C13.5394 12.2024 13.3984 11.8357 13.1791 11.5274C12.9847 11.254 12.746 11.0153 12.4726 10.8209C12.1643 10.6016 11.7976 10.4606 11.0644 10.1786L8 9L11.0644 7.82138C11.7976 7.53937 12.1643 7.39836 12.4726 7.17909C12.746 6.98475 12.9847 6.74595 13.1791 6.47264C13.3984 6.16426 13.5394 5.79765 13.8214 5.06442L15 2Z"
+						stroke="currentColor"
+						stroke-width="2.25"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+				</svg>
+
+			</div>
+			<div class="metrics-value">
+				{#each requestChars as char}
+					<p class="value {char === '.' ? 'dot' : 'number'}">{char}</p>
+				{/each}
+			</div>
+		</div>
+		<p class="version-text">ver. {version}</p>
 	</div>
 </section>
 
@@ -223,28 +326,37 @@
                     position: absolute;
                 }
 
-                .text {
+                .version-text {
                     font-size: 0.75rem;
                 }
             }
 
-            a, .planned, .in_progress {
-                padding: 1rem 0.6rem;
-                font-size: 0.865rem;
-								text-wrap: nowrap;
-
-                svg {
-                    height: 1.15rem;
-                    width: 1.15rem;
-
-                    margin-right: 0.15rem;
+            .nav-section, .nav-top {
+                .title {
+                    font-size: .85rem;
+                    font-weight: 500;
+                    padding-left: .25rem;
                 }
-            }
 
-            .planned::after, .in_progress::after {
-                font-size: 0.65rem;
-								font-weight: 600;
-                padding: 0.25rem 0.5rem;
+                a, .planned, .in_progress {
+                    padding: 1rem 0.6rem;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    text-wrap: nowrap;
+
+                    svg {
+                        height: 1.15rem;
+                        width: 1.15rem;
+
+                        margin-right: 0.15rem;
+                    }
+                }
+
+                .planned::after, .in_progress::after {
+                    font-size: 0.65rem;
+                    font-weight: 700;
+                    padding: 0.25rem 0.5rem;
+                }
             }
         }
     }
@@ -269,6 +381,11 @@
             width: 100vw;
             border: none;
 
+            .title {
+                font-size: .9rem;
+                font-weight: 550;
+            }
+
             .version {
                 width: 100vw;
 
@@ -276,7 +393,7 @@
                     visibility: visible;
                 }
 
-                .text {
+                .version-text {
                     font-size: 0.8rem;
                 }
             }
@@ -284,6 +401,7 @@
             a, .planned, .in_progress {
                 padding: 1.3rem 0.85rem;
                 font-size: 1.15rem;
+                font-weight: 700;
 
                 svg {
                     height: 1.35rem;
@@ -297,6 +415,24 @@
                 font-size: 0.8rem;
                 font-weight: 550;
                 padding: 0.275rem 0.575rem;
+            }
+        }
+    }
+
+    .nav-section, .nav-top {
+        a:hover, a.selected,
+        .planned:hover, .in_progress:hover {
+            .text {
+                background-image: radial-gradient(circle at 10% 20%, rgb(174 110 204) 0%, rgb(62 175 229) 28.8%, rgb(45 208 51) 45.6%, rgb(224 196 16) 65.9%, rgb(255 143 28) 75.8%, rgb(222 70 70) 80%, rgb(255 123 249) 85.7%);
+            }
+        }
+    }
+
+    .dark .nav-section, .dark .nav-top {
+        a:hover, a.selected,
+        .planned:hover, .in_progress:hover {
+            .text {
+                background-image: radial-gradient(circle at 10% 20%, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
             }
         }
     }
@@ -318,12 +454,17 @@
 
         user-select: none !important;
 
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none;
+
         z-index: 89999;
 
         .version {
-            position: absolute;
-            bottom: 1rem;
-            left: 0;
+            margin-top: 1.5rem;
+
+            height: 6rem;
+            width: 100%;
 
             display: flex;
             flex-flow: column nowrap;
@@ -337,7 +478,82 @@
                 }
             }
 
-            .text {
+            .metrics {
+                margin-bottom: .5rem;
+                width: fit-content;
+
+                .metrics-text {
+                    display: flex;
+                    align-items: center;
+                    gap: .075rem;
+
+                    text-rendering: geometricPrecision;
+                    font-family: 'Funnel Display', sans-serif;
+                    font-size: .85rem;
+                    font-weight: 700;
+                    color: transparent;
+                    background-clip: text;
+                    background-image: linear-gradient(-8.5deg, color-mix(var(--theme-text-third), #262a38 5%) 0%, color-mix(var(--theme-text-third), var(--theme-text-secondary) 25%) 100%);
+                    margin-bottom: .145rem;
+
+                    svg {
+                        color: var(--theme-text-third);
+                        height: 1rem;
+                        width: 1rem;
+                        margin-bottom: .175rem;
+                        transform: rotate(-10.5deg);
+                    }
+                }
+
+                .metrics-value {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: end;
+                    justify-content: center;
+
+                    font-family: "Bricolage Grotesque", sans-serif;
+                    font-size: 1.25rem;
+                    font-weight: 1000;
+
+                    color: var(--theme-text-secondary);
+
+                    .value {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: center;
+                        margin: 0 .125rem;
+                        width: fit-content;
+
+                        background: linear-gradient(to top, rgba(from var(--theme-text-third) r g b / .4) 0%, rgba(from var(--theme-text-third) r g b / .6) 100%);
+                        border: 1px solid var(--theme-text-third);
+                        border-radius: .25rem;
+                    }
+
+                    .number {
+                        display: flex;
+                        align-items: center;
+                        height: 2rem;
+                        width: 1.15rem;
+                    }
+
+                    .dot {
+                        color: transparent;
+                        align-items: anchor-center;
+                        height: .75rem;
+                        width: .75rem;
+                    }
+
+                    .dot::after {
+                        position: relative;
+                        content: ".";
+                        color: var(--theme-text-secondary);
+                        right: 2px;
+                        top: -5px;
+                    }
+                }
+            }
+
+            .version-text {
                 color: var(--theme-text-third);
                 font-weight: 550;
             }
@@ -351,6 +567,22 @@
             width: 100%;
         }
 
+        .nav-top::after, .nav-section:not(:last-child)::after {
+            content: '';
+
+            position: relative;
+            align-self: center;
+
+            width: 80%;
+            height: 3px;
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+
+            background: linear-gradient(to top, rgba(from var(--theme-text-third) r g b / .25) 0%, var(--theme-text-third) 50%, rgba(from var(--theme-text-third) r g b / .25) 100%);
+            opacity: .2;
+            border-radius: 4px;
+        }
+
         .nav-section {
             display: flex;
             flex-flow: column nowrap;
@@ -360,11 +592,9 @@
             margin-top: 1rem;
 
             .title {
-                font-size: 0.9rem;
                 color: var(--theme-text-secondary);
                 margin-bottom: 0.25rem;
-                font-family: 'Google Sans', sans-serif;
-                font-weight: 700;
+                font-family: 'Funnel Sans', sans-serif;
             }
 
             .title.selected {
@@ -389,33 +619,48 @@
             border-radius: 0.8rem;
             margin-bottom: 0.25rem;
 
-            font-weight: 375;
             color: var(--theme-text-secondary);
+
+            font-family: 'Funnel Sans', sans-serif;
+            transition: var(--theme-transition-off);
         }
 
         a.selected,
         a:hover,
         .planned:hover,
-				.in_progress:hover{
-            color: var(--theme-text-primary);
-            backdrop-filter: brightness(1.25);
+        .in_progress:hover {
+            background: linear-gradient(to left, var(--theme-ui-sidebar-highlight) 15%, color-mix(var(--theme-ui-sidebar-highlight), var(--theme-color-primary) 5%) 100%);
+            transition: var(--theme-transition-on);
+
+            .text {
+                color: transparent;
+                background-clip: text;
+                background-repeat: repeat;
+                background-size: 1500% 1500%;
+
+                transition: var(--theme-transition-on);
+                animation: backgroundScroll 40s linear infinite;
+            }
         }
 
-        .planned:hover::after, .in_progress:hover::after{
+        .planned:hover::after, .in_progress:hover::after {
             background: var(--theme-ui-container);
+            transition: var(--theme-transition-on);
         }
 
-				.planned::after {
-						content: 'Planned';
+        .planned::after {
+            content: 'Planned';
             color: var(--theme-text-secondary);
-				}
+            transition: var(--theme-transition-off);
+        }
+
         .in_progress::after {
-						content: 'In Progress';
-						color: var(--theme-ui-white);
+            content: 'In Progress';
+            color: var(--theme-ui-white);
             background: var(--theme-color-aware);
 
-						transition: 50ms ease;
-				}
+            transition: var(--theme-transition-off);
+        }
 
         .planned::after, .in_progress::after {
             backdrop-filter: brightness(1.25) !important;
@@ -424,11 +669,23 @@
 
             align-self: center;
             margin-left: auto;
+
+            transition: var(--theme-transition-off);
         }
 
         a.planned.selected::after, a.in_progress.selected::after {
             color: var(--theme-color-accent);
             background: var(--theme-ui-container);
+            transition: var(--theme-transition-off);
+        }
+    }
+
+    @keyframes backgroundScroll {
+        0% {
+            background-position-x: var(--bg-x);
+        }
+        100% {
+            background-position-x: calc(var(--bg-x) * -1);
         }
     }
 </style>

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	const { data } = $props();
+
 	let x: number = $state.raw(0);
 	let y: number = $state.raw(0);
 
@@ -93,7 +95,7 @@
 						width: 100%;
 						height: fit-content;
             transform-style: preserve-3d;
-            transform: translateZ(-1rem);
+            transform: translateZ(.5rem);
 
 						svg {
 								width: 1.25rem;

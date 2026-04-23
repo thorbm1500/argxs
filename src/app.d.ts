@@ -5,10 +5,21 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			theme: 'light' | 'dark';
+			requests: number
 		}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
+	}
+}
+
+declare module 'bun' {
+	interface Env {
+		NODE_ENV: string;
+		PGUSERNAME: string;
+		PGPASSWORD: string;
+		PGDATABASE: string;
+		PGHOST: string;
 	}
 }
 

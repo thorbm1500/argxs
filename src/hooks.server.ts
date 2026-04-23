@@ -3,8 +3,10 @@ import { error, type Handle, type ServerInit } from '@sveltejs/kit';
 import { RateLimiter } from 'sveltekit-rate-limiter/server';
 import { Resources } from '$lib/server/Resources';
 import { env } from '$env/dynamic/private';
+import MetricsHandler from '$lib/server/MetricsHandler';
 
 const limiter = new RateLimiter({ IP: [1, '100ms'] });
+const metricsHandler = new MetricsHandler();
 
 export const VERSION: string = await Bun.file('./package.json')
 	.json()
@@ -31,6 +33,12 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 		});
 		event.locals.theme = 'light';
 	} else event.locals.theme = theme;
+
+	event.locals.requests = metricsHandler.getRequestsAmount();
+
+	// Ignored purposefully t
+	// noinspection ES6MissingAwait
+	metricsHandler.process(event);
 
 	return resolve(event);
 };
