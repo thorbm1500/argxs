@@ -6,8 +6,9 @@ export default class MetricsHandler {
 	private static totalRequests: number = 0;
 	private static visitorCache: Map<string, number> = new Map();
 
+	// Runs once every hour
 	// noinspection JSUnusedGlobalSymbols
-	static readonly garbageCollection = Bun.cron('*/10 * * * *', MetricsHandler.collect);
+	static readonly garbageCollection = Bun.cron('0 * * * *', MetricsHandler.collect);
 
 	static async init(): Promise<void> {
 		MetricsHandler.totalRequests = await Database.getTotalVisitorAmount();

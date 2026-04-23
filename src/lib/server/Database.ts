@@ -35,10 +35,10 @@ export default class Database {
 		                   (
 												 date     varchar(10) PRIMARY KEY,
 			                   visitors BIGINT DEFAULT 0 NOT NULL
-		                   )`.catch(() => []);
+		                   )`.catch(error => console.error(error));
 
-		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${totalId},0)`.catch(() => []);
-		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${this.currentDate},0)`.catch(() => []);
+		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${totalId},0)`.catch((error) => console.error(error));
+		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${this.currentDate},0)`.catch(error => console.error(error));
 	}
 
 	static async getTotalVisitorAmount(): Promise<number> {
