@@ -9,9 +9,9 @@ export default class MetricsHandler {
 	// noinspection JSUnusedGlobalSymbols
 	static readonly garbageCollection = Bun.cron('*/10 * * * *', MetricsHandler.collect);
 
-	constructor() {
-		Database.getTotalVisitorAmount().then(amount => MetricsHandler.totalRequests = amount);
-		Database.getCurrentDayVisitorAmount().then((amount) => (MetricsHandler.dailyRequests = amount));
+	static async init(): Promise<void> {
+		MetricsHandler.totalRequests = await Database.getTotalVisitorAmount();
+		MetricsHandler.dailyRequests = await Database.getCurrentDayVisitorAmount();
 	}
 
 	getRequestsAmount(): number {
