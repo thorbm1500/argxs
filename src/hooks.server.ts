@@ -4,6 +4,7 @@ import { RateLimiter } from 'sveltekit-rate-limiter/server';
 import { Resources } from '$lib/server/Resources';
 import { env } from '$env/dynamic/private';
 import MetricsHandler from '$lib/server/MetricsHandler';
+import Database from '$lib/server/Database';
 
 const limiter = new RateLimiter({ IP: [1, '100ms'] });
 const metricsHandler = new MetricsHandler();
@@ -16,6 +17,8 @@ export const RESOURCES: Resources = new Resources();
 // noinspection JSUnusedGlobalSymbols
 export const init: ServerInit = async () => {
 	if (building) return;
+
+	await Database.init();
 	await RESOURCES.init();
 };
 

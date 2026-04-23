@@ -1,5 +1,7 @@
+import { building } from '$app/environment';
+
 export default class Database {
-	static readonly isProduction: boolean = Bun.env.NODE_ENV === 'production';
+	static readonly isProduction: boolean = !building && Bun.env.NODE_ENV === 'production';
 	static readonly totalId = new Date(0).toISOString().slice(0, 10);
 	static currentDate: string = new Date(Date.now()).toISOString().slice(0, 10);
 
