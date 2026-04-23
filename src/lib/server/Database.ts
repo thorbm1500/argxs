@@ -1,7 +1,7 @@
 import { building } from '$app/environment';
 
 const isProduction: boolean = !building && Bun.env.NODE_ENV === 'production';
-const totalId = new Date(0).toISOString().slice(0, 10);
+const totalId: string = new Date(0).toISOString().slice(0, 10);
 
 export default class Database {
 	static currentDate: string;
@@ -35,26 +35,25 @@ export default class Database {
 		                   (
 												 date     varchar(10) PRIMARY KEY,
 			                   visitors BIGINT DEFAULT 0 NOT NULL
-		                   )`.catch();
+		                   )`.catch(ignored => {});
 
-		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${totalId},0)`.catch();
-		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${this.currentDate},0)`.catch();
+		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${totalId},0)`.catch(ignored => {});
+		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${this.currentDate},0)`.catch(ignored => {});
 	}
 
 	static async getTotalVisitorAmount(): Promise<number> {
 		if (!isProduction) return -1;
 
-		const result = await Database.SQL`SELECT visitors FROM metrics WHERE date=${totalId}`.catch();
+		const result = await Database.SQL`SELECT visitors FROM metrics WHERE date=${totalId}`.catch(ignored => {});
 		return result[0].visitors ?? 0;
 	}
 
 	static async getCurrentDayVisitorAmount(): Promise<number> {
 		if (!isProduction) return 0;
 
-		const result = await Database.SQL`SELECT visitors FROM metrics WHERE date=${totalId}`
-			.catch(async () => {
-				Database.SQL`INSERT INTO metrics VALUES (${this.currentDate}, 0)`.catch();
-			});
+		const result = await Database.SQL`SELECT visitors FROM metrics WHERE date=${this.currentDate}`.catch(async () => {
+			Database.SQL`INSERT INTO metrics VALUES (${this.currentDate}, 0)`.catch(ignored => {});
+		});
 
 		return result[0].visitors ?? 0;
 	}
@@ -62,13 +61,13 @@ export default class Database {
 	static async updateTotalVisitorAmount(amount: number): Promise<void> {
 		if (!isProduction) return;
 
-		await Database.SQL`UPDATE metrics SET visitors = ${amount} WHERE date=${totalId}`.catch();
+		await Database.SQL`UPDATE metrics SET visitors = ${amount} WHERE date=${totalId}`.catch(ignored => {});
 	}
 
 	static async updateCurrentDayVisitorAmount(amount: number): Promise<void> {
 		if (!isProduction) return;
 
-		await Database.SQL`UPDATE metrics SET visitors = ${amount} WHERE date=${this.currentDate}`.catch();
+		await Database.SQL`UPDATE metrics SET visitors = ${amount} WHERE date=${this.currentDate}`.catch(ignored => {});
 	}
 
 	static async incrementVisitorCount(total: number, daily: number): Promise<void> {
