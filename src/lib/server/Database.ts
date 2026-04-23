@@ -45,7 +45,7 @@ export default class Database {
 		if (!isProduction) return -1;
 
 		const result = await Database.SQL`SELECT visitors FROM metrics WHERE date=${totalId}`.catch(() => []);
-		return !!result ? result[0].visitors ?? 0 : -1;
+		return result[0]?.visitors ?? -1;
 	}
 
 	static async getCurrentDayVisitorAmount(): Promise<number> {
@@ -56,7 +56,7 @@ export default class Database {
 			return [];
 		});
 
-		return !!result ? result[0].visitors ?? 0 : -1;
+		return result[0]?.visitors ?? -1;
 	}
 
 	static async updateTotalVisitorAmount(amount: number): Promise<void> {
