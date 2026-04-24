@@ -52,6 +52,17 @@
 			</svg>
 			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Core Concept</p>
 		</a>
+		<div data-sveltekit-replacestate class={{ in_progress: true }}>
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M3 11h18" />
+				<path d="M5 11v-4a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v4" />
+				<path d="M4 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+				<path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+				<path d="M10 17h4" />
+			</svg>
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Privacy</p>
+		</div>
 	</div>
 
 	<div class="nav-section">
@@ -328,9 +339,9 @@
         }
 
         #sidebar-light {
-						position: absolute;
-						top: 0;
-						left: calc(18.5rem - 4px);
+            position: absolute;
+            top: 0;
+            left: calc(18.5rem - 4px);
             pointer-events: none !important;
 
             overflow: visible;
@@ -351,13 +362,13 @@
                 align-self: center;
                 align-content: center;
 
-								filter: saturate(1.5);
+                filter: saturate(1.5);
                 mask-image: linear-gradient(0deg, transparent 30%, white 50%, transparent 70%);
                 mask-mode: alpha;
 
                 height: 60vh;
-								transform: translateY(-12.5vh);
-								opacity: 0;
+                transform: translateY(-12.5vh);
+                opacity: 0;
                 width: 8px;
 
                 z-index: 99999;
@@ -365,27 +376,27 @@
                 #light {
                     justify-self: center;
                     width: 1px !important;
-										height: 50vh;
-										filter: saturate(1.1) contrast(1.05) brightness(1);
-										background-repeat: repeat-y;
+                    height: 50vh;
+                    filter: saturate(1.1) contrast(1.05) brightness(1);
+                    background-repeat: repeat-y;
                     background-image: linear-gradient(0deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
                 }
             }
         }
 
-				#sidebar-light.active #sidebar-light-mask {
-						animation: sidebarNavAnim 1.65s;
+        #sidebar-light.active #sidebar-light-mask {
+            animation: sidebarNavAnim 1.65s;
 
-						#light {
+            #light {
                 animation: sidebarNavLightAnim 1.65s;
-						}
-				}
+            }
+        }
 
         #sidebar-light.inactive {
             #sidebar-light-mask, #sidebar-light-mask #light {
                 animation: none;
-						}
-				}
+            }
+        }
 
         .sidebar-section {
             width: var(--sidebar-width);
@@ -446,7 +457,7 @@
                 height: 60vh;
                 transform: translateY(115vh);
             }
-            0%,100% {
+            0%, 100% {
                 opacity: 0;
             }
             3.5%, 96.5% {
@@ -547,7 +558,7 @@
 
     .sidebar-section {
         position: absolute;
-				box-sizing: border-box;
+        box-sizing: border-box;
 
         height: calc(100vh - var(--header-height));
         bottom: 0;
@@ -589,7 +600,7 @@
             .metrics {
                 margin-bottom: .5rem;
                 width: fit-content;
-								height: fit-content;
+                height: fit-content;
 
                 .metrics-text {
                     display: flex;
@@ -684,11 +695,11 @@
 
             width: 80%;
             height: 3px;
-            margin-top: .5rem;
-            margin-bottom: .5rem;
+            margin-top: .325rem;
+            margin-bottom: .325rem;
 
             background: linear-gradient(to top, rgba(from var(--theme-text-third) r g b / .25) 0%, var(--theme-text-third) 50%, rgba(from var(--theme-text-third) r g b / .25) 100%);
-            opacity: .2;
+            opacity: .1875;
             border-radius: 4px;
         }
 
