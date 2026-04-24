@@ -46,14 +46,14 @@
 
 	--theme-color-primary-reverse: #0d0d0d;
 	--theme-color-primary: #f7f9fc;
-	--theme-ui-container: #1b1f2c;
+	--theme-ui-container: #16181e;
 	--theme-ui-background: #111217;
 	--theme-ui-header: #1b1d26;
 	--theme-ui-line: #2e3244;
 	--theme-ui-line-highlight: #38455d;
-	--theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
+	--theme-ui-sidebar: #16181e;
 	--theme-ui-icon: #5e687a;
-	--theme-ui-sidebar-highlight: color-mix(var(--theme-ui-sidebar) 95%, var(--theme-color-primary) 10%);
+	--theme-ui-sidebar-highlight: #20242c;
 
 	--theme-text-gradient: linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #b8c4d2 20%, #f7f9fc 75%);
 }

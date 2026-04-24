@@ -5,6 +5,7 @@ import { Resources } from '$lib/server/Resources';
 import { env } from '$env/dynamic/private';
 import MetricsHandler from '$lib/server/MetricsHandler';
 import Database from '$lib/server/Database';
+import { SiteCookies } from '$lib/server/Definitions';
 
 const limiter = new RateLimiter({ IP: [1, '100ms'] });
 const metricsHandler = new MetricsHandler();
@@ -28,9 +29,9 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 		return building ? resolve(event) : error(429);
 	}
 
-	const theme: string | undefined = event.cookies.get('argxs_theme');
+	const theme: string | undefined = event.cookies.get(SiteCookies.Theme);
 	if (theme === undefined || (theme !== 'light' && theme !== 'dark')) {
-		event.cookies.set('argxs_theme', 'light', {
+		event.cookies.set(SiteCookies.Theme, 'light', {
 			path: '/',
 			sameSite: 'lax',
 			secure: Boolean(env.NODE_ENV === 'production')
@@ -38,7 +39,7 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 		event.locals.theme = 'light';
 	} else event.locals.theme = theme;
 
-	event.locals.requests = metricsHandler.getRequestsAmount();
+	event.locals.requests = metricsHandler.getVisitorMetrics();
 
 	// Ignored purposefully t
 	// noinspection ES6MissingAwait

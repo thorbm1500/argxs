@@ -1,11 +1,13 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
+import type { VisitorMetric } from '$lib/server/MetricsHandler.ts';
+
 declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
 			theme: 'light' | 'dark';
-			requests: number
+			requests: VisitorMetric
 		}
 		// interface PageData {}
 		// interface PageState {}

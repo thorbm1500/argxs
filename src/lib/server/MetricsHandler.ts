@@ -1,9 +1,16 @@
-import type { RequestEvent } from '@sveltejs/kit';
+import type { Cookies, RequestEvent } from '@sveltejs/kit';
 import Database from '$lib/server/Database';
+import { SiteCookies } from '$lib/server/Definitions';
+
+export interface VisitorMetric {
+	total: number,
+	today: number,
+	initialTotalToday: number
+}
 
 export default class MetricsHandler {
-	private static dailyRequests: number = 0;
-	private static totalRequests: number = 0;
+	private static requestsToday: number = 0;
+	private static requestsTotal: number = 0;
 	private static visitorCache: Map<string, number> = new Map();
 
 	// Runs once every hour
@@ -11,15 +18,32 @@ export default class MetricsHandler {
 	static readonly garbageCollection = Bun.cron('0 * * * *', MetricsHandler.collect);
 
 	static async init(): Promise<void> {
-		MetricsHandler.totalRequests = await Database.getTotalVisitorAmount();
-		MetricsHandler.dailyRequests = await Database.getCurrentDayVisitorAmount();
+		MetricsHandler.requestsTotal = await Database.getTotalVisitorAmount();
+		MetricsHandler.requestsToday = await Database.getCurrentDayVisitorAmount();
 	}
 
-	getRequestsAmount(): number {
-		return MetricsHandler.totalRequests;
+	getVisitorMetrics(): VisitorMetric {
+		return {
+			total: MetricsHandler.requestsTotal,
+			today: MetricsHandler.requestsToday,
+			initialTotalToday: MetricsHandler.requestsTotal - MetricsHandler.requestsToday
+		};
+	}
+
+	/**
+	 * Checks if the visitor has opted out of site tracking.
+	 * @param cookies The visitor's cookies
+	 * @private
+	 */
+	private isOptedOut(cookies: Cookies): boolean {
+		return cookies.get(SiteCookies.OptOut) !== undefined;
 	}
 
 	async process(event: RequestEvent): Promise<void> {
+		if (!event) return;
+		// Allow users to deny the usage of their IP addresses for site statistics.
+		if (this.isOptedOut(event.cookies)) return;
+
 		// Processed in try/catch, as calling event#getClientAddress has thrown errors in the past.
 		try {
 			const client: string = event.getClientAddress();
@@ -28,16 +52,15 @@ export default class MetricsHandler {
 			MetricsHandler.visitorCache.set(client, Date.now() + 900000);
 
 			if (!cache || Date.now() > cache) {
-				MetricsHandler.totalRequests++;
-				MetricsHandler.dailyRequests++;
+				MetricsHandler.requestsTotal++;
+				MetricsHandler.requestsToday++;
 				// noinspection ES6MissingAwait
-				Database.incrementVisitorCount(MetricsHandler.totalRequests, MetricsHandler.dailyRequests);
+				Database.incrementVisitorCount(MetricsHandler.requestsTotal, MetricsHandler.requestsToday);
 			}
 		} catch (ignored) {}
 	}
 
 	private static collect(): void {
-		console.log('[Metrics] Garbage Collector running...');
 		const current: number = Date.now() + 900000;
 
 		MetricsHandler.visitorCache.forEach((value, key): void => {

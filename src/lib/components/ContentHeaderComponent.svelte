@@ -10,7 +10,7 @@
 		<div class="subtitle">
 			<!--todo: Write subtitle-->
 			<p>
-				argxs currently showcases <strong style="color:color-mix(var(--theme-text-third) 25%, var(--theme-color-accent) 75%);">{amount}</strong>
+				argxs currently showcases <strong style="color: var(--theme-color-accent);">{amount}</strong>
 				different {type}
 			</p>
 		</div>

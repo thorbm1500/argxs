@@ -1,16 +1,30 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
-	let { theme = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests = 0 } = $props();
+	let { theme = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests } = $props();
+
+	let navState: 'active' | 'inactive' = $state.raw('inactive');
+
+	beforeNavigate(() => navState = 'inactive');
+	afterNavigate(() => navState = 'active');
+
+	//todo: Implement rolling statistic
 
 	// svelte-ignore state_referenced_locally
-	const formattedRequests = requests.toLocaleString('da-DK');
+	const formattedRequests = requests.total.toLocaleString('da-DK');
 	let requestChars: string[] = [];
 
 	for (let i = 0; i < formattedRequests.length; i++) {
 		requestChars.push(formattedRequests[i] ?? '');
 	}
 </script>
+
+<div id="sidebar-light" class="{$state.eager(navState)}">
+	<div id="sidebar-light-mask">
+		<div id="light"></div>
+	</div>
+</div>
 
 <section class="sidebar-section {theme} {sidebarState ? 'res-visible' : 'res-hidden'}">
 	<div class="nav-top">
@@ -312,6 +326,119 @@
         :root :global {
             --sidebar-width: 18.5rem;
         }
+
+        #sidebar-light {
+						position: absolute;
+						top: 0;
+						left: calc(18.5rem - 4px);
+            pointer-events: none !important;
+
+            overflow: visible;
+
+            height: 0 !important;
+            width: 0 !important;
+
+            z-index: 99998;
+
+            #sidebar-light-mask {
+                position: absolute;
+                content: '';
+
+                align-self: center;
+                align-content: center;
+
+								filter: saturate(1.5);
+                mask-image: linear-gradient(0deg, transparent 30%, white 50%, transparent 70%);
+                mask-mode: alpha;
+
+                height: 60vh;
+								transform: translateY(-12.5vh);
+								opacity: 0;
+                width: 8px;
+
+                z-index: 99999;
+
+                #light {
+                    justify-self: center;
+                    width: 1px !important;
+										height: 50vh;
+										filter: saturate(1.1) contrast(1.05) brightness(1);
+										background-repeat: repeat-y;
+                    background-image: linear-gradient(0deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
+                }
+            }
+        }
+
+				#sidebar-light {
+						#sidebar-light-mask, #light {
+                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+						}
+				}
+
+				#sidebar-light.active #sidebar-light-mask {
+						animation: sidebarNavAnim 1.65s;
+
+						#light {
+                animation: sidebarNavLightAnim 1.65s;
+						}
+				}
+
+        #sidebar-light.inactive #sidebar-light-mask, #sidebar-light.inactive #sidebar-light-mask #light {
+						animation: none;
+				}
+
+        @keyframes sidebarNavAnim {
+            0% {
+								height: 60vh;
+                transform: translateY(-12.5vh)
+            }
+						50% {
+                height: 90vh;
+						}
+            100% {
+								height: 60vh;
+                transform: translateY(115vh);
+            }
+						0%,100% {
+								opacity: 0;
+						}
+						3.5%, 96.5% {
+								opacity: 1;
+						}
+        }
+
+        @keyframes sidebarNavLightAnim {
+						0% {
+                height: 50vh !important;
+                background-position-y: 115vh;
+						}
+						50% {
+                height: 80vh !important;
+						}
+						100% {
+                height: 50vh !important;
+                background-position-y: -12.5vh;
+						}
+        }
+
+				.sidebar-section::after {
+						position: absolute;
+						content: '';
+						width: 1px;
+						bottom: -10vh;
+						left: 18.4rem;
+
+						height: 120vh;
+            background-size: 1rem 20vh;
+						background-repeat: repeat;
+
+            background-image: linear-gradient(0deg, rgb(174 110 204) 0%, rgb(62 175 229) 28.8%, rgb(45 208 51) 45.6%, rgb(224 196 16) 65.9%, rgb(255 143 28) 75.8%, rgb(222 70 70) 80%, rgb(255 123 249) 85.7%);
+
+						mask-image: url(#sidebar-blur);
+						mask-type: alpha;
+
+            z-index: 99999;
+				}
 
         .sidebar-section {
             width: var(--sidebar-width);

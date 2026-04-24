@@ -82,48 +82,52 @@
 </section>
 
 <style>
-	.font-display {
-		padding-bottom: 2rem;
+    .font-display {
+        padding-bottom: 2rem;
 
-		.typography {
-			color: var(--theme-text-primary);
+        .typography {
+            color: var(--theme-text-primary);
 
-			.header {
-				display: flex;
-				flex-flow: row nowrap;
-				align-items: flex-end;
-				justify-content: space-between;
+            .header {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: flex-end;
+                justify-content: space-between;
 
-				.title {
-					margin-left: 0.5rem;
-					margin-bottom: 0.25rem;
-					font-size: 1.25rem;
-					font-weight: 900;
-					font-family: 'Google Sans', sans-serif;
-				}
+                .title {
+                    margin-left: 0.5rem;
+                    margin-bottom: 0.25rem;
+                    font-size: 1.4rem;
+                    font-weight: 900;
+                    font-family: 'Google Sans', sans-serif;
+                }
 
-				.link {
-					margin-right: 0.75rem;
-					margin-bottom: 0.15rem;
-				}
+                .link {
+                    margin-right: 0.75rem;
+                    margin-bottom: 0.15rem;
+                }
 
-				.link:hover {
-					text-decoration: underline;
-				}
-			}
+                .link:hover {
+                    text-decoration: underline;
+                }
+            }
 
-			.preview {
-				border: 1px solid rgba(from var(--theme-ui-line) r g b / .35);
-				padding: 1.25rem 1.5rem;
-				border-radius: 0.75rem;
-				background: var(--theme-ui-container);
+            .preview {
+                border: 1px solid var(--theme-ui-line);
+                padding: 1.25rem 1.5rem;
+                border-radius: 0.75rem;
+                background: var(--theme-ui-container);
 
-				.pangram {
-					font-weight: initial;
-					text-wrap: pretty;
-					text-rendering: geometricPrecision;
-				}
-			}
-		}
-	}
+                .pangram {
+                    font-weight: initial;
+                    text-wrap: pretty;
+                    text-rendering: geometricPrecision;
+                }
+
+								.pangram::selection {
+										background: var(--theme-color-accent);
+								}
+            }
+        }
+    }
 </style>
