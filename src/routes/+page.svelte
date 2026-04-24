@@ -1,22 +1,60 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { Spring } from 'svelte/motion';
 
-	const { data } = $props();
+	let coords = new Spring({ x: 0, y: 0 }, {
+		stiffness: 0.085,
+		damping: 0.175
+	});
 
-	let x: number = $state.raw(0);
-	let y: number = $state.raw(0);
+	const minX = -1.1;
+	const maxX = 1.1;
+	const minY = -0.7;
+	const maxY = 0.7;
+
+	let deg: number = $state(0.0);
 
 	onMount(() => {
 		if (!document) return;
 		document.addEventListener('mousemove', (event) => {
-			x = event.x;
-			y = event.y;
+			coords.target = { x: event.x, y: event.y };
 		});
+
+		let turnLeft: boolean = false;
+		const initialStepCount = 1.5;
+		let stepCount: number = initialStepCount;
+
+		setInterval(() => console.log(Math.max(minX, Math.min(maxX, (coords.current.x / 750) - 1.1))), 1000);
+
+		setInterval(() => {
+			if (turnLeft) {
+				if (deg < -15.0) {
+					deg = -15.0;
+					turnLeft = false;
+					stepCount = initialStepCount;
+				}
+			} else {
+				if (deg > 15.0) {
+					deg = 15.0;
+					turnLeft = true;
+					stepCount = initialStepCount;
+				}
+			}
+
+			const diff = 0.005 * Math.pow(12, Math.max(0.8, stepCount));
+			if (turnLeft) {
+				deg -= diff;
+			} else {
+				deg += diff;
+			}
+
+			stepCount -= 0.00225;
+		}, 10);
 	});
 </script>
 
 <section class="home-page-sec">
-	<div style="transform-style: preserve-3d; transform: rotate3d(-1,0,0, {(y - 400) / 50}deg) rotate3d(0,1,0, {(x - 900) / 65}deg)">
+	<div style="transform-style: preserve-3d; transform: translateY({Math.max(minY, Math.min(maxY, (coords.current.y / 750) - .6))}rem) translateX({Math.max(minX, Math.min(maxX, (coords.current.x / 750) - 1.1))}rem) rotate3d(-1,0,0, -15deg) rotate3d(0,1,0, {$state.eager(deg)}deg)">
 		<h1 class="title">argxs</h1>
 		<h3 class="subtitle top" style="position: absolute;">Proudly made 100% by humans
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -73,13 +111,9 @@
             font-size: 6.5rem;
             font-weight: 900;
             margin: 1rem;
+            filter: drop-shadow(0 0 .85rem rgba(from var(--theme-text-primary) r g b / .15));
             transition: 650ms linear(0, 0.002 0.3%, 0.007 0.6%, 0.029 1.3%, 0.065 2%, 0.119 2.8%, 0.237 4.2%, 0.659 8.7%, 0.778 10.2%, 0.871 11.6%, 0.95 13.1%, 1.009 14.6%, 1.033 15.4%, 1.052 16.2%, 1.066 17%, 1.078 17.9%, 1.085 18.8%, 1.088 19.7%, 1.088 20.7%, 1.085 21.7%, 1.074 23.6%, 1.032 28.7%, 1.014 31.4%, 1.006 33%, 1 34.6%, 0.993 38%, 0.992 41.9%, 0.999 51.4%, 1.001 57.6%, 1);
         }
-
-				.title:hover {
-						filter: drop-shadow(0 0 .85rem rgba(from var(--theme-text-primary) r g b / .15));
-						transition: transform 350ms linear(0, 0.002 0.3%, 0.007 0.6%, 0.029 1.3%, 0.065 2%, 0.119 2.8%, 0.237 4.2%, 0.659 8.7%, 0.778 10.2%, 0.871 11.6%, 0.95 13.1%, 1.009 14.6%, 1.033 15.4%, 1.052 16.2%, 1.066 17%, 1.078 17.9%, 1.085 18.8%, 1.088 19.7%, 1.088 20.7%, 1.085 21.7%, 1.074 23.6%, 1.032 28.7%, 1.014 31.4%, 1.006 33%, 1 34.6%, 0.993 38%, 0.992 41.9%, 0.999 51.4%, 1.001 57.6%, 1);
-				}
 
         .subtitle {
 						display: flex;
@@ -95,7 +129,7 @@
 						width: 100%;
 						height: fit-content;
             transform-style: preserve-3d;
-            transform: translateZ(.5rem);
+            transform: translateZ(1.5rem);
 
 						svg {
 								width: 1.25rem;

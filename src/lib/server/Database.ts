@@ -37,8 +37,9 @@ export default class Database {
 			                   visitors BIGINT DEFAULT 0 NOT NULL
 		                   )`.catch(error => console.error(error));
 
-		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${totalId},0)`.catch((error) => console.error(error));
-		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${this.currentDate},0)`.catch(error => console.error(error));
+		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${new Date(Date.now()).toISOString().slice(0, 10)},0)`.catch((error) =>
+			console.error(error)
+		);
 	}
 
 	static async getTotalVisitorAmount(): Promise<number> {
