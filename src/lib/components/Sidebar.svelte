@@ -52,7 +52,7 @@
 			</svg>
 			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Core Concept</p>
 		</a>
-		<div data-sveltekit-replacestate class={{ in_progress: true }}>
+		<a data-sveltekit-replacestate class={{ selected: page.url.pathname === '/privacy' }} href="/privacy">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 				<path d="M3 11h18" />
@@ -62,7 +62,7 @@
 				<path d="M10 17h4" />
 			</svg>
 			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Privacy</p>
-		</div>
+		</a>
 	</div>
 
 	<div class="nav-section">

@@ -28,6 +28,7 @@
 	--theme-ui-line-highlight: #c0c5cc;
 	--theme-ui-white: #f7f9fc;
 	--theme-ui-container: #eceef3;
+	--theme-ui-container-hover: #e6e9ef;
 	--theme-ui-background: #f7f9fc;
 	--theme-ui-header: #eff1f3;
 	--theme-ui-sidebar: color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
@@ -47,6 +48,7 @@
 	--theme-color-primary-reverse: #0d0d0d;
 	--theme-color-primary: #f7f9fc;
 	--theme-ui-container: #16181e;
+	--theme-ui-container-hover: #181a21;
 	--theme-ui-background: #111217;
 	--theme-ui-header: #1b1d26;
 	--theme-ui-line: #2e3244;
