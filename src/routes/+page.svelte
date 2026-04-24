@@ -24,8 +24,6 @@
 		const initialStepCount = 1.5;
 		let stepCount: number = initialStepCount;
 
-		setInterval(() => console.log(Math.max(minX, Math.min(maxX, (coords.current.x / 750) - 1.1))), 1000);
-
 		setInterval(() => {
 			if (turnLeft) {
 				if (deg < -15.0) {
