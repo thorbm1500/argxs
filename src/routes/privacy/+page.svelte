@@ -12,7 +12,7 @@
 			optedOut = false;
 		} else {
 			window?.cookieStore.set('argxs_do_not_track', true);
-			svelte.flushSync(() => optedOut = window?.cookieStore.get('argxs_do_not_track') !== undefined)
+			svelte.flushSync(() => optedOut = window?.cookieStore.get('argxs_do_not_track') !== undefined);
 		}
 	}
 
@@ -102,6 +102,60 @@
 </section>
 
 <style>
+    /* Desktop & Tablet */
+    @media (width >= 44rem) {
+        .privacy-sec {
+            .top {
+                margin-bottom: 1.5rem;
+            }
+            .part {
+								margin-bottom: 2.25rem;
+
+								h2 {
+                    font-size: 1.5rem;
+								}
+
+                ol {
+                    margin-top: 1rem;
+                    margin-left: 4rem;
+                }
+            }
+        }
+    }
+
+    /* Phone */
+    @media (width < 44rem) {
+        .privacy-sec {
+            .top {
+                margin-bottom: 2.5rem;
+            }
+
+            .part {
+                margin-bottom: 3.75rem;
+
+								h2 {
+										text-align: start;
+										font-size: 1.25rem;
+								}
+
+								span,a {
+										font-size: .95rem;
+								}
+
+                ol {
+                    margin-top: 1.4rem;
+                    margin-left: 2.25rem;
+
+										max-width: 80%;
+
+										li {
+												margin-bottom: 1rem;
+										}
+                }
+            }
+        }
+    }
+
     .privacy-sec {
         font-family: 'Funnel Sans', sans-serif;
         color: var(--theme-text-primary);
@@ -112,8 +166,6 @@
         }
 
         .top {
-            margin-bottom: 1.5rem;
-
             h1 {
                 font-size: 3.25rem;
                 font-weight: 850;
@@ -129,18 +181,11 @@
 
         .part {
             color: var(--theme-text-primary);
-            margin-bottom: 2.25rem;
             text-align: justify;
 
             h2 {
-                font-size: 1.5rem;
                 font-weight: 750;
                 user-select: none;
-            }
-
-            ol {
-                margin-top: 1rem;
-                margin-left: 4rem;
             }
 
             li {
@@ -176,9 +221,9 @@
                 cursor: pointer;
             }
 
-						.opt-out-button:hover {
-								background: var(--theme-ui-container-hover);
-						}
+            .opt-out-button:hover {
+                background: var(--theme-ui-container-hover);
+            }
 
             .opt-out-button.out {
                 color: var(--theme-color-third);
