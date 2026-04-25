@@ -1,4 +1,4 @@
-import type { PageServerLoad } from '../../../.svelte-kit/types/src/routes/(resources)/other/typography/$types';
+import type { PageServerLoad } from './$types';
 import { SiteCookies } from '$lib/server/Definitions';
 
 export const ssr = true;

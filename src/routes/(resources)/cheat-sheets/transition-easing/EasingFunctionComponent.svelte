@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-	const { title = 'Loading...', easingFunction, duration = .125, delay = 0 } = $props();
+	const { title = 'Loading...', easingFunction, duration = .125 } = $props();
 
 	const sendToast: any = $derived(getContext('sendToast'));
 
@@ -29,7 +29,9 @@
 						sendToast?.({ message: 'Copied', duration: 1250, type: 'copy', status: 'success' });
 					}
 				}}" class="copy-button">
+					<!--suppress HtmlUnknownTag -->
 					<p class="syntax">transition-timing-function</p>
+					<!--suppress HtmlUnknownTag -->
 					<p>: {easingFunction};</p>
 				</button>
 				<p class="brace">&rbrace;</p>

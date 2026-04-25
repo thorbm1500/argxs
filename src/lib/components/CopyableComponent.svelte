@@ -30,7 +30,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 
-	const { icon, title = undefined, blur_content_bg = false } = $props();
+	const { icon, title, name = undefined, blur_content_bg = false } = $props();
 
 	const sendToast: any = $derived(getContext('sendToast'));
 
@@ -49,7 +49,7 @@
 		const link = document.createElement('a');
 		link.href = url;
 		link.type = 'image/svg+xml';
-		link.download = title ? 'argxs_'.concat(title).replaceAll(' ', '_').replaceAll('-', '_') : 'argxs_icon';
+		link.download = name ? 'argxs_'.concat(name).replaceAll(' ', '_').replaceAll('-', '_') : 'argxs_icon';
 
 		document.body.appendChild(link);
 		link.click();
@@ -66,7 +66,7 @@
 {#if highlightedIcon === icon}
 	<div class="highlighted-icon" transition:fade>
 		<button title="" class="close" onclick={() => (highlightedIcon = null)}>
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
 				<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 			</svg>
 		</button>
@@ -104,14 +104,9 @@
 <div class="copyable-container">
 	<div class="actions svg">
 		<button title="" class="info-button" onclick={highlightClick}>
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path
-					d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+					stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 			</svg>
 		</button>
 		<button class="copy" onclick={() => {
@@ -128,6 +123,7 @@
 		{/if}
 		{@html icon.svg}
 	</div>
+	<h1 class="name">{title}</h1>
 </div>
 
 <style>
@@ -300,6 +296,28 @@
         border-radius: 0.45rem;
 
         box-sizing: border-box;
+
+				margin-bottom: 1.75rem;
+
+				.name {
+						position: absolute;
+						top: 10.25rem;
+						padding: 0 .5rem;
+						left: 0;
+
+						width: 10rem !important;
+						max-height: 3rem !important;
+						overflow: hidden;
+
+						color: var(--theme-text-secondary);
+						font-family: 'Google Sans', sans-serif;
+						font-weight: 700;
+						text-wrap: pretty;
+						text-overflow: ellipsis;
+						line-clamp: 2 !important;
+
+						align-items: end;
+				}
 
         .actions {
             position: absolute;

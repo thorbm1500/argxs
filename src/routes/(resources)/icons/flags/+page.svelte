@@ -14,95 +14,44 @@
 <ContentHeaderComponent title="Flag Icons" type="countries" amount={flags.length} />
 
 <section class="icons-flags-sec">
-	{#each flags as flag}
-		<div class="country">
-			<div class="title" style="--max-width: calc(9rem * {1 + flag.extra.length})">
-				{flag.country}
-			</div>
-			<div class="icons">
-				<CopyableComponent icon={flag.flag} title={flag.country} blur_content_bg={true} />
-				{#each flag.extra as extra}
-					<CopyableComponent icon={extra} title={flag.country} blur_content_bg={true} />
-				{/each}
-			</div>
-		</div>
-	{/each}
+	<div class="icons">
+		{#each flags as flag}
+			<CopyableComponent icon={flag.flag} name={flag.country} title={flag.country} blur_content_bg={true} />
+			{#each flag.extra as extra}
+				<CopyableComponent icon={extra} name={flag.country} title={flag.country} blur_content_bg={true} />
+			{/each}
+		{/each}
+	</div>
 </section>
 
 <style>
-	/* Desktop & Tablet */
-	@media (width >= 44rem) {
-		.icons-flags-sec {
-			flex-flow: row wrap;
-			align-items: flex-end;
-			justify-content: space-between;
-			gap: 1rem;
+    /* Desktop & Tablet */
+    @media (width >= 44rem) {
+        .icons-flags-sec {
+            .icons {
+                grid-template-columns: repeat(8, auto);
+                row-gap: 1.85rem;
+            }
+        }
+    }
 
-			.country {
-				width: fit-content;
-				padding-top: 0.65rem;
+    /* Phone */
+    @media (width < 44rem) {
+        .icons-flags-sec {
+            .icons {
+                grid-template-columns: repeat(2, auto);
+                gap: 1.25rem;
 
-				.title {
-					font-size: 1.05rem;
-					max-width: var(--max-width);
-				}
+								font-size: .9rem;
+            }
+        }
+    }
 
-				.icons {
-					align-items: flex-start;
-					justify-content: flex-start;
-					gap: 0.5rem;
-				}
-			}
-		}
-	}
+    .icons-flags-sec {
+        user-select: none;
 
-	/* Phone */
-	@media (width < 44rem) {
-		.icons-flags-sec {
-			flex-flow: column nowrap;
-			align-items: flex-start;
-			justify-content: space-between;
-			gap: 1.5rem;
-			width: 100%;
-
-			.country {
-				width: 100%;
-
-				.title {
-					align-self: flex-start;
-					font-size: 1.05rem;
-					max-width: 80%;
-				}
-
-				.icons {
-					align-items: center;
-					justify-content: flex-start;
-					gap: 1rem;
-				}
-			}
-		}
-	}
-
-	.icons-flags-sec {
-		display: flex;
-		user-select: none;
-
-		.country {
-			display: flex;
-			flex-flow: column nowrap;
-			gap: 0.25rem;
-
-			.title {
-				font-family: 'Google Sans', 'Lexend', sans-serif;
-				font-weight: 600;
-				text-wrap-style: avoid-orphans;
-				color: var(--theme-text-primary);
-			}
-
-			.icons {
-				display: flex;
-				flex-flow: row wrap;
-			}
-		}
-	}
+        .icons {
+            display: grid;
+        }
+    }
 </style>

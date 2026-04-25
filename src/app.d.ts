@@ -16,6 +16,7 @@ declare global {
 }
 
 declare module 'bun' {
+	// noinspection JSUnusedGlobalSymbols
 	interface Env {
 		NODE_ENV: string;
 		PGUSERNAME: string;
