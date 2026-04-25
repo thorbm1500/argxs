@@ -30,6 +30,16 @@ class BrandUtil {
 				icon.monochrome.svg = await Bun.file(path.join('/').concat('/monochrome.svg')).text();
 			} catch (ignored) {}
 		}
+		if (!!icon.monochrome_white) {
+			try {
+				icon.monochrome_white.svg = await Bun.file(path.join('/').concat('/monochrome-white.svg')).text();
+			} catch (ignored) {}
+		}
+		if (!!icon.monochrome_black) {
+			try {
+				icon.monochrome_black.svg = await Bun.file(path.join('/').concat('/monochrome-black.svg')).text();
+			} catch (ignored) {}
+		}
 		if (!!icon.variable) {
 			try {
 				icon.variable.svg = await Bun.file(path.join('/').concat('/variable.svg')).text();

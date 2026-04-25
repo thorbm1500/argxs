@@ -18,7 +18,7 @@ const config = {
 	},
 	kit: {
 		version: {
-			name: '0.2.11'
+			name: '0.2.12'
 		},
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
 		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.

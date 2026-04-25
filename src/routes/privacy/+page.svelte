@@ -1,9 +1,9 @@
 <script lang="ts">
-	import * as svelte from 'svelte';
-
 	const { data } = $props();
 
-	const lastUpdated: string = '24.04.2026';
+	const lastUpdated: string = '25.04.2026';
+
+	// svelte-ignore state_referenced_locally
 	let optedOut: boolean = $state(!!data.optedOut);
 
 	function optOut() {
@@ -11,12 +11,10 @@
 			window?.cookieStore.delete('argxs_do_not_track');
 			optedOut = false;
 		} else {
-			window?.cookieStore.set('argxs_do_not_track', true);
-			svelte.flushSync(() => optedOut = window?.cookieStore.get('argxs_do_not_track') !== undefined);
+			window?.cookieStore.set('argxs_do_not_track', "true");
+			optedOut = window?.cookieStore.get('argxs_do_not_track') !== undefined
 		}
 	}
-
-	$inspect(optedOut);
 </script>
 
 <section class="privacy-sec">
@@ -84,9 +82,9 @@
 			We reserve the right to update this privacy statement to reflect changes in our practices or legal requirements. Any material changes will be posted on this page with an updated effective date.
 		</span>
 	</div>
-	<div class="part">
+	<div class="part opt-out">
 		<h2>Do you still wish to opt out of site analytics?</h2>
-		<span>Clicking the button below ensures that we wont process any data related to your person in the future. This is done by simple providing you with a cookie "argxs_do_not_track". The server checks for the cookie when a request is received, and skips processing analytics, if the cookie is present.</span>
+		<span><strong style="color:var(--theme-color-accent);font-weight:900;">argxs</strong> believes in owning your own data. Clicking the button below ensures that we wont process any data related to your person in the future. This is done by simple providing you with a cookie "argxs_do_not_track". The server checks for the cookie when a request is received, and skips processing analytics, if the cookie is present.</span>
 		<br>
 		<button class="opt-out-button {$state.eager(optedOut) ? 'out' : 'in'}" title="Opt ouf of cookies" onclick="{() => optOut()}">
 			{#if $state.eager(optedOut)}
@@ -120,6 +118,11 @@
                     margin-left: 4rem;
                 }
             }
+						.part.opt-out {
+								h2 {
+										font-size: 1.25rem;
+								}
+						}
         }
     }
 
@@ -151,6 +154,11 @@
 										li {
 												margin-bottom: 1rem;
 										}
+                }
+            }
+            .part.opt-out {
+                h2 {
+                    font-size: 1.15rem;
                 }
             }
         }
@@ -204,6 +212,10 @@
 
                 transition: color 75ms ease-out;
             }
+        }
+
+				.part.opt-out {
+						margin-top: 3rem;
 
             .opt-out-button {
                 margin-top: 1.5rem;
@@ -237,7 +249,7 @@
 
                 color: var(--theme-text-third);
             }
-        }
+				}
 
         .privacy-icon {
             position: absolute;

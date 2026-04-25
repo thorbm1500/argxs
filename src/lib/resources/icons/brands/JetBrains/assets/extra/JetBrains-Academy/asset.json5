@@ -1,0 +1,20 @@
+{
+	default: {
+		name: 'JetBrains Academy',
+		svg: 'undefined',
+		date_added: '2026/4/25',
+		source: {
+			name: 'JetBrains',
+			href: 'https://www.jetbrains.com/company/brand'
+		}
+	},
+	dark: {
+		name: 'JetBrains Academy',
+		svg: 'undefined',
+		date_added: '2026/4/25',
+		source: {
+			name: 'JetBrains',
+			href: 'https://www.jetbrains.com/company/brand'
+		}
+	}
+}

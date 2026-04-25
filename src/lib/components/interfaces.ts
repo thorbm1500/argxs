@@ -23,6 +23,8 @@ export interface VariableIcon {
 	default: Icon;
 	dark?: Icon;
 	monochrome?: Icon;
+	monochrome_white?: Icon;
+	monochrome_black?: Icon;
 	variable?: Icon;
 }
 
