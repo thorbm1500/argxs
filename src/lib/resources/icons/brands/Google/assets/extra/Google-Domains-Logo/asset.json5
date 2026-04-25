@@ -1,0 +1,7 @@
+{
+	default: {
+		name: 'Google Domains',
+		svg: 'undefined',
+		date_added: '2026/4/25'
+	}
+}

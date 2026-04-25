@@ -1,0 +1,12 @@
+{
+	default: {
+		name: 'SvelteKit',
+		svg: 'undefined',
+		date_added: '2026/4/25'
+	},
+	dark: {
+		name: 'SvelteKit',
+		svg: 'undefined',
+		date_added: '2026/4/25'
+	}
+}

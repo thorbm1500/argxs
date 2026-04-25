@@ -48,39 +48,39 @@
 </section>
 
 <style>
-	/* Desktop & Tablet */
-	@media (width >= 44rem) {
-		.main-container {
-			left: var(--sidebar-width);
-			padding: 5rem 6rem 0 6rem;
-		}
-	}
+    /* Desktop & Tablet */
+    @media (width >= 44rem) {
+        .main-container {
+            left: var(--sidebar-width);
+            padding: 5rem 6rem 0 6rem;
+        }
+    }
 
-	/* Phone */
-	@media (width < 44rem) {
-		.main-container {
-			left: 0;
-			padding: 3rem 2rem 0 2rem;
-		}
-	}
+    /* Phone */
+    @media (width < 44rem) {
+        .main-container {
+            left: 0;
+            padding: 3rem 2rem 0 2rem;
+        }
+    }
 
-	.main-container {
-		position: absolute;
+    .main-container {
+        position: absolute;
 
-		height: calc(100vh - var(--header-height) + 1px);
-		width: calc(100vw - var(--sidebar-width));
+        height: calc(100vh - var(--header-height) + 1px);
+        width: calc(100vw - var(--sidebar-width));
 
-		bottom: 0;
+        bottom: 0;
 
-		box-sizing: border-box;
+        box-sizing: border-box;
 
-		background: var(--theme-ui-background);
+        background-color: var(--theme-ui-background);
 
-		/*noinspection CssOverwrittenProperties*/
-		overflow-y: scroll;
-		/*noinspection CssOverwrittenProperties*/
-		overflow-x: hidden;
-		/*noinspection CssOverwrittenProperties*/
-		overflow: auto;
-	}
+        /*noinspection CssOverwrittenProperties*/
+        overflow-y: scroll;
+        /*noinspection CssOverwrittenProperties*/
+        overflow-x: hidden;
+        /*noinspection CssOverwrittenProperties*/
+        overflow: auto;
+    }
 </style>
