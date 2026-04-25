@@ -438,7 +438,9 @@
                 width: 100%;
             }
 
-            height: 2.5rem;
+						height: 100%;
+            min-height: 2.5rem;
+						max-height: 2.62rem;
             width: auto;
 
             max-width: 8rem;

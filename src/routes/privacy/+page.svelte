@@ -3,6 +3,8 @@
 
 	const lastUpdated: string = '25.04.2026';
 
+	let hasChanged: boolean = $state(false);
+
 	// svelte-ignore state_referenced_locally
 	let optedOut: boolean = $state(!!data.optedOut);
 
@@ -11,9 +13,10 @@
 			window?.cookieStore.delete('argxs_do_not_track');
 			optedOut = false;
 		} else {
-			window?.cookieStore.set('argxs_do_not_track', "true");
-			optedOut = window?.cookieStore.get('argxs_do_not_track') !== undefined
+			window?.cookieStore.set('argxs_do_not_track', 'true');
+			optedOut = window?.cookieStore.get('argxs_do_not_track') !== undefined;
 		}
+		hasChanged = true;
 	}
 </script>
 
@@ -87,14 +90,24 @@
 		<span><strong style="color:var(--theme-color-accent);font-weight:900;">argxs</strong> believes in owning your own data. Clicking the button below ensures that we wont process any data related to your person in the future. This is done by simple providing you with a cookie "argxs_do_not_track". The server checks for the cookie when a request is received, and skips processing analytics, if the cookie is present.</span>
 		<br>
 		<button class="opt-out-button {$state.eager(optedOut) ? 'out' : 'in'}" title="Opt ouf of cookies" onclick="{() => optOut()}">
-			{#if $state.eager(optedOut)}
-				Opt Back In
+			{#if !hasChanged}
+				{#if optedOut}
+					Opt In
+				{:else}
+					Opt Out
+				{/if}
 			{:else}
-				Opt Out
+				{#if optedOut}
+					Opt Back In
+				{:else}
+					Opt Back Out
+				{/if}
 			{/if}
 		</button>
-		{#if $state.eager(optedOut)}
+		{#if !hasChanged && optedOut }
 			<span class="opted-out">You're already opted out.</span>
+		{:else if hasChanged }
+			<span class="opted-out changed">You've opted {optedOut ? 'out' : 'back in'}!</span>
 		{/if}
 	</div>
 </section>
@@ -106,23 +119,25 @@
             .top {
                 margin-bottom: 1.5rem;
             }
-            .part {
-								margin-bottom: 2.25rem;
 
-								h2 {
+            .part {
+                margin-bottom: 2.25rem;
+
+                h2 {
                     font-size: 1.5rem;
-								}
+                }
 
                 ol {
                     margin-top: 1rem;
                     margin-left: 4rem;
                 }
             }
-						.part.opt-out {
-								h2 {
-										font-size: 1.25rem;
-								}
-						}
+
+            .part.opt-out {
+                h2 {
+                    font-size: 1.25rem;
+                }
+            }
         }
     }
 
@@ -136,26 +151,27 @@
             .part {
                 margin-bottom: 3.75rem;
 
-								h2 {
-										text-align: start;
-										font-size: 1.25rem;
-								}
+                h2 {
+                    text-align: start;
+                    font-size: 1.25rem;
+                }
 
-								span,a {
-										font-size: .95rem;
-								}
+                span, a {
+                    font-size: .95rem;
+                }
 
                 ol {
                     margin-top: 1.4rem;
                     margin-left: 2.25rem;
 
-										max-width: 80%;
+                    max-width: 80%;
 
-										li {
-												margin-bottom: 1rem;
-										}
+                    li {
+                        margin-bottom: 1rem;
+                    }
                 }
             }
+
             .part.opt-out {
                 h2 {
                     font-size: 1.15rem;
@@ -214,8 +230,8 @@
             }
         }
 
-				.part.opt-out {
-						margin-top: 3rem;
+        .part.opt-out {
+            margin-top: 3rem;
 
             .opt-out-button {
                 margin-top: 1.5rem;
@@ -249,7 +265,11 @@
 
                 color: var(--theme-text-third);
             }
-				}
+
+						.opted-out.changed {
+								color: var(--theme-color-success);
+						}
+        }
 
         .privacy-icon {
             position: absolute;

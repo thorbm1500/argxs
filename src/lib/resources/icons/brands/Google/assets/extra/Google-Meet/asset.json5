@@ -1,0 +1,7 @@
+{
+	default: {
+		name: 'Google Meet',
+		svg: 'undefined',
+		date_added: '2026/4/25'
+	}
+}

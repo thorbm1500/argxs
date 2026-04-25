@@ -102,7 +102,9 @@ class Util {
 
 export class Resources {
 	readonly BRAND_ICONS: Brand[] = [];
+	BRAND_ICON_AMOUNT: number = 0;
 	readonly FLAG_ICONS: Flag[] = [];
+	FLAG_ICON_AMOUNT: number = 0;
 
 	async init(): Promise<void> {
 		const startTime: number = Bun.nanoseconds();
@@ -141,6 +143,38 @@ export class Resources {
 
 			this.BRAND_ICONS.push(brand);
 		}
+
+		this.BRAND_ICON_AMOUNT = this.getBrandIconAmount();
+	}
+
+	private getBrandIconAmount(): number {
+		let amount = 0;
+
+		for (const brand of this.BRAND_ICONS) {
+			if (!!brand.icon?.default) amount++;
+			if (!!brand.icon?.dark) amount++;
+			if (!!brand.icon?.monochrome) amount++;
+			if (!!brand.icon?.monochrome_white) amount++;
+			if (!!brand.icon?.monochrome_black) amount++;
+			if (!!brand.icon?.variable) amount++;
+			if (!!brand.logo?.default) amount++;
+			if (!!brand.logo?.dark) amount++;
+			if (!!brand.logo?.monochrome) amount++;
+			if (!!brand.logo?.monochrome_white) amount++;
+			if (!!brand.logo?.monochrome_black) amount++;
+			if (!!brand.logo?.variable) amount++;
+
+			for (const extra of brand.extra) {
+				if (!!extra.default) amount++;
+				if (!!extra.dark) amount++;
+				if (!!extra.monochrome) amount++;
+				if (!!extra.monochrome_white) amount++;
+				if (!!extra.monochrome_black) amount++;
+				if (!!extra.variable) amount++;
+			}
+		}
+
+		return amount;
 	}
 
 	private async loadFlagIcons(): Promise<void> {
@@ -161,5 +195,18 @@ export class Resources {
 				extra: await Util.getExtraIcons(path)
 			});
 		}
+
+		this.FLAG_ICON_AMOUNT = this.getFlagIconAmount();
+	}
+
+	private getFlagIconAmount(): number {
+		let amount = 0;
+
+		for (const flag of this.FLAG_ICONS) {
+			amount += flag.extra.length;
+			amount++;
+		}
+
+		return amount;
 	}
 }

@@ -11,14 +11,14 @@
 	const flags: Flag[] = $state.raw(data.flags ?? []);
 </script>
 
-<ContentHeaderComponent title="Flag Icons" type="countries" amount={flags.length} />
+<ContentHeaderComponent title="Flag Icons" type="flags" amount={data.iconAmount} />
 
 <section class="icons-flags-sec">
 	<div class="icons">
 		{#each flags as flag}
-			<CopyableComponent icon={flag.flag} name={flag.country} title={flag.country} blur_content_bg={true} />
+			<CopyableComponent icon={flag.flag} name={flag.country} title={flag.flag.name ?? flag.country} blur_content_bg={true} />
 			{#each flag.extra as extra}
-				<CopyableComponent icon={extra} name={flag.country} title={flag.country} blur_content_bg={true} />
+				<CopyableComponent icon={extra} name={flag.country} title={extra.name ?? flag.country} blur_content_bg={true} />
 			{/each}
 		{/each}
 	</div>
