@@ -157,10 +157,17 @@
         }
 
         .copyable-container {
-            --box-size: 30vw;
+            --box-size: 10rem;
             padding: 1rem;
         }
     }
+
+    /* Phone */
+    @media (width < 24rem) {
+				.copyable-container {
+						--box-size: 8.5rem;
+				}
+		}
 
     .highlighted-icon {
         position: fixed;
@@ -301,7 +308,7 @@
 
 				.name {
 						position: absolute;
-						top: 10.25rem;
+						top: calc(var(--box-size) + .25rem);
 						padding: 0 .5rem;
 						left: 0;
 

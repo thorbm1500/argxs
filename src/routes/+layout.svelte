@@ -13,8 +13,8 @@
 	let sidebarState: boolean = $state.raw(false);
 
 	beforeNavigate(({ willUnload, to }) => {
+		sidebarState = false;
 		if (updated.current && !willUnload && to?.url) {
-			sidebarState = false;
 			location.href = to.url.href;
 		}
 	});
@@ -53,6 +53,7 @@
         .main-container {
             left: var(--sidebar-width);
             padding: 5rem 6rem 0 6rem;
+            width: calc(100vw - var(--sidebar-width));
         }
     }
 
@@ -61,20 +62,16 @@
         .main-container {
             left: 0;
             padding: 3rem 2rem 0 2rem;
+						width: 100vw;
         }
     }
 
     .main-container {
         position: absolute;
-
-        height: calc(100vh - var(--header-height) + 1px);
-        width: calc(100vw - var(--sidebar-width));
-
         bottom: 0;
-
         box-sizing: border-box;
 
-        background-color: var(--theme-ui-background);
+        height: calc(100vh - var(--header-height) + 1px);
 
         /*noinspection CssOverwrittenProperties*/
         overflow-y: scroll;
@@ -82,5 +79,7 @@
         overflow-x: hidden;
         /*noinspection CssOverwrittenProperties*/
         overflow: auto;
+
+        background: var(--theme-ui-background);
     }
 </style>

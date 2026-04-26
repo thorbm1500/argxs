@@ -108,3 +108,26 @@ body {
         color: var(--theme-text-secondary);
     }
 }
+
+.theme-grid-content-layout {
+    /* Desktop & Tablet */
+    @media (width >= 44rem) {
+        .icons {
+            grid-template-columns: repeat(calc((100vw - var(--sidebar-width) - 11rem) / 11rem), 11rem);
+        }
+    }
+
+    /* Phone */
+    @media (width < 44rem) {
+        .icons {
+            grid-template-columns: repeat(calc((100vw - 8rem) / 10rem), 11rem);
+        }
+    }
+
+    user-select: none;
+
+    .icons {
+        display: grid;
+        row-gap: 1rem;
+    }
+}

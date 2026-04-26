@@ -13,7 +13,7 @@
 
 <ContentHeaderComponent title="Flag Icons" type="flags" amount={data.iconAmount} />
 
-<section class="icons-flags-sec">
+<section class="theme-grid-content-layout">
 	<div class="icons">
 		{#each flags as flag}
 			<CopyableComponent icon={flag.flag} name={flag.country} title={flag.flag.name ?? flag.country} blur_content_bg={true} />
@@ -23,35 +23,3 @@
 		{/each}
 	</div>
 </section>
-
-<style>
-    /* Desktop & Tablet */
-    @media (width >= 44rem) {
-        .icons-flags-sec {
-            .icons {
-                grid-template-columns: repeat(8, auto);
-                row-gap: 1.85rem;
-            }
-        }
-    }
-
-    /* Phone */
-    @media (width < 44rem) {
-        .icons-flags-sec {
-            .icons {
-                grid-template-columns: repeat(2, auto);
-                gap: 1.25rem;
-
-								font-size: .9rem;
-            }
-        }
-    }
-
-    .icons-flags-sec {
-        user-select: none;
-
-        .icons {
-            display: grid;
-        }
-    }
-</style>

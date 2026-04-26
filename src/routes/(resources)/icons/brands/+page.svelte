@@ -15,7 +15,7 @@
 
 <ContentHeaderComponent title="Brand Icons" type="brand icons" amount={data.iconAmount} />
 
-<section class="icons-brands-sec">
+<section class="theme-grid-content-layout">
 	<div class="icons">
 		{#each brands as brand}
 			{#if brand.icon !== undefined}
@@ -49,34 +49,3 @@
 		{/each}
 	</div>
 </section>
-
-<style>
-    /* Desktop & Tablet */
-    @media (width >= 44rem) {
-        .icons-brands-sec {
-            .icons {
-                grid-template-columns: repeat(8, auto);
-                row-gap: 1.85rem;
-            }
-        }
-    }
-
-    /* Phone */
-    @media (width < 44rem) {
-        .icons-brands-sec {
-            justify-content: center;
-            row-gap: 1.85rem;
-            column-gap: 1.25rem;
-        }
-    }
-
-    .icons-brands-sec {
-        font-family: 'Lexend', sans-serif;
-
-        user-select: none;
-
-        .icons {
-            display: grid;
-        }
-    }
-</style>
