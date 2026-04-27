@@ -11,9 +11,11 @@
 	const { children, data } = $props();
 
 	let sidebarState: boolean = $state.raw(false);
+	let currentPage: string = $state('/colors/combos');
 
 	beforeNavigate(({ willUnload, to }) => {
 		sidebarState = false;
+		if (!!to) currentPage = to.url.href;
 		if (updated.current && !willUnload && to?.url) {
 			location.href = to.url.href;
 		}
@@ -38,7 +40,7 @@
 <Header bind:theme bind:sidebarState />
 <Sidebar bind:theme bind:sidebarState version={data.version} requests={data.requests} />
 
-<section class="main-container {theme}">
+<section id="main-container" class="main-container {theme}">
 	{#if children}
 		{@render children()}
 		<Footer />
@@ -62,7 +64,7 @@
         .main-container {
             left: 0;
             padding: 3rem 2rem 0 2rem;
-						width: 100vw;
+            width: 100vw;
         }
     }
 
@@ -76,7 +78,7 @@
         /*noinspection CssOverwrittenProperties*/
         overflow-y: scroll;
         /*noinspection CssOverwrittenProperties*/
-        overflow-x: hidden;
+        overflow-x: hidden !important;
         /*noinspection CssOverwrittenProperties*/
         overflow: auto;
 

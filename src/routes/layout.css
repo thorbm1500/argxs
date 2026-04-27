@@ -58,6 +58,8 @@
     --theme-ui-sidebar-highlight: #20242c;
 
     --theme-text-gradient: linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #b8c4d2 20%, #f7f9fc 75%);
+
+    --theme-cubic-out: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 @media (prefers-reduced-motion: reduce) {

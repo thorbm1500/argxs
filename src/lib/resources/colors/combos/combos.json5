@@ -1,0 +1,158 @@
+{
+  combos: [
+    {
+      name: '',
+      first: {
+        hex: '#111827',
+        rgb: '17,24,39'
+      },
+      second: {
+        hex: '#FF6B5B',
+        rgb: '255,3107,91'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#1C1C1E',
+        rgb: '28,28,30'
+      },
+      second: {
+        hex: '#F0E6C8',
+        rgb: '240,230,200'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#8000FF',
+        rgb: '128,0,255'
+      },
+      second: {
+        hex: '#F5F0E8',
+        rgb: '245,240,232'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#FFFBDF',
+        rgb: '255,251,223'
+      },
+      second: {
+        hex: '#17271D',
+        rgb: '23,39,29'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#FEEF4C',
+        rgb: '254,239,76'
+      },
+      second: {
+        hex: '#2A323F',
+        rgb: '42,50,63'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#93032E',
+        rgb: '147,3,46'
+      },
+      second: {
+        hex: '#151515',
+        rgb: '21,21,21'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#060D0C',
+        rgb: '6,13,12'
+      },
+      second: {
+        hex: '#F0EDE5',
+        rgb: '240,237,229'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#1F2933',
+        rgb: '31,41,51'
+      },
+      second: {
+        hex: '#B7F000',
+        rgb: '183,240,0'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#0F172A',
+        rgb: '15,23,42'
+      },
+      second: {
+        hex: '#FFD6C9',
+        rgb: '255,214,201'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#8B6672',
+        rgb: '139,102,114'
+      },
+      second: {
+        hex: '#E6B655',
+        rgb: '230,182,85'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#EECE7B',
+        rgb: '238,206,123'
+      },
+      second: {
+        hex: '#D0783B',
+        rgb: '208,120,59'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#FFFC94',
+        rgb: '255,252,148'
+      },
+      second: {
+        hex: '#09CC86',
+        rgb: '9,204,134'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#EE636A',
+        rgb: '238,99,197'
+      },
+      second: {
+        hex: '#FFED9F',
+        rgb: '255,237,159'
+      }
+    },
+    {
+      name: '',
+      first: {
+        hex: '#FFFF88',
+        rgb: '255,255,136'
+      },
+      second: {
+        hex: '#ED8843',
+        rgb: '237,136,67'
+      }
+    }
+  ]
+}

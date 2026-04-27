@@ -39,3 +39,20 @@ declare interface Source {
 	name: string;
 	href: string;
 }
+
+export interface ColorCombos {
+	combos: ColorCombo[];
+}
+
+export interface ColorCombo {
+	name: string,
+	source?: Source,
+	first: {
+		hex: string,
+		rgb?: string
+	},
+	second: {
+		hex: string,
+		rgb?: string
+	}
+}

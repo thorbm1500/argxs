@@ -1,4 +1,22 @@
-<section class="footer-section">
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+
+	let currentPage: string = $state('/colors/combo');
+	const unscrollablePages: string[] = ['/','/colors/combos', '/colors/palettes', '/colors/gradients'];
+
+	let isUnscrollable: boolean = $derived.by(() => {
+		for (const path of unscrollablePages) {
+			if (currentPage === path) return true;
+		}
+		return false;
+	});
+
+	onMount(() => currentPage = window.location.pathname);
+	afterNavigate(() => currentPage = window.location.pathname);
+</script>
+
+<section class="footer-section {isUnscrollable ? 'unscrollable' : ''}">
 	<a class="sponsor" href="https://vivabit.io">
 		Powered by
 		<svg width="113" height="22" viewBox="0 0 113 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,6 +34,13 @@
 </section>
 
 <style>
+		.footer-section.unscrollable {
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				width: calc(100vw - var(--sidebar-width));
+		}
+
     .footer-section {
         display: flex;
         flex-flow: column nowrap;
