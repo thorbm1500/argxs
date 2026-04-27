@@ -1,0 +1,38 @@
+{
+	default: {
+		name: 'Uber One',
+		svg: 'undefined',
+		date_added: '2026/4/27',
+		source: {
+			name: 'Uber',
+			href: 'https://assets.uber.com/'
+		}
+	},
+	dark: {
+		name: 'Uber One',
+		svg: 'undefined',
+		date_added: '2026/4/27',
+		source: {
+			name: 'Uber',
+			href: 'https://assets.uber.com/'
+		}
+	},
+	monochrome_black: {
+		name: 'Uber One',
+		svg: 'undefined',
+		date_added: '2026/4/27',
+		source: {
+			name: 'Uber',
+			href: 'https://assets.uber.com/'
+		}
+	},
+	monochrome_white: {
+		name: 'Uber One',
+		svg: 'undefined',
+		date_added: '2026/4/27',
+		source: {
+			name: 'Uber',
+			href: 'https://assets.uber.com/'
+		}
+	}
+}

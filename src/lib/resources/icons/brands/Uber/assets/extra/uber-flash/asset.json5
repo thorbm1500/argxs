@@ -1,0 +1,20 @@
+{
+	default: {
+		name: 'Uber Flash',
+		svg: 'undefined',
+		date_added: '2026/4/27',
+		source: {
+			name: 'Uber',
+			href: 'https://assets.uber.com/'
+		}
+	},
+	dark: {
+		name: 'Uber Flash',
+		svg: 'undefined',
+		date_added: '2026/4/27',
+		source: {
+			name: 'Uber',
+			href: 'https://assets.uber.com/'
+		}
+	}
+}

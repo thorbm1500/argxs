@@ -1,0 +1,11 @@
+{
+	default: {
+		name: 'Uber Eats',
+		svg: 'undefined',
+		date_added: '2026/4/27',
+		source: {
+			name: 'Uber',
+			href: 'https://assets.uber.com/'
+		}
+	}
+}
