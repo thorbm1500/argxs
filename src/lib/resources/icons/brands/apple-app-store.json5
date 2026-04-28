@@ -1,0 +1,13 @@
+{
+	name: 'Apple App Store',
+	href: 'https://www.apple.com/app-store/',
+	assets: [
+		{
+			default: {
+				name: 'Apple App Store',
+				svg: 'apple-app-store-icon.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

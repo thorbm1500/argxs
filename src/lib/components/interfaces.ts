@@ -1,12 +1,7 @@
-export interface Brand extends BrandConfiguration {
-	icon?: VariableIcon;
-	logo?: VariableIcon;
-	extra: VariableIcon[];
-}
-
-export interface BrandConfiguration {
-	name: string;
-	href?: string;
+export interface Brand {
+	name: string,
+	href?: string,
+	assets: VariableIcon[]
 }
 
 export interface Flag {

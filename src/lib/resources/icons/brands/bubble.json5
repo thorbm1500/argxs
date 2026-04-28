@@ -1,0 +1,26 @@
+{
+	name: 'Bubble',
+	href: 'https://bubble.io',
+	assets: [
+		{
+			default: {
+				svg: 'bubble-icon.svg',
+				date_added: '2026/4/11'
+			},
+			dark: {
+				svg: 'bubble-icon-dark.svg',
+				date_added: '2026/4/11'
+			}
+		},
+		{
+			default: {
+				svg: 'bubble-logo.svg',
+				date_added: '2026/4/11'
+			},
+			dark: {
+				svg: 'bubble-logo-dark.svg',
+				date_added: '2026/4/11'
+			}
+		}
+	]
+}

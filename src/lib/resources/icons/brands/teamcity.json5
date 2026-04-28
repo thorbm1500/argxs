@@ -1,0 +1,35 @@
+{
+	name: 'TeamCity',
+	href: 'https://www.jetbrains.com/teamcity/',
+	assets: [
+		{
+			default: {
+				svg: 'teamcity-icon.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'teamcity-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			dark: {
+				svg: 'teamcity-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		}
+	
+	]
+}

@@ -1,0 +1,34 @@
+{
+    name: 'YouTrack',
+    href: 'https://www.jetbrains.com/youtrack/',
+    assets: [
+        {
+            default: {
+                svg: 'youtrack-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'youtrack-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                svg: 'youtrack-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+	name: 'DataGrip',
+	href: 'https://www.jetbrains.com/datagrip/',
+	assets: [
+		{
+			default: {
+				svg: 'data-grip-icon.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'data-grip-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			dark: {
+				svg: 'data-grip-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,34 @@
+{
+	name: 'DataSpell',
+	href: 'https://www.jetbrains.com/dataspell/',
+	assets: [
+		{
+			default: {
+				svg: 'data-spell-icon.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'data-spell-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			dark: {
+				svg: 'data-spell-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		}
+	]
+}

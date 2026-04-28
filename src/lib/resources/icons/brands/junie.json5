@@ -1,0 +1,35 @@
+{
+	name: 'Junie',
+	href: 'https://www.jetbrains.com/junie/',
+	assets: [
+		{
+			default: {
+				svg: 'junie-icon.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'junie-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			dark: {
+				svg: 'junie-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		}
+	
+	]
+}

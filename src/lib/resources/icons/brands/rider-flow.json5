@@ -1,0 +1,35 @@
+{
+	name: 'RiderFlow',
+	href: 'https://www.jetbrains.com/riderflow/',
+	assets: [
+		{
+			default: {
+				svg: 'rider-flow-icon.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'rider-flow-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			dark: {
+				svg: 'rider-flow-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		}
+	
+	]
+}

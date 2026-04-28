@@ -1,0 +1,12 @@
+{
+	name: 'Faker',
+	href: 'https://fakerjs.dev',
+	assets: [
+		{
+			default: {
+				svg: 'faker-icon.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

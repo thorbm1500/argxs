@@ -1,0 +1,72 @@
+{
+	name: 'JetBrains',
+	href: 'https://www.jetbrains.com',
+	assets: [
+		{
+			default: {
+				svg: 'jetbrains-icon.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'jetbrains-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			dark: {
+				svg: 'jetbrains-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			monochrome_white: {
+				svg: 'jetbrains-logo-monochrome-white.svg',
+				date_added: '2026/4/25',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			monochrome_black: {
+				svg: 'jetbrains-logo-monochrome-black.svg',
+				date_added: '2026/4/25',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'jetbrains-alternate-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'JetBrains Academy',
+				svg: 'jetbrains-academy-logo.svg',
+				date_added: '2026/4/25',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			},
+			dark: {
+				name: 'JetBrains Academy',
+				svg: 'jetbrains-academy-logo-dark.svg',
+				date_added: '2026/4/25',
+				source: {
+					name: 'JetBrains',
+					href: 'https://www.jetbrains.com/company/brand'
+				}
+			}
+		}
+	]
+}

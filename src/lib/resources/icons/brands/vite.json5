@@ -1,0 +1,26 @@
+{
+  name: 'Vite',
+  href: 'https://vite.dev',
+  assets: [
+    {
+      default: {
+        svg: 'vite-icon.svg',
+        date_added: '2026/4/25'
+      },
+      dark: {
+        svg: 'vite-icon-dark.svg',
+        date_added: '2026/4/25'
+      }
+    },
+    {
+      default: {
+        svg: 'vite-logo.svg',
+        date_added: '2026/4/25'
+      },
+      dark: {
+        svg: 'vite-logo-dark.svg',
+        date_added: '2026/4/25'
+      }
+    }
+  ]
+}

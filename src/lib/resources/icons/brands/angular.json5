@@ -1,0 +1,18 @@
+{
+	name: 'Angular',
+	href: 'https://angular.dev',
+	assets: [
+		{
+			default: {
+				svg: 'angular-icon.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'angular-logo.svg',
+				date_added: '2026/4/10'
+			}
+		}
+	]
+}

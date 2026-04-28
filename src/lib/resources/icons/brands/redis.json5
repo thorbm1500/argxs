@@ -1,0 +1,22 @@
+{
+	name: 'Redis',
+	href: 'https://redis.io',
+	assets: [
+		{
+			default: {
+				svg: 'redis-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				svg: 'redis-logo.svg',
+				date_added: '2026/4/25'
+			},
+			dark: {
+				svg: 'redis-logo-dark.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

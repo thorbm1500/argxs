@@ -1,0 +1,12 @@
+{
+	name: 'Bluesky',
+	href: 'https://bsky.app',
+	assets: [
+		{
+			default: {
+				svg: 'bluesky-icon.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

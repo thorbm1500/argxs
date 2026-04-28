@@ -1,0 +1,42 @@
+{
+    name: 'InfluxData',
+    href: 'https://www.influxdata.com',
+    assets: [
+        {
+            default: {
+                svg: 'influx-data-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'InfluxData',
+                    href: 'https://www.influxdata.com'
+                }
+            },
+            dark: {
+                svg: 'influx-data-icon-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'InfluxData',
+                    href: 'https://www.influxdata.com'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'influx-data-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'InfluxData',
+                    href: 'https://www.influxdata.com'
+                }
+            },
+            dark: {
+                svg: 'influx-data-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'InfluxData',
+                    href: 'https://www.influxdata.com'
+                }
+            }
+        },
+    ]
+}

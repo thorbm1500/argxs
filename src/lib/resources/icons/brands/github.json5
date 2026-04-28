@@ -1,0 +1,43 @@
+{
+	name: 'GitHub',
+	href: 'https://github.com',
+	assets: [
+		{
+			default: {
+				svg: 'github-icon.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'GitHub',
+					href: 'https://brand.github.com/foundations/logo'
+				}
+			},
+			dark: {
+				svg: 'github-icon-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'GitHub',
+					href: 'https://brand.github.com/foundations/logo'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'github-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'GitHub',
+					href: 'https://brand.github.com/foundations/logo'
+				}
+			},
+			dark: {
+				svg: 'github-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'GitHub',
+					href: 'https://brand.github.com/foundations/logo'
+				}
+			}
+		}
+	
+	]
+}

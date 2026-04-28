@@ -1,7 +1,0 @@
-{
-	default: {
-		name: 'Google Play Console',
-		svg: 'undefined',
-		date_added: '2026/4/25'
-	}
-}

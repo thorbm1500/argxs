@@ -1,0 +1,22 @@
+{
+	name: 'Bash',
+	href: 'https://www.gnu.org/software/bash/',
+	assets: [
+		{
+			default: {
+				svg: 'bash-icon.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'bash-logo.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'bash-logo-dark.svg',
+				date_added: '2026/4/10'
+			}
+		}
+	]
+}

@@ -1,0 +1,242 @@
+{
+	name: 'Google',
+	href: 'https://google.com',
+	assets: [
+		{
+			default: {
+				svg: 'google-icon.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'google-logo.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				name: 'Google Chrome',
+				svg: 'google-chrome-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Play',
+				svg: 'google-play-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Play',
+				svg: 'google-play-logo.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Play Console',
+				svg: 'google-play-console-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Play Console',
+				svg: 'google-play-console-logo.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Chrome Web Store',
+				svg: 'chrome-web-store-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google 360 Suite',
+				svg: 'google-360-suite.svg',
+				date_added: '2026/4/24'
+			}
+		},
+		{
+			default: {
+				name: 'Google AdMob',
+				svg: 'google-ad-mob-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google AdSense',
+				svg: 'google-ad-sense-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Analytics',
+				svg: 'google-analytics-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Calender',
+				svg: 'google-calender-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Drive',
+				svg: 'google-drive-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Gmail',
+				svg: 'google-gmail-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Home',
+				svg: 'google-home-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Maps',
+				svg: 'google-maps-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Photos',
+				svg: 'google-photos-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Meet',
+				svg: 'google-meet-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Keep',
+				svg: 'google-keep-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Fit',
+				svg: 'google-fit-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google One',
+				svg: 'google-one-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Domains',
+				svg: 'google-domains-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Domains',
+				svg: 'google-domains-logo.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Developers',
+				svg: 'google-developers-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Pay',
+				svg: 'google-pay-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Data Studio',
+				svg: 'google-data-studio-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Optimize',
+				svg: 'google-optimize-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Tag Manager',
+				svg: 'google-tag-manager-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Workspace',
+				svg: 'google-workspace-logo.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Gemini',
+				svg: 'google-gemini-logo.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google PaLM',
+				svg: 'google-palm-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Google Search Console',
+				svg: 'google-search-console-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				name: 'Lighthouse',
+				svg: 'chrome-lighthouse-icon.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

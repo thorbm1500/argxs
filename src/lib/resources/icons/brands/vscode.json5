@@ -1,0 +1,12 @@
+{
+	name: 'Visual Studio Code',
+	href: 'https://code.visualstudio.com',
+	assets: [
+		{
+			default: {
+				svg: 'vscode-icon.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

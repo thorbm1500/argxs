@@ -1,0 +1,34 @@
+{
+    name: 'Datalore',
+    href: 'https://www.jetbrains.com/datalore/',
+    assets: [
+        {
+            default: {
+                svg: 'datalore-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'datalore-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                svg: 'datalore-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+	name: 'Claude',
+	href: 'https://claude.ai',
+	assets: [
+		{
+			default: {
+				svg: 'claude-icon.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'claude-logo.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'claude-logo-dark.svg',
+				date_added: '2026/4/10'
+			}
+		}
+	]
+}

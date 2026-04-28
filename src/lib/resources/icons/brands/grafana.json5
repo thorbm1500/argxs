@@ -1,0 +1,12 @@
+{
+	name: 'Grafana',
+	href: 'https://grafana.com',
+	assets: [
+		{
+			default: {
+				svg: 'grafana-icon.svg',
+				date_added: '2026/4/24'
+			}
+		}
+	]
+}

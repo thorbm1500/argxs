@@ -1,0 +1,27 @@
+{
+	name: 'AdonisJS',
+	href: 'https://adonisjs.com',
+	assets: [
+		{
+			default: {
+				svg: 'adonis-js-icon.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'adonis-js-icon-dark.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'adonis-js-logo.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'adonis-js-logo-dark.svg',
+				date_added: '2026/4/10'
+			}
+		}
+	
+	]
+}

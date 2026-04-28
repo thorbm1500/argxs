@@ -1,0 +1,27 @@
+{
+	name: 'Grok',
+	href: 'https://grok.com',
+	assets: [
+		{
+			default: {
+				svg: 'grok-icon.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'grok-icon-dark.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'grok-logo.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'grok-logo-dark.svg',
+				date_added: '2026/4/10'
+			}
+		}
+	
+	]
+}

@@ -1,0 +1,42 @@
+{
+	name: 'Discord',
+	href: 'https://discord.com',
+	assets: [
+		{
+			default: {
+				svg: 'discord-icon.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'Discord',
+					href: 'https://discord.com/branding'
+				}
+			},
+			dark: {
+				svg: 'discord-icon-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'Discord',
+					href: 'https://discord.com/branding'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'discord-logo.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'Discord',
+					href: 'https://discord.com/branding'
+				}
+			},
+			dark: {
+				svg: 'discord-logo-dark.svg',
+				date_added: '2026/4/10',
+				source: {
+					name: 'Discord',
+					href: 'https://discord.com/branding'
+				}
+			}
+		}
+	]
+}

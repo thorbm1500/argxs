@@ -18,32 +18,14 @@
 <section class="theme-grid-content-layout">
 	<div class="icons">
 		{#each brands as brand}
-			{#if brand.icon !== undefined}
-				<CopyableComponent icon={theme === 'dark' && brand.icon.dark !== undefined ? brand.icon.dark : brand.icon.default} name={brand.name.concat(theme === 'dark' && brand.icon.dark ? '_dark' : '')}
-				                   title={brand.icon.default.name ?? brand.name} />
-				{#if brand.icon.monochrome_white || brand.icon.monochrome_black}
-					<CopyableComponent icon={theme === 'dark' ? brand.icon.monochrome_white : brand.icon.monochrome_black} name={brand.name.concat('_monochrome_',theme==='dark'?'white':'black')}
-					                   title={(theme === 'dark' ? brand.icon.monochrome_white?.name : brand.icon.monochrome_black?.name) ?? brand.name} />
+			{#each brand.assets as asset}
+				<CopyableComponent path="/resources/icons/brands/{theme === 'dark' && asset.dark ? asset.dark.svg: asset.default.svg}"
+				                   name={theme === 'dark' && asset.dark ? (asset.dark.name ?? brand.name) : (asset.default.name ?? brand.name)} />
+				{#if asset.monochrome_black && theme === 'dark'}
+					<CopyableComponent path="/resources/icons/brands/{asset.monochrome_black.svg}" name={asset.monochrome_black.name ?? brand.name} />
 				{/if}
-			{/if}
-			{#if brand.logo !== undefined}
-				<CopyableComponent title={brand.logo.default?.name ?? brand.name} name={brand.name.concat(theme === 'dark' && brand.logo.dark ? '_dark' : '')}
-				                   icon={theme === 'dark' && brand.logo.dark !== undefined ? brand.logo.dark : brand.logo.default} />
-				{#if brand.logo.monochrome_white || brand.logo.monochrome_black}
-					<CopyableComponent title={(theme === 'dark' ? brand.logo.monochrome_white?.name : brand.logo.monochrome_black?.name) ?? brand.name}
-					                   icon={theme === 'dark' ? brand.logo.monochrome_white : brand.logo.monochrome_black} name={brand.name.concat('_monochrome_',theme==='dark'?'white':'black')} />
-				{/if}
-			{/if}
-			{#each brand.extra as icon}
-				<CopyableComponent name={brand.name.concat(theme === 'dark' && icon.dark ? '_dark' : '')} title={icon.default?.name ?? brand.name}
-				                   icon={theme === 'dark' && icon.dark !== undefined ? icon.dark : icon.default} />
-				{#if theme === 'dark' && icon.monochrome_white }
-					<CopyableComponent name={brand.name.concat('_monochrome_white')} icon={icon.monochrome_white}
-					                   title={icon.monochrome_white.name ?? brand.name} />
-				{/if}
-				{#if theme === 'light' && icon.monochrome_black }
-					<CopyableComponent name={brand.name.concat('_monochrome_black')} icon={icon.monochrome_black}
-					                   title={icon.monochrome_black.name ?? brand.name} />
+				{#if asset.monochrome_white && theme === 'light'}
+					<CopyableComponent path="/resources/icons/brands/{asset.monochrome_white.svg}" name={asset.monochrome_white.name ?? brand.name} />
 				{/if}
 			{/each}
 		{/each}

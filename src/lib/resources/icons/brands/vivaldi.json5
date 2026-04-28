@@ -1,0 +1,22 @@
+{
+	name: 'Vivaldi',
+	href: 'https://vivaldi.com',
+	assets: [
+		{
+			default: {
+				svg: 'vivaldi-icon.svg',
+				date_added: '2026/4/25'
+			}
+		},
+		{
+			default: {
+				svg: 'vivaldi-logo.svg',
+				date_added: '2026/4/25'
+			},
+			dark: {
+				svg: 'vivaldi-logo-dark.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

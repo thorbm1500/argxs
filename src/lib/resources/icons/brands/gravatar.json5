@@ -1,0 +1,23 @@
+{
+	name: 'Gravatar',
+	href: 'https://gravatar.com',
+	assets: [
+		{
+			default: {
+				svg: 'gravatar-icon.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'gravatar-logo.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'gravatar-logo-dark.svg',
+				date_added: '2026/4/10'
+			}
+		}
+	
+	]
+}

@@ -1,104 +1,8 @@
-import type { Icon, Brand, VariableIcon, Flag, BrandConfiguration, ColorCombos, ColorCombo } from '$lib/components/interfaces';
-import type { Dir } from 'node:fs';
+import type { Brand, Flag, ColorCombos, ColorCombo } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 import { env } from '$env/dynamic/private';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
-
-class BrandUtil {
-	static async getIcon(path: string[]): Promise<VariableIcon | null> {
-		let icon: VariableIcon | null = null;
-
-		try {
-			icon = Bun.JSON5.parse(await Bun.file(path.join('/').concat('/asset.json5')).text()) as VariableIcon;
-		} catch (ignored) {
-			return null;
-		}
-
-		if (!!icon.default) {
-			try {
-				icon.default.svg = await Bun.file(path.join('/').concat('/default.svg')).text();
-			} catch (ignored) {}
-		}
-		if (!!icon.dark) {
-			try {
-				icon.dark.svg = await Bun.file(path.join('/').concat('/dark.svg')).text();
-			} catch (ignored) {}
-		}
-		if (!!icon.monochrome) {
-			try {
-				icon.monochrome.svg = await Bun.file(path.join('/').concat('/monochrome.svg')).text();
-			} catch (ignored) {}
-		}
-		if (!!icon.monochrome_white) {
-			try {
-				icon.monochrome_white.svg = await Bun.file(path.join('/').concat('/monochrome-white.svg')).text();
-			} catch (ignored) {}
-		}
-		if (!!icon.monochrome_black) {
-			try {
-				icon.monochrome_black.svg = await Bun.file(path.join('/').concat('/monochrome-black.svg')).text();
-			} catch (ignored) {}
-		}
-		if (!!icon.variable) {
-			try {
-				icon.variable.svg = await Bun.file(path.join('/').concat('/variable.svg')).text();
-			} catch (ignored) {}
-		}
-
-		return icon;
-	}
-
-	static async getExtraIcons(path: string): Promise<VariableIcon[]> {
-		const icons: VariableIcon[] = [];
-
-		try {
-			const dir: Dir = await fs.opendir(path.concat('/assets', '/extra'));
-
-			for await (const extra of dir) {
-				const icon: VariableIcon | null = await this.getIcon([path, 'assets', 'extra', extra.name]);
-				if (icon !== null) icons.push(icon);
-			}
-		} catch (ignored) {}
-
-		return icons;
-	}
-}
-
-class Util {
-	static async getIcon(path: string[]): Promise<Icon> {
-		let icon: Icon | null = null;
-
-		try {
-			icon = Bun.JSON5.parse(await Bun.file(path.join('/').concat('/asset.json5')).text()) as Icon;
-		} catch (ignored) {
-			return { svg: 'undefined' };
-		}
-
-		if (icon !== null) {
-			try {
-				icon.svg = await Bun.file(path.join('/').concat('/default.svg')).text();
-			} catch (ignored) {}
-		}
-
-		return icon;
-	}
-
-	static async getExtraIcons(path: string): Promise<Icon[]> {
-		const icons: Icon[] = [];
-
-		try {
-			const dir: Dir = await fs.opendir(path.concat('/assets', '/extra'));
-
-			for await (const extra of dir) {
-				const icon: Icon | null = await this.getIcon([path, 'assets', 'extra', extra.name]);
-				if (icon !== null) icons.push(icon);
-			}
-		} catch (ignored) {}
-
-		return icons;
-	}
-}
 
 export class Resources {
 	readonly BRAND_ICONS: Brand[] = [];
@@ -118,66 +22,29 @@ export class Resources {
 	}
 
 	private async loadBrandIcons(): Promise<void> {
-		console.log('Loading brand icons...');
-		const dir: Dir = await fs.opendir(root.concat('/icons/brands'));
+		console.info('Loading brand icons...');
+		const path = root.concat('/icons/brands');
+		const dir: string[] = await fs.readdir(path);
 
-		for await (const dirent of dir) {
-			if (!dirent.isDirectory()) continue;
-
-			const path: string = dirent.parentPath.concat('/', dirent.name);
-			if (!(await Bun.file(path.concat('/brand.json5')).exists())) continue;
-
-			const conf: BrandConfiguration = Bun.JSON5.parse(await Bun.file(path.concat('/brand.json5')).text()) as BrandConfiguration;
-			const brand: Brand = {
-				...conf,
-				extra: await BrandUtil.getExtraIcons(path)
-			};
-			if (conf.href) brand.href = conf.href;
-
-			const icon: VariableIcon | null = await BrandUtil.getIcon([path, 'assets', 'icon']);
-			if (icon !== null) {
-				brand.icon = icon;
-			}
-
-			const logo: VariableIcon | null = await BrandUtil.getIcon([path, 'assets', 'logo']);
-			if (logo !== null) {
-				brand.logo = logo;
-			}
-
-			this.BRAND_ICONS.push(brand);
+		for (const brand of dir) {
+			this.BRAND_ICONS.push(Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand);
 		}
 
-		this.BRAND_ICON_AMOUNT = this.getBrandIconAmount();
-	}
-
-	private getBrandIconAmount(): number {
 		let amount = 0;
-
 		for (const brand of this.BRAND_ICONS) {
-			if (!!brand.icon?.default) amount++;
-			if (!!brand.icon?.dark) amount++;
-			if (!!brand.icon?.monochrome) amount++;
-			if (!!brand.icon?.monochrome_white) amount++;
-			if (!!brand.icon?.monochrome_black) amount++;
-			if (!!brand.icon?.variable) amount++;
-			if (!!brand.logo?.default) amount++;
-			if (!!brand.logo?.dark) amount++;
-			if (!!brand.logo?.monochrome) amount++;
-			if (!!brand.logo?.monochrome_white) amount++;
-			if (!!brand.logo?.monochrome_black) amount++;
-			if (!!brand.logo?.variable) amount++;
+			if (!brand.assets || brand.assets.length === 0) continue;
 
-			for (const extra of brand.extra) {
-				if (!!extra.default) amount++;
-				if (!!extra.dark) amount++;
-				if (!!extra.monochrome) amount++;
-				if (!!extra.monochrome_white) amount++;
-				if (!!extra.monochrome_black) amount++;
-				if (!!extra.variable) amount++;
+			for (const icon of brand.assets) {
+				if (icon.default) amount++;
+				if (icon.dark) amount++;
+				if (icon.monochrome) amount++;
+				if (icon.monochrome_white) amount++;
+				if (icon.monochrome_black) amount++;
+				if (icon.variable) amount++;
 			}
 		}
 
-		return amount;
+		this.BRAND_ICON_AMOUNT = amount;
 	}
 
 	private async loadFlagIcons(): Promise<void> {

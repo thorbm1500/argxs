@@ -1,0 +1,46 @@
+{
+	name: 'Microsoft',
+	href: 'https://www.microsoft.com',
+	assets: [
+		{
+			default: {
+				svg: 'microsoft-icon.svg',
+				date_added: '2026/4/24'
+			}
+		},
+		{
+			default: {
+				svg: 'microsoft-logo.svg',
+				date_added: '2026/4/24'
+			}
+		},
+		{
+			default: {
+				name: 'Microsoft Edge',
+				svg: 'microsoft-edge-icon.svg',
+				date_added: '2026/4/24'
+			}
+		},
+		{
+			default: {
+				name: 'Microsoft Teams',
+				svg: 'microsoft-teams-icon.svg',
+				date_added: '2026/4/24'
+			}
+		},
+		{
+			default: {
+				name: 'Microsoft OneDrive',
+				svg: 'microsoft-one-drive-icon.svg',
+				date_added: '2026/4/24'
+			}
+		},
+		{
+			default: {
+				name: 'Microsoft Azure',
+				svg: 'microsoft-azure-icon.svg',
+				date_added: '2026/4/24'
+			}
+		}
+	]
+}

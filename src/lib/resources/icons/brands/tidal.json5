@@ -1,0 +1,26 @@
+{
+  name: 'Tidal',
+  href: 'https://tidal.com',
+  assets: [
+    {
+      default: {
+        svg: 'tidal-icon.svg',
+        date_added: '2026/4/25'
+      },
+      dark: {
+        svg: 'tidal-icon-dark.svg',
+        date_added: '2026/4/25'
+      }
+    },
+    {
+      default: {
+        svg: 'tidal-logo.svg',
+        date_added: '2026/4/25'
+      },
+      dark: {
+        svg: 'tidal-logo-dark.svg',
+        date_added: '2026/4/25'
+      }
+    }
+  ]
+}

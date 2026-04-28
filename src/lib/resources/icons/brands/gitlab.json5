@@ -1,0 +1,23 @@
+{
+	name: 'GitLab',
+	href: 'https://about.gitlab.com',
+	assets: [
+		{
+			default: {
+				svg: 'gitlab-icon.svg',
+				date_added: '2026/4/10'
+			}
+		},
+		{
+			default: {
+				svg: 'gitlab-logo.svg',
+				date_added: '2026/4/10'
+			},
+			dark: {
+				svg: 'gitlab-logo-dark.svg',
+				date_added: '2026/4/10'
+			}
+		}
+	
+	]
+}

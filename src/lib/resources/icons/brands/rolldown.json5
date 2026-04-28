@@ -1,0 +1,26 @@
+{
+  name: 'Rolldown',
+  href: 'https://rolldown.rs',
+  assets: [
+    {
+      default: {
+        svg: 'rolldown-icon.svg',
+        date_added: '2026/4/25'
+      },
+      dark: {
+        svg: 'rolldown-icon-dark.svg',
+        date_added: '2026/4/25'
+      }
+    },
+    {
+      default: {
+        svg: 'rolldown-logo.svg',
+        date_added: '2026/4/25'
+      },
+      dark: {
+        svg: 'rolldown-logo-dark.svg',
+        date_added: '2026/4/25'
+      }
+    }
+  ]
+}

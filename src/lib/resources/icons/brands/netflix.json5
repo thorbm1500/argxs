@@ -1,0 +1,12 @@
+{
+	name: 'Netflix',
+	href: 'https://netflix.com',
+	assets: [
+		{
+			default: {
+				svg: 'netflix-logo.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}

@@ -1,0 +1,34 @@
+{
+    name: 'Toolbox App',
+    href: 'https://www.jetbrains.com/toolbox-app/',
+    assets: [
+        {
+            default: {
+                svg: 'toolbox-app-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'toolbox-app-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                svg: 'toolbox-app-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        }
+    ]
+}

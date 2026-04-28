@@ -1,0 +1,12 @@
+{
+	name: 'Bun',
+	href: 'https://bun.com',
+	assets: [
+		{
+			default: {
+				svg: 'bun-icon.svg',
+				date_added: '2026/4/25'
+			}
+		}
+	]
+}
