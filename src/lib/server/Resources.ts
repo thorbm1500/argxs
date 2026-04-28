@@ -1,4 +1,4 @@
-import type { Icon, Brand, VariableIcon, Flag, BrandConfiguration, FlagConfiguration, ColorCombos, ColorCombo } from '$lib/components/interfaces';
+import type { Icon, Brand, VariableIcon, Flag, BrandConfiguration, ColorCombos, ColorCombo } from '$lib/components/interfaces';
 import type { Dir } from 'node:fs';
 import * as fs from 'node:fs/promises';
 import { env } from '$env/dynamic/private';
@@ -181,36 +181,21 @@ export class Resources {
 	}
 
 	private async loadFlagIcons(): Promise<void> {
-		console.log('Loading flag icons...');
-		const dir: Dir = await fs.opendir(root.concat('/icons/flags'));
+		console.info('Loading flag icons...');
+		const path = root.concat('/icons/flags');
+		const dir: string[] = await fs.readdir(path);
 
-		for await (const dirent of dir) {
-			if (!dirent.isDirectory()) continue;
-
-			const path: string = dirent.parentPath.concat('/', dirent.name);
-			if (!(await Bun.file(path.concat('/flag.json5')).exists())) continue;
-
-			const conf: FlagConfiguration = Bun.JSON5.parse(await Bun.file(path.concat('/flag.json5')).text()) as FlagConfiguration;
-
-			this.FLAG_ICONS.push({
-				...conf,
-				flag: await Util.getIcon([path, 'assets', 'flag']),
-				extra: await Util.getExtraIcons(path)
-			});
+		for (const flag of dir) {
+			this.FLAG_ICONS.push(Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag);
 		}
 
-		this.FLAG_ICON_AMOUNT = this.getFlagIconAmount();
-	}
-
-	private getFlagIconAmount(): number {
 		let amount = 0;
-
 		for (const flag of this.FLAG_ICONS) {
-			amount += flag.extra.length;
-			amount++;
+			if (!flag.flags) continue;
+			amount += flag.flags.length;
 		}
 
-		return amount;
+		this.FLAG_ICON_AMOUNT = amount;
 	}
 
 	private async loadColorCombos(): Promise<void> {

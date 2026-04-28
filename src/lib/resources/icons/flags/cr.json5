@@ -1,0 +1,22 @@
+{
+	country: 'Costa Rica',
+	flags: [
+		{
+			svg: 'cr.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		},
+		{
+			name: 'Costa Rica State',
+			svg: 'cr-state.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		}
+	]
+}

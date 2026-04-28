@@ -1,0 +1,22 @@
+{
+	country: 'Iceland',
+	flags: [
+		{
+			svg: 'is.svg',
+			date_added: '2026/4/16',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		},
+		{
+			name: 'Iceland State',
+			svg: 'is-state.svg',
+			date_added: '2026/4/16',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		}
+	]
+}

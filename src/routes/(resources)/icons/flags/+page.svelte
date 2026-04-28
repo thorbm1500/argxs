@@ -8,17 +8,16 @@
 	let { data } = $props();
 
 	// svelte-ignore state_referenced_locally
-	const flags: Flag[] = $state.raw(data.flags ?? []);
+	const flagIcons: Flag[] = $state.raw(data.flags ?? []);
 </script>
 
 <ContentHeaderComponent title="Flag Icons" type="flags" amount={data.iconAmount} />
 
 <section class="theme-grid-content-layout">
 	<div class="icons">
-		{#each flags as flag}
-			<CopyableComponent icon={flag.flag} name={flag.country} title={flag.flag.name ?? flag.country} blur_content_bg={true} />
-			{#each flag.extra as extra}
-				<CopyableComponent icon={extra} name={flag.country} title={extra.name ?? flag.country} blur_content_bg={true} />
+		{#each flagIcons as flagIcon}
+			{#each flagIcon.flags as flag}
+				<CopyableComponent path="/resources/icons/flags/{flag.svg}" name={flag.name ?? flagIcon.country} source={flag.source} date_added={flag.date_added} blur_content_bg={true} />
 			{/each}
 		{/each}
 	</div>

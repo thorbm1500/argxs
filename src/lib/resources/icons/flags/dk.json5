@@ -1,0 +1,22 @@
+{
+	country: 'Denmark',
+	flags: [
+		{
+			svg: 'dk.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		},
+		{
+			name: 'Denmark State',
+			svg: 'dk-state.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		}
+	]
+}

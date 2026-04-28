@@ -1,11 +1,10 @@
 <script module lang="ts">
-	import type { Icon } from '$lib/components/interfaces';
 	import { fade } from 'svelte/transition';
 	import moment from 'moment';
 	import { onMount } from 'svelte';
 	import { copyToClipboard } from '$lib/utilities';
 
-	let highlightedIcon: Icon | null = $state.raw(null);
+	let highlightedIcon: string | 'undefined' = $state.raw('undefined');
 	let isRegistered: boolean = false;
 
 	function register(document: Document) {
@@ -20,7 +19,7 @@
 					element = element.parentElement;
 				}
 
-				highlightedIcon = null;
+				highlightedIcon = 'undefined';
 			});
 			isRegistered = true;
 		}
@@ -30,7 +29,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 
-	const { icon, title, name = undefined, blur_content_bg = false } = $props();
+	const { icon = null, path = 'undefined', name = undefined, source = undefined, date_added = undefined, blur_content_bg = false } = $props();
 
 	const sendToast: any = $derived(getContext('sendToast'));
 
@@ -38,8 +37,8 @@
 	//todo: navigator.connection.saveData
 
 	function highlightClick(e: MouseEvent) {
-		if (highlightedIcon === icon) highlightedIcon = null;
-		else highlightedIcon = icon;
+		if (highlightedIcon === icon) highlightedIcon = 'undefined';
+		else highlightedIcon = path;
 		(e.target as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'center' });
 	}
 
@@ -63,19 +62,18 @@
 	onMount(() => register(document));
 </script>
 
-{#if highlightedIcon === icon}
+{#if highlightedIcon !== 'undefined' && highlightedIcon === path}
 	<div class="highlighted-icon" transition:fade>
-		<button title="" class="close" onclick={() => (highlightedIcon = null)}>
+		<button title="" class="close" onclick={() => (highlightedIcon = 'undefined')}>
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
 				<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 			</svg>
 		</button>
-
 		<div class="icon blurred">
-			{@html highlightedIcon?.svg}
+			<img src={path} alt={name} loading="eager" />
 		</div>
 		<div class="icon">
-			{@html highlightedIcon?.svg}
+			<img src={path} alt={name} loading="eager" />
 		</div>
 		<div class="actions-info">
 			<div class="actions">
@@ -86,14 +84,14 @@
 				<button class="download" onclick={downloadIcon}> Download SVG</button>
 			</div>
 			<div class="info">
-				{#if highlightedIcon?.source}
+				{#if !!source}
 					<div class="source">
-						<a href={highlightedIcon.source.href} rel="external" target="_blank">Sourced from <strong>{highlightedIcon.source.name}</strong></a>
+						<a href={source.href} rel="external" target="_blank">Sourced from <strong>{source.name}</strong></a>
 					</div>
 				{/if}
-				{#if highlightedIcon?.date_added}
+				{#if !!date_added}
 					<div class="date">
-						<p>Added {moment(Date.parse(highlightedIcon.date_added)).calendar()}</p>
+						<p>Added {moment(Date.parse(date_added)).calendar()}</p>
 					</div>
 				{/if}
 			</div>
@@ -105,7 +103,8 @@
 	<div class="actions svg">
 		<button title="" class="info-button" onclick={highlightClick}>
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-				<path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+				<path
+					d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
 					stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 			</svg>
 		</button>
@@ -118,12 +117,18 @@
 	<div class="inner-content">
 		{#if blur_content_bg}
 			<div class="blurred">
-				<div class="content">{@html icon.svg}</div>
+				<div class="content">
+					<img src="{path}" alt={name} loading="lazy" />
+				</div>
 			</div>
 		{/if}
-		{@html icon.svg}
+		{#if path !== 'undefined'}
+			<img src="{path}" alt={name} loading="lazy" />
+		{:else if icon !== null }
+			{@html icon.svg}
+		{/if}
 	</div>
-	<h1 class="name">{title}</h1>
+	<h1 class="name">{name}</h1>
 </div>
 
 <style>
@@ -133,7 +138,7 @@
             height: 20rem;
             width: calc(100vw - var(--sidebar-width));
 
-            .icon :global {
+            .icon img {
                 height: 8rem;
             }
         }
@@ -150,7 +155,7 @@
             height: 20rem;
             width: 100vw;
 
-            .icon :global {
+            .icon img {
                 height: 3.5rem;
                 max-width: 60vw;
             }
@@ -164,10 +169,10 @@
 
     /* Phone */
     @media (width < 24rem) {
-				.copyable-container {
-						--box-size: 8.5rem;
-				}
-		}
+        .copyable-container {
+            --box-size: 8.5rem;
+        }
+    }
 
     .highlighted-icon {
         position: fixed;
@@ -206,22 +211,23 @@
             color: var(--theme-color-alert);
         }
 
-        .icon :global {
-            svg :global {
+        .icon {
+            img {
                 position: relative;
 
                 height: 100%;
                 width: 100%;
             }
 
+						height: 8rem;
             width: auto;
 
             margin: 1rem;
         }
 
-        .icon.blurred :global {
+        .icon.blurred {
             position: absolute;
-            height: 12rem;
+            height: 10rem;
             width: auto;
 
             filter: blur(8rem) brightness(1);
@@ -304,27 +310,27 @@
 
         box-sizing: border-box;
 
-				margin-bottom: 1.75rem;
+        margin-bottom: 1.75rem;
 
-				.name {
-						position: absolute;
-						top: calc(var(--box-size) + .25rem);
-						padding: 0 .5rem;
-						left: 0;
+        .name {
+            position: absolute;
+            top: calc(var(--box-size) + .25rem);
+            padding: 0 .5rem;
+            left: 0;
 
-						width: 10rem !important;
-						max-height: 3rem !important;
-						overflow: hidden;
+            width: 10rem !important;
+            max-height: 3rem !important;
+            overflow: hidden;
 
-						color: var(--theme-text-secondary);
-						font-family: 'Google Sans', sans-serif;
-						font-weight: 700;
-						text-wrap: pretty;
-						text-overflow: ellipsis;
-						line-clamp: 2 !important;
+            color: var(--theme-text-secondary);
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 700;
+            text-wrap: pretty;
+            text-overflow: ellipsis;
+            line-clamp: 2 !important;
 
-						align-items: end;
-				}
+            align-items: end;
+        }
 
         .actions {
             position: absolute;
@@ -435,19 +441,19 @@
             transition: 35ms ease-out;
         }
 
-        .inner-content :global {
+        .inner-content {
             position: relative;
 
-            svg :global {
+            img {
                 position: relative;
 
                 height: 100%;
                 width: 100%;
             }
 
-						height: 100%;
+            height: 100%;
             min-height: 2.5rem;
-						max-height: 2.62rem;
+            max-height: 2.62rem;
             width: auto;
 
             max-width: 8rem;

@@ -1,0 +1,22 @@
+{
+	country: 'Haiti',
+	flags: [
+		{
+			svg: 'ht.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		},
+		{
+			name: 'Haiti State',
+			svg: 'ht-state.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		}
+	]
+}

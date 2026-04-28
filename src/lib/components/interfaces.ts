@@ -9,14 +9,9 @@ export interface BrandConfiguration {
 	href?: string;
 }
 
-export interface Flag extends FlagConfiguration {
-	flag: Icon;
-	extra: Icon[];
-}
-
-export interface FlagConfiguration {
+export interface Flag {
 	country: string;
-	href?: string;
+	flags: Icon[]
 }
 
 export interface VariableIcon {
@@ -29,10 +24,10 @@ export interface VariableIcon {
 }
 
 export interface Icon {
-	svg: string;
-	name?: string;
-	date_added?: string;
-	source?: Source;
+	name?: string,
+	svg: string,
+	date_added?: string,
+	source?: Source
 }
 
 declare interface Source {

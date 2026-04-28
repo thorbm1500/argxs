@@ -1,0 +1,22 @@
+{
+	country: 'El Salvador',
+	flags: [
+		{
+			svg: 'sv.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		},
+		{
+			name: 'El Salvador State',
+			svg: 'sv-state.svg',
+			date_added: '2026/4/14',
+			source: {
+				name: 'Wikipedia',
+				href: 'https://en.wikipedia.org'
+			}
+		}
+	]
+}
