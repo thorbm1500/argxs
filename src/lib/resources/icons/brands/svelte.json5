@@ -22,11 +22,13 @@
       default: {
         name: 'SvelteKit',
         svg: 'sveltekit-logo.svg',
+        href: 'https://svelte.dev/docs/kit/introduction',
         date_added: '2026/4/25'
       },
       dark: {
         name: 'SvelteKit',
         svg: 'sveltekit-logo-dark.svg',
+        href: 'https://svelte.dev/docs/kit/introduction',
         date_added: '2026/4/25'
       }
     }

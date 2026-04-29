@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');*/
+@import '../lib/resources/other/typography/google-sans/fonts.css';
+@import '../lib/resources/other/typography/space-grotesk/fonts.css';
+@import '../lib/resources/other/typography/archivo/fonts.css';
+@import '../lib/resources/other/typography/bricolage-grotesque/fonts.css';
+@import '../lib/resources/other/typography/lexend/fonts.css';
 @import '../lib/resources/other/typography/funnel/fonts.css';
 @import 'tailwindcss';
 
 :root {
+    color-scheme: normal;
+    
     --theme-transition-off: all 175ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
     --theme-transition-on: all 100ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
 
@@ -27,6 +29,7 @@
     --theme-ui-line: #dde1e8;
     --theme-ui-line-highlight: #c0c5cc;
     --theme-ui-white: #f7f9fc;
+    --theme-ui-black: #0d0d0d;
     --theme-ui-container: #eceef3;
     --theme-ui-container-hover: #e6e9ef;
     --theme-ui-background: #f7f9fc;
@@ -39,6 +42,8 @@
 }
 
 .dark {
+    color-scheme: dark;
+    
     --theme-color-aware: oklch(85.2% 0.199 91.936);
 
     --theme-text-primary: #f7f9fc;
@@ -101,8 +106,8 @@
 body {
     max-height: 100vh !important;
     overflow: hidden !important;
-
-    font-family: 'Lexend', sans-serif;
+    
+    font-family: 'Google Sans', 'Funnel Sans', sans-serif;
 
     transition: background-color 150ms ease;
 

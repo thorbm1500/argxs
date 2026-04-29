@@ -1,55 +1,13 @@
 <script module lang="ts">
-	import '$lib/resources/other/typography/jetbrains-mono/fonts.css';
-	import '$lib/resources/other/typography/funnel/fonts.css';
-	import '$lib/resources/other/typography/archivo/fonts.css';
-	import '$lib/resources/other/typography/roboto/fonts.css';
-	import '$lib/resources/other/typography/inter/fonts.css';
-	import '$lib/resources/other/typography/space-grotesk/fonts.css';
-	import '$lib/resources/other/typography/outfit/fonts.css';
-	import '$lib/resources/other/typography/ubuntu/fonts.css';
-	import '$lib/resources/other/typography/sora/fonts.css';
-	import '$lib/resources/other/typography/mulish/fonts.css';
-	import '$lib/resources/other/typography/lexend/fonts.css';
-	import '$lib/resources/other/typography/bricolage-grotesque/fonts.css';
-	import '$lib/resources/other/typography/syne/fonts.css';
-	import '$lib/resources/other/typography/chivo/fonts.css';
-	import '$lib/resources/other/typography/jura/fonts.css';
-	import '$lib/resources/other/typography/azeret-mono/fonts.css';
-	import '$lib/resources/other/typography/zalando-sans-expanded/fonts.css';
-	import '$lib/resources/other/typography/grandstander/fonts.css';
-	import '$lib/resources/other/typography/unbounded/fonts.css';
-	import '$lib/resources/other/typography/pixelify-sans/fonts.css';
-	import '$lib/resources/other/typography/exo/fonts.css';
-	import '$lib/resources/other/typography/gabarito/fonts.css';
-	import '$lib/resources/other/typography/darker-grotesque/fonts.css';
-	import '$lib/resources/other/typography/museomoderno/fonts.css';
-	import '$lib/resources/other/typography/stack-sans/fonts.css';
-	import '$lib/resources/other/typography/alan-sans/fonts.css';
-	import '$lib/resources/other/typography/geom/fonts.css';
-	import '$lib/resources/other/typography/sometype-mono/fonts.css';
-	import '$lib/resources/other/typography/kode-mono/fonts.css';
-	import '$lib/resources/other/typography/kalnia/fonts.css';
-	import '$lib/resources/other/typography/tektur/fonts.css';
-	import '$lib/resources/other/typography/lilex/fonts.css';
-	import '$lib/resources/other/typography/monda/fonts.css';
-	import '$lib/resources/other/typography/hubot-sans/fonts.css';
-
 	const defaultPangram = 'A wizard’s job is to vex chumps quickly in fog. A waxy gent chuckled over my fab jazzy quips.';
 </script>
 
 <script lang="ts">
-	const {
-		name,
-		font,
-		italic,
-		href,
-		activeFontSize = $bindable(),
-		activeFontWeight = $bindable(),
-		activePangram = $bindable(),
-		isItalic = $bindable(),
-		isLowercase = $bindable(),
-		isUppercase = $bindable()
-	} = $props();
+	let { name, font, cssImport, italic = 'none', href, activeFontSize = $bindable(), activeFontWeight = $bindable(),
+		activePangram = $bindable(), isItalic = $bindable(), isLowercase = $bindable(), isUppercase = $bindable() } = $props();
+
+	// svelte-ignore state_referenced_locally
+	import(`$lib/resources/other/typography/${cssImport}/fonts.css`);
 
 	function getCurrentText(): string {
 		const text = !!activePangram ? activePangram : defaultPangram;
@@ -68,12 +26,9 @@
 			<a class="link" {href} rel="external" target="_blank">Get this font</a>
 		</div>
 		<div class="preview">
-			<div
-				class="pangram"
-				style="font-size:{activeFontSize}px;{isItalic && italic === 'none' ? 'font-style:italic;' : ''}font-family:'{isItalic && italic !== 'none'
+			<div class="pangram" style="font-size:{activeFontSize}px;{isItalic && italic === 'none' ? 'font-style:italic;' : ''}font-family:'{isItalic && italic !== 'none'
 					? italic
-					: font}', sans-serif;font-weight: {activeFontWeight};"
-			>
+					: font}', sans-serif;font-weight: {activeFontWeight};">
 				{getCurrentText()}
 			</div>
 		</div>

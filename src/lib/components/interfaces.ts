@@ -21,6 +21,7 @@ export interface VariableIcon {
 export interface Icon {
 	name?: string,
 	svg: string,
+	href?: string,
 	date_added?: string,
 	source?: Source
 }

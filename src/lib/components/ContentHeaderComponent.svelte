@@ -10,7 +10,7 @@
 		<div class="subtitle">
 			<!--todo: Write subtitle-->
 			<p>
-				argxs currently showcases <strong style="color: var(--theme-color-accent);">{amount}</strong>
+				argxs currently showcases <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{amount}</strong>
 				different {type}
 			</p>
 		</div>
@@ -23,7 +23,7 @@
 		.content-header {
 			.text {
 				.title {
-					font-size: 2.25rem;
+					font-size: 3rem;
 				}
 				.subtitle {
 					font-size: 0.95rem;
@@ -37,10 +37,10 @@
 		.content-header {
 			.text {
 				.title {
-					font-size: 1.65rem;
+					font-size: 2rem;
 				}
 				.subtitle {
-					font-size: 0.775rem;
+					font-size: 0.8rem;
 				}
 			}
 		}
@@ -57,8 +57,8 @@
 
 		.text {
 			.title {
-				font-family: 'Outfit', sans-serif;
-				font-weight: 700;
+				font-family: 'Funnel Display', sans-serif;
+				font-weight: 900;
 
 				background-image: var(--theme-text-gradient);
 				background-clip: text;
@@ -68,14 +68,10 @@
 			}
 
 			.subtitle {
-				font-family: 'Google Sans', sans-serif;
 				font-weight: 500;
 
 				color: var(--theme-text-secondary);
 			}
-		}
-
-		.actions {
 		}
 	}
 </style>

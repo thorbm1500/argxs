@@ -52,6 +52,15 @@
 			</svg>
 			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Privacy</p>
 		</a>
+		<div class={{ planned: true }}>
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" />
+				<path d="M12 7v5l2 2" />
+				<path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39" />
+			</svg>
+			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Changelog</p>
+		</div>
 	</div>
 
 	<div class="nav-section">
@@ -291,9 +300,8 @@
                 }
             }
 
-            .nav-top::after, .nav-section:not(:last-child)::after {
+            .nav-top::after, .nav-section::after {
                 margin: .125rem 0;
-                opacity: .2;
             }
 
             .nav-section, .nav-top {
@@ -328,7 +336,7 @@
         @keyframes sidebarNavAnim {
             0% {
                 height: 60vh;
-                transform: translateY(-12.5vh)
+                transform: translateY(-12.5vh);
             }
             50% {
                 height: 90vh;
@@ -380,10 +388,8 @@
             width: 100vw;
             border: none;
 
-            .nav-top::after, .nav-section:not(:last-child)::after {
-                margin-top: .325rem;
-                margin-bottom: .325rem;
-                opacity: .1875;
+            .nav-top::after, .nav-section::after {
+                margin: .325rem 0;
             }
 
             .title {
@@ -466,7 +472,7 @@
 
         .version {
             margin-top: 1.5rem;
-						margin-bottom: 1rem;
+            margin-bottom: 1rem;
 
             height: fit-content;
             width: 100%;
@@ -573,7 +579,7 @@
             width: 100%;
         }
 
-        .nav-top::after, .nav-section:not(:last-child)::after {
+        .nav-top::after, .nav-section::after {
             content: '';
 
             position: relative;
@@ -582,8 +588,9 @@
             width: 92%;
             height: 1px;
 
-            background: linear-gradient(to top, rgba(from var(--theme-text-third) r g b / .25) 0%, var(--theme-text-third) 50%, rgba(from var(--theme-text-third) r g b / .25) 100%);
+            background: var(--theme-text-third);
             border-radius: 4px;
+            opacity: .2;
         }
 
         .nav-section {
