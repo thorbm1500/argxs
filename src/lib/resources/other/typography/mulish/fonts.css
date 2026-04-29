@@ -2,5 +2,5 @@
 	font-family: 'Mulish Variable';
 	font-display: swap;
 	font-weight: 200 1000;
-	src: url('./mulish_5.2.7_latin-wght-normal.woff2') format('woff2-variations');
+	src: url('/resources/fonts/mulish_5.2.7_latin-wght-normal.woff2') format('woff2-variations');
 }

@@ -2,5 +2,5 @@
 	font-family: 'Syne Variable';
 	font-display: swap;
 	font-weight: 400 800;
-	src: url('./syne_5.2.7_latin-wght-normal.woff2') format('woff2-variations');
+	src: url('/resources/fonts/syne_5.2.7_latin-wght-normal.woff2') format('woff2-variations');
 }

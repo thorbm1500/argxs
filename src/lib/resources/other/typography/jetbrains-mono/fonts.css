@@ -1,8 +1,10 @@
 @font-face {
 	font-family: 'JetBrainsMono';
-	src: url('./JetBrainsMono[wght].ttf');
+	font-display: swap;
+	src: url('/resources/fonts/JetBrainsMono[wght].ttf') format('truetype');
 }
 @font-face {
 	font-family: 'JetBrainsMono-Italic';
-	src: url('./JetBrainsMono-Italic[wght].ttf');
+	font-display: swap;
+	src: url('/resources/fonts/JetBrainsMono-Italic[wght].ttf') format('truetype');
 }

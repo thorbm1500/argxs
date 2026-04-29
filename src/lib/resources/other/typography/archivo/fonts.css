@@ -1,8 +1,10 @@
 @font-face {
 	font-family: 'Archivo';
-	src: url('./Archivo.woff2');
+	font-display: swap;
+	src: url('/resources/fonts/Archivo.woff2') format('woff2-variations');
 }
 @font-face {
 	font-family: 'Archivo Italic';
-	src: url('./Archivo-Italic.woff2');
+	font-display: swap;
+	src: url('/resources/fonts/Archivo-Italic.woff2') format('woff2-variations');
 }

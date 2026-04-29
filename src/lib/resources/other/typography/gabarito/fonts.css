@@ -2,5 +2,5 @@
 	font-family: 'Gabarito Variable';
 	font-display: swap;
 	font-weight: 400 900;
-	src: url('./gabarito_5.2.8_latin-wght-normal.woff2') format('woff2-variations');
+	src: url('/resources/fonts/gabarito_5.2.8_latin-wght-normal.woff2') format('woff2-variations');
 }

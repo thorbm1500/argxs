@@ -1,4 +1,5 @@
 @font-face {
 	font-family: 'Roboto Variable';
-	src: url('./Roboto[ital,wdth,wght].ttf');
+	font-display: swap;
+	src: url('/resources/fonts/Roboto[ital,wdth,wght].ttf') format('truetype');
 }

@@ -1,8 +1,7 @@
-import type { Brand, Flag, ColorCombos, ColorCombo } from '$lib/components/interfaces';
+import type { Brand, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
-import { env } from '$env/dynamic/private';
 
-const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
+const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
 
 export class Resources {
 	readonly BRAND_ICONS: Brand[] = [];

@@ -2,5 +2,5 @@
 	font-family: 'Exo Variable';
 	font-display: swap;
 	font-weight: 100 900;
-	src: url('./exo_5.2.8_latin-wght-normal.woff2') format('woff2-variations');
+	src: url('/resources/fonts/exo_5.2.8_latin-wght-normal.woff2') format('woff2-variations');
 }

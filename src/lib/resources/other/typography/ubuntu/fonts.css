@@ -1,8 +1,10 @@
 @font-face {
 	font-family: 'Ubuntu';
-	src: url('./Ubuntu-R.ttf');
+	font-display: swap;
+	src: url('/resources/fonts/Ubuntu-R.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'Ubuntu Italic';
-	src: url('./Ubuntu-RI.ttf');
+	font-display: swap;
+	src: url('/resources/fonts/Ubuntu-RI.ttf') format('truetype');
 }

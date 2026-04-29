@@ -1,8 +1,10 @@
 @font-face {
 	font-family: 'Inter Variable';
-	src: url('./InterVariable.ttf');
+	font-display: swap;
+	src: url('/resources/fonts/InterVariable.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'Inter Variable Italic';
-	src: url('./InterVariable-Italic.ttf');
+	font-display: swap;
+	src: url('/resources/fonts/InterVariable-Italic.ttf') format('truetype');
 }
