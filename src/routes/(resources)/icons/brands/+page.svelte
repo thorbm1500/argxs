@@ -21,11 +21,11 @@
 			{#each brand.assets as asset}
 				<CopyableComponent path="/resources/icons/brands/{theme === 'dark' && asset.dark ? asset.dark.svg: asset.default.svg}"
 				                   name={theme === 'dark' && asset.dark ? (asset.dark.name ?? brand.name) : (asset.default.name ?? brand.name)} />
-				{#if asset.monochrome_black && theme === 'dark'}
-					<CopyableComponent path="/resources/icons/brands/{asset.monochrome_black.svg}" name={asset.monochrome_black.name ?? brand.name} />
-				{/if}
-				{#if asset.monochrome_white && theme === 'light'}
+				{#if asset.monochrome_white && theme === 'dark'}
 					<CopyableComponent path="/resources/icons/brands/{asset.monochrome_white.svg}" name={asset.monochrome_white.name ?? brand.name} />
+				{/if}
+				{#if asset.monochrome_black && theme === 'light'}
+					<CopyableComponent path="/resources/icons/brands/{asset.monochrome_black.svg}" name={asset.monochrome_black.name ?? brand.name} />
 				{/if}
 			{/each}
 		{/each}

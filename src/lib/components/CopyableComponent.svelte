@@ -70,10 +70,10 @@
 			</svg>
 		</button>
 		<div class="icon blurred">
-			<img src={path} alt={name} loading="eager" />
+			<img in:fade src={path} alt={name} loading="eager" />
 		</div>
 		<div class="icon">
-			<img src={path} alt={name} loading="eager" />
+			<img in:fade src={path} alt={name} loading="eager" />
 		</div>
 		<div class="actions-info">
 			<div class="actions">
@@ -114,18 +114,16 @@
 		</button>
 		<button class="download" onclick={downloadIcon}> Download SVG</button>
 	</div>
-	<div class="inner-content">
+	<div in:fade class="inner-content">
 		{#if blur_content_bg}
 			<div class="blurred">
 				<div class="content">
-					<img src="{path}" alt={name} loading="lazy" />
+					<img in:fade src="{path}" alt={name} loading="lazy" />
 				</div>
 			</div>
 		{/if}
 		{#if path !== 'undefined'}
-			<img src="{path}" alt={name} loading="lazy" />
-		{:else if icon !== null }
-			{@html icon.svg}
+			<img in:fade src="{path}" alt={name} loading="lazy" />
 		{/if}
 	</div>
 	<h1 class="name">{name}</h1>
