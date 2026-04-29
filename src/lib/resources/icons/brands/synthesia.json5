@@ -1,0 +1,68 @@
+{
+	name: 'Synthesia',
+	href: 'https://www.synthesia.io',
+	assets: [
+		{
+			default: {
+				svg: 'synthesia-icon.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'synthesia-icon-monochrome-black.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				svg: 'synthesia-icon-monochrome-white.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'synthesia-logo.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				svg: 'synthesia-logo-dark.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_white: {
+				svg: 'synthesia-logo-monochrome-white.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_black: {
+				svg: 'synthesia-logo-monochrome-black.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

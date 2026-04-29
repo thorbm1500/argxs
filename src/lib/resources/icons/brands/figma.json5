@@ -1,0 +1,52 @@
+{
+    name: 'Figma',
+    href: 'https://www.figma.com',
+    assets: [
+        {
+            default: {
+                svg: 'figma-symbol.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'figma-icon.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                svg: 'figma-icon-dark.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'figma-logo.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                svg: 'figma-logo-dark.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

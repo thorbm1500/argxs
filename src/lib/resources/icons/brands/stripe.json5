@@ -1,0 +1,65 @@
+{
+    name: 'Stripe',
+    href: 'https://stripe.com',
+    assets: [
+        {
+            default: {
+                svg: 'stripe-logo.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            },
+            dark: {
+                svg: 'stripe-logo-dark.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'stripe-logo-blurple.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Stripe Badge',
+                svg: 'stripe-badge.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            },
+            dark: {
+                name: 'Stripe Badge',
+                svg: 'stripe-badge-dark.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Stripe Badge',
+                svg: 'stripe-badge-blurple.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+	name: 'Okta',
+	href: 'https://www.okta.com',
+	assets: [
+		{
+			default: {
+				svg: 'okta-icon.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				svg: 'okta-icon-dark.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'okta-logo.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				svg: 'okta-logo-dark.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

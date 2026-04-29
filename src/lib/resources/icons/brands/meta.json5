@@ -1,0 +1,40 @@
+{
+    name: 'Meta',
+    href: 'https://www.meta.com/about',
+    assets: [
+        {
+            default: {
+                svg: 'meta-logo.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com/brand/resources/meta/company-brand'
+                }
+            },
+            dark: {
+                svg: 'meta-logo-dark.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com/brand/resources/meta/company-brand'
+                }
+            },
+            monochrome_white: {
+                svg: 'meta-logo-monochrome-white.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com/brand/resources/meta/company-brand'
+                }
+            },
+            monochrome_black: {
+                svg: 'meta-logo-monochrome-black.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com/brand/resources/meta/company-brand'
+                }
+            }
+        }
+    ]
+}

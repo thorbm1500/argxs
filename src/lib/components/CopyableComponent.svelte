@@ -37,9 +37,12 @@
 	//todo: navigator.connection.saveData
 	
 	function highlightClick(e: MouseEvent) {
-		if (highlightedIcon === path) highlightedIcon = 'undefined';
-		else highlightedIcon = path;
-		(e.target as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'center' });
+		highlightedIcon = highlightedIcon === path ? 'undefined' : path;
+		
+		const mainContainer = document.getElementById('main-container');
+		if (!mainContainer) return;
+		
+		mainContainer.scroll({ top: mainContainer.scrollTop + ((e.target as HTMLElement).getBoundingClientRect().top - 78), behavior: 'smooth' });
 	}
 	
 	onMount(() => register(document));
@@ -83,7 +86,16 @@
 {/if}
 
 <div class='copyable-container'>
-	<div class='actions svg'>
+	<div class='actions'>
+		{#if date_added && Date.parse(date_added) > (Date.now() - 432000000)}
+			<p in:fade|global class='new-icon'>
+				<svg width='24' height='24' viewBox='0 0 24 24' fill='currentColor'>
+					<path
+						d='M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z'/>
+				</svg>
+				NEW
+			</p>
+		{/if}
 		{#if href}
 			<!--svelte-ignore a11y_consider_explicit_label-->
 			<a class='href' href={href} target='_blank' rel='external'>
@@ -289,11 +301,14 @@
 		    gap:             1.5rem;
 		    height:          fit-content;
 		    
+		    margin-top: .75rem;
+		    
 		    color:           var(--theme-text-primary);
 		    
 		    z-index:         300;
 	    }
     }
+    
     
     .copyable-container {
 	    display:         flex;
@@ -348,6 +363,35 @@
 		    
 		    z-index:         200;
 		    
+		    .new-icon {
+			    position:          absolute;
+			    top:               0.5rem;
+			    left:              0.5rem;
+			    
+			    display:           flex;
+			    align-items:       center;
+			    justify-content:   flex-start;
+			    gap:               .1rem;
+			    
+			    font-family:       'Funnel Display', sans-serif;
+			    font-weight:       900;
+			    font-size:         .75rem;
+			    
+			    color:             var(--theme-text-new);
+			    background-repeat: repeat;
+			    background-clip:   text;
+			    padding:           .15rem .35rem;
+			    
+			    height:            fit-content;
+			    
+			    transition:        200ms ease-in;
+			    
+			    svg {
+				    width:  .75rem;
+				    height: .75rem;
+			    }
+		    }
+		    
 		    .href, .info-button {
 			    position:   absolute;
 			    top:        0.75rem;
@@ -358,7 +402,7 @@
 			    filter:     blur(1px);
 			    opacity:    0;
 			    
-			    transform: scale(.9);
+			    transform:  scale(.9);
 			    
 			    transition: 250ms ease-in,
 			                color 750ms ease-in;
@@ -374,11 +418,11 @@
 		    }
 		    
 		    .href {
-			    right:     2.15rem;
+			    right: 2.15rem;
 			    
 			    svg {
-				    width:  1.25rem;
-				    height: 1.25rem;
+				    width:     1.25rem;
+				    height:    1.25rem;
 				    
 				    transform: rotate(-45deg);
 			    }
@@ -436,6 +480,13 @@
 		    transition:      200ms ease-in;
 	    }
 	    
+	    .actions:hover .new-icon {
+		    opacity:    .15;
+		    filter: blur(2px);
+		    transform: scale(.75rem);
+		    transition: 35ms ease-out;
+	    }
+	    
 	    .actions:hover,
 	    .actions:active,
 	    .actions:focus {
@@ -455,7 +506,7 @@
 		    .download,
 		    .href,
 		    .info-button {
-			    transform:  scale(1);
+			    transform: scale(1);
 		    }
 		    
 		    transition:      35ms ease-out;

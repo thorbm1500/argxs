@@ -1,0 +1,42 @@
+{
+	name: 'Starbucks',
+	href: 'https://www.starbucks.com',
+	assets: [
+		{
+			default: {
+				svg: 'starbucks-icon.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			default: {
+				svg: 'starbucks-logo.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_black: {
+				svg: 'starbucks-logo-monochrome-black.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_white: {
+				svg: 'starbucks-logo-monochrome-white.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}
