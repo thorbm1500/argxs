@@ -18,8 +18,9 @@ export default class MetricsHandler {
 	static readonly garbageCollection = Bun.cron('0 * * * *', MetricsHandler.collect);
 
 	static async init(): Promise<void> {
-		MetricsHandler.requestsTotal = await Database.getTotalVisitorAmount();
-		MetricsHandler.requestsToday = await Database.getCurrentDayVisitorAmount();
+		// Parsing from BigInt to JS Number
+		MetricsHandler.requestsTotal = Number.parseInt(String(await Database.getTotalVisitorAmount()));
+		MetricsHandler.requestsToday = Number.parseInt(String(await Database.getCurrentDayVisitorAmount()));
 	}
 
 	getVisitorMetrics(): VisitorMetric {
