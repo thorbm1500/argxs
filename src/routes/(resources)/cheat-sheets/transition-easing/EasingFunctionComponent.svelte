@@ -85,7 +85,7 @@
                     font-size: .9rem;
                     font-weight: 550;
                     user-select: auto;
-                    color: var(--theme-text-secondary);
+                    color: var(--theme-text-third);
 
                     p.syntax {
                         color: var(--theme-color-accent);

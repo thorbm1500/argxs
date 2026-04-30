@@ -23,16 +23,17 @@
 	--theme-color-success-light:   oklch(89.2% 0.223 127.706);
 	
 	--theme-text-primary:          #0D0D0D;
-	--theme-text-secondary:        #727E94;
-	--theme-text-third:            #C1C9D5;
+	--theme-text-secondary:        #2D313A;
+	--theme-text-third:            #727E94;
+	--theme-text-fourth:           #C1C9D5;
 	--theme-text-new:              #130132;
 	
 	--theme-ui-line:               #DDE1E8;
-	--theme-ui-line-highlight:            #C0C5CC;
-	--theme-ui-white:                     #F7F9FC;
-	--theme-ui-black:                     #0D0D0D;
-	--theme-ui-container:                 #ECEEF3;
-	--theme-ui-container-hover:           #E6E9EF;
+	--theme-ui-line-highlight:     #C0C5CC;
+	--theme-ui-white:              #F7F9FC;
+	--theme-ui-black:              #0D0D0D;
+	--theme-ui-container:          #ECEEF3;
+	--theme-ui-container-hover:    #E6E9EF;
 	--theme-ui-background:                #F7F9FC;
 	--theme-ui-header:                    #EFF1F3;
 	--theme-ui-sidebar:                   #F3F4F6;
@@ -52,16 +53,17 @@
 	--theme-color-aware:           oklch(0.813 0.164 90.566);
 	
 	--theme-text-primary:          #F7F9FC;
-	--theme-text-secondary:        #C1C9D5;
-	--theme-text-third:            #5E687A;
+	--theme-text-secondary:        #E1E6EE;
+	--theme-text-third:            #C1C9D5;
+	--theme-text-fourth:           #5E687A;
 	--theme-text-new:              #F5F0FF;
 	
 	--theme-color-primary-reverse: #0D0D0D;
 	--theme-color-primary:         #F7F9FC;
 	--theme-ui-container:          #16181E;
 	--theme-ui-container-hover:    #181A21;
-	--theme-ui-background:                #111217;
-	--theme-ui-header:                    #1B1D26;
+	--theme-ui-background:         #111217;
+	--theme-ui-header:             #1B1D26;
 	--theme-ui-line:                      #2E3244;
 	--theme-ui-line-highlight:            #38455D;
 	--theme-ui-sidebar:                   #16181E;

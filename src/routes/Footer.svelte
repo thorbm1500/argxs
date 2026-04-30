@@ -66,7 +66,7 @@
             gap: 0.15rem;
 
             font-size: 0.85rem;
-            color: var(--theme-text-secondary);
+            color: var(--theme-text-third);
 
             svg {
                 height: auto;
@@ -81,7 +81,7 @@
         .subtitle,
         .disclaimer {
             font-size: 0.6rem;
-            color: var(--theme-text-third);
+            color: var(--theme-text-fourth);
         }
 
         .disclaimer {

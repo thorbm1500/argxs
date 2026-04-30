@@ -281,7 +281,7 @@
                 }
 
                 button[disabled] {
-                    color: var(--theme-text-third);
+                    color: var(--theme-text-fourth);
                     cursor: default;
                 }
 

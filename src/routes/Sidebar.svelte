@@ -26,6 +26,37 @@
 </div>
 
 <section class="sidebar-section {theme} {sidebarState ? 'res-visible' : 'res-hidden'}">
+		<div class='sidebar-footer'>
+		<nav class="github">
+			<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
+				<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="currentColor" fill-rule="evenodd">
+					<path clip-rule="evenodd" transform="scale(64)"
+					      d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" />
+				</svg>
+				GitHub
+			</a>
+		</nav>
+		<div class="metrics">
+			<div class="metrics-text">
+				<p class="title">Visitor Count</p>
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+					<path
+						d="M6.5 13L7.28446 14.5689C7.54995 15.0999 7.68269 15.3654 7.86003 15.5954C8.01739 15.7996 8.20041 15.9826 8.40455 16.14C8.63462 16.3173 8.9001 16.4501 9.43108 16.7155L11 17.5L9.43108 18.2845C8.9001 18.5499 8.63462 18.6827 8.40455 18.86C8.20041 19.0174 8.01739 19.2004 7.86003 19.4046C7.68269 19.6346 7.54995 19.9001 7.28446 20.4311L6.5 22L5.71554 20.4311C5.45005 19.9001 5.31731 19.6346 5.13997 19.4046C4.98261 19.2004 4.79959 19.0174 4.59545 18.86C4.36538 18.6827 4.0999 18.5499 3.56892 18.2845L2 17.5L3.56892 16.7155C4.0999 16.4501 4.36538 16.3173 4.59545 16.14C4.79959 15.9826 4.98261 15.7996 5.13997 15.5954C5.31731 15.3654 5.45005 15.0999 5.71554 14.5689L6.5 13Z"
+						stroke-width="2.1" />
+					<path
+						d="M15 2L16.1786 5.06442C16.4606 5.79765 16.6016 6.16426 16.8209 6.47264C17.0153 6.74595 17.254 6.98475 17.5274 7.17909C17.8357 7.39836 18.2024 7.53937 18.9356 7.82138L22 9L18.9356 10.1786C18.2024 10.4606 17.8357 10.6016 17.5274 10.8209C17.254 11.0153 17.0153 11.254 16.8209 11.5274C16.6016 11.8357 16.4606 12.2024 16.1786 12.9356L15 16L13.8214 12.9356C13.5394 12.2024 13.3984 11.8357 13.1791 11.5274C12.9847 11.254 12.746 11.0153 12.4726 10.8209C12.1643 10.6016 11.7976 10.4606 11.0644 10.1786L8 9L11.0644 7.82138C11.7976 7.53937 12.1643 7.39836 12.4726 7.17909C12.746 6.98475 12.9847 6.74595 13.1791 6.47264C13.3984 6.16426 13.5394 5.79765 13.8214 5.06442L15 2Z"
+						stroke-width="2.55" />
+				</svg>
+			</div>
+			<div class="metrics-value">
+				{#each requestChars as char}
+					<p class="value {char === '.' ? 'dot' : 'number'}">{char}</p>
+				{/each}
+			</div>
+		</div>
+		<p class="version-text">ver. {version}</p>
+	</div>
+	
 	<div class="nav-top">
 		<a class={{ selected: page.url.pathname === '/' }} href="/">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -181,37 +212,6 @@
 			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">External</p>
 		</div>
 	</div>
-
-	<div class="version">
-		<nav class="github">
-			<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
-				<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="currentColor" fill-rule="evenodd">
-					<path clip-rule="evenodd" transform="scale(64)"
-					      d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" />
-				</svg>
-				GitHub
-			</a>
-		</nav>
-		<div class="metrics">
-			<div class="metrics-text">
-				<p class="title">Visitor Count</p>
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-					<path
-						d="M6.5 13L7.28446 14.5689C7.54995 15.0999 7.68269 15.3654 7.86003 15.5954C8.01739 15.7996 8.20041 15.9826 8.40455 16.14C8.63462 16.3173 8.9001 16.4501 9.43108 16.7155L11 17.5L9.43108 18.2845C8.9001 18.5499 8.63462 18.6827 8.40455 18.86C8.20041 19.0174 8.01739 19.2004 7.86003 19.4046C7.68269 19.6346 7.54995 19.9001 7.28446 20.4311L6.5 22L5.71554 20.4311C5.45005 19.9001 5.31731 19.6346 5.13997 19.4046C4.98261 19.2004 4.79959 19.0174 4.59545 18.86C4.36538 18.6827 4.0999 18.5499 3.56892 18.2845L2 17.5L3.56892 16.7155C4.0999 16.4501 4.36538 16.3173 4.59545 16.14C4.79959 15.9826 4.98261 15.7996 5.13997 15.5954C5.31731 15.3654 5.45005 15.0999 5.71554 14.5689L6.5 13Z"
-						stroke-width="2.1" />
-					<path
-						d="M15 2L16.1786 5.06442C16.4606 5.79765 16.6016 6.16426 16.8209 6.47264C17.0153 6.74595 17.254 6.98475 17.5274 7.17909C17.8357 7.39836 18.2024 7.53937 18.9356 7.82138L22 9L18.9356 10.1786C18.2024 10.4606 17.8357 10.6016 17.5274 10.8209C17.254 11.0153 17.0153 11.254 16.8209 11.5274C16.6016 11.8357 16.4606 12.2024 16.1786 12.9356L15 16L13.8214 12.9356C13.5394 12.2024 13.3984 11.8357 13.1791 11.5274C12.9847 11.254 12.746 11.0153 12.4726 10.8209C12.1643 10.6016 11.7976 10.4606 11.0644 10.1786L8 9L11.0644 7.82138C11.7976 7.53937 12.1643 7.39836 12.4726 7.17909C12.746 6.98475 12.9847 6.74595 13.1791 6.47264C13.3984 6.16426 13.5394 5.79765 13.8214 5.06442L15 2Z"
-						stroke-width="2.55" />
-				</svg>
-			</div>
-			<div class="metrics-value">
-				{#each requestChars as char}
-					<p class="value {char === '.' ? 'dot' : 'number'}">{char}</p>
-				{/each}
-			</div>
-		</div>
-		<p class="version-text">ver. {version}</p>
-	</div>
 </section>
 
 <!-- svelte-ignore css_unused_selector -->
@@ -287,8 +287,8 @@
 
             border-right: 1px solid var(--theme-ui-line);
 
-            .version {
-                width: var(--sidebar-width);
+            .sidebar-footer {
+                width: calc(var(--sidebar-width) - 1px);
 
                 .github {
                     visibility: hidden;
@@ -387,7 +387,11 @@
         .sidebar-section {
             width: 100vw;
             border: none;
-
+	        
+	        .nav-section:last-child {
+		        margin-bottom: 1rem !important;
+	        }
+	        
             .nav-top::after, .nav-section::after {
                 margin: .325rem 0;
             }
@@ -397,8 +401,13 @@
                 font-weight: 550;
             }
 
-            .version {
-                width: 100vw;
+            .sidebar-footer {
+	            position: sticky !important;
+                width: 100%;
+	            
+	            padding: 1.5rem 0;
+	            background: none;
+	            transform: translateY(-1rem);
 
                 .github {
                     visibility: visible;
@@ -470,17 +479,24 @@
 
         z-index: 89999;
 
-        .version {
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
+        .sidebar-footer {
+	        position: fixed;
+	        bottom: 0;
+	        left: 0;
 
-            height: fit-content;
-            width: 100%;
+            height: 9rem;
+	        
+	        padding-top: 2rem;
+	        margin-bottom: -.5rem;
 
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
             justify-content: center;
+	        
+	        background-image: linear-gradient(0deg, var(--theme-ui-sidebar) 0, var(--theme-ui-sidebar) 7.5rem, transparent 9rem);
+	        
+	        z-index: 90000;
 
             .github {
                 svg {
@@ -490,7 +506,7 @@
             }
 
             .metrics {
-                margin-bottom: .5rem;
+                margin-bottom: .25rem;
                 width: fit-content;
                 height: fit-content;
 
@@ -498,18 +514,20 @@
                     display: flex;
                     align-items: center;
                     gap: .12rem;
-
-                    text-rendering: geometricPrecision;
+	                
                     font-family: 'Funnel Sans', sans-serif;
                     font-size: .85rem;
                     font-weight: 850;
-                    color: transparent;
-                    background-clip: text;
-                    background-image: linear-gradient(-8.5deg, color-mix(var(--theme-text-third), #262a38 5%) 0%, color-mix(var(--theme-text-third), var(--theme-text-secondary) 25%) 100%);
                     margin-bottom: .145rem;
 
+	                .title {
+		                color: var(--theme-text-fourth);
+		                font-family: 'Funnel Sans', sans-serif;
+		                shape-rendering: geometricPrecision;
+	                }
+	                
                     svg {
-                        color: var(--theme-text-third);
+                        color: var(--theme-text-fourth);
                         height: 1rem;
                         width: 1rem;
                         margin-bottom: .175rem;
@@ -527,7 +545,7 @@
                     font-size: 1.25rem;
                     font-weight: 1000;
 
-                    color: var(--theme-text-secondary);
+                    color: var(--theme-text-third);
 
                     .value {
                         display: flex;
@@ -535,9 +553,10 @@
                         justify-content: center;
                         margin: 0 .125rem;
                         width: fit-content;
+	                    color: var(--theme-text-third);
 
-                        background: linear-gradient(to top, rgba(from var(--theme-text-third) r g b / .4) 0%, rgba(from var(--theme-text-third) r g b / .6) 100%);
-                        border: 1px solid var(--theme-text-third);
+                        background: linear-gradient(to top, rgba(from var(--theme-text-fourth) r g b / .4) 0%, rgba(from var(--theme-text-fourth) r g b / .6) 100%);
+                        border: 1px solid var(--theme-text-fourth);
                         border-radius: .25rem;
                     }
 
@@ -566,10 +585,34 @@
             }
 
             .version-text {
-                color: var(--theme-text-third);
-                font-weight: 550;
+	            font-family: 'Funnel Sans', sans-serif;
+	            font-size: .9rem;
+                color: var(--theme-text-fourth);
+                font-weight: 800;
             }
         }
+	    
+	    .nav-section:last-child {
+		    margin-bottom: 8.5rem;
+	    }
+	    
+	    .nav-top::after, .nav-section::after {
+		    content: '';
+		    
+		    position: relative;
+		    align-self: center;
+		    
+		    width: 92%;
+		    height: 1px;
+		    
+		    background: var(--theme-text-third);
+		    border-radius: 4px;
+		    opacity: .2;
+	    }
+	    
+	    .nav-top p, .nav-section p {
+		    color: var(--theme-text-secondary);
+	    }
 
         .nav-top {
             display: flex;
@@ -577,20 +620,6 @@
             align-items: flex-start;
             justify-content: flex-start;
             width: 100%;
-        }
-
-        .nav-top::after, .nav-section::after {
-            content: '';
-
-            position: relative;
-            align-self: center;
-
-            width: 92%;
-            height: 1px;
-
-            background: var(--theme-text-third);
-            border-radius: 4px;
-            opacity: .2;
         }
 
         .nav-section {
@@ -604,12 +633,7 @@
             .title {
                 color: var(--theme-text-secondary);
                 margin-bottom: 0.25rem;
-                font-family: 'Funnel Sans', sans-serif;
                 font-weight: 650;
-            }
-
-            .title.selected {
-                color: var(--theme-text-primary);
             }
         }
 

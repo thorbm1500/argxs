@@ -336,7 +336,7 @@
 		    max-height:    3rem !important;
 		    overflow:      hidden;
 		    
-		    color:         var(--theme-text-secondary);
+		    color:         var(--theme-text-third);
 		    font-family:   'Google Sans', sans-serif;
 		    font-weight:   700;
 		    text-wrap:     pretty;

@@ -171,7 +171,7 @@
 
                 font-size: 0.91rem;
                 font-weight: 375;
-                color: var(--theme-text-secondary);
+                color: var(--theme-text-third);
             }
 
             a:hover {

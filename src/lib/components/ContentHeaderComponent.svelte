@@ -70,7 +70,7 @@
 			.subtitle {
 				font-weight: 500;
 
-				color: var(--theme-text-secondary);
+				color: var(--theme-text-third);
 			}
 		}
 	}
