@@ -24,13 +24,12 @@ export default class MetricsHandler {
 
 	getVisitorMetrics(): VisitorMetric {
 		return {
-			total: Number.parseInt(String(MetricsHandler.requestsTotal)),
-			today: Number.parseInt(String(MetricsHandler.requestsToday)),
-			initialTotalToday: Number.parseInt(String(MetricsHandler.requestsTotal)) - Number.parseInt(String(MetricsHandler.requestsToday))
+			total: MetricsHandler.requestsTotal,
+			today: MetricsHandler.requestsToday,
+			initialTotalToday: MetricsHandler.requestsTotal - MetricsHandler.requestsToday
 		};
 	}
 
-	//todo: Implement opting out
 	/**
 	 * Checks if the visitor has opted out of site tracking.
 	 * @param cookies The visitor's cookies

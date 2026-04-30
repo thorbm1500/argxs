@@ -34,7 +34,7 @@
 			</svg>
 			<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Home</p>
 		</a>
-		<div class={{ planned: true }}>
+		<div class={{ in_progress: true }}>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path
 					d="M13 2L4.09344 12.6879C3.74463 13.1064 3.57023 13.3157 3.56756 13.4925C3.56524 13.6461 3.63372 13.7923 3.75324 13.8889C3.89073 14 4.16316 14 4.70802 14H12L11 22L19.9065 11.3121C20.2553 10.8936 20.4297 10.6843 20.4324 10.5075C20.4347 10.3539 20.3663 10.2077 20.2467 10.1111C20.1092 10 19.8368 10 19.292 10H12L13 2Z" />
@@ -655,14 +655,10 @@
             }
         }
 
-        .planned:hover::after, .in_progress:hover::after {
-            background: var(--theme-ui-container);
-            transition: var(--theme-transition-on);
-        }
-
         .planned::after {
             content: 'Planned';
             color: var(--theme-text-secondary);
+	        background: var(--theme-sidebar-tag-background);
             transition: var(--theme-transition-off);
         }
 
@@ -675,7 +671,6 @@
         }
 
         .planned::after, .in_progress::after {
-            backdrop-filter: brightness(1.25) !important;
             border-radius: 0.625rem;
             transform: translateX(0.25rem);
 
@@ -684,6 +679,11 @@
 
             transition: var(--theme-transition-off);
         }
+	    
+	    .planned:hover::after {
+		    background: var(--theme-sidebar-tag-hover-background);
+		    transition: var(--theme-transition-on);
+	    }
 
 
         a.planned.selected::after, a.in_progress.selected::after {

@@ -1,38 +1,44 @@
 <script lang="ts">
 	import './layout.css';
-	import Header from '$lib/components/Header.svelte';
-	import Sidebar from '$lib/components/Sidebar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Header from './Header.svelte';
+	import Sidebar from './Sidebar.svelte';
+	import Footer from './Footer.svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { updated } from '$app/state';
-	import { setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import ToastComponent, { type ToastRequest } from '$lib/components/ToastComponent.svelte';
 
 	const { children, data } = $props();
-
+3
 	let sidebarState: boolean = $state.raw(false);
-	let currentPage: string = $state('/colors/combos');
 
 	beforeNavigate(({ willUnload, to }) => {
 		sidebarState = false;
-		if (!!to) currentPage = to.url.href;
 		if (updated.current && !willUnload && to?.url) {
 			location.href = to.url.href;
 		}
 	});
 
 	//svelte-ignore state_referenced_locally
-	let theme: 'light' | 'dark' = $state.raw(data.theme);
+	let theme: 'light' | 'dark' = $state.raw(data.theme ?? 'light');
 	setContext('theme', () => theme);
 
-	const toggleFn = () => {
-		theme = theme === 'light' ? 'dark' : 'light';
+	const toggleFn = (changedTo?: 'dark' | 'light') => {
+		if (changedTo) theme = changedTo;
+		else theme = theme === 'light' ? 'dark' : 'light';
 		window?.cookieStore?.set('argxs_theme', theme);
 	};
 	setContext('toggleTheme', toggleFn);
 
 	let sendToast: any = $state.raw(undefined);
 	setContext('sendToast', (req: ToastRequest) => sendToast?.(req));
+	
+	onMount(() => {
+		// Automatically sets the page theme to dark, if dark is preferred, for new users.
+		if (!data.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			toggleFn('dark');
+		}
+	});
 </script>
 
 <ToastComponent bind:sendFunction={sendToast} />

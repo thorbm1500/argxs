@@ -2,7 +2,6 @@ import { building } from '$app/environment';
 import { error, type Handle, type ServerInit } from '@sveltejs/kit';
 import { RateLimiter } from 'sveltekit-rate-limiter/server';
 import { Resources } from '$lib/server/Resources';
-import { env } from '$env/dynamic/private';
 import MetricsHandler from '$lib/server/MetricsHandler';
 import Database from '$lib/server/Database';
 import { SiteCookies } from '$lib/server/Definitions';
@@ -30,18 +29,11 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 	}
 
 	const theme: string | undefined = event.cookies.get(SiteCookies.Theme);
-	if (theme === undefined || (theme !== 'light' && theme !== 'dark')) {
-		event.cookies.set(SiteCookies.Theme, 'light', {
-			path: '/',
-			sameSite: 'lax',
-			secure: Boolean(env.NODE_ENV === 'production')
-		});
-		event.locals.theme = 'light';
-	} else event.locals.theme = theme;
+	if (theme === 'light' || theme === 'dark') event.locals.theme = theme;
 
 	event.locals.requests = metricsHandler.getVisitorMetrics();
 
-	// Ignored purposefully t
+	// Ignored purposefully
 	// noinspection ES6MissingAwait
 	metricsHandler.process(event);
 

@@ -17,7 +17,7 @@
 	--theme-color-primary:         #0D0D0D;
 	--theme-color-secondary:       #727E94;
 	--theme-color-accent:          #3368DC;
-	--theme-color-aware:           oklch(87.9% 0.169 91.605);
+	--theme-color-aware:           oklch(0.856 0.164 91.995);
 	--theme-color-alert:           oklch(58.6% 0.253 17.585);
 	--theme-color-success:         oklch(84.1% 0.238 128.85);
 	--theme-color-success-light:   oklch(89.2% 0.223 127.706);
@@ -28,25 +28,28 @@
 	--theme-text-new:              #130132;
 	
 	--theme-ui-line:               #DDE1E8;
-	--theme-ui-line-highlight:     #C0C5CC;
-	--theme-ui-white:              #F7F9FC;
-	--theme-ui-black:              #0D0D0D;
-	--theme-ui-container:          #ECEEF3;
-	--theme-ui-container-hover:    #E6E9EF;
-	--theme-ui-background:         #F7F9FC;
-	--theme-ui-header:             #EFF1F3;
-	--theme-ui-sidebar:            color-mix(var(--theme-ui-header) 50%, var(--theme-ui-background) 50%);
-	--theme-ui-sidebar-highlight:  color-mix(var(--theme-ui-sidebar) 95%, var(--theme-color-primary) 5%);
-	--theme-ui-icon:               #5D697E;
+	--theme-ui-line-highlight:            #C0C5CC;
+	--theme-ui-white:                     #F7F9FC;
+	--theme-ui-black:                     #0D0D0D;
+	--theme-ui-container:                 #ECEEF3;
+	--theme-ui-container-hover:           #E6E9EF;
+	--theme-ui-background:                #F7F9FC;
+	--theme-ui-header:                    #EFF1F3;
+	--theme-ui-sidebar:                   #F3F4F6;
+	--theme-ui-sidebar-highlight:         #ECEEF1;
+	--theme-ui-icon:                      #5D697E;
 	
-	--theme-text-gradient:         linear-gradient(5deg, transparent 40%, #222234 80%), linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
-	--theme-text-rgb-gradient:     linear-gradient(90deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
+	--theme-sidebar-tag-background:       #E6EAEC;
+	--theme-sidebar-tag-hover-background: #DDE2E5;
+	
+	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, #222234 80%), linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
+	--theme-text-rgb-gradient:            linear-gradient(90deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
 }
 
 .dark {
 	color-scheme:                  dark;
 	
-	--theme-color-aware:           oklch(85.2% 0.199 91.936);
+	--theme-color-aware:           oklch(0.813 0.164 90.566);
 	
 	--theme-text-primary:          #F7F9FC;
 	--theme-text-secondary:        #C1C9D5;
@@ -57,16 +60,19 @@
 	--theme-color-primary:         #F7F9FC;
 	--theme-ui-container:          #16181E;
 	--theme-ui-container-hover:    #181A21;
-	--theme-ui-background:         #111217;
-	--theme-ui-header:             #1B1D26;
-	--theme-ui-line:               #2E3244;
-	--theme-ui-line-highlight:     #38455D;
-	--theme-ui-sidebar:            #16181E;
-	--theme-ui-icon:               #5E687A;
-	--theme-ui-sidebar-highlight:  #20242C;
+	--theme-ui-background:                #111217;
+	--theme-ui-header:                    #1B1D26;
+	--theme-ui-line:                      #2E3244;
+	--theme-ui-line-highlight:            #38455D;
+	--theme-ui-sidebar:                   #16181E;
+	--theme-ui-icon:                      #5E687A;
+	--theme-ui-sidebar-highlight:         #20242C;
 	
-	--theme-text-gradient:         linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #B8C4D2 20%, #F7F9FC 75%);
-	--theme-text-rgb-gradient:     linear-gradient(90.7deg, rgb(255, 253, 218) 1.9%, rgb(246, 210, 255) 39.3%, rgb(152, 222, 254) 64.7%, rgb(251, 255, 210) 100.8%);
+	--theme-sidebar-tag-background:       #1F212A;
+	--theme-sidebar-tag-hover-background: #1C1E26;
+	
+	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #B8C4D2 20%, #F7F9FC 75%);
+	--theme-text-rgb-gradient:            linear-gradient(90.7deg, rgb(255, 253, 218) 1.9%, rgb(246, 210, 255) 39.3%, rgb(152, 222, 254) 64.7%, rgb(251, 255, 210) 100.8%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -115,6 +121,22 @@ body {
 	
 	.coming-soon {
 		color: var(--theme-text-secondary);
+	}
+	
+	h1,h2 {
+		font-family: 'Funnel Display', 'Google Sans', sans-serif;
+		font-weight: 800;
+	}
+	h1,h2,a,button,p,span {
+		color: var(--theme-text-primary);
+	}
+	h3,h4,h5,h6 {
+		color: var(--theme-text-secondary);
+	}
+	svg {
+		stroke-color: var(--theme-color-primary);
+		fill-color: var(--theme-color-primary);
+		color: var(--theme-color-primary);
 	}
 }
 
