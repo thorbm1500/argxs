@@ -1,23 +1,3 @@
-export interface Brand {
-	name: string,
-	href?: string,
-	assets: VariableIcon[]
-}
-
-export interface Flag {
-	country: string;
-	flags: Icon[]
-}
-
-export interface VariableIcon {
-	default: Icon;
-	dark?: Icon;
-	monochrome?: Icon;
-	monochrome_white?: Icon;
-	monochrome_black?: Icon;
-	variable?: Icon;
-}
-
 export interface Icon {
 	name?: string,
 	svg: string,
@@ -29,6 +9,31 @@ export interface Icon {
 declare interface Source {
 	name: string;
 	href: string;
+}
+
+export interface BrandJson {
+	name: string,
+	href?: string,
+	assets: VariableIcon[]
+}
+
+export interface BrandIcon extends VariableIcon {
+	name: string,
+	href?: string
+}
+
+export interface VariableIcon {
+	default: Icon,
+	dark?: Icon,
+	monochrome?: Icon,
+	monochrome_white?: Icon,
+	monochrome_black?: Icon,
+	variable?: Icon
+}
+
+export interface Flag {
+	country: string,
+	flags: Icon[]
 }
 
 export interface ColorCombos {

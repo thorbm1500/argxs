@@ -170,7 +170,7 @@
                 gap: 0.1rem;
 
                 font-size: 0.91rem;
-                font-weight: 375;
+                font-weight: 500;
                 color: var(--theme-text-third);
             }
 

@@ -1,0 +1,42 @@
+{
+    name: 'Phantom',
+    href: 'https://phantom.com',
+    assets: [
+        {
+            default: {
+                svg: 'phantom-logo.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                svg: 'phantom-logo-dark.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'phantom-icon.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                svg: 'phantom-icon-dark.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

@@ -5,7 +5,9 @@ export const ssr = true;
 
 export const load: PageServerLoad = async () => {
 	return {
-		brands: RESOURCES.BRAND_ICONS,
+		icons: RESOURCES.BRAND_ICONS,
+		iconsSortedNew: RESOURCES.BRAND_ICONS_SORTED_NEW,
+		iconsSortedAtoZ: RESOURCES.BRAND_ICONS_SORTED_AtoZ,
 		iconAmount: RESOURCES.BRAND_ICON_AMOUNT
 	};
 };

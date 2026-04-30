@@ -659,6 +659,10 @@
             font-family: 'Funnel Display', sans-serif;
             font-weight: 750;
             transition: var(--theme-transition-off);
+	        
+	        svg {
+		        color: var(--theme-text-third);
+	        }
         }
 
         a.selected,
@@ -677,6 +681,10 @@
                 transition: var(--theme-transition-on);
                 animation: backgroundScroll 40s linear infinite;
             }
+	        
+	        svg {
+		        color: var(--theme-text-secondary);
+	        }
         }
 
         .planned::after {

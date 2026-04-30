@@ -1,13 +1,17 @@
-import type { Brand, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
+import type { BrandIcon, BrandJson, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
 
 export class Resources {
-	readonly BRAND_ICONS: Brand[] = [];
+	readonly BRAND_ICONS: BrandIcon[] = [];
+	readonly BRAND_ICONS_SORTED_NEW: BrandIcon[] = [];
+	readonly BRAND_ICONS_SORTED_AtoZ: BrandIcon[] = [];
 	BRAND_ICON_AMOUNT: number = 0;
+
 	readonly FLAG_ICONS: Flag[] = [];
 	FLAG_ICON_AMOUNT: number = 0;
+
 	readonly COLOR_COMBOS: ColorCombo[] = [];
 	COLOR_COMBO_AMOUNT: number = 0;
 
@@ -26,24 +30,56 @@ export class Resources {
 		const dir: string[] = await fs.readdir(path);
 
 		for (const brand of dir) {
-			this.BRAND_ICONS.push(Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand);
-		}
-
-		let amount = 0;
-		for (const brand of this.BRAND_ICONS) {
-			if (!brand.assets || brand.assets.length === 0) continue;
-
-			for (const icon of brand.assets) {
-				if (icon.default) amount++;
-				if (icon.dark) amount++;
-				if (icon.monochrome) amount++;
-				if (icon.monochrome_white) amount++;
-				if (icon.monochrome_black) amount++;
-				if (icon.variable) amount++;
+			const current: BrandJson = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as BrandJson;
+			for (const icon of current.assets) {
+				this.BRAND_ICONS.push({
+					name: current.name,
+					href: current.href,
+					...icon
+				});
 			}
 		}
 
+		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a,b) => this.getLatestDateFromIcon(b) - this.getLatestDateFromIcon(a)));
+		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a,b) => a.name.localeCompare(b.name)));
+
+		let amount = 0;
+		for (const icon of this.BRAND_ICONS) {
+			if (icon.default) amount++;
+			if (icon.dark) amount++;
+			if (icon.monochrome) amount++;
+			if (icon.monochrome_white) amount++;
+			if (icon.monochrome_black) amount++;
+			if (icon.variable) amount++;
+		}
+
 		this.BRAND_ICON_AMOUNT = amount;
+	}
+
+	private getLatestDateFromIcon(icon: BrandIcon): number {
+		let result = 0;
+		if (icon.default.date_added) {
+			let current = Date.parse(icon.default.date_added);
+			if (current > result) result = current;
+		}
+		if (icon.dark?.date_added) {
+			let current = Date.parse(icon.dark.date_added);
+			if (current > result) result = current;
+		}
+		if (icon.monochrome_white?.date_added) {
+			let current = Date.parse(icon.monochrome_white.date_added);
+			if (current > result) result = current;
+		}
+		if (icon.monochrome_black?.date_added) {
+			let current = Date.parse(icon.monochrome_black.date_added);
+			if (current > result) result = current;
+		}
+		if (icon.variable?.date_added) {
+			let current = Date.parse(icon.variable.date_added);
+			if (current > result) result = current;
+		}
+
+		return result;
 	}
 
 	private async loadFlagIcons(): Promise<void> {

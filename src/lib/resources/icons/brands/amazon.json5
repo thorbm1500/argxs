@@ -1,0 +1,42 @@
+{
+    name: 'Amazon',
+    href: 'https://www.amazon.com',
+    assets: [
+        {
+            default: {
+                svg: 'amazon-logo.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                svg: 'amazon-logo-dark.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            default: {
+                svg: 'amazon-music-logo.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                svg: 'amazon-music-logo-dark.svg',
+                date_added: '2026/4/30',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+	name: 'Flare',
+	href: 'https://flare.io',
+	assets: [
+		{
+			default: {
+				svg: 'flare-logo.svg',
+				date_added: '2026/4/30',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				svg: 'flare-logo-dark.svg',
+				date_added: '2026/4/30',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}
