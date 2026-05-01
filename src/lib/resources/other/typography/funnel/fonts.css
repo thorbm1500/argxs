@@ -6,6 +6,7 @@
 @font-face {
 	font-family: 'Funnel Sans Italic';
 	font-display: swap;
+	font-style: italic;
 	src: url('/resources/fonts/FunnelSans-Italic[wght].ttf') format('truetype');
 }
 @font-face {

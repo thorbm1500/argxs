@@ -10,10 +10,9 @@
 
 	const { children, data } = $props();
 3
-	let sidebarState: boolean = $state.raw(false);
+	let sidebarState: boolean = $state.raw(true);
 
 	beforeNavigate(({ willUnload, to }) => {
-		sidebarState = false;
 		if (updated.current && !willUnload && to?.url) {
 			location.href = to.url.href;
 		}
@@ -59,27 +58,25 @@
     /* Desktop & Tablet */
     @media (width >= 44rem) {
         .main-container {
-            left: var(--sidebar-width);
             padding: 5rem 6rem 0 6rem;
-            width: calc(100vw - var(--sidebar-width));
         }
     }
 
     /* Phone */
     @media (width < 44rem) {
         .main-container {
-            left: 0;
             padding: 3rem 2rem 0 2rem;
-            width: 100vw;
         }
     }
 
     .main-container {
         position: absolute;
         bottom: 0;
+	    left: 0;
+	    
+	    height: calc(100vh - var(--header-height) + 1px);
+	    width: 100vw;
         box-sizing: border-box;
-
-        height: calc(100vh - var(--header-height) + 1px);
 
         /*noinspection CssOverwrittenProperties*/
         overflow-y: scroll;
