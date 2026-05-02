@@ -9,7 +9,7 @@
 	import ToastComponent, { type ToastRequest } from '$lib/components/ToastComponent.svelte';
 
 	const { children, data } = $props();
-3
+
 	let sidebarState: boolean = $state.raw(true);
 
 	beforeNavigate(({ willUnload, to }) => {
