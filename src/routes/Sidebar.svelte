@@ -292,12 +292,20 @@
 			}
 			
 			.toggle-sidebar-button {
-				opacity:    1;
+				opacity:    .75;
 				filter:     none;
+				height: calc(100vh - var(--header-height)) !important;
+				width: 3rem;
+				bottom: 0;
+				left: -2px;
+				padding-left: 2px;
+				
+				cursor: default !important;
 				
 				svg {
+					padding-left: .35rem;
 					filter:     blur(0);
-					color:      var(--theme-text-third);
+					color:      var(--theme-text-fourth);
 					
 					transition: 1800ms 500ms cubic-bezier(0.075, 0.82, 0.3, 1);
 				}
