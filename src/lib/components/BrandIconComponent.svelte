@@ -40,30 +40,25 @@
 		currentIconIndex = 0;
 	}
 	
-	let linkElement: HTMLAnchorElement | undefined = undefined;
-	onMount(() => {
-		linkElement = document.createElement('a');
-		linkElement.setAttribute('hidden', 'true');
-		linkElement.target = '_blank';
-		linkElement.rel = 'external';
-		
-		onDestroy(linkElement.remove);
-	});
-	
 	const externalLink: Attachment = (element) => {
 		element.addEventListener('mousedown', (event) => {
-			if (!linkElement) return;
-			
+			if (!(event.target as HTMLElement).className.includes('overlay buttons')) return;
 			event.preventDefault();
+			
+			let linkElement: HTMLAnchorElement = document.createElement('a');
+			linkElement.setAttribute('hidden', 'true');
+			linkElement.target = '_blank';
+			linkElement.rel = 'external';
 			
 			if (currentIcon.href) linkElement.href = currentIcon.href;
 			else if (icon.default.href) linkElement.href = icon.default.href;
 			else if (icon.href !== undefined) linkElement.href = icon.href;
 			
 			linkElement.click();
+			linkElement.remove();
 		});
 		
-		return linkElement?.remove();
+		return () => {};
 	}
 </script>
 
