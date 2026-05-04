@@ -297,6 +297,11 @@
 			background-image: var(--theme-ui-gradient-bg);
 			border-radius:    .95rem;
 			
+			&.current-page {
+				transform: scale(1.1);
+				margin: 0 .5rem;
+			}
+			
 			&.shown {
 				opacity: 1;
 				

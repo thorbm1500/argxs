@@ -1,11 +1,19 @@
 {
-    name: 'Shure',
-    href: 'https://shure.com',
+    name: 'ServiceNow',
+    href: 'https://www.servicenow.com',
     assets: [
         {
             type: 'logo',
             default: {
-                path: 'shure-logo.svg',
+                path: 'service-now-logo.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'service-now-logo-dark.svg',
                 date_added: '2026/5/4',
                 source: {
                     name: 'Brandfetch',
@@ -13,7 +21,7 @@
                 }
             },
             monochrome_light: {
-                path: 'shure-logo-monochrome-light.svg',
+                path: 'service-now-logo-monochrome-light.svg',
                 date_added: '2026/5/4',
                 source: {
                     name: 'Brandfetch',
@@ -21,7 +29,7 @@
                 }
             },
             monochrome_dark: {
-                path: 'shure-logo-monochrome-dark.svg',
+                path: 'service-now-logo-monochrome-dark.svg',
                 date_added: '2026/5/4',
                 source: {
                     name: 'Brandfetch',

@@ -1,27 +1,19 @@
 {
-    name: 'Shure',
-    href: 'https://shure.com',
+    name: 'Rocket Lab',
+    href: 'https://rocketlabcorp.com',
     assets: [
         {
             type: 'logo',
             default: {
-                path: 'shure-logo.svg',
+                path: 'rocket-lab-logo.svg',
                 date_added: '2026/5/4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_light: {
-                path: 'shure-logo-monochrome-light.svg',
-                date_added: '2026/5/4',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
-            },
-            monochrome_dark: {
-                path: 'shure-logo-monochrome-dark.svg',
+            dark: {
+                path: 'rocket-lab-logo-dark.svg',
                 date_added: '2026/5/4',
                 source: {
                     name: 'Brandfetch',
