@@ -61,32 +61,25 @@
 			Brand Icons
 		</h1>
 		<div class="subtitle">
-			<!--todo: Write subtitle-->
 			<p>
 				argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
-				logos. Of these, <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> are icons, and <strong style="color:
-				color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> are logos.
+				logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong style="color:
+				color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.
 			</p>
 		</div>
 	</div>
 	<div class="actions">
-		<button class="sort-action icons-only" onclick="{() => {
-			if (iconsOnly) {
-				iconsOnly = false;
-				logosOnly = true;
-			} else if (logosOnly) {
-				logosOnly = false;
-			} else {
-				iconsOnly = true;
-			}
+		<button class="sort-action icons-only {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
+			iconsOnly = !iconsOnly;
+			if (iconsOnly) logosOnly = false;
 		}}">
-			{#if iconsOnly}
-				Icons Only
-			{:else if logosOnly}
-				Logos Only
-			{:else}
-				Icons & Logos
-			{/if}
+			Icons Only
+		</button>
+		<button class="sort-action logos-only {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+			logosOnly = !logosOnly;
+			if (logosOnly) iconsOnly = false;
+		}}">
+			Logos Only
 		</button>
 		<div class="dropdown">
 			<button class="sort-action sort-by">Sort By</button>
@@ -172,7 +165,7 @@
 </section>
 <div class="pagination-actions">
 	<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round">
 			<path d="M5 12h6m3 0h1.5m3 0h.5" />
 			<path d="M5 12l4 4" />
 			<path d="M5 12l4 -4" />
@@ -184,7 +177,7 @@
 	<button class="action {(currentPage) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage + 1}</button>
 	<button class="action {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{currentPage + 2}</button>
 	<button title="Last Page" class="action {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round">
 			<path d="M5 12h.5m3 0h1.5m3 0h6" />
 			<path d="M15 16l4 -4" />
 			<path d="M15 8l4 4" />
@@ -192,6 +185,7 @@
 	</button>
 </div>
 
+<!--suppress CssUnusedSymbol -->
 <style>
 	/* Desktop & Tablet */
 	@media (width >= 44rem) {
@@ -260,12 +254,20 @@
 			font-size:        1.35rem;
 			font-weight:      900;
 			
-			background-image: linear-gradient(to bottom, color-mix(var(--theme-ui-container) 90%, var(--theme-ui-container) 10%) 0%, var(--theme-ui-container) 100%);
-			border:           2px solid var(--theme-ui-line);
-			border-radius:    1rem;
+			background-image: var(--theme-ui-gradient-bg);
+			border-radius:    .95rem;
 			
 			&.shown {
 				opacity: 1;
+				
+				&:hover {
+					transform: scale(1.035);
+					transition: 25ms ease-out;
+				}
+				&:active {
+					transform: scale(0.99);
+					transition: transform 0s linear !important;
+				}
 			}
 			
 			&.hidden {
@@ -309,19 +311,35 @@
 			align-items:     center;
 			justify-content: flex-end;
 			gap:             1rem;
+		
+			.sort-action, .dropdown {
+				background-image: var(--theme-ui-gradient-bg);
+			}
 			
 			.sort-action {
-				font-weight:   650;
-				border-radius: .75rem;
 				padding:       .5rem .8rem;
-				background:    var(--theme-ui-container);
+				
+				border-radius: .75rem;
+				
+				font-weight:   650;
 				
 				cursor:        pointer;
+				
+				&.icons-only, &.logos-only {
+					&.inactive {
+						filter: grayscale(.5) brightness(.8);
+					}
+					
+					&.active {
+						filter: none;
+					}
+				}
 			}
 			
 			.dropdown {
 				position: relative;
 				display:  inline-block;
+				border-radius: .75rem;
 				
 				.items, .items .item {
 					cursor: pointer;
@@ -330,7 +348,7 @@
 				&:hover .items {
 					display:    block;
 					transition: ease all 0.3s;
-					z-index:    1000 !important;
+					z-index:    10000 !important;
 				}
 				
 				.items {
@@ -343,6 +361,8 @@
 					margin-left:        .8rem;
 					box-shadow:         .15rem .15rem .65rem -.05rem rgba(from var(--theme-ui-black) r g b / .15);
 					-webkit-box-shadow: .15rem .15rem .65rem -.05rem rgba(from var(--theme-ui-black) r g b / .15);
+					
+					z-index: 10000 !important;
 					
 					.item {
 						display:     flex;
