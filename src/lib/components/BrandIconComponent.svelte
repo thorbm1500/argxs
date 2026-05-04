@@ -2,8 +2,9 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import type { BrandIcon, Icon, PageTheme } from '$lib/components/interfaces';
-	import { getContext } from 'svelte';
+	import { getContext, onDestroy, onMount } from 'svelte';
 	import { copyToClipboard } from '$lib/utilities';
+	import type { Attachment } from 'svelte/attachments';
 	
 	let { theme = $bindable(), icon }: { theme: PageTheme, icon: BrandIcon } = $props();
 	
@@ -38,6 +39,32 @@
 		
 		currentIconIndex = 0;
 	}
+	
+	let linkElement: HTMLAnchorElement | undefined = undefined;
+	onMount(() => {
+		linkElement = document.createElement('a');
+		linkElement.setAttribute('hidden', 'true');
+		linkElement.target = '_blank';
+		linkElement.rel = 'external';
+		
+		onDestroy(linkElement.remove);
+	});
+	
+	const externalLink: Attachment = (element) => {
+		element.addEventListener('mousedown', (event) => {
+			if (!linkElement) return;
+			
+			event.preventDefault();
+			
+			if (currentIcon.href) linkElement.href = currentIcon.href;
+			else if (icon.default.href) linkElement.href = icon.default.href;
+			else if (icon.href !== undefined) linkElement.href = icon.href;
+			
+			linkElement.click();
+		});
+		
+		return linkElement?.remove();
+	}
 </script>
 
 <div class="icon">
@@ -56,7 +83,7 @@
 			<div class="element marker"></div>
 		</div>
 	{/if}
-	<div class="overlay buttons">
+	<div class="overlay buttons" {@attach externalLink}>
 		<div class="action-icons">
 			<svg class="hover-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 				<path
