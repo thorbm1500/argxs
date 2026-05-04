@@ -3,8 +3,9 @@
 	href: 'https://ktor.io',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'ktor-icon.svg',
+				path: 'ktor-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'ktor-logo.svg',
+				path: 'ktor-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'ktor-logo-dark.svg',
+				path: 'ktor-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

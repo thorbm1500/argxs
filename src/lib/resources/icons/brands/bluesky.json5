@@ -3,8 +3,9 @@
 	href: 'https://bsky.app',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'bluesky-icon.svg',
+				path: 'bluesky-icon.svg',
 				date_added: '2026/4/25'
 			}
 		}

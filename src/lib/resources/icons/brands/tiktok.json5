@@ -1,26 +1,28 @@
 {
-  name: 'TikTok',
-  href: 'https://www.tiktok.com',
-  assets: [
-    {
-      default: {
-        svg: 'tiktok-icon.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'tiktok-icon-dark.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        svg: 'tiktok-logo.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'tiktok-logo-dark.svg',
-        date_added: '2026/4/25'
-      }
-    }
-  ]
+    name: 'TikTok',
+    href: 'https://www.tiktok.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'tiktok-icon.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'tiktok-icon-dark.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'tiktok-logo.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'tiktok-logo-dark.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

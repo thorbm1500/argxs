@@ -1,27 +1,28 @@
 {
-	name: 'Threads',
-	href: 'https://www.threads.com',
-	assets: [
-		{
-			default: {
-				svg: 'threads-icon.svg',
-				date_added: '2026/4/10'
-			},
-			dark: {
-				svg: 'threads-icon-dark.svg',
-				date_added: '2026/4/10'
-			}
-		},
-		{
-			default: {
-				svg: 'threads-logo.svg',
-				date_added: '2026/4/10'
-			},
-			dark: {
-				svg: 'threads-logo-dark.svg',
-				date_added: '2026/4/10'
-			}
-		}
-	
-	]
+    name: 'Threads',
+    href: 'https://www.threads.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'threads-icon.svg',
+                date_added: '2026/4/10'
+            },
+            dark: {
+                path: 'threads-icon-dark.svg',
+                date_added: '2026/4/10'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'threads-logo.svg',
+                date_added: '2026/4/10'
+            },
+            dark: {
+                path: 'threads-logo-dark.svg',
+                date_added: '2026/4/10'
+            }
+        }
+    ]
 }

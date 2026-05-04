@@ -3,14 +3,16 @@
 	href: 'https://www.deepseek.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'deepseek-icon.svg',
+				path: 'deepseek-icon.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'deepseek-logo.svg',
+				path: 'deepseek-logo.svg',
 				date_added: '2026/4/10'
 			}
 		}

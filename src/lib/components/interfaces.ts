@@ -1,47 +1,73 @@
+export type PageTheme = 'light' | 'dark';
+
 export interface Icon {
+	/** The name of the icon */
 	name?: string,
-	svg: string,
+	/** The path to the icon */
+	path: string,
+	/** An external link related to the icon */
 	href?: string,
+	/** The date of which the icon was added or updated */
 	date_added?: string,
+	/** The source of the icon */
 	source?: Source
 }
 
 declare interface Source {
-	name: string;
-	href: string;
+	/** The name of the source */
+	name: string,
+	/** An external link to the source */
+	href: string
 }
 
-export interface BrandJson {
+export interface Brand {
 	name: string,
 	href?: string,
-	assets: VariableIcon[]
+	assets: BrandIcon[]
 }
 
-export interface BrandIcon extends VariableIcon {
+export interface BrandIcon {
+	/** The name of the icon */
 	name: string,
-	href?: string
-}
-
-export interface VariableIcon {
+	/** An external link site linked to the icon */
+	href: string,
+	/** The icon's type. Mostly used for sorting the icons */
+	type: 'icon' | 'logo' | 'other',
+	/** The amount of versions the icon has<br>
+	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
+	amount: number,
+	/** An epoch in milliseconds of the last time an icon of this collection was updated or added
+	 * * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
+	last_updated: number,
+	/** The default version of the icon. This will in most cases be the light themed version of the icon.<br>
+	 * `Note:` In the case that the icon only has one version of either light or dark, it shall be defined here */
 	default: Icon,
+	/** The dark themed version of the icon */
 	dark?: Icon,
-	monochrome?: Icon,
-	monochrome_white?: Icon,
-	monochrome_black?: Icon,
-	variable?: Icon
+	/** light refers to the theme, and not the coloring of the icon itself */
+	monochrome_light?: Icon,
+	/** dark refers to the theme, and not the coloring of the icon itself */
+	monochrome_dark?: Icon,
+	/** A list of extra icons, in some way related to this icon */
+	variable: Icon[]
 }
 
 export interface Flag {
+	/** The name of the country or flag
+	 * @todo Change from `country` to `name` */
 	country: string,
+	/** Flags linked to the country, such as the country's national flag, state flags, etc. */
 	flags: Icon[]
 }
 
 export interface ColorCombos {
-	combos: ColorCombo[];
+	combos: ColorCombo[]
 }
 
 export interface ColorCombo {
+	/** The name of the color combo */
 	name: string,
+	/** The source of the color combo */
 	source?: Source,
 	first: {
 		hex: string,

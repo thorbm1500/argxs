@@ -3,14 +3,16 @@
 	href: 'https://angular.dev',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'angular-icon.svg',
+				path: 'angular-icon.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'angular-logo.svg',
+				path: 'angular-logo.svg',
 				date_added: '2026/4/10'
 			}
 		}

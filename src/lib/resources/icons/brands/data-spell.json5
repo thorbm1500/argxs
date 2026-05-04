@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/dataspell/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'data-spell-icon.svg',
+				path: 'data-spell-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'data-spell-logo.svg',
+				path: 'data-spell-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'data-spell-logo-dark.svg',
+				path: 'data-spell-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

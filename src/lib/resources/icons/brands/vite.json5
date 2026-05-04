@@ -1,26 +1,28 @@
 {
-  name: 'Vite',
-  href: 'https://vite.dev',
-  assets: [
-    {
-      default: {
-        svg: 'vite-icon.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'vite-icon-dark.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        svg: 'vite-logo.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'vite-logo-dark.svg',
-        date_added: '2026/4/25'
-      }
-    }
-  ]
+    name: 'Vite',
+    href: 'https://vite.dev',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'vite-icon.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'vite-icon-dark.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'vite-logo.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'vite-logo-dark.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

@@ -3,8 +3,9 @@
 	href: 'https://www.apple.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'apple-icon.svg',
+				path: 'apple-icon.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',
@@ -12,7 +13,7 @@
 				}
 			},
 			dark: {
-				svg: 'apple-icon-dark.svg',
+				path: 'apple-icon-dark.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',
@@ -21,10 +22,11 @@
 			}
 		},
 		{
+			name: 'Apple App Store',
+			href: 'https://www.apple.com/app-store',
+			type: 'icon',
 			default: {
-				name: 'Apple App Store',
-				svg: 'apple-app-store-icon.svg',
-				href: 'https://www.apple.com/app-store',
+				path: 'apple-app-store-icon.svg',
 				date_added: '2026/4/25'
 			}
 		}

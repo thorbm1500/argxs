@@ -1,36 +1,37 @@
 {
-  name: 'Svelte',
-  href: 'https://svelte.dev',
-  assets: [
-    {
-      default: {
-        svg: 'svelte-icon.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        svg: 'svelte-logo.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'svelte-logo-dark.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        name: 'SvelteKit',
-        svg: 'sveltekit-logo.svg',
-        href: 'https://svelte.dev/docs/kit/introduction',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        name: 'SvelteKit',
-        svg: 'sveltekit-logo-dark.svg',
-        href: 'https://svelte.dev/docs/kit/introduction',
-        date_added: '2026/4/25'
-      }
-    }
-  ]
+    name: 'Svelte',
+    href: 'https://svelte.dev',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'svelte-icon.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'svelte-logo.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'svelte-logo-dark.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            name: 'SvelteKit',
+            href: 'https://svelte.dev/docs/kit/introduction',
+            type: 'logo',
+            default: {
+                path: 'sveltekit-logo.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'sveltekit-logo-dark.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

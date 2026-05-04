@@ -3,8 +3,9 @@
     href: 'https://www.influxdata.com',
     assets: [
         {
+            type: 'icon',
             default: {
-                svg: 'influx-data-icon.svg',
+                path: 'influx-data-icon.svg',
                 date_added: '2026/4/10',
                 source: {
                     name: 'InfluxData',
@@ -12,7 +13,7 @@
                 }
             },
             dark: {
-                svg: 'influx-data-icon-dark.svg',
+                path: 'influx-data-icon-dark.svg',
                 date_added: '2026/4/10',
                 source: {
                     name: 'InfluxData',
@@ -21,8 +22,9 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'influx-data-logo.svg',
+                path: 'influx-data-logo.svg',
                 date_added: '2026/4/10',
                 source: {
                     name: 'InfluxData',
@@ -30,7 +32,7 @@
                 }
             },
             dark: {
-                svg: 'influx-data-logo-dark.svg',
+                path: 'influx-data-logo-dark.svg',
                 date_added: '2026/4/10',
                 source: {
                     name: 'InfluxData',

@@ -3,22 +3,24 @@
 	href: 'https://bubble.io',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'bubble-icon.svg',
+				path: 'bubble-icon.svg',
 				date_added: '2026/4/11'
 			},
 			dark: {
-				svg: 'bubble-icon-dark.svg',
+				path: 'bubble-icon-dark.svg',
 				date_added: '2026/4/11'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'bubble-logo.svg',
+				path: 'bubble-logo.svg',
 				date_added: '2026/4/11'
 			},
 			dark: {
-				svg: 'bubble-logo-dark.svg',
+				path: 'bubble-logo-dark.svg',
 				date_added: '2026/4/11'
 			}
 		}

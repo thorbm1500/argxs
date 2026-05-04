@@ -3,8 +3,9 @@
     href: 'https://www.amazon.com',
     assets: [
         {
+            type: 'logo',
             default: {
-                svg: 'amazon-logo.svg',
+                path: 'amazon-logo.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -12,7 +13,7 @@
                 }
             },
             dark: {
-                svg: 'amazon-logo-dark.svg',
+                path: 'amazon-logo-dark.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -21,8 +22,9 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'amazon-music-logo.svg',
+                path: 'amazon-music-logo.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -30,7 +32,7 @@
                 }
             },
             dark: {
-                svg: 'amazon-music-logo-dark.svg',
+                path: 'amazon-music-logo-dark.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',

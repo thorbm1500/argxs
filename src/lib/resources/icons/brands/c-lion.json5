@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/clion/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'c-lion-icon.svg',
+				path: 'c-lion-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'c-lion-logo.svg',
+				path: 'c-lion-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'c-lion-logo-dark.svg',
+				path: 'c-lion-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

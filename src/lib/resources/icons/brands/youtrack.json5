@@ -3,8 +3,9 @@
     href: 'https://www.jetbrains.com/youtrack/',
     assets: [
         {
+            type: 'icon',
             default: {
-                svg: 'youtrack-icon.svg',
+                path: 'youtrack-icon.svg',
                 date_added: '2026/4/10',
                 source: {
                     name: 'JetBrains',
@@ -13,8 +14,9 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'youtrack-logo.svg',
+                path: 'youtrack-logo.svg',
                 date_added: '2026/4/10',
                 source: {
                     name: 'JetBrains',
@@ -22,7 +24,7 @@
                 }
             },
             dark: {
-                svg: 'youtrack-logo-dark.svg',
+                path: 'youtrack-logo-dark.svg',
                 date_added: '2026/4/10',
                 source: {
                     name: 'JetBrains',

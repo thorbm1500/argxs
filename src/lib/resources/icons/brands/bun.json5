@@ -3,8 +3,9 @@
 	href: 'https://bun.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'bun-icon.svg',
+				path: 'bun-icon.svg',
 				date_added: '2026/4/25'
 			}
 		}

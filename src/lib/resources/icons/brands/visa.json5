@@ -3,26 +3,25 @@
 	href: 'https://www.visa.com',
 	assets: [
 		{
+			type: 'logo',
 			default: {
-				svg: 'visa-logo.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
-		},
-		{
-			default: {
-				svg: 'visa-logo-monochrome-black.svg',
+				path: 'visa-logo.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
 			},
-			dark: {
-				svg: 'visa-logo-monochrome-white.svg',
+			monochrome_light: {
+				path: 'visa-logo-monochrome-black.svg',
+				date_added: '2026/4/29',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_dark: {
+				path: 'visa-logo-monochrome-white.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',

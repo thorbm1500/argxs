@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/ai/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'ai-assistant-icon.svg',
+				path: 'ai-assistant-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'ai-assistant-logo.svg',
+				path: 'ai-assistant-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'ai-assistant-logo-dark.svg',
+				path: 'ai-assistant-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

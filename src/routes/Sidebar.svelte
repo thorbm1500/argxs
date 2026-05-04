@@ -10,7 +10,7 @@
 	beforeNavigate(() => navState = 'inactive');
 	afterNavigate(() => {
 		navState = 'active';
-		sidebarState = false;
+		sidebarState = page.url.pathname === '/';
 	});
 	
 	// svelte-ignore state_referenced_locally
@@ -30,8 +30,10 @@
 
 <section id="sidebar" class="{theme} {sidebarState ? 'res-visible' : 'res-hidden'}">
 	<button title="" class="toggle-sidebar-button" onclick="{() => sidebarState = !sidebarState}">
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<path d="M13 7h-6l4 5l-4 5h6l4 -5l-4 -5" />
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+			<path d="M3 14a1 1 0 0 0 1 1h11.001v-.092a3 3 0 0 1 5.12 -2.03a.515 .515 0 0 0 .879 -.363v-6.515a3 3 0 0 0 -3 -3h-12a3 3 0 0 0 -3 3z" />
+			<path
+				d="M3 18a1 1 0 0 0 1 1h14.584l-1.291 1.293a1 1 0 0 0 -.083 1.32l.083 .094a1 1 0 0 0 1.414 0l3 -3q .054 -.053 .097 -.112l.071 -.11l.054 -.114l.035 -.105l.03 -.149l.006 -.117l-.003 -.075l-.017 -.126l-.03 -.111l-.044 -.111l-.052 -.098l-.067 -.096l-.08 -.09l-3 -3a1 1 0 0 0 -1.414 1.414l1.293 1.293h-14.586a1 1 0 0 0 -1 1" />
 		</svg>
 	</button>
 	
@@ -258,7 +260,7 @@
 					{/each}
 				</div>
 			</div>
-			<p class="version-text">ver. {version}</p>
+			<p class="version-text">version {version}</p>
 		</div>
 	</section>
 </section>
@@ -295,7 +297,7 @@
 				
 				svg {
 					filter:     blur(0);
-					color:      var(--theme-text-secondary);
+					color:      var(--theme-text-third);
 					
 					transition: 1800ms 500ms cubic-bezier(0.075, 0.82, 0.3, 1);
 				}
@@ -303,7 +305,7 @@
 				transition: 1800ms 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
 			}
 			
-			&:hover .sidebar-section {
+			&:hover .sidebar-section, &.res-visible .sidebar-section {
 				opacity:    1;
 				filter:     blur(0) drop-shadow(0 0 .35rem rgba(from var(--theme-ui-line) r g b / .15));
 				transform:  translateX(0);
@@ -321,30 +323,21 @@
 		}
 		
 		.toggle-sidebar-button {
-			visibility:    visible !important;
-			position:      absolute;
+			visibility: visible !important;
+			position:   absolute;
 			
-			left:          1rem;
-			bottom:        calc(50vh - var(--header-height));
-			height:        2.5rem;
-			width:         2.5rem;
-			padding:       .25rem .25rem .25rem .35rem;
+			left:       1rem;
+			bottom:     calc(50vh - var(--header-height));
+			height:     2.25rem;
+			width:      2.25rem;
 			
-			background:    var(--theme-ui-sidebar);
-			border:        2px solid var(--theme-ui-line);
-			border-radius: 100%;
+			cursor:     pointer;
 			
-			cursor:        pointer;
-			
-			z-index:       89998;
+			z-index:    89998;
 			
 			svg {
-				align-self:   center;
-				justify-self: center;
-				height:       100%;
-				width:        100%;
-				
-				transition:   transform 25ms linear;
+				height:        100%;
+				width:         100%;
 			}
 		}
 		
@@ -809,10 +802,12 @@
 			}
 			
 			.version-text {
+				margin-top:  .25rem;
 				color:       var(--theme-text-fourth);
-				font-family: 'Funnel Sans', sans-serif;
-				font-size:   .9rem;
-				font-weight: 800;
+				font-family: 'JetBrainsMono', sans-serif;
+				font-size:   .75rem;
+				font-weight: 700;
+				opacity:     .5;
 			}
 		}
 	}

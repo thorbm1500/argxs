@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/idea/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'intellij-idea-icon.svg',
+				path: 'intellij-idea-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'intellij-idea-logo.svg',
+				path: 'intellij-idea-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'intellij-idea-logo-dark.svg',
+				path: 'intellij-idea-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

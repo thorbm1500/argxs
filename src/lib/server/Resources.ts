@@ -1,4 +1,4 @@
-import type { BrandIcon, BrandJson, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
+import type { BrandIcon, Brand, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
@@ -8,6 +8,8 @@ export class Resources {
 	readonly BRAND_ICONS_SORTED_NEW: BrandIcon[] = [];
 	readonly BRAND_ICONS_SORTED_AtoZ: BrandIcon[] = [];
 	BRAND_ICON_AMOUNT: number = 0;
+	BRAND_LOGO_AMOUNT: number = 0;
+	BRAND_TOTAL_AMOUNT: number = 0;
 
 	readonly FLAG_ICONS: Flag[] = [];
 	FLAG_ICON_AMOUNT: number = 0;
@@ -26,34 +28,36 @@ export class Resources {
 
 	private async loadBrandIcons(): Promise<void> {
 		console.info('Loading brand icons...');
-		const path = root.concat('/icons/brands');
-		const dir: string[] = await fs.readdir(path);
+		const path: string = root.concat('/icons/brands');
 
-		for (const brand of dir) {
-			const current: BrandJson = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as BrandJson;
+		for (const brand of await fs.readdir(path)) {
+			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
 			for (const icon of current.assets) {
-				this.BRAND_ICONS.push({
-					name: current.name,
-					href: current.href,
-					...icon
-				});
+				let iconAmount = 1;
+
+				if (icon.dark) iconAmount++;
+				if (icon.monochrome_light) iconAmount++;
+				if (icon.monochrome_dark) iconAmount++;
+				if (icon.variable !== undefined) iconAmount += icon.variable.length;
+				else icon.variable = [];
+
+				icon.amount = iconAmount;
+
+				if (icon.type === 'icon') this.BRAND_ICON_AMOUNT += iconAmount;
+				else if (icon.type === 'logo') this.BRAND_LOGO_AMOUNT += iconAmount;
+				this.BRAND_TOTAL_AMOUNT += iconAmount;
+
+				icon.last_updated = this.getLatestDateFromIcon(icon);
+
+				if (current.href && icon.href === undefined) icon.href = current.href;
+				if (icon.name === undefined) icon.name = current.name;
+
+				this.BRAND_ICONS.push(icon);
 			}
 		}
 
 		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a,b) => this.getLatestDateFromIcon(b) - this.getLatestDateFromIcon(a)));
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a,b) => a.name.localeCompare(b.name)));
-
-		let amount = 0;
-		for (const icon of this.BRAND_ICONS) {
-			if (icon.default) amount++;
-			if (icon.dark) amount++;
-			if (icon.monochrome) amount++;
-			if (icon.monochrome_white) amount++;
-			if (icon.monochrome_black) amount++;
-			if (icon.variable) amount++;
-		}
-
-		this.BRAND_ICON_AMOUNT = amount;
 	}
 
 	private getLatestDateFromIcon(icon: BrandIcon): number {
@@ -66,16 +70,17 @@ export class Resources {
 			let current = Date.parse(icon.dark.date_added);
 			if (current > result) result = current;
 		}
-		if (icon.monochrome_white?.date_added) {
-			let current = Date.parse(icon.monochrome_white.date_added);
+		if (icon.monochrome_light?.date_added) {
+			let current = Date.parse(icon.monochrome_light.date_added);
 			if (current > result) result = current;
 		}
-		if (icon.monochrome_black?.date_added) {
-			let current = Date.parse(icon.monochrome_black.date_added);
+		if (icon.monochrome_dark?.date_added) {
+			let current = Date.parse(icon.monochrome_dark.date_added);
 			if (current > result) result = current;
 		}
-		if (icon.variable?.date_added) {
-			let current = Date.parse(icon.variable.date_added);
+		for (const variable of icon.variable) {
+			if (!variable.date_added) continue;
+			let current = Date.parse(variable.date_added);
 			if (current > result) result = current;
 		}
 

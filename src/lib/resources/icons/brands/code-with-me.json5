@@ -3,8 +3,9 @@
 	href: 'https://blog.jetbrains.com/platform/2026/03/sunsetting-code-with-me/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'code-with-me-icon.svg',
+				path: 'code-with-me-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'code-with-me-logo.svg',
+				path: 'code-with-me-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'code-with-me-logo-dark.svg',
+				path: 'code-with-me-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

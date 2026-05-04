@@ -3,14 +3,16 @@
 	href: 'https://www.docker.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'docker-icon.svg',
+				path: 'docker-icon.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'docker-logo.svg',
+				path: 'docker-logo.svg',
 				date_added: '2026/4/10'
 			}
 		}

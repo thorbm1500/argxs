@@ -1,27 +1,29 @@
 {
-  name: 'FoundationDB',
-  href: 'https://www.foundationdb.org',
-  date_added: '2026/4/10',
-  assets: [
-    {
-      default: {
-        svg: 'foundation-db-icon.svg',
-        date_added: '2026/4/24'
-      },
-      dark: {
-        svg: 'foundation-db-icon-dark.svg',
-        date_added: '2026/4/24'
-      }
-    },
-    {
-      default: {
-        svg: 'foundation-db-logo.svg',
-        date_added: '2026/4/24'
-      },
-      dark: {
-        svg: 'foundation-db-logo-dark.svg',
-        date_added: '2026/4/24'
-      }
-    }
-  ]
+    name: 'FoundationDB',
+    href: 'https://www.foundationdb.org',
+    date_added: '2026/4/10',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'foundation-db-icon.svg',
+                date_added: '2026/4/24'
+            },
+            dark: {
+                path: 'foundation-db-icon-dark.svg',
+                date_added: '2026/4/24'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'foundation-db-logo.svg',
+                date_added: '2026/4/24'
+            },
+            dark: {
+                path: 'foundation-db-logo-dark.svg',
+                date_added: '2026/4/24'
+            }
+        }
+    ]
 }

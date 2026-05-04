@@ -3,8 +3,9 @@
 	href: 'https://flare.io',
 	assets: [
 		{
+			type: 'logo',
 			default: {
-				svg: 'flare-logo.svg',
+				path: 'flare-logo.svg',
 				date_added: '2026/4/30',
 				source: {
 					name: 'Brandfetch',
@@ -12,7 +13,7 @@
 				}
 			},
 			dark: {
-				svg: 'flare-logo-dark.svg',
+				path: 'flare-logo-dark.svg',
 				date_added: '2026/4/30',
 				source: {
 					name: 'Brandfetch',

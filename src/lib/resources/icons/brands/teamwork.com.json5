@@ -3,8 +3,9 @@
 	href: 'https://www.teamwork.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'teamwork.com-icon.svg',
+				path: 'teamwork.com-icon.svg',
 				date_added: '2026/4/11',
 				source: {
 					name: 'teamwork.com',
@@ -12,7 +13,7 @@
 				}
 			},
 			dark: {
-				svg: 'teamwork.com-icon-dark.svg',
+				path: 'teamwork.com-icon-dark.svg',
 				date_added: '2026/4/11',
 				source: {
 					name: 'teamwork.com',
@@ -21,8 +22,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'teamwork.com-logo.svg',
+				path: 'teamwork.com-logo.svg',
 				date_added: '2026/4/11',
 				source: {
 					name: 'teamwork.com',
@@ -30,7 +32,7 @@
 				}
 			},
 			dark: {
-				svg: 'teamwork.com-logo-dark.svg',
+				path: 'teamwork.com-logo-dark.svg',
 				date_added: '2026/4/11',
 				source: {
 					name: 'teamwork.com',

@@ -3,18 +3,20 @@
 	href: 'https://about.gitlab.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'gitlab-icon.svg',
+				path: 'gitlab-icon.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'gitlab-logo.svg',
+				path: 'gitlab-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'gitlab-logo-dark.svg',
+				path: 'gitlab-logo-dark.svg',
 				date_added: '2026/4/10'
 			}
 		}

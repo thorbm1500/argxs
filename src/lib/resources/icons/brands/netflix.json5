@@ -3,16 +3,17 @@
     href: 'https://netflix.com',
     assets: [
         {
+            type: 'logo',
             default: {
-                svg: 'netflix-logo.svg',
+                path: 'netflix-logo.svg',
                 date_added: '2026/4/25'
             },
-            monochrome_white: {
-                svg: 'netflix-logo-monochrome-white.svg',
+            monochrome_light: {
+                path: 'netflix-logo-monochrome-black.svg',
                 date_added: '2026/4/29'
             },
-            monochrome_black: {
-                svg: 'netflix-logo-monochrome-black.svg',
+            monochrome_dark: {
+                path: 'netflix-logo-monochrome-white.svg',
                 date_added: '2026/4/29'
             }
         }

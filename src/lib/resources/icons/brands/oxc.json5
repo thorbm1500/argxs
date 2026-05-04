@@ -1,26 +1,28 @@
 {
-  name: 'OXC',
-  href: 'https://oxc.rs',
-  assets: [
-    {
-      default: {
-        svg: 'oxc-icon.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'oxc-icon-dark.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        svg: 'oxc-logo.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'oxc-logo-dark.svg',
-        date_added: '2026/4/25'
-      }
-    }
-  ]
+    name: 'OXC',
+    href: 'https://oxc.rs',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'oxc-icon.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'oxc-icon-dark.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'oxc-logo.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'oxc-logo-dark.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

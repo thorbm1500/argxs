@@ -3,8 +3,9 @@
 	href: 'https://kotlinlang.org',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'kotlin-icon.svg',
+				path: 'kotlin-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'kotlin-logo.svg',
+				path: 'kotlin-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'kotlin-logo-dark.svg',
+				path: 'kotlin-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

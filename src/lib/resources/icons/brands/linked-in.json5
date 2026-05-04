@@ -1,18 +1,20 @@
 {
-  name: 'LinkedIn',
-  href: 'https://www.linkedin.com',
-  assets: [
-    {
-      default: {
-        svg: 'linked-in-icon.svg',
-        date_added: '2026/4/24'
-      }
-    },
-    {
-      default: {
-        svg: 'linked-in-logo.svg',
-        date_added: '2026/4/24'
-      }
-    }
-  ]
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'linked-in-icon.svg',
+                date_added: '2026/4/24'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'linked-in-logo.svg',
+                date_added: '2026/4/24'
+            }
+        }
+    ]
 }

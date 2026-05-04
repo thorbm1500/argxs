@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/decompiler/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'dot-peek-icon.svg',
+				path: 'dot-peek-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'dot-peek-logo.svg',
+				path: 'dot-peek-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'dot-peek-logo-dark.svg',
+				path: 'dot-peek-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

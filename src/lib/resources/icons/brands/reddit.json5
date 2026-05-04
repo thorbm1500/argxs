@@ -3,8 +3,9 @@
     href: 'https://www.reddit.com',
     assets: [
         {
+            type: 'icon',
             default: {
-                svg: 'reddit-symbol.svg',
+                path: 'reddit-symbol.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -12,7 +13,7 @@
                 }
             },
             dark: {
-                svg: 'reddit-symbol-dark.svg',
+                path: 'reddit-symbol-dark.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -21,24 +22,25 @@
             }
         },
         {
+            type: 'icon',
             default: {
-                svg: 'reddit-icon.svg',
+                path: 'reddit-icon.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_white: {
-                svg: 'reddit-icon-monochrome-white.svg',
+            monochrome_light: {
+                path: 'reddit-icon-monochrome-black.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_black: {
-                svg: 'reddit-icon-monochrome-black.svg',
+            monochrome_dark: {
+                path: 'reddit-icon-monochrome-white.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -47,24 +49,25 @@
             }
         },
         {
+            type: 'icon',
             default: {
-                svg: 'reddit-icon-alternate.svg',
+                path: 'reddit-icon-alternate.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_white: {
-                svg: 'reddit-icon-alternate-monochrome-white.svg',
+            monochrome_light: {
+                path: 'reddit-icon-alternate-monochrome-black.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_black: {
-                svg: 'reddit-icon-alternate-monochrome-black.svg',
+            monochrome_dark: {
+                path: 'reddit-icon-alternate-monochrome-white.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -73,8 +76,9 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'reddit-full-logo.svg',
+                path: 'reddit-full-logo.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -82,7 +86,7 @@
                 }
             },
             dark: {
-                svg: 'reddit-full-logo-dark.svg',
+                path: 'reddit-full-logo-dark.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -91,24 +95,25 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'reddit-logo.svg',
+                path: 'reddit-logo.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_white: {
-                svg: 'reddit-logo-monochrome-white.svg',
+            monochrome_light: {
+                path: 'reddit-logo-monochrome-black.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_black: {
-                svg: 'reddit-logo-monochrome-black.svg',
+            monochrome_dark: {
+                path: 'reddit-logo-monochrome-white.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',

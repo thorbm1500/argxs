@@ -3,18 +3,20 @@
 	href: 'https://www.gnu.org/software/bash/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'bash-icon.svg',
+				path: 'bash-icon.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'bash-logo.svg',
+				path: 'bash-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'bash-logo-dark.svg',
+				path: 'bash-logo-dark.svg',
 				date_added: '2026/4/10'
 			}
 		}

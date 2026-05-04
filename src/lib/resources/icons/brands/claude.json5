@@ -3,18 +3,20 @@
 	href: 'https://claude.ai',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'claude-icon.svg',
+				path: 'claude-icon.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'claude-logo.svg',
+				path: 'claude-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'claude-logo-dark.svg',
+				path: 'claude-logo-dark.svg',
 				date_added: '2026/4/10'
 			}
 		}

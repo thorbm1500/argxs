@@ -1,18 +1,20 @@
 {
-  name: 'Spotify',
-  href: 'https://spotify.com',
-  assets: [
-    {
-      default: {
-        svg: 'spotify-icon.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        svg: 'spotify-logo.svg',
-        date_added: '2026/4/25'
-      }
-    }
-  ]
+    name: 'Spotify',
+    href: 'https://spotify.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'spotify-icon.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'spotify-logo.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

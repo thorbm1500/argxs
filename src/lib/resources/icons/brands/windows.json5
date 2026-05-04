@@ -1,20 +1,22 @@
 {
-	name: 'Windows',
-	href: 'https://www.microsoft.com/windows',
-	assets: [
-		{
-			default: {
-				name: 'Windows 11',
-				svg: 'windows-11-icon.svg',
-				date_added: '2026/4/25'
-			}
-		},
-		{
-			default: {
-				name: 'Windows 11',
-				svg: 'windows-11-logo.svg',
-				date_added: '2026/4/25'
-			}
-		}
-	]
+    name: 'Windows',
+    href: 'https://www.microsoft.com/windows',
+    assets: [
+        {
+            name: 'Windows 11',
+            type: 'icon',
+            default: {
+                path: 'windows-11-icon.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            name: 'Windows 11',
+            type: 'logo',
+            default: {
+                path: 'windows-11-logo.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

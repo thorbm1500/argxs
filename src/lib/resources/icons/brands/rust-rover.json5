@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/rust/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'rust-rover-icon.svg',
+				path: 'rust-rover-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'rust-rover-logo.svg',
+				path: 'rust-rover-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'rust-rover-logo-dark.svg',
+				path: 'rust-rover-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

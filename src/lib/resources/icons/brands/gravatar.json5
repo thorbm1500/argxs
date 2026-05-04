@@ -3,18 +3,20 @@
 	href: 'https://gravatar.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'gravatar-icon.svg',
+				path: 'gravatar-icon.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'gravatar-logo.svg',
+				path: 'gravatar-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'gravatar-logo-dark.svg',
+				path: 'gravatar-logo-dark.svg',
 				date_added: '2026/4/10'
 			}
 		}

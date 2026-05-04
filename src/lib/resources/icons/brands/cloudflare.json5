@@ -3,18 +3,20 @@
 	href: 'https://www.cloudflare.com/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'cloudflare-icon.svg',
+				path: 'cloudflare-icon.svg',
 				date_added: '2026/4/11'
 			},
 			dark: {
-				svg: 'cloudflare-icon-dark.svg',
+				path: 'cloudflare-icon-dark.svg',
 				date_added: '2026/4/11'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'cloudflare-logo.svg',
+				path: 'cloudflare-logo.svg',
 				date_added: '2026/4/11',
 				source: {
 					name: 'Cloudflare',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'cloudflare-logo-dark.svg',
+				path: 'cloudflare-logo-dark.svg',
 				date_added: '2026/4/11'
 			}
 		}

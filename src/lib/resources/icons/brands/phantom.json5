@@ -3,8 +3,9 @@
     href: 'https://phantom.com',
     assets: [
         {
+            type: 'icon',
             default: {
-                svg: 'phantom-logo.svg',
+                path: 'phantom-icon.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -12,7 +13,7 @@
                 }
             },
             dark: {
-                svg: 'phantom-logo-dark.svg',
+                path: 'phantom-icon-dark.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -21,8 +22,9 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'phantom-icon.svg',
+                path: 'phantom-logo.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -30,7 +32,7 @@
                 }
             },
             dark: {
-                svg: 'phantom-icon-dark.svg',
+                path: 'phantom-logo-dark.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',

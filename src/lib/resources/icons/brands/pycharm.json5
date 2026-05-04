@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/pycharm/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'pycharm-icon.svg',
+				path: 'pycharm-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'pycharm-logo.svg',
+				path: 'pycharm-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'pycharm-logo-dark.svg',
+				path: 'pycharm-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

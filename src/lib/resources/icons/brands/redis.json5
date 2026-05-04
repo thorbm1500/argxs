@@ -3,18 +3,20 @@
 	href: 'https://redis.io',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'redis-icon.svg',
+				path: 'redis-icon.svg',
 				date_added: '2026/4/25'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'redis-logo.svg',
+				path: 'redis-logo.svg',
 				date_added: '2026/4/25'
 			},
 			dark: {
-				svg: 'redis-logo-dark.svg',
+				path: 'redis-logo-dark.svg',
 				date_added: '2026/4/25'
 			}
 		}

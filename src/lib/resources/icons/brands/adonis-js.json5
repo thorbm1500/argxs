@@ -3,22 +3,24 @@
 	href: 'https://adonisjs.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'adonis-js-icon.svg',
+				path: 'adonis-js-icon.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'adonis-js-icon-dark.svg',
+				path: 'adonis-js-icon-dark.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'adonis-js-logo.svg',
+				path: 'adonis-js-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'adonis-js-logo-dark.svg',
+				path: 'adonis-js-logo-dark.svg',
 				date_added: '2026/4/10'
 			}
 		}

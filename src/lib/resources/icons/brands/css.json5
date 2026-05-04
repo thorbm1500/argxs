@@ -3,8 +3,9 @@
 	href: 'https://www.w3.org/Style/CSS/Overview.en.html',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'css-icon.svg',
+				path: 'css-icon.svg',
 				date_added: '2026/4/25'
 			}
 		}

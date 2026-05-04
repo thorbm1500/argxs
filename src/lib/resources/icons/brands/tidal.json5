@@ -1,26 +1,28 @@
 {
-  name: 'Tidal',
-  href: 'https://tidal.com',
-  assets: [
-    {
-      default: {
-        svg: 'tidal-icon.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'tidal-icon-dark.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        svg: 'tidal-logo.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'tidal-logo-dark.svg',
-        date_added: '2026/4/25'
-      }
-    }
-  ]
+    name: 'Tidal',
+    href: 'https://tidal.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'tidal-icon.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'tidal-icon-dark.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'tidal-logo.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'tidal-logo-dark.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

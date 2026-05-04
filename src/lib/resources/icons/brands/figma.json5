@@ -3,8 +3,9 @@
     href: 'https://www.figma.com',
     assets: [
         {
+            type: 'icon',
             default: {
-                svg: 'figma-symbol.svg',
+                path: 'figma-symbol.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -13,8 +14,9 @@
             }
         },
         {
+            type: 'icon',
             default: {
-                svg: 'figma-icon.svg',
+                path: 'figma-icon.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -22,7 +24,7 @@
                 }
             },
             dark: {
-                svg: 'figma-icon-dark.svg',
+                path: 'figma-icon-dark.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -31,8 +33,9 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'figma-logo.svg',
+                path: 'figma-logo.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',
@@ -40,7 +43,7 @@
                 }
             },
             dark: {
-                svg: 'figma-logo-dark.svg',
+                path: 'figma-logo-dark.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Brandfetch',

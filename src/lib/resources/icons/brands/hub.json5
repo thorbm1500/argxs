@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/hub/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'hub-icon.svg',
+				path: 'hub-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'hub-logo.svg',
+				path: 'hub-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'hub-logo-dark.svg',
+				path: 'hub-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

@@ -1,26 +1,28 @@
 {
-  name: 'Rolldown',
-  href: 'https://rolldown.rs',
-  assets: [
-    {
-      default: {
-        svg: 'rolldown-icon.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'rolldown-icon-dark.svg',
-        date_added: '2026/4/25'
-      }
-    },
-    {
-      default: {
-        svg: 'rolldown-logo.svg',
-        date_added: '2026/4/25'
-      },
-      dark: {
-        svg: 'rolldown-logo-dark.svg',
-        date_added: '2026/4/25'
-      }
-    }
-  ]
+    name: 'Rolldown',
+    href: 'https://rolldown.rs',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'rolldown-icon.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'rolldown-icon-dark.svg',
+                date_added: '2026/4/25'
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'rolldown-logo.svg',
+                date_added: '2026/4/25'
+            },
+            dark: {
+                path: 'rolldown-logo-dark.svg',
+                date_added: '2026/4/25'
+            }
+        }
+    ]
 }

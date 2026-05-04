@@ -3,8 +3,9 @@
 	href: 'https://www.okta.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'okta-icon.svg',
+				path: 'okta-icon.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',
@@ -12,7 +13,7 @@
 				}
 			},
 			dark: {
-				svg: 'okta-icon-dark.svg',
+				path: 'okta-icon-dark.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',
@@ -21,8 +22,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'okta-logo.svg',
+				path: 'okta-logo.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',
@@ -30,7 +32,7 @@
 				}
 			},
 			dark: {
-				svg: 'okta-logo-dark.svg',
+				path: 'okta-logo-dark.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',

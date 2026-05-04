@@ -3,46 +3,25 @@
     href: 'https://stripe.com',
     assets: [
         {
+            type: 'logo',
             default: {
-                svg: 'stripe-logo.svg',
+                path: 'stripe-logo-blurple.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Stripe',
                     href: 'https://stripe.com/newsroom/information'
                 }
             },
-            dark: {
-                svg: 'stripe-logo-dark.svg',
-                date_added: '2026/4/29',
-                source: {
-                    name: 'Stripe',
-                    href: 'https://stripe.com/newsroom/information'
-                }
-            }
-        },
-        {
-            default: {
-                svg: 'stripe-logo-blurple.svg',
-                date_added: '2026/4/29',
-                source: {
-                    name: 'Stripe',
-                    href: 'https://stripe.com/newsroom/information'
-                }
-            }
-        },
-        {
-            default: {
-                name: 'Stripe Badge',
-                svg: 'stripe-badge.svg',
+            monochrome_light: {
+                path: 'stripe-logo.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Stripe',
                     href: 'https://stripe.com/newsroom/information'
                 }
             },
-            dark: {
-                name: 'Stripe Badge',
-                svg: 'stripe-badge-dark.svg',
+            monochrome_dark: {
+                path: 'stripe-logo-dark.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Stripe',
@@ -51,9 +30,26 @@
             }
         },
         {
+            name: 'Stripe Badge',
+            type: 'icon',
             default: {
-                name: 'Stripe Badge',
-                svg: 'stripe-badge-blurple.svg',
+                path: 'stripe-badge-blurple.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            },
+            monochrome_light: {
+                path: 'stripe-badge.svg',
+                date_added: '2026/4/29',
+                source: {
+                    name: 'Stripe',
+                    href: 'https://stripe.com/newsroom/information'
+                }
+            },
+            monochrome_dark: {
+                path: 'stripe-badge-dark.svg',
                 date_added: '2026/4/29',
                 source: {
                     name: 'Stripe',

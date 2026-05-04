@@ -3,22 +3,24 @@
 	href: 'https://grok.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'grok-icon.svg',
+				path: 'grok-icon.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'grok-icon-dark.svg',
+				path: 'grok-icon-dark.svg',
 				date_added: '2026/4/10'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'grok-logo.svg',
+				path: 'grok-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
-				svg: 'grok-logo-dark.svg',
+				path: 'grok-logo-dark.svg',
 				date_added: '2026/4/10'
 			}
 		}

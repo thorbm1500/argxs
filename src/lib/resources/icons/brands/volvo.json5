@@ -3,8 +3,9 @@
     href: 'https://volvo.com',
     assets: [
         {
+            type: 'icon',
             default: {
-                svg: 'volvo-logo.svg',
+                path: 'volvo-icon.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -12,7 +13,7 @@
                 }
             },
             dark: {
-                svg: 'volvo-logo-dark.svg',
+                path: 'volvo-icon-dark.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -21,8 +22,9 @@
             }
         },
         {
+            type: 'logo',
             default: {
-                svg: 'volvo-icon.svg',
+                path: 'volvo-logo.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',
@@ -30,7 +32,7 @@
                 }
             },
             dark: {
-                svg: 'volvo-icon-dark.svg',
+                path: 'volvo-logo-dark.svg',
                 date_added: '2026/4/30',
                 source: {
                     name: 'Brandfetch',

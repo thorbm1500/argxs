@@ -4,8 +4,9 @@
 	date_added: '2026/4/10',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'fleet-icon.svg',
+				path: 'fleet-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -14,8 +15,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'fleet-logo.svg',
+				path: 'fleet-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -23,7 +25,7 @@
 				}
 			},
 			dark: {
-				svg: 'fleet-logo-dark.svg',
+				path: 'fleet-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/profiler/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'dot-trace-icon.svg',
+				path: 'dot-trace-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'dot-trace-logo.svg',
+				path: 'dot-trace-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'dot-trace-logo-dark.svg',
+				path: 'dot-trace-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

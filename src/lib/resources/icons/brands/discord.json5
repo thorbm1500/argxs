@@ -3,8 +3,9 @@
 	href: 'https://discord.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'discord-icon.svg',
+				path: 'discord-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'Discord',
@@ -12,7 +13,7 @@
 				}
 			},
 			dark: {
-				svg: 'discord-icon-dark.svg',
+				path: 'discord-icon-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'Discord',
@@ -21,8 +22,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'discord-logo.svg',
+				path: 'discord-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'Discord',
@@ -30,7 +32,7 @@
 				}
 			},
 			dark: {
-				svg: 'discord-logo-dark.svg',
+				path: 'discord-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'Discord',

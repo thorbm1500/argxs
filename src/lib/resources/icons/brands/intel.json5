@@ -3,12 +3,13 @@
 	href: 'https://www.intel.com',
 	assets: [
 		{
+			type: 'logo',
 			default: {
-				svg: 'intel-logo.svg',
+				path: 'intel-logo.svg',
 				date_added: '2026/4/24'
 			},
 			dark: {
-				svg: 'intel-logo-dark.svg',
+				path: 'intel-logo-dark.svg',
 				date_added: '2026/4/24'
 			}
 		}

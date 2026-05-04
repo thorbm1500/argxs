@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/webstorm/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'webstorm-icon.svg',
+				path: 'webstorm-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'webstorm-logo.svg',
+				path: 'webstorm-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'webstorm-logo-dark.svg',
+				path: 'webstorm-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',

@@ -3,18 +3,20 @@
 	href: 'https://vivaldi.com',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'vivaldi-icon.svg',
+				path: 'vivaldi-icon.svg',
 				date_added: '2026/4/25'
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'vivaldi-logo.svg',
+				path: 'vivaldi-logo.svg',
 				date_added: '2026/4/25'
 			},
 			dark: {
-				svg: 'vivaldi-logo-dark.svg',
+				path: 'vivaldi-logo-dark.svg',
 				date_added: '2026/4/25'
 			}
 		}

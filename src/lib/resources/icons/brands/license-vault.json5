@@ -3,8 +3,9 @@
 	href: 'https://www.jetbrains.com/ide-services/license-vault/',
 	assets: [
 		{
+			type: 'icon',
 			default: {
-				svg: 'license-vault-icon.svg',
+				path: 'license-vault-icon.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -13,8 +14,9 @@
 			}
 		},
 		{
+			type: 'logo',
 			default: {
-				svg: 'license-vault-logo.svg',
+				path: 'license-vault-logo.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
@@ -22,7 +24,7 @@
 				}
 			},
 			dark: {
-				svg: 'license-vault-logo-dark.svg',
+				path: 'license-vault-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {
 					name: 'JetBrains',
