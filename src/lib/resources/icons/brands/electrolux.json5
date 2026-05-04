@@ -1,0 +1,44 @@
+{
+    name: 'Electrolux',
+    href: 'https://www.electrolux.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'electrolux-icon.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'electrolux-icon-dark.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'electrolux-logo.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'electrolux-logo-dark.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

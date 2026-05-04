@@ -1,0 +1,54 @@
+{
+	name: 'Formula 1',
+	href: 'https://www.formula1.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'formula-one-logo.svg',
+				date_added: '2026/4/30',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_light: {
+				path: 'formula-one-logo-light.svg',
+				date_added: '2026/5/4',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_dark: {
+				path: 'formula-one-logo-dark.svg',
+				date_added: '2026/5/4',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			name: 'F1 Academy',
+			href: 'https://www.f1academy.com',
+			type: 'logo',
+			default: {
+				path: 'formula-one-academy-logo.svg',
+				date_added: '2026/5/4',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'formula-one-academy-logo-dark.svg',
+				date_added: '2026/5/4',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,44 @@
+{
+    name: 'Smeg',
+    href: 'https://www.smeg.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'smeg-icon.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'smeg-icon-dark.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'smeg-logo.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'smeg-logo-dark.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

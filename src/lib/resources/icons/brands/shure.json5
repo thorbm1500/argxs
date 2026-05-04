@@ -1,0 +1,33 @@
+{
+    name: 'Shure',
+    href: 'https://shure.com',
+    assets: [
+        {
+            type: 'logo',
+            default: {
+                path: 'shure-logo.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            monochrome_light: {
+                path: 'shure-logo-monochrome_light.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            monochrome_dark: {
+                path: 'shure-logo-monochrome_dark.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

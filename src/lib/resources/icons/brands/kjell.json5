@@ -1,0 +1,25 @@
+{
+    name: 'Kjell & Company',
+    href: 'https://www.kjell.com',
+    assets: [
+        {
+            type: 'logo',
+            default: {
+                path: 'kjell-logo.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Kjell & Company',
+                    href: 'https://www.kjell.com'
+                }
+            },
+            dark: {
+                path: 'kjell-logo-dark.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Kjell & Company',
+                    href: 'https://www.kjell.com'
+                }
+            }
+        }
+    ]
+}

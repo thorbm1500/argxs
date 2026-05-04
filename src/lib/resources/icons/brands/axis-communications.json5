@@ -1,0 +1,28 @@
+{
+    name: 'Axis Communications',
+    href: 'https://www.axis.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'axis-communications-icon.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'axis-communications-logo.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

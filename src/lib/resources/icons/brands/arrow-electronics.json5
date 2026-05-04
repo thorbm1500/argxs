@@ -1,0 +1,25 @@
+{
+    name: 'Arrow Electronics',
+    href: 'https://www.arrow.com',
+    assets: [
+        {
+            type: 'logo',
+            default: {
+                path: 'arrow-electronics-logo.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'arrow-electronics-logo-dark.svg',
+                date_added: '2026/5/4',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}
