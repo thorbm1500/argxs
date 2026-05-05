@@ -1,0 +1,25 @@
+{
+	name: 'Asus',
+	href: 'https://www.asus.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'asus-logo.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'asus-logo-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

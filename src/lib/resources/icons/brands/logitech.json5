@@ -1,0 +1,52 @@
+{
+	name: 'Logitech',
+	href: 'https://www.logitech.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'logitech-icon.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Logitech',
+					href: 'https://www.logitech.com'
+				}
+			},
+			dark: {
+				path: 'logitech-icon-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Logitech',
+					href: 'https://www.logitech.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'logitech-logo.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_light: {
+				path: 'logitech-logo-monochrome-light.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_dark: {
+				path: 'logitech-logo-monochrome-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

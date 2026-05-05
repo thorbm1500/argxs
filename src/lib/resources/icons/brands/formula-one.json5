@@ -6,14 +6,14 @@
 			type: 'logo',
 			default: {
 				path: 'formula-one-logo.svg',
-				date_added: '2026/4/30',
+				date_added: '2026/5/4',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
 			},
 			monochrome_light: {
-				path: 'formula-one-logo-light.svg',
+				path: 'formula-one-logo-monochrome-light.svg',
 				date_added: '2026/5/4',
 				source: {
 					name: 'Brandfetch',
@@ -21,7 +21,7 @@
 				}
 			},
 			monochrome_dark: {
-				path: 'formula-one-logo-dark.svg',
+				path: 'formula-one-logo-monochrome-dark.svg',
 				date_added: '2026/5/4',
 				source: {
 					name: 'Brandfetch',

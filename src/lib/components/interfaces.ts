@@ -27,6 +27,8 @@ export interface Brand {
 }
 
 export interface BrandIcon {
+	/** The name of the brand */
+	brand: string,
 	/** The name of the icon */
 	name: string,
 	/** An external link site linked to the icon */

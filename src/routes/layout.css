@@ -8,27 +8,27 @@
 @import 'tailwindcss';
 
 :root {
-	color-scheme:                         light;
+	color-scheme:                  light;
 	
-	--theme-cubic-out:                    cubic-bezier(0.215, 0.610, 0.355, 1.000);
-	--theme-transition-off:               all 175ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
-	--theme-transition-on:                all 100ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+	--theme-cubic-out:             cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	--theme-transition-off:        all 175ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
+	--theme-transition-on:         all 100ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
 	
-	--theme-color-primary-reverse:        #F7F9FC;
-	--theme-color-primary:                #0D0D0D;
-	--theme-color-secondary:              #727E94;
-	--theme-color-accent:                 #757CFF;
-	--theme-color-aware:                  oklch(0.856 0.164 91.995);
-	--theme-color-alert:                  oklch(58.6% 0.253 17.585);
-	--theme-color-alert-light:            oklch(0.662 0.232 11.291);
-	--theme-color-success:                oklch(84.1% 0.238 128.85);
-	--theme-color-success-light:          oklch(89.2% 0.223 127.706);
+	--theme-color-primary-reverse: #F7F9FC;
+	--theme-color-primary:         #0D0D0D;
+	--theme-color-secondary:       #727E94;
+	--theme-color-accent:          #757CFF;
+	--theme-color-aware:           oklch(0.843 0.162 92.182);
+	--theme-color-alert:           oklch(58.6% 0.253 17.585);
+	--theme-color-alert-light:     oklch(0.662 0.232 11.291);
+	--theme-color-success:         oklch(84.1% 0.238 128.85);
+	--theme-color-success-light:   oklch(89.2% 0.223 127.706);
 	
-	--theme-text-primary:                 #0D0D0D;
-	--theme-text-secondary:               #31353F;
-	--theme-text-third:                   #727E94;
-	--theme-text-fourth:                  #C1C9D5;
-	--theme-text-new:                     #130132;
+	--theme-text-primary:          #0D0D0D;
+	--theme-text-secondary:        #31353F;
+	--theme-text-third:            #727E94;
+	--theme-text-fourth:           #C1C9D5;
+	--theme-text-new:              #130132;
 	
 	--theme-ui-line:                      #DDE1E8;
 	--theme-ui-line-highlight:            #C0C5CC;
@@ -52,19 +52,19 @@
 }
 
 .dark {
-	color-scheme:                         dark !important;
+	color-scheme:                  dark !important;
 	
-	--theme-color-aware:                  oklch(0.813 0.164 90.566);
+	--theme-color-aware:           oklch(0.785 0.158 90.154);
 	
-	--theme-text-primary:                 #F7F9FC;
-	--theme-text-secondary:               #E1E6EE;
-	--theme-text-third:                   #C1C9D5;
-	--theme-text-fourth:                  #586173;
-	--theme-text-new:                     #F5F0FF;
+	--theme-text-primary:          #F7F9FC;
+	--theme-text-secondary:        #E1E6EE;
+	--theme-text-third:            #C1C9D5;
+	--theme-text-fourth:           #586173;
+	--theme-text-new:              #F5F0FF;
 	
-	--theme-color-primary-reverse:        #0D0D0D;
-	--theme-color-primary:                #F7F9FC;
-	--theme-ui-container:                 #16181E;
+	--theme-color-primary-reverse: #0D0D0D;
+	--theme-color-primary:         #F7F9FC;
+	--theme-ui-container:          #16181E;
 	--theme-ui-container-hover:           #1F212A;
 	--theme-ui-background:                #111217;
 	--theme-ui-header:                    #1B1D26;

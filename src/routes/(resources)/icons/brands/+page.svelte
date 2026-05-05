@@ -31,9 +31,6 @@
 				else current = data.iconsSortedAtoZ;
 				break;
 			}
-			default: {
-				current = data.icons;
-			}
 		}
 		
 		if (iconsOnly) return current.filter(icon => icon.type === 'icon');
@@ -62,7 +59,7 @@
 		
 		return result;
 	});
-	let gridHeight = $derived(((pagOffset / columnAmount) * 7.5) + 1);
+	let rowAmount = $derived(((pagOffset / columnAmount)));
 </script>
 
 <section class="content-header">
@@ -170,9 +167,9 @@
 	</div>
 </section>
 
-<section class="brand-icons-sec" style="height: calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7rem + {gridHeight}rem)">
-	<div class="icons" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount}
-	     style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
+<section class="brand-icons-sec" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}
+         style="height: calc(((((var(--current-width) - 12rem) / var(--column-amount)) - 7rem) * (var(--row-amount) - 1)) + (var(--row-amount) * 7rem)) !important">
+	<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
 		{#each currentIcons as icon}
 			{#key icon}
 				<BrandIconComponent bind:theme icon={icon} />
@@ -183,23 +180,25 @@
 
 <div class="pagination-actions">
 	<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round">
-			<path d="M5 12h6m3 0h1.5m3 0h.5" />
-			<path d="M5 12l4 4" />
-			<path d="M5 12l4 -4" />
-		</svg>
+		1
 	</button>
+	<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}">
+		<div class="circle"></div>
+		<div class="circle"></div>
+		<div class="circle"></div>
+	</div>
 	<button class="action {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage - 2}</button>
 	<button class="action {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage - 1}</button>
 	<p class="action current-page">{currentPage}</p>
 	<button class="action {(currentPage) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage + 1}</button>
 	<button class="action {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{currentPage + 2}</button>
+	<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}">
+		<div class="circle"></div>
+		<div class="circle"></div>
+		<div class="circle"></div>
+	</div>
 	<button title="Last Page" class="action {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round">
-			<path d="M5 12h.5m3 0h1.5m3 0h6" />
-			<path d="M15 16l4 -4" />
-			<path d="M15 8l4 4" />
-		</svg>
+		{maxPage}
 	</button>
 	<button class="sort-action row-amount" onclick="{() => {
 			currentPage = 1;
@@ -259,6 +258,8 @@
 	}
 	
 	.brand-icons-sec {
+		position: relative;
+		
 		.icons {
 			display:         grid;
 			justify-content: space-between;
@@ -283,6 +284,34 @@
 			cursor: pointer;
 		}
 		
+		.separator {
+			display:         flex;
+			flex-flow:       row nowrap;
+			align-items:     flex-end;
+			justify-content: center;
+			gap:             .15rem;
+			height:          2.5rem;
+			padding:         0 .25rem;
+			
+			&.shown {
+				opacity: 1;
+				
+				transition: 125ms ease-out;
+			}
+			
+			&.hidden {
+				opacity: 0;
+				transition: 75ms ease-in;
+			}
+			
+			.circle {
+				background-image: var(--theme-ui-gradient-bg);
+				border-radius:    100%;
+				width:            .35rem;
+				height:           .35rem;
+			}
+		}
+		
 		.action {
 			display:          flex;
 			align-items:      center;
@@ -290,7 +319,7 @@
 			width:            3rem;
 			height:           3rem;
 			
-			font-family:      'Funnel Display', sans-serif;
+			font-family:      'Bricolage Grotesque Variable', sans-serif;
 			font-size:        1.35rem;
 			font-weight:      900;
 			
@@ -299,7 +328,7 @@
 			
 			&.current-page {
 				transform: scale(1.1);
-				margin: 0 .5rem;
+				margin:    0 .5rem;
 			}
 			
 			&.shown {
@@ -400,11 +429,13 @@
 			
 			.sort-action {
 				&.inactive {
-					filter: grayscale(.5) brightness(.8);
+					filter:  grayscale(.75);
+					opacity: .5;
 				}
 				
 				&.active {
-					filter: none;
+					filter:  none;
+					opacity: 1;
 				}
 			}
 		}

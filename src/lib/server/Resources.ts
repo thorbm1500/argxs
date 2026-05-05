@@ -33,6 +33,7 @@ export class Resources {
 		for (const brand of await fs.readdir(path)) {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
 			for (const icon of current.assets) {
+				icon.brand = current.name;
 				let iconAmount = 1;
 
 				if (icon.dark) iconAmount++;

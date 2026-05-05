@@ -278,6 +278,10 @@
 			width:  6px;
 			left:   0;
 			
+			&.res-visible .toggle-sidebar-button {
+				opacity: 0;
+			}
+			
 			&:hover .toggle-sidebar-button {
 				opacity:    0;
 				filter:     blur(2px);
@@ -306,6 +310,7 @@
 					padding-left: .35rem;
 					filter:     blur(0);
 					color:      var(--theme-text-fourth);
+					opacity: .8;
 					
 					transition: 1800ms 500ms cubic-bezier(0.075, 0.82, 0.3, 1);
 				}

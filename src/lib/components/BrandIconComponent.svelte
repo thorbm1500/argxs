@@ -189,7 +189,7 @@
 				
 				opacity:      0;
 				transform:    scale(3) !important;
-				filter:       blur(2px);
+				filter:       brightness(1.3) contrast(1.075) saturate(1.075) blur(2px);
 				
 				z-index:      500;
 			}
@@ -282,7 +282,7 @@
 		
 		&:hover {
 			filter:       brightness(1.05);
-			border-color: var(--theme-ui-line-highlight);
+			border-color: color-mix(var(--theme-ui-line) 50%, var(--theme-ui-line-highlight) 50%);
 			
 			transition:   border-color 50ms ease;
 			
@@ -295,7 +295,7 @@
 			
 			.hover-fx {
 				img {
-					opacity: .12;
+					opacity: .1225;
 				}
 			}
 			
