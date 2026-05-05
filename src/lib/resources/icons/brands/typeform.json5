@@ -1,0 +1,44 @@
+{
+	name: 'Typeform',
+	href: 'https://www.typeform.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'typeform-icon.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'typeform-icon-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'typeform-logo.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'typeform-logo-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

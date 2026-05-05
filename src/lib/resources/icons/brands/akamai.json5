@@ -1,0 +1,52 @@
+{
+	name: 'Akamai',
+	href: 'https://www.akamai.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'akamai-icon.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'akamai-icon-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'akamai-logo.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'akamai-logo-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_dark: {
+				path: 'akamai-logo-monochrome-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}
