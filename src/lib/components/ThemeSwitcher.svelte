@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-
+	
 	const updateThemeContext = getContext('toggleTheme') as Function;
-
+	
 	let { theme = $bindable() } = $props();
-
+	
 	async function updateTheme() {
 		if (!updateThemeContext) return;
 		updateThemeContext();
@@ -15,68 +15,65 @@
 <button title="" onclick={updateTheme} class="theme-switch-button {theme}">
 	<!--suppress HtmlUnknownTag -->
 	<div class="button-switch">
-		<svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-			{#if theme === 'light'}
+		{#if theme === 'light'}
+			<svg fill="currentColor" width="512" height="512" viewBox="0 0 512 512">
 				<path
-					d="M12 2V4M12 20V22M4 12H2M6.31412 6.31412L4.8999 4.8999M17.6859 6.31412L19.1001 4.8999M6.31412 17.69L4.8999 19.1042M17.6859 17.69L19.1001 19.1042M22 12H20M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12Z"
-					stroke="currentColor"
-					stroke-width="2.35"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
-			{:else}
+					d="M256 118a22 22 0 0 1-22-22V48a22 22 0 0 1 44 0v48a22 22 0 0 1-22 22m0 368a22 22 0 0 1-22-22v-48a22 22 0 0 1 44 0v48a22 22 0 0 1-22 22m113.14-321.14a22 22 0 0 1-15.56-37.55l33.94-33.94a22 22 0 0 1 31.11 31.11l-33.94 33.94a21.93 21.93 0 0 1-15.55 6.44M108.92 425.08a22 22 0 0 1-15.55-37.56l33.94-33.94a22 22 0 1 1 31.11 31.11l-33.94 33.94a21.94 21.94 0 0 1-15.56 6.45M464 278h-48a22 22 0 0 1 0-44h48a22 22 0 0 1 0 44m-368 0H48a22 22 0 0 1 0-44h48a22 22 0 0 1 0 44m307.08 147.08a21.94 21.94 0 0 1-15.56-6.45l-33.94-33.94a22 22 0 0 1 31.11-31.11l33.94 33.94a22 22 0 0 1-15.55 37.56M142.86 164.86a21.9 21.9 0 0 1-15.55-6.44l-33.94-33.94a22 22 0 0 1 31.11-31.11l33.94 33.94a22 22 0 0 1-15.56 37.55M256 358a102 102 0 1 1 102-102a102.12 102.12 0 0 1-102 102" />
+			</svg>
+		{:else}
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 				<path
-					d="M21.9548 12.9564C20.5779 15.3717 17.9791 17.0001 15 17.0001C10.5817 17.0001 7 13.4184 7 9.00008C7 6.02072 8.62867 3.42175 11.0443 2.04492C5.96975 2.52607 2 6.79936 2 11.9998C2 17.5227 6.47715 21.9998 12 21.9998C17.2002 21.9998 21.4733 18.0305 21.9548 12.9564Z"
-					stroke="currentColor"
-					stroke-width="2.35"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
-			{/if}
-		</svg>
+					d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z" />
+			</svg>
+		{/if}
 	</div>
 </button>
 
 <style>
 	.theme-switch-button {
-		box-sizing: border-box !important;
-
-		width: 3rem;
-		height: 1.5rem;
-
-		cursor: pointer;
-
-		background: var(--theme-ui-container);
-		border: 1px solid var(--theme-ui-line);
+		box-sizing:    border-box !important;
+		
+		width:         3rem;
+		height:        1.5rem;
+		
+		cursor:        pointer;
+		
+		background:    var(--theme-ui-container);
+		border:        1px solid var(--theme-ui-line);
 		border-radius: 1rem;
-
+		
 		.button-switch {
-			position: relative;
-			top: 0.05rem;
-			left: 0.15rem;
-
-			backdrop-filter: blur(1px) brightness(1.15) contrast(1.15);
-			width: 1.125rem;
-			height: 1.125rem;
-			border-radius: 100%;
-
-			color: var(--theme-color-secondary);
-
-			display: flex;
-			align-items: center;
+			position:        relative;
+			top:             0.05rem;
+			left:            0.15rem;
+			
+			width:           1.125rem;
+			height:          1.125rem;
+			border-radius:   100%;
+			
+			color:           var(--theme-color-secondary);
+			
+			display:         flex;
+			align-items:     center;
 			justify-content: center;
-
-			transition: 175ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
+			
+			transition:      175ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
+			
+			svg {
+				height: 100%;
+				width: 100%;
+				padding: .1rem;
+			}
 		}
 	}
-
+	
 	.theme-switch-button:hover .button-switch {
 		color: var(--theme-color-accent);
 	}
-
+	
 	.theme-switch-button.dark .button-switch {
-		left: 1.6rem;
-		transform: rotate(720deg);
+		left:       1.6rem;
+		transform:  rotate(720deg);
 		transition: 175ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
 	}
 </style>

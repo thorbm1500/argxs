@@ -123,29 +123,23 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 44rem) {
-        .color-combos-sec {
-            width: calc(100vw - 30.5rem);
-        }
-    }
+    @media (width >= 44rem) {}
 
     /* Phone */
-    @media (width < 44rem) {
-        .color-combos-sec {
-            width: calc(100vw - 4rem);
-        }
-    }
+    @media (width < 44rem) {}
 
     .color-combos-sec {
-        margin-top: -2.25rem;
+	    width: calc(100vw - 12rem);
+	    box-sizing: border-box !important;
 
         .combos {
             display: flex;
             flex-flow: column nowrap;
-            align-items: center;
+	        align-items: center;
+	        justify-content: center;
 
-            height: calc(60vh);
-            box-sizing: border-box !important;
+            height: fit-content;
+	        width: 100%;
         }
 
         .combo {
@@ -158,7 +152,7 @@
             width: 100%;
             height: fit-content;
 
-            margin: auto 0;
+            margin: 2rem 0;
 
             z-index: 200;
 
@@ -168,14 +162,13 @@
                 align-items: center;
                 justify-content: center;
 
-                height: 26vh;
+                height: 40vh;
                 min-height: 8rem;
-                max-height: 16rem;
-                width: 100%;
-                max-width: 46rem;
+                width: 50vw;
+                max-width: 56rem;
                 background: var(--hex);
                 border-radius: .65rem;
-                border: 5px solid color-mix(var(--hex), white 5%);
+                border: 6px solid color-mix(var(--hex), black 10%);
 
                 overflow: hidden;
 
@@ -214,6 +207,8 @@
                 .value.rgb {
                     top: 2.6rem;
                 }
+	            
+	            perspective: 200px;
 
                 .text {
                     color: var(--text-hex);
@@ -224,11 +219,31 @@
                     transition: color 125ms var(--theme-cubic-out);
 
                     user-select: none;
+	                
+	                &::before {
+		                position: absolute;
+		                content: 'argxs';
+		                transform: scale(4) rotate3d(20,0,0,40deg) scale(2);
+		                mask-image: linear-gradient(40deg, #02020220 0%, transparent 100%);
+		                opacity: .25;
+		                filter: blur(.025rem) brightness(.95);
+		                padding-bottom: .25rem;
+		                
+		                color: var(--text-hex);
+		                font-size: 2.15rem;
+		                font-family: 'Funnel Display', sans-serif;
+		                font-weight: 800;
+		                
+		                transition: color 125ms var(--theme-cubic-out);
+		                
+		                user-select: none;
+	                }
                 }
             }
         }
 
         .actions {
+	        margin-top: .5rem;
             color: var(--theme-color-primary);
             user-select: none;
 
