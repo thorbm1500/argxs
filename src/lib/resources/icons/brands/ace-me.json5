@@ -1,0 +1,28 @@
+{
+	name: 'ace.me',
+	href: 'https://www.ace.me',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'ace-me-icon.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'ace-me-logo.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

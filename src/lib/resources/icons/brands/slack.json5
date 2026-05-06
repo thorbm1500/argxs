@@ -1,0 +1,33 @@
+{
+	name: 'Slack',
+	href: 'https://www.slack.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'slack-icon.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_light: {
+				path: 'slack-icon-monochrome-light.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_dark: {
+				path: 'slack-icon-monochrome-dark.svg',
+				date_added: '2026/5/5',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

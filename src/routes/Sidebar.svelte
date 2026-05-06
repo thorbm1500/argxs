@@ -296,7 +296,6 @@
 			}
 			
 			.toggle-sidebar-button {
-				opacity:    .75;
 				filter:     none;
 				height: calc(100vh - var(--header-height)) !important;
 				width: 3rem;
@@ -309,7 +308,7 @@
 				svg {
 					padding-left: .35rem;
 					filter:     blur(0);
-					color:      var(--theme-text-fourth);
+					color:      var(--theme-sidebar-toggle-icon);
 					opacity: .8;
 					
 					transition: 1800ms 500ms cubic-bezier(0.075, 0.82, 0.3, 1);
