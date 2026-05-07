@@ -601,6 +601,124 @@
                     href: 'https://assets.uber.com/'
                 }
             }
+        },
+        {
+            name: 'Uber One Exclusive',
+            type: 'logo',
+            default: {
+                path: 'uber-one-exclusive-logo.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Uber',
+                    href: 'https://assets.uber.com/'
+                }
+            },
+            dark: {
+                path: 'uber-one-exclusive-logo-dark.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Uber',
+                    href: 'https://assets.uber.com/'
+                }
+            },
+            monochrome_light: {
+                path: 'uber-one-exclusive-logo-monochrome-light.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Uber',
+                    href: 'https://assets.uber.com/'
+                }
+            },
+            monochrome_dark: {
+                path: 'uber-one-exclusive-logo-monochrome-dark.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Uber',
+                    href: 'https://assets.uber.com/'
+                }
+            },
+            variable: [
+                {
+                    path: 'uber-one-exclusive-french-logo.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-french-logo-dark.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-german-logo.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-german-logo-dark.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-spanish-logo.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-spanish-logo-dark.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-spanish-var-logo.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-spanish-var-logo-dark.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-japanese-logo.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-japanese-logo-dark.svg',
+                    date_added: '2026/5/6',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                }
+            ]
         }
     ]
 }

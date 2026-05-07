@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { title = 'Loading...', amount = 0, type = 'loading...' } = $props();
+	let { title = 'Loading...', amount = 0, type = 'loading...', custom = false, content = '' } = $props();
 </script>
 
 <section class="content-header">
@@ -8,11 +8,14 @@
 			{title}
 		</h1>
 		<div class="subtitle">
-			<!--todo: Write subtitle-->
-			<p>
-				argxs currently showcases <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{amount}</strong>
-				different {type}
-			</p>
+			{#if custom}
+				{@html content}
+			{:else}
+				<p>
+					argxs currently showcases <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{amount}</strong>
+					different {type}
+				</p>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -25,13 +28,14 @@
 				.title {
 					font-size: 3rem;
 				}
+				
 				.subtitle {
 					font-size: 0.95rem;
 				}
 			}
 		}
 	}
-
+	
 	/* Phone */
 	@media (width < 44rem) {
 		.content-header {
@@ -39,38 +43,39 @@
 				.title {
 					font-size: 2rem;
 				}
+				
 				.subtitle {
 					font-size: 0.8rem;
 				}
 			}
 		}
 	}
-
+	
 	.content-header {
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: flex-end;
+		display:         flex;
+		flex-flow:       row nowrap;
+		align-items:     flex-end;
 		justify-content: space-between;
-
-		padding-bottom: 2rem;
-		user-select: none;
-
+		
+		padding-bottom:  2rem;
+		user-select:     none;
+		
 		.text {
 			.title {
-				font-family: 'Funnel Display', sans-serif;
-				font-weight: 900;
-
+				font-family:      'Funnel Display', sans-serif;
+				font-weight:      900;
+				
 				background-image: var(--theme-text-gradient);
-				background-clip: text;
-				color: transparent;
-
-				max-height: 6.75rem;
+				background-clip:  text;
+				color:            transparent;
+				
+				max-height:       6.75rem;
 			}
-
+			
 			.subtitle {
 				font-weight: 500;
-
-				color: var(--theme-text-third);
+				
+				color:       var(--theme-text-third);
 			}
 		}
 	}

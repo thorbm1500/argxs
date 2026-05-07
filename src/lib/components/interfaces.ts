@@ -63,7 +63,7 @@ export interface Flag {
 }
 
 export interface ColorCombos {
-	combos: ColorCombo[]
+	combos: ColorCombo[];
 }
 
 export interface ColorCombo {
@@ -79,4 +79,9 @@ export interface ColorCombo {
 		hex: string,
 		rgb?: string
 	}
+}
+
+export interface ChangeLog {
+	version: string,
+	log: string
 }

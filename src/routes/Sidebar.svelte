@@ -64,7 +64,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Privacy</p>
 			</a>
-			<div class={{ planned: true }}>
+			<a class={{ selected: page.url.pathname === '/changelog', newly_added: true }} href="/changelog">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" />
@@ -72,7 +72,7 @@
 					<path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Changelog</p>
-			</div>
+			</a>
 		</div>
 		
 		<div class="nav-section">
@@ -296,25 +296,25 @@
 			}
 			
 			.toggle-sidebar-button {
-				filter:     none;
-				height: calc(100vh - var(--header-height)) !important;
-				width: 3rem;
-				bottom: 0;
-				left: -2px;
+				filter:       none;
+				height:       calc(100vh - var(--header-height)) !important;
+				width:        3rem;
+				bottom:       0;
+				left:         -2px;
 				padding-left: 2px;
 				
-				cursor: default !important;
+				cursor:       default !important;
 				
 				svg {
 					padding-left: .35rem;
-					filter:     blur(0);
-					color:      var(--theme-sidebar-toggle-icon);
-					opacity: .8;
+					filter:       blur(0);
+					color:        var(--theme-sidebar-toggle-icon);
+					opacity:      .8;
 					
-					transition: 1800ms 500ms cubic-bezier(0.075, 0.82, 0.3, 1);
+					transition:   1800ms 500ms cubic-bezier(0.075, 0.82, 0.3, 1);
 				}
 				
-				transition: 1800ms 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
+				transition:   1800ms 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
 			}
 			
 			&:hover .sidebar-section, &.res-visible .sidebar-section {
@@ -348,8 +348,8 @@
 			z-index:    89998;
 			
 			svg {
-				height:        100%;
-				width:         100%;
+				height: 100%;
+				width:  100%;
 			}
 		}
 		
@@ -397,9 +397,11 @@
 					}
 				}
 				
-				.planned::after, .in_progress::after {
-					font-size:   .55rem;
-					font-weight: 800;
+				.planned, .in_progress, a.newly_added {
+					&::after {
+						font-size:   .6rem;
+						font-weight: 750;
+					}
 				}
 			}
 		}
@@ -509,8 +511,10 @@
 				}
 			}
 			
-			.planned::after, .in_progress::after {
-				font-size: .75rem;
+			.planned, .in_progress, a.newly_added {
+				&::after {
+					font-size: .75rem;
+				}
 			}
 		}
 	}
@@ -670,42 +674,45 @@
 			}
 		}
 		
+		.planned, .in_progress, a.newly_added {
+			&::after {
+				display:       flex;
+				align-items:   center;
+				
+				margin-left:   auto;
+				padding:       .15rem .45rem;
+				
+				transform:     translateX(.3rem);
+				background:    var(--theme-sidebar-tag-background);
+				border-radius: .625rem;
+				
+				color:         var(--theme-ui-white);
+				font-family:   'Lexend Variable', sans-serif;
+				
+				transition:    var(--theme-transition-off);
+			}
+			
+			&:hover::after {
+				transition: var(--theme-transition-on);
+			}
+		}
+		
+		a.newly_added::after {
+			content:    'NEW';
+			background: oklch(0.75 0.182 127.286);
+		}
+		
 		.planned::after {
-			content:    'PLANNED';
-			color:      var(--theme-text-secondary);
-			background: var(--theme-sidebar-tag-background);
-			transition: var(--theme-transition-off);
+			content: 'PLANNED';
 		}
 		
 		.in_progress::after {
-			content:    'IN PROGRESS';
-			color:      var(--theme-ui-white);
-			background: var(--theme-color-aware);
-			height:     .8rem;
-			transform:  translateX(.5rem);
-			
-			transition: var(--theme-transition-off);
-		}
-		
-		.planned::after, .in_progress::after {
-			border-radius: .625rem;
-			transform:     translateX(.3rem);
-			height:        1.2rem;
-			padding:       0 .4rem;
-			
-			font-weight:   800 !important;
-			font-family:   'Funnel Display', sans-serif;
-			
-			display:       flex;
-			align-items:   center;
-			margin-left:   auto;
-			
-			transition:    var(--theme-transition-off);
+			content:   'IN PROGRESS';
+			transform: translateX(.5rem);
 		}
 		
 		.planned:hover::after {
 			background: var(--theme-sidebar-tag-hover-background);
-			transition: var(--theme-transition-on);
 		}
 		
 		

@@ -1,4 +1,4 @@
-import type { BrandIcon, Brand, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
+import type { Brand, BrandIcon, ChangeLog, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
@@ -17,12 +17,15 @@ export class Resources {
 	readonly COLOR_COMBOS: ColorCombo[] = [];
 	COLOR_COMBO_AMOUNT: number = 0;
 
+	readonly CHANGELOGS: ChangeLog[] = [];
+
 	async init(): Promise<void> {
 		const startTime: number = Bun.nanoseconds();
 		console.log('Initializing resources...');
 		await this.loadBrandIcons();
 		await this.loadFlagIcons();
 		await this.loadColorCombos();
+		await this.loadChangeLogs();
 		console.log(`Resource loading completed [${((Bun.nanoseconds() - startTime) / 1000000).toFixed(0)}ms]`);
 	}
 
@@ -57,8 +60,8 @@ export class Resources {
 			}
 		}
 
-		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a,b) => this.getLatestDateFromIcon(b) - this.getLatestDateFromIcon(a)));
-		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a,b) => a.name.localeCompare(b.name)));
+		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => this.getLatestDateFromIcon(b) - this.getLatestDateFromIcon(a)));
+		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
 	private getLatestDateFromIcon(icon: BrandIcon): number {
@@ -111,5 +114,37 @@ export class Resources {
 		const conf: ColorCombos = Bun.JSON5.parse(await Bun.file(root.concat('/colors/combos/combos.json5')).text()) as ColorCombos;
 		this.COLOR_COMBOS.push(...conf.combos);
 		this.COLOR_COMBO_AMOUNT = this.COLOR_COMBOS.length;
+	}
+
+	private async loadChangeLogs(): Promise<void> {
+		console.info('Loading changelogs...');
+		const path = root.replace('/resources', '/server/resources').concat('/changelogs');
+		const dir: string[] = await fs.readdir(path);
+
+		for (const changelog of dir) {
+			this.CHANGELOGS.push({
+				version: changelog,
+				log: await Bun.file(path.concat('/', changelog, '/CHANGELOG.md')).text()
+			});
+		}
+
+		this.CHANGELOGS.sort((a, b) => {
+			const partsA = a.version.split('.');
+			const partsB = b.version.split('.');
+
+			if (partsA[0] === partsB[0]) {
+				if (partsA[1] === partsB[1]) {
+					if (partsA[2] === partsB[2]) {
+						return 0;
+					} else {
+						return Number.parseInt(partsB[2] ?? '0') - Number.parseInt(partsA[2] ?? '0');
+					}
+				} else {
+					return Number.parseInt(partsB[1] ?? '0') - Number.parseInt(partsA[1] ?? '0');
+				}
+			} else {
+				return Number.parseInt(partsB[0] ?? '0') - Number.parseInt(partsA[0] ?? '0');
+			}
+		});
 	}
 }
