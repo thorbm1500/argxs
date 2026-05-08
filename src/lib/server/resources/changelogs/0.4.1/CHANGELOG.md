@@ -21,5 +21,5 @@ All notable changes to this project will be documented in the changelog.
 - Vite: *8.0.10 ➜ 8.0.11*
 - @humanspeak/svelte-markdown: *1.4.3 ➜ 1.4.5*
 - @sveltejs/vite-plugin-svelte: *7.1.1 ➜ 7.1.2*
-- @types/node: *25.6.0 ➜ 25.6.1b*
+- @types/node: *25.6.0 ➜ 25.6.1*
 - Added: svelte-highlight: *7.9.0*
