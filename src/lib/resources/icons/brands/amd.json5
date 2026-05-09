@@ -1,0 +1,44 @@
+{
+	name: 'AMD',
+	href: 'https://www.amd.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'amd-icon.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'amd-icon-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'amd-logo.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'amd-logo-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

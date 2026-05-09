@@ -1,0 +1,44 @@
+{
+	name: 'Attio',
+	href: 'https://www.attio.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'attio-icon.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'attio-icon-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'attio-logo.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'attio-logo-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

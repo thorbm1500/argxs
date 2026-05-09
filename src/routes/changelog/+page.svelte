@@ -24,12 +24,12 @@
 		.markdown:last-child {
 			margin-bottom: 0 !important;
 		}
-		.markdown {
-			margin-bottom: 4rem;
-		}
 		
 		.markdown :global {
 			color: var(--theme-text-primary);
+			padding-bottom: 1rem;
+			border-bottom: 1px solid var(--theme-ui-line);
+			margin-bottom: 4rem;
 			
 			h1 {
 				font-size: 2.65rem;
@@ -64,10 +64,6 @@
 				li {
 					margin-left:     1.25rem;
 					list-style-type: square;
-					
-					ul li, li {
-						list-style-type: upper-roman;
-					}
 					
 					p {
 						width: fit-content;

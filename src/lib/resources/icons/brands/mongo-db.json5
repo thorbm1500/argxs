@@ -1,0 +1,96 @@
+{
+	name: 'MongoDB',
+	href: 'https://www.mongodb.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'mongo-db-icon.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'mongo-db-icon-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_light: {
+				path: 'mongo-db-icon-monochrome-light.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_dark: {
+				path: 'mongo-db-icon-monochrome-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					path: 'mongo-db-variation-icon.svg',
+					date_added: '2026/5/9',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'mongo-db-logo.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'mongo-db-logo-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_light: {
+				path: 'mongo-db-logo-monochrome-light.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			monochrome_dark: {
+				path: 'mongo-db-logo-monochrome-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					path: 'mongo-db-variation-logo.svg',
+					date_added: '2026/5/9',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				}
+			]
+		}
+	]
+}

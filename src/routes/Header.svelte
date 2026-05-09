@@ -3,6 +3,16 @@
 	import HeaderBurgerMenuComponent from '$lib/components/HeaderBurgerMenuComponent.svelte';
 	
 	let { theme = $bindable(), sidebarState = $bindable() } = $props();
+	
+	/*For future use
+	let saveData: boolean = $state(false);
+	
+	onMount(() => {
+		setInterval(() => {
+			if (!navigator) return;
+			saveData = navigator?.connection.saveData ?? false;
+		}, 500);
+	});*/
 </script>
 
 <section class="header-section {theme}">
@@ -18,6 +28,7 @@
 		</div>
 	</div>
 </section>
+<!--<div class="save-data-bar {saveData ? 'visible' : 'hidden'}">Reduced Data Usage Enabled</div>-->
 
 <style>
 	/* Desktop & Tablet */
@@ -74,6 +85,34 @@
 			}
 		}
 	}
+	
+	/*.save-data-bar {
+		position:        absolute;
+		top:             var(--header-height);
+		height:          1.75rem;
+		width:           100vw;
+		background:      var(--theme-color-alert);
+		
+		color:           var(--theme-ui-white);
+		font-size:       .85rem;
+		font-weight:     700;
+		
+		display:         flex;
+		align-items:     center;
+		justify-content: center;
+		
+		pointer-events:  none !important;
+		
+		z-index:         99998;
+		
+		&.visible {
+			opacity: 1;
+		}
+		
+		&.hidden {
+			opacity: 0;
+		}
+	}*/
 	
 	.header-section {
 		position:        absolute;

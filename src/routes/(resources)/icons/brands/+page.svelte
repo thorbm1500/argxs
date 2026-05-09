@@ -19,6 +19,7 @@
 	import { github, githubDark } from 'svelte-highlight/styles';
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
+	import { flushSync } from 'svelte';
 	
 	const { data } = $props();
 	
@@ -26,11 +27,11 @@
 	let theme: PageTheme = $derived(getTheme());
 	const sendToast: any = $derived(getContext('sendToast'));
 	
+	// - Sorting Variables
 	let iconsOnly: boolean = $state.raw(false);
 	let logosOnly: boolean = $state.raw(false);
 	let sorting: 'default' | 'time' | 'alphabet' = $state.raw('default');
 	let order: 'desc' | 'asc' = $state.raw('desc');
-	
 	let brandIcons: BrandIcon[] = $derived.by(() => {
 		let current = data.icons;
 		
@@ -51,17 +52,17 @@
 		else if (logosOnly) return current.filter(icon => icon.type === 'logo');
 		else return current;
 	});
+	// -
 	
+	// - Pagination Variables
 	let pagMax = $derived(brandIcons.length);
 	let currentPage = $state(1);
-	
 	let pagOffset: 24 | 48 | 96 = $state(48);
 	let pagStart = $derived(Math.max(0, (currentPage - 1) * pagOffset));
 	let pagEnd = $derived(Math.min(pagMax, currentPage * pagOffset));
-	
 	let maxPage = $derived(Math.ceil(pagMax / pagOffset));
-	
 	let currentIcons = $derived(brandIcons.slice(pagStart, pagEnd));
+	// -
 	
 	let columnAmount: number = $derived.by(() => {
 		let result = Math.trunc((innerWidth.current ?? 1920) / 140);
@@ -75,18 +76,19 @@
 	});
 	let rowAmount = $derived(((pagOffset / columnAmount)));
 	
+	// - Highlighted Icon Variables
 	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
 	let iconContainerOpened: number | null = $state(null);
-	
 	let hCurrentIcon: Icon | undefined = $derived.by(() => {
 		if (!highlightedIcon) return undefined;
 		return highlightedIcon.iconIndex[highlightedIcon.currentIcon];
 	});
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
+	// -
 	
 	$effect(() => {
-		if (currentSVG === '' && hCurrentIcon) {
+		if (currentSVG === '' && hCurrentIcon !== undefined) {
 			currentSVG = 'load';
 			currentLoadedSVG = hCurrentIcon.path;
 			fetch('/resources/icons/brands/' + hCurrentIcon.path).then(res => {
@@ -103,52 +105,54 @@
 	});
 	
 	onMount(() => {
-		document.addEventListener('click', async (event) => {
+		document.addEventListener('click', (event) => {
+			// Event ignored while highlight container is closed.
+			if (!highlightedIcon) return;
+			
 			const currentDate = Date.now();
-			if (highlightedIcon && iconContainerOpened !== null) {
-				if ((currentDate - iconContainerOpened) < 400) return;
+			
+			// Ensuring an open-time is registered for the container, before processing events.
+			if (iconContainerOpened !== null) {
+				// 250ms margin of error, allowing early errors to be ignored.
+				if ((currentDate - iconContainerOpened) < 250) return;
 				
 				let el: HTMLElement | null = event.target as HTMLElement;
-				
 				while (el !== null) {
-					if (el.classList.contains('highlighted-icon') || el.className.includes('overlay buttons') || el.classList.contains('header-section')) return;
-					el = el.parentElement;
+					// Returning if expression matches, allowing certain elements to be clickable.
+					if (/(overlay buttons)|(highlighted-icon)|(header-section)/.test(el.className)) return;
+					else el = el.parentElement;
 				}
 				
-				console.log(currentDate - iconContainerOpened);
 				closeHighlightContainer();
 			} else {
-				iconContainerOpened = Date.now();
+				iconContainerOpened = currentDate;
 			}
 		});
+		
 		document.addEventListener('keydown', (event) => {
-			3;
-			if (event.isTrusted && event.key === 'Escape') {
-				closeHighlightContainer();
-			}
+			// Enable closure of highlight window by pressing Escape.
+			if (event.isTrusted && event.key === 'Escape') closeHighlightContainer();
 		});
 	});
 	
 	function downloadSVG() {
 		if (!hCurrentIcon) return;
 		
-		const link = document.createElement('a');
+		const linkElement = document.createElement('a');
 		
 		if (currentSVG !== '' && currentSVG !== 'load') {
-			// Create object from already loaded file content, rather than fetching it once more.
+			// Create object from the already loaded file content, rather than fetching it once more.
 			const url = URL.createObjectURL(new Blob([currentSVG], { type: 'image/svg+xml' }));
-			link.href = url;
-			setTimeout(() => URL.revokeObjectURL(url), 400);
+			linkElement.href = url;
+			setTimeout(() => URL.revokeObjectURL(url), 500);
 		} else {
-			link.href = hCurrentIcon.path;
+			linkElement.href = hCurrentIcon.path;
 		}
 		
-		link.type = 'image/svg+xml';
-		link.download = hCurrentIcon.path.slice(hCurrentIcon.path.lastIndexOf('/') + 1);
+		linkElement.type = 'image/svg+xml';
+		linkElement.download = hCurrentIcon.path.slice(hCurrentIcon.path.lastIndexOf('/') + 1);
 		
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);
+		linkElement.click();
 		
 		sendToast?.({ message: 'Downloaded', duration: 1250, type: 'download', status: 'success' });
 	}
@@ -157,6 +161,7 @@
 		highlightedIcon = undefined;
 		iconContainerOpened = null;
 		currentSVG = '';
+		flushSync();
 	}
 </script>
 
@@ -170,114 +175,138 @@
 </svelte:head>
 
 {#if highlightedIcon !== undefined}
-	<div class="highlighted-icon">
-		<div class="h-icon">
-			<button title="Close" class="close-button" onclick={closeHighlightContainer}>
-				<!--suppress HtmlUnknownTag -->
-				<div class="gradient"></div>
-			</button>
-			<div class="left">
-				<div class="img-fx">
+	{#key highlightedIcon.brandIcon.default.path}
+		<div class="glass-effects">
+			<div class="glass-border-glow"></div>
+		</div>
+		<div class="highlighted-icon">
+			<svg style="display: none;">
+				<filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%">
+					<feTurbulence type="fractalNoise" baseFrequency="0.009 0.004" numOctaves="3" seed="{Math.trunc((Date.now() / 1000) / 1000)}" result="noise" />
+					<feGaussianBlur in="noise" stdDeviation="4" result="blurred" />
+					<feDisplacementMap in="SourceGraphic" in2="blurred" scale="15" xChannelSelector="R" yChannelSelector="G" />
+				</filter>
+			</svg>
+			<div class="h-icon">
+				<div class="glass-filter"></div>
+				<div class="glass-specular"></div>
+				<div class="glass-border"></div>
+				<button title="Close" class="close-button" onclick={closeHighlightContainer}>
+					<!--suppress HtmlUnknownTag -->
+					<div class="gradient"></div>
+				</button>
+				<div class="left">
+					<div class="img-fx">
+						<img in:fade|global src="/resources/icons/brands/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
+						     alt={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.name} loading="lazy" />
+					</div>
 					<img in:fade|global src="/resources/icons/brands/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
 					     alt={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.name} loading="lazy" />
-				</div>
-				<img in:fade|global src="/resources/icons/brands/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
-				     alt={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.name} loading="lazy" />
-				{#if highlightedIcon.iconIndex.length > 1}
-					<div class="current-icon-index">
-						<p>{highlightedIcon.currentIcon + 1}/{highlightedIcon.iconIndex.length}</p>
-					</div>
-					<div class="actions">
-						<button title="" class="element prev-icon"
-						        onclick="{() => {
+					{#if highlightedIcon.iconIndex.length > 1}
+						<div class="current-icon-index">
+							<p>{highlightedIcon.currentIcon + 1}/{highlightedIcon.iconIndex.length}</p>
+						</div>
+						<div class="actions">
+							<button title="" class="element prev-icon"
+							        onclick="{() => {
 									currentSVG = '';
 									if (!highlightedIcon) return;
 									if (highlightedIcon.currentIcon > 0) highlightedIcon.currentIcon -= 1;
 									else highlightedIcon.currentIcon = highlightedIcon.iconIndex.length - 1;
 								}}">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-								<path
-									d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
-							</svg>
-						</button>
-						<button title="" class="element next-icon" onclick="{() => {
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+									<path
+										d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
+								</svg>
+							</button>
+							<button title="" class="element next-icon" onclick="{() => {
 							currentSVG = '';
 							if (!highlightedIcon) return;
 							if (highlightedIcon.currentIcon < highlightedIcon.iconIndex.length - 1) highlightedIcon.currentIcon += 1;
 							else highlightedIcon.currentIcon = 0;
 						}}">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-								<path
-									d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
-							</svg>
-						</button>
-					</div>
-				{/if}
-			</div>
-			<div class="separator"></div>
-			<div class="right">
-				<h1 class="brand-name">{highlightedIcon.brandIcon.name}</h1>
-				{#if hCurrentIcon?.href || highlightedIcon.brandIcon.href !== undefined}
-					<a class="brand-external" href={hCurrentIcon?.href ?? highlightedIcon.brandIcon.href} rel="external" target="_blank">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-							<path
-								d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
-						</svg>
-						Visit Page
-					</a>
-				{/if}
-				<div class="actions">
-					<p class="added-date">Added  {moment(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added).calendar()}</p>
-					<button class="action" onclick={downloadSVG}>
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
-						</svg>
-						SVG
-					</button>
-					<div class="action inactive">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
-						</svg>
-						PNG
-					</div>
-					<div class="action inactive">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
-						</svg>
-						WEBP
-					</div>
-				</div>
-				<div class="svg-content select-all">
-					{#if currentSVG === ''}
-						<strong style="color:var(--theme-color-alert);padding:1rem;font-style:italic">Failed to load raw SVG content</strong>
-					{:else if currentSVG === 'load'}
-						<strong style="color:var(--theme-text-third);padding:1rem;font-style:italic">Loading...</strong>
-					{:else}
-						<Highlight language={xml} let:highlighted
-						           code={currentSVG}>
-							<button title="Copy" class="copy-button" onclick={() => copyToClipboard(currentSVG)}>
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 									<path
-										d="M20.926 7.074a3.67 3.67 0 0 1 1.074 2.593v8.666a3.667 3.667 0 0 1 -3.667 3.667h-8.666a3.667 3.667 0 0 1 -3.667 -3.667v-8.666q 0 -.053 .005 -.102a3.66 3.66 0 0 1 3.662 -3.565h8.666c.973 0 1.905 .386 2.593 1.074" />
-									<path
-										d="M17.374 3.514a1 1 0 1 1 -1.748 .972c-.221 -.398 -.342 -.486 -.626 -.486h-10c-.548 0 -1 .452 -1 1v9.998c0 .36 .194 .692 .507 .87a1 1 0 1 1 -.99 1.738a3 3 0 0 1 -1.517 -2.606v-10c0 -1.652 1.348 -3 3 -3h10c1.094 0 1.828 .533 2.374 1.514" />
+										d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
 								</svg>
 							</button>
-							<LineNumbers {highlighted} hideBorder />
-						</Highlight>
+						</div>
 					{/if}
 				</div>
-				{#if highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source}
-					<div class="icon-source">
-						<p>Sourced from</p>
-						<a href={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source?.href} rel="external" target="_blank">
-							{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source?.name}
+				<div class="separator"></div>
+				<div class="right">
+					{#if hCurrentIcon?.href || highlightedIcon.brandIcon.href !== undefined}
+						<a class="brand-external {highlightedIcon.brandIcon.brand !== highlightedIcon.brandIcon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
+						highlightedIcon.brandIcon.href}
+						   rel="external" target="_blank">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+								<path
+									d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
+							</svg>
+							Visit Page
 						</a>
+					{/if}
+					<div class="name">
+						<h1 class="brand-name">{highlightedIcon.brandIcon.brand}</h1>
+						{#if highlightedIcon.brandIcon.brand !== highlightedIcon.brandIcon.name}
+							<h3 class="icon-name">{highlightedIcon.brandIcon.name}</h3>
+						{/if}
 					</div>
-				{/if}
+					<div class="actions">
+						<p class="added-date">Added  {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
+						<button class="action" onclick={downloadSVG}>
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+							</svg>
+							SVG
+						</button>
+						<div class="action inactive">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+							</svg>
+							PNG
+						</div>
+						<div class="action inactive">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+							</svg>
+							WEBP
+						</div>
+					</div>
+					<div class="svg-content select-all">
+						{#if currentSVG === ''}
+							<strong style="color:var(--theme-color-alert);padding:1rem;font-style:italic">Failed to load raw SVG content</strong>
+						{:else if currentSVG === 'load'}
+							<strong style="color:var(--theme-text-third);padding:1rem;font-style:italic">Loading...</strong>
+						{:else}
+							<Highlight language={xml} let:highlighted
+							           code={currentSVG}>
+								<button title="Copy" class="copy-button" onclick={() => copyToClipboard(currentSVG)}>
+									<!--suppress HtmlUnknownTag -->
+									<div class="background"></div>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+										<path
+											d="M20.926 7.074a3.67 3.67 0 0 1 1.074 2.593v8.666a3.667 3.667 0 0 1 -3.667 3.667h-8.666a3.667 3.667 0 0 1 -3.667 -3.667v-8.666q 0 -.053 .005 -.102a3.66 3.66 0 0 1 3.662 -3.565h8.666c.973 0 1.905 .386 2.593 1.074" />
+										<path
+											d="M17.374 3.514a1 1 0 1 1 -1.748 .972c-.221 -.398 -.342 -.486 -.626 -.486h-10c-.548 0 -1 .452 -1 1v9.998c0 .36 .194 .692 .507 .87a1 1 0 1 1 -.99 1.738a3 3 0 0 1 -1.517 -2.606v-10c0 -1.652 1.348 -3 3 -3h10c1.094 0 1.828 .533 2.374 1.514" />
+									</svg>
+								</button>
+								<LineNumbers {highlighted} hideBorder />
+							</Highlight>
+						{/if}
+					</div>
+					{#if highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source}
+						<div class="icon-source">
+							<p>Sourced from</p>
+							<a href={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source?.href} rel="external" target="_blank">
+								{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source?.name}
+							</a>
+						</div>
+					{/if}
+				</div>
 			</div>
 		</div>
-	</div>
+	{/key}
 {/if}
 
 <section class="content-header">
@@ -395,6 +424,9 @@
 		{/each}
 	</div>
 </section>
+<div style="position: absolute;height:0 !important;width:0 !important;overflow:visible;">
+	<div class="background-fx"></div>
+</div>
 
 <div class="pagination-actions">
 	<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
@@ -405,11 +437,11 @@
 		<div class="circle"></div>
 		<div class="circle"></div>
 	</div>
-	<button class="action {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage - 2}</button>
-	<button class="action {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage - 1}</button>
+	<button class="action {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
+	<button class="action {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
 	<p class="action current-page">{currentPage}</p>
-	<button class="action {(currentPage) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage + 1}</button>
-	<button class="action {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{currentPage + 2}</button>
+	<button class="action {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
+	<button class="action {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
 	<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}">
 		<div class="circle"></div>
 		<div class="circle"></div>
@@ -484,10 +516,44 @@
 		}
 	}
 	
+	.glass-effects {
+		position:        fixed;
+		bottom:          0;
+		right:           0;
+		overflow:        visible !important;
+		
+		display:         flex;
+		align-items:     center;
+		justify-content: center;
+		
+		width:           100vw;
+		height:          calc(100vh - var(--header-height));
+		
+		mix-blend-mode:  overlay;
+		mask-image:      linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
+		
+		pointer-events:  none !important;
+		z-index:         60000 !important;
+		
+		.glass-border-glow {
+			position:      fixed;
+			width:         80vw;
+			height:        60vh;
+			max-width:     80.1rem;
+			max-height:    32.1rem;
+			overflow:      visible !important;
+			
+			border-radius: 1rem;
+			
+			box-shadow:    inset 0 0 .8rem white;
+		}
+	}
+	
 	.highlighted-icon {
 		position:        fixed;
 		bottom:          0;
 		right:           0;
+		box-sizing:      border-box;
 		
 		display:         flex;
 		align-items:     center;
@@ -502,60 +568,141 @@
 		z-index:         50000;
 		
 		.h-icon {
+			position:        relative;
 			display:         flex;
 			flex-flow:       row nowrap;
 			align-items:     center;
 			justify-content: space-between;
-			background:      rgba(from var(--theme-ui-header) r g b / .75);
-			backdrop-filter: blur(.5rem) grayscale(.25) brightness(.95);
-			border-radius:   .6rem;
 			
-			overflow:        hidden;
+			box-sizing:      border-box;
+			overflow:        hidden !important;
 			
 			width:           80vw;
 			height:          60vh;
 			max-width:       80rem;
 			max-height:      32rem;
 			
+			background:      linear-gradient(to bottom, rgba(from var(--theme-icon-hightlight-container) r g b / .35) 0%, rgba(from var(--theme-icon-hightlight-container) r g b / .575) 100%);
+			backdrop-filter: url(#glass-distortion) brightness(.8) saturate(120%) brightness(1.15) grayscale(.5) blur(1px) blur(.35rem);
+			border-radius:   1rem;
+			
 			pointer-events:  all;
 			
 			z-index:         500;
 			
+			&::before, &::after {
+				content:       '';
+				
+				position:      fixed;
+				top:           0;
+				left:          0;
+				
+				border-radius: inherit;
+				
+				z-index:       400 !important;
+			}
+			
+			&::before {
+				border:         1px solid rgba(from var(--theme-ui-black) r g b / .5);
+				mix-blend-mode: overlay;
+				filter:         blur(.05rem) contrast(2) brightness(1.5);
+				mask-image:     linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
+				width:          calc(100% + 1px);
+				height:         calc(100% + 1px);
+			}
+			
+			&::after {
+				border:         2px solid var(--theme-ui-white);
+				opacity:        .6;
+				mix-blend-mode: overlay;
+				filter:         blur(.075rem) contrast(2) brightness(1.5);
+				mask-image:     linear-gradient(-20deg, transparent 0%, black 50%, transparent 100%);
+				width:          calc(100% + 2px);
+				height:         calc(100% + 2px);
+			}
+			
+			.glass-filter, .glass-specular, .glass-border {
+				position:       absolute;
+				width:          100%;
+				height:         100%;
+				inset:          0;
+				overflow:       hidden;
+				z-index:        400 !important;
+				pointer-events: none !important;
+				border-radius:  inherit;
+			}
+			
+			.glass-border {
+				mix-blend-mode: overlay;
+				box-shadow:     inset 0 0 4px rgba(255 255 255 / .75);
+			}
+			
+			.glass-filter {
+				background:      linear-gradient(to bottom, rgba(from var(--theme-icon-hightlight-container) r g b / .25) 0%, rgba(from var(--theme-icon-hightlight-container) r g b / .5) 100%);
+				backdrop-filter: brightness(.85) contrast(1.025);
+			}
+			
+			.glass-specular {
+				mix-blend-mode: overlay;
+				box-shadow:     inset 1px 1px 1px rgba(255 255 255 /.1);
+			}
+			
 			.close-button {
-				position:        absolute;
-				top:             1rem;
-				right:           1rem;
-				overflow:        hidden;
+				position:      absolute;
+				top:           1rem;
+				right:         1rem;
+				overflow:      hidden;
 				
-				width:           .975rem;
-				height:          .975rem;
+				width:         .975rem;
+				height:        .975rem;
 				
-				background:      rgb(255 0 0 / .2);
-				filter:          brightness(1.25) grayscale(.2);
-				backdrop-filter: blur(.1rem);
-				border-radius:   100%;
+				background:    rgba(from var(--theme-color-alert) r g b / .2);
+				border-radius: 100%;
 				
-				cursor:          pointer;
+				cursor:        pointer;
 				
-				transition: var(--theme-transition-on);
+				z-index:       500;
 				
 				.gradient {
-					width:      .975rem;
-					height:     .975rem;
-					background-image: radial-gradient(circle, transparent 0%, var(--theme-color-alert) 100%);
-					opacity: .2;
+					width:            100%;
+					height:           100%;
+					background-image: radial-gradient(circle, transparent 5%, rgba(from var(--theme-color-alert) r g b / .2) 70%, var(--theme-color-alert) 100%);
+					mix-blend-mode:   soft-light !important;
 					
-					transition: var(--theme-transition-on);
+					z-index:          500;
+				}
+				
+				&::before {
+					position:       absolute;
+					width:          100%;
+					height:         100%;
+					left:           0;
+					
+					content:        '';
+					
+					opacity:        .16;
+					background:     radial-gradient(circle at .45rem .55rem, rgba(from var(--theme-color-alert) r g b / .25) 0%, transparent 40%, white 100%);
+					mix-blend-mode: overlay !important;
+					
+					z-index:        1000 !important;
 				}
 				
 				&:hover {
-					background: rgb(255 0 0 / .5);
-					filter:     brightness(1.5);
-					transition: none;
+					background:          rgb(255 29 29 / .45);
+					filter:              drop-shadow(0 0 .65rem rgb(255 29 29 / .45));
+					transition-duration: 0s !important;
 					
 					.gradient {
-						opacity: .85;
-						transition: 20ms;
+						background-image:    radial-gradient(circle, transparent 12.5%, rgba(from var(--theme-color-alert) r g b / .4) 70%, var(--theme-color-alert) 100%);
+						opacity:             .85;
+						
+						transition-duration: 0s !important;
+					}
+					
+					&::before {
+						transform:           rotate(15deg);
+						opacity:             1;
+						transition-duration: 0s !important;
 					}
 				}
 			}
@@ -565,13 +712,18 @@
 				flex-flow:       column nowrap;
 				justify-content: center;
 				padding:         2rem;
+				
+				z-index:         500;
 			}
 			
 			.separator {
-				width:           3px;
-				border-radius:   4px;
-				height:          65%;
-				backdrop-filter: blur(1rem) brightness(1.5);
+				width:           4px;
+				border-radius:   1rem;
+				height:          40%;
+				backdrop-filter: blur(1rem) brightness(1.15) saturate(1.25) contrast(.975);
+				mix-blend-mode:  overlay;
+				
+				z-index:         500;
 			}
 			
 			.right {
@@ -630,6 +782,7 @@
 				.current-icon-index {
 					position: relative;
 					width:    90%;
+					user-select: none;
 					
 					p {
 						position:    absolute;
@@ -647,6 +800,7 @@
 					transform:      translateY(3.5rem);
 					
 					pointer-events: all;
+					user-select: none;
 					
 					.prev-icon, .next-icon {
 						cursor:  pointer;
@@ -657,9 +811,26 @@
 			}
 			
 			.right {
-				.brand-name {
-					font-size: 2.25rem;
-					z-index:   500 !important;
+				.name {
+					display:         flex;
+					flex-flow:       column nowrap;
+					align-items:     flex-start;
+					justify-content: flex-start;
+					height:          4.35rem;
+					
+					.brand-name {
+						font-size: 2.25rem;
+						height:    2.5rem;
+					}
+					
+					.icon-name {
+						font-size:   1.1rem;
+						font-weight: 450;
+						color:       var(--theme-text-secondary);
+						padding-top: .1rem;
+					}
+					
+					z-index:         500 !important;
 				}
 				
 				.brand-external {
@@ -669,36 +840,34 @@
 					justify-content: center;
 					gap:             .1rem;
 					
-					margin-top:      -.35rem;
-					margin-bottom:   .75rem;
-					
 					font-size:       .75rem;
-					color:           var(--theme-text-fourth);
-					font-weight:     650;
+					color:           color-mix(var(--theme-text-third) 25%, var(--theme-text-fourth) 75%);
+					font-weight:     700;
 					
 					user-select:     none;
 					
-					transition:      var(--theme-transition-off);
+					z-index:         510 !important;
 					
-					z-index:         500 !important;
+					&.top {
+						transform: translateY(.8rem);
+					}
+					&.bottom {
+						transform: translateY(4.1rem);
+					}
 					
 					svg {
-						color:      inherit;
-						transform:  rotate(-45deg);
-						width:      .9rem;
-						height:     .9rem;
-						transition: var(--theme-transition-off);
+						color:     inherit;
+						transform: rotate(-45deg);
+						width:     .85rem;
+						height:    .85rem;
 					}
 					
 					&:hover {
 						text-decoration: underline;
 						color:           var(--theme-color-accent);
 						
-						transition:      var(--theme-transition-on);
-						
 						svg {
-							color:      var(--theme-color-accent);
-							transition: var(--theme-transition-on);
+							color: var(--theme-color-accent);
 						}
 					}
 				}
@@ -715,6 +884,8 @@
 					
 					z-index:         500 !important;
 					
+					user-select: none;
+					
 					.action {
 						display:         flex;
 						flex-flow:       row nowrap;
@@ -730,17 +901,15 @@
 						color:           var(--theme-ui-white);
 						border:          1px solid rgba(from var(--theme-ui-line) r g b / .5);
 						border-radius:   .6rem;
-						background:      light-dark(#2D3467, #262C59);
+						background:      light-dark(#5E70F1, #343D79);
 						
+						user-select:     none;
 						cursor:          pointer;
 						
-						transition:      var(--theme-transition-off);
-						
 						svg {
-							height:     1rem;
-							width:      1rem;
-							color:      var(--theme-ui-white);
-							transition: var(--theme-transition-off);
+							height: 1rem;
+							width:  1rem;
+							color:  var(--theme-ui-white);
 						}
 						
 						&.inactive {
@@ -753,13 +922,12 @@
 							}
 							
 							&:hover {
-								background: light-dark(#2D3467, #262C59);
+								background: light-dark(#5E70F1, #343D79);
 							}
 						}
 						
 						&:hover {
-							background: light-dark(#4954A8, #333A73);
-							transition: var(--theme-transition-on);
+							background: light-dark(#364EF3, #3F498F);
 						}
 					}
 					
@@ -782,11 +950,10 @@
 				.svg-content {
 					width:         100%;
 					height:        fit-content;
-					min-height:    6rem;
-					max-height:    12rem;
+					height:        10rem;
 					box-sizing:    border-box;
 					
-					background:    rgba(from var(--theme-ui-header) r g b / .5);
+					background:    rgba(from var(--theme-ui-header) r g b / .6);
 					border:        1px solid rgba(from var(--theme-ui-line) r g b / .5);
 					border-radius: .5rem;
 					
@@ -798,18 +965,43 @@
 					z-index:       500 !important;
 					
 					.copy-button {
-						position:        absolute;
-						right:           3.5rem;
-						transform:       translateY(1rem);
-						z-index:         1000 !important;
-						padding:         .35rem;
-						cursor:          pointer;
+						position:  absolute;
+						right:     3.5rem;
+						transform: translateY(1rem);
+						padding:   .35rem;
 						
-						backdrop-filter: blur(2px) brightness(.75) grayscale(.25);
-						border-radius:   .5rem;
+						cursor:    pointer;
+						z-index:   1000 !important;
 						
 						svg {
-							color: var(--theme-ui-white);
+							position: relative;
+							color:    var(--theme-ui-white);
+							
+							z-index:  1500 !important;
+						}
+						
+						.background {
+							position:        absolute;
+							top:             0;
+							left:            0;
+							width:           100%;
+							height:          100%;
+							
+							backdrop-filter: blur(2px) grayscale(.1);
+							background:      rgba(from var(--theme-ui-black) r g b / .2);
+							border-radius:   .5rem;
+							
+							z-index:         500 !important;
+						}
+						
+						&:hover {
+							svg {
+								color: var(--theme-color-accent);
+							}
+							
+							.background {
+								background: rgba(from var(--theme-ui-header) r g b / .65);
+							}
 						}
 					}
 					
@@ -822,13 +1014,11 @@
 							overflow: visible !important;
 						}
 						
+						table tbody, table tbody tr, table tbody td {
+							background-color: transparent !important;
+						}
+						
 						table tbody {
-							background-color: rgba(from var(--theme-ui-sidebar) r g b / .2) !important;
-							
-							tr, td {
-								background-color: transparent !important;
-							}
-							
 							td.hljs {
 								position: relative !important;
 								
@@ -852,13 +1042,10 @@
 					
 					user-select:  none;
 					
-					transition:   var(--theme-transition-off);
-					
 					z-index:      500 !important;
 					
 					p, a {
-						color:      var(--theme-text-fourth);
-						transition: var(--theme-transition-off);
+						color: light-dark(var(--theme-text-third), var(--theme-text-fourth));
 					}
 					
 					a {
@@ -866,8 +1053,7 @@
 						
 						&:hover {
 							text-decoration: underline;
-							color:           var(--theme-color-accent);
-							transition:      var(--theme-transition-on);
+							color:           var(--theme-color-accent) !important;
 						}
 					}
 				}
@@ -884,6 +1070,21 @@
 		}
 	}
 	
+	.background-fx {
+		position:         absolute;
+		bottom:           -18rem;
+		left:             -4rem;
+		content:          '';
+		background-image: linear-gradient(-20deg, var(--theme-ui-background) 0%, color-mix(var(--theme-ui-background), var(--theme-color-primary) 25%) 100%);
+		height:           100vh;
+		width:            125vw;
+		filter:           blur(12rem);
+		opacity:          .2;
+		
+		z-index:          1 !important;
+		pointer-events:   none !important;
+	}
+	
 	.pagination-actions {
 		position:        relative;
 		
@@ -897,10 +1098,7 @@
 		width:           100%;
 		
 		user-select:     none !important;
-		
-		button.action {
-			cursor: pointer;
-		}
+		z-index:         500;
 		
 		.separator {
 			display:         flex;
@@ -913,7 +1111,6 @@
 			
 			&.shown {
 				opacity:    1;
-				
 				transition: 125ms ease-out;
 			}
 			
@@ -953,13 +1150,11 @@
 				opacity: 1;
 				
 				&:hover {
-					transform:  scale(1.035);
-					transition: 25ms ease-out;
+					transform: scale(1.035);
 				}
 				
 				&:active {
-					transform:  scale(0.99);
-					transition: transform 0s linear !important;
+					transform: scale(.99);
 				}
 			}
 			
@@ -992,7 +1187,7 @@
 		cursor:           pointer;
 		
 		transform:        scale(1);
-		transition:       transform 350ms ease-out;
+		z-index:          500;
 		
 		svg {
 			width:  1.35rem;
@@ -1000,13 +1195,11 @@
 		}
 		
 		&:hover {
-			transform:  scale(1.025);
-			transition: transform 0s linear !important;
+			transform: scale(1.025);
 		}
 		
 		&:active {
-			transform:  scale(.975);
-			transition: transform 0s linear !important;
+			transform: scale(.975);
 		}
 	}
 	
@@ -1018,12 +1211,10 @@
 		
 		padding-bottom:  2rem;
 		user-select:     none;
+		z-index:         500;
 		
 		.text {
 			.title {
-				font-family:      'Funnel Display', sans-serif;
-				font-weight:      900;
-				
 				background-image: var(--theme-text-gradient);
 				background-clip:  text;
 				color:            transparent;
@@ -1032,10 +1223,11 @@
 			}
 			
 			.subtitle {
-				font-weight: 500;
-				
 				color:       var(--theme-text-third);
+				font-weight: 500;
 			}
+			
+			z-index: 500;
 		}
 		
 		.actions {
@@ -1044,17 +1236,11 @@
 			align-items:     flex-end;
 			justify-content: flex-end;
 			gap:             .5rem;
+			z-index:         500;
 			
-			.sort-action {
-				&.inactive {
-					filter:  grayscale(.75);
-					opacity: .5;
-				}
-				
-				&.active {
-					filter:  none;
-					opacity: 1;
-				}
+			.sort-action.inactive {
+				filter:  grayscale(.75);
+				opacity: .5;
 			}
 		}
 	}

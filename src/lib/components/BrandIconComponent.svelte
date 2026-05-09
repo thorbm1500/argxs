@@ -2,14 +2,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import type { BrandIcon, Icon, PageTheme } from '$lib/components/interfaces';
-	import { getContext } from 'svelte';
-	import { copyToClipboard } from '$lib/utilities';
 	import type { Attachment } from 'svelte/attachments';
 	import type { HighlightIcon } from '../../routes/(resources)/icons/brands/+page.svelte';
 	
 	let { highlightedIcon = $bindable(), theme = $bindable(), icon }: { highlightedIcon: HighlightIcon | undefined, theme: PageTheme, icon: BrandIcon } = $props();
-	
-	const sendToast: any = $derived(getContext('sendToast'));
 	
 	const icons: Icon[] = $state([icon.default]);
 	let currentIconIndex: number = $state(0);
@@ -42,14 +38,28 @@
 	}
 	
 	const externalLink: Attachment = (element) => {
+		element.setAttribute('tabindex', '0');
+		
 		element.addEventListener('mousedown', (event) => {
 			if (!(event.target as HTMLElement)?.className.includes('overlay buttons')) return;
 			event.preventDefault();
+			
 			highlightedIcon = { brandIcon: icon, iconIndex: icons, currentIcon: currentIconIndex };
 		});
 		
-		return () => { if (highlightedIcon === icons[currentIconIndex]) highlightedIcon = undefined }
-	}
+		element.addEventListener('keydown', (event) => {
+			if (event.isTrusted && (event as KeyboardEvent).key === 'Enter') {
+				event.preventDefault();
+				(element as HTMLElement).blur();
+				
+				highlightedIcon = { brandIcon: icon, iconIndex: icons, currentIcon: currentIconIndex };
+			}
+		});
+		
+		return () => {
+			if (highlightedIcon === icons[currentIconIndex]) highlightedIcon = undefined;
+		};
+	};
 </script>
 
 <div class="icon">
@@ -101,7 +111,7 @@
 	{/if}
 	<div class="hover-fx">
 		<!--svelte-ignore a11y_missing_attribute-->
-		<img src="/resources/icons/brands/{currentIcon.path}" loading="lazy" />
+		<img src="/resources/icons/brands/{currentIcon.path}" alt="" loading="lazy" />
 	</div>
 	<img in:fade src="/resources/icons/brands/{currentIcon.path}" alt={icon.name} loading="lazy" />
 </div>
@@ -130,7 +140,7 @@
 		user-select:       none !important;
 		-webkit-user-drag: none !important;
 		
-		z-index:           5000;
+		z-index:           5000 !important;
 		
 		transition:        border-color 150ms ease;
 		
@@ -140,108 +150,25 @@
 			width:          inherit;
 			overflow:       hidden;
 			align-content:  center;
-			pointer-events: none !important;
 			
 			mask-image:     radial-gradient(transparent 0%, white 32.5%);
 			
+			pointer-events: none !important;
+			
 			img {
-				justify-self: center;
-				mask-image:   linear-gradient(to top, white 0%, transparent 80%);
-				mask-type:    alpha;
-				height:       100%;
-				width:        100%;
-				padding:      .25rem;
+				justify-self:   center;
+				mask-image:     linear-gradient(to top, white 0%, transparent 80%);
+				mask-type:      alpha;
+				height:         100%;
+				width:          100%;
+				padding:        .25rem;
 				
-				opacity:      0;
-				transform:    scale(3) !important;
-				filter:       brightness(1.3) contrast(1.075) saturate(1.075) blur(2px);
+				opacity:        0;
+				transform:      scale(3) !important;
+				filter:         brightness(1.3) contrast(1.075) saturate(1.075) blur(2px);
 				
-				z-index:      500;
-			}
-		}
-		
-		.buttons {
-			.element, .copy-icon, .download-icon {
-				svg {
-					transition: color 500ms 100ms ease-out,
-					            stroke 500ms 100ms ease-out;
-				}
-			}
-			
-			.element, .copy-icon {
-				&:active svg {
-					fill:       var(--theme-color-accent);
-					transform:  scale(.9);
-					transition: fill 0ms transform 0ms !important;
-				}
-			}
-			
-			.download-icon {
-				&:active svg {
-					stroke:     var(--theme-color-accent);
-					transform:  scale(.9);
-					transition: stroke 0ms transform 0ms !important;
-				}
-			}
-			
-			.action-icons {
-				position:   absolute;
-				top:        -.75rem;
-				right:      .5rem;
-				opacity:    0;
-				
-				transition: 150ms ease-outz;
-				
-				svg {
-					color:      var(--theme-text-third);
-					transition: 150ms ease-out;
-				}
-				
-				.hover-icon, .copy-icon, .download-icon {
-					position:   absolute;
-					transform:  scale(.85);
-					
-					cursor:     pointer;
-					
-					transition: transform 150ms ease-in;
-				}
-				
-				.copy-icon, .download-icon {
-					opacity: 0;
-				}
-				
-				.hover-icon, .copy-icon {
-					right: 0;
-				}
-				
-				.download-icon {
-					right: 1.5rem;
-				}
-				
-				.hover-icon:hover {
-					opacity: 0;
-				}
-				
-				&:hover {
-					.hover-icon {
-						opacity:    0;
-						transition: transform 150ms ease-in;
-					}
-					
-					.copy-icon, .download-icon {
-						opacity:        1;
-						pointer-events: all;
-						transform:      scale(1);
-						
-						transition:     50ms ease-in;
-						
-						&:hover svg {
-							color:      var(--theme-color-primary);
-							
-							transition: 50ms ease-in;
-						}
-					}
-				}
+				pointer-events: none !important;
+				z-index:        500;
 			}
 		}
 		
@@ -253,9 +180,10 @@
 			
 			img {
 				pointer-events: none !important;
-				transform:      scale(1.25);
+				transform:      scale(1.3);
 				
-				transition:     100ms ease;
+				transition:     400ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%, 1.352
+				25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
 			}
 			
 			.hover-fx {
@@ -273,16 +201,6 @@
 			}
 			
 			.buttons {
-				.action-icons {
-					opacity:    1 !important;
-					
-					transition: 100ms ease;
-					
-					.hover-icon {
-						transform: scale(1);
-					}
-				}
-				
 				.element {
 					transform:  scale(1);
 					transition: 100ms ease;
@@ -307,7 +225,7 @@
 			z-index:    500;
 			
 			transition: 250ms ease,
-			            transform 350ms ease-out;
+			            transform 700ms linear(0, 0.101 3.9%, 0.328 13.1%, 0.472 18.3%, 0.557 21%, 0.648 23.7%, 0.999 33.3%, 0.891 36.8%, 0.855 38.2%, 0.824 39.6%, 0.802 40.9%, 0.785 42.2%, 0.775 43.5%, 0.771 44.8%, 0.774 46%, 0.783 47.3%, 0.798 48.6%, 0.819 49.9%, 0.871 52.4%, 0.999 57.7%, 0.956 59.9%, 0.931 61.6%, 0.921 62.5%, 0.915 63.4%, 0.911 64.2%, 0.91 65.1%, 0.914 66.7%, 0.927 68.5%, 0.944 70.1%, 1 74.5%, 0.985 76.1%, 0.976 77.4%, 0.97 78.7%, 0.968 80%, 0.969 81.2%, 0.973 82.5%, 1 88.2%, 0.995 90%, 0.994 91.8%, 0.999 97.5%, 1);
 		}
 		
 		.overlay {
@@ -343,7 +261,7 @@
 			.marker {
 				font-size:   .75rem;
 				font-weight: 900;
-				font-family: 'Bricolage Grotesque Variable','Funnel Sans', sans-serif;
+				font-family: 'Bricolage Grotesque Variable', 'Funnel Sans', sans-serif;
 				color:       var(--theme-text-third);
 			}
 		}

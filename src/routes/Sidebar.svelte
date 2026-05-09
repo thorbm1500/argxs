@@ -2,10 +2,12 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import type { Attachment } from 'svelte/attachments';
 	
 	let { theme = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests } = $props();
 	
 	let navState: 'active' | 'inactive' = $state.raw('inactive');
+	let isSidebarVisible = $derived(sidebarState || page.url.pathname === '/');
 	
 	beforeNavigate(() => navState = 'inactive');
 	afterNavigate(() => {
@@ -20,6 +22,14 @@
 	for (let i = 0; i < formattedRequests.length; i++) {
 		requestChars.push(formattedRequests[i] ?? '');
 	}
+	
+	const tabIndexFocus: Attachment = (element) => {
+		element.setAttribute('tabindex', "0");
+		element.addEventListener('focusin', () => sidebarState = true);
+		element.addEventListener('focusout', () => sidebarState = false);
+		
+		return () => {};
+	}
 </script>
 
 <div id="sidebar-light" class="{$state.eager(navState)}">
@@ -28,8 +38,8 @@
 	</div>
 </div>
 
-<section id="sidebar" class="{theme} {sidebarState ? 'res-visible' : 'res-hidden'}">
-	<button title="" class="toggle-sidebar-button" onclick="{() => sidebarState = !sidebarState}">
+<section id="sidebar" class="{theme} {isSidebarVisible ? 'res-visible' : 'res-hidden'}">
+	<button title="" class="toggle-sidebar-button" onclick="{() => sidebarState = !sidebarState}" tabindex="-1">
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 			<path d="M3 14a1 1 0 0 0 1 1h11.001v-.092a3 3 0 0 1 5.12 -2.03a.515 .515 0 0 0 .879 -.363v-6.515a3 3 0 0 0 -3 -3h-12a3 3 0 0 0 -3 3z" />
 			<path
@@ -39,7 +49,7 @@
 	
 	<section class="sidebar-section">
 		<div class="nav-top">
-			<a class={{ selected: page.url.pathname === '/' }} href="/">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/' }} href="/">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M12.9823 2.764C12.631 2.49075 12.4553 2.35412 12.2613 2.3016C12.0902 2.25526 11.9098 2.25526 11.7387 2.3016C11.5447 2.35412 11.369 2.49075 11.0177 2.764L4.23539 8.03912C3.78202 8.39175 3.55534 8.56806 3.39203 8.78886C3.24737 8.98444 3.1396 9.20478 3.07403 9.43905C3 9.70352 3 9.9907 3 10.5651V17.8C3 18.9201 3 19.4801 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.0799 21 6.2 21H8.2C8.48003 21 8.62004 21 8.727 20.9455C8.82108 20.8976 8.89757 20.8211 8.9455 20.727C9 20.62 9 20.48 9 20.2V13.6C9 13.0399 9 12.7599 9.10899 12.546C9.20487 12.3578 9.35785 12.2049 9.54601 12.109C9.75992 12 10.0399 12 10.6 12H13.4C13.9601 12 14.2401 12 14.454 12.109C14.6422 12.2049 14.7951 12.3578 14.891 12.546C15 12.7599 15 13.0399 15 13.6V20.2C15 20.48 15 20.62 15.0545 20.727C15.1024 20.8211 15.1789 20.8976 15.273 20.9455C15.38 21 15.52 21 15.8 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4801 21 18.9201 21 17.8V10.5651C21 9.9907 21 9.70352 20.926 9.43905C20.8604 9.20478 20.7526 8.98444 20.608 8.78886C20.4447 8.56806 20.218 8.39175 19.7646 8.03913L12.9823 2.764Z" />
@@ -53,7 +63,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Core Concept</p>
 			</div>
-			<a class={{ selected: page.url.pathname === '/privacy' }} href="/privacy">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/privacy' }} href="/privacy">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M3 11h18" />
@@ -64,7 +74,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Privacy</p>
 			</a>
-			<a class={{ selected: page.url.pathname === '/changelog', newly_added: true }} href="/changelog">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/changelog', newly_added: true }} href="/changelog">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" />
@@ -86,14 +96,14 @@
 				</svg>
 				<p>ICONS</p>
 			</div>
-			<a class={{ selected: page.url.pathname === '/icons/flags' }} href="/icons/flags">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/icons/flags' }} href="/icons/flags">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M4 15C4 15 5 14 8 14C11 14 13 16 16 16C19 16 20 15 20 15V4C20 4 19 5 16 5C13 5 11 3 8 3C5 3 4 4 4 4M4 22L4 2" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Flags</p>
 			</a>
-			<a class={{ selected: page.url.pathname === '/icons/brands' }} href="/icons/brands">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/icons/brands' }} href="/icons/brands">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M12.9996 10.9999L3.49964 20.4999M14.0181 3.53838C15.2361 4.34658 16.4068 5.29941 17.5008 6.3934C18.6042 7.49683 19.564 8.67831 20.3767 9.90766M9.2546 7.89605L6.37973 6.93776C6.04865 6.8274 5.68398 6.89763 5.41756 7.12306L2.56041 9.54065C1.97548 10.0356 2.14166 10.9775 2.86064 11.2424L5.56784 12.2398M11.6807 18.3524L12.6781 21.0596C12.943 21.7786 13.8849 21.9448 14.3798 21.3599L16.7974 18.5027C17.0228 18.2363 17.0931 17.8716 16.9827 17.5405L16.0244 14.6657M19.3482 2.27063L14.4418 3.08838C13.9119 3.17668 13.426 3.43709 13.0591 3.82932L6.446 10.8985C4.73185 12.7308 4.77953 15.5924 6.55378 17.3667C8.32803 19.1409 11.1896 19.1886 13.022 17.4744L20.0911 10.8614C20.4834 10.4944 20.7438 10.0085 20.8321 9.47869L21.6498 4.57222C21.8754 3.21858 20.7019 2.04503 19.3482 2.27063Z" />
@@ -119,7 +129,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Colors</p>
 			</div>
-			<a class={{ selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
 				<svg style="transform:rotate(20deg) translate(-.2rem, -.05rem);" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 				     stroke-linejoin="round">
 					<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
@@ -160,7 +170,7 @@
 				</svg>
 				<p>CHEAT SHEETS</p>
 			</div>
-			<a class={{ selected: page.url.pathname === '/cheat-sheets/transition-easing' }} href="/cheat-sheets/transition-easing">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/cheat-sheets/transition-easing' }} href="/cheat-sheets/transition-easing">
 				<svg viewBox="0 0 24 24" fill="currentColor">
 					<path stroke="none" fill="none" d="M0 0h24v24H0z" />
 					<path
@@ -216,7 +226,7 @@
 				</svg>
 				<p>OTHER</p>
 			</div>
-			<a class={{ selected: page.url.pathname === '/other/typography' }} href="/other/typography">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/other/typography' }} href="/other/typography">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M4 7C4 6.06812 4 5.60218 4.15224 5.23463C4.35523 4.74458 4.74458 4.35523 5.23463 4.15224C5.60218 4 6.06812 4 7 4H17C17.9319 4 18.3978 4 18.7654 4.15224C19.2554 4.35523 19.6448 4.74458 19.8478 5.23463C20 5.60218 20 6.06812 20 7M9 20H15M12 4V20" />
@@ -234,7 +244,7 @@
 		
 		<div class="sidebar-footer">
 			<nav class="github">
-				<a href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
+				<a {@attach tabIndexFocus} href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
 					<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
 						<path transform="scale(64)"
 						      d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" />
@@ -328,7 +338,7 @@
 			.sidebar-section {
 				opacity:    0;
 				
-				filter:     blur(4px) drop-shadow(0);
+				filter:     blur(4px);
 				transform:  translateX(calc(var(--sidebar-width) * -1));
 				transition: 400ms 100ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 			}
@@ -519,6 +529,8 @@
 		}
 	}
 	
+	
+	
 	.nav-section, .nav-top {
 		a:hover, a.selected,
 		.planned:hover, .in_progress:hover {
@@ -686,7 +698,7 @@
 				background:    var(--theme-sidebar-tag-background);
 				border-radius: .625rem;
 				
-				color:         var(--theme-ui-white);
+				color:         var(--theme-text-secondary);
 				font-family:   'Lexend Variable', sans-serif;
 				
 				transition:    var(--theme-transition-off);
@@ -699,6 +711,7 @@
 		
 		a.newly_added::after {
 			content:    'NEW';
+			color: var(--theme-ui-white);
 			background: oklch(0.75 0.182 127.286);
 		}
 		

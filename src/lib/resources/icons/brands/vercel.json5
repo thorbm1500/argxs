@@ -1,0 +1,44 @@
+{
+	name: 'Vercel',
+	href: 'https://www.vercel.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'vercel-icon.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'vercel-icon-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'vercel-logo.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'vercel-logo-dark.svg',
+				date_added: '2026/5/9',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}
