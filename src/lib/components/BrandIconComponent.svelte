@@ -17,7 +17,7 @@
 	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
 	updateCurrentIcon();
 	
-	let hasNewIconVariant: boolean = $derived(Date.parse(currentIcon.date_added) > (Date.now() - 432000000));
+	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 432000000));
 	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 432000000));
 	
 	$effect(() => {

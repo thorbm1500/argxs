@@ -12,22 +12,24 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_light: {
-				path: 'webflow-icon-monochrome-light.svg',
-				date_added: '2026/5/6',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'webflow-icon-monochrome-light.svg',
+					date_added: '2026/5/6',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'webflow-icon-monochrome-dark.svg',
+					date_added: '2026/5/6',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			},
-			monochrome_dark: {
-				path: 'webflow-icon-monochrome-dark.svg',
-				date_added: '2026/5/6',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
+			]
 		},
 		{
 			type: 'logo',
@@ -47,22 +49,24 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_light: {
-				path: 'webflow-logo-monochrome-light.svg',
-				date_added: '2026/5/6',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'webflow-logo-monochrome-light.svg',
+					date_added: '2026/5/6',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'webflow-logo-monochrome-dark.svg',
+					date_added: '2026/5/6',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			},
-			monochrome_dark: {
-				path: 'webflow-logo-monochrome-dark.svg',
-				date_added: '2026/5/6',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
+			]
 		}
 	]
 }

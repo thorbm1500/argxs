@@ -1,0 +1,44 @@
+{
+	name: 'Resend',
+	href: 'https://resend.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'resend-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'resend-icon-dark.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'resend-logo.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'resend-logo-dark.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

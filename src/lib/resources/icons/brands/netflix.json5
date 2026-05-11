@@ -8,14 +8,16 @@
                 path: 'netflix-logo.svg',
                 date_added: '2026/4/25'
             },
-            monochrome_light: {
-                path: 'netflix-logo-monochrome-black.svg',
-                date_added: '2026/4/29'
-            },
-            monochrome_dark: {
-                path: 'netflix-logo-monochrome-white.svg',
-                date_added: '2026/4/29'
-            }
+            variable: [
+                {
+                    path: 'netflix-logo-monochrome-black.svg',
+                    date_added: '2026/4/29'
+                },
+                {
+                    path: 'netflix-logo-monochrome-white.svg',
+                    date_added: '2026/4/29'
+                }
+            ]
         }
     ]
 }

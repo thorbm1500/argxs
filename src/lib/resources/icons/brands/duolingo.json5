@@ -1,0 +1,36 @@
+{
+	name: 'Duolingo',
+	href: 'https://duolingo.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'duolingo-logo.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					path: 'duolingo-logo-monochrome-dark.svg',
+					date_added: '2026/5/11',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'duolingo-variant-logo.svg',
+					date_added: '2026/5/11',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				}
+			]
+		}
+	
+	]
+}

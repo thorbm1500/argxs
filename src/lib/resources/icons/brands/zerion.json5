@@ -1,0 +1,44 @@
+{
+	name: 'Zerion',
+	href: 'https://zerion.io',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'zerion-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'zerion-icon-dark.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'zerion-logo.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'zerion-logo-dark.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

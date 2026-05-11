@@ -20,22 +20,24 @@
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_light: {
-                path: 'service-now-logo-monochrome-light.svg',
-                date_added: '2026/5/4',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
+            variable: [
+                {
+                    path: 'service-now-logo-monochrome-light.svg',
+                    date_added: '2026/5/4',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    path: 'service-now-logo-monochrome-dark.svg',
+                    date_added: '2026/5/4',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
                 }
-            },
-            monochrome_dark: {
-                path: 'service-now-logo-monochrome-dark.svg',
-                date_added: '2026/5/4',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
-            }
+            ]
         }
     ]
 }

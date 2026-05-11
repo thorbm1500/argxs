@@ -31,22 +31,24 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_light: {
-				path: 'logitech-logo-monochrome-light.svg',
-				date_added: '2026/5/5',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'logitech-logo-monochrome-light.svg',
+					date_added: '2026/5/5',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'logitech-logo-monochrome-dark.svg',
+					date_added: '2026/5/5',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			},
-			monochrome_dark: {
-				path: 'logitech-logo-monochrome-dark.svg',
-				date_added: '2026/5/5',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
+			]
 		}
 	]
 }

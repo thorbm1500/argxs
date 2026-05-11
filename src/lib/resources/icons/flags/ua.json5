@@ -1,0 +1,14 @@
+{
+    country: 'Ukraine',
+    href: 'https://www.unhcr.org/emergencies/ukraine-emergency',
+    flags: [
+        {
+            path: 'ua.svg',
+            date_added: '2026/5/11',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
+}

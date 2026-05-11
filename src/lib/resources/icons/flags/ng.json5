@@ -1,0 +1,13 @@
+{
+    country: 'Nigeria',
+    flags: [
+        {
+            path: 'ng.svg',
+            date_added: '2026/5/11',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
+}

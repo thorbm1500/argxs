@@ -5,7 +5,7 @@ export interface Icon {
 	name: string,
 	/** The path to the icon */
 	path: string,
-	/** An external link related to the icon */
+	/** An external site linked to the icon */
 	href?: string,
 	/** The date of which the icon was added or updated */
 	date_added: string,
@@ -30,7 +30,7 @@ export interface ResourceIcon {
 	/** `Brand`: Brand name<br>
 	 *  `Flag`: Country name */
 	name: string,
-	/** An external link site linked to the icon */
+	/** An external site linked to the icon */
 	href?: string,
 	/** The type of icon.<br>
 	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
@@ -58,7 +58,7 @@ export interface BrandIcon {
 	brand: string,
 	/** The name of the icon */
 	name: string,
-	/** An external link site linked to the icon */
+	/** An external site linked to the icon */
 	href: string,
 	/** The icon's type. Mostly used for sorting the icons */
 	type: 'icon' | 'logo' | 'other',
@@ -78,6 +78,8 @@ export interface Flag {
 	/** The name of the country or flag
 	 * @todo Change from `country` to `name` */
 	country: string,
+	/** An external site linked to the icon */
+	href: string,
 	/** Flags linked to the country, such as the country's national flag, state flags, etc. */
 	flags: Icon[]
 }

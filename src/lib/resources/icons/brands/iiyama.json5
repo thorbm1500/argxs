@@ -12,22 +12,24 @@
                     href: 'https://brandfetch.com'
                 }
             },
-            monochrome_light: {
-                path: 'iiyama-logo-monochrome-light.svg',
-                date_added: '2026/5/4',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
+            variable: [
+                {
+                    path: 'iiyama-logo-monochrome-light.svg',
+                    date_added: '2026/5/4',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    path: 'iiyama-logo-monochrome-dark.svg',
+                    date_added: '2026/5/4',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
                 }
-            },
-            monochrome_dark: {
-                path: 'iiyama-logo-monochrome-dark.svg',
-                date_added: '2026/5/4',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
-            }
+            ]
         }
     ]
 }

@@ -1,0 +1,13 @@
+{
+    country: 'North Macedonia',
+    flags: [
+        {
+            path: 'mk.svg',
+            date_added: '2026/5/11',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
+}

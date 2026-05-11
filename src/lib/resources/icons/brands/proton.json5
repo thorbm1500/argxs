@@ -1,0 +1,108 @@
+{
+	name: 'Proton',
+	href: 'https://proton.me',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'proton-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					path: 'proton-icon-dark.svg',
+					date_added: '2026/5/11',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'proton-logo.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					path: 'proton-logo-dark.svg',
+					date_added: '2026/5/11',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				}
+			]
+		},
+		{
+			name: '',
+			type: 'icon',
+			default: {
+				path: 'proton-mail-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			name: '',
+			type: 'icon',
+			default: {
+				path: 'proton-calender-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			name: '',
+			type: 'icon',
+			default: {
+				path: 'proton-vpn-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			name: '',
+			type: 'icon',
+			default: {
+				path: 'proton-drive-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			name: '',
+			type: 'icon',
+			default: {
+				path: 'proton-pass-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

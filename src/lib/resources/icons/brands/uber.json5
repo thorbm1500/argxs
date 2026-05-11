@@ -449,25 +449,25 @@
                     href: 'https://assets.uber.com/'
                 }
             },
-            monochrome_light: {
-                name: 'Pass Uber Eats',
-                path: 'pass-uber-eats-stacked-logo-monochrome-black.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
-                }
-            },
-            monochrome_dark: {
-                name: 'Pass Uber Eats',
-                path: 'pass-uber-eats-stacked-logo-monochrome-white.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
-                }
-            },
             variable: [
+                {
+                    name: 'Pass Uber Eats',
+                    path: 'pass-uber-eats-stacked-logo-monochrome-black.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    name: 'Pass Uber Eats',
+                    path: 'pass-uber-eats-stacked-logo-monochrome-white.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
                 {
                     path: 'pass-uber-eats-logo.svg',
                     date_added: '2026/4/27',
@@ -513,22 +513,24 @@
                     href: 'https://assets.uber.com/'
                 }
             },
-            monochrome_light: {
-                path: 'uber-one-icon-monochrome-black.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
+            variable: [
+                {
+                    path: 'uber-one-icon-monochrome-black.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-icon-monochrome-white.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
                 }
-            },
-            monochrome_dark: {
-                path: 'uber-one-icon-monochrome-white.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
-                }
-            }
+            ]
         },
         {
             name: 'Uber One',
@@ -549,22 +551,24 @@
                     href: 'https://assets.uber.com/'
                 }
             },
-            monochrome_light: {
-                path: 'uber-one-logo-monochrome-black.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
+            variable: [
+                {
+                    path: 'uber-one-logo-monochrome-black.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-logo-monochrome-white.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
                 }
-            },
-            monochrome_dark: {
-                path: 'uber-one-logo-monochrome-white.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
-                }
-            }
+            ]
         },
         {
             name: 'Uber One for Students',
@@ -585,22 +589,24 @@
                     href: 'https://assets.uber.com/'
                 }
             },
-            monochrome_light: {
-                path: 'uber-one-students-logo-monochrome-black.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
+            variable: [
+                {
+                    path: 'uber-one-students-logo-monochrome-black.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-students-logo-monochrome-white.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
                 }
-            },
-            monochrome_dark: {
-                path: 'uber-one-students-logo-monochrome-white.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
-                }
-            }
+            ]
         },
         {
             name: 'Uber One Exclusive',
@@ -621,23 +627,23 @@
                     href: 'https://assets.uber.com/'
                 }
             },
-            monochrome_light: {
-                path: 'uber-one-exclusive-logo-monochrome-light.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
-                }
-            },
-            monochrome_dark: {
-                path: 'uber-one-exclusive-logo-monochrome-dark.svg',
-                date_added: '2026/4/27',
-                source: {
-                    name: 'Uber',
-                    href: 'https://assets.uber.com/'
-                }
-            },
             variable: [
+                {
+                    path: 'uber-one-exclusive-logo-monochrome-light.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
+                {
+                    path: 'uber-one-exclusive-logo-monochrome-dark.svg',
+                    date_added: '2026/4/27',
+                    source: {
+                        name: 'Uber',
+                        href: 'https://assets.uber.com/'
+                    }
+                },
                 {
                     path: 'uber-one-exclusive-french-logo.svg',
                     date_added: '2026/5/6',

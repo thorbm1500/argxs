@@ -39,14 +39,16 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_dark: {
-				path: 'akamai-logo-monochrome-dark.svg',
-				date_added: '2026/5/5',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'akamai-logo-monochrome-dark.svg',
+					date_added: '2026/5/5',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			}
+			]
 		}
 	]
 }

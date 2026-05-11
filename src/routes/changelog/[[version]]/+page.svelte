@@ -79,8 +79,13 @@
 					ul li {
 						list-style-type: disc;
 						
+						&:last-of-type {
+							margin-bottom: .5rem;
+						}
+						
 						ul li {
 							list-style-type: circle;
+							margin-bottom: 0 !important;
 						}
 					}
 					

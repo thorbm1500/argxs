@@ -33,22 +33,24 @@
                     href: 'https://www.jetbrains.com/company/brand'
                 }
             },
-            monochrome_light: {
-                path: 'jetbrains-logo-monochrome-black.svg',
-                date_added: '2026/4/25',
-                source: {
-                    name: 'JetBrains',
-                    href: 'https://www.jetbrains.com/company/brand'
+            variable: [
+                {
+                    path: 'jetbrains-logo-monochrome-black.svg',
+                    date_added: '2026/4/25',
+                    source: {
+                        name: 'JetBrains',
+                        href: 'https://www.jetbrains.com/company/brand'
+                    }
+                },
+                {
+                    path: 'jetbrains-logo-monochrome-white.svg',
+                    date_added: '2026/4/25',
+                    source: {
+                        name: 'JetBrains',
+                        href: 'https://www.jetbrains.com/company/brand'
+                    }
                 }
-            },
-            monochrome_dark: {
-                path: 'jetbrains-logo-monochrome-white.svg',
-                date_added: '2026/4/25',
-                source: {
-                    name: 'JetBrains',
-                    href: 'https://www.jetbrains.com/company/brand'
-                }
-            }
+            ]
         },
         {
             type: 'logo',

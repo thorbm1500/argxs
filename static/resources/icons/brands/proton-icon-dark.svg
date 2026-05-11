@@ -1,0 +1,8 @@
+<svg id="argxs" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#FFF" x="0px" y="0px" width="497" height="629" viewBox="0 0 49.7 62.9" style="enable-background:new 0 0 49.7 62.9;" xml:space="preserve">
+    <linearGradient id="argxs_proton_dark_logo_attr_1" gradientUnits="userSpaceOnUse" x1="8.6109" y1="3.863" x2="8.6109" y2="27.9318" gradientTransform="matrix(1 0 0 -1 0 63.665)">
+        <stop offset="0" stop-color="#FFF"/>
+        <stop offset=".9" stop-color="#DDD"/>
+    </linearGradient>
+    <path d="M0,46.5v16.4h11.5V47.2c0-1.5,0.6-3,1.7-4.1c1.1-1.1,2.5-1.7,4.1-1.7H29c5.5,0,10.8-2.2,14.6-6.1 c3.9-3.9,6.1-9.2,6.1-14.7c0-5.5-2.2-10.8-6.1-14.7C39.8,2.2,34.5,0,29,0H0v20.5h11.5v-9.7h16.7c2.6,0,5.1,1,6.9,2.9 C37,15.5,38,18,38,20.6c0,2.6-1,5.1-2.9,6.9c-1.8,1.8-4.3,2.9-6.9,2.9H16.1c-2.1,0-4.2,0.4-6.1,1.2c-1.9,0.8-3.7,2-5.2,3.5 c-1.5,1.5-2.7,3.3-3.5,5.2C0.4,42.3,0,44.4,0,46.5z"/>
+    <path fill="url(#argxs_proton_dark_logo_attr_1)" d="M17.2,41.5c-4.6,0-8.9,1.8-12.2,5.1c-3.2,3.2-5,7.6-5,12.2v4.2h11.5V47.2c0-1.5,0.6-3,1.7-4.1 C14.2,42.1,15.7,41.5,17.2,41.5z"/>
+</svg>

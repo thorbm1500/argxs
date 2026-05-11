@@ -74,17 +74,17 @@ export class Resources {
 	private getLatestDateFromIcon(icon: BrandIcon): number {
 		let result = 0;
 		if (icon.default.date_added) {
-			let current = Date.parse(icon.default.date_added);
+			const current = Date.parse(icon.default.date_added);
 			if (current > result) result = current;
 		}
 		if (icon.dark?.date_added) {
-			let current = Date.parse(icon.dark.date_added);
+			const current = Date.parse(icon.dark.date_added);
 			if (current > result) result = current;
 		}
-		if (icon.variable) {
+		if (!!icon.variable) {
 			for (const variable of icon.variable) {
 				if (!variable.date_added) continue;
-				let current = Date.parse(variable.date_added);
+				const current = Date.parse(variable.date_added);
 				if (current > result) result = current;
 			}
 		}
@@ -103,6 +103,7 @@ export class Resources {
 
 			const resource: ResourceIcon = {
 				name: current.country,
+				href: current.href,
 				type: 'other',
 				last_updated: 0,
 				default: current.flags[0],
@@ -121,6 +122,8 @@ export class Resources {
 					this.FLAG_ICON_AMOUNT++;
 				}
 			}
+
+			resource.last_updated = lastUpdated;
 
 			this.FLAG_ICONS.push(resource);
 		}

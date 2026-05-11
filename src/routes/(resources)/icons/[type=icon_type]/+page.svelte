@@ -180,7 +180,7 @@
 		<div class="highlighted-icon">
 			<svg style="display: none;">
 				<filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%">
-					<feTurbulence type="fractalNoise" baseFrequency="0.009 0.004" numOctaves="3" seed="{Math.trunc((Date.now() / 1000) / 1000)}" result="noise" />
+					<feTurbulence type="fractalNoise" baseFrequency="0.009 0.009" numOctaves="2" seed="{Math.trunc((Date.now() / 1000) / 1000)}" result="noise" />
 					<feGaussianBlur in="noise" stdDeviation="4" result="blurred" />
 					<feDisplacementMap in="SourceGraphic" in2="blurred" scale="15" xChannelSelector="R" yChannelSelector="G" />
 				</filter>
@@ -233,19 +233,20 @@
 				</div>
 				<div class="separator"></div>
 				<div class="right">
-					{#if hCurrentIcon?.href}
-						<a class="brand-external {highlightedIcon.icon.name !== hCurrentIcon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
+					{#if highlightedIcon.icon.href || hCurrentIcon?.href}
+						<a class="brand-external {hCurrentIcon?.name && highlightedIcon.icon.name !== hCurrentIcon?.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
 						highlightedIcon.icon.href}
 						   rel="external" target="_blank">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path
 									d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
 							</svg>
-							Visit Page
+							{highlightedIcon.icon.name === 'Ukraine' || highlightedIcon.icon.name === 'Palestine' ? 'Show Support' : 'Visit Page'}
 						</a>
 					{/if}
 					<div class="name">
-						<h1 class="brand-name">{highlightedIcon.icon.name}</h1>
+						<h1 class="brand-name"
+						    style="transform: translateY({highlightedIcon.icon.href || hCurrentIcon?.href || hCurrentIcon?.name && highlightedIcon.icon.name !== hCurrentIcon.name ? '0' : '1.1'}rem)">{highlightedIcon.icon.name}</h1>
 						{#if hCurrentIcon && highlightedIcon.icon.name !== hCurrentIcon.name}
 							<h3 class="icon-name">{hCurrentIcon.name}</h3>
 						{/if}

@@ -1,0 +1,44 @@
+{
+	name: 'TeamViewer',
+	href: 'https://teamviewer.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'teamviewer-icon.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'teamviewer-icon-dark.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'teamviewer-logo.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'teamviewer-logo-dark.svg',
+				date_added: '2026/5/11',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

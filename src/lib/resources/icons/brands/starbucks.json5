@@ -23,22 +23,24 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_light: {
-				path: 'starbucks-logo-monochrome-black.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'starbucks-logo-monochrome-black.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'starbucks-logo-monochrome-white.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			},
-			monochrome_dark: {
-				path: 'starbucks-logo-monochrome-white.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
+			]
 		}
 	]
 }

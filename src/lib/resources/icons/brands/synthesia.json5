@@ -12,22 +12,24 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_light: {
-				path: 'synthesia-icon-monochrome-black.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'synthesia-icon-monochrome-black.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'synthesia-icon-monochrome-white.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			},
-			monochrome_dark: {
-				path: 'synthesia-icon-monochrome-white.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
+			]
 		},
 		{
 			type: 'logo',
@@ -47,22 +49,24 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_light: {
-				path: 'synthesia-logo-monochrome-black.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'synthesia-logo-monochrome-black.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'synthesia-logo-monochrome-white.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			},
-			monochrome_dark: {
-				path: 'synthesia-logo-monochrome-white.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
+			]
 		}
 	]
 }

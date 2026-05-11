@@ -1,0 +1,14 @@
+{
+    country: 'Palestine',
+    href: 'https://crisisrelief.un.org/donate-opt-crisis',
+    flags: [
+        {
+            path: 'ps.svg',
+            date_added: '2026/5/11',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
+}

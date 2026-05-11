@@ -12,22 +12,24 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			monochrome_light: {
-				path: 'visa-logo-monochrome-black.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					path: 'visa-logo-monochrome-black.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					path: 'visa-logo-monochrome-white.svg',
+					date_added: '2026/4/29',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			},
-			monochrome_dark: {
-				path: 'visa-logo-monochrome-white.svg',
-				date_added: '2026/4/29',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
+			]
 		}
 	]
 }

@@ -20,22 +20,24 @@
                     href: 'https://www.meta.com/brand/resources/meta/company-brand'
                 }
             },
-            monochrome_light: {
-                path: 'meta-logo-monochrome-black.svg',
-                date_added: '2026/4/29',
-                source: {
-                    name: 'Meta',
-                    href: 'https://www.meta.com/brand/resources/meta/company-brand'
+            variable: [
+                {
+                    path: 'meta-logo-monochrome-black.svg',
+                    date_added: '2026/4/29',
+                    source: {
+                        name: 'Meta',
+                        href: 'https://www.meta.com/brand/resources/meta/company-brand'
+                    }
+                },
+                {
+                    path: 'meta-logo-monochrome-white.svg',
+                    date_added: '2026/4/29',
+                    source: {
+                        name: 'Meta',
+                        href: 'https://www.meta.com/brand/resources/meta/company-brand'
+                    }
                 }
-            },
-            monochrome_dark: {
-                path: 'meta-logo-monochrome-white.svg',
-                date_added: '2026/4/29',
-                source: {
-                    name: 'Meta',
-                    href: 'https://www.meta.com/brand/resources/meta/company-brand'
-                }
-            }
+            ]
         }
     ]
 }
