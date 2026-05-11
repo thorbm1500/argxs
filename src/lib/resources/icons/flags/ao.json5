@@ -1,13 +1,13 @@
 {
-	country: 'Angola',
-	flags: [
-		{
-			svg: 'ao.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Angola',
+    flags: [
+        {
+            path: 'ao.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

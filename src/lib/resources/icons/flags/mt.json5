@@ -1,13 +1,13 @@
 {
-	country: 'Malta',
-	flags: [
-		{
-			svg: 'mt.svg',
-			date_added: '2026/4/27',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Malta',
+    flags: [
+        {
+            path: 'mt.svg',
+            date_added: '2026/4/27',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

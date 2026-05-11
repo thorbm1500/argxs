@@ -1,22 +1,21 @@
 {
-	country: 'Dominican Republic',
-	flags: [
-		{
-			svg: 'do.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		},
-		{
-			name: 'Dominican Republic State',
-			svg: 'do-state.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Dominican Republic',
+    flags: [
+        {
+            path: 'do.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+        {
+            path: 'do-state.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

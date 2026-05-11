@@ -1,15 +1,22 @@
 <script lang="ts">
 	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
+	import { onMount } from 'svelte';
 	
-	const { data } = $props();
+	const { data, params } = $props();
+	
+	onMount(() => {
+		if (params.version) {
+			document.getElementById(params.version)?.scrollIntoView({block: 'nearest'});
+		}
+	})
 </script>
 
 <section class="changelog-sec">
 	<ContentHeaderComponent title="Changelog" custom={true} />
 	
 	{#each data.changelogs as changelog}
-		<div class="markdown">
+		<div id={changelog.version} class="markdown">
 			<SvelteMarkdown source={changelog.log} />
 		</div>
 	{/each}
@@ -54,6 +61,10 @@
 			
 			a {
 				font-weight: bold;
+				
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 			
 			#added {
@@ -64,6 +75,14 @@
 				li {
 					margin-left:     1.25rem;
 					list-style-type: square;
+					
+					ul li {
+						list-style-type: disc;
+						
+						ul li {
+							list-style-type: circle;
+						}
+					}
 					
 					p {
 						width: fit-content;

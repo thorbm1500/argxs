@@ -1,13 +1,13 @@
 {
-	country: 'Afghanistan',
-	flags: [
-		{
-			svg: 'af.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Afghanistan',
+    flags: [
+        {
+            path: 'af.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

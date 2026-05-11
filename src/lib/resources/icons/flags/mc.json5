@@ -2,12 +2,12 @@
     country: 'Monaco',
     flags: [
         {
-            svg: 'mc.svg',
+            path: 'mc.svg',
             date_added: '2026/4/27',
             source: {
                 name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
-            }
-        }
-    ]
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

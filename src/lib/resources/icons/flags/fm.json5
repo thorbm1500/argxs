@@ -1,13 +1,13 @@
 {
-	country: 'Micronesia',
-	flags: [
-		{
-			svg: 'fm.svg',
-			date_added: '2026/4/27',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Micronesia',
+    flags: [
+        {
+            path: 'fm.svg',
+            date_added: '2026/4/27',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

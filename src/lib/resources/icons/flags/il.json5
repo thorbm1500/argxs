@@ -1,13 +1,13 @@
 {
-	country: 'Israel',
-	flags: [
-		{
-			svg: 'il.svg',
-			date_added: '2026/4/16',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Israel',
+    flags: [
+        {
+            path: 'il.svg',
+            date_added: '2026/4/16',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

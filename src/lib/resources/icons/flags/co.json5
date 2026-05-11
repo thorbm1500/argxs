@@ -1,13 +1,13 @@
 {
-	country: 'Colombia',
-	flags: [
-		{
-			svg: 'co.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Colombia',
+    flags: [
+        {
+            path: 'co.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

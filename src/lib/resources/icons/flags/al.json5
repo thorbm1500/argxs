@@ -1,13 +1,13 @@
 {
-	country: 'Albania',
-	flags: [
-		{
-			svg: 'al.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Albania',
+    flags: [
+        {
+            path: 'al.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

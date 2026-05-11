@@ -1,13 +1,13 @@
 {
-	country: 'Ecuador',
-	flags: [
-		{
-			svg: 'ec.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Ecuador',
+    flags: [
+        {
+            path: 'ec.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

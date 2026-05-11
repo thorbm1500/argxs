@@ -2,27 +2,54 @@ export type PageTheme = 'light' | 'dark';
 
 export interface Icon {
 	/** The name of the icon */
-	name?: string,
+	name: string,
 	/** The path to the icon */
 	path: string,
 	/** An external link related to the icon */
 	href?: string,
 	/** The date of which the icon was added or updated */
-	date_added?: string,
+	date_added: string,
 	/** The source of the icon */
 	source?: Source
 }
 
-declare interface Source {
+export interface Source {
 	/** The name of the source */
 	name: string,
 	/** An external link to the source */
 	href: string
 }
 
+export interface HighlightIcon {
+	icon: ResourceIcon,
+	iconIndex: Icon[],
+	currentIcon: number
+}
+
+export interface ResourceIcon {
+	/** `Brand`: Brand name<br>
+	 *  `Flag`: Country name */
+	name: string,
+	/** An external link site linked to the icon */
+	href?: string,
+	/** The type of icon.<br>
+	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
+	type: 'icon' | 'logo' | 'other',
+	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
+	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
+	last_updated: number,
+	/** The default version of the icon. This will in most cases be the light themed version of the icon.<br>
+	 * `Note:` In the case that the icon only has one version of either light or dark, it shall be defined here */
+	default: Icon,
+	/** The dark themed version of the icon */
+	dark?: Icon,
+	/** A list of extra icons, in some way related to this icon */
+	variable: Icon[]
+}
+
 export interface Brand {
 	name: string,
-	href?: string,
+	href: string,
 	assets: BrandIcon[]
 }
 
@@ -35,21 +62,14 @@ export interface BrandIcon {
 	href: string,
 	/** The icon's type. Mostly used for sorting the icons */
 	type: 'icon' | 'logo' | 'other',
-	/** The amount of versions the icon has<br>
+	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
 	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
-	amount: number,
-	/** An epoch in milliseconds of the last time an icon of this collection was updated or added
-	 * * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
 	last_updated: number,
 	/** The default version of the icon. This will in most cases be the light themed version of the icon.<br>
 	 * `Note:` In the case that the icon only has one version of either light or dark, it shall be defined here */
 	default: Icon,
 	/** The dark themed version of the icon */
 	dark?: Icon,
-	/** light refers to the theme, and not the coloring of the icon itself */
-	monochrome_light?: Icon,
-	/** dark refers to the theme, and not the coloring of the icon itself */
-	monochrome_dark?: Icon,
 	/** A list of extra icons, in some way related to this icon */
 	variable: Icon[]
 }

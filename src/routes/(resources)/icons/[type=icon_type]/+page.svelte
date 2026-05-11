@@ -1,15 +1,7 @@
 <!--svelte-ignore state_referenced_locally-->
-<script module lang="ts">
-	export interface HighlightIcon {
-		brandIcon: BrandIcon,
-		iconIndex: Icon[],
-		currentIcon: number
-	}
-</script>
-
 <script lang="ts">
-	import type { BrandIcon, Icon, PageTheme } from '$lib/components/interfaces';
-	import { getContext, onMount } from 'svelte';
+	import type { HighlightIcon, Icon, PageTheme, ResourceIcon } from '$lib/components/interfaces';
+	import { flushSync, getContext, onMount } from 'svelte';
 	import BrandIconComponent from '$lib/components/BrandIconComponent.svelte';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { draw, fade } from 'svelte/transition';
@@ -19,7 +11,10 @@
 	import { github, githubDark } from 'svelte-highlight/styles';
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
-	import { flushSync } from 'svelte';
+	import { page } from '$app/state';
+	
+	let iconType: string = $derived(String(page.params.type));
+	if (iconType !== 'brands' && iconType !== 'flags') throw new Error('Failed to find icon type');
 	
 	const { data } = $props();
 	
@@ -32,7 +27,7 @@
 	let logosOnly: boolean = $state.raw(false);
 	let sorting: 'default' | 'time' | 'alphabet' = $state.raw('default');
 	let order: 'desc' | 'asc' = $state.raw('desc');
-	let brandIcons: BrandIcon[] = $derived.by(() => {
+	let brandIcons: ResourceIcon[] = $derived.by(() => {
 		let current = data.icons;
 		
 		switch ($state.eager(sorting)) {
@@ -48,9 +43,12 @@
 			}
 		}
 		
-		if (iconsOnly) return current.filter(icon => icon.type === 'icon');
-		else if (logosOnly) return current.filter(icon => icon.type === 'logo');
-		else return current;
+		if (iconType === 'brands') {
+			if (iconsOnly) return current.filter((icon: ResourceIcon) => icon.type === 'icon');
+			else if (logosOnly) return current.filter((icon: ResourceIcon) => icon.type === 'logo');
+		}
+		
+		return current;
 	});
 	// -
 	
@@ -91,7 +89,7 @@
 		if (currentSVG === '' && hCurrentIcon !== undefined) {
 			currentSVG = 'load';
 			currentLoadedSVG = hCurrentIcon.path;
-			fetch('/resources/icons/brands/' + hCurrentIcon.path).then(res => {
+			fetch('/resources/icons/' + iconType + '/' + hCurrentIcon.path).then(res => {
 				if (currentSVG === '' || currentLoadedSVG !== hCurrentIcon.path) return;
 				res.text().then(res => {
 					if (!hCurrentIcon) {
@@ -175,7 +173,7 @@
 </svelte:head>
 
 {#if highlightedIcon !== undefined}
-	{#key highlightedIcon.brandIcon.default.path}
+	{#key highlightedIcon.icon}
 		<div class="glass-effects">
 			<div class="glass-border-glow"></div>
 		</div>
@@ -197,10 +195,10 @@
 				</button>
 				<div class="left">
 					<div class="img-fx">
-						<img in:fade|global src="/resources/icons/brands/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
+						<img in:fade|global src="/resources/icons/{iconType}/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
 						     alt={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.name} loading="lazy" />
 					</div>
-					<img in:fade|global src="/resources/icons/brands/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
+					<img in:fade|global src="/resources/icons/{iconType}/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
 					     alt={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.name} loading="lazy" />
 					{#if highlightedIcon.iconIndex.length > 1}
 						<div class="current-icon-index">
@@ -235,9 +233,9 @@
 				</div>
 				<div class="separator"></div>
 				<div class="right">
-					{#if hCurrentIcon?.href || highlightedIcon.brandIcon.href !== undefined}
-						<a class="brand-external {highlightedIcon.brandIcon.brand !== highlightedIcon.brandIcon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
-						highlightedIcon.brandIcon.href}
+					{#if hCurrentIcon?.href}
+						<a class="brand-external {highlightedIcon.icon.name !== hCurrentIcon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
+						highlightedIcon.icon.href}
 						   rel="external" target="_blank">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path
@@ -247,9 +245,9 @@
 						</a>
 					{/if}
 					<div class="name">
-						<h1 class="brand-name">{highlightedIcon.brandIcon.brand}</h1>
-						{#if highlightedIcon.brandIcon.brand !== highlightedIcon.brandIcon.name}
-							<h3 class="icon-name">{highlightedIcon.brandIcon.name}</h3>
+						<h1 class="brand-name">{highlightedIcon.icon.name}</h1>
+						{#if hCurrentIcon && highlightedIcon.icon.name !== hCurrentIcon.name}
+							<h3 class="icon-name">{hCurrentIcon.name}</h3>
 						{/if}
 					</div>
 					<div class="actions">
@@ -311,28 +309,36 @@
 
 <section class="content-header">
 	<div class="text">
-		<h1 class="title">
-			Brand Icons
-		</h1>
-		<div class="subtitle">
-			<p>
-				argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
-				logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong style="color:
-				color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.
-			</p>
-		</div>
+		{#if iconType === 'brands'}
+			<h1 class="title">
+				Brand Icons
+			</h1>
+			<div class="subtitle">
+				<p>argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
+				   logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong
+						style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.</p>
+			</div>
+		{:else}
+			<h1 class="title">
+				Flag Icons
+			</h1>
+			<div class="subtitle">
+				<p>argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different
+				   countries, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> different flags.</p>
+			</div>
+		{/if}
 	</div>
 	<div class="actions">
 		<div class="sorting">
 			{#if sorting !== 'default'}
-				<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => sorting = 'default'}">
+				<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action glass-button" onclick="{() => sorting = 'default'}">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path transition:draw|global={{duration: 1100, easing: quartInOut}}
 						      d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
 					</svg>
 				</button>
 			{/if}
-			<button class="sort-action" onclick="{() =>  {
+			<button class="sort-action glass-button" onclick="{() =>  {
 						if (sorting !== 'alphabet') {
 							sorting = 'alphabet';
 							order = 'desc';
@@ -360,7 +366,7 @@
 				</svg>
 				Name
 			</button>
-			<button class="sort-action" onclick="{() =>  {
+			<button class="sort-action glass-button" onclick="{() =>  {
 						if (sorting !== 'time') {
 							sorting = 'time';
 							order = 'desc';
@@ -388,69 +394,67 @@
 				Date Added
 			</button>
 		</div>
-		<div class="filter">
-			<button class="sort-action icons-only {!iconsOnly && !logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+		{#if iconType === 'brands'}
+			<div class="filter">
+				<button class="sort-action glass-button {!iconsOnly && !logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			iconsOnly = false;
 			logosOnly = false;
 		}}">
-				All
-			</button>
-			<button class="sort-action icons-only {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
+					All
+				</button>
+				<button class="sort-action glass-button {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			iconsOnly = !iconsOnly;
 			if (iconsOnly) logosOnly = false;
 		}}">
-				Icons Only
-			</button>
-			<button class="sort-action logos-only {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+					Icons Only
+				</button>
+				<button class="sort-action glass-button {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			logosOnly = !logosOnly;
 			if (logosOnly) iconsOnly = false;
 		}}">
-				Logos Only
-			</button>
-		</div>
+					Logos Only
+				</button>
+			</div>
+		{/if}
 	</div>
 </section>
 
-<section class="brand-icons-sec" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}
-         style="height: calc(((((var(--current-width) - 12rem) / var(--column-amount)) - 7rem) * (var(--row-amount) - 1)) + (var(--row-amount) * 7rem)) !important">
+<section class="brand-icons-sec" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}>
 	<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
 		{#each currentIcons as icon}
 			{#key icon}
-				<BrandIconComponent bind:highlightedIcon bind:theme icon={icon} />
+				<BrandIconComponent type={iconType} bind:highlightedIcon bind:theme icon={icon} />
 			{/key}
 		{/each}
 	</div>
 </section>
-<div style="position: absolute;height:0 !important;width:0 !important;overflow:visible;">
-	<div class="background-fx"></div>
-</div>
 
 <div class="pagination-actions">
-	<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
+	<button title="First Page" class="action glass-button {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
 		1
 	</button>
 	<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}">
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
+		<div class="circle glass-button"></div>
+		<div class="circle glass-button"></div>
+		<div class="circle glass-button"></div>
 	</div>
-	<button class="action {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
-	<button class="action {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
-	<p class="action current-page">{currentPage}</p>
-	<button class="action {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
-	<button class="action {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
+	<button class="action glass-button {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
+	<button class="action glass-button {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
+	<p class="action current-page glass-button">{currentPage}</p>
+	<button class="action glass-button {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
+	<button class="action glass-button {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
 	<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}">
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
+		<div class="circle glass-button"></div>
+		<div class="circle glass-button"></div>
+		<div class="circle glass-button"></div>
 	</div>
-	<button title="Last Page" class="action {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
+	<button title="Last Page" class="action glass-button {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
 		{maxPage}
 	</button>
-	<button class="sort-action row-amount" onclick="{() => {
+	<button class="sort-action glass-button" onclick="{() => {
 			currentPage = 1;
 			switch (pagOffset) {
 				case 24: {
@@ -475,7 +479,31 @@
 <style>
 	/* Desktop & Tablet */
 	@media (width >= 44rem) {
+		:global(.main-container) {
+			padding: 3rem 6rem 0 6rem !important;
+		}
+		
+		.brand-icons-sec {
+			height: calc(((((var(--current-width) - 12rem) / var(--column-amount)) - 7rem) * (var(--row-amount) - 1)) + (var(--row-amount) * 7rem)) !important;
+			
+			.icons {
+				justify-content: space-between;
+			}
+		}
+		
+		.pagination-actions {
+			width: 100%;
+			gap:   .5rem;
+		}
+		
 		.content-header {
+			display:         flex;
+			flex-flow:       row nowrap;
+			align-items:     flex-end;
+			justify-content: space-between;
+			
+			padding-bottom:  2rem;
+			
 			.text {
 				.title {
 					font-size: 3rem;
@@ -485,12 +513,61 @@
 					font-size: 0.95rem;
 				}
 			}
+			
+			.actions {
+				padding-left: .25rem;
+			}
 		}
 	}
 	
 	/* Phone */
 	@media (width < 44rem) {
+		:global(.main-container) {
+			padding: 3rem 5rem 0 5rem !important;
+		}
+		
+		.brand-icons-sec .icons {
+			grid-template-columns: repeat(2, 7rem) !important;
+			justify-content:       space-evenly;
+			column-gap:            1rem;
+			height:                fit-content;
+			margin-top:            2rem;
+			
+			:global .icon {
+				margin-bottom: 1rem;
+			}
+		}
+		
+		.pagination-actions {
+			position: absolute;
+			left:     -5rem;
+			width:    100vw;
+			gap:      .75rem;
+			
+			.action {
+				width:  fit-content;
+				height: fit-content;
+			}
+			
+			.sort-action, .separator, .action:first-child, .action:nth-child(3), .action:nth-child(7), .action:nth-child(9) {
+				visibility: hidden !important;
+				position:   fixed;
+			}
+		}
+		
+		:global {
+			.blur-container, .blur-container .blur-child {
+				visibility: hidden !important;
+				position:   fixed;
+			}
+		}
+		
 		.content-header {
+			display:         flex;
+			flex-flow:       column nowrap;
+			align-items:     flex-end;
+			justify-content: space-between;
+			
 			.text {
 				.title {
 					font-size: 2rem;
@@ -500,11 +577,11 @@
 					font-size: 0.8rem;
 				}
 			}
+			
+			.actions {
+				margin-top: 1rem;
+			}
 		}
-	}
-	
-	:global(.main-container) {
-		padding: 3rem 6rem 0 6rem !important;
 	}
 	
 	@media (prefers-reduced-transparency: reduce) {
@@ -544,8 +621,6 @@
 			overflow:      visible !important;
 			
 			border-radius: 1rem;
-			
-			box-shadow:    inset 0 0 .8rem white;
 		}
 	}
 	
@@ -583,7 +658,7 @@
 			max-height:      32rem;
 			
 			background:      linear-gradient(to bottom, rgba(from var(--theme-icon-hightlight-container) r g b / .35) 0%, rgba(from var(--theme-icon-hightlight-container) r g b / .575) 100%);
-			backdrop-filter: url(#glass-distortion) brightness(.8) saturate(120%) brightness(1.15) grayscale(.5) blur(1px) blur(.35rem);
+			backdrop-filter: url(#glass-distortion) brightness(.8) saturate(120%) brightness(1.15) blur(1px) blur(.35rem);
 			border-radius:   1rem;
 			
 			pointer-events:  all;
@@ -591,60 +666,72 @@
 			z-index:         500;
 			
 			&::before, &::after {
-				content:       '';
-				
-				position:      fixed;
-				top:           0;
-				left:          0;
-				
-				border-radius: inherit;
-				
-				z-index:       400 !important;
-			}
-			
-			&::before {
-				border:         1px solid rgba(from var(--theme-ui-black) r g b / .5);
+				content:        '';
 				mix-blend-mode: overlay;
-				filter:         blur(.05rem) contrast(2) brightness(1.5);
-				mask-image:     linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
-				width:          calc(100% + 1px);
-				height:         calc(100% + 1px);
-			}
-			
-			&::after {
-				border:         2px solid var(--theme-ui-white);
-				opacity:        .6;
-				mix-blend-mode: overlay;
-				filter:         blur(.075rem) contrast(2) brightness(1.5);
-				mask-image:     linear-gradient(-20deg, transparent 0%, black 50%, transparent 100%);
-				width:          calc(100% + 2px);
-				height:         calc(100% + 2px);
-			}
-			
-			.glass-filter, .glass-specular, .glass-border {
+				box-sizing:     border-box;
+				
 				position:       absolute;
 				width:          100%;
 				height:         100%;
-				inset:          0;
-				overflow:       hidden;
-				z-index:        400 !important;
-				pointer-events: none !important;
+				
 				border-radius:  inherit;
+				
+				z-index:        400 !important;
+			}
+			
+			&::before {
+				border:           2px solid color-mix(rgba(from var(--theme-ui-black) r g b / .5), #4B0082 20%);
+				background-image: linear-gradient(45deg, #929BC966 0%, transparent 100%);
+				opacity:          .2;
+				
+				filter:           blur(.05rem) contrast(2) brightness(1.5);
+				mask-image:       linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
+			}
+			
+			&::after {
+				border:     3px solid var(--theme-ui-white);
+				
+				opacity:    .3;
+				
+				filter:     blur(.075rem) contrast(2) brightness(1.5);
+				mask-image: linear-gradient(-20deg, transparent 0%, black 50%, transparent 100%);
 			}
 			
 			.glass-border {
+				position:       absolute;
+				box-sizing:     border-box;
+				
+				width:          100%;
+				height:         100%;
+				inset:          0;
+				overflow:       visible;
+				
+				border-radius:  inherit;
 				mix-blend-mode: overlay;
-				box-shadow:     inset 0 0 4px rgba(255 255 255 / .75);
-			}
-			
-			.glass-filter {
-				background:      linear-gradient(to bottom, rgba(from var(--theme-icon-hightlight-container) r g b / .25) 0%, rgba(from var(--theme-icon-hightlight-container) r g b / .5) 100%);
-				backdrop-filter: brightness(.85) contrast(1.025);
+				
+				box-shadow:     inset 0 0 3px 5px rgba(255 255 255 /.15);
+				filter:         blur(1px) contrast(1.025);
+				opacity:        .15;
+				
+				pointer-events: none !important;
+				z-index:        500 !important;
 			}
 			
 			.glass-specular {
+				position:       absolute;
+				box-sizing:     border-box;
+				
+				width:          calc(100% + 1px);
+				height:         calc(100% + 1px);
+				inset:          0;
+				overflow:       visible;
+				
+				border:         1px solid light-dark(rgb(211 216 222 / 0.5), rgb(102 119 140 / 0.4));
+				border-radius:  inherit;
 				mix-blend-mode: overlay;
-				box-shadow:     inset 1px 1px 1px rgba(255 255 255 /.1);
+				
+				pointer-events: none !important;
+				z-index:        500 !important;
 			}
 			
 			.close-button {
@@ -780,8 +867,8 @@
 				}
 				
 				.current-icon-index {
-					position: relative;
-					width:    90%;
+					position:    relative;
+					width:       90%;
 					user-select: none;
 					
 					p {
@@ -800,7 +887,7 @@
 					transform:      translateY(3.5rem);
 					
 					pointer-events: all;
-					user-select: none;
+					user-select:    none;
 					
 					.prev-icon, .next-icon {
 						cursor:  pointer;
@@ -851,6 +938,7 @@
 					&.top {
 						transform: translateY(.8rem);
 					}
+					
 					&.bottom {
 						transform: translateY(4.1rem);
 					}
@@ -884,7 +972,7 @@
 					
 					z-index:         500 !important;
 					
-					user-select: none;
+					user-select:     none;
 					
 					.action {
 						display:         flex;
@@ -953,7 +1041,7 @@
 					height:        10rem;
 					box-sizing:    border-box;
 					
-					background:    rgba(from var(--theme-ui-header) r g b / .6);
+					background:    rgba(from var(--theme-ui-header) r g b / .8);
 					border:        1px solid rgba(from var(--theme-ui-line) r g b / .5);
 					border-radius: .5rem;
 					
@@ -1062,27 +1150,12 @@
 	}
 	
 	.brand-icons-sec {
-		position: relative;
+		position:    relative;
+		user-select: none;
 		
 		.icons {
-			display:         grid;
-			justify-content: space-between;
+			display: grid;
 		}
-	}
-	
-	.background-fx {
-		position:         absolute;
-		bottom:           -18rem;
-		left:             -4rem;
-		content:          '';
-		background-image: linear-gradient(-20deg, var(--theme-ui-background) 0%, color-mix(var(--theme-ui-background), var(--theme-color-primary) 25%) 100%);
-		height:           100vh;
-		width:            125vw;
-		filter:           blur(12rem);
-		opacity:          .2;
-		
-		z-index:          1 !important;
-		pointer-events:   none !important;
 	}
 	
 	.pagination-actions {
@@ -1092,10 +1165,8 @@
 		flex-flow:       row nowrap;
 		align-items:     center;
 		justify-content: center;
-		gap:             .5rem;
 		
 		margin-top:      1.75rem;
-		width:           100%;
 		
 		user-select:     none !important;
 		z-index:         500;
@@ -1128,18 +1199,17 @@
 		}
 		
 		.action {
-			display:          flex;
-			align-items:      center;
-			justify-content:  center;
-			width:            3rem;
-			height:           3rem;
+			display:         flex;
+			align-items:     center;
+			justify-content: center;
+			width:           3rem;
+			height:          3rem;
 			
-			font-family:      'Bricolage Grotesque Variable', sans-serif;
-			font-size:        1.35rem;
-			font-weight:      900;
+			font-family:     'Bricolage Grotesque Variable', sans-serif;
+			font-size:       1.35rem;
+			font-weight:     900;
 			
-			background-image: var(--theme-ui-gradient-bg);
-			border-radius:    .95rem;
+			border-radius:   .95rem;
 			
 			&.current-page {
 				transform: scale(1.1);
@@ -1171,23 +1241,26 @@
 	}
 	
 	.sort-action {
-		display:          inline-flex;
-		align-items:      center;
-		justify-content:  center;
-		gap:              .25rem;
+		display:         inline-flex;
+		align-items:     center;
+		justify-content: center;
+		gap:             .25rem;
 		
-		padding:          .5rem .8rem;
+		width:           fit-content;
+		height:          fit-content;
 		
-		background-image: var(--theme-ui-gradient-bg);
-		border-radius:    .75rem;
+		padding:         .5rem .8rem;
 		
-		font-size:        .9rem;
-		font-weight:      650;
+		border-radius:   .75rem;
 		
-		cursor:           pointer;
+		font-size:       .9rem;
+		font-weight:     650;
+		text-wrap: nowrap;
 		
-		transform:        scale(1);
-		z-index:          500;
+		cursor:          pointer;
+		
+		transform:       scale(1);
+		z-index:         500;
 		
 		svg {
 			width:  1.35rem;
@@ -1204,16 +1277,16 @@
 	}
 	
 	.content-header {
-		display:         flex;
-		flex-flow:       row nowrap;
-		align-items:     flex-end;
-		justify-content: space-between;
+		height:          fit-content;
+		width:           100%;
+		margin-top:      1rem;
 		
-		padding-bottom:  2rem;
 		user-select:     none;
 		z-index:         500;
 		
 		.text {
+			z-index: 500;
+			
 			.title {
 				background-image: var(--theme-text-gradient);
 				background-clip:  text;
@@ -1223,20 +1296,47 @@
 			}
 			
 			.subtitle {
-				color:       var(--theme-text-third);
 				font-weight: 500;
+				
+				color:       var(--theme-text-third);
 			}
+		}
+		
+		&::before {
+			content:          '';
+			position:         absolute;
+			mix-blend-mode:   soft-light;
 			
-			z-index: 500;
+			top:              -7.5vh;
+			right:            -10vw;
+			width:            120vw;
+			height:           40vh;
+			
+			background-image: linear-gradient(to bottom, var(--theme-color-primary) 0%, transparent 100%);
+			transform:        rotate(3deg);
+			filter:           blur(6rem);
+			
+			z-index:          1;
 		}
 		
 		.actions {
 			display:         flex;
-			flex-flow:       column nowrap;
+			flex-flow:       column wrap;
 			align-items:     flex-end;
 			justify-content: flex-end;
 			gap:             .5rem;
+			
+			width: fit-content;
+			
 			z-index:         500;
+			
+			.sorting, .filter {
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				justify-content: flex-end;
+				gap: .5rem;
+			}
 			
 			.sort-action.inactive {
 				filter:  grayscale(.75);

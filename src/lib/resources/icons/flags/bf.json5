@@ -1,13 +1,13 @@
 {
-	country: 'Burkina Faso',
-	flags: [
-		{
-			svg: 'bf.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Burkina Faso',
+    flags: [
+        {
+            path: 'bf.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

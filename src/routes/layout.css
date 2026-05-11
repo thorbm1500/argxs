@@ -5,76 +5,55 @@
 @import '../lib/resources/other/typography/lexend/fonts.css';
 @import '../lib/resources/other/typography/funnel/fonts.css';
 @import '../lib/resources/other/typography/jetbrains-mono/fonts.css';
+@import '$lib/styles/glass-button.css';
 @import 'tailwindcss';
 
-/* Transitions */
-@variant not-motion-reduce {
-	a, button, .button {
-		transition-duration:        300ms;
-		transition-timing-function: cubic-bezier(0.073, 1.065, 0.509, 0.893);
-		
-		&:hover {
-			transition-duration: 15ms;
-		}
-		
-		&:active {
-			transition-duration: 0ms;
-		}
-		
-		&:focus {
-			transition-duration: 100ms;
-		}
-		
-		&:hover, &:active, &:focus {
-			transition-timing-function: linear(0, 0.002 0.3%, 0.01 0.7%, 0.022 1.1%, 0.037 1.5%, 0.07 2.3%, 0.177 4.7%, 0.228 5.9%, 0.291 7.5%, 0.349 9.1%, 0.4 10.6%, 0.446 12.1%, 0.491 13.7%, 0.533 15.3%, 0.578 17.2%, 0.619 19.1%, 0.658 21.1%, 0.694 23.2%, 0.728 25.4%, 0.76 27.7%, 0.787 30%, 0.814 32.5%, 0.837 35%, 0.859 37.7%, 0.879 40.5%, 0.896 43.4%, 0.912 46.5%, 0.926 49.8%, 0.939 53.3%, 0.95 57%, 0.968 65.1%, 0.98 74.5%, 0.989 85.8%, 1);
-		}
-	}
-}
-
 :root {
-	button {
+	/* Transitions */
+	@variant not-motion-reduce {
+		.glass-button, .glass-button::before, .glass-button::after,
+		.theme-transition-all, .theme-transition-all::before, .theme-transition-all::after {
+			transition-duration:        300ms;
+			transition-timing-function: cubic-bezier(0.073, 1.065, 0.509, 0.893);
+			
+			&:hover {
+				transition-duration: 15ms;
+			}
+			
+			&:hover, &:active, &:focus {
+				transition-timing-function: linear(0, 0.002 0.3%, 0.01 0.7%, 0.022 1.1%, 0.037 1.5%, 0.07 2.3%, 0.177 4.7%, 0.228 5.9%, 0.291 7.5%, 0.349 9.1%, 0.4 10.6%, 0.446 12.1%, 0.491 13.7%, 0.533 15.3%, 0.578 17.2%, 0.619 19.1%, 0.658 21.1%, 0.694 23.2%, 0.728 25.4%, 0.76 27.7%, 0.787 30%, 0.814 32.5%, 0.837 35%, 0.859 37.7%, 0.879 40.5%, 0.896 43.4%, 0.912 46.5%, 0.926 49.8%, 0.939 53.3%, 0.95 57%, 0.968 65.1%, 0.98 74.5%, 0.989 85.8%, 1);
+			}
+		}
+		
+		a, button, .button, .theme-transition {
+			transition-duration:        300ms;
+			transition-timing-function: cubic-bezier(0.073, 1.065, 0.509, 0.893);
+			
+			&:hover {
+				transition-duration: 15ms;
+			}
+			
+			&:active {
+				transition-duration: 0ms;
+			}
+			
+			&:focus {
+				transition-duration: 100ms;
+			}
+			
+			&:hover, &:active, &:focus {
+				transition-timing-function: linear(0, 0.002 0.3%, 0.01 0.7%, 0.022 1.1%, 0.037 1.5%, 0.07 2.3%, 0.177 4.7%, 0.228 5.9%, 0.291 7.5%, 0.349 9.1%, 0.4 10.6%, 0.446 12.1%, 0.491 13.7%, 0.533 15.3%, 0.578 17.2%, 0.619 19.1%, 0.658 21.1%, 0.694 23.2%, 0.728 25.4%, 0.76 27.7%, 0.787 30%, 0.814 32.5%, 0.837 35%, 0.859 37.7%, 0.879 40.5%, 0.896 43.4%, 0.912 46.5%, 0.926 49.8%, 0.939 53.3%, 0.95 57%, 0.968 65.1%, 0.98 74.5%, 0.989 85.8%, 1);
+			}
+		}
+		
+		--theme-cubic-out:      cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		--theme-transition-off: all 175ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
+		--theme-transition-on:  all 100ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+	}
+	
+	button,a {
 		cursor: pointer;
 	}
-	
-	@variant not-motion-reduce {
-		
-		/* Default */
-		--_default-timing-function:  ease-in;
-		
-		/* Not actually instant, but 'instant-like'. `transition: none` should be used in cases where instant transitions are needed. */
-		--transition-instant:        25ms var(--_default-timing-function);
-		--transition-fast:           100ms var(--_default-timing-function);
-		--transition-normal:         200ms var(--_default-timing-function);
-		--transition-slow:           400ms var(--_default-timing-function);
-		
-		/* Hover */
-		--_hover-timing-function:    ease-out;
-		
-		--transition-instant-hover:  25ms var(--_hover-timing-function);
-		--transition-fast-hover:     50ms var(--_hover-timing-function);
-		--transition-normal-hover:   75ms var(--_hover-timing-function);
-		--transition-slow-hover:     150ms var(--_hover-timing-function);
-		
-		/* Active */
-		--_active-timing-function:   ease-out;
-		
-		--transition-instant-active: 25ms var(--_active-timing-function);
-		--transition-fast-active:    50ms var(--_active-timing-function);
-		--transition-normal-active:  75ms var(--_active-timing-function);
-		--transition-slow-active:    150ms var(--_active-timing-function);
-		
-		/* Focus */
-		--_focus-timing-function:    ease;
-		
-		--transition-instant-focus:  50ms var(--_focus-timing-function);
-		--transition-fast-focus:     100ms var(--_focus-timing-function);
-		--transition-normal-focus:   150ms var(--_focus-timing-function);
-		--transition-slow-focus:     300ms var(--_focus-timing-function);
-	}
-	
-	--theme-cubic-out:      cubic-bezier(0.215, 0.610, 0.355, 1.000);
-	--theme-transition-off: all 175ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
-	--theme-transition-on:  all 100ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
 }
 
 /* Light Theme */
@@ -113,7 +92,7 @@
 	--theme-sidebar-tag-background:       #E6EAEC;
 	--theme-sidebar-tag-hover-background: #DDE2E5;
 	
-	--theme-icon-hightlight-container:    #F7FAFF;
+	--theme-icon-highlight-container:    #F7FAFF;
 	
 	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, #222234 80%), linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
 	--theme-text-rgb-gradient:            linear-gradient(90deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
@@ -151,7 +130,7 @@
 	--theme-sidebar-tag-background:       #232631;
 	--theme-sidebar-tag-hover-background: #1C1E26;
 	
-	--theme-icon-hightlight-container:    #1B1D26;
+	--theme-icon-highlight-container:    #1B1D26;
 	
 	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #B8C4D2 20%, #F7F9FC 75%);
 	--theme-text-rgb-gradient:            linear-gradient(90.7deg, rgb(255, 253, 218) 1.9%, rgb(246, 210, 255) 39.3%, rgb(152, 222, 254) 64.7%, rgb(251, 255, 210) 100.8%);
@@ -254,42 +233,5 @@ body {
 		stroke-color: var(--theme-color-primary);
 		fill-color:   var(--theme-color-primary);
 		color:        var(--theme-color-primary);
-	}
-}
-
-.theme-grid-content-layout {
-	/* Below is a workaround of the inspection error "Division should be a number", present when inlining the value directly in the statement
-	
-		--divisor: 11rem;
-		
-		noinspection CssInvalidFunction
-		grid-template-columns: repeat(calc((100vw - 11rem) / var(--divisor)), 11rem);
-	*/
-	
-	/* Desktop & Tablet */
-	@media (width >= 44rem) {
-		.icons {
-			--divisor:             11rem;
-			
-			/*noinspection CssInvalidFunction*/
-			grid-template-columns: repeat(calc((100vw - 11rem) / var(--divisor)), 11rem);
-		}
-	}
-	
-	/* Phone */
-	@media (width < 44rem) {
-		.icons {
-			--divisor:             10rem;
-			
-			/*noinspection CssInvalidFunction*/
-			grid-template-columns: repeat(calc((100vw - 8rem) / var(--divisor)), 11rem);
-		}
-	}
-	
-	user-select: none;
-	
-	.icons {
-		display: grid;
-		row-gap: 1.65rem;
 	}
 }

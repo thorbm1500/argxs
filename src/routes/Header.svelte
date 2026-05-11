@@ -44,14 +44,6 @@
 				.actions {
 					gap: 1rem;
 					
-					.github svg {
-						margin-right: 0.25rem;
-					}
-					
-					.desktop-action {
-						visibility: visible;
-					}
-					
 					.phone-action {
 						visibility: hidden;
 					}
@@ -73,15 +65,29 @@
 				.actions {
 					gap: 0.75rem;
 					
-					.desktop-action {
-						visibility: hidden !important;
-						position:   absolute;
-					}
-					
 					.phone-action {
 						visibility: visible;
 					}
 				}
+			}
+			
+			&::before {
+				position:     fixed;
+				width:        100vw;
+				height:       2.85rem;
+				top:          3.5rem;
+				left:         0;
+				padding:      .25rem .5rem;
+				background:   var(--theme-ui-header);
+				color:        var(--theme-text-primary);
+				text-justify: inter-character;
+				text-align:   center;
+				
+				content:      'This site is not optimized for mobile usage. Visit on Desktop for the full experience.';
+				font-size:    .85rem;
+				font-weight:  600;
+				
+				z-index:      1010101001001 !important;
 			}
 		}
 	}

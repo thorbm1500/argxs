@@ -5,13 +5,12 @@ import { Resources } from '$lib/server/Resources';
 import MetricsHandler from '$lib/server/MetricsHandler';
 import Database from '$lib/server/Database';
 import { SiteCookies } from '$lib/server/Definitions';
+import { isCrawler } from '$lib/server/utilities';
 
 const limiter = new RateLimiter({ IP: [1, '100ms'] });
 const metricsHandler = new MetricsHandler();
 
-export const VERSION: string = await Bun.file('./package.json')
-	.json()
-	.then((pkg) => pkg.version);
+export const VERSION: string = await Bun.file('./package.json').json().then((pkg) => pkg.version);
 export const RESOURCES: Resources = new Resources();
 
 // noinspection JSUnusedGlobalSymbols
@@ -24,6 +23,9 @@ export const init: ServerInit = async () => {
 };
 
 export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
+	// Attempt to forcefully deny access for crawlers.
+	if (isCrawler(event.request.headers)) return error(403);
+
 	if (await limiter.isLimited(event).catch(() => true)) {
 		return building ? resolve(event) : error(429);
 	}
@@ -33,8 +35,7 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 
 	event.locals.requests = metricsHandler.getVisitorMetrics();
 
-	// Ignored purposefully
-	// noinspection ES6MissingAwait
+	// noinspection ES6MissingAwait - Ignored purposefully
 	metricsHandler.process(event);
 
 	return resolve(event);

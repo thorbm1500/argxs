@@ -1,13 +1,13 @@
 {
-	country: 'Gambia',
-	flags: [
-		{
-			svg: 'gm.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Gambia',
+    flags: [
+        {
+            path: 'gm.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

@@ -1,13 +1,13 @@
 {
-	country: 'Bahrain',
-	flags: [
-		{
-			svg: 'bh.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Bahrain',
+    flags: [
+        {
+            path: 'bh.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

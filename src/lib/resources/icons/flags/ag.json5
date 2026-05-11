@@ -1,13 +1,13 @@
 {
-	country: 'Antigua and Barbuda',
-	flags: [
-		{
-			svg: 'ag.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Antigua and Barbuda',
+    flags: [
+        {
+            path: 'ag.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

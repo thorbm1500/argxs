@@ -1,13 +1,13 @@
 {
-	country: 'New Zealand',
-	flags: [
-		{
-			svg: 'nz.svg',
-			date_added: '2026/4/27',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'New Zealand',
+    flags: [
+        {
+            path: 'nz.svg',
+            date_added: '2026/4/27',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

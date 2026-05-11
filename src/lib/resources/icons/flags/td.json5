@@ -1,13 +1,13 @@
 {
-	country: 'Chad',
-	flags: [
-		{
-			svg: 'td.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Chad',
+    flags: [
+        {
+            path: 'td.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

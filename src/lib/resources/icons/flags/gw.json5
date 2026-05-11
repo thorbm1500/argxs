@@ -1,13 +1,13 @@
 {
-	country: 'Guinea-Bissau',
-	flags: [
-		{
-			svg: 'gw.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Guinea-Bissau',
+    flags: [
+        {
+            path: 'gw.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

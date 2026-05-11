@@ -57,11 +57,12 @@
 		padding-bottom:  2rem;
 		user-select:     none;
 		
+		z-index: 500;
+		
 		.text {
+			z-index: 500;
+			
 			.title {
-				font-family:      'Funnel Display', sans-serif;
-				font-weight:      900;
-				
 				background-image: var(--theme-text-gradient);
 				background-clip:  text;
 				color:            transparent;
@@ -74,6 +75,23 @@
 				
 				color:       var(--theme-text-third);
 			}
+		}
+		
+		&::before {
+			content: '';
+			position: absolute;
+			mix-blend-mode: soft-light;
+			
+			top: -7.5vh;
+			right: -10vw;
+			width: 120vw;
+			height: 40vh;
+			
+			background-image: linear-gradient(to bottom, var(--theme-color-primary) 0%, transparent 100%);
+			transform: rotate(3deg);
+			filter: blur(6rem);
+			
+			z-index: 1;
 		}
 	}
 </style>

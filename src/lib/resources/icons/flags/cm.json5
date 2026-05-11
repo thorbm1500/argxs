@@ -1,13 +1,13 @@
 {
-	country: 'Cameroon',
-	flags: [
-		{
-			svg: 'cm.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Cameroon',
+    flags: [
+        {
+            path: 'cm.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

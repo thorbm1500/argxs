@@ -1,13 +1,13 @@
 {
-	country: 'Burundi',
-	flags: [
-		{
-			svg: 'bi.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Burundi',
+    flags: [
+        {
+            path: 'bi.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

@@ -1,18 +1,22 @@
-import type { Brand, BrandIcon, ChangeLog, ColorCombo, ColorCombos, Flag } from '$lib/components/interfaces';
+import type { Brand, BrandIcon, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon, Source } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
 
 export class Resources {
-	readonly BRAND_ICONS: BrandIcon[] = [];
-	readonly BRAND_ICONS_SORTED_NEW: BrandIcon[] = [];
-	readonly BRAND_ICONS_SORTED_AtoZ: BrandIcon[] = [];
+	readonly BRAND_ICONS: ResourceIcon[] = [];
+	readonly BRAND_ICONS_SORTED_NEW: ResourceIcon[] = [];
+	readonly BRAND_ICONS_SORTED_AtoZ: ResourceIcon[] = [];
 	BRAND_ICON_AMOUNT: number = 0;
 	BRAND_LOGO_AMOUNT: number = 0;
 	BRAND_TOTAL_AMOUNT: number = 0;
 
-	readonly FLAG_ICONS: Flag[] = [];
+	readonly FLAG_ICONS: ResourceIcon[] = [];
+	readonly FLAG_ICONS_SORTED_NEW: ResourceIcon[] = [];
+	readonly FLAG_ICONS_SORTED_AtoZ: ResourceIcon[] = [];
+
 	FLAG_ICON_AMOUNT: number = 0;
+	FLAG_TOTAL_AMOUNT: number = 0;
 
 	readonly COLOR_COMBOS: ColorCombo[] = [];
 	COLOR_COMBO_AMOUNT: number = 0;
@@ -35,32 +39,35 @@ export class Resources {
 
 		for (const brand of await fs.readdir(path)) {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
+
 			for (const icon of current.assets) {
-				icon.brand = current.name;
+				const resource = {
+					name: current.name,
+					href: current.href,
+					type: icon.type,
+					last_updated: this.getLatestDateFromIcon(icon),
+					default: icon.default,
+					variable: icon.variable !== undefined ? icon.variable : []
+				} as ResourceIcon;
+
 				let iconAmount = 1;
 
-				if (icon.dark) iconAmount++;
-				if (icon.monochrome_light) iconAmount++;
-				if (icon.monochrome_dark) iconAmount++;
-				if (icon.variable !== undefined) iconAmount += icon.variable.length;
-				else icon.variable = [];
+				if (icon.dark) {
+					resource.dark = icon.dark;
+					iconAmount++;
+				}
 
-				icon.amount = iconAmount;
+				iconAmount += resource.variable.length;
 
-				if (icon.type === 'icon') this.BRAND_ICON_AMOUNT += iconAmount;
-				else if (icon.type === 'logo') this.BRAND_LOGO_AMOUNT += iconAmount;
+				if (resource.type === 'icon') this.BRAND_ICON_AMOUNT += iconAmount;
+				else if (resource.type === 'logo') this.BRAND_LOGO_AMOUNT += iconAmount;
 				this.BRAND_TOTAL_AMOUNT += iconAmount;
 
-				icon.last_updated = this.getLatestDateFromIcon(icon);
-
-				if (current.href && icon.href === undefined) icon.href = current.href;
-				if (icon.name === undefined) icon.name = current.name;
-
-				this.BRAND_ICONS.push(icon);
+				this.BRAND_ICONS.push(resource);
 			}
 		}
 
-		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => this.getLatestDateFromIcon(b) - this.getLatestDateFromIcon(a)));
+		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => b.last_updated - a.last_updated));
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
@@ -74,18 +81,12 @@ export class Resources {
 			let current = Date.parse(icon.dark.date_added);
 			if (current > result) result = current;
 		}
-		if (icon.monochrome_light?.date_added) {
-			let current = Date.parse(icon.monochrome_light.date_added);
-			if (current > result) result = current;
-		}
-		if (icon.monochrome_dark?.date_added) {
-			let current = Date.parse(icon.monochrome_dark.date_added);
-			if (current > result) result = current;
-		}
-		for (const variable of icon.variable) {
-			if (!variable.date_added) continue;
-			let current = Date.parse(variable.date_added);
-			if (current > result) result = current;
+		if (icon.variable) {
+			for (const variable of icon.variable) {
+				if (!variable.date_added) continue;
+				let current = Date.parse(variable.date_added);
+				if (current > result) result = current;
+			}
 		}
 
 		return result;
@@ -97,16 +98,37 @@ export class Resources {
 		const dir: string[] = await fs.readdir(path);
 
 		for (const flag of dir) {
-			this.FLAG_ICONS.push(Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag);
+			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
+			this.FLAG_ICON_AMOUNT++;
+
+			const resource: ResourceIcon = {
+				name: current.country,
+				type: 'other',
+				last_updated: 0,
+				default: current.flags[0],
+				variable: []
+			} as ResourceIcon;
+
+			const first: string = resource.default.path;
+			let lastUpdated = 0;
+
+			for (const flag of current.flags) {
+				const dateAdded = Date.parse(flag.date_added);
+				if (dateAdded > lastUpdated) lastUpdated = dateAdded;
+
+				if (flag.path !== first) {
+					resource.variable.push(flag);
+					this.FLAG_ICON_AMOUNT++;
+				}
+			}
+
+			this.FLAG_ICONS.push(resource);
 		}
 
-		let amount = 0;
-		for (const flag of this.FLAG_ICONS) {
-			if (!flag.flags) continue;
-			amount += flag.flags.length;
-		}
+		this.FLAG_TOTAL_AMOUNT = this.FLAG_ICONS.length;
 
-		this.FLAG_ICON_AMOUNT = amount;
+		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => b.last_updated - a.last_updated));
+		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
 	private async loadColorCombos(): Promise<void> {

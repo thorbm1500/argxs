@@ -1,13 +1,13 @@
 {
-	country: 'Croatia',
-	flags: [
-		{
-			svg: 'hr.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Croatia',
+    flags: [
+        {
+            path: 'hr.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

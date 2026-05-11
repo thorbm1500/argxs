@@ -1,13 +1,13 @@
 {
-	country: 'Republic of the Congo',
-	flags: [
-		{
-			svg: 'cg.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Republic of the Congo',
+    flags: [
+        {
+            path: 'cg.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }

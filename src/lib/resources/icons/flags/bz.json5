@@ -1,13 +1,13 @@
 {
-	country: 'Belize',
-	flags: [
-		{
-			svg: 'bz.svg',
-			date_added: '2026/4/14',
-			source: {
-				name: 'Wikipedia',
-				href: 'https://en.wikipedia.org'
-			}
-		}
-	]
+    country: 'Belize',
+    flags: [
+        {
+            path: 'bz.svg',
+            date_added: '2026/4/14',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+    ],
 }
