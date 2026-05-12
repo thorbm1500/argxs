@@ -1,0 +1,17 @@
+{
+	name: 'Home',
+	href: 'https://home.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'home-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	name: 'Restaurant Noma',
+	href: 'https://www.noma.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'noma-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Restaurant Noma',
+					href: 'https://noma.dk'
+				}
+			},
+			dark: {
+				path: 'noma-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Restaurant Noma',
+					href: 'https://noma.dk'
+				}
+			}
+		}
+	]
+}

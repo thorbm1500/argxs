@@ -1,0 +1,21 @@
+{
+    country: 'Poland',
+    flags: [
+        {
+            path: 'pl.svg',
+            date_added: '2026/5/12',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+        {
+            path: 'pl-state.svg',
+            date_added: '2026/5/12',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        }
+    ],
+}

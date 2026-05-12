@@ -1,0 +1,25 @@
+{
+	name: 'Ørsted',
+	href: 'https://www.orsted.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'orsted-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'orsted-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

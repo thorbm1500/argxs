@@ -3,7 +3,7 @@
 #### 2026-05-11
 
 ## Added
-- **[icons#flags](https://argxs.com/icons/flags): 12 new flag icons**
+- **[icons#flags](https://argxs.com/icons/flags): 12 new flag icons:**
   - **[New]** Niger
   - **[New]** Nigeria
   - **[New]** North Korea

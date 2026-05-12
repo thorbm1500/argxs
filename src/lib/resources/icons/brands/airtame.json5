@@ -1,0 +1,25 @@
+{
+	name: 'Airtame',
+	href: 'https://www.airtame.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'airtame-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'airtame-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	name: 'Hiper',
+	href: 'https://www.hiper.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'hiper-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'hiper-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

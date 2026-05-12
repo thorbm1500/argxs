@@ -1,0 +1,17 @@
+{
+	name: 'Lego',
+	href: 'https://lego.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'lego-icon.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

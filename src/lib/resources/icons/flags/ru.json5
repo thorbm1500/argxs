@@ -1,0 +1,13 @@
+{
+    country: 'Russia',
+    flags: [
+        {
+            path: 'ru.svg',
+            date_added: '2026/5/12',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        }
+    ]
+}

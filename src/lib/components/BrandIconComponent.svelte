@@ -1,8 +1,14 @@
 <!--svelte-ignore state_referenced_locally-->
+<script module lang="ts">
+	let registered: boolean = false;
+	let scrollY: number = $state(0);
+</script>
+
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import type { Icon, PageTheme, HighlightIcon, ResourceIcon } from '$lib/components/interfaces';
 	import type { Attachment } from 'svelte/attachments';
+	import { onMount } from 'svelte';
 	
 	let { highlightedIcon = $bindable(), theme = $bindable(), type, icon }: { highlightedIcon: HighlightIcon | undefined, theme: PageTheme, type: 'brands' | 'flags', icon: ResourceIcon } =
 		$props();
@@ -95,7 +101,7 @@
 		element.appendChild(mouseBlurContainer);
 		
 		const mouseMoveEvent: EventListener = (event: Event) => {
-			mouseBlurElement.style.top = (event as MouseEvent).y + 'px';
+			mouseBlurElement.style.top = ((event as MouseEvent).y + $state.eager(scrollY)) + 'px';
 			mouseBlurElement.style.left = (event as MouseEvent).x + 'px';
 		};
 		
@@ -108,6 +114,21 @@
 			mouseBlurContainer.remove();
 		};
 	};
+	
+	onMount(() => {
+		if (registered) return;
+		registered = true;
+		
+		const mainContainer: HTMLElement | null = document.getElementById('main-container');
+		
+		mainContainer?.addEventListener('scroll', () => {
+			scrollY = mainContainer?.scrollTop ?? 0;
+		});
+		
+		setInterval(() => {
+			scrollY = mainContainer?.scrollTop ?? 0;
+		}, 1000);
+	});
 </script>
 
 <div id="brand-icon" style="position:absolute;width:100%;height:100%;background:white;border-radius:inherit;" hidden></div>

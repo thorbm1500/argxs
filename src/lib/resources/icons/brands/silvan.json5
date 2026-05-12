@@ -1,0 +1,25 @@
+{
+	name: 'Silvan',
+	href: 'https://silvan.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'silvan-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'silvan-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

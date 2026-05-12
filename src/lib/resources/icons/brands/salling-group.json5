@@ -1,0 +1,25 @@
+{
+	name: 'Salling Group',
+	href: 'https://www.sallinggroup.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'salling-group-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'salling-group-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

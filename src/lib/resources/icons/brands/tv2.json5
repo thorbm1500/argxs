@@ -1,0 +1,27 @@
+{
+	name: 'TV 2',
+	href: 'https://www.tv2.dk',
+	assets: [
+		{
+			name: 'TV 2 Kosmopol',
+			href: 'https://www.tv2kosmopol.dk',
+			type: 'logo',
+			default: {
+				path: 'tv2-kosmopol-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'tv2-kosmopol-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,22 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="-35 -30 200 100">
+    <clipPath id="argxs_solomon_islands_attr_1">
+        <path d="M-35-30h200V70H-35z"/>
+    </clipPath>
+    <path fill="#215b33" d="M-35-30h200V70H-35z"/>
+    <path d="M-35 70V-30h200" fill="#0051BA"/>
+    <path d="M165-30L-35 70" stroke-width="9" stroke="#FCD116" clip-path="url(#argxs_solomon_islands_attr_1)"/>
+    <g id="argxs_solomon_islands_attr_2" fill="#FFF" transform="scale(10)">
+        <g id="argxs_solomon_islands_attr_3">
+            <path id="argxs_solomon_islands_attr_4" d="M0-1l-.309.951.476.155z"/>
+            <use xlink:href="#argxs_solomon_islands_attr_4" transform="scale(-1 1)"/>
+        </g>
+        <use xlink:href="#argxs_solomon_islands_attr_3" transform="rotate(72)"/>
+        <use xlink:href="#argxs_solomon_islands_attr_3" transform="rotate(288)"/>
+        <use xlink:href="#argxs_solomon_islands_attr_3" transform="rotate(144)"/>
+        <use xlink:href="#argxs_solomon_islands_attr_3" transform="rotate(216)"/>
+    </g>
+    <use xlink:href="#argxs_solomon_islands_attr_2" transform="matrix(1 0 0 1 19.741054 -16.92013)"/>
+    <use xlink:href="#argxs_solomon_islands_attr_2" transform="matrix(1 0 0 1 19.741054 16.92013)"/>
+    <use xlink:href="#argxs_solomon_islands_attr_2" transform="matrix(1 0 0 1 -19.741054 16.92013)"/>
+    <use xlink:href="#argxs_solomon_islands_attr_2" transform="matrix(1 0 0 1 -19.741054 -16.92013)"/>
+</svg>

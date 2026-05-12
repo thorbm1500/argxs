@@ -1,0 +1,25 @@
+{
+	name: 'Telenor',
+	href: 'https://telenor.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'telenor-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'telenor-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

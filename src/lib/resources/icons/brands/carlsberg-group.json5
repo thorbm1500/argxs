@@ -1,0 +1,25 @@
+{
+	name: 'Carlsberg Group',
+	href: 'https://carlsbergbritvic.co.uk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'carlsberg-group-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'carlsberg-group-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

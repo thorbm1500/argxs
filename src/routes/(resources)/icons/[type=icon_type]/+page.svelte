@@ -310,24 +310,19 @@
 
 <section class="content-header">
 	<div class="text">
-		{#if iconType === 'brands'}
-			<h1 class="title">
-				Brand Icons
-			</h1>
-			<div class="subtitle">
-				<p>argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
-				   logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong
-						style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.</p>
-			</div>
-		{:else}
-			<h1 class="title">
-				Flag Icons
-			</h1>
-			<div class="subtitle">
-				<p>argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different
-				   countries, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> different flags.</p>
-			</div>
-		{/if}
+		<h1 class="title">
+			{iconType === 'brands' ? 'Brand' : 'Flag'} Icons
+		</h1>
+		<div class="subtitle">
+				{#if iconType === 'brands'}
+					argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
+					logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong
+					style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.
+				{:else}
+					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different
+					countries, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> different flags.
+				{/if}
+		</div>
 	</div>
 	<div class="actions">
 		<div class="sorting">
@@ -474,6 +469,34 @@
 		}}">
 		Items: {pagOffset}
 	</button>
+</div>
+
+<div class="resource-info">
+	<h1 class="title">
+		Good to know
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+			<path d="M8.99962 14C8.99962 14 10.3121 15.5 12.4996 15.5C14.6871 15.5 15.9996 14 15.9996 14M15.2496 9H15.2596M9.74962 9H9.75962M12.4996 20C17.194 20 20.9996 16.1944 20.9996 11.5C20.9996 6.80558 17.194 3 12.4996 3C7.8052 3 3.99962 6.80558 3.99962 11.5C3.99962 12.45 4.15547 13.3636 4.443 14.2166C4.55119 14.5376 4.60529 14.6981 4.61505 14.8214C4.62469 14.9432 4.6174 15.0286 4.58728 15.1469C4.55677 15.2668 4.48942 15.3915 4.35472 15.6408L2.71906 18.6684C2.48575 19.1002 2.36909 19.3161 2.3952 19.4828C2.41794 19.6279 2.50337 19.7557 2.6288 19.8322C2.7728 19.9201 3.01692 19.8948 3.50517 19.8444L8.62619 19.315C8.78127 19.299 8.85881 19.291 8.92949 19.2937C8.999 19.2963 9.04807 19.3029 9.11586 19.3185C9.18478 19.3344 9.27145 19.3678 9.44478 19.4345C10.3928 19.7998 11.4228 20 12.4996 20ZM15.7496 9C15.7496 9.27614 15.5258 9.5 15.2496 9.5C14.9735 9.5 14.7496 9.27614 14.7496 9C14.7496 8.72386 14.9735 8.5 15.2496 8.5C15.5258 8.5 15.7496 8.72386 15.7496 9ZM10.2496 9C10.2496 9.27614 10.0258 9.5 9.74962 9.5C9.47348 9.5 9.24962 9.27614 9.24962 9C9.24962 8.72386 9.47348 8.5 9.74962 8.5C10.0258 8.5 10.2496 8.72386 10.2496 9Z" />
+		</svg>
+	</h1>
+	<div class="subtitle">
+		<ul>
+			<li>
+				All SVGs are manually cleaned up and optimized, before being showcased. This is done for 2 reasons:<br>
+			    Ensuring no SVGs overlap and conflict due to having attributes with matching names, and for a hope of minimizing the amount of redundant data being transferred across the internet.
+			</li>
+			<li>
+				Embedding an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are directly embedded on the page, so they can be safely omitted.
+				<ul>
+					<li>
+						xmlns   | Fx. xmlns="http://www.w3.org/2000/svg"
+					</li>
+					<li>
+						version | Fx. version="1.1"
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 </div>
 
 <!--suppress CssUnusedSymbol -->
@@ -1256,7 +1279,7 @@
 		
 		font-size:       .9rem;
 		font-weight:     650;
-		text-wrap: nowrap;
+		text-wrap:       nowrap;
 		
 		cursor:          pointer;
 		
@@ -1278,12 +1301,12 @@
 	}
 	
 	.content-header {
-		height:          fit-content;
-		width:           100%;
-		margin-top:      1rem;
+		height:      fit-content;
+		width:       100%;
+		margin-top:  1rem;
 		
-		user-select:     none;
-		z-index:         500;
+		user-select: none;
+		z-index:     500;
 		
 		.text {
 			z-index: 500;
@@ -1297,8 +1320,8 @@
 			}
 			
 			.subtitle {
+				text-wrap: pretty;
 				font-weight: 500;
-				
 				color:       var(--theme-text-third);
 			}
 		}
@@ -1327,21 +1350,94 @@
 			justify-content: flex-end;
 			gap:             .5rem;
 			
-			width: fit-content;
+			width:           fit-content;
 			
 			z-index:         500;
 			
 			.sorting, .filter {
-				display: flex;
-				flex-flow: row nowrap;
-				align-items: center;
+				display:         flex;
+				flex-flow:       row nowrap;
+				align-items:     center;
 				justify-content: flex-end;
-				gap: .5rem;
+				gap:             .5rem;
 			}
 			
 			.sort-action.inactive {
 				filter:  grayscale(.75);
 				opacity: .5;
+			}
+		}
+	}
+	
+	.resource-info {
+		margin-top: 2.5rem;
+		
+		.title {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: flex-start;
+			gap: .25rem;
+
+			font-size: 2rem;
+			padding: .5rem 0;
+			margin-left: .25rem;
+			
+			user-select: none;
+			
+			svg {
+				width: 1.85rem;
+				height: 1.85rem;
+				transform: translateX(0) translateY(.15rem) scale(1) rotate(12.5deg);
+				
+				transition: color 150ms 400ms ease,
+					transform 600ms 500ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%,
+				1.352
+				25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
+				
+				&:hover {
+					color: var(--theme-color-success) !important;
+					transform: translateX(.1rem) translateY(-.125rem) scale(1.15) rotate(5deg);
+					transition: color 50ms ease,
+						transform 300ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%,
+					1.352
+					25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
+				}
+			}
+		}
+		
+		.subtitle {
+			text-wrap: pretty;
+			font-size: 1.05rem;
+			font-weight: 500;
+			color:       var(--theme-text-secondary);
+			
+			user-select: none;
+			
+			ul li {
+				max-width: 80%;
+				text-wrap: pretty;
+				list-style-position: outside;
+				list-style-type: square;
+				margin-left: 1.5rem;
+				margin-bottom: .75rem;
+				
+				user-select: none;
+				
+				ul li {
+					list-style-position: inside;
+					list-style-type: disc;
+					margin-left: 1.25rem;
+					margin-bottom: 0;
+					
+					font-family: 'JetBrainsMono', monospace;
+					font-size: .9rem;
+					white-space: pre;
+					
+					user-select: all;
+					
+					color:       var(--theme-text-third);
+				}
 			}
 		}
 	}

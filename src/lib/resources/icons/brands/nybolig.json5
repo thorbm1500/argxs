@@ -1,0 +1,25 @@
+{
+	name: 'Nybolig',
+	href: 'https://www.nybolig.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'nybolig-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'nybolig-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

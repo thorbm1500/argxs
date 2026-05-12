@@ -1,0 +1,21 @@
+{
+    country: 'Serbia',
+    flags: [
+        {
+            path: 'rs.svg',
+            date_added: '2026/5/12',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+        {
+            path: 'rs-state.svg',
+            date_added: '2026/5/12',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        }
+    ]
+}

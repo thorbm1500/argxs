@@ -1,0 +1,25 @@
+{
+	name: 'Vestas',
+	href: 'https://vestas.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'vestas-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'vestas-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

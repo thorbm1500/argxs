@@ -1,0 +1,17 @@
+{
+	name: 'OK',
+	href: 'https://www.ok.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'ok-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

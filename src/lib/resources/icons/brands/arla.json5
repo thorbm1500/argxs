@@ -1,0 +1,17 @@
+{
+	name: 'Arla',
+	href: 'https://www.arla.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'arla-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

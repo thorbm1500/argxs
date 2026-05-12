@@ -1,0 +1,17 @@
+{
+	name: 'Mastercard',
+	href: 'https://www.mastercard.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'mastercard-icon.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+	name: 'Danmarks Statistik',
+	href: 'https://www.dst.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'danmarks-statistik-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Restaurant Noma',
+					href: 'https://noma.dk'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	name: 'Dagbladet Information',
+	href: 'https://www.information.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'information-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'information-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

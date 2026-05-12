@@ -1,0 +1,25 @@
+{
+	name: 'Bilbasen',
+	href: 'https://www.bilbasen.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'bilbasen-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'bilbasen-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

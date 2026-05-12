@@ -1,0 +1,44 @@
+{
+	name: 'Zenegy',
+	href: 'https://zenegy.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'zenegy-icon.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Zenegy',
+					href: 'https://zenegy.com'
+				}
+			},
+			dark: {
+				path: 'zenegy-icon-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://zenegy.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'zenegy-logo.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://zenegy.com'
+				}
+			},
+			dark: {
+				path: 'zenegy-logo-dark.svg',
+				date_added: '2026/5/12',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://zenegy.com'
+				}
+			}
+		}
+	]
+}
