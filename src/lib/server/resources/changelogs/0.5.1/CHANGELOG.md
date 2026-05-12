@@ -4,18 +4,18 @@
 
 ## Added
 - **[icons#flags](https://argxs.com/icons/flags): 12 new flag icons**
-  - Niger
-  - Nigeria
-  - North Korea
-  - North Macedonia
-  - Norway
+  - **[New]** Niger
+  - **[New]** Nigeria
+  - **[New]** North Korea
+  - **[New]** North Macedonia
+  - **[New]** Norway
     - Incl. State Flag
-  - Oman
-  - Pakistan
-  - Palau
-  - Palestine
-  - Panama
-  - Ukraine
+  - **[New]** Oman
+  - **[New]** Pakistan
+  - **[New]** Palau
+  - **[New]** Palestine
+  - **[New]** Panama
+  - **[New]** Ukraine
 - **[icons#brands](https://argxs.com/icons/flags) 57 new icons:**
   - **[New]** Proton: 9 icons
   - **[New]** Nielsen: 7 icons
