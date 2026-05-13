@@ -33,7 +33,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 	const pngPath: string = `resources/data/icons/${path}/png/` + icon.path.replace('.svg','.png');
 
 	if (await Bun.file(pngPath).exists()) {
-		icon.png = '/' + pngPath;
+		icon.png = '/' + icon.path.replace('.svg','.png');
 		return;
 	}
 
@@ -51,7 +51,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 
 		await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-background=none --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/${pngPath}`;
 
-		icon.png = '/' + pngPath;
+		icon.png = '/' + icon.path.replace('.svg','.png');
 
 		//await Bun.file("static/dk.png").image().resize(width / 2, height / 2, { fit: "inside" }).webp({ quality: 80 }).write("static/dk.webp");
 	} catch (err) {
