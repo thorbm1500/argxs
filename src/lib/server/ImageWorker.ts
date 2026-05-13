@@ -31,9 +31,7 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
 	try {
-		Bun.$.nothrow();
-
-		const size = (await Bun.$`inkscape/AppRun -W -H ${icon.path}`.text()).split('\n');
+		const size = (await Bun.$`inkscape/AppRun -W -H resources/icons/${path}/${icon.path}`.text()).split('\n');
 		let width = Number.parseFloat(size[0] ?? 'nan');
 		let height = Number.parseFloat(size[1] ?? 'nan');
 
