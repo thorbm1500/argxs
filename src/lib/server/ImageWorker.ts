@@ -45,7 +45,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 		let dimensions = integerScaling(width,height);
 
 		const pngPath: string = `data/icons/${path}/png/` + icon.path.replace('.svg','.png');
-		await Bun.$`../inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-background=none --export-png-compression=7 --export-type=png resources/icons/${path}/${icon.path} -o ${pngPath}`;
+		await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-background=none --export-png-compression=7 --export-type=png resources/icons/${path}/${icon.path} -o ${pngPath}`;
 
 		icon.png = `/${pngPath}`;
 
