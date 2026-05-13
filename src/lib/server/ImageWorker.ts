@@ -30,8 +30,14 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 }
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
+	const pngPath: string = `client/resources/data/icons/${path}/png/` + icon.path.replace('.svg','.png');
+
+	if (await Bun.file(`client/resources/data/icons/${path}/png/${icon.path}`).exists()) {
+		icon.png = '/' + pngPath;
+		return;
+	}
 	try {
-		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.text()).split('\n');
+		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/data/icons/${path}/${icon.path}`.text()).split('\n');
 		let width = Number.parseFloat(size[0] ?? 'nan');
 		let height = Number.parseFloat(size[1] ?? 'nan');
 
@@ -42,10 +48,9 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 
 		let dimensions = integerScaling(width,height);
 
-		const pngPath: string = `data/icons/${path}/png/` + icon.path.replace('.svg','.png');
 		await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-background=none --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o ${pngPath}`;
 
-		icon.png = `/${pngPath}`;
+		icon.png = '/' + pngPath;
 
 		//await Bun.file("static/dk.png").image().resize(width / 2, height / 2, { fit: "inside" }).webp({ quality: 80 }).write("static/dk.webp");
 	} catch (err) {
@@ -55,7 +60,6 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 
 async function generateResourceIconPNG(icon: Icon, path: string)  {
 	if (!icon.path.endsWith('.svg') || icon.png) return;
-
 		console.info(`Processing image: '${icon.path}'`);
 	if (!icon.png) {
 		console.info('Generating PNG...');
@@ -66,7 +70,6 @@ async function generateResourceIconPNG(icon: Icon, path: string)  {
 async function processList(list: ResourceIcon[], path: string) {
 	for (const icon of list) {
 		console.info('Current: ', icon.name);
-		console.log(icon);
 
 		await generateResourceIconPNG(icon.default, path);
 		if (icon.dark) await generateResourceIconPNG(icon.dark, path)
@@ -74,8 +77,6 @@ async function processList(list: ResourceIcon[], path: string) {
 		for (const variableIcon of icon.variable) {
 			await generateResourceIconPNG(variableIcon, path);
 		}
-
-		console.log(icon);
 	}
 }
 
