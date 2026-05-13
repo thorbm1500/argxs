@@ -22,8 +22,7 @@ export const init: ServerInit = async () => {
 	await MetricsHandler.init();
 	await RESOURCES.init();
 
-	//TODO: CHANGE BACK TO ===
-	if (Bun.env.NODE_ENV !== 'production') {
+	if (Bun.env.NODE_ENV === 'production') {
 		/** The image worker should only be run/scheduled on the server, and not during development
 		 *  The worker is set to run at midnight, every day.
 		 *  All icons will be checked and processed, ensuring all of them have PNG,WEBP, and JPEG versions available */
