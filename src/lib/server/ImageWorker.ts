@@ -32,12 +32,13 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 async function convertSVGtoPNG(icon: Icon, path: string) {
 	const pngPath: string = `client/resources/data/icons/${path}/png/` + icon.path.replace('.svg','.png');
 
-	if (await Bun.file(`client/resources/data/icons/${path}/png/${icon.path}`).exists()) {
+	if (await Bun.file(pngPath).exists()) {
 		icon.png = '/' + pngPath;
 		return;
 	}
+
 	try {
-		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/data/icons/${path}/${icon.path}`.text()).split('\n');
+		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.text()).split('\n');
 		let width = Number.parseFloat(size[0] ?? 'nan');
 		let height = Number.parseFloat(size[1] ?? 'nan');
 
