@@ -11,6 +11,12 @@ export interface Icon {
 	date_added: string,
 	/** The source of the icon */
 	source?: Source
+	/** A path to the icon's PNG version, otherwise undefined or no PNG version exists, or if it is yet to be processed. */
+	png?: string,
+	/** A path to the icon's WEBP version, otherwise undefined or no WEBP version exists, or if it is yet to be processed. */
+	webp?: string
+	/** A path to the icon's JPEG version, otherwise undefined or no JPEG version exists, or if it is yet to be processed. */
+	jpeg?: string,
 }
 
 export interface Source {

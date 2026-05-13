@@ -81,6 +81,7 @@
 		mouseBlurContainer.style.zIndex = '400';
 		mouseBlurContainer.style.boxSizing = 'content-box';
 		mouseBlurContainer.style.filter = 'saturate(1.1)';
+		mouseBlurContainer.style.transition = 'opacity 500ms ease';
 		
 		const mouseBlurElement = document.createElement('div');
 		mouseBlurElement.className = 'element blur-child';
@@ -101,8 +102,13 @@
 		element.appendChild(mouseBlurContainer);
 		
 		const mouseMoveEvent: EventListener = (event: Event) => {
-			mouseBlurElement.style.top = ((event as MouseEvent).y + $state.eager(scrollY)) + 'px';
-			mouseBlurElement.style.left = (event as MouseEvent).x + 'px';
+			if (highlightedIcon) {
+				mouseBlurContainer.style.opacity = '0';
+			} else {
+				mouseBlurContainer.style.opacity = '1';
+				mouseBlurElement.style.top = ((event as MouseEvent).y + scrollY) + 'px';
+				mouseBlurElement.style.left = (event as MouseEvent).x + 'px';
+			}
 		};
 		
 		window.addEventListener('mousemove', mouseMoveEvent);

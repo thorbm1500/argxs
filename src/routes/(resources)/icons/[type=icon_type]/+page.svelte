@@ -133,18 +133,18 @@
 		});
 	});
 	
-	function downloadSVG() {
+	function downloadImage(path: string, isImageSVG?: true) {
 		if (!hCurrentIcon) return;
 		
 		const linkElement = document.createElement('a');
 		
-		if (currentSVG !== '' && currentSVG !== 'load') {
+		if (isImageSVG && currentSVG !== '' && currentSVG !== 'load') {
 			// Create object from the already loaded file content, rather than fetching it once more.
 			const url = URL.createObjectURL(new Blob([currentSVG], { type: 'image/svg+xml' }));
 			linkElement.href = url;
 			setTimeout(() => URL.revokeObjectURL(url), 500);
 		} else {
-			linkElement.href = hCurrentIcon.path;
+			linkElement.href = path;
 		}
 		
 		linkElement.type = 'image/svg+xml';
@@ -253,24 +253,30 @@
 					</div>
 					<div class="actions">
 						<p class="added-date">Added  {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
-						<button class="action" onclick={downloadSVG}>
+						<button class="action" onclick={() => downloadImage('/resources/icons/' + iconType + hCurrentIcon?.path, true)}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							SVG
 						</button>
-						<div class="action inactive">
+						<button class="action" disabled={!hCurrentIcon?.png} onclick={() => downloadImage(hCurrentIcon?.png ?? 'none')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							PNG
-						</div>
-						<div class="action inactive">
+						</button>
+						<button class="action" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage(hCurrentIcon?.webp ?? 'none')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							WEBP
-						</div>
+						</button>
+						<button class="action" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage(hCurrentIcon?.jpeg ?? 'none')}>
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+							</svg>
+							JPEG
+						</button>
 					</div>
 					<div class="svg-content select-all">
 						{#if currentSVG === ''}
@@ -1019,12 +1025,13 @@
 						cursor:          pointer;
 						
 						svg {
-							height: 1rem;
-							width:  1rem;
+							height: .975rem;
+							width:  .975rem;
 							color:  var(--theme-ui-white);
+							margin-bottom: .1rem;
 						}
 						
-						&.inactive {
+						&[disabled] {
 							color:  var(--theme-text-third) !important;
 							filter: grayscale(1);
 							cursor: no-drop;

@@ -6,6 +6,7 @@ import MetricsHandler from '$lib/server/MetricsHandler';
 import Database from '$lib/server/Database';
 import { SiteCookies } from '$lib/server/Definitions';
 import { isCrawler } from '$lib/server/utilities';
+import processImages from '$lib/server/ImageWorker';
 
 const limiter = new RateLimiter({ IP: [1, '100ms'] });
 const metricsHandler = new MetricsHandler();
@@ -20,6 +21,20 @@ export const init: ServerInit = async () => {
 	await Database.init();
 	await MetricsHandler.init();
 	await RESOURCES.init();
+
+	//TODO: CHANGE BACK TO ===
+	if (Bun.env.NODE_ENV !== 'production') {
+		/** The image worker should only be run/scheduled on the server, and not during development
+		 *  The worker is set to run at midnight, every day.
+		 *  All icons will be checked and processed, ensuring all of them have PNG,WEBP, and JPEG versions available */
+		Bun.cron('0 0 */1 * *', processImages);
+
+		// Run processing right away, if the job is not scheduled to run within the next hour.
+		if ((Bun.cron.parse('0 0 */1 * *')?.getTime() ?? 0) > 3600000) {
+			// noinspection ES6MissingAwait - Ignored purposefully.
+			processImages();
+		}
+	}
 };
 
 export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
@@ -35,7 +50,7 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 
 	event.locals.requests = metricsHandler.getVisitorMetrics();
 
-	// noinspection ES6MissingAwait - Ignored purposefully
+	// noinspection ES6MissingAwait - Ignored purposefully.
 	metricsHandler.process(event);
 
 	return resolve(event);
