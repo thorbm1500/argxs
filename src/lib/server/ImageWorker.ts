@@ -30,7 +30,7 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 }
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
-	const pngPath: string = `client/resources/data/icons/${path}/png/` + icon.path.replace('.svg','.png');
+	const pngPath: string = `resources/data/icons/${path}/png/` + icon.path.replace('.svg','.png');
 
 	if (await Bun.file(pngPath).exists()) {
 		icon.png = '/' + pngPath;
