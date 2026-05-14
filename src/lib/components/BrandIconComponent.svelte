@@ -21,6 +21,7 @@
 	
 	let currentTheme: PageTheme = $state.raw(theme);
 	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
+	let currentLoadedIcon: string = $state('');
 	updateCurrentIcon();
 	
 	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 432000000));
@@ -137,10 +138,15 @@
 	});
 	
 	const iconImage: Attachment = (element) => {
-		(element as HTMLImageElement).onload = () => currentIcon.thumbnail = undefined;
-		tick().then(() => (element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`);
+		(element as HTMLImageElement).onload = () => currentLoadedIcon = currentIcon.path;
 		
-		return () => {};
+		if (document.readyState === 'complete' || document.readyState === 'interactive') {
+			(element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`
+		} else {
+			document.addEventListener('DOMContentLoaded', () => (element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`);
+		}
+		
+		return () => currentLoadedIcon = '';
 	};
 </script>
 
@@ -202,9 +208,11 @@
 	{#key currentIcon.path}
 		<div class="hover-fx">
 			<!--svelte-ignore a11y_missing_attribute-->
-			<img {@attach iconImage} src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt="" loading="lazy" />
+			<img {@attach iconImage} src={currentIcon.thumbnail && currentLoadedIcon !== $state.eager(currentIcon.path) ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt=""
+			     loading="lazy" />
 		</div>
-		<img {@attach iconImage} in:fade src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
+		<img {@attach iconImage} in:fade src={currentIcon.thumbnail && currentLoadedIcon !== $state.eager(currentIcon.path) ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt={icon.name}
+		     loading="lazy" />
 	{/key}
 </div>
 
