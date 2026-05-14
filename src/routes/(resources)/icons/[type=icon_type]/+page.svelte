@@ -259,19 +259,19 @@
 							</svg>
 							SVG
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.png} onclick={() => downloadImage('/resources/icons/' + iconType + '/png/' + hCurrentIcon?.path, 'png', true)}>
+						<button class="action" disabled={!hCurrentIcon?.png} onclick={() => downloadImage('/resources/icons/' + iconType + '/png/' + hCurrentIcon?.path, 'png')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							PNG
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage('/resources/icons/' + iconType + '/webp/' + hCurrentIcon?.path, 'webp', true)}>
+						<button class="action" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage('/resources/icons/' + iconType + '/webp/' + hCurrentIcon?.path, 'webp')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							WEBP
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage('/resources/icons/' + iconType + '/jpeg/' + hCurrentIcon?.path, 'jpeg', true)}>
+						<button class="action" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage('/resources/icons/' + iconType + '/jpeg/' + hCurrentIcon?.path, 'jpeg')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
