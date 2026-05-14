@@ -148,7 +148,7 @@
 		}
 		
 		linkElement.type = `image/${type}`;
-		linkElement.download = hCurrentIcon.path.slice(hCurrentIcon.path.lastIndexOf('/') + 1);
+		linkElement.download = path.slice(hCurrentIcon.path.lastIndexOf('/') + 1);
 		
 		linkElement.click();
 		
@@ -253,25 +253,25 @@
 					</div>
 					<div class="actions">
 						<p class="added-date">Added  {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
-						<button class="action" onclick={() => downloadImage('/resources/icons/' + iconType + hCurrentIcon?.path, 'svg+xml', true)}>
+						<button class="action" onclick={() => downloadImage(`/resources/icons/${iconType}/${hCurrentIcon?.path}`, 'svg+xml', true)}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							SVG
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.png} onclick={() => downloadImage('/resources/icons/' + iconType + '/png/' + hCurrentIcon?.png, 'png')}>
+						<button class="action" disabled={!hCurrentIcon?.png} onclick={() => downloadImage(`/resources/icons/${iconType}/png/${hCurrentIcon?.png}`, 'png')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							PNG
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage('/resources/icons/' + iconType + '/webp/' + hCurrentIcon?.webp, 'webp')}>
+						<button class="action" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage(`/resources/icons/${iconType}/webp/${hCurrentIcon?.webp}`, 'webp')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							WEBP
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage('/resources/icons/' + iconType + '/jpeg/' + hCurrentIcon?.jpeg, 'jpeg')}>
+						<button class="action" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage(`/resources/icons/${iconType}/jpeg/${hCurrentIcon?.jpeg}`, 'jpeg')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
