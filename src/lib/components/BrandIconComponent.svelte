@@ -140,8 +140,9 @@
 		(element as HTMLImageElement).onload = () => currentIcon.thumbnail = undefined;
 		(element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`;
 		
-		return () => {};
-	}
+		return () => {
+		};
+	};
 </script>
 
 <div id="brand-icon" style="position:absolute;width:100%;height:100%;background:white;border-radius:inherit;" hidden></div>
@@ -199,11 +200,13 @@
 			</p>
 		</div>
 	{/if}
-	<div class="hover-fx">
-		<!--svelte-ignore a11y_missing_attribute-->
-		<img {@attach iconImage} src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt="" loading="lazy" />
-	</div>
-	<img {@attach iconImage} in:fade src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
+	{#key currentIcon.path}
+		<div class="hover-fx">
+			<!--svelte-ignore a11y_missing_attribute-->
+			<img {@attach iconImage} src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt="" loading="lazy" />
+		</div>
+		<img {@attach iconImage} in:fade src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
+	{/key}
 </div>
 
 <style>
