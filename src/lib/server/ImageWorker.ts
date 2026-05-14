@@ -20,8 +20,8 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 	if (width > 1000 && height > 1000) {
 		if (width % 1 === 0 && height % 1 === 0) return { w: width, h: height };
 
-		width /= 2;
-		height /= 2;
+		width = width / 4;
+		height = height / 4;
 	}
 
 	let a: number = 1;
@@ -54,9 +54,9 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
 	try {
-		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.quiet().text()).split('\n');
-		let width = Number.parseFloat(size[0] ?? 'nan');
-		let height = Number.parseFloat(size[1] ?? 'nan');
+		const size: string[] = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.quiet().text()).split('\n');
+		let width: number = Number.parseFloat(size[0] ?? 'nan');
+		let height: number = Number.parseFloat(size[1] ?? 'nan');
 
 		if (Number.isNaN(height) || Number.isNaN(width)) {
 			console.error('Failed to parse width/height. Result:',size);
@@ -66,8 +66,6 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 		let dimensions = integerScaling(width,height);
 
 		await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getPNGExtension(icon.path)}`.quiet();
-
-		icon.png = getPNGExtension(icon.path);
 	} catch (err) {
 		console.error(err)
 	}
@@ -79,9 +77,9 @@ async function generateResourceIconPNG(icon: Icon, path: string)  {
 	// Check if the PNG has already been generated.
 	if (!generatedPNGs.includes(getPNGExtension(icon.path))) {
 		await convertSVGtoPNG(icon, path);
-	} else {
-		icon.png = icon.path.replace('.svg','.png');
 	}
+
+	icon.png = getPNGExtension(icon.path);
 }
 
 async function processPNGs(icon: ResourceIcon, path: string) {
