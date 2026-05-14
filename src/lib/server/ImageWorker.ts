@@ -90,7 +90,7 @@ async function processList(list: ResourceIcon[], path: string) {
 	const startTime: number = Bun.nanoseconds();
 	console.info(`Processing icons#${path}...`);
 
-	generatedPNGs = await fs.readdir(`clients/resources/data/icons/${path}/png/`);
+	generatedPNGs = await fs.readdir(`client/resources/data/icons/${path}/png/`);
 
 	for (const icon of list) {
 		console.info('Current: ', icon.name);
