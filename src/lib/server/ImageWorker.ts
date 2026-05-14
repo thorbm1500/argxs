@@ -24,20 +24,28 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 		height /= 2;
 	}
 
-	let a: number = height > width ? 1 : width / height;
-	let b: number = height < width ? 1 : height / width;
+	let a: number = 1;
+	let b: number = 1;
 
-	if (a % .25 !== 0 || b % .25 !== 0) {
-		a = Math.round(a * 3);
-		b = Math.round(b * 3);
+	if (width < height) {
+		a = width / height;
+	} else if (width > height) {
+		b = height / width;
 	}
 
-	const multiplier: 2 | 3 = a % .25 === 0 || b % .25 === 0 ? 2 : 3;
-	for (let i = 0; i < 20; i++) {
-		if (a % 1 !== 0 || b % 1 !== 0) {
-			a *= multiplier;
-			b *= multiplier;
-		} else break;
+	if (a !== b) {
+		if (a % .25 !== 0 || b % .25 !== 0) {
+			a = Math.round(a * 3);
+			b = Math.round(b * 3);
+		}
+
+		const multiplier: 2 | 3 = a % .25 === 0 || b % .25 === 0 ? 2 : 3;
+		for (let i = 0; i < 20; i++) {
+			if (a % 1 !== 0 || b % 1 !== 0) {
+				a *= multiplier;
+				b *= multiplier;
+			} else break;
+		}
 	}
 
 	const diff: number = target - Math.min(width,height);
@@ -46,7 +54,7 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
 	try {
-		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.text()).split('\n');
+		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.quiet().text()).split('\n');
 		let width = Number.parseFloat(size[0] ?? 'nan');
 		let height = Number.parseFloat(size[1] ?? 'nan');
 
@@ -57,7 +65,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 
 		let dimensions = integerScaling(width,height);
 
-		await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-background=none --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getPNGExtension(icon.path)}`.quiet();
+		await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-background=none --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getPNGExtension(icon.path)}`.quiet();
 
 		icon.png = getPNGExtension(icon.path);
 	} catch (err) {
