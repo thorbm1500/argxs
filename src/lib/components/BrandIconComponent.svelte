@@ -138,7 +138,7 @@
 	
 	const iconImage: Attachment = (element) => {
 		(element as HTMLImageElement).onload = () => currentIcon.thumbnail = undefined;
-		(element as HTMLImageElement).src = currentIcon.path;
+		(element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`;
 		
 		return () => {};
 	}
