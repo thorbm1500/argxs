@@ -2,6 +2,8 @@ import { RESOURCES } from '../../hooks.server.ts';
 import type { Icon, ResourceIcon } from '$lib/components/interfaces';
 import * as fs from 'fs/promises';
 
+let generatedPNGs: string[] = [];
+
 function getPNGExtension(filename: string) {
 	return filename.replace('.svg','.png')
 }
@@ -43,13 +45,6 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 }
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
-	const pngPath: string = `resources/data/icons/${path}/png/` + getPNGExtension(icon.path);
-
-	if (await Bun.file(pngPath).exists()) {
-		icon.png = icon.path.replace('.svg','.png');
-		return;
-	}
-
 	try {
 		const size = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.text()).split('\n');
 		let width = Number.parseFloat(size[0] ?? 'nan');
@@ -62,43 +57,32 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 
 		let dimensions = integerScaling(width,height);
 
-		await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-background=none --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/${pngPath}`;
+		await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-background=none --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getPNGExtension(icon.path)}`;
 
 		icon.png = getPNGExtension(icon.path);
-
-		//await Bun.file("static/dk.png").image().resize(width / 2, height / 2, { fit: "inside" }).webp({ quality: 80 }).write("static/dk.webp");
 	} catch (err) {
 		console.error(err)
 	}
 }
 
 async function generateResourceIconPNG(icon: Icon, path: string)  {
-	if (!icon.path.endsWith('.svg') || icon.png) return;
-		console.info(`Processing image: '${icon.path}'`);
-	if (!icon.png) {
-		console.info('Generating PNG...');
+	if (icon.png || !icon.path.endsWith('.svg')) return;
+
+	// Check if the PNG has already been generated.
+	if (!generatedPNGs.includes(getPNGExtension(icon.path))) {
 		await convertSVGtoPNG(icon, path);
+	} else {
+		icon.png = icon.path.replace('.svg','.png');
 	}
 }
 
-let generatedPNGs: string[] = [];
-
 async function processPNGs(icon: ResourceIcon, path: string) {
-	// Check if the PNG has already been generated.
-	if (!generatedPNGs.includes(getPNGExtension(icon.default.path))) {
-		await generateResourceIconPNG(icon.default, path);
-	}
+	await generateResourceIconPNG(icon.default, path);
 
-	// Check if a dark icon exists, and if its PNG has already been generated.
-	if (icon.dark && !generatedPNGs.includes(getPNGExtension(icon.dark.path))) {
-		await generateResourceIconPNG(icon.dark, path)
-	}
+	if (icon.dark) await generateResourceIconPNG(icon.dark, path);
 
 	for (const variableIcon of icon.variable) {
-		// Check if the PNG has already been generated.
-		if (!generatedPNGs.includes(getPNGExtension(variableIcon.path))) {
-			await generateResourceIconPNG(variableIcon, path);
-		}
+		await generateResourceIconPNG(variableIcon, path);
 	}
 }
 
@@ -106,11 +90,12 @@ async function processList(list: ResourceIcon[], path: string) {
 	const startTime: number = Bun.nanoseconds();
 	console.info(`Processing icons#${path}...`);
 
-	generatedPNGs = await fs.readdir(`resources/data/icons/${path}/png/`);
+	generatedPNGs = await fs.readdir(`clients/resources/data/icons/${path}/png/`);
 
 	for (const icon of list) {
 		console.info('Current: ', icon.name);
 		await processPNGs(icon, path);
+		generatedPNGs = [];
 	}
 
 	console.info(`Completed generation of icons#${path} [${((Bun.nanoseconds() - startTime) / 1000000000).toFixed(2)}]`);
