@@ -18,7 +18,7 @@ await PNG.image().jpeg({ quality: 80 }).write(icon.path);
 <br>The entire process is automatic. A CRON job is scheduled to run at every day at midnight, checking and processing
 all icons. This is *currently* redundant, but is set up in advance, for future structure changes, as all resources are set
 to be moved to a separate repository. This might seem like a waste of resources, but the whole process takes less than
-5 seconds from start to finish, when all assets have already been generated.
+200ms from start to finish, when all assets have already been generated.
 The reason for moving to a separate repository is due to a simple human oversight, of how many resources there eventually would be...
 
 ## Added
