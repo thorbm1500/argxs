@@ -102,6 +102,8 @@ async function processList(list: ResourceIcon[], path: string) {
 }
 
 export default async function processImages() {
+	Bun.$.nothrow();
+
 	const startTime: number = Bun.nanoseconds();
 	console.info('Image processing initiating...');
 
