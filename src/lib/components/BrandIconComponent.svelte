@@ -8,7 +8,7 @@
 	import { fade } from 'svelte/transition';
 	import type { Icon, PageTheme, HighlightIcon, ResourceIcon } from '$lib/components/interfaces';
 	import type { Attachment } from 'svelte/attachments';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	
 	let { highlightedIcon = $bindable(), theme = $bindable(), type, icon }: { highlightedIcon: HighlightIcon | undefined, theme: PageTheme, type: 'brands' | 'flags', icon: ResourceIcon } =
 		$props();
@@ -138,10 +138,9 @@
 	
 	const iconImage: Attachment = (element) => {
 		(element as HTMLImageElement).onload = () => currentIcon.thumbnail = undefined;
-		(element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`;
+		tick().then(() => (element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`);
 		
-		return () => {
-		};
+		return () => {};
 	};
 </script>
 
