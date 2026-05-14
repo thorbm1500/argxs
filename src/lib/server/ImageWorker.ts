@@ -70,10 +70,10 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 }
 
 async function process(icon: Icon, path: string) {
-	console.info('  +', icon.name);
+	if (icon.name) console.info('  +', icon.name);
 
 	if (!icon.path.endsWith('.svg')) {
-		console.error('  - Failed.');
+		console.error('  - Failed:', icon.path);
 		return;
 	}
 
@@ -95,7 +95,7 @@ async function process(icon: Icon, path: string) {
 	if (!icon.jpeg) {
 		// Check if the JPEG has already been generated.
 		if (!(await Bun.file(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path)).exists())) {
-			await PNG.image().jpeg({ quality: 80 }).write(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path));
+			await PNG.image().jpeg({ quality: 80 }).write(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path));
 		}
 		icon.jpeg = getJPEGExtension(icon.path);
 	}
