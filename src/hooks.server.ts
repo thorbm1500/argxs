@@ -23,16 +23,13 @@ export const init: ServerInit = async () => {
 	await RESOURCES.init();
 
 	if (Bun.env.NODE_ENV === 'production') {
+		// Run processing right away, to ensure all downloads are available to users.
+		await processImages();
+
 		/** The image worker should only be run/scheduled on the server, and not during development
 		 *  The worker is set to run at midnight, every day.
 		 *  All icons will be checked and processed, ensuring all of them have PNG,WEBP, and JPEG versions available */
 		Bun.cron('0 0 */1 * *', processImages);
-
-		// Run processing right away, if the job is not scheduled to run within the next hour.
-		if ((Bun.cron.parse('0 0 */1 * *')?.getTime() ?? 0) > 3600000) {
-			// noinspection ES6MissingAwait - Ignored purposefully.
-			processImages();
-		}
 	}
 };
 

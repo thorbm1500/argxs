@@ -501,6 +501,9 @@
 					</li>
 				</ul>
 			</li>
+			<li>
+				All <strong>PNG</strong>, <strong>WEBP</strong> and <strong>JPEG</strong> images have a minimum width/height of 1000px.
+			</li>
 		</ul>
 	</div>
 </div>
@@ -1427,7 +1430,7 @@
 				list-style-position: outside;
 				list-style-type: square;
 				margin-left: 1.5rem;
-				margin-bottom: .75rem;
+				margin-bottom: 1rem;
 				
 				user-select: none;
 				

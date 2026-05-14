@@ -16,9 +16,7 @@ export interface Icon {
 	/** A path to the icon's WEBP version, otherwise undefined or no WEBP version exists, or if it is yet to be processed. */
 	webp?: string
 	/** A path to the icon's JPEG version, otherwise undefined or no JPEG version exists, or if it is yet to be processed. */
-	jpeg?: string,
-	/** A path to the icon's thumbnail. This is a 32px/32px image, to use as initial icon, for faster loading. */
-	thumbnail?: string
+	jpeg?: string
 }
 
 export interface Source {

@@ -8,7 +8,7 @@
 	import { fade } from 'svelte/transition';
 	import type { Icon, PageTheme, HighlightIcon, ResourceIcon } from '$lib/components/interfaces';
 	import type { Attachment } from 'svelte/attachments';
-	import { onMount, tick } from 'svelte';
+	import { onMount } from 'svelte';
 	
 	let { highlightedIcon = $bindable(), theme = $bindable(), type, icon }: { highlightedIcon: HighlightIcon | undefined, theme: PageTheme, type: 'brands' | 'flags', icon: ResourceIcon } =
 		$props();
@@ -22,6 +22,7 @@
 	let currentTheme: PageTheme = $state.raw(theme);
 	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
 	let currentLoadedIcon: string = $state('');
+	let isImageLoading: boolean = $state(true);
 	updateCurrentIcon();
 	
 	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 432000000));
@@ -138,7 +139,14 @@
 	});
 	
 	const iconImage: Attachment = (element) => {
-		(element as HTMLImageElement).onload = () => currentLoadedIcon = currentIcon.path;
+		(element as HTMLImageElement).onloadstart = () => {
+			currentLoadedIcon = currentIcon.path;
+			isImageLoading = true;
+		};
+		(element as HTMLImageElement).onload = () => {
+			currentLoadedIcon = currentIcon.path;
+			isImageLoading = false;
+		};
 		
 		if (document.readyState === 'complete' || document.readyState === 'interactive') {
 			(element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`
@@ -157,8 +165,16 @@
 		<feGaussianBlur in="noise" stdDeviation="4" result="blurred" />
 		<feDisplacementMap in="SourceGraphic" in2="blurred" scale="15" xChannelSelector="R" yChannelSelector="G" />
 	</filter>
+	<filter id="pixelate" x="0%" y="0%" width="100%" height="100%">
+		<!--Thanks to Zoltan Fegyver for figuring out pixelation and producing the awesome pixelation map. -->
+		<feGaussianBlur stdDeviation="2" in="SourceGraphic" result="smoothed" />
+		<feImage width="15" height="15" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC" result="displacement-map" />
+		<feTile in="displacement-map" result="pixelate-map" />
+		<feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="5" result="pre-final"/>
+		<feComposite operator="in" in2="SourceGraphic"/>
+	</filter>
 </svg>
-<div class="icon theme-transition-all" {@attach mouseGlow}>
+<div class="icon theme-transition-all {$state.eager(isImageLoading) ? 'loading' : ''}" {@attach mouseGlow}>
 	{#if isNewVariant}
 		<div class="overlay is-new-variant">
 			<div class="element marker">
@@ -208,11 +224,9 @@
 	{#key currentIcon.path}
 		<div class="hover-fx">
 			<!--svelte-ignore a11y_missing_attribute-->
-			<img {@attach iconImage} src={currentIcon.thumbnail && currentLoadedIcon !== $state.eager(currentIcon.path) ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt=""
-			     loading="lazy" />
+			<img {@attach iconImage} src={`/resources/icons/${type}/${currentIcon.path}`} alt="" loading="lazy" />
 		</div>
-		<img {@attach iconImage} in:fade src={currentIcon.thumbnail && currentLoadedIcon !== $state.eager(currentIcon.path) ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt={icon.name}
-		     loading="lazy" />
+		<img {@attach iconImage} in:fade src={`/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
 	{/key}
 </div>
 
@@ -230,6 +244,36 @@
 		
 		&:hover {
 			filter: brightness(1.1);
+		}
+	}
+	
+	@keyframes IconLoadingAnim {
+		from,to {
+			background-color: rgba(from var(--theme-ui-line) r g b / .35);
+			img {
+				filter: url(#pixelate) blur(1px) brightness(.5) grayscale(.25);
+				opacity: .5;
+			}
+		}
+		10%,90% {
+			opacity: 1;
+		}
+		50% {
+			opacity: .25;
+		}
+	}
+	
+	.icon.loading {
+		animation: IconLoadingAnim 1.35s infinite cubic-bezier(0.78, 0, 0.22, 1) 115ms;
+		pointer-events: none !important;
+		
+		.overlay, .overlay *, .hover-fx {
+			visibility: hidden !important;
+			opacity: 0 !important;
+		}
+		
+		img {
+			opacity: 0;
 		}
 	}
 	

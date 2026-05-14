@@ -102,8 +102,6 @@ async function process(icon: Icon, path: string) {
 
 	// We set this at last, to ensure the process has executed correctly first.
 	icon.png = getPNGExtension(icon.path);
-
-	icon.thumbnail = await PNG.image().placeholder();
 }
 
 async function processList(list: ResourceIcon[], path: string) {
