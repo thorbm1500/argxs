@@ -136,12 +136,12 @@
 		}, 1000);
 	});
 	
-	onMount(async () => {
-		document.addEventListener('DOMContentLoaded', async () => {
-			(document.getElementById('icon-image') as HTMLImageElement).src = currentIcon.path;
-			(document.getElementById('icon-image-fx') as HTMLImageElement).src = currentIcon.path;
-		}, {once: true});
-	});
+	const iconImage: Attachment = (element) => {
+		(element as HTMLImageElement).onload = () => currentIcon.thumbnail = undefined;
+		(element as HTMLImageElement).src = currentIcon.path;
+		
+		return () => {};
+	}
 </script>
 
 <div id="brand-icon" style="position:absolute;width:100%;height:100%;background:white;border-radius:inherit;" hidden></div>
@@ -201,9 +201,9 @@
 	{/if}
 	<div class="hover-fx">
 		<!--svelte-ignore a11y_missing_attribute-->
-		<img id="icon-image-fx" src={currentIcon.thumbnail ? currentIcon.thumbnail : "/resources/icons/{type}/{currentIcon.path}"} alt="" loading="lazy" />
+		<img {@attach iconImage} src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt="" loading="lazy" />
 	</div>
-	<img id="icon-image" in:fade src={currentIcon.thumbnail ? currentIcon.thumbnail : "/resources/icons/{type}/{currentIcon.path}"} alt={icon.name} loading="lazy" />
+	<img {@attach iconImage} in:fade src={currentIcon.thumbnail ? currentIcon.thumbnail : `/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
 </div>
 
 <style>
