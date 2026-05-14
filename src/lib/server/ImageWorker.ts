@@ -103,9 +103,9 @@ async function processList(list: ResourceIcon[], path: string) {
 	for (const icon of list) {
 		console.info('Current: ', icon.name);
 		await processPNGs(icon, path);
-		generatedPNGs = [];
 	}
 
+	generatedPNGs = [];
 	console.info(`Completed generation of icons#${path} [${((Bun.nanoseconds() - startTime) / 1000000000).toFixed(2)}s]`);
 }
 
