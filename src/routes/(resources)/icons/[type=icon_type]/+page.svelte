@@ -148,7 +148,7 @@
 		}
 		
 		linkElement.type = `image/${type}`;
-		linkElement.download = path.slice(hCurrentIcon.path.lastIndexOf('/') + 1);
+		linkElement.download = path.slice(path.lastIndexOf('/') + 1);
 		
 		linkElement.click();
 		
