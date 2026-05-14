@@ -1,22 +1,20 @@
 import { RESOURCES } from '../../hooks.server.ts';
 import type { Icon, ResourceIcon } from '$lib/components/interfaces';
-import * as fs from 'fs/promises';
-
-let generatedPNGs: string[] = [];
+import type { BunFile } from 'bun';
 
 function getPNGExtension(filename: string) {
-	return filename.replace('.svg','.png')
+	return filename.replace('.svg', '.png');
 }
 
 function getWEBPExtension(filename: string) {
-	return filename.replace('.svg','.webp')
+	return filename.replace('.svg', '.webp');
 }
 
 function getJPEGExtension(filename: string) {
-	return filename.replace('.svg','.jpeg')
+	return filename.replace('.svg', '.jpeg');
 }
 
-function integerScaling(width: number, height: number, target: number = 1000): { w:number, h: number } {
+function integerScaling(width: number, height: number, target: number = 1000): { w: number, h: number } {
 	if (width > 1000 && height > 1000) {
 		if (width % 1 === 0 && height % 1 === 0) return { w: width, h: height };
 
@@ -48,7 +46,7 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 		}
 	}
 
-	const diff: number = target - Math.min(width,height);
+	const diff: number = target - Math.min(width, height);
 	return { w: width + (diff * a), h: height + (diff * b) };
 }
 
@@ -59,51 +57,68 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 		let height: number = Number.parseFloat(size[1] ?? 'nan');
 
 		if (Number.isNaN(height) || Number.isNaN(width)) {
-			console.error('Failed to parse width/height. Result:',size);
+			console.error('Failed to parse width/height. Result:', size);
 			return;
 		}
 
-		let dimensions = integerScaling(width,height);
+		let dimensions = integerScaling(width, height);
 
 		await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getPNGExtension(icon.path)}`.quiet();
 	} catch (err) {
-		console.error(err)
+		console.error(err);
 	}
 }
 
-async function generateResourceIconPNG(icon: Icon, path: string)  {
-	if (icon.png || !icon.path.endsWith('.svg')) return;
+async function process(icon: Icon, path: string) {
+	console.info('  +', icon.name);
+
+	if (!icon.path.endsWith('.svg')) {
+		console.error('  - Failed.');
+		return;
+	}
+
+	const PNG: BunFile = Bun.file(`client/resources/data/icons/${path}/png/` + getPNGExtension(icon.path));
 
 	// Check if the PNG has already been generated.
-	if (!generatedPNGs.includes(getPNGExtension(icon.path))) {
+	if (!icon.png && !(await PNG.exists())) {
 		await convertSVGtoPNG(icon, path);
 	}
 
-	icon.png = getPNGExtension(icon.path);
-}
-
-async function processPNGs(icon: ResourceIcon, path: string) {
-	await generateResourceIconPNG(icon.default, path);
-
-	if (icon.dark) await generateResourceIconPNG(icon.dark, path);
-
-	for (const variableIcon of icon.variable) {
-		await generateResourceIconPNG(variableIcon, path);
+	if (!icon.webp) {
+		// Check if the WEBP has already been generated.
+		if (!(await Bun.file(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path)).exists())) {
+			await PNG.image().webp({ lossless: true }).write(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path));
+		}
+		icon.webp = getWEBPExtension(icon.path);
 	}
+
+	if (!icon.jpeg) {
+		// Check if the JPEG has already been generated.
+		if (!(await Bun.file(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path)).exists())) {
+			await PNG.image().jpeg({ quality: 80 }).write(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path));
+		}
+		icon.jpeg = getJPEGExtension(icon.path);
+	}
+
+	// We set this at last, to ensure the process has executed correctly first.
+	icon.png = getPNGExtension(icon.path);
 }
 
 async function processList(list: ResourceIcon[], path: string) {
 	const startTime: number = Bun.nanoseconds();
 	console.info(`Processing icons#${path}...`);
 
-	generatedPNGs = await fs.readdir(`client/resources/data/icons/${path}/png`);
-
 	for (const icon of list) {
 		console.info('Current: ', icon.name);
-		await processPNGs(icon, path);
-	}
 
-	generatedPNGs = [];
+		await process(icon.default, path);
+
+		if (icon.dark) await process(icon.dark, path);
+
+		for (const variableIcon of icon.variable) {
+			await process(variableIcon, path);
+		}
+	}
 	console.info(`Completed generation of icons#${path} [${((Bun.nanoseconds() - startTime) / 1000000000).toFixed(2)}s]`);
 }
 
