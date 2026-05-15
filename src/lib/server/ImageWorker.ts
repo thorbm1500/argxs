@@ -84,24 +84,31 @@ async function process(icon: Icon, path: string) {
 		await convertSVGtoPNG(icon, path);
 	}
 
+	if (await PNG.exists()) icon.png = getPNGExtension(icon.path);
+
 	if (!icon.webp) {
-		// Check if the WEBP has already been generated.
-		if (!(await Bun.file(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path)).exists())) {
-			await PNG.image().webp({ lossless: true }).write(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path));
+		try {
+			// Check if the WEBP has already been generated.
+			if (!(await Bun.file(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path)).exists())) {
+				await PNG.image().webp({ lossless: true }).write(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path));
+			}
+			icon.webp = getWEBPExtension(icon.path);
+		} catch (e) {
+			console.error(e);
 		}
-		icon.webp = getWEBPExtension(icon.path);
 	}
 
 	if (!icon.jpeg) {
-		// Check if the JPEG has already been generated.
-		if (!(await Bun.file(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path)).exists())) {
-			await PNG.image().jpeg({ quality: 80 }).write(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path));
+		try {
+			// Check if the JPEG has already been generated.
+			if (!(await Bun.file(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path)).exists())) {
+				await PNG.image().jpeg({ quality: 80 }).write(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path));
+			}
+			icon.jpeg = getJPEGExtension(icon.path);
+		} catch (e) {
+			console.error(e);
 		}
-		icon.jpeg = getJPEGExtension(icon.path);
 	}
-
-	// We set this at last, to ensure the process has executed correctly first.
-	icon.png = getPNGExtension(icon.path);
 }
 
 async function processList(list: ResourceIcon[], path: string) {
