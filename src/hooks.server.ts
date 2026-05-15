@@ -40,7 +40,12 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 	if (await limiter.isLimited(event).catch(() => true)) {
 		if (building) resolve(event);
 
-		console.warn(event.getClientAddress(), 'request limited.');
+		try {
+			// Otherwise `event.getClientAddress()` will throw an error in case it cant determine the address, despite this not being documented.
+			console.warn(event.getClientAddress(), 'request limited.');
+		} catch (ignored) {
+			console.warn('unknown address request limited.');
+		}
 		return error(429);
 	}
 
