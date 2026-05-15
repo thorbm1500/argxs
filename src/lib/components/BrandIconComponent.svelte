@@ -248,17 +248,12 @@
 	}
 	
 	@keyframes IconLoadingAnim {
-		from,to {
-			background-color: rgba(from var(--theme-ui-line) r g b / .35);
-			img {
-				filter: url(#pixelate) blur(1px) brightness(.5) grayscale(.25);
-				opacity: .5;
-			}
-		}
 		10%,90% {
+			background-color: rgba(from var(--theme-ui-line) r g b / .35);
 			opacity: 1;
 		}
 		50% {
+			background-color: rgba(from var(--theme-ui-line) r g b / .35);
 			opacity: .25;
 		}
 	}
@@ -273,7 +268,8 @@
 		}
 		
 		img {
-			opacity: 0;
+			filter: url(#pixelate) blur(1px) brightness(.5) grayscale(.25);
+			opacity: .5;
 		}
 	}
 	

@@ -38,7 +38,10 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 	if (isCrawler(event.request.headers)) return error(403);
 
 	if (await limiter.isLimited(event).catch(() => true)) {
-		return building ? resolve(event) : error(429);
+		if (building) resolve(event);
+
+		console.warn(event.getClientAddress(), 'request limited.');
+		return error(429);
 	}
 
 	const theme: string | undefined = event.cookies.get(SiteCookies.Theme);
