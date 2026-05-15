@@ -6,16 +6,10 @@ All notable changes to this project will be documented in the changelog.
 ## Added
 - Changelogs have now been added and can be accessed at [argxs.com/changelog](https://argxs.com/changelog)
 - Each Brand Icon now has a modal view for all actions, making for better accessibility, and easier documentation regarding external sources
-- New Brand Icons:
-  - VK
-  - Webflow
+- **[icons#brands](https://argxs.com/icons/flags):**
+  - **[New]** VK
+  - **[New]** Webflow
   - & 14 new assets for Uber
-
-## Changes
-#### *Empty*
-
-## Fixes
-#### *Empty*
 
 ## Dependencies
 - Vite: *8.0.10 ➜ 8.0.11*

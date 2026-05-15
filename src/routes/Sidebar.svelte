@@ -7,12 +7,12 @@
 	let { theme = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests } = $props();
 	
 	let navState: 'active' | 'inactive' = $state.raw('inactive');
-	let isSidebarVisible = $derived(sidebarState || page.url.pathname === '/');
+	let isSidebarVisible = $derived(sidebarState);
 	
 	beforeNavigate(() => navState = 'inactive');
 	afterNavigate(() => {
 		navState = 'active';
-		sidebarState = page.url.pathname === '/';
+		sidebarState = false;
 	});
 	
 	// svelte-ignore state_referenced_locally
@@ -24,12 +24,13 @@
 	}
 	
 	const tabIndexFocus: Attachment = (element) => {
-		element.setAttribute('tabindex', "0");
+		element.setAttribute('tabindex', '0');
 		element.addEventListener('focusin', () => sidebarState = true);
 		element.addEventListener('focusout', () => sidebarState = false);
 		
-		return () => {};
-	}
+		return () => {
+		};
+	};
 </script>
 
 <div id="sidebar-light" class="{$state.eager(navState)}">
@@ -38,7 +39,7 @@
 	</div>
 </div>
 
-<section id="sidebar" class="{theme} {isSidebarVisible ? 'res-visible' : 'res-hidden'}">
+<section id="sidebar" class="{theme} {isSidebarVisible ? 'res-visible' : 'res-hidden'} {page.url.pathname === '/' ? 'home-page' : ''} {navState === 'active' ? 'button-anim' : ''}">
 	<button title="" class="toggle-sidebar-button" onclick="{() => sidebarState = !sidebarState}" tabindex="-1">
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 			<path d="M3 14a1 1 0 0 0 1 1h11.001v-.092a3 3 0 0 1 5.12 -2.03a.515 .515 0 0 0 .879 -.363v-6.515a3 3 0 0 0 -3 -3h-12a3 3 0 0 0 -3 3z" />
@@ -74,7 +75,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Privacy</p>
 			</a>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/changelog', newly_added: true }} href="/changelog">
+			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/changelog' }} href="/changelog">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" />
@@ -180,7 +181,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Transition Easing</p>
 			</a>
-			<div class={{ selected: page.url.pathname === '/icons/brands', planned: true }}>
+			<div class={{ planned: true }}>
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M12 2.50008V12.0001M12 12.0001L20.5 7.27779M12 12.0001L3.5 7.27779M12 12.0001V21.5001M20.5 16.7223L12.777 12.4318C12.4934 12.2742 12.3516 12.1954 12.2015 12.1645C12.0685 12.1372 11.9315 12.1372 11.7986 12.1645C11.6484 12.1954 11.5066 12.2742 11.223 12.4318L3.5 16.7223M21 16.0586V7.94153C21 7.59889 21 7.42757 20.9495 7.27477C20.9049 7.13959 20.8318 7.01551 20.7354 6.91082C20.6263 6.79248 20.4766 6.70928 20.177 6.54288L12.777 2.43177C12.4934 2.27421 12.3516 2.19543 12.2015 2.16454C12.0685 2.13721 11.9315 2.13721 11.7986 2.16454C11.6484 2.19543 11.5066 2.27421 11.223 2.43177L3.82297 6.54288C3.52345 6.70928 3.37369 6.79248 3.26463 6.91082C3.16816 7.01551 3.09515 7.13959 3.05048 7.27477C3 7.42757 3 7.59889 3 7.94153V16.0586C3 16.4013 3 16.5726 3.05048 16.7254C3.09515 16.8606 3.16816 16.9847 3.26463 17.0893C3.37369 17.2077 3.52345 17.2909 3.82297 17.4573L11.223 21.5684C11.5066 21.726 11.6484 21.8047 11.7986 21.8356C11.9315 21.863 12.0685 21.863 12.2015 21.8356C12.3516 21.8047 12.4934 21.726 12.777 21.5684L20.177 17.4573C20.4766 17.2909 20.6263 17.2077 20.7354 17.0893C20.8318 16.9847 20.9049 16.8606 20.9495 16.7254C21 16.5726 21 16.4013 21 16.0586Z" />
@@ -283,10 +284,25 @@
 			--sidebar-width: 18rem !important;
 		}
 		
+		@keyframes ButtonHighlightAnim {
+			0%, 30%, 50%, 100% {
+				color:   var(--theme-sidebar-toggle-icon);
+				opacity: 1;
+			}
+			20%, 40%, 70% {
+				color:   var(--theme-text-fourth);
+				opacity: .5;
+			}
+		}
+		
 		#sidebar {
 			height: 100vh;
 			width:  6px;
 			left:   0;
+			
+			&.button-anim .toggle-sidebar-button svg {
+				animation: ButtonHighlightAnim 8s ease;
+			}
 			
 			&.res-visible .toggle-sidebar-button {
 				opacity: 0;
@@ -327,12 +343,14 @@
 				transition:   1800ms 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
 			}
 			
-			&:hover .sidebar-section, &.res-visible .sidebar-section {
-				opacity:    1;
-				filter:     blur(0) drop-shadow(0 0 .35rem rgba(from var(--theme-ui-line) r g b / .15));
-				transform:  translateX(0);
-				transition: filter 80ms 12ms ease,
-				            transform 275ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+			&:hover, &.res-visible, &.home-page {
+				.sidebar-section {
+					opacity:    1;
+					filter:     blur(0) drop-shadow(0 0 .35rem rgba(from var(--theme-ui-line) r g b / .15));
+					transform:  translateX(0);
+					transition: filter 80ms 12ms ease,
+					            transform 275ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+				}
 			}
 			
 			.sidebar-section {
@@ -373,6 +391,8 @@
 			bottom:          1.25rem;
 			left:            1.25rem;
 			
+			padding:         1.5rem 1.25rem;
+			
 			height:          calc(100vh - var(--header-height) - 2.5rem);
 			width:           var(--sidebar-width);
 			background:      linear-gradient(0deg, var(--theme-ui-sidebar) 0%, rgba(from var(--theme-ui-sidebar) r g b / .925) 100%);
@@ -407,7 +427,7 @@
 					}
 				}
 				
-				.planned, .in_progress, a.newly_added {
+				.planned, .in_progress, .newly_added {
 					&::after {
 						font-size:   .6rem;
 						font-weight: 750;
@@ -486,6 +506,8 @@
 			bottom:     0;
 			background: var(--theme-ui-sidebar);
 			
+			padding:    3.75rem 1.1rem 0 1.1rem;
+			
 			.title {
 				font-size:   .9rem;
 				font-weight: 550;
@@ -530,10 +552,8 @@
 	}
 	
 	
-	
 	.nav-section, .nav-top {
-		a:hover, a.selected,
-		.planned:hover, .in_progress:hover {
+		a:hover, .selected, .planned:hover, .in_progress:hover {
 			.text {
 				background-image: radial-gradient(circle at 10% 20%, rgb(174 110 204) 0%, rgb(62 175 229) 28.8%, rgb(45 208 51) 45.6%, rgb(224 196 16) 65.9%, rgb(255 143 28) 75.8%, rgb(222 70 70) 80%, rgb(255 123 249) 85.7%);
 			}
@@ -541,7 +561,7 @@
 	}
 	
 	.dark .nav-section, .dark .nav-top {
-		a:hover, a.selected, .planned:hover, .in_progress:hover {
+		a:hover, .selected, .planned:hover, .in_progress:hover {
 			.text {
 				background-image: radial-gradient(circle at 10% 20%, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
 			}
@@ -549,9 +569,7 @@
 	}
 	
 	.sidebar-section {
-		position:        absolute;
-		box-sizing:      border-box;
-		padding:         1.5rem 1.25rem;
+		position:        fixed !important;
 		
 		display:         flex;
 		flex-flow:       column nowrap;
@@ -586,15 +604,6 @@
 			width:           100%;
 			margin-top:      1.5rem;
 			
-			.title::after {
-				height:      2px;
-				content:     '';
-				background:  var(--theme-text-fourth);
-				width:       100%;
-				margin-left: .5rem;
-				opacity:     .5;
-			}
-			
 			.title {
 				display:         flex;
 				flex-flow:       row nowrap;
@@ -607,6 +616,15 @@
 				height:          1.5rem;
 				
 				margin-bottom:   .35rem;
+				
+				&::after {
+					height:      2px;
+					content:     '';
+					background:  var(--theme-text-fourth);
+					width:       100%;
+					margin-left: .5rem;
+					opacity:     .5;
+				}
 				
 				p {
 					font-family: 'Funnel Sans', sans-serif;
@@ -654,19 +672,13 @@
 		}
 		
 		@media (prefers-reduced-transparency: reduce) {
-			a.selected,
-			a:hover,
-			.planned:hover,
-			.in_progress:hover {
+			.selected, a:hover, .planned:hover, .in_progress:hover {
 				background: linear-gradient(to left, var(--theme-ui-sidebar-highlight) 15%, color-mix(var(--theme-ui-sidebar-highlight),
 				var(--theme-color-primary) 5%) 100%) !important;
 			}
 		}
 		
-		a.selected,
-		a:hover,
-		.planned:hover,
-		.in_progress:hover {
+		a.selected, a:hover, .planned:hover, .in_progress:hover {
 			background: linear-gradient(to left, rgba(from var(--theme-ui-sidebar-highlight) r g b / .75) 15%, color-mix(rgba(from var(--theme-ui-sidebar-highlight) r g b / .5),
 			var(--theme-color-primary) 5%) 100%);
 			transition: var(--theme-transition-on);
@@ -686,7 +698,7 @@
 			}
 		}
 		
-		.planned, .in_progress, a.newly_added {
+		.planned, .in_progress, .newly_added {
 			&::after {
 				display:       flex;
 				align-items:   center;
@@ -702,6 +714,10 @@
 				font-family:   'Lexend Variable', sans-serif;
 				
 				transition:    var(--theme-transition-off);
+				
+				&:hover {
+					transition: var(--theme-transition-on);
+				}
 			}
 			
 			&:hover::after {
@@ -709,9 +725,9 @@
 			}
 		}
 		
-		a.newly_added::after {
+		.newly_added::after {
 			content:    'NEW';
-			color: var(--theme-ui-white);
+			color:      var(--theme-ui-white);
 			background: oklch(0.75 0.182 127.286);
 		}
 		
@@ -726,13 +742,6 @@
 		
 		.planned:hover::after {
 			background: var(--theme-sidebar-tag-hover-background);
-		}
-		
-		
-		a.planned.selected::after, a.in_progress.selected::after {
-			color:      var(--theme-color-accent);
-			background: var(--theme-ui-container);
-			transition: var(--theme-transition-off);
 		}
 		
 		.sidebar-footer {

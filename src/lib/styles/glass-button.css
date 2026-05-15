@@ -32,10 +32,10 @@
 	
 	&::before {
 		border:           1px solid color-mix(rgba(from var(--theme-ui-black) r g b / .5), #4B0082 20%);
-		background-image: linear-gradient(45deg, #929BC966 0%, transparent 100%);
+		background-image: linear-gradient(-145deg, #929BC966 0%, transparent 100%);
 		
 		filter:           blur(.05rem) contrast(2) brightness(1.5);
-		mask-image:       linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
+		mask-image:       linear-gradient(145deg, transparent 10%, black 50%, transparent 90%);
 	}
 	
 	&::after {

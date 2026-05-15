@@ -3,7 +3,7 @@
 	import { afterNavigate } from '$app/navigation';
 
 	let currentPage: string = $state('/colors/combo');
-	const unscrollablePages: string[] = ['/','/colors/combos', '/colors/palettes', '/colors/gradients'];
+	const unscrollablePages: string[] = ['/','/colors/palettes', '/colors/gradients'];
 
 	let isUnscrollable: boolean = $derived.by(() => {
 		for (const path of unscrollablePages) {

@@ -5,11 +5,6 @@ const totalId: string = new Date(0).toISOString().slice(0, 10);
 
 export default class Database {
 	static currentDate: string;
-
-	constructor() {
-		Database.currentDate = new Date(Date.now()).toISOString().slice(0, 10);
-	}
-
 	// noinspection JSUnusedGlobalSymbols
 	private static readonly SQL: Bun.SQL = new Bun.SQL({
 		idleTimeout: 0,
@@ -26,53 +21,62 @@ export default class Database {
 		}
 	});
 
+	constructor() {
+		Database.currentDate = new Date(Date.now()).toISOString().slice(0, 10);
+	}
+
 	static async init(): Promise<void> {
 		if (!isProduction) return;
 
 		Bun.cron('@midnight', this.insertNewDay);
 
 		await Database.SQL`CREATE TABLE IF NOT EXISTS metrics
-		                   (
-												 date     varchar(10) PRIMARY KEY,
-			                   visitors BIGINT DEFAULT 0 NOT NULL
-		                   )`.catch(error => console.error(error));
+                           (
+                               date     varchar(10) PRIMARY KEY,
+                               visitors BIGINT DEFAULT 0 NOT NULL
+                           )`.catch(error => console.error(error));
 
-		await Database.SQL`INSERT INTO metrics(date,visitors) VALUES (${new Date(Date.now()).toISOString().slice(0, 10)},0)`.catch((error) =>
+		await Database.SQL`INSERT INTO metrics(date, visitors)
+                           VALUES (${new Date(Date.now()).toISOString().slice(0, 10)}, 0)
+                           ON CONFLICT (date) DO NOTHING`.catch((error) =>
 			console.error(error)
 		);
 	}
 
-	static async getTotalVisitorAmount(): Promise<number> {
-		if (!isProduction) return -1;
+	static async getTotalVisitorAmount(): Promise<bigint> {
+		if (!isProduction) return -1n;
 
-		const result = await Database.SQL`SELECT visitors FROM metrics WHERE date=${totalId}`.catch(() => []);
-		return result[0]?.visitors ?? -1;
+		const result = await Database.SQL`SELECT visitors
+                                          FROM metrics
+                                          WHERE date = ${totalId}`.catch(() => []);
+		return result[0]?.visitors ?? -1n;
 	}
 
-	static async getCurrentDayVisitorAmount(): Promise<number> {
-		if (!isProduction) return 0;
+	static async getCurrentDayVisitorAmount(): Promise<bigint> {
+		if (!isProduction) return 0n;
 
 		const result = await Database.SQL`SELECT visitors FROM metrics WHERE date=${this.currentDate}`.catch(async () => {
-			await Database.SQL`INSERT INTO metrics VALUES (${this.currentDate}, 0)`.catch(() => {});
+			await Database.SQL`INSERT INTO metrics VALUES (${this.currentDate}, 0)`.catch(() => {
+			});
 			return [];
 		});
 
-		return result[0]?.visitors ?? -1;
+		return result[0]?.visitors ?? -1n;
 	}
 
-	static async updateTotalVisitorAmount(amount: number): Promise<void> {
+	static async updateTotalVisitorAmount(amount: number | bigint): Promise<void> {
 		if (!isProduction) return;
 
 		await Database.SQL`UPDATE metrics SET visitors = ${amount} WHERE date=${totalId}`.catch(() => []);
 	}
 
-	static async updateCurrentDayVisitorAmount(amount: number): Promise<void> {
+	static async updateCurrentDayVisitorAmount(amount: number | bigint): Promise<void> {
 		if (!isProduction) return;
 
 		await Database.SQL`UPDATE metrics SET visitors = ${amount} WHERE date=${this.currentDate}`.catch(() => []);
 	}
 
-	static async incrementVisitorCount(total: number, daily: number): Promise<void> {
+	static async incrementVisitorCount(total: number | bigint, daily: number | bigint): Promise<void> {
 		await this.updateTotalVisitorAmount(total);
 		await this.updateCurrentDayVisitorAmount(daily);
 	}

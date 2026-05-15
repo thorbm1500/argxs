@@ -123,15 +123,22 @@
 
 <style>
     /* Desktop & Tablet */
-    @media (width >= 44rem) {}
+    @media (width >= 44rem) {
+	    .color-combos-sec {
+		    padding-top: 4rem;
+	    }
+    }
 
     /* Phone */
-    @media (width < 44rem) {}
+    @media (width < 44rem) {
+	    .color-combos-sec {
+		    padding-top: 2rem;
+	    }
+    }
 
     .color-combos-sec {
-	    width: calc(100vw - 12rem);
-	    box-sizing: border-box !important;
-
+	    width: 100%;
+	    
         .combos {
             display: flex;
             flex-flow: column nowrap;
@@ -148,11 +155,11 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
-
-            width: 100%;
+	        width: 100%;
+	        
             height: fit-content;
 
-            margin: 2rem 0;
+            margin: 1.5rem 0;
 
             z-index: 200;
 
@@ -161,11 +168,11 @@
                 flex-flow: column;
                 align-items: center;
                 justify-content: center;
+	            flex: 1 0;
 
                 height: 40vh;
                 min-height: 8rem;
-                width: 50vw;
-                max-width: 56rem;
+                
                 background: var(--hex);
                 border-radius: .65rem;
                 border: 6px solid color-mix(var(--hex), black 10%);

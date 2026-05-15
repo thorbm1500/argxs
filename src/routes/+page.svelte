@@ -58,11 +58,10 @@
 
 <section class="home-page-sec">
 	<div
-		style="transform-style: preserve-3d; transform: translateY({Math.max(minY, Math.min(maxY, (coords.current.y / 750) - .6)) - 3}rem) translateX({Math.max(minX, Math.min(maxX,
-		(coords.current.x /
-		 750) - 1.1))}rem) rotate3d(-1,0,0, -15deg) rotate3d(0,1,0, {$state.eager(deg)}deg)">
-		<h1 class="title">argxs</h1>
-		<div class="subtitle top">
+		style="transform-style: preserve-3d; transform: translateY({Math.max(minY, Math.min(maxY, (coords.current.y / 750) - .6)) - 3}rem) translateX({Math.max(minX, Math.min(maxX,(coords.current.x /
+		 750) - 1.1))}rem) rotate3d(-1,0,0, -15deg)">
+		<h1 class="title" style="transform: rotate3d(0,1,0, {$state.eager(deg)}deg)">argxs</h1>
+		<div class="subtitle top" style="transform: rotate3d(0,1,0, {$state.eager(deg)}deg)">
 			<div class="content">
 				<p>Proudly made 100% by humans</p>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
@@ -77,21 +76,32 @@
 <style>
 	/* Desktop & Tablet */
 	@media (width >= 44rem) {
+		.home-page-sec {
+			.title {
+				font-size:   8rem;
+			}
+		}
 	}
 	
 	/* Phone */
 	@media (width < 44rem) {
 		.home-page-sec {
-			padding-right: 1.5rem;
+			.title {
+				font-size:   6rem;
+			}
+			div {
+				transform: none !important;
+			}
 		}
 	}
 	
 	.home-page-sec {
-		position:        absolute;
+		position:        fixed;
 		top:             0;
 		left:            0;
-		height:          calc(100vh - var(--header-height));
+		height:          100vh;
 		width:           100vw;
+		padding:         4rem;
 		
 		overflow:        hidden;
 		transform-style: preserve-3d !important;
@@ -102,27 +112,25 @@
 		
 		perspective:     500px;
 		
-		color:           var(--theme-text-primary);
-		
 		user-select:     none;
 		pointer-events:  none;
 		
 		.title {
-			font-size:  6.5rem;
-			filter:     drop-shadow(0 0 1rem rgba(from var(--theme-text-primary) r g b / .15));
-			transition: 650ms linear(0, 0.002 0.3%, 0.007 0.6%, 0.029 1.3%, 0.065 2%, 0.119 2.8%, 0.237 4.2%, 0.659 8.7%, 0.778 10.2%, 0.871 11.6%, 0.95 13.1%, 1.009 14.6%, 1.033 15.4%, 1.052 16.2%, 1.066 17%, 1.078 17.9%, 1.085 18.8%, 1.088 19.7%, 1.088 20.7%, 1.085 21.7%, 1.074 23.6%, 1.032 28.7%, 1.014 31.4%, 1.006 33%, 1 34.6%, 0.993 38%, 0.992 41.9%, 0.999 51.4%, 1.001 57.6%, 1);
+			font-family: 'Lexend Variable', sans-serif;
+			font-weight: 600;
+			filter:      drop-shadow(0 0 1rem rgba(from var(--theme-text-primary) r g b / .15));
+			transition:  650ms linear(0, 0.002 0.3%, 0.007 0.6%, 0.029 1.3%, 0.065 2%, 0.119 2.8%, 0.237 4.2%, 0.659 8.7%, 0.778 10.2%, 0.871 11.6%, 0.95 13.1%, 1.009 14.6%, 1.033 15.4%, 1.052 16.2%, 1.066 17%, 1.078 17.9%, 1.085 18.8%, 1.088 19.7%, 1.088 20.7%, 1.085 21.7%, 1.074 23.6%, 1.032 28.7%, 1.014 31.4%, 1.006 33%, 1 34.6%, 0.993 38%, 0.992 41.9%, 0.999 51.4%, 1.001 57.6%, 1);
+			text-align:  center;
 		}
 		
 		.subtitle.top {
 			pointer-events: none !important;
 			
 			.content {
-				position:        absolute;
 				height:          fit-content;
 				
 				transform:       translateZ(1rem);
 				transform-style: preserve-3d;
-				
 				
 				display:         flex;
 				flex-flow:       row nowrap;
@@ -131,7 +139,7 @@
 				justify-items:   center;
 				gap:             .35rem;
 				
-				font-family:     'Funnel Display', sans-serif;
+				font-family:     'Google Sans', sans-serif;
 				font-size:       1.1rem;
 				font-weight:     500;
 				text-wrap:       nowrap;

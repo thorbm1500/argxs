@@ -54,6 +54,8 @@
 		align-items:     flex-end;
 		justify-content: space-between;
 		
+		width: fit-content;
+		
 		padding-bottom:  2rem;
 		user-select:     none;
 		
@@ -67,10 +69,13 @@
 				background-clip:  text;
 				color:            transparent;
 				
+				text-wrap: nowrap;
+				
 				max-height:       6.75rem;
 			}
 			
 			.subtitle {
+				font-family: 'Geologica', 'Google Sans', sans-serif;
 				font-weight: 500;
 				
 				color:       var(--theme-text-third);

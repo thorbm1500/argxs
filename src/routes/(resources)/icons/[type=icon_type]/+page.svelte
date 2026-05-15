@@ -194,12 +194,14 @@
 					<div class="gradient"></div>
 				</button>
 				<div class="left">
-					<div class="img-fx">
-						<img in:fade|global src="/resources/icons/{iconType}/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
-						     alt={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.name} loading="lazy" />
-					</div>
-					<img in:fade|global src="/resources/icons/{iconType}/{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.path}"
-					     alt={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.name} loading="lazy" />
+					{#key hCurrentIcon?.path}
+						<div class="img-fx">
+							<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
+							     alt={hCurrentIcon?.name} loading="lazy" />
+						</div>
+						<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
+					         alt={hCurrentIcon?.name} loading="lazy" />
+					{/key}
 					{#if highlightedIcon.iconIndex.length > 1}
 						<div class="current-icon-index">
 							<p>{highlightedIcon.currentIcon + 1}/{highlightedIcon.iconIndex.length}</p>
@@ -314,12 +316,13 @@
 	{/key}
 {/if}
 
-<section class="content-header">
-	<div class="text">
-		<h1 class="title">
-			{iconType === 'brands' ? 'Brand' : 'Flag'} Icons
-		</h1>
-		<div class="subtitle">
+<section class="icons-page">
+	<section class="content-header">
+		<div class="text">
+			<h1 class="title">
+				{iconType === 'brands' ? 'Brand' : 'Flag'} Icons
+			</h1>
+			<div class="subtitle">
 				{#if iconType === 'brands'}
 					argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
 					logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong
@@ -328,19 +331,19 @@
 					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different
 					countries, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> different flags.
 				{/if}
+			</div>
 		</div>
-	</div>
-	<div class="actions">
-		<div class="sorting">
-			{#if sorting !== 'default'}
-				<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action glass-button" onclick="{() => sorting = 'default'}">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path transition:draw|global={{duration: 1100, easing: quartInOut}}
-						      d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
-					</svg>
-				</button>
-			{/if}
-			<button class="sort-action glass-button" onclick="{() =>  {
+		<div class="actions">
+			<div class="sorting">
+				{#if sorting !== 'default'}
+					<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action glass-button" onclick="{() => sorting = 'default'}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path transition:draw|global={{duration: 1100, easing: quartInOut}}
+							      d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
+						</svg>
+					</button>
+				{/if}
+				<button class="sort-action glass-button" onclick="{() =>  {
 						if (sorting !== 'alphabet') {
 							sorting = 'alphabet';
 							order = 'desc';
@@ -348,27 +351,27 @@
 							order = order === 'desc' ? 'asc' : 'desc';
 						}
 					}}">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					{#if sorting === 'alphabet'}
-						{#if order === 'asc'}
-							<path in:draw|global={{duration: 350}} d="M15 10v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
-							<path in:draw|global={{duration: 350}} d="M19 21h-4l4 -7h-4" />
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						{#if sorting === 'alphabet'}
+							{#if order === 'asc'}
+								<path in:draw|global={{duration: 350}} d="M15 10v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
+								<path in:draw|global={{duration: 350}} d="M19 21h-4l4 -7h-4" />
+							{:else}
+								<path in:draw|global={{duration: 350}} d="M15 21v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
+								<path in:draw|global={{duration: 350}} d="M19 10h-4l4 -7h-4" />
+							{/if}
+							<path d="M4 15l3 3l3 -3" />
+							<path d="M7 6v12" />
 						{:else}
-							<path in:draw|global={{duration: 350}} d="M15 21v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
-							<path in:draw|global={{duration: 350}} d="M19 10h-4l4 -7h-4" />
+							<path in:draw|global={{duration: 350}} d="M16 8h4l-4 8h4" />
+							<path in:draw|global={{duration: 350}} d="M4 16v-6a2 2 0 1 1 4 0v6" />
+							<path d="M4 13h4" />
+							<path d="M11 12h2" />
 						{/if}
-						<path d="M4 15l3 3l3 -3" />
-						<path d="M7 6v12" />
-					{:else}
-						<path in:draw|global={{duration: 350}} d="M16 8h4l-4 8h4" />
-						<path in:draw|global={{duration: 350}} d="M4 16v-6a2 2 0 1 1 4 0v6" />
-						<path d="M4 13h4" />
-						<path d="M11 12h2" />
-					{/if}
-				</svg>
-				Name
-			</button>
-			<button class="sort-action glass-button" onclick="{() =>  {
+					</svg>
+					Name
+				</button>
+				<button class="sort-action glass-button" onclick="{() =>  {
 						if (sorting !== 'time') {
 							sorting = 'time';
 							order = 'desc';
@@ -376,87 +379,87 @@
 							order = order === 'desc' ? 'asc' : 'desc';
 						}
 					}}">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					{#if sorting === 'time'}
-						<path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448" />
-						<path d="M12 7v5l2.5 2.5" />
-						<path d="M19 22v-6" />
-						{#if order === 'asc'}
-							<path in:draw|global={{duration: 350}} d="M22 19l-3 -3l-3 3" />
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						{#if sorting === 'time'}
+							<path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448" />
+							<path d="M12 7v5l2.5 2.5" />
+							<path d="M19 22v-6" />
+							{#if order === 'asc'}
+								<path in:draw|global={{duration: 350}} d="M22 19l-3 -3l-3 3" />
+							{:else}
+								<path in:draw|global={{duration: 350}} d="M22 19l-3 3l-3 -3" />
+							{/if}
 						{:else}
-							<path in:draw|global={{duration: 350}} d="M22 19l-3 3l-3 -3" />
+							<path d="M20.943 13.016a9 9 0 1 0 -8.915 7.984" />
+							<path d="M16 22l5 -5" />
+							<path d="M21 21.5v-4.5h-4.5" />
+							<path d="M12 7v5l2 2" />
 						{/if}
-					{:else}
-						<path d="M20.943 13.016a9 9 0 1 0 -8.915 7.984" />
-						<path d="M16 22l5 -5" />
-						<path d="M21 21.5v-4.5h-4.5" />
-						<path d="M12 7v5l2 2" />
-					{/if}
-				</svg>
-				Date Added
-			</button>
-		</div>
-		{#if iconType === 'brands'}
-			<div class="filter">
-				<button class="sort-action glass-button {!iconsOnly && !logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+					</svg>
+					Date Added
+				</button>
+			</div>
+			{#if iconType === 'brands'}
+				<div class="filter">
+					<button class="sort-action glass-button {!iconsOnly && !logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			iconsOnly = false;
 			logosOnly = false;
 		}}">
-					All
-				</button>
-				<button class="sort-action glass-button {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
+						All
+					</button>
+					<button class="sort-action glass-button {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			iconsOnly = !iconsOnly;
 			if (iconsOnly) logosOnly = false;
 		}}">
-					Icons Only
-				</button>
-				<button class="sort-action glass-button {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+						Icons Only
+					</button>
+					<button class="sort-action glass-button {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			logosOnly = !logosOnly;
 			if (logosOnly) iconsOnly = false;
 		}}">
-					Logos Only
-				</button>
-			</div>
-		{/if}
-	</div>
-</section>
-
-<section class="brand-icons-sec" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}>
-	<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
-		{#each currentIcons as icon}
-			{#key icon}
-				<BrandIconComponent type={iconType} bind:highlightedIcon bind:theme icon={icon} />
-			{/key}
-		{/each}
-	</div>
-</section>
-
-<div class="pagination-actions">
-	<button title="First Page" class="action glass-button {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
-		1
-	</button>
-	<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}">
-		<div class="circle glass-button"></div>
-		<div class="circle glass-button"></div>
-		<div class="circle glass-button"></div>
-	</div>
-	<button class="action glass-button {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
-	<button class="action glass-button {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
-	<p class="action current-page glass-button">{currentPage}</p>
-	<button class="action glass-button {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
-	<button class="action glass-button {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
-	<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}">
-		<div class="circle glass-button"></div>
-		<div class="circle glass-button"></div>
-		<div class="circle glass-button"></div>
-	</div>
-	<button title="Last Page" class="action glass-button {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
-		{maxPage}
-	</button>
-	<button class="sort-action glass-button" onclick="{() => {
+						Logos Only
+					</button>
+				</div>
+			{/if}
+		</div>
+	</section>
+	
+	<section class="brand-icons-sec" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}>
+		<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
+			{#each currentIcons as icon}
+				{#key icon}
+					<BrandIconComponent type={iconType} bind:highlightedIcon bind:theme icon={icon} />
+				{/key}
+			{/each}
+		</div>
+	</section>
+	
+	<div class="pagination-actions">
+		<button title="First Page" class="action glass-button {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
+			1
+		</button>
+		<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}">
+			<div class="circle glass-button"></div>
+			<div class="circle glass-button"></div>
+			<div class="circle glass-button"></div>
+		</div>
+		<button class="action glass-button {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
+		<button class="action glass-button {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
+		<p class="action current-page glass-button">{currentPage}</p>
+		<button class="action glass-button {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
+		<button class="action glass-button {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
+		<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}">
+			<div class="circle glass-button"></div>
+			<div class="circle glass-button"></div>
+			<div class="circle glass-button"></div>
+		</div>
+		<button title="Last Page" class="action glass-button {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
+			{maxPage}
+		</button>
+		<button class="sort-action glass-button" onclick="{() => {
 			currentPage = 1;
 			switch (pagOffset) {
 				case 24: {
@@ -473,47 +476,48 @@
 				}
 			}
 		}}">
-		Items: {pagOffset}
-	</button>
-</div>
-
-<div class="resource-info">
-	<h1 class="title">
-		Good to know
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-			<path d="M8.99962 14C8.99962 14 10.3121 15.5 12.4996 15.5C14.6871 15.5 15.9996 14 15.9996 14M15.2496 9H15.2596M9.74962 9H9.75962M12.4996 20C17.194 20 20.9996 16.1944 20.9996 11.5C20.9996 6.80558 17.194 3 12.4996 3C7.8052 3 3.99962 6.80558 3.99962 11.5C3.99962 12.45 4.15547 13.3636 4.443 14.2166C4.55119 14.5376 4.60529 14.6981 4.61505 14.8214C4.62469 14.9432 4.6174 15.0286 4.58728 15.1469C4.55677 15.2668 4.48942 15.3915 4.35472 15.6408L2.71906 18.6684C2.48575 19.1002 2.36909 19.3161 2.3952 19.4828C2.41794 19.6279 2.50337 19.7557 2.6288 19.8322C2.7728 19.9201 3.01692 19.8948 3.50517 19.8444L8.62619 19.315C8.78127 19.299 8.85881 19.291 8.92949 19.2937C8.999 19.2963 9.04807 19.3029 9.11586 19.3185C9.18478 19.3344 9.27145 19.3678 9.44478 19.4345C10.3928 19.7998 11.4228 20 12.4996 20ZM15.7496 9C15.7496 9.27614 15.5258 9.5 15.2496 9.5C14.9735 9.5 14.7496 9.27614 14.7496 9C14.7496 8.72386 14.9735 8.5 15.2496 8.5C15.5258 8.5 15.7496 8.72386 15.7496 9ZM10.2496 9C10.2496 9.27614 10.0258 9.5 9.74962 9.5C9.47348 9.5 9.24962 9.27614 9.24962 9C9.24962 8.72386 9.47348 8.5 9.74962 8.5C10.0258 8.5 10.2496 8.72386 10.2496 9Z" />
-		</svg>
-	</h1>
-	<div class="subtitle">
-		<ul>
-			<li>
-				All SVGs are manually cleaned up and optimized, before being showcased. This is done for 2 reasons:<br>
-			    Ensuring no SVGs overlap and conflict due to having attributes with matching names, and for a hope of minimizing the amount of redundant data being transferred across the internet.
-			</li>
-			<li>
-				Embedding an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are directly embedded on the page, so they can be safely omitted.
-				<ul>
-					<li>
-						xmlns   | Fx. xmlns="http://www.w3.org/2000/svg"
-					</li>
-					<li>
-						version | Fx. version="1.1"
-					</li>
-				</ul>
-			</li>
-			<li>
-				All <strong>PNG</strong>, <strong>WEBP</strong> and <strong>JPEG</strong> images have a minimum width/height of 1000px.
-			</li>
-		</ul>
+			Items: {pagOffset}
+		</button>
 	</div>
-</div>
+	
+	<div class="resource-info">
+		<h1 class="title">
+			Good to know
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+				<path d="M8.99962 14C8.99962 14 10.3121 15.5 12.4996 15.5C14.6871 15.5 15.9996 14 15.9996 14M15.2496 9H15.2596M9.74962 9H9.75962M12.4996 20C17.194 20 20.9996 16.1944 20.9996 11.5C20.9996 6.80558 17.194 3 12.4996 3C7.8052 3 3.99962 6.80558 3.99962 11.5C3.99962 12.45 4.15547 13.3636 4.443 14.2166C4.55119 14.5376 4.60529 14.6981 4.61505 14.8214C4.62469 14.9432 4.6174 15.0286 4.58728 15.1469C4.55677 15.2668 4.48942 15.3915 4.35472 15.6408L2.71906 18.6684C2.48575 19.1002 2.36909 19.3161 2.3952 19.4828C2.41794 19.6279 2.50337 19.7557 2.6288 19.8322C2.7728 19.9201 3.01692 19.8948 3.50517 19.8444L8.62619 19.315C8.78127 19.299 8.85881 19.291 8.92949 19.2937C8.999 19.2963 9.04807 19.3029 9.11586 19.3185C9.18478 19.3344 9.27145 19.3678 9.44478 19.4345C10.3928 19.7998 11.4228 20 12.4996 20ZM15.7496 9C15.7496 9.27614 15.5258 9.5 15.2496 9.5C14.9735 9.5 14.7496 9.27614 14.7496 9C14.7496 8.72386 14.9735 8.5 15.2496 8.5C15.5258 8.5 15.7496 8.72386 15.7496 9ZM10.2496 9C10.2496 9.27614 10.0258 9.5 9.74962 9.5C9.47348 9.5 9.24962 9.27614 9.24962 9C9.24962 8.72386 9.47348 8.5 9.74962 8.5C10.0258 8.5 10.2496 8.72386 10.2496 9Z" />
+			</svg>
+		</h1>
+		<div class="subtitle">
+			<ul>
+				<li>
+					All SVGs are manually cleaned up and optimized, before being showcased. This is done for 2 reasons:<br>
+					Ensuring no SVGs overlap and conflict due to having attributes with matching names, and for a hope of minimizing the amount of redundant data being transferred across the internet.
+				</li>
+				<li>
+					Embedding an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are directly embedded on the page, so they can be safely omitted.
+					<ul>
+						<li>
+							xmlns   | Fx. xmlns="http://www.w3.org/2000/svg"
+						</li>
+						<li>
+							version | Fx. version="1.1"
+						</li>
+					</ul>
+				</li>
+				<li>
+					All <strong>PNG</strong>, <strong>WEBP</strong> and <strong>JPEG</strong> images have a minimum width/height of 1000px.
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
 
 <!--suppress CssUnusedSymbol -->
 <style>
 	/* Desktop & Tablet */
 	@media (width >= 44rem) {
-		:global(.main-container) {
-			padding: 3rem 6rem 0 6rem !important;
+		.icons-page {
+			padding-top: 4rem;
 		}
 		
 		.brand-icons-sec {
@@ -538,6 +542,8 @@
 			padding-bottom:  2rem;
 			
 			.text {
+				padding-left: 1rem;
+				
 				.title {
 					font-size: 3rem;
 				}
@@ -548,7 +554,23 @@
 			}
 			
 			.actions {
-				padding-left: .25rem;
+				padding-right: 1rem;
+			}
+		}
+		
+		.resource-info {
+			.title {
+				font-size: 2rem;
+			}
+			
+			.subtitle {
+				font-size: 1.05rem;
+				
+				ul li ul li {
+					white-space: pre;
+					font-size: .9rem;
+					list-style-position: inside;
+				}
 			}
 		}
 	}
@@ -556,13 +578,13 @@
 	/* Phone */
 	@media (width < 44rem) {
 		:global(.main-container) {
-			padding: 3rem 5rem 0 5rem !important;
+			padding: 3rem calc(50vw - 10rem) 0 calc(50vw - 10rem) !important;
 		}
 		
 		.brand-icons-sec .icons {
-			grid-template-columns: repeat(2, 7rem) !important;
-			justify-content:       space-evenly;
-			column-gap:            1rem;
+			grid-template-columns: repeat(3, 7rem) !important;
+			justify-content:       center;
+			column-gap:            .75rem;
 			height:                fit-content;
 			margin-top:            2rem;
 			
@@ -615,6 +637,49 @@
 				margin-top: 1rem;
 			}
 		}
+		
+		.resource-info {
+			.title {
+				font-size: 1.75rem;
+			}
+			
+			.subtitle {
+				font-size: .95rem;
+				line-height: 1.25;
+				
+				ul {
+					width: 115%;
+					margin-left: -.5rem;
+				}
+				
+				ul li {
+					text-wrap: pretty;
+					width: fit-content !important;
+					
+					ul {
+						width: fit-content !important;
+						font-size: .8rem;
+						list-style-position: outside;
+						margin-left: -.5rem;
+						
+						li:first-child {
+							margin-bottom: .25rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	/* Phone */
+	@media (width <= 375px) {
+		:global(.main-container) {
+			padding: 3rem calc(50vw - 8rem) 0 calc(50vw - 8rem) !important;
+		}
+		
+		.brand-icons-sec .icons {
+			grid-template-columns: repeat(2, 7rem) !important;
+		}
 	}
 	
 	@media (prefers-reduced-transparency: reduce) {
@@ -624,6 +689,11 @@
 				backdrop-filter: none !important;
 			}
 		}
+	}
+	
+	.icons-page {
+		max-width: 1600px;
+		margin: 0 auto;
 	}
 	
 	.glass-effects {
@@ -1313,7 +1383,6 @@
 	.content-header {
 		height:      fit-content;
 		width:       100%;
-		margin-top:  1rem;
 		
 		user-select: none;
 		z-index:     500;
@@ -1325,12 +1394,13 @@
 				background-image: var(--theme-text-gradient);
 				background-clip:  text;
 				color:            transparent;
-				
-				max-height:       6.75rem;
+				height: 4rem;
+				overflow: visible;
 			}
 			
 			.subtitle {
 				text-wrap: pretty;
+				font-family: 'Geologica', sans-serif;
 				font-weight: 500;
 				color:       var(--theme-text-third);
 			}
@@ -1388,8 +1458,6 @@
 			align-items: center;
 			justify-content: flex-start;
 			gap: .25rem;
-
-			font-size: 2rem;
 			padding: .5rem 0;
 			margin-left: .25rem;
 			
@@ -1418,7 +1486,6 @@
 		
 		.subtitle {
 			text-wrap: pretty;
-			font-size: 1.05rem;
 			font-weight: 500;
 			color:       var(--theme-text-secondary);
 			
@@ -1435,14 +1502,11 @@
 				user-select: none;
 				
 				ul li {
-					list-style-position: inside;
 					list-style-type: disc;
 					margin-left: 1.25rem;
 					margin-bottom: 0;
 					
 					font-family: 'JetBrainsMono', monospace;
-					font-size: .9rem;
-					white-space: pre;
 					
 					user-select: all;
 					

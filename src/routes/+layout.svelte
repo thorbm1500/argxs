@@ -5,12 +5,12 @@
 	import Footer from './Footer.svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { updated } from '$app/state';
-	import { onMount, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 	import ToastComponent, { type ToastRequest } from '$lib/components/ToastComponent.svelte';
 
 	const { children, data } = $props();
 
-	let sidebarState: boolean = $state.raw(true);
+	let sidebarState: boolean = $state.raw(false);
 
 	beforeNavigate(({ willUnload, to }) => {
 		if (updated.current && !willUnload && to?.url) {
@@ -19,25 +19,16 @@
 	});
 
 	//svelte-ignore state_referenced_locally
-	let theme: 'light' | 'dark' = $state.raw(data.theme ?? 'light');
+	let theme: 'light' | 'dark' = $state.raw(data.theme ?? 'dark');
 	setContext('theme', () => theme);
-
-	const toggleFn = (changedTo?: 'dark' | 'light') => {
+	setContext('toggleTheme', (changedTo?: 'dark' | 'light') => {
 		if (changedTo) theme = changedTo;
 		else theme = theme === 'light' ? 'dark' : 'light';
 		window?.cookieStore?.set('argxs_theme', theme);
-	};
-	setContext('toggleTheme', toggleFn);
+	});
 
 	let sendToast: any = $state.raw(undefined);
 	setContext('sendToast', (req: ToastRequest) => sendToast?.(req));
-	
-	onMount(() => {
-		// Automatically sets the page theme to dark, if dark is preferred, for new users.
-		if (!data.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			toggleFn('dark');
-		}
-	});
 </script>
 
 <ToastComponent bind:sendFunction={sendToast} />
@@ -70,11 +61,13 @@
     }
 
     .main-container {
-        position: absolute;
-        bottom: 0;
+        position: fixed;
+	    bottom: 0;
 	    left: 0;
 	    
-	    height: calc(100vh - var(--header-height) + 1px);
+	    padding-top: calc(var(--header-height) + 1px) !important;
+	    
+	    height: 100vh;
 	    width: 100vw;
         box-sizing: border-box;
 
@@ -86,5 +79,16 @@
         overflow: auto;
 
         background: var(--theme-ui-background);
+	    
+	    &::after {
+		    content: '';
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100vw;
+		    height: var(--header-height);
+		    background-image: linear-gradient(to bottom, var(--theme-ui-header) 0%, rgba(from var(--theme-ui-header) r g b / .75) 50%, transparent 100%);
+		    z-index: 99999;
+	    }
     }
 </style>

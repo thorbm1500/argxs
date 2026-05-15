@@ -8,7 +8,7 @@ import { SiteCookies } from '$lib/server/Definitions';
 import { isCrawler } from '$lib/server/utilities';
 import processImages from '$lib/server/ImageWorker';
 
-const limiter = new RateLimiter({ IP: [1, '100ms'] });
+const limiter = new RateLimiter({ IP: [2, '100ms'] });
 const metricsHandler = new MetricsHandler();
 
 export const VERSION: string = await Bun.file('./package.json').json().then((pkg) => pkg.version);

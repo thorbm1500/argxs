@@ -1,12 +1,18 @@
-@import '../lib/resources/other/typography/google-sans/fonts.css';
-@import '../lib/resources/other/typography/space-grotesk/fonts.css';
-@import '../lib/resources/other/typography/archivo/fonts.css';
-@import '../lib/resources/other/typography/bricolage-grotesque/fonts.css';
-@import '../lib/resources/other/typography/lexend/fonts.css';
-@import '../lib/resources/other/typography/funnel/fonts.css';
-@import '../lib/resources/other/typography/jetbrains-mono/fonts.css';
+@import '$lib/resources/other/typography/google-sans/fonts.css';
+@import '$lib/resources/other/typography/space-grotesk/fonts.css';
+@import '$lib/resources/other/typography/archivo/fonts.css';
+@import '$lib/resources/other/typography/bricolage-grotesque/fonts.css';
+@import '$lib/resources/other/typography/lexend/fonts.css';
+@import '$lib/resources/other/typography/funnel/fonts.css';
+@import '$lib/resources/other/typography/jetbrains-mono/fonts.css';
+
 @import '$lib/styles/glass-button.css';
 @import 'tailwindcss';
+
+@font-face {
+	font-family: 'Geologica';
+	src: url('$lib/fonts/Geologica-Variable.ttf');
+}
 
 :root {
 	/* Transitions */
@@ -88,11 +94,9 @@
 	--theme-ui-sidebar-highlight:         #ECEEF1;
 	--theme-ui-icon:                      #5D697E;
 	
-	--theme-sidebar-toggle-icon:          #DCDFE8;
+	--theme-sidebar-toggle-icon:          #EBECF1;
 	--theme-sidebar-tag-background:       #E6EAEC;
 	--theme-sidebar-tag-hover-background: #DDE2E5;
-	
-	--theme-icon-highlight-container:    #F7FAFF;
 	
 	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, #222234 80%), linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
 	--theme-text-rgb-gradient:            linear-gradient(90deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
@@ -119,7 +123,7 @@
 	--theme-ui-container:                 #16181E;
 	--theme-ui-container-hover:           #1F212A;
 	--theme-ui-background:                #111217;
-	--theme-ui-header:                    #1B1D26;
+	--theme-ui-header:                    #12131A;
 	--theme-ui-line:                      #2E3244;
 	--theme-ui-line-highlight:            #38455D;
 	--theme-ui-sidebar:                   #16181E;
@@ -129,8 +133,6 @@
 	--theme-sidebar-toggle-icon:          #222531;
 	--theme-sidebar-tag-background:       #232631;
 	--theme-sidebar-tag-hover-background: #1C1E26;
-	
-	--theme-icon-highlight-container:    #1B1D26;
 	
 	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #B8C4D2 20%, #F7F9FC 75%);
 	--theme-text-rgb-gradient:            linear-gradient(90.7deg, rgb(255, 253, 218) 1.9%, rgb(246, 210, 255) 39.3%, rgb(152, 222, 254) 64.7%, rgb(251, 255, 210) 100.8%);
@@ -175,6 +177,7 @@
 	scroll-behavior:         smooth;
 	-webkit-font-smoothing:  antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	box-sizing: border-box;
 }
 
 body {
@@ -217,8 +220,8 @@ body {
 	}
 	
 	h1, h2 {
-		font-family: 'Funnel Display', 'Funnel Sans', 'Google Sans', sans-serif;
-		font-weight: 800;
+		font-family: 'Geologica', 'Funnel Display', 'Funnel Sans', 'Google Sans', sans-serif;
+		font-weight: 900;
 	}
 	
 	h1, h2, a, button, p, span {
@@ -226,6 +229,7 @@ body {
 	}
 	
 	h3, h4, h5, h6 {
+		font-family: 'Geologica', 'Google Sans', sans-serif;
 		color: var(--theme-text-secondary);
 	}
 	

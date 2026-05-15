@@ -28,6 +28,17 @@
 		</div>
 	</div>
 </section>
+<div class="header-blur-effect"></div>
+<svg style="display: none;">
+	<filter id="header-glass-distortion" x="0%" y="0%" width="100%" height="100%">
+		<feTurbulence type="fractalNoise" baseFrequency="0.001 0.001" numOctaves="5" seed="{Math.trunc((Date.now() / 1000) / 1000)}" result="noise" />
+		<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+		<feDisplacementMap in="SourceGraphic" in2="blurred" scale="30" xChannelSelector="R" yChannelSelector="G" />
+	</filter>
+</svg>
+<div class="header-glass-blur-effect"></div>
+<div class="header-glass-edge-blur-effect top"></div>
+<div class="header-glass-edge-blur-effect bottom"></div>
 <!--<div class="save-data-bar {saveData ? 'visible' : 'hidden'}">Reduced Data Usage Enabled</div>-->
 
 <style>
@@ -39,7 +50,7 @@
 		
 		.header-section {
 			.content {
-				width: 80vw;
+				width: 95vw;
 				
 				.actions {
 					gap: 1rem;
@@ -71,23 +82,25 @@
 				}
 			}
 			
-			&::before {
-				position:     fixed;
-				width:        100vw;
-				height:       2.85rem;
-				top:          3.5rem;
-				left:         0;
-				padding:      .25rem .5rem;
-				background:   var(--theme-ui-header);
-				color:        var(--theme-text-primary);
-				text-justify: inter-character;
-				text-align:   center;
+			&::after {
+				position:         fixed;
+				width:            100vw;
+				height:           2.85rem;
+				top:              calc(var(--header-height) + 3.5rem);
+				left:             0;
+				padding:          .25rem .5rem;
+				background-image: linear-gradient(to bottom, var(--theme-ui-header) 0%, rgba(from var(--theme-ui-header) r g b / .25) 100%);
+				color:            var(--theme-text-primary);
+				text-justify:     inter-character;
+				text-align:       center;
 				
-				content:      'This site is not optimized for mobile usage. Visit on Desktop for the full experience.';
-				font-size:    .85rem;
-				font-weight:  600;
+				content:          'This site is not optimized for mobile usage. Visit on Desktop for the full experience.';
+				font-size:        .85rem;
+				font-weight:      600;
 				
-				z-index:      1010101001001 !important;
+				opacity:          .65;
+				
+				z-index:          9999999 !important;
 			}
 		}
 	}
@@ -120,8 +133,54 @@
 		}
 	}*/
 	
+	.header-blur-effect {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: var(--header-height);
+		
+		backdrop-filter: blur(2px) brightness(1.25);
+		mask-image: linear-gradient(to top, transparent 0%, black 60%);
+		z-index: 99990 !important;
+	}
+	
+	.header-glass-blur-effect {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: var(--header-height);
+		
+		filter: brightness(1.15);
+		backdrop-filter: blur(1px) url('#header-glass-distortion');
+		mask-image: linear-gradient(to top, transparent 0%, black 60%);
+		z-index: 99990 !important;
+	}
+	
+	.header-glass-edge-blur-effect {
+		position: absolute;
+		left: 0;
+		width: 100vw;
+		height: calc(var(--header-height) / 4);
+		
+		&.bottom {
+			top: calc((var(--header-height) / 4) * 3);
+			mask-image: linear-gradient(to bottom, transparent 0%, black 75%);
+			backdrop-filter: blur(1px) url('#header-glass-distortion') saturate(1.5) brightness(1.05) blur(1px);
+			filter: brightness(1.05);
+			z-index: 99999 !important;
+		}
+		&.top {
+			top: -3px;
+			mask-image: linear-gradient(to top, transparent 0%, black 75%);
+			backdrop-filter: blur(1px) url('#header-glass-distortion') saturate(1.5) brightness(1.2);
+			z-index: 99999 !important;
+		}
+	}
+	
 	.header-section {
-		position:        absolute;
+		position:        fixed;
 		top:             0;
 		left:            0;
 		
@@ -134,12 +193,13 @@
 		align-items:     center;
 		justify-content: center;
 		
-		border-bottom:   1px solid var(--theme-ui-line);
-		background:      var(--theme-ui-header);
+		border-bottom:   1px solid rgba(from var(--theme-ui-line) r g b / .5);
+		background:      rgba(from var(--theme-ui-header) r g b / .5);
+		backdrop-filter: blur(2px) grayscale(.2) brightness(.95);
 		
 		user-select:     none;
 		
-		z-index:         99999;
+		z-index:         999999 !important;
 		
 		.content {
 			display:         flex;
@@ -155,9 +215,9 @@
 			}
 			
 			.argxs {
-				font-size:         1.65rem;
-				font-weight:       650;
-				font-family:       'Funnel Display', sans-serif;
+				font-size:         1.35rem;
+				font-weight:       600;
+				font-family:       'Lexend Variable', sans-serif;
 				
 				color:             transparent;
 				background-clip:   text;
@@ -177,9 +237,9 @@
 				opacity:           .8;
 				content:           'argxs';
 				
-				font-size:         1.65rem;
-				font-weight:       650;
-				font-family:       'Funnel Display', sans-serif;
+				font-size:         1.35rem;
+				font-weight:       600;
+				font-family:       'Lexend Variable', sans-serif;
 				
 				color:             transparent;
 				background-clip:   text;

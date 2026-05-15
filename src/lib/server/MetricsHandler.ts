@@ -3,24 +3,23 @@ import Database from '$lib/server/Database';
 import { SiteCookies } from '$lib/server/Definitions';
 
 export interface VisitorMetric {
-	total: number,
-	today: number,
-	initialTotalToday: number
+	total: bigint,
+	today: bigint,
+	initialTotalToday: bigint
 }
 
 export default class MetricsHandler {
-	private static requestsToday: number = 0;
-	private static requestsTotal: number = 0;
+	private static requestsToday: bigint = 0n;
+	private static requestsTotal: bigint = 0n;
 	private static visitorCache: Map<string, number> = new Map();
 
 	// Runs once every hour
 	// noinspection JSUnusedGlobalSymbols
-	static readonly garbageCollection = Bun.cron('0 * * * *', MetricsHandler.collect);
+	static readonly garbageCollection = Bun.cron('@hourly', MetricsHandler.collect);
 
 	static async init(): Promise<void> {
-		// Parsing from BigInt to JS Number
-		MetricsHandler.requestsTotal = Number.parseInt(String(await Database.getTotalVisitorAmount()));
-		MetricsHandler.requestsToday = Number.parseInt(String(await Database.getCurrentDayVisitorAmount()));
+		MetricsHandler.requestsTotal = await Database.getTotalVisitorAmount();
+		MetricsHandler.requestsToday = await Database.getCurrentDayVisitorAmount();
 	}
 
 	getVisitorMetrics(): VisitorMetric {
@@ -57,6 +56,8 @@ export default class MetricsHandler {
 				MetricsHandler.requestsToday++;
 				// noinspection ES6MissingAwait
 				Database.incrementVisitorCount(MetricsHandler.requestsTotal, MetricsHandler.requestsToday);
+
+				console.log(` - ${new Date(Date.now()).toLocaleTimeString()}\n > Visitor Count\n + Today: ${MetricsHandler.requestsToday} | Total: ${MetricsHandler.requestsTotal}`);
 			}
 		} catch (ignored) {}
 	}

@@ -6,12 +6,12 @@
 - **Icons:**
   - A **Good to know** section at the bottom of the page, with info, tips and tricks
 - **[icons#flags](https://argxs.com/icons/flags): 27 new countries & 32 new flag icons:**
-  - **[New]** Paraguay:
+  - **[New]** Paraguay
     - Front (observe) & Back (reserve)
-  - **[New]** Peru:
+  - **[New]** Peru
     - Incl. State
   - **[New]** Philippines
-  - **[New]** Poland:
+  - **[New]** Poland
     - Incl. State
   - **[New]** Portugal
   - **[New]** Qatar
@@ -42,7 +42,7 @@
   - **[New]** Carlsberg Group: 2 icons
   - **[New]** Pandora: 4 icons
   - **[New]** Lego: 1 icon
-  - **[New]** TV 2:
+  - **[New]** TV 2
     - TV 2 Kosmopol: 2 icons
   - **[New]** Home: 1 icon
   - **[New]** Kræftens Bekæmpelse: 1 icon
@@ -63,9 +63,6 @@
   - **[New]** Salling Group: 2 icons
   - **[New]** Bilbasen: 2 icons
   - **[New]** Danmarks Statistik: 1 icon
-
-## Changes
-#### **Empty**
 
 ## Fixes
 - **Icons:**

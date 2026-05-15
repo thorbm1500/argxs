@@ -28,9 +28,6 @@
   - **[New]** Zerion: 4 icons
   - Gitlab: 4 icons
 
-## Changes
-#### **Empty**
-
 ## Fixes
 - **[icons#flags](https://argxs.com/icons/flags):**
   - Sorting by date not working, due to values being queried but never applied

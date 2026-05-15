@@ -1,0 +1,13 @@
+{
+    country: 'Thailand',
+    flags: [
+        {
+            path: 'th.svg',
+            date_added: '2026/5/15',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        }
+    ]
+}

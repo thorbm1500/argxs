@@ -65,18 +65,57 @@
 </section>
 
 <style>
-	:global(#main-container) {
-		padding: 4rem 0;
+	/* Desktop & Tablet */
+	@media (width >= 44rem) {
+		.changelog-sec {
+			padding: 4.5rem 12rem 0 12rem;
+			
+			.markdown :global {
+				h1 {
+					font-size:     2.65rem;
+				}
+				
+				h2 {
+					font-size:  1.75rem;
+				}
+				
+				#added {
+					margin-top: 2rem;
+				}
+			}
+		}
+	}
+	
+	/* Phone */
+	@media (width < 44rem) {
+		.changelog-sec {
+			padding: 2.5rem 1rem 0 1rem;
+			
+			.markdown :global {
+				line-height: 1.35;
+				
+				h1 {
+					font-size:     2.25rem;
+				}
+				
+				h2 {
+					font-size:  1.4rem;
+				}
+				
+				#added {
+					margin-top: 1rem;
+				}
+			}
+		}
 	}
 	
 	.changelog-sec {
 		display:     flex;
 		flex-flow:   column nowrap;
 		align-items: center;
-		box-sizing:  border-box;
+		justify-content: center;
 		
-		width:       100vw;
-		padding:     0 12rem;
+		width:       calc(100vw - 12rem);
 		
 		:global .content-header {
 			align-self: start;
@@ -98,13 +137,11 @@
 			color:          var(--theme-text-primary);
 			
 			h1 {
-				font-size:     2.65rem;
 				margin-bottom: -.45rem;
 			}
 			
 			h2 {
 				margin-top: 1.5rem;
-				font-size:  1.75rem;
 			}
 			
 			h4 {
@@ -126,10 +163,6 @@
 					text-decoration: underline;
 					color:           light-dark(oklch(0.68 0.172 254.686), oklch(70.7% 0.165 254.624));
 				}
-			}
-			
-			#added {
-				margin-top: 2rem;
 			}
 			
 			ul {
@@ -170,12 +203,12 @@
 				font-size:     .9rem;
 				
 				.code {
-					width:     fit-content;
-					max-width: 90%;
-					text-wrap: pretty;
+					width:       fit-content;
+					max-width:   90%;
+					text-wrap:   pretty;
 					user-select: text;
 					
-					transform: translateY(1px);
+					transform:   translateY(1px);
 				}
 				
 				.lang-parent {

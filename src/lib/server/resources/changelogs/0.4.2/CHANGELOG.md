@@ -5,13 +5,13 @@
 ## Added
 - Temporary disclaimer to [icons#flags](https://argxs.com/icons/flags) regarding page layout and design
 - Sidebar: Better accessibility by making navigating only with keyboard possible
-- Brand Icons:
-  - HP
-  - Samsung
-  - MongoDB
-  - AMD
-  - Vercel
-  - Attio
+- **[icons#brands](https://argxs.com/icons/flags):**
+  - **[New]** HP
+  - **[New]** Samsung
+  - **[New]** MongoDB
+  - **[New]** AMD
+  - **[New]** Vercel
+  - **[New]** Attio
 
 ## Changes
 - Improved accessibility for users with reduced motion preference across all of [argxs](https://argxs.com)

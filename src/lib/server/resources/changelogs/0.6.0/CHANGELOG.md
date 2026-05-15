@@ -25,7 +25,7 @@ The reason for moving to a separate repository is due to a simple human oversigh
 - **Icons:**
     - Icon containers now blink during loading, to give the user a feeling of progress
 
-## Changed
+## Changes
 - **Icons:**
   - **Good to know** section updated
 

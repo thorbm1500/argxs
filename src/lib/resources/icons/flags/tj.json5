@@ -1,0 +1,13 @@
+{
+    country: 'Tajikistan',
+    flags: [
+        {
+            path: 'tj.svg',
+            date_added: '2026/5/15',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        }
+    ]
+}

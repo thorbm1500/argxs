@@ -1,0 +1,21 @@
+{
+    country: 'Spain',
+    flags: [
+        {
+            path: 'es.svg',
+            date_added: '2026/5/15',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        },
+        {
+            path: 'es-state.svg',
+            date_added: '2026/5/15',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org',
+            },
+        }
+    ]
+}

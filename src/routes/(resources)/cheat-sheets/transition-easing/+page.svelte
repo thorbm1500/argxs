@@ -41,6 +41,10 @@
 </section>
 
 <style>
+	.easing-functions-sec {
+		padding-top: 4.5rem;
+	}
+	
 	.footer {
 			font-size: 1.15rem;
 			margin-top: 4.5rem;

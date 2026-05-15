@@ -40,8 +40,7 @@
 		<h2>1. Introduction</h2>
 		<span>
 		We are committed to protecting your privacy and ensuring transparency regarding the processing of your personal data. As this project is <a
-			href="https://github.com/thorbm1500/argxs">Open Source</a>, you're always able to manually inspect the code, and see exactly how the data processing is carried out. This statement outlines how we handle your information when you visit our website. The date above ("{lastUpdated}
-			") always shows when the privacy statement was last updated.
+			href="https://github.com/thorbm1500/argxs">Open Source</a>, you're always able to manually inspect the code, and see exactly how the data processing is carried out. This statement outlines how we handle your information when you visit our website. The date above ("{lastUpdated}") always shows when the privacy statement was last updated.
 		</span>
 	</div>
 	<div class="part data-collection">
@@ -116,8 +115,13 @@
     /* Desktop & Tablet */
     @media (width >= 44rem) {
         .privacy-sec {
+	        padding-top: 4.5rem;
             .top {
                 margin-bottom: 1.5rem;
+	            
+	            h3 {
+		            font-size: .9rem;
+	            }
             }
 
             .part {
@@ -138,26 +142,47 @@
                     font-size: 1.25rem;
                 }
             }
+	        
+	        .privacy-icon {
+		        transform: translateY(-2.75rem) translateX(-2rem) rotate(-22.5deg);
+	        }
         }
     }
 
     /* Phone */
     @media (width < 44rem) {
         .privacy-sec {
+	        padding-top: 1rem;
+	        
             .top {
                 margin-bottom: 2.5rem;
+	            
+	            h1 {
+		            margin-top: 1rem;
+		            transform: translateY(.75rem);
+	            }
+	            
+	            h3 {
+		            font-size: .8rem;
+		            margin-top: 0;
+		            transform: translateX(.7rem);
+		            opacity: .75;
+	            }
             }
 
             .part {
-                margin-bottom: 3.75rem;
+                margin-bottom: 2.5rem;
+	            line-height: 1.25 !important;
+	            letter-spacing: normal;
 
                 h2 {
                     text-align: start;
-                    font-size: 1.25rem;
+                    font-size: 1.2rem;
                 }
 
                 span, a {
-                    font-size: .95rem;
+                    font-size: .85rem;
+	                font-weight: 600;
                 }
 
                 ol {
@@ -177,6 +202,11 @@
                     font-size: 1.15rem;
                 }
             }
+	        
+	        .privacy-icon {
+		        justify-self: end;
+		        transform: translateY(-1rem) translateX(.5rem) rotate(15deg);
+	        }
         }
     }
 
@@ -197,9 +227,9 @@
             }
 
             h3 {
-                font-size: .9rem;
                 font-weight: 800;
-                color: var(--theme-text-secondary);
+                color: var(--theme-text-third);
+	            align-self: start;
             }
         }
 
@@ -284,8 +314,6 @@
             .stop2 {
                 stop-color: rgba(from var(--theme-text-primary) r g b / .7);
             }
-
-            transform: translateY(-2.75rem) translateX(-2rem) rotate(-22.5deg);
         }
     }
 </style>
