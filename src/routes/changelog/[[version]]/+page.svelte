@@ -5,11 +5,12 @@
 	import type { PageTheme } from '$lib/components/interfaces';
 	import hljs from '$lib/dep/@highlight/es/highlight.js';
 	import type { LanguageFn } from '$lib/dep/@highlight/es/highlight.js';
+	import { building } from '$app/environment';
 	
 	const { data, params } = $props();
 	
-	hljs?.registerLanguage('powershell', ((await import('$lib/dep/@highlight/es/languages/powershell.min.js')).default as unknown) as LanguageFn);
-	hljs?.registerLanguage('typescript', ((await import('$lib/dep/@highlight/es/languages/typescript.min.js')).default as unknown) as LanguageFn);
+	hljs.registerLanguage('powershell', ((await import('$lib/dep/@highlight/es/languages/powershell.min.js')).default as unknown) as LanguageFn);
+	hljs.registerLanguage('typescript', ((await import('$lib/dep/@highlight/es/languages/typescript.min.js')).default as unknown) as LanguageFn);
 	
 	const getTheme = getContext('theme') as Function;
 	let theme: PageTheme = $derived(getTheme());
@@ -44,8 +45,10 @@
 							<div class="lang-parent">
 								<p class="language">{lang}</p>
 							</div>
-							{@html hljs.highlight(text, { language: lang }).value}
-						{:else}
+							{#if !building}
+								{@html hljs.highlight(text, { language: lang }).value}
+							{/if}
+						{:else if !building}
 							{#if hljs.highlightAuto(text).language}
 								<div class="lang-parent">
 									<p class="language">{hljs.highlightAuto(text).language}</p>

@@ -13,7 +13,7 @@
 	import { page } from '$app/state';
 	import { beforeNavigate } from '$app/navigation';
 	
-	hljs?.registerLanguage('xml', ((await import('$lib/dep/@highlight/es/languages/xml.min.js')).default as unknown) as LanguageFn);
+	hljs.registerLanguage('xml', ((await import('$lib/dep/@highlight/es/languages/xml.min.js')).default as unknown) as LanguageFn);
 	
 	let iconType: string = $derived(String(page.params.type));
 	let isLoaded: boolean = $state(false);
