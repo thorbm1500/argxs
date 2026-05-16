@@ -9,7 +9,7 @@
 ### Icons
 - Performance & initial page-load optimizations
   - Largest Contentful Paint: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">2.0s</strong> **➜** <strong style="color:var(--theme-color-aware);font-family:'JetBrainsMono';font-weight:900">~1.2s</strong>
-  - Total Blocking Time: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">680ms</strong> **➜** <strong style="color:var(--theme-color-success-light);font-family:'JetBrainsMono';font-weight:900">~70ms-180ms</strong>
+  - Total Blocking Time: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">680ms</strong> **➜** <strong style="color:var(--theme-color-success-light);font-family:'JetBrainsMono';font-weight:900">~0ms-70ms</strong>
   - Cumulative Layout Shift: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">0.359</strong> **➜** <strong style="color:var(--theme-color-success-light);font-family:'JetBrainsMono';font-weight:900">0.013</strong>
   - Speed Index: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">2.0s</strong> **➜** <strong style="color:var(--theme-color-success-light);font-family:'JetBrainsMono';font-weight:900">~1.2s</strong>
 
