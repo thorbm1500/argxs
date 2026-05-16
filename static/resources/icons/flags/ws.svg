@@ -1,8 +1,6 @@
-<svg id="argxs" xmlns="http://www.w3.org/2000/svg" fill="#FFF" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="0 0 288 144">
-    <defs>
-        <path id="argxs_samoa_attr_1" d="m0-.951057L.309017 0-.5-.587785h1L-.309017 0z"/>
-        <path id="argxs_samoa_attr_2" d="m0 0 .309017.951057L-.5.363271h1l-.809017.587786z"/>
-    </defs>
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" fill="#FFF" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="0 0 288 144" preserveAspectRatio="xMidYMid meet">
+    <path id="argxs_samoa_attr_1" d="m0-.951057L.309017 0-.5-.587785h1L-.309017 0z"/>
+    <path id="argxs_samoa_attr_2" d="m0 0 .309017.951057L-.5.363271h1l-.809017.587786z"/>
     <path fill="#CE1126" d="m0 0h288v144H0z"/>
     <path fill="#002B7F" d="m0 0h144v72H0z"/>
     <use xlink:href="#argxs_samoa_attr_1" transform="matrix(20,0,0,20,72,69)"/>

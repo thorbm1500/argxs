@@ -20,6 +20,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>{data.seo.title}</title>
+</svelte:head>
+
 <section class="privacy-sec">
 	<div class="top">
 		<svg class="privacy-icon" width="24" height="24" viewBox="0 0 24 24">

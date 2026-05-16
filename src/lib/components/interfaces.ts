@@ -1,5 +1,9 @@
 export type PageTheme = 'light' | 'dark';
 
+export interface SEO {
+	title: string
+}
+
 export interface Icon {
 	/** The name of the icon */
 	name: string,
@@ -35,6 +39,9 @@ export interface HighlightIcon {
 export interface ResourceIcon {
 	/** `Brand`: Brand name<br>
 	 *  `Flag`: Country name */
+	title: string,
+	/** Name of the icon<br>
+	 * `Note:` This may be equal to title */
 	name: string,
 	/** An external site linked to the icon */
 	href?: string,
@@ -60,8 +67,6 @@ export interface Brand {
 }
 
 export interface BrandIcon {
-	/** The name of the brand */
-	brand: string,
 	/** The name of the icon */
 	name: string,
 	/** An external site linked to the icon */

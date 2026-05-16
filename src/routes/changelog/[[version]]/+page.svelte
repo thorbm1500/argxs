@@ -19,6 +19,7 @@
 </script>
 
 <svelte:head>
+	<title>{data.seo.title}</title>
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
 		{@html github}
@@ -52,12 +53,7 @@
 					</div>
 				{/snippet}
 				{#snippet codespan({ text })}
-					{#if hljs.highlightAuto(text ?? '').language}
-						<div class="lang-parent">
-							<p class="language">{hljs.highlightAuto(text ?? '').language}</p>
-						</div>
-					{/if}
-					<div class="code">{@html hljs.highlightAuto(text ?? 'Error').value}</div>
+					<code class="codespan">{@html text}</code>
 				{/snippet}
 			</SvelteMarkdown>
 		</div>
@@ -68,15 +64,19 @@
 	/* Desktop & Tablet */
 	@media (width >= 44rem) {
 		.changelog-sec {
-			padding: 4.5rem 12rem 0 12rem;
+			padding: 4.5rem 6rem 0 6rem;
 			
 			.markdown :global {
 				h1 {
-					font-size:     2.65rem;
+					font-size: 2.65rem;
 				}
 				
 				h2 {
-					font-size:  1.75rem;
+					font-size: 1.75rem;
+				}
+				
+				h3 {
+					font-size: 1.25rem;
 				}
 				
 				#added {
@@ -89,33 +89,36 @@
 	/* Phone */
 	@media (width < 44rem) {
 		.changelog-sec {
-			padding: 2.5rem 1rem 0 1rem;
+			padding-top: 2.5rem;
 			
 			.markdown :global {
 				line-height: 1.35;
 				
 				h1 {
-					font-size:     2.25rem;
+					font-size: 2.25rem;
 				}
 				
 				h2 {
-					font-size:  1.4rem;
+					font-size: 1.4rem;
 				}
 				
 				#added {
 					margin-top: 1rem;
+				}
+				
+				.codeblock .language {
+					font-size: .75rem;
 				}
 			}
 		}
 	}
 	
 	.changelog-sec {
-		display:     flex;
-		flex-flow:   column nowrap;
-		align-items: center;
+		display:         flex;
+		flex-flow:       column nowrap;
+		align-items:     center;
 		justify-content: center;
-		
-		width:       calc(100vw - 12rem);
+		width:           100%;
 		
 		:global .content-header {
 			align-self: start;
@@ -144,6 +147,11 @@
 				margin-top: 1.5rem;
 			}
 			
+			h3 {
+				font-weight: 700;
+				color:       var(--theme-text-secondary);
+			}
+			
 			h4 {
 				margin-top:     -.25rem;
 				margin-bottom:  1rem;
@@ -170,6 +178,10 @@
 					margin-left:     1.25rem;
 					list-style-type: square;
 					
+					&:last-child {
+						margin-bottom: .75rem;
+					}
+					
 					ul li {
 						list-style-type: disc;
 						
@@ -189,18 +201,23 @@
 				}
 			}
 			
-			.codeblock {
+			.codeblock, .codespan {
 				height:        fit-content;
-				width:         100%;
-				
-				padding:       .5rem .75rem;
-				margin:        .4rem 0;
 				
 				background:    var(--theme-markdown-code-bg);
 				border-radius: .4rem;
 				
-				font-family:   'JetBrainsMono', monospace;
-				font-size:     .9rem;
+				font-family:   'JetBrainsMono', monospace !important;
+				font-weight:   550;
+			}
+			
+			.codeblock {
+				width:     100%;
+				
+				padding:   .5rem .75rem;
+				margin:    .4rem 0;
+				
+				font-size: .9rem;
 				
 				.code {
 					width:       fit-content;
@@ -235,6 +252,12 @@
 					
 					transition:  var(--theme-transition-off);
 				}
+			}
+			
+			.codespan {
+				width:   fit-content;
+				padding: .2rem .4rem .15rem .4rem;
+				margin:  0;
 			}
 		}
 	}

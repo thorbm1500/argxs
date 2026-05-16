@@ -451,7 +451,6 @@
             },
             variable: [
                 {
-                    name: 'Pass Uber Eats',
                     path: 'pass-uber-eats-stacked-logo-monochrome-black.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -460,7 +459,6 @@
                     }
                 },
                 {
-                    name: 'Pass Uber Eats',
                     path: 'pass-uber-eats-stacked-logo-monochrome-white.svg',
                     date_added: '2026/4/27',
                     source: {

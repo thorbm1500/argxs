@@ -10,8 +10,7 @@
 	import type { Attachment } from 'svelte/attachments';
 	import { onMount } from 'svelte';
 	
-	let { highlightedIcon = $bindable(), theme = $bindable(), type, icon }: { highlightedIcon: HighlightIcon | undefined, theme: PageTheme, type: 'brands' | 'flags', icon: ResourceIcon } =
-		$props();
+	let { highlightedIcon = $bindable(), theme = $bindable(), type, icon }: { highlightedIcon: HighlightIcon | undefined, theme: PageTheme, type: string, icon: ResourceIcon } = $props();
 	
 	const icons: Icon[] = $state([]);
 	let currentIconIndex: number = $state(0);
@@ -21,7 +20,6 @@
 	
 	let currentTheme: PageTheme = $state.raw(theme);
 	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
-	let currentLoadedIcon: string = $state('');
 	let isImageLoading: boolean = $state(true);
 	updateCurrentIcon();
 	
@@ -140,21 +138,20 @@
 	
 	const iconImage: Attachment = (element) => {
 		(element as HTMLImageElement).onloadstart = () => {
-			currentLoadedIcon = currentIcon.path;
 			isImageLoading = true;
 		};
 		(element as HTMLImageElement).onload = () => {
-			currentLoadedIcon = currentIcon.path;
 			isImageLoading = false;
 		};
 		
 		if (document.readyState === 'complete' || document.readyState === 'interactive') {
-			(element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`
+			(element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`;
 		} else {
 			document.addEventListener('DOMContentLoaded', () => (element as HTMLImageElement).src = `/resources/icons/${type}/${currentIcon.path}`);
 		}
 		
-		return () => currentLoadedIcon = '';
+		return () => {
+		};
 	};
 </script>
 
@@ -168,10 +165,12 @@
 	<filter id="pixelate" x="0%" y="0%" width="100%" height="100%">
 		<!--Thanks to Zoltan Fegyver for figuring out pixelation and producing the awesome pixelation map. -->
 		<feGaussianBlur stdDeviation="2" in="SourceGraphic" result="smoothed" />
-		<feImage width="15" height="15" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC" result="displacement-map" />
+		<feImage width="15" height="15"
+		         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC"
+		         result="displacement-map" />
 		<feTile in="displacement-map" result="pixelate-map" />
-		<feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="5" result="pre-final"/>
-		<feComposite operator="in" in2="SourceGraphic"/>
+		<feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="5" result="pre-final" />
+		<feComposite operator="in" in2="SourceGraphic" />
 	</filter>
 </svg>
 <div class="icon theme-transition-all {$state.eager(isImageLoading) ? 'loading' : ''}" {@attach mouseGlow}>
@@ -228,6 +227,7 @@
 		</div>
 		<img {@attach iconImage} in:fade src={`/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
 	{/key}
+	<h3 class="icon-name">{currentIcon.name ?? icon.name}</h3>
 </div>
 
 <style>
@@ -248,28 +248,43 @@
 	}
 	
 	@keyframes IconLoadingAnim {
-		10%,90% {
+		0%, 10%, 90%, 100% {
 			background-color: rgba(from var(--theme-ui-line) r g b / .35);
-			opacity: 1;
+			opacity:          1;
 		}
 		50% {
 			background-color: rgba(from var(--theme-ui-line) r g b / .35);
-			opacity: .25;
+			opacity:          .25;
 		}
 	}
 	
 	.icon.loading {
-		animation: IconLoadingAnim 1.35s infinite cubic-bezier(0.78, 0, 0.22, 1) 115ms;
+		animation:      IconLoadingAnim 1.35s infinite cubic-bezier(0.78, 0, 0.22, 1) 115ms;
 		pointer-events: none !important;
 		
 		.overlay, .overlay *, .hover-fx {
 			visibility: hidden !important;
-			opacity: 0 !important;
+			opacity:    0 !important;
 		}
 		
 		img {
-			filter: url(#pixelate) blur(1px) brightness(.5) grayscale(.25);
+			filter:  url(#pixelate) blur(1px) brightness(.5) grayscale(.25);
 			opacity: .5;
+		}
+	}
+	
+	@keyframes TextAnim {
+		0% {
+			transform: rotate3d(100, 0, 0, 0deg) scale3d(1, 1, 1) translateY(.2rem) scale(1.0005);
+		}
+		10% {
+			transform: rotate3d(100, 0, 0, -50deg) scale3d(1.1, 1, 1.1) translateY(.25rem) scale(1.015);
+		}
+		70% {
+			transform: rotate3d(100, 0, 0, -5deg) scale3d(1.05, 1, 1.025) translateY(.4rem) scale(1.02);
+		}
+		100% {
+			transform: rotate3d(100, 0, 0, 0deg) scale3d(1, 1, 1) translateY(.4rem) scale(1.0025);
 		}
 	}
 	
@@ -278,13 +293,13 @@
 		display:           flex;
 		align-items:       center;
 		justify-content:   center;
-		box-sizing:        border-box;
 		
 		width:             7rem;
 		height:            7rem;
 		overflow:          visible;
 		
 		padding:           .35rem;
+		margin-bottom:     1.25rem;
 		
 		border:            1px solid var(--theme-ui-line);
 		border-radius:     .75rem;
@@ -297,6 +312,19 @@
 		z-index:           5000 !important;
 		
 		transition:        border-color 150ms ease;
+		
+		.icon-name {
+			position:      absolute;
+			bottom:        -1.5rem;
+			
+			text-wrap:     nowrap;
+			max-width:     6.5rem;
+			text-overflow: ellipsis;
+			overflow:      hidden;
+			color:         var(--theme-text-fourth);
+			
+			transition:    var(--theme-transition-off);
+		}
 		
 		&::before, &::after {
 			content:       '';
@@ -377,6 +405,15 @@
 				img {
 					opacity: .1225;
 				}
+			}
+			
+			.icon-name {
+				transform:   translateY(.4rem) scale(1.015);
+				font-weight: 900;
+				max-width:   8.5rem;
+				color:       var(--theme-text-primary);
+				transition:  var(--theme-transition-on);
+				animation:   TextAnim 300ms ease;
 			}
 			
 			.icon-amount {

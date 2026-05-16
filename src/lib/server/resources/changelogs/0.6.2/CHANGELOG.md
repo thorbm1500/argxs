@@ -1,0 +1,92 @@
+# v0.6.2
+#### 2026-05-16
+
+## Added
+### Icons
+- Icon names are now visible in the overview, making it easier to navigate browsing
+
+## Changes
+### Icons
+- Performance & initial page-load optimizations
+  - Largest Contentful Paint: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">2.0s</strong> **➜** <strong style="color:var(--theme-color-aware);font-family:'JetBrainsMono';font-weight:900">~1.2s</strong>
+  - Total Blocking Time: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">680ms</strong> **➜** <strong style="color:var(--theme-color-success-light);font-family:'JetBrainsMono';font-weight:900">~70ms-180ms</strong>
+  - Cumulative Layout Shift: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">0.359</strong> **➜** <strong style="color:var(--theme-color-success-light);font-family:'JetBrainsMono';font-weight:900">0.013</strong>
+  - Speed Index: <strong style="color:var(--theme-color-alert);font-family:'JetBrainsMono';font-weight:900">2.0s</strong> **➜** <strong style="color:var(--theme-color-success-light);font-family:'JetBrainsMono';font-weight:900">~1.2s</strong>
+
+## Minor Changes
+- Improved SEO
+### Changelog
+- The changelogs no longer collapses to a thin column on mobile devices, due to incorrect width settings
+- Updated general page design
+### Icons
+- General optimizations of configuration & asset files
+- Minor optimization of page performance
+- Fixed an error causing certain values to carry over when switching between **[Flags](https://argxs.com/icons/flags)** & **[Brands](https://argxs.com/icons/brands)**
+- Reversed direction when changing item amount on page. Order when clicked is now `48 ➜ 24 ➜ 96 ➜ ...`, with 48 still being the default. This is to respect any reason for wanting to lower the amount of displayed items to 24, without first being forced onto 96
+- Individual icon names are now shown again, if an icon has a name that differs from that of the group it belongs to
+- **[Brands](https://argxs.com/icons/brands)**
+  - **Added missing names icons**
+    - Proton: 5 icons
+    - Amazon: 1 icon
+  - Danmarks Statistik
+    - Corrected wrong source credited
+  - Google
+    - Google Calendar
+      - Corrected typo in name
+  - JetBrains
+    - JetBrains Academy
+      - Added missing external link
+    - **Inlined all JetBrains products**
+      - Toolbox App
+      - Junie
+      - AI Assistant
+      - Code With Me
+      - License Vault
+      - Fleet
+      - Kotlin
+      - Ktor
+      - MPS
+      - CLion
+      - DataGrip
+      - DataSpell
+      - Datalore
+      - dotCover
+      - dotMemory
+      - dotPeek
+      - dotTrace
+      - GoLand
+      - Hub
+      - IntelliJ IDEA
+      - PhpStorm
+      - PyCharm
+      - Qodana
+      - ReSharper
+      - ReSharper C++
+      - Rider
+      - RiderFlow
+      - RubyMine
+      - RustRover
+      - TeamCity
+      - WebStorm
+      - YouTrack
+- **[Flags](https://argxs.com/icons/flags)**
+  - **Renamed attributes to avoid conflicts**
+    - South Africa
+    - Poland State
+  - **Removed redundant groupings**
+    - Samoa
+    - Uganda
+    - Tanzania
+    - Salvador State
+    - San Marino
+    - New Zealand
+    - Namibia
+    - Mexico
+  - **Added missing attributes**
+    - Somalia
+    - Solomon Islands
+    - Saudi Arabia
+    - Serbia State
+    - Palau
+    - Poland State
+    - Philippines

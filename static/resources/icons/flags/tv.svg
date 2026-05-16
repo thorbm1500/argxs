@@ -1,4 +1,4 @@
-<svg id="argxs" xmlns="http://www.w3.org/2000/svg" fill="#fedd00" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" fill="#FEDD00" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
     <path id="argxs_tuvalu_attr_1" d="m0-5.2573 3.0902 9.5106L-5-1.6246H5l-8.0902 5.8779z"/>
     <path id="argxs_tuvalu_attr_2" d="m0 5.2573-3.0902-9.5106L5 1.6246H-5l8.0902-5.8779z"/>
     <clipPath id="argxs_tuvalu_attr_3">
@@ -8,7 +8,7 @@
         <path d="m0 0v15h62v16zm0 30v1h30V0h30z"/>
     </clipPath>
     <path fill="#012169" d="m0 0h120v60H0z"/>
-    <g clip-path="url(#argxs_tuvalu_attr_3)" fill="none" stroke="#c8102e" stroke-width="6">
+    <g clip-path="url(#argxs_tuvalu_attr_3)" fill="none" stroke="#C8102E" stroke-width="6">
         <path stroke="#FFF" d="m0 0 60 30M0 30 60 0"/>
         <path stroke-width="4" clip-path="url(#argxs_tuvalu_attr_4)" d="m0 0 60 30M0 30 60 0"/>
         <path stroke="#FFF" stroke-width="10" d="m30 0v31M0 15h62"/>

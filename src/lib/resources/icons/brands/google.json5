@@ -80,7 +80,7 @@
 			}
 		},
 		{
-			name: 'Google Calender',
+			name: 'Google Calendar',
 			href: 'https://calendar.google.com/calendar',
 			type: 'icon',
 			default: {

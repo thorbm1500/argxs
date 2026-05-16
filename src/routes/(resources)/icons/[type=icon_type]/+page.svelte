@@ -1,7 +1,7 @@
 <!--svelte-ignore state_referenced_locally-->
 <script lang="ts">
 	import type { HighlightIcon, Icon, PageTheme, ResourceIcon } from '$lib/components/interfaces';
-	import { flushSync, getContext, onMount } from 'svelte';
+	import { getContext, onMount, tick } from 'svelte';
 	import BrandIconComponent from '$lib/components/BrandIconComponent.svelte';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { draw, fade } from 'svelte/transition';
@@ -12,9 +12,10 @@
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
 	import { page } from '$app/state';
+	import { beforeNavigate } from '$app/navigation';
 	
 	let iconType: string = $derived(String(page.params.type));
-	if (iconType !== 'brands' && iconType !== 'flags') throw new Error('Failed to find icon type');
+	let isLoaded: boolean = $state(false);
 	
 	const { data } = $props();
 	
@@ -23,14 +24,14 @@
 	const sendToast: any = $derived(getContext('sendToast'));
 	
 	// - Sorting Variables
-	let iconsOnly: boolean = $state.raw(false);
-	let logosOnly: boolean = $state.raw(false);
-	let sorting: 'default' | 'time' | 'alphabet' = $state.raw('default');
-	let order: 'desc' | 'asc' = $state.raw('desc');
-	let brandIcons: ResourceIcon[] = $derived.by(() => {
+	let iconsOnly: boolean = $state(false);
+	let logosOnly: boolean = $state(false);
+	let sorting: 'default' | 'time' | 'alphabet' = $state('default');
+	let order: 'desc' | 'asc' = $state('desc');
+	let icons: ResourceIcon[] = $derived.by(() => {
 		let current = data.icons;
 		
-		switch ($state.eager(sorting)) {
+		switch (sorting) {
 			case 'time': {
 				if (order === 'asc') current = data.iconsSortedNew.toReversed();
 				else current = data.iconsSortedNew;
@@ -50,17 +51,23 @@
 		
 		return current;
 	});
-	// -
 	
 	// - Pagination Variables
-	let pagMax = $derived(brandIcons.length);
+	let pagMax = $derived(icons.length);
 	let currentPage = $state(1);
 	let pagOffset: 24 | 48 | 96 = $state(48);
 	let pagStart = $derived(Math.max(0, (currentPage - 1) * pagOffset));
 	let pagEnd = $derived(Math.min(pagMax, currentPage * pagOffset));
 	let maxPage = $derived(Math.ceil(pagMax / pagOffset));
-	let currentIcons = $derived(brandIcons.slice(pagStart, pagEnd));
-	// -
+	let cIcons: ResourceIcon[] = $derived(isLoaded ? icons.slice(pagStart, pagEnd) : []);
+	let blankIcons: number[] = $derived.by(() => {
+		let current = [];
+		for (let i = cIcons.length; i < pagOffset; i++) {
+			current.push(i);
+		}
+		return current;
+	});
+	let currentIcons: (ResourceIcon | number)[] = $derived([...cIcons, ...blankIcons]);
 	
 	let columnAmount: number = $derived.by(() => {
 		let result = Math.trunc((innerWidth.current ?? 1920) / 140);
@@ -75,15 +82,14 @@
 	let rowAmount = $derived(((pagOffset / columnAmount)));
 	
 	// - Highlighted Icon Variables
-	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
-	let iconContainerOpened: number | null = $state(null);
+	let highlightedIcon: HighlightIcon | undefined = $state.raw(undefined);
+	let iconContainerOpened: number | null = null;
 	let hCurrentIcon: Icon | undefined = $derived.by(() => {
 		if (!highlightedIcon) return undefined;
 		return highlightedIcon.iconIndex[highlightedIcon.currentIcon];
 	});
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
-	// -
 	
 	$effect(() => {
 		if (currentSVG === '' && hCurrentIcon !== undefined) {
@@ -103,16 +109,19 @@
 	});
 	
 	onMount(() => {
+		document.addEventListener('DOMContentLoaded', () => isLoaded = true);
+		if (document.readyState !== 'loading') isLoaded = true;
+		
 		document.addEventListener('click', (event) => {
 			// Event ignored while highlight container is closed.
 			if (!highlightedIcon) return;
 			
-			const currentDate = Date.now();
+			const currentTime = Date.now();
 			
 			// Ensuring an open-time is registered for the container, before processing events.
 			if (iconContainerOpened !== null) {
 				// 250ms margin of error, allowing early errors to be ignored.
-				if ((currentDate - iconContainerOpened) < 250) return;
+				if ((currentTime - iconContainerOpened) < 250) return;
 				
 				let el: HTMLElement | null = event.target as HTMLElement;
 				while (el !== null) {
@@ -123,13 +132,13 @@
 				
 				closeHighlightContainer();
 			} else {
-				iconContainerOpened = currentDate;
+				iconContainerOpened = currentTime;
 			}
 		});
 		
 		document.addEventListener('keydown', (event) => {
 			// Enable closure of highlight window by pressing Escape.
-			if (event.isTrusted && event.key === 'Escape') closeHighlightContainer();
+			if (event.key === 'Escape' && event.isTrusted) closeHighlightContainer();
 		});
 	});
 	
@@ -159,11 +168,21 @@
 		highlightedIcon = undefined;
 		iconContainerOpened = null;
 		currentSVG = '';
-		flushSync();
 	}
+	
+	beforeNavigate(async () => {
+		iconsOnly = false;
+		logosOnly = false;
+		sorting = 'default';
+		order = 'desc';
+		currentPage = 1;
+		closeHighlightContainer();
+		await tick();
+	});
 </script>
 
 <svelte:head>
+	<title>{data.seo.title}</title>
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
 		{@html github}
@@ -200,7 +219,7 @@
 							     alt={hCurrentIcon?.name} loading="lazy" />
 						</div>
 						<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
-					         alt={hCurrentIcon?.name} loading="lazy" />
+						     alt={hCurrentIcon?.name} loading="lazy" />
 					{/key}
 					{#if highlightedIcon.iconIndex.length > 1}
 						<div class="current-icon-index">
@@ -236,21 +255,25 @@
 				<div class="separator"></div>
 				<div class="right">
 					{#if highlightedIcon.icon.href || hCurrentIcon?.href}
-						<a class="brand-external {hCurrentIcon?.name && highlightedIcon.icon.name !== hCurrentIcon?.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
+						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
 						highlightedIcon.icon.href}
 						   rel="external" target="_blank">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path
 									d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
 							</svg>
-							{highlightedIcon.icon.name === 'Ukraine' || highlightedIcon.icon.name === 'Palestine' ? 'Show Support' : 'Visit Page'}
+							{iconType === 'flags' && (highlightedIcon.icon.title === 'Ukraine' || highlightedIcon.icon.title === 'Palestine') ? 'Show Support' : 'Visit Page'}
 						</a>
 					{/if}
 					<div class="name">
-						<h1 class="brand-name"
-						    style="transform: translateY({highlightedIcon.icon.href || hCurrentIcon?.href || hCurrentIcon?.name && highlightedIcon.icon.name !== hCurrentIcon.name ? '0' : '1.1'}rem)">{highlightedIcon.icon.name}</h1>
-						{#if hCurrentIcon && highlightedIcon.icon.name !== hCurrentIcon.name}
-							<h3 class="icon-name">{hCurrentIcon.name}</h3>
+						{#if hCurrentIcon?.name}
+							<h1 class="brand-name">{hCurrentIcon.name}</h1>
+							<h3 class="icon-name">{highlightedIcon.icon.title}</h3>
+						{:else if highlightedIcon.icon.title !== highlightedIcon.icon.name}
+							<h1 class="brand-name">{highlightedIcon.icon.name}</h1>
+							<h3 class="icon-name">{highlightedIcon.icon.title}</h3>
+						{:else}
+							<h1 class="brand-name" style="transform: translateY(.2rem)">{highlightedIcon.icon.title}</h1>
 						{/if}
 					</div>
 					<div class="actions">
@@ -428,11 +451,13 @@
 	</section>
 	
 	<section class="brand-icons-sec" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}>
-		<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
-			{#each currentIcons as icon}
-				{#key icon}
+		<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7.5rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
+			{#each currentIcons as icon (icon)}
+				{#if typeof icon === 'number'}
+					<div class="icon blank {isLoaded ? 'loaded' : 'loading'}"></div>
+				{:else}
 					<BrandIconComponent type={iconType} bind:highlightedIcon bind:theme icon={icon} />
-				{/key}
+				{/if}
 			{/each}
 		</div>
 	</section>
@@ -459,23 +484,21 @@
 		<button title="Last Page" class="action glass-button {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
 			{maxPage}
 		</button>
-		<button class="sort-action glass-button" onclick="{() => {
-			currentPage = 1;
+		<button class="sort-action glass-button" onclick="{() => {if (currentPage !== 1) currentPage = 1;
 			switch (pagOffset) {
 				case 24: {
-					pagOffset = 48;
-					break;
-				}
-				case 48: {
 					pagOffset = 96;
 					break;
 				}
-				case 96: {
+				case 48: {
 					pagOffset = 24;
 					break;
 				}
-			}
-		}}">
+				case 96: {
+					pagOffset = 48;
+					break;
+				}
+			}}}">
 			Items: {pagOffset}
 		</button>
 	</div>
@@ -484,7 +507,8 @@
 		<h1 class="title">
 			Good to know
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-				<path d="M8.99962 14C8.99962 14 10.3121 15.5 12.4996 15.5C14.6871 15.5 15.9996 14 15.9996 14M15.2496 9H15.2596M9.74962 9H9.75962M12.4996 20C17.194 20 20.9996 16.1944 20.9996 11.5C20.9996 6.80558 17.194 3 12.4996 3C7.8052 3 3.99962 6.80558 3.99962 11.5C3.99962 12.45 4.15547 13.3636 4.443 14.2166C4.55119 14.5376 4.60529 14.6981 4.61505 14.8214C4.62469 14.9432 4.6174 15.0286 4.58728 15.1469C4.55677 15.2668 4.48942 15.3915 4.35472 15.6408L2.71906 18.6684C2.48575 19.1002 2.36909 19.3161 2.3952 19.4828C2.41794 19.6279 2.50337 19.7557 2.6288 19.8322C2.7728 19.9201 3.01692 19.8948 3.50517 19.8444L8.62619 19.315C8.78127 19.299 8.85881 19.291 8.92949 19.2937C8.999 19.2963 9.04807 19.3029 9.11586 19.3185C9.18478 19.3344 9.27145 19.3678 9.44478 19.4345C10.3928 19.7998 11.4228 20 12.4996 20ZM15.7496 9C15.7496 9.27614 15.5258 9.5 15.2496 9.5C14.9735 9.5 14.7496 9.27614 14.7496 9C14.7496 8.72386 14.9735 8.5 15.2496 8.5C15.5258 8.5 15.7496 8.72386 15.7496 9ZM10.2496 9C10.2496 9.27614 10.0258 9.5 9.74962 9.5C9.47348 9.5 9.24962 9.27614 9.24962 9C9.24962 8.72386 9.47348 8.5 9.74962 8.5C10.0258 8.5 10.2496 8.72386 10.2496 9Z" />
+				<path
+					d="M8.99962 14C8.99962 14 10.3121 15.5 12.4996 15.5C14.6871 15.5 15.9996 14 15.9996 14M15.2496 9H15.2596M9.74962 9H9.75962M12.4996 20C17.194 20 20.9996 16.1944 20.9996 11.5C20.9996 6.80558 17.194 3 12.4996 3C7.8052 3 3.99962 6.80558 3.99962 11.5C3.99962 12.45 4.15547 13.3636 4.443 14.2166C4.55119 14.5376 4.60529 14.6981 4.61505 14.8214C4.62469 14.9432 4.6174 15.0286 4.58728 15.1469C4.55677 15.2668 4.48942 15.3915 4.35472 15.6408L2.71906 18.6684C2.48575 19.1002 2.36909 19.3161 2.3952 19.4828C2.41794 19.6279 2.50337 19.7557 2.6288 19.8322C2.7728 19.9201 3.01692 19.8948 3.50517 19.8444L8.62619 19.315C8.78127 19.299 8.85881 19.291 8.92949 19.2937C8.999 19.2963 9.04807 19.3029 9.11586 19.3185C9.18478 19.3344 9.27145 19.3678 9.44478 19.4345C10.3928 19.7998 11.4228 20 12.4996 20ZM15.7496 9C15.7496 9.27614 15.5258 9.5 15.2496 9.5C14.9735 9.5 14.7496 9.27614 14.7496 9C14.7496 8.72386 14.9735 8.5 15.2496 8.5C15.5258 8.5 15.7496 8.72386 15.7496 9ZM10.2496 9C10.2496 9.27614 10.0258 9.5 9.74962 9.5C9.47348 9.5 9.24962 9.27614 9.24962 9C9.24962 8.72386 9.47348 8.5 9.74962 8.5C10.0258 8.5 10.2496 8.72386 10.2496 9Z" />
 			</svg>
 		</h1>
 		<div class="subtitle">
@@ -497,7 +521,7 @@
 					Embedding an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are directly embedded on the page, so they can be safely omitted.
 					<ul>
 						<li>
-							xmlns   | Fx. xmlns="http://www.w3.org/2000/svg"
+							xmlns | Fx. xmlns="http://www.w3.org/2000/svg"
 						</li>
 						<li>
 							version | Fx. version="1.1"
@@ -521,7 +545,7 @@
 		}
 		
 		.brand-icons-sec {
-			height: calc(((((var(--current-width) - 12rem) / var(--column-amount)) - 7rem) * (var(--row-amount) - 1)) + (var(--row-amount) * 7rem)) !important;
+			height: calc(((((var(--current-width) - 12rem) / var(--column-amount)) - 7rem) * (var(--row-amount) - 1)) + (var(--row-amount) * 8.25rem)) !important;
 			
 			.icons {
 				justify-content: space-between;
@@ -567,8 +591,8 @@
 				font-size: 1.05rem;
 				
 				ul li ul li {
-					white-space: pre;
-					font-size: .9rem;
+					white-space:         pre;
+					font-size:           .9rem;
 					list-style-position: inside;
 				}
 			}
@@ -644,23 +668,23 @@
 			}
 			
 			.subtitle {
-				font-size: .95rem;
+				font-size:   .95rem;
 				line-height: 1.25;
 				
 				ul {
-					width: 115%;
+					width:       115%;
 					margin-left: -.5rem;
 				}
 				
 				ul li {
 					text-wrap: pretty;
-					width: fit-content !important;
+					width:     fit-content !important;
 					
 					ul {
-						width: fit-content !important;
-						font-size: .8rem;
+						width:               fit-content !important;
+						font-size:           .8rem;
 						list-style-position: outside;
-						margin-left: -.5rem;
+						margin-left:         -.5rem;
 						
 						li:first-child {
 							margin-bottom: .25rem;
@@ -693,7 +717,7 @@
 	
 	.icons-page {
 		max-width: 1600px;
-		margin: 0 auto;
+		margin:    0 auto;
 	}
 	
 	.glass-effects {
@@ -1009,8 +1033,9 @@
 					height:          4.35rem;
 					
 					.brand-name {
-						font-size: 2.25rem;
-						height:    2.5rem;
+						font-size:   2.25rem;
+						height:      2.5rem;
+						padding-top: .175rem;
 					}
 					
 					.icon-name {
@@ -1098,9 +1123,9 @@
 						cursor:          pointer;
 						
 						svg {
-							height: .975rem;
-							width:  .975rem;
-							color:  var(--theme-ui-white);
+							height:        .975rem;
+							width:         .975rem;
+							color:         var(--theme-ui-white);
 							margin-bottom: .1rem;
 						}
 						
@@ -1259,6 +1284,37 @@
 		
 		.icons {
 			display: grid;
+			
+			.icon.blank {
+				position:          relative;
+				display:           flex;
+				align-items:       center;
+				justify-content:   center;
+				
+				width:             7rem;
+				height:            7rem;
+				overflow:          visible;
+				
+				padding:           .35rem;
+				margin-bottom:     1.25rem;
+				
+				border:            1px solid transparent;
+				border-radius:     .75rem;
+				
+				pointer-events:    none;
+				user-select:       none !important;
+				-webkit-user-drag: none !important;
+				
+				z-index:           5000 !important;
+				
+				&.loaded {
+					display: none;
+				}
+				
+				&.loading {
+					animation:      IconLoadingAnim 1.35s infinite cubic-bezier(0.78, 0, 0.22, 1) 115ms;
+				}
+			}
 		}
 	}
 	
@@ -1394,12 +1450,12 @@
 				background-image: var(--theme-text-gradient);
 				background-clip:  text;
 				color:            transparent;
-				height: 4rem;
-				overflow: visible;
+				height:           4rem;
+				overflow:         visible;
 			}
 			
 			.subtitle {
-				text-wrap: pretty;
+				text-wrap:   pretty;
 				font-family: 'Geologica', sans-serif;
 				font-weight: 500;
 				color:       var(--theme-text-third);
@@ -1453,66 +1509,75 @@
 		margin-top: 2.5rem;
 		
 		.title {
-			display: flex;
-			flex-flow: row nowrap;
-			align-items: center;
+			display:         flex;
+			flex-flow:       row nowrap;
+			align-items:     center;
 			justify-content: flex-start;
-			gap: .25rem;
-			padding: .5rem 0;
-			margin-left: .25rem;
+			gap:             .25rem;
+			padding:         .5rem 0;
+			margin-left:     .25rem;
 			
-			user-select: none;
+			user-select:     none;
 			
 			svg {
-				width: 1.85rem;
-				height: 1.85rem;
-				transform: translateX(0) translateY(.15rem) scale(1) rotate(12.5deg);
+				width:      1.85rem;
+				height:     1.85rem;
+				transform:  translateX(0) translateY(.15rem) scale(1) rotate(12.5deg);
 				
 				transition: color 150ms 400ms ease,
-					transform 600ms 500ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%,
-				1.352
-				25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
+				            transform 600ms 500ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%,
+					1.352 25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
 				
 				&:hover {
-					color: var(--theme-color-success) !important;
-					transform: translateX(.1rem) translateY(-.125rem) scale(1.15) rotate(5deg);
+					color:      var(--theme-color-success) !important;
+					transform:  translateX(.1rem) translateY(-.125rem) scale(1.15) rotate(5deg);
 					transition: color 50ms ease,
-						transform 300ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%,
-					1.352
-					25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
+					            transform 300ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%,
+						1.352 25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
 				}
 			}
 		}
 		
 		.subtitle {
-			text-wrap: pretty;
+			text-wrap:   pretty;
 			font-weight: 500;
 			color:       var(--theme-text-secondary);
 			
 			user-select: none;
 			
 			ul li {
-				max-width: 80%;
-				text-wrap: pretty;
+				max-width:           80%;
+				text-wrap:           pretty;
 				list-style-position: outside;
-				list-style-type: square;
-				margin-left: 1.5rem;
-				margin-bottom: 1rem;
+				list-style-type:     square;
+				margin-left:         1.5rem;
+				margin-bottom:       1rem;
 				
-				user-select: none;
+				user-select:         none;
 				
 				ul li {
 					list-style-type: disc;
-					margin-left: 1.25rem;
-					margin-bottom: 0;
+					margin-left:     1.25rem;
+					margin-bottom:   0;
 					
-					font-family: 'JetBrainsMono', monospace;
+					font-family:     'JetBrainsMono', monospace;
 					
-					user-select: all;
+					user-select:     all;
 					
-					color:       var(--theme-text-third);
+					color:           var(--theme-text-third);
 				}
 			}
+		}
+	}
+	
+	@keyframes IconLoadingAnim {
+		0%, 10%, 90%, 100% {
+			background-color: rgba(from var(--theme-ui-line) r g b / .35);
+			opacity:          1;
+		}
+		50% {
+			background-color: rgba(from var(--theme-ui-line) r g b / .35);
+			opacity:          .25;
 		}
 	}
 </style>

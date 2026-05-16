@@ -1,5 +1,10 @@
 <script>
+	const { data } = $props();
 </script>
+
+<svelte:head>
+	<title>{data.seo.title}</title>
+</svelte:head>
 
 <section class='concept-sec'>
 	<div class='title'>

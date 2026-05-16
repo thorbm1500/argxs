@@ -1,7 +1,13 @@
 <script lang="ts">
 	import ColorPaletteComponent from '$lib/components/ColorPaletteComponent.svelte';
 	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
+	
+	const { data } = $props();
 </script>
+
+<svelte:head>
+	<title>{data.seo.title}</title>
+</svelte:head>
 
 <section class="color-palette-content">
 	<ContentHeaderComponent title="Color Palettes" type="palettes" amount={13} />

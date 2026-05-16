@@ -2,8 +2,14 @@
 	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 	import EasingFunctionComponent from './EasingFunctionComponent.svelte';
 
+	const { data } = $props();
+	
 	let duration: number = $state.raw(.1);
 </script>
+
+<svelte:head>
+	<title>{data.seo.title}</title>
+</svelte:head>
 
 <section class="easing-functions-sec">
 	<ContentHeaderComponent title="Easing Functions" type="functions" amount={29} />

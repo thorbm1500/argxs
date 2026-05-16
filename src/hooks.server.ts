@@ -1,14 +1,11 @@
 import { building } from '$app/environment';
-import { error, type Handle, type ServerInit } from '@sveltejs/kit';
-import { RateLimiter } from 'sveltekit-rate-limiter/server';
+import { type Handle, type ServerInit } from '@sveltejs/kit';
 import { Resources } from '$lib/server/Resources';
 import MetricsHandler from '$lib/server/MetricsHandler';
 import Database from '$lib/server/Database';
 import { SiteCookies } from '$lib/server/Definitions';
-import { isCrawler } from '$lib/server/utilities';
 import processImages from '$lib/server/ImageWorker';
 
-const limiter = new RateLimiter({ IP: [2, '100ms'] });
 const metricsHandler = new MetricsHandler();
 
 export const VERSION: string = await Bun.file('./package.json').json().then((pkg) => pkg.version);
@@ -34,21 +31,6 @@ export const init: ServerInit = async () => {
 };
 
 export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
-	// Attempt to forcefully deny access for crawlers.
-	if (isCrawler(event.request.headers)) return error(403);
-
-	if (await limiter.isLimited(event).catch(() => true)) {
-		if (building) resolve(event);
-
-		try {
-			// Otherwise `event.getClientAddress()` will throw an error in case it cant determine the address, despite this not being documented.
-			console.warn(event.getClientAddress(), 'request limited.');
-		} catch (ignored) {
-			console.warn('unknown address request limited.');
-		}
-		return error(429);
-	}
-
 	const theme: string | undefined = event.cookies.get(SiteCookies.Theme);
 	if (theme === 'light' || theme === 'dark') event.locals.theme = theme;
 

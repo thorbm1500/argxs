@@ -24,6 +24,10 @@
 	let combo: ColorCombo | undefined = $derived(data.combos[current]);
 </script>
 
+<svelte:head>
+	<title>{data.seo.title}</title>
+</svelte:head>
+
 <section class="color-combos-sec">
 	<ContentHeaderComponent title="Color Combos" type="combos" amount={data.comboAmount} />
 

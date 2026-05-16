@@ -1,8 +1,7 @@
-<svg id="argxs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" width="726" height="885" viewBox="-17.582 -4.664 71.571 87.246"
-     preserveAspectRatio="xMidYMid meet">
+<svg id="argxs" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="726" height="885" viewBox="-17.582 -4.664 71.571 87.246" preserveAspectRatio="xMidYMid meet">
     <use xlink:href="#argxs_nepal_attr_1" stroke="#003893" stroke-width="5.165"/>
     <path id="argxs_nepal_attr_1" d="M -15,37.5735931288 h 60 L -15,0 v 80 h 60 L -15,20 z" fill="#DC143C"/>
-    <g fill="#fff">
+    <g fill="#FFF">
         <path d="M -11.9502769431,23.4834957055 A 12.8400974233,12.8400974233 0 0,0 11.9502769431,23.4834957055 A 11.9502769431 11.9502769431 0 0,1 -11.9502769431,23.4834957055"/>
         <g transform="translate(0 29.045) scale(5.56106)">
             <circle r="1"/>

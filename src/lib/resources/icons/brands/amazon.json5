@@ -22,6 +22,7 @@
             }
         },
         {
+            name: 'Amazon Music',
             type: 'logo',
             default: {
                 path: 'amazon-music-logo.svg',

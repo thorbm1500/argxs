@@ -53,9 +53,10 @@
             ]
         },
         {
+            name: 'JetBrains Academy',
+            href: 'https://www.jetbrains.com/academy/',
             type: 'logo',
             default: {
-                name: 'JetBrains Academy',
                 path: 'jetbrains-academy-logo.svg',
                 date_added: '2026/4/25',
                 source: {
@@ -64,9 +65,1096 @@
                 }
             },
             dark: {
-                name: 'JetBrains Academy',
                 path: 'jetbrains-academy-logo-dark.svg',
                 date_added: '2026/4/25',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Toolbox App',
+            href: 'https://www.jetbrains.com/toolbox-app/',
+            type: 'icon',
+            default: {
+                path: 'toolbox-app-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Toolbox App',
+            href: 'https://www.jetbrains.com/toolbox-app/',
+            type: 'logo',
+            default: {
+                path: 'toolbox-app-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'toolbox-app-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Junie',
+            href: 'https://www.jetbrains.com/junie/',
+            type: 'icon',
+            default: {
+                path: 'junie-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Junie',
+            href: 'https://www.jetbrains.com/junie/',
+            type: 'logo',
+            default: {
+                path: 'junie-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'junie-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'AI Assistant',
+            href: 'https://www.jetbrains.com/ai/',
+            type: 'icon',
+            default: {
+                path: 'ai-assistant-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'AI Assistant',
+            href: 'https://www.jetbrains.com/ai/',
+            type: 'logo',
+            default: {
+                path: 'ai-assistant-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'ai-assistant-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Code With Me',
+            href: 'https://blog.jetbrains.com/platform/2026/03/sunsetting-code-with-me/',
+            type: 'icon',
+            default: {
+                path: 'code-with-me-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Code With Me',
+            href: 'https://blog.jetbrains.com/platform/2026/03/sunsetting-code-with-me/',
+            type: 'logo',
+            default: {
+                path: 'code-with-me-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'code-with-me-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'License Vault',
+            href: 'https://www.jetbrains.com/ide-services/license-vault/',
+            type: 'icon',
+            default: {
+                path: 'license-vault-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'License Vault',
+            href: 'https://www.jetbrains.com/ide-services/license-vault/',
+            type: 'logo',
+            default: {
+                path: 'license-vault-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'license-vault-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Fleet',
+            href: 'https://www.jetbrains.com/fleet/',
+            type: 'icon',
+            default: {
+                path: 'fleet-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Fleet',
+            href: 'https://www.jetbrains.com/fleet/',
+            type: 'logo',
+            default: {
+                path: 'fleet-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'fleet-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Kotlin',
+            href: 'https://kotlinlang.org',
+            type: 'icon',
+            default: {
+                path: 'kotlin-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Kotlin',
+            href: 'https://kotlinlang.org',
+            type: 'logo',
+            default: {
+                path: 'kotlin-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'kotlin-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Ktor',
+            href: 'https://ktor.io',
+            type: 'icon',
+            default: {
+                path: 'ktor-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Ktor',
+            href: 'https://ktor.io',
+            type: 'logo',
+            default: {
+                path: 'ktor-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'ktor-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'MPS',
+            href: 'https://www.jetbrains.com/mps/',
+            type: 'icon',
+            default: {
+                path: 'mps-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'MPS',
+            href: 'https://www.jetbrains.com/mps/',
+            type: 'logo',
+            default: {
+                path: 'mps-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'mps-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'CLion',
+            href: 'https://www.jetbrains.com/clion/',
+            type: 'icon',
+            default: {
+                path: 'c-lion-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'CLion',
+            href: 'https://www.jetbrains.com/clion/',
+            type: 'logo',
+            default: {
+                path: 'c-lion-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'c-lion-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'DataGrip',
+            href: 'https://www.jetbrains.com/datagrip/',
+            type: 'icon',
+            default: {
+                path: 'data-grip-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'DataGrip',
+            href: 'https://www.jetbrains.com/datagrip/',
+            type: 'logo',
+            default: {
+                path: 'data-grip-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'data-grip-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'DataSpell',
+            href: 'https://www.jetbrains.com/dataspell/',
+            type: 'icon',
+            default: {
+                path: 'data-spell-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'DataSpell',
+            href: 'https://www.jetbrains.com/dataspell/',
+            type: 'logo',
+            default: {
+                path: 'data-spell-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'data-spell-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Datalore',
+            href: 'https://www.jetbrains.com/datalore/',
+            type: 'icon',
+            default: {
+                path: 'datalore-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Datalore',
+            href: 'https://www.jetbrains.com/datalore/',
+            type: 'logo',
+            default: {
+                path: 'datalore-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'datalore-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotCover',
+            href: 'https://www.jetbrains.com/dotcover/',
+            type: 'icon',
+            default: {
+                path: 'dot-cover-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotCover',
+            href: 'https://www.jetbrains.com/dotcover/',
+            type: 'logo',
+            default: {
+                path: 'dot-cover-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'dot-cover-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotMemory',
+            href: 'https://www.jetbrains.com/dotmemory/',
+            type: 'icon',
+            default: {
+                path: 'dot-memory-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotMemory',
+            href: 'https://www.jetbrains.com/dotmemory/',
+            type: 'logo',
+            default: {
+                path: 'dot-memory-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'dot-memory-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotPeek',
+            href: 'https://www.jetbrains.com/decompiler/',
+            type: 'icon',
+            default: {
+                path: 'dot-peek-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotPeek',
+            href: 'https://www.jetbrains.com/decompiler/',
+            type: 'logo',
+            default: {
+                path: 'dot-peek-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'dot-peek-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotTrace',
+            href: 'https://www.jetbrains.com/profiler/',
+            type: 'icon',
+            default: {
+                path: 'dot-trace-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'dotTrace',
+            href: 'https://www.jetbrains.com/profiler/',
+            type: 'logo',
+            default: {
+                path: 'dot-trace-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'dot-trace-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'GoLand',
+            href: 'https://www.jetbrains.com/go/',
+            type: 'icon',
+            default: {
+                path: 'go-land-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'GoLand',
+            href: 'https://www.jetbrains.com/go/',
+            type: 'logo',
+            default: {
+                path: 'go-land-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'go-land-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Hub',
+            href: 'https://www.jetbrains.com/hub/',
+            type: 'icon',
+            default: {
+                path: 'hub-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Hub',
+            href: 'https://www.jetbrains.com/hub/',
+            type: 'logo',
+            default: {
+                path: 'hub-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'hub-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'IntelliJ IDEA',
+            href: 'https://www.jetbrains.com/idea/',
+            type: 'icon',
+            default: {
+                path: 'intellij-idea-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'IntelliJ IDEA',
+            href: 'https://www.jetbrains.com/idea/',
+            type: 'logo',
+            default: {
+                path: 'intellij-idea-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'intellij-idea-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'PhpStorm',
+            href: 'https://www.jetbrains.com/phpstorm/',
+            type: 'icon',
+            default: {
+                path: 'php-storm-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'PhpStorm',
+            href: 'https://www.jetbrains.com/phpstorm/',
+            type: 'logo',
+            default: {
+                path: 'php-storm-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'php-storm-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'PyCharm',
+            href: 'https://www.jetbrains.com/pycharm/',
+            type: 'icon',
+            default: {
+                path: 'pycharm-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'PyCharm',
+            href: 'https://www.jetbrains.com/pycharm/',
+            type: 'logo',
+            default: {
+                path: 'pycharm-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'pycharm-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Qodana',
+            href: 'https://www.jetbrains.com/qodana/',
+            type: 'icon',
+            default: {
+                path: 'qodana-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Qodana',
+            href: 'https://www.jetbrains.com/qodana/',
+            type: 'logo',
+            default: {
+                path: 'qodana-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'qodana-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'ReSharper',
+            href: 'https://www.jetbrains.com/resharper/',
+            type: 'icon',
+            default: {
+                path: 'resharper-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'ReSharper',
+            href: 'https://www.jetbrains.com/resharper/',
+            type: 'logo',
+            default: {
+                path: 'resharper-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'resharper-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'ReSharper C++',
+            href: 'https://www.jetbrains.com/resharper-cpp/',
+            type: 'icon',
+            default: {
+                path: 'resharper-cpp-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'ReSharper C++',
+            href: 'https://www.jetbrains.com/resharper-cpp/',
+            type: 'logo',
+            default: {
+                path: 'resharper-cpp-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'resharper-cpp-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Rider',
+            href: 'https://www.jetbrains.com/rider/',
+            type: 'icon',
+            default: {
+                path: 'rider-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'Rider',
+            href: 'https://www.jetbrains.com/rider/',
+            type: 'logo',
+            default: {
+                path: 'rider-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'rider-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'RiderFlow',
+            href: 'https://www.jetbrains.com/riderflow/',
+            type: 'icon',
+            default: {
+                path: 'rider-flow-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'RiderFlow',
+            href: 'https://www.jetbrains.com/riderflow/',
+            type: 'logo',
+            default: {
+                path: 'rider-flow-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'rider-flow-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'RubyMine',
+            href: 'https://www.jetbrains.com/ruby/',
+            type: 'icon',
+            default: {
+                path: 'ruby-mine-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'RubyMine',
+            href: 'https://www.jetbrains.com/ruby/',
+            type: 'logo',
+            default: {
+                path: 'ruby-mine-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'ruby-mine-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'RustRover',
+            href: 'https://www.jetbrains.com/rust/',
+            type: 'icon',
+            default: {
+                path: 'rust-rover-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'RustRover',
+            href: 'https://www.jetbrains.com/rust/',
+            type: 'logo',
+            default: {
+                path: 'rust-rover-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'rust-rover-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'TeamCity',
+            href: 'https://www.jetbrains.com/teamcity/',
+            type: 'icon',
+            default: {
+                path: 'teamcity-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'TeamCity',
+            href: 'https://www.jetbrains.com/teamcity/',
+            type: 'logo',
+            default: {
+                path: 'teamcity-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'teamcity-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'WebStorm',
+            href: 'https://www.jetbrains.com/webstorm/',
+            type: 'icon',
+            default: {
+                path: 'webstorm-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'WebStorm',
+            href: 'https://www.jetbrains.com/webstorm/',
+            type: 'logo',
+            default: {
+                path: 'webstorm-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'webstorm-logo-dark.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'YouTrack',
+            href: 'https://www.jetbrains.com/youtrack/',
+            type: 'icon',
+            default: {
+                path: 'youtrack-icon.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            }
+        },
+        {
+            name: 'YouTrack',
+            href: 'https://www.jetbrains.com/youtrack/',
+            type: 'logo',
+            default: {
+                path: 'youtrack-logo.svg',
+                date_added: '2026/4/10',
+                source: {
+                    name: 'JetBrains',
+                    href: 'https://www.jetbrains.com/company/brand'
+                }
+            },
+            dark: {
+                path: 'youtrack-logo-dark.svg',
+                date_added: '2026/4/10',
                 source: {
                     name: 'JetBrains',
                     href: 'https://www.jetbrains.com/company/brand'

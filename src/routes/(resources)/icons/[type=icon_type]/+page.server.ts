@@ -1,11 +1,15 @@
 import type { PageServerLoad } from './$types';
 import { RESOURCES } from '../../../../hooks.server.ts';
+import type { SEO } from '$lib/components/interfaces';
 
 export const ssr = true;
 
 export const load: PageServerLoad = async ({ params }) => {
 	if (params.type === 'brands') {
 		return {
+			seo: {
+				title: 'argxs ▪ Brand Icons'
+			} as SEO,
 			icons: RESOURCES.BRAND_ICONS,
 			iconsSortedNew: RESOURCES.BRAND_ICONS_SORTED_NEW,
 			iconsSortedAtoZ: RESOURCES.BRAND_ICONS_SORTED_AtoZ,
@@ -15,6 +19,9 @@ export const load: PageServerLoad = async ({ params }) => {
 		};
 	} else {
 		return {
+			seo: {
+				title: 'argxs ▪ Flag Icons'
+			} as SEO,
 			icons: RESOURCES.FLAG_ICONS,
 			iconsSortedNew: RESOURCES.FLAG_ICONS_SORTED_NEW,
 			iconsSortedAtoZ: RESOURCES.FLAG_ICONS_SORTED_AtoZ,

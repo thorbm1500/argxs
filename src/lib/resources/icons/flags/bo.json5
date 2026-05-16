@@ -10,6 +10,7 @@
             },
         },
         {
+            name: 'State Flag',
             path: 'bo-state.svg',
             date_added: '2026/4/14',
             source: {
@@ -18,6 +19,7 @@
             },
         },
         {
+            name: 'Wiphala',
             path: 'wiphala.svg',
             date_added: '2026/4/14',
             source: {

@@ -3,8 +3,8 @@
         <path d="m0 0h27L16 6l11 2-11 2 11 6H0z"/>
     </clipPath>
     <g clip-path="url(#argxs_norway_state_attr)">
-        <path fill="#fff" d="m0 0h27v16H0z"/>
-        <path fill="#ba0c2f" d="m0 0h6v6H0zm10 0h17v6H10zm0 10h17v6H10zM0 10h6v6H0z"/>
-        <path fill="#00205b" d="m7 0h2v16H7zM0 7h27v2H0"/>
+        <rect width="27" height="16" fill="#FFF"/>
+        <path fill="#BA0C2F" d="m0 0h6v6H0zm10 0h17v6H10zm0 10h17v6H10zM0 10h6v6H0z"/>
+        <path fill="#00205B" d="m7 0h2v16H7zM0 7h27v2H0"/>
     </g>
 </svg>

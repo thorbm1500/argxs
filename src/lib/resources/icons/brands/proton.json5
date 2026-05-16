@@ -45,7 +45,7 @@
 			]
 		},
 		{
-			name: '',
+			name: 'Proton Mail',
 			type: 'icon',
 			default: {
 				path: 'proton-mail-icon.svg',
@@ -57,7 +57,7 @@
 			}
 		},
 		{
-			name: '',
+			name: 'Proton Calender',
 			type: 'icon',
 			default: {
 				path: 'proton-calender-icon.svg',
@@ -69,7 +69,7 @@
 			}
 		},
 		{
-			name: '',
+			name: 'Proton VPN',
 			type: 'icon',
 			default: {
 				path: 'proton-vpn-icon.svg',
@@ -81,7 +81,7 @@
 			}
 		},
 		{
-			name: '',
+			name: 'Proton Drive',
 			type: 'icon',
 			default: {
 				path: 'proton-drive-icon.svg',
@@ -93,7 +93,7 @@
 			}
 		},
 		{
-			name: '',
+			name: 'Proton Pass',
 			type: 'icon',
 			default: {
 				path: 'proton-pass-icon.svg',

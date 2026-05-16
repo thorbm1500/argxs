@@ -2,6 +2,8 @@
 	import FontDisplayComponent from '$lib/components/FontDisplayComponent.svelte';
 	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 	
+	const { data } = $props();
+	
 	let activePangram = $state.raw('');
 	let activeFontSize = $state.raw(20);
 	let activeFontWeight = $state.raw(500);
@@ -9,6 +11,10 @@
 	let isLowercase = $state.raw(false);
 	let isUppercase = $state.raw(false);
 </script>
+
+<svelte:head>
+	<title>{data.seo.title}</title>
+</svelte:head>
 
 <ContentHeaderComponent amount={36} title='Typography' type='fonts'/>
 

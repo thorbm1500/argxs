@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import { Spring } from 'svelte/motion';
 	
+	const { data } = $props();
+	
 	let coords = new Spring({ x: 0, y: 0 }, {
 		stiffness: 0.085,
 		damping: 0.175
@@ -55,6 +57,10 @@
 		coords.target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 	});
 </script>
+
+<svelte:head>
+	<title>{data.seo.title}</title>
+</svelte:head>
 
 <section class="home-page-sec">
 	<div

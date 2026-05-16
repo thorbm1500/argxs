@@ -1,6 +1,4 @@
 @import '$lib/resources/other/typography/google-sans/fonts.css';
-@import '$lib/resources/other/typography/space-grotesk/fonts.css';
-@import '$lib/resources/other/typography/archivo/fonts.css';
 @import '$lib/resources/other/typography/bricolage-grotesque/fonts.css';
 @import '$lib/resources/other/typography/lexend/fonts.css';
 @import '$lib/resources/other/typography/funnel/fonts.css';
@@ -11,6 +9,7 @@
 
 @font-face {
 	font-family: 'Geologica';
+	font-display: swap;
 	src: url('$lib/fonts/Geologica-Variable.ttf');
 }
 

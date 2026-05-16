@@ -1,4 +1,4 @@
-import type { Brand, BrandIcon, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon, Source } from '$lib/components/interfaces';
+import type { Brand, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon, Source } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
@@ -42,13 +42,16 @@ export class Resources {
 
 			for (const icon of current.assets) {
 				const resource = {
-					name: current.name,
+					title: current.name,
+					name: icon.name ?? current.name,
 					href: current.href,
 					type: icon.type,
-					last_updated: this.getLatestDateFromIcon(icon),
+					last_updated: 0,
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
 				} as ResourceIcon;
+
+				this.updateLatestDate(resource);
 
 				let iconAmount = 1;
 
@@ -71,25 +74,22 @@ export class Resources {
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
-	private getLatestDateFromIcon(icon: BrandIcon): number {
-		let result = 0;
+	private updateLatestDate(icon: ResourceIcon): void {
 		if (icon.default.date_added) {
 			const current = Date.parse(icon.default.date_added);
-			if (current > result) result = current;
+			if (current > icon.last_updated) icon.last_updated = current;
 		}
 		if (icon.dark?.date_added) {
 			const current = Date.parse(icon.dark.date_added);
-			if (current > result) result = current;
+			if (current > icon.last_updated) icon.last_updated = current;
 		}
 		if (!!icon.variable) {
 			for (const variable of icon.variable) {
 				if (!variable.date_added) continue;
 				const current = Date.parse(variable.date_added);
-				if (current > result) result = current;
+				if (current > icon.last_updated) icon.last_updated = current;
 			}
 		}
-
-		return result;
 	}
 
 	private async loadFlagIcons(): Promise<void> {
@@ -102,6 +102,7 @@ export class Resources {
 			this.FLAG_ICON_AMOUNT++;
 
 			const resource: ResourceIcon = {
+				title: current.country,
 				name: current.country,
 				href: current.href,
 				type: 'other',

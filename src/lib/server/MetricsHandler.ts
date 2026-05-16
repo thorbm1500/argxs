@@ -57,7 +57,7 @@ export default class MetricsHandler {
 				// noinspection ES6MissingAwait
 				Database.incrementVisitorCount(MetricsHandler.requestsTotal, MetricsHandler.requestsToday);
 
-				console.log(` - ${new Date(Date.now()).toLocaleTimeString()}\n > Visitor Count\n + Today: ${MetricsHandler.requestsToday} | Total: ${MetricsHandler.requestsTotal}`);
+				console.log(`[${new Date(Date.now()).toLocaleTimeString()}] Visitor Count\n   + Today: ${MetricsHandler.requestsToday} | Total: ${MetricsHandler.requestsTotal}`);
 			}
 		} catch (ignored) {}
 	}
