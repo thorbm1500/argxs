@@ -1,10 +1,14 @@
 <script lang="ts">
 	import SvelteMarkdown from '@humanspeak/svelte-markdown';
-	import hljs from 'highlight.js';
 	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 	import { getContext, onMount } from 'svelte';
-	import { github, githubDark } from 'svelte-highlight/styles';
 	import type { PageTheme } from '$lib/components/interfaces';
+	import hljs from 'highlight.js/lib/common';
+	import xml from 'highlight.js/lib/languages/xml';
+	import powershell from 'highlight.js/lib/languages/powershell';
+	
+	hljs.registerLanguage('xml', xml);
+	hljs.registerLanguage('powershell', powershell);
 	
 	const { data, params } = $props();
 	
@@ -22,9 +26,9 @@
 	<title>{data.seo.title}</title>
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
-		{@html github}
+		{#await import('$lib/styles/github.css')}{/await}
 	{:else}
-		{@html githubDark}
+		{#await import('$lib/styles/github-dark.css')}{/await}
 	{/if}
 </svelte:head>
 

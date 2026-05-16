@@ -1,4 +1,7 @@
 <!--svelte-ignore state_referenced_locally-->
+<script module lang="ts">
+	import '$lib/dep/highlight.min.js';
+</script>
 <script lang="ts">
 	import type { HighlightIcon, Icon, PageTheme, ResourceIcon } from '$lib/components/interfaces';
 	import { getContext, onMount, tick } from 'svelte';
@@ -8,13 +11,12 @@
 	import { quartInOut } from 'svelte/easing';
 	import Highlight, { LineNumbers } from 'svelte-highlight';
 	import xml from 'svelte-highlight/languages/xml';
-	import { github, githubDark } from 'svelte-highlight/styles';
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
 	import { page } from '$app/state';
 	import { beforeNavigate } from '$app/navigation';
 	
-	let iconType: string = $derived(String(page.params.type ?? 'brands'));
+	let iconType: string = $derived(String(page.params.type));
 	let isLoaded: boolean = $state(false);
 	
 	const { data } = $props();
@@ -185,9 +187,9 @@
 	<title>{data.seo.title}</title>
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
-		{@html github}
+		{#await import('$lib/styles/github.css')}{/await}
 	{:else}
-		{@html githubDark}
+		{#await import('$lib/styles/github-dark.css')}{/await}
 	{/if}
 </svelte:head>
 

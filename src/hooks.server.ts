@@ -12,11 +12,6 @@ export const VERSION: string = await Bun.file('./package.json').json().then((pkg
 export const RESOURCES: Resources = new Resources();
 
 export const handleError: HandleServerError = async ({error}) => {
-	if ((error as Error)?.message) {
-		console.error((error as Error).message);
-	} else {
-		console.error('Internal error!')
-	}
 	console.error(Bun.inspect(error, { colors: true, compact: false, depth: 50, sorted: false}));
 
 	return {
