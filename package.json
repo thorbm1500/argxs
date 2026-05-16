@@ -55,7 +55,6 @@
         "@humanspeak/svelte-markdown": "^1.5.0",
         "@sveltejs/kit": "^2.60.1",
         "highlight.js": "^11.11.1",
-        "moment": "^2.30.1",
-        "svelte-highlight": "^7.9.0"
+        "moment": "^2.30.1"
     }
 }

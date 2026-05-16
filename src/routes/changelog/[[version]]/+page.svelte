@@ -3,13 +3,13 @@
 	import ContentHeaderComponent from '$lib/components/ContentHeaderComponent.svelte';
 	import { getContext, onMount } from 'svelte';
 	import type { PageTheme } from '$lib/components/interfaces';
-	import hljs from 'highlight.js/lib/common';
-	import powershell from '$lib/dep/highlight.js/lib/languages/powershell.min.js';
-	import type { LanguageFn } from 'highlight.js';
-	
-	hljs.registerLanguage('powershell', (powershell as unknown) as LanguageFn);
+	import hljs from '$lib/dep/@highlight/es/highlight.js';
+	import type { LanguageFn } from '$lib/dep/@highlight/es/highlight.js';
 	
 	const { data, params } = $props();
+	
+	hljs?.registerLanguage('powershell', ((await import('$lib/dep/@highlight/es/languages/powershell.min.js')).default as unknown) as LanguageFn);
+	hljs?.registerLanguage('typescript', ((await import('$lib/dep/@highlight/es/languages/typescript.min.js')).default as unknown) as LanguageFn);
 	
 	const getTheme = getContext('theme') as Function;
 	let theme: PageTheme = $derived(getTheme());
@@ -25,9 +25,9 @@
 	<title>{data.seo.title}</title>
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
-		{#await import('$lib/styles/github.css')}{/await}
+		{#await import('$lib/dep/@highlight/styles/github.min.css')}{/await}
 	{:else}
-		{#await import('$lib/styles/github-dark.css')}{/await}
+		{#await import('$lib/dep/@highlight/styles/github-dark.min.css')}{/await}
 	{/if}
 </svelte:head>
 
