@@ -13,11 +13,11 @@ export const RESOURCES: Resources = new Resources();
 
 // noinspection JSUnusedGlobalSymbols
 export const init: ServerInit = async () => {
+	await RESOURCES.init();
 	if (building) return;
 
 	await Database.init();
 	await MetricsHandler.init();
-	await RESOURCES.init();
 
 	if (Bun.env.NODE_ENV === 'production') {
 		// Run processing right away, to ensure all downloads are available to users.
