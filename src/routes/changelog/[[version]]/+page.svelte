@@ -4,11 +4,10 @@
 	import { getContext, onMount } from 'svelte';
 	import type { PageTheme } from '$lib/components/interfaces';
 	import hljs from 'highlight.js/lib/common';
-	import xml from 'highlight.js/lib/languages/xml';
-	import powershell from 'highlight.js/lib/languages/powershell';
+	import powershell from '$lib/dep/highlight.js/lib/languages/powershell.min.js';
+	import type { LanguageFn } from 'highlight.js';
 	
-	hljs.registerLanguage('xml', xml);
-	hljs.registerLanguage('powershell', powershell);
+	hljs.registerLanguage('powershell', (powershell as unknown) as LanguageFn);
 	
 	const { data, params } = $props();
 	
