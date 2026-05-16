@@ -1,7 +1,4 @@
 <!--svelte-ignore state_referenced_locally-->
-<script module lang="ts">
-	import '$lib/dep/highlight.min.js';
-</script>
 <script lang="ts">
 	import type { HighlightIcon, Icon, PageTheme, ResourceIcon } from '$lib/components/interfaces';
 	import { getContext, onMount, tick } from 'svelte';
@@ -9,8 +6,7 @@
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { draw, fade } from 'svelte/transition';
 	import { quartInOut } from 'svelte/easing';
-	import Highlight, { LineNumbers } from 'svelte-highlight';
-	import xml from 'svelte-highlight/languages/xml';
+	import hljs from 'highlight.js/lib/common';
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
 	import { page } from '$app/state';
@@ -311,20 +307,16 @@
 						{:else if currentSVG === 'load'}
 							<strong style="color:var(--theme-text-third);padding:1rem;font-style:italic">Loading...</strong>
 						{:else}
-							<Highlight language={xml} let:highlighted
-							           code={currentSVG}>
-								<button title="Copy" class="copy-button" onclick={() => copyToClipboard(currentSVG)}>
-									<!--suppress HtmlUnknownTag -->
-									<div class="background"></div>
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-										<path
-											d="M20.926 7.074a3.67 3.67 0 0 1 1.074 2.593v8.666a3.667 3.667 0 0 1 -3.667 3.667h-8.666a3.667 3.667 0 0 1 -3.667 -3.667v-8.666q 0 -.053 .005 -.102a3.66 3.66 0 0 1 3.662 -3.565h8.666c.973 0 1.905 .386 2.593 1.074" />
-										<path
-											d="M17.374 3.514a1 1 0 1 1 -1.748 .972c-.221 -.398 -.342 -.486 -.626 -.486h-10c-.548 0 -1 .452 -1 1v9.998c0 .36 .194 .692 .507 .87a1 1 0 1 1 -.99 1.738a3 3 0 0 1 -1.517 -2.606v-10c0 -1.652 1.348 -3 3 -3h10c1.094 0 1.828 .533 2.374 1.514" />
-									</svg>
-								</button>
-								<LineNumbers {highlighted} hideBorder />
-							</Highlight>
+							<button title="Copy" class="copy-button" onclick={() => copyToClipboard(currentSVG)}>
+								<div class="background"></div>
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+									<path
+										d="M20.926 7.074a3.67 3.67 0 0 1 1.074 2.593v8.666a3.667 3.667 0 0 1 -3.667 3.667h-8.666a3.667 3.667 0 0 1 -3.667 -3.667v-8.666q 0 -.053 .005 -.102a3.66 3.66 0 0 1 3.662 -3.565h8.666c.973 0 1.905 .386 2.593 1.074" />
+									<path
+										d="M17.374 3.514a1 1 0 1 1 -1.748 .972c-.221 -.398 -.342 -.486 -.626 -.486h-10c-.548 0 -1 .452 -1 1v9.998c0 .36 .194 .692 .507 .87a1 1 0 1 1 -.99 1.738a3 3 0 0 1 -1.517 -2.606v-10c0 -1.652 1.348 -3 3 -3h10c1.094 0 1.828 .533 2.374 1.514" />
+								</svg>
+							</button>
+							<pre>{@html hljs.highlight(currentSVG, { language: 'xml' }).value}</pre>
 						{/if}
 					</div>
 					{#if highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source}
@@ -1180,13 +1172,23 @@
 					font-family:   'JetBrainsMono', monospace;
 					font-size:     .85rem;
 					font-weight:   500;
+					padding:       .75rem 1rem;
 					
 					z-index:       500 !important;
 					
+					:global(span) {
+						white-space: preserve-spaces;
+						text-wrap: nowrap;
+						
+						&.hljs-tag {
+							white-space: preserve;
+							text-wrap: nowrap;
+						}
+					}
+					
 					.copy-button {
 						position:  absolute;
-						right:     3.5rem;
-						transform: translateY(1rem);
+						right:     3rem;
 						padding:   .35rem;
 						
 						cursor:    pointer;
@@ -1226,26 +1228,6 @@
 					
 					&::selection {
 						background-color: rgba(from var(--theme-color-accent) r g b / .2);
-					}
-					
-					:global {
-						div {
-							overflow: visible !important;
-						}
-						
-						table tbody, table tbody tr, table tbody td {
-							background-color: transparent !important;
-						}
-						
-						table tbody {
-							td.hljs {
-								position: relative !important;
-								
-								code {
-									font-weight: 550;
-								}
-							}
-						}
 					}
 				}
 				
@@ -1314,7 +1296,7 @@
 				}
 				
 				&.loading {
-					animation:      IconLoadingAnim 1.35s infinite cubic-bezier(0.78, 0, 0.22, 1) 115ms;
+					animation: IconLoadingAnim 1.35s infinite cubic-bezier(0.78, 0, 0.22, 1) 115ms;
 				}
 			}
 		}

@@ -45,14 +45,14 @@
 							<div class="lang-parent">
 								<p class="language">{lang}</p>
 							</div>
-							<pre class="code">{@html hljs.highlight(text, { language: lang }).value}</pre>
+							{@html hljs.highlight(text, { language: lang }).value}
 						{:else}
 							{#if hljs.highlightAuto(text).language}
 								<div class="lang-parent">
 									<p class="language">{hljs.highlightAuto(text).language}</p>
 								</div>
 							{/if}
-							<pre class="code">{@html hljs.highlightAuto(text).value}</pre>
+							{@html hljs.highlightAuto(text).value}
 						{/if}
 					</div>
 				{/snippet}
