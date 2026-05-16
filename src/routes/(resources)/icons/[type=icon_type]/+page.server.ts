@@ -5,6 +5,9 @@ import type { SEO } from '$lib/components/interfaces';
 export const ssr = true;
 
 export const load: PageServerLoad = async ({ params }) => {
+	if (!params.type) console.error('params.type undefined!');
+	if (!RESOURCES) console.error('RESOURCES undefined!');
+
 	if (params.type === 'brands') {
 		return {
 			seo: {

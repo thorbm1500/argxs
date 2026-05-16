@@ -28,6 +28,9 @@ export const init: ServerInit = async () => {
 		 *  All icons will be checked and processed, ensuring all of them have PNG,WEBP, and JPEG versions available */
 		Bun.cron('0 0 */1 * *', processImages);
 	}
+
+	console.info('Initialization completed.');
+	console.info(`[Status]\n+ VERSION: ${VERSION}`)
 };
 
 export const handle: Handle = async ({ event, resolve }): Promise<Response> => {

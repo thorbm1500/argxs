@@ -14,13 +14,13 @@
 	import { page } from '$app/state';
 	import { beforeNavigate } from '$app/navigation';
 	
-	let iconType: string = $derived(String(page.params.type));
+	let iconType: string = $derived(String(page.params.type ?? 'brands'));
 	let isLoaded: boolean = $state(false);
 	
 	const { data } = $props();
 	
 	const getTheme = getContext('theme') as Function;
-	let theme: PageTheme = $derived(getTheme());
+	let theme: PageTheme = $derived(getTheme !== undefined ? getTheme() : 'dark');
 	const sendToast: any = $derived(getContext('sendToast'));
 	
 	// - Sorting Variables
@@ -109,10 +109,10 @@
 	});
 	
 	onMount(() => {
-		document.addEventListener('DOMContentLoaded', () => isLoaded = true);
-		if (document.readyState !== 'loading') isLoaded = true;
+		document?.addEventListener('DOMContentLoaded', () => isLoaded = true);
+		if (document?.readyState !== 'loading') isLoaded = true;
 		
-		document.addEventListener('click', (event) => {
+		document?.addEventListener('click', (event) => {
 			// Event ignored while highlight container is closed.
 			if (!highlightedIcon) return;
 			
@@ -136,7 +136,7 @@
 			}
 		});
 		
-		document.addEventListener('keydown', (event) => {
+		document?.addEventListener('keydown', (event) => {
 			// Enable closure of highlight window by pressing Escape.
 			if (event.key === 'Escape' && event.isTrusted) closeHighlightContainer();
 		});
