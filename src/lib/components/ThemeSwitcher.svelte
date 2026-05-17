@@ -12,7 +12,8 @@
 	}
 </script>
 
-<button title="" onclick={updateTheme} class="theme-switch-button {theme}">
+<!--svelte-ignore a11y_positive_tabindex-->
+<button title="" onclick={updateTheme} class="theme-switch-button {theme}" tabindex="999">
 	<!--suppress HtmlUnknownTag -->
 	<div class="button-switch">
 		{#if theme === 'light'}

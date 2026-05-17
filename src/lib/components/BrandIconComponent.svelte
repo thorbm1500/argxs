@@ -1,24 +1,22 @@
 <!--svelte-ignore state_referenced_locally-->
-<script module lang="ts">
-	let registered: boolean = false;
-	let scrollY: number = $state(0);
-</script>
-
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import type { Icon, PageTheme, HighlightIcon, ResourceIcon } from '$lib/components/interfaces';
 	import type { Attachment } from 'svelte/attachments';
-	import { onMount } from 'svelte';
+	import { getContext } from 'svelte';
 	
 	let { highlightedIcon = $bindable(), theme = $bindable(), type, icon }: { highlightedIcon: HighlightIcon | undefined, theme: PageTheme, type: string, icon: ResourceIcon } = $props();
 	
-	const icons: Icon[] = $state([]);
+	let isActive: boolean = $state(false);
+	let isButton: boolean = $state(false);
+	
+	const getScrollY: Function | undefined = getContext('scrollY');
+	let scrollY: number = $derived(getScrollY?.() ?? 0);
+	
+	const icons: Icon[] = $state([icon.default, ...icon.variable]);
 	let currentIconIndex: number = $state(0);
 	
-	icons.push(icon.default);
-	if (icon.variable.length !== 0) icons.push(...icon.variable);
-	
-	let currentTheme: PageTheme = $state.raw(theme);
+	let currentTheme: PageTheme = $state(theme);
 	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
 	let isImageLoading: boolean = $state(true);
 	updateCurrentIcon();
@@ -27,7 +25,7 @@
 	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 432000000));
 	
 	$effect(() => {
-		if ($state.eager(theme) !== currentTheme) {
+		if (theme !== currentTheme) {
 			currentTheme = theme;
 			updateCurrentIcon();
 		}
@@ -43,9 +41,20 @@
 		currentIconIndex = 0;
 	}
 	
-	const externalLink: Attachment = (element) => {
+	const accessibilityTab: Attachment = (element) => {
 		element.setAttribute('tabindex', '0');
 		
+		element.addEventListener('focus', (event) => {
+			isButton = /element (prev|next)-icon/.test((event.target as HTMLElement).className);
+			isActive = true;
+		});
+		element.addEventListener('focusout', (event) => {
+			isButton = /element (prev|next)-icon/.test((event.target as HTMLElement).className);
+			isActive = false;
+		});
+	};
+	
+	const externalLink: Attachment = (element) => {
 		element.addEventListener('mousedown', (event) => {
 			if (!(event.target as HTMLElement)?.className.includes('overlay buttons')) return;
 			event.preventDefault();
@@ -55,6 +64,8 @@
 		
 		element.addEventListener('keydown', (event) => {
 			if (event.isTrusted && (event as KeyboardEvent).key === 'Enter') {
+				// Ignore event in case of switching between icons
+				if (/element (prev|next)-icon/.test((event.target as HTMLElement).className)) return;
 				event.preventDefault();
 				(element as HTMLElement).blur();
 				
@@ -63,7 +74,7 @@
 		});
 		
 		return () => {
-			if (highlightedIcon === icons[currentIconIndex]) highlightedIcon = undefined;
+			if (highlightedIcon?.icon === icon) highlightedIcon = undefined;
 		};
 	};
 	
@@ -121,21 +132,6 @@
 		};
 	};
 	
-	onMount(() => {
-		if (registered) return;
-		registered = true;
-		
-		const mainContainer: HTMLElement | null = document.getElementById('main-container');
-		
-		mainContainer?.addEventListener('scroll', () => {
-			scrollY = mainContainer?.scrollTop ?? 0;
-		});
-		
-		setInterval(() => {
-			scrollY = mainContainer?.scrollTop ?? 0;
-		}, 1000);
-	});
-	
 	const iconImage: Attachment = (element) => {
 		(element as HTMLImageElement).onloadstart = () => {
 			isImageLoading = true;
@@ -155,7 +151,7 @@
 	};
 </script>
 
-<div id="brand-icon" style="position:absolute;width:100%;height:100%;background:white;border-radius:inherit;" hidden></div>
+<div id="brand-icon" style="position:absolute;width:100%;height:100%;background:white;border-radius:inherit;" hidden inert></div>
 <svg style="display: none;">
 	<filter id="icon-glass-distortion" x="0%" y="0%" width="100%" height="100%">
 		<feTurbulence type="fractalNoise" baseFrequency="0.007 0.007" numOctaves="3" seed="{Math.trunc(Math.random() * 100000)}" result="noise" />
@@ -173,9 +169,10 @@
 		<feComposite operator="in" in2="SourceGraphic" />
 	</filter>
 </svg>
-<div class="icon theme-transition-all {$state.eager(isImageLoading) ? 'loading' : ''}" {@attach mouseGlow}>
+<!--svelte-ignore a11y_no_noninteractive_tabindex-->
+<div class="icon theme-transition-all {$state.eager(isImageLoading) ? 'loading' : ''} {isActive ? (isButton ? 'active button' : 'active') : ''}" {@attach mouseGlow} {@attach externalLink} {@attach accessibilityTab}>
 	{#if isNewVariant}
-		<div class="overlay is-new-variant">
+		<div class="overlay is-new-variant" inert>
 			<div class="element marker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 					<path
@@ -185,19 +182,19 @@
 			</div>
 		</div>
 	{:else if hasNewIconVariant}
-		<div class="overlay has-new-variant">
+		<div class="overlay has-new-variant" inert>
 			<div class="element marker"></div>
 		</div>
 	{/if}
-	<div class="overlay buttons" {@attach externalLink}>
+	<div class="overlay buttons">
 		{#if icons.length > 1}
-			<button title="" class="element prev-icon" onclick="{() => {if (currentIconIndex > 0) currentIconIndex--; else currentIconIndex = icons.length - 1}}">
+			<button title="" class="element prev-icon" onclick="{() => {if (currentIconIndex > 0) currentIconIndex--; else currentIconIndex = icons.length - 1}}" {@attach accessibilityTab}>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 					<path
 						d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
 				</svg>
 			</button>
-			<button title="" class="element next-icon" onclick="{() => {if (currentIconIndex < icons.length - 1) currentIconIndex++; else currentIconIndex = 0}}">
+			<button title="" class="element next-icon" onclick="{() => {if (currentIconIndex < icons.length - 1) currentIconIndex++; else currentIconIndex = 0}}" {@attach accessibilityTab}>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 					<path
 						d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
@@ -206,7 +203,7 @@
 		{/if}
 	</div>
 	{#if icons.length > 1}
-		<div class="overlay current-icon-amount">
+		<div class="overlay current-icon-amount" inert>
 			<p class="current-icon marker">
 				{currentIconIndex + 1} /
 			</p>
@@ -214,20 +211,20 @@
 				{icons.length}
 			</p>
 		</div>
-		<div class="overlay icon-amount">
+		<div class="overlay icon-amount" inert>
 			<p class="element marker">
 				{icons.length}
 			</p>
 		</div>
 	{/if}
 	{#key currentIcon.path}
-		<div class="hover-fx">
+		<div class="hover-fx" inert>
 			<!--svelte-ignore a11y_missing_attribute-->
 			<img {@attach iconImage} src={`/resources/icons/${type}/${currentIcon.path}`} alt="" loading="lazy" />
 		</div>
 		<img {@attach iconImage} in:fade src={`/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
 	{/key}
-	<h3 class="icon-name">{currentIcon.name ?? icon.name}</h3>
+	<h3 class="icon-name" inert>{currentIcon.name ?? icon.name}</h3>
 </div>
 
 <style>
@@ -387,9 +384,8 @@
 			}
 		}
 		
-		&:hover {
+		&:hover, &:focus-visible, &.active {
 			filter:       brightness(1.015);
-			
 			border-color: color-mix(var(--theme-ui-line) 50%, var(--theme-ui-line-highlight) 50%);
 			
 			transition:   border-color 50ms ease;
@@ -405,6 +401,10 @@
 				img {
 					opacity: .1225;
 				}
+			}
+			
+			&.button .icon-name {
+				animation: none !important;
 			}
 			
 			.icon-name {

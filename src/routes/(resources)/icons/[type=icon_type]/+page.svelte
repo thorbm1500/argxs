@@ -83,12 +83,13 @@
 	let rowAmount = $derived(((pagOffset / columnAmount)));
 	
 	// - Highlighted Icon Variables
-	let highlightedIcon: HighlightIcon | undefined = $state.raw(undefined);
+	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
 	let iconContainerOpened: number | null = null;
 	let hCurrentIcon: Icon | undefined = $derived.by(() => {
 		if (!highlightedIcon) return undefined;
 		return highlightedIcon.iconIndex[highlightedIcon.currentIcon];
 	});
+	
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
 	
@@ -96,7 +97,7 @@
 		if (currentSVG === '' && hCurrentIcon !== undefined) {
 			currentSVG = 'load';
 			currentLoadedSVG = hCurrentIcon.path;
-			fetch('/resources/icons/' + iconType + '/' + hCurrentIcon.path).then(res => {
+			fetch(`/resources/icons/${iconType}/${hCurrentIcon.path}`).then(res => {
 				if (currentSVG === '' || currentLoadedSVG !== hCurrentIcon.path) return;
 				res.text().then(res => {
 					if (!hCurrentIcon) {
@@ -194,9 +195,10 @@
 
 {#if highlightedIcon !== undefined}
 	{#key highlightedIcon.icon}
-		<div class="glass-effects">
+		<div class="glass-effects" inert>
 			<div class="glass-border-glow"></div>
 		</div>
+		<!--svelte-ignore a11y_positive_tabindex-->
 		<div class="highlighted-icon">
 			<svg style="display: none;">
 				<filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%">
@@ -206,98 +208,92 @@
 				</filter>
 			</svg>
 			<div class="h-icon">
-				<div class="glass-filter"></div>
-				<div class="glass-specular"></div>
-				<div class="glass-border"></div>
-				<button title="Close" class="close-button" onclick={closeHighlightContainer}>
+				<div class="glass-filter" inert></div>
+				<div class="glass-specular" inert></div>
+				<div class="glass-border" inert></div>
+				<!--svelte-ignore a11y_autofocus-->
+				<button title="Close" class="close-button" onclick={closeHighlightContainer} tabindex="1">
 					<!--suppress HtmlUnknownTag -->
-					<div class="gradient"></div>
+					<div class="gradient" inert></div>
 				</button>
 				<div class="left">
 					{#key hCurrentIcon?.path}
-						<div class="img-fx">
+						<div class="img-fx" inert>
 							<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
 							     alt={hCurrentIcon?.name} loading="lazy" />
 						</div>
 						<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
-						     alt={hCurrentIcon?.name} loading="lazy" />
+						     alt={hCurrentIcon?.name} loading="lazy" inert/>
 					{/key}
 					{#if highlightedIcon.iconIndex.length > 1}
-						<div class="current-icon-index">
+						<div class="current-icon-index" inert>
 							<p>{highlightedIcon.currentIcon + 1}/{highlightedIcon.iconIndex.length}</p>
 						</div>
 						<div class="actions">
-							<button title="" class="element prev-icon"
-							        onclick="{() => {
+							<button title="" class="element prev-icon" tabindex="2" onclick="{() => {
 									currentSVG = '';
 									if (!highlightedIcon) return;
 									if (highlightedIcon.currentIcon > 0) highlightedIcon.currentIcon -= 1;
-									else highlightedIcon.currentIcon = highlightedIcon.iconIndex.length - 1;
-								}}">
+									else highlightedIcon.currentIcon = highlightedIcon.iconIndex.length - 1;}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path
-										d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
+									<path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
 								</svg>
 							</button>
-							<button title="" class="element next-icon" onclick="{() => {
-							currentSVG = '';
-							if (!highlightedIcon) return;
-							if (highlightedIcon.currentIcon < highlightedIcon.iconIndex.length - 1) highlightedIcon.currentIcon += 1;
-							else highlightedIcon.currentIcon = 0;
-						}}">
+							<button title="" class="element next-icon" tabindex="2" onclick="{() => {
+									currentSVG = '';
+									if (!highlightedIcon) return;
+									if (highlightedIcon.currentIcon < highlightedIcon.iconIndex.length - 1) highlightedIcon.currentIcon += 1;
+									else highlightedIcon.currentIcon = 0;}}" >
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path
-										d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
+									<path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
 								</svg>
 							</button>
 						</div>
 					{/if}
 				</div>
-				<div class="separator"></div>
+				<div class="separator" inert></div>
 				<div class="right">
 					{#if highlightedIcon.icon.href || hCurrentIcon?.href}
-						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ??
-						highlightedIcon.icon.href}
-						   rel="external" target="_blank">
+						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition"
+						   href={hCurrentIcon?.href ?? highlightedIcon.icon.href} rel="external" target="_blank" tabindex="2">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-								<path
-									d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
+								<path d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
 							</svg>
 							{iconType === 'flags' && (highlightedIcon.icon.title === 'Ukraine' || highlightedIcon.icon.title === 'Palestine') ? 'Show Support' : 'Visit Page'}
 						</a>
 					{/if}
-					<div class="name">
+					<div class="name" tabindex="-1">
 						{#if hCurrentIcon?.name}
-							<h1 class="brand-name">{hCurrentIcon.name}</h1>
-							<h3 class="icon-name">{highlightedIcon.icon.title}</h3>
+							<h1 class="brand-name" tabindex="-1">{hCurrentIcon.name}</h1>
+							<h3 class="icon-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else if highlightedIcon.icon.title !== highlightedIcon.icon.name}
-							<h1 class="brand-name">{highlightedIcon.icon.name}</h1>
-							<h3 class="icon-name">{highlightedIcon.icon.title}</h3>
+							<h1 class="brand-name" tabindex="-1">{highlightedIcon.icon.name}</h1>
+							<h3 class="icon-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else}
-							<h1 class="brand-name" style="transform: translateY(.2rem)">{highlightedIcon.icon.title}</h1>
+							<h1 class="brand-name" style="transform: translateY(.2rem)" tabindex="-1">{highlightedIcon.icon.title}</h1>
 						{/if}
 					</div>
-					<div class="actions">
-						<p class="added-date">Added  {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
-						<button class="action" onclick={() => downloadImage(`/resources/icons/${iconType}/${hCurrentIcon?.path}`, 'svg+xml', true)}>
+					<div class="actions" tabindex="-1">
+						<p class="added-date" tabindex="-1">Added  {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
+						<button class="action" tabindex="10" onclick={() => downloadImage(`/resources/icons/${iconType}/${hCurrentIcon?.path}`, 'svg+xml', true)}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							SVG
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.png} onclick={() => downloadImage(`/resources/icons/${iconType}/png/${hCurrentIcon?.png}`, 'png')}>
+						<button class="action" tabindex="11" disabled={!hCurrentIcon?.png} onclick={() => downloadImage(`/resources/icons/${iconType}/png/${hCurrentIcon?.png}`, 'png')} >
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							PNG
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage(`/resources/icons/${iconType}/webp/${hCurrentIcon?.webp}`, 'webp')}>
+						<button class="action" tabindex="12" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage(`/resources/icons/${iconType}/webp/${hCurrentIcon?.webp}`, 'webp')} >
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							WEBP
 						</button>
-						<button class="action" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage(`/resources/icons/${iconType}/jpeg/${hCurrentIcon?.jpeg}`, 'jpeg')}>
+						<button class="action" tabindex="13" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage(`/resources/icons/${iconType}/jpeg/${hCurrentIcon?.jpeg}`, 'jpeg')} >
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
@@ -310,7 +306,8 @@
 						{:else if currentSVG === 'load'}
 							<strong style="color:var(--theme-text-third);padding:1rem;font-style:italic">Loading...</strong>
 						{:else}
-							<button title="Copy" class="copy-button" onclick={() => copyToClipboard(currentSVG)}>
+							<button title="Copy" class="copy-button" tabindex="14" onclick={() => copyToClipboard(currentSVG)} >
+								<!--suppress HtmlUnknownTag -->
 								<div class="background"></div>
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 									<path
@@ -325,7 +322,7 @@
 					{#if highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source}
 						<div class="icon-source">
 							<p>Sourced from</p>
-							<a href={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source?.href} rel="external" target="_blank">
+							<a href={highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source?.href} rel="external" target="_blank" tabindex="15">
 								{highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source?.name}
 							</a>
 						</div>
@@ -338,7 +335,7 @@
 
 <section class="icons-page">
 	<section class="content-header">
-		<div class="text">
+		<div class="text" inert>
 			<h1 class="title">
 				{iconType === 'brands' ? 'Brand' : 'Flag'} Icons
 			</h1>
@@ -356,7 +353,7 @@
 		<div class="actions">
 			<div class="sorting">
 				{#if sorting !== 'default'}
-					<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action glass-button" onclick="{() => sorting = 'default'}">
+					<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action glass-button" onclick="{() => sorting = 'default'}" >
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path transition:draw|global={{duration: 1100, easing: quartInOut}}
 							      d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
@@ -370,7 +367,7 @@
 						} else {
 							order = order === 'desc' ? 'asc' : 'desc';
 						}
-					}}">
+					}}" >
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						{#if sorting === 'alphabet'}
 							{#if order === 'asc'}
@@ -398,7 +395,7 @@
 						} else {
 							order = order === 'desc' ? 'asc' : 'desc';
 						}
-					}}">
+					}}" >
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						{#if sorting === 'time'}
 							<path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448" />
@@ -425,23 +422,17 @@
 			currentPage = 1;
 			iconsOnly = false;
 			logosOnly = false;
-		}}">
-						All
-					</button>
+		}}" >All</button>
 					<button class="sort-action glass-button {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			iconsOnly = !iconsOnly;
 			if (iconsOnly) logosOnly = false;
-		}}">
-						Icons Only
-					</button>
+		}}" >Icons Only</button>
 					<button class="sort-action glass-button {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 			currentPage = 1;
 			logosOnly = !logosOnly;
 			if (logosOnly) iconsOnly = false;
-		}}">
-						Logos Only
-					</button>
+		}}" >Logos Only</button>
 				</div>
 			{/if}
 		</div>
@@ -451,7 +442,7 @@
 		<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7.5rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
 			{#each currentIcons as icon (icon)}
 				{#if typeof icon === 'number'}
-					<div class="icon blank {isLoaded ? 'loaded' : 'loading'}"></div>
+					<div class="icon blank {isLoaded ? 'loaded' : 'loading'}" inert></div>
 				{:else}
 					<BrandIconComponent type={iconType} bind:highlightedIcon bind:theme icon={icon} />
 				{/if}
@@ -460,44 +451,32 @@
 	</section>
 	
 	<div class="pagination-actions">
-		<button title="First Page" class="action glass-button {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}">
+		<button title="First Page" class="action glass-button {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">
 			1
 		</button>
-		<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}">
+		<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}" inert>
 			<div class="circle glass-button"></div>
 			<div class="circle glass-button"></div>
 			<div class="circle glass-button"></div>
 		</div>
-		<button class="action glass-button {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
-		<button class="action glass-button {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
-		<p class="action current-page glass-button">{currentPage}</p>
-		<button class="action glass-button {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
-		<button class="action glass-button {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
-		<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}">
+		<button class="action glass-button {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}" tabindex="{currentPage > 2 ? 0 : -1}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
+		<button class="action glass-button {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}" tabindex="{currentPage > 1 ? 0 : -1}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
+		<p class="action current-page glass-button" inert>{currentPage}</p>
+		<button class="action glass-button {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}" tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
+		<button class="action glass-button {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}" tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
+		<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" inert>
 			<div class="circle glass-button"></div>
 			<div class="circle glass-button"></div>
 			<div class="circle glass-button"></div>
 		</div>
-		<button title="Last Page" class="action glass-button {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}">
+		<button title="Last Page" class="action glass-button {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}" tabindex="{(currentPage + 2) < maxPage ? 0 : -1}">
 			{maxPage}
 		</button>
-		<button class="sort-action glass-button" onclick="{() => {if (currentPage !== 1) currentPage = 1;
-			switch (pagOffset) {
-				case 24: {
-					pagOffset = 96;
-					break;
-				}
-				case 48: {
-					pagOffset = 24;
-					break;
-				}
-				case 96: {
-					pagOffset = 48;
-					break;
-				}
-			}}}">
-			Items: {pagOffset}
-		</button>
+		<button class="sort-action glass-button" onclick="{() => {
+			if (currentPage !== 1) currentPage = 1;
+			if (pagOffset === 24) pagOffset = 96;
+			else if (pagOffset === 48) pagOffset = 24;
+			else pagOffset = 48;}}" >Items: {pagOffset}</button>
 	</div>
 	
 	<div class="resource-info">

@@ -61,7 +61,7 @@
 </script>
 
 {#if currentToast}
-	<section in:fly={{ y: -65, duration: 800, easing: elasticOut }} out:fly={{ y: -75, duration: 250, easing: expoIn }} class="toast">
+	<section in:fly={{ y: -65, duration: 800, easing: elasticOut }} out:fly={{ y: -75, duration: 250, easing: expoIn }} class="toast" inert>
 		<p class="message">
 			{#if currentToastAmount > 1}
 				{currentToastAmount}x

@@ -3,32 +3,22 @@
 	import HeaderBurgerMenuComponent from '$lib/components/HeaderBurgerMenuComponent.svelte';
 	
 	let { theme = $bindable(), sidebarState = $bindable() } = $props();
-	
-	/*For future use
-	let saveData: boolean = $state(false);
-	
-	onMount(() => {
-		setInterval(() => {
-			if (!navigator) return;
-			saveData = navigator?.connection.saveData ?? false;
-		}, 500);
-	});*/
 </script>
 
 <section class="header-section {theme}">
 	<div class="content">
-		<a href="/" class="argxs">
+		<a href="/" class="argxs" tabindex="-1">
 			argxs
 		</a>
 		<div class="actions">
 			<ThemeSwitcher bind:theme />
-			<div class="phone-action">
+			<div class="phone-action" tabindex="-1">
 				<HeaderBurgerMenuComponent bind:sidebarState />
 			</div>
 		</div>
 	</div>
 </section>
-<div class="header-blur-effect"></div>
+<div class="header-blur-effect" inert></div>
 <svg style="display: none;">
 	<filter id="header-glass-distortion" x="0%" y="0%" width="100%" height="100%">
 		<feTurbulence type="fractalNoise" baseFrequency="0.001 0.001" numOctaves="5" seed="{Math.trunc((Date.now() / 1000) / 1000)}" result="noise" />
@@ -36,10 +26,9 @@
 		<feDisplacementMap in="SourceGraphic" in2="blurred" scale="30" xChannelSelector="R" yChannelSelector="G" />
 	</filter>
 </svg>
-<div class="header-glass-blur-effect"></div>
-<div class="header-glass-edge-blur-effect top"></div>
-<div class="header-glass-edge-blur-effect bottom"></div>
-<!--<div class="save-data-bar {saveData ? 'visible' : 'hidden'}">Reduced Data Usage Enabled</div>-->
+<div class="header-glass-blur-effect" inert></div>
+<div class="header-glass-edge-blur-effect top" inert></div>
+<div class="header-glass-edge-blur-effect bottom" inert></div>
 
 <style>
 	/* Desktop & Tablet */
@@ -104,34 +93,6 @@
 			}
 		}
 	}
-	
-	/*.save-data-bar {
-		position:        absolute;
-		top:             var(--header-height);
-		height:          1.75rem;
-		width:           100vw;
-		background:      var(--theme-color-alert);
-		
-		color:           var(--theme-ui-white);
-		font-size:       .85rem;
-		font-weight:     700;
-		
-		display:         flex;
-		align-items:     center;
-		justify-content: center;
-		
-		pointer-events:  none !important;
-		
-		z-index:         99998;
-		
-		&.visible {
-			opacity: 1;
-		}
-		
-		&.hidden {
-			opacity: 0;
-		}
-	}*/
 	
 	.header-blur-effect {
 		position: absolute;

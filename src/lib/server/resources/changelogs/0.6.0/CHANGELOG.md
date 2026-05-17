@@ -1,7 +1,8 @@
 # v0.6.0
 #### 2026-05-14
 
-## Image Processing
+## Major Changes
+### Image Processing
 argxs now offers **PNG**, **WEBP**, and **JPEG** versions available for download for all icons.
 These filetypes are generated automatically from the SVGs, and thus will always be of high quality.
 <br>
@@ -21,13 +22,10 @@ to be moved to a separate repository. This might seem like a waste of resources,
 200ms from start to finish, when all assets have already been generated.
 The reason for moving to a separate repository is due to a simple human oversight, of how many resources there eventually would be...
 
-## Added
-- **Icons:**
-    - Icon containers now blink during loading, to give the user a feeling of progress
-
-## Changes
-- **Icons:**
-  - **Good to know** section updated
+## Minor Changes
+### Icons
+- Icon containers now blink during loading, to give the user a feeling of progress
+- **Good to know** section updated
 
 ## Dependencies
 - **[New]** highlight.js: *11.11.1*
