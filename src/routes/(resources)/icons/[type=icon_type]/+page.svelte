@@ -1011,7 +1011,6 @@
 					.brand-name {
 						font-size:   2.25rem;
 						height:      2.5rem;
-						padding-top: .175rem;
 					}
 					
 					.icon-name {

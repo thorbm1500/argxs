@@ -6,5 +6,7 @@
 
 ## Fixes
 - Page Footer no longer carries over state from previous page
+### Icons
+- Icon name no longer overlaps with external link, in cases of letters going below the text-line, such as "**g**", "**y**", "**p**", etc.
 
 ## Dependencies
