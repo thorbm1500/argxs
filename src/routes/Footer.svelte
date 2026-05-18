@@ -1,19 +1,22 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { beforeNavigate } from '$app/navigation';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	
 	const unscrollablePages: string[] = ['/', '/colors/palettes', '/colors/gradients'];
-	let isUnscrollable: boolean = $state(false);
+	let isFixed: boolean = $state(false);
+	let isShown: boolean = $state(false);
 	
 	function updateScrollableState(path: string): void {
-		isUnscrollable = unscrollablePages.includes(path);
+		isFixed = unscrollablePages.includes(path);
+		isShown = true;
 	}
 	
 	onMount(() => updateScrollableState(window.location.pathname));
-	beforeNavigate(() => updateScrollableState(window.location.pathname));
+	beforeNavigate(() => isShown = false);
+	afterNavigate(() => updateScrollableState(window.location.pathname));
 </script>
 
-<section class="footer-section {isUnscrollable ? 'unscrollable' : ''}">
+<section class="footer-section {isFixed ? 'unscrollable' : ''}" style="opacity:{isShown ? 1 : 0};">
 	<!--svelte-ignore a11y_positive_tabindex-->
 	<a class="sponsor" href="https://vivabit.io" tabindex="32767">
 		Powered by
