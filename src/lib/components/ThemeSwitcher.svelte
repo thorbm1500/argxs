@@ -32,16 +32,17 @@
 
 <style>
 	.theme-switch-button {
-		box-sizing:    border-box !important;
+		position:        relative;
 		
-		width:         3rem;
-		height:        1.5rem;
+		width:           3rem;
+		height:          1.5rem;
 		
-		cursor:        pointer;
+		cursor:          pointer;
+		background:      transparent;
+		background: var(--theme-ui-container);
 		
-		background:    var(--theme-ui-container);
-		border:        1px solid var(--theme-ui-line);
-		border-radius: 1rem;
+		border:          1px solid rgba(from var(--theme-ui-line) r g b / .75);
+		border-radius:   1rem;
 		
 		.button-switch {
 			position:        relative;
@@ -52,8 +53,6 @@
 			height:          1.125rem;
 			border-radius:   100%;
 			
-			color:           var(--theme-color-secondary);
-			
 			display:         flex;
 			align-items:     center;
 			justify-content: center;
@@ -61,16 +60,24 @@
 			transition:      175ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
 			
 			svg {
-				height: 100%;
-				width: 100%;
-				padding: .1rem;
+				height:         100%;
+				width:          100%;
+				padding:        .1rem;
 				pointer-events: none !important;
+				
+				color:           var(--theme-text-secondary);
+				
+				transition:      175ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
 			}
 		}
 	}
 	
 	.theme-switch-button:hover .button-switch {
-		color: var(--theme-color-accent);
+		svg {
+			transform: scale(1.5);
+			color: var(--theme-color-primary);
+			transition: 125ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
+		}
 	}
 	
 	.theme-switch-button.dark .button-switch {

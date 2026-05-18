@@ -1,9 +1,37 @@
 <script lang="ts">
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 	import HeaderBurgerMenuComponent from '$lib/components/HeaderBurgerMenuComponent.svelte';
+	import { innerHeight } from 'svelte/reactivity/window';
 	
-	let { theme = $bindable(), sidebarState = $bindable() } = $props();
+	let { theme = $bindable(), sidebarState = $bindable(), scrollY = $bindable() } = $props();
+	const seed = Math.trunc(Date.now() / 1000000);
 </script>
+
+<div style="display:none;position:fixed;" inert>
+	<svg>
+		<defs>
+			<filter id="header-bottom-glass-edge-distortion" x="0%" y="0%" width="100%" height="100%">
+				<feTurbulence type="fractalNoise" baseFrequency="0.001 0.001" numOctaves="1" seed="{seed}" result="noise" />
+				<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+				<feDisplacementMap in="SourceGraphic" in2="blurred" scale="-50" xChannelSelector="R" yChannelSelector="G" result="displace" />
+				<feDisplacementMap in="SourceGraphic" in2="blurred" scale="50" xChannelSelector="R" yChannelSelector="G" result="displace2" />
+				<feGaussianBlur stdDeviation="1.2 1.75" x="0%" y="0%" width="100%" height="100%" in="displace" edgeMode="wrap" />
+			</filter>
+			<filter id="header-glass-distortion" x="0%" y="0%" width="100%" height="100%">
+				<feMorphology operator="dilate" radius="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="blur" />
+				<feGaussianBlur stdDeviation=".75 0.5" x="0%" y="0%" width="100%" height="100%" in="blur" edgeMode="none" result="blur2" />
+				<feTurbulence type="fractalNoise" baseFrequency="0.010" numOctaves="32" seed="{seed}" stitchTiles="stitch" result="noise" />
+				<feGaussianBlur in="offset" stdDeviation="2" result="blurred" />
+				<feDisplacementMap in="blur2" in2="blurred" scale="4" xChannelSelector="R" yChannelSelector="B" result="displace" />
+			</filter>
+		</defs>
+	</svg>
+</div>
+
+<div class="header-effect a" inert></div>
+<div class="header-effect b" inert></div>
+<div class="header-effect c" inert></div>
+<div class="header-effect d" inert></div>
 
 <section class="header-section {theme}">
 	<div class="content">
@@ -18,17 +46,6 @@
 		</div>
 	</div>
 </section>
-<div class="header-blur-effect" inert></div>
-<svg style="display: none;">
-	<filter id="header-glass-distortion" x="0%" y="0%" width="100%" height="100%">
-		<feTurbulence type="fractalNoise" baseFrequency="0.001 0.001" numOctaves="5" seed="{Math.trunc((Date.now() / 1000) / 1000)}" result="noise" />
-		<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
-		<feDisplacementMap in="SourceGraphic" in2="blurred" scale="30" xChannelSelector="R" yChannelSelector="G" />
-	</filter>
-</svg>
-<div class="header-glass-blur-effect" inert></div>
-<div class="header-glass-edge-blur-effect top" inert></div>
-<div class="header-glass-edge-blur-effect bottom" inert></div>
 
 <style>
 	/* Desktop & Tablet */
@@ -94,73 +111,30 @@
 		}
 	}
 	
-	.header-blur-effect {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: var(--header-height);
+	.header-section, .header-effect {
+		position: fixed !important;
+		top:      0;
+		left:     0;
 		
-		backdrop-filter: blur(2px) brightness(1.25);
-		mask-image: linear-gradient(to top, transparent 0%, black 60%);
-		z-index: 99990 !important;
-	}
-	
-	.header-glass-blur-effect {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: var(--header-height);
-		
-		filter: brightness(1.15);
-		backdrop-filter: blur(1px) url('#header-glass-distortion');
-		mask-image: linear-gradient(to top, transparent 0%, black 60%);
-		z-index: 99990 !important;
-	}
-	
-	.header-glass-edge-blur-effect {
-		position: absolute;
-		left: 0;
-		width: 100vw;
-		height: calc(var(--header-height) / 4);
-		
-		&.bottom {
-			top: calc((var(--header-height) / 4) * 3);
-			mask-image: linear-gradient(to bottom, transparent 0%, black 75%);
-			backdrop-filter: blur(1px) url('#header-glass-distortion') saturate(1.5) brightness(1.05) blur(1px);
-			filter: brightness(1.05);
-			z-index: 99999 !important;
-		}
-		&.top {
-			top: -3px;
-			mask-image: linear-gradient(to top, transparent 0%, black 75%);
-			backdrop-filter: blur(1px) url('#header-glass-distortion') saturate(1.5) brightness(1.2);
-			z-index: 99999 !important;
-		}
+		height:   var(--header-height);
+		width:    100vw;
+		overflow: hidden;
 	}
 	
 	.header-section {
-		position:        fixed;
-		top:             0;
-		left:            0;
+		display:          flex;
+		flex-flow:        row nowrap;
+		align-items:      center;
+		justify-content:  center;
 		
-		height:          var(--header-height);
-		width:           100vw;
-		overflow:        hidden;
+		border-bottom:    1px solid rgba(from var(--theme-ui-line-highlight) r g b / .15);
+		background-image: linear-gradient(to top, rgba(from var(--theme-ui-header) r g b / .1) 0%, rgba(from var(--theme-ui-header) r g b / .4) 25%, rgba(from var(--theme-ui-header) r g b / .85)
+		50%, var(--theme-ui-header) 100%), linear-gradient(to left, rgba(from var(--theme-ui-header) r g b / .95) 0%, transparent 5%, transparent 95%, rgba(from var(--theme-ui-header) r g b / .95) 100%);
+		backdrop-filter:  brightness(.9) grayscale(.25) blur(1px);
 		
-		display:         flex;
-		flex-flow:       row nowrap;
-		align-items:     center;
-		justify-content: center;
+		user-select:      none;
 		
-		border-bottom:   1px solid rgba(from var(--theme-ui-line) r g b / .5);
-		background:      rgba(from var(--theme-ui-header) r g b / .5);
-		backdrop-filter: blur(2px) grayscale(.2) brightness(.95);
-		
-		user-select:     none;
-		
-		z-index:         999999 !important;
+		z-index:          999999 !important;
 		
 		.content {
 			display:         flex;
@@ -228,6 +202,36 @@
 			a:hover {
 				color: var(--theme-text-primary);
 			}
+		}
+	}
+	
+	.header-effect {
+		&.a {
+			mask-type: luminance;
+			mask-image:      linear-gradient(to bottom, black 0%, black 7.5%, transparent 30%, transparent 100%), linear-gradient(to right, black 0%, transparent .75%, transparent 100%);
+			backdrop-filter: url('#header-bottom-glass-edge-distortion') brightness(1.35) saturate(1.5);
+			
+			transform: rotate(180deg);
+			padding:   1px 0;
+			
+			z-index:   999990 !important;
+		}
+		
+		&.b {
+			backdrop-filter: brightness(1.05) url('#header-glass-distortion') saturate(1.15);
+			z-index:         999991 !important;
+		}
+		
+		&.c {
+			mask-image: linear-gradient(to bottom, transparent 25%, black 100%);
+			backdrop-filter: blur(4px);
+			z-index:         999992 !important;
+		}
+		
+		&.d {
+			mask-image: linear-gradient(to top, transparent 0%, transparent 40%, black 90%, black 100%);
+			backdrop-filter: blur(2px) blur(1px) brightness(1.15);
+			z-index:         999993 !important;
 		}
 	}
 	

@@ -121,7 +121,7 @@
 	{/if}
 </section>
 
-<Header bind:theme bind:sidebarState />
+<Header bind:theme bind:sidebarState bind:scrollY />
 <Sidebar bind:theme bind:sidebarState version={data.version} requests={data.requests} />
 
 <style>

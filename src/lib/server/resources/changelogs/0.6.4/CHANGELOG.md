@@ -3,6 +3,8 @@
 
 ## Minor Changes
 - Page Footer is now hidden, until the page is fully loaded, to avoid awkward placements
+### Header
+- Updated design to better match the rest of argxs
 
 ## Fixes
 - Page Footer no longer carries over state from previous page
