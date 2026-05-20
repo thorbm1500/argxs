@@ -52,6 +52,7 @@
         "svelte"
     ],
     "dependencies": {
+        "@highlightjs/cdn-assets": "^11.11.1",
         "@humanspeak/svelte-markdown": "^1.5.2",
         "@sveltejs/kit": "^2.60.1",
         "highlight.js": "^11.11.1",

@@ -6,15 +6,15 @@
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { draw, fade } from 'svelte/transition';
 	import { quartInOut } from 'svelte/easing';
-	import hljs from '$lib/dep/@highlight/es/highlight.js';
-	import type { LanguageFn } from '$lib/dep/@highlight/es/highlight.js';
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
 	import { page } from '$app/state';
 	import { beforeNavigate } from '$app/navigation';
 	import GlassButton from '$lib/components/GlassButton.svelte';
+	import hljs from '@highlightjs/cdn-assets/es/core.min.js';
+	import xml from '@highlightjs/cdn-assets/es/languages/xml.min.js';
 	
-	hljs.registerLanguage('xml', ((await import('$lib/dep/@highlight/es/languages/xml.min.js')).default as unknown) as LanguageFn);
+	hljs.registerLanguage('xml', xml);
 	
 	let iconType: string = $derived(String(page.params.type));
 	let isLoaded: boolean = $state(false);
@@ -185,9 +185,9 @@
 	<title>{data.seo.title}</title>
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
-		{#await import('$lib/dep/@highlight/styles/github.min.css')}{/await}
+		{#await import('$lib/styles/github.min.css')}{/await}
 	{:else}
-		{#await import('$lib/dep/@highlight/styles/github-dark.min.css')}{/await}
+		{#await import('$lib/styles/github-dark.min.css')}{/await}
 	{/if}
 </svelte:head>
 

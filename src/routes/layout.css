@@ -3,8 +3,6 @@
 @import '$lib/resources/other/typography/lexend/fonts.css';
 @import '$lib/resources/other/typography/funnel/fonts.css';
 @import '$lib/resources/other/typography/jetbrains-mono/fonts.css';
-
-@import '$lib/styles/glass-button.css';
 @import 'tailwindcss';
 
 @font-face {
@@ -16,7 +14,6 @@
 :root {
 	/* Transitions */
 	@variant not-motion-reduce {
-		.glass-button, .glass-button::before, .glass-button::after,
 		.theme-transition-all, .theme-transition-all::before, .theme-transition-all::after {
 			transition-duration:        300ms;
 			transition-timing-function: cubic-bezier(0.073, 1.065, 0.509, 0.893);
