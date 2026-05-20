@@ -1,11 +1,17 @@
 <script lang="ts">
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 	import HeaderBurgerMenuComponent from '$lib/components/HeaderBurgerMenuComponent.svelte';
-	import { innerHeight } from 'svelte/reactivity/window';
 	
-	let { theme = $bindable(), sidebarState = $bindable(), scrollY = $bindable() } = $props();
+	let { theme = $bindable(), pageState = $bindable(), sidebarState = $bindable() } = $props();
+	
 	const seed = Math.trunc(Date.now() / 1000000);
 </script>
+
+<div id="header-light" class={{active: pageState}} inert>
+	<div id="header-light-mask">
+		<div id="light"></div>
+	</div>
+</div>
 
 <div style="display:none;position:fixed;" inert>
 	<svg>
@@ -248,6 +254,100 @@
 		5%, 15%, 20% {
 			transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.050);
 			background-image:           radial-gradient(circle at 35% 45%, transparent 0%, rgb(222, 168, 248) 5%, rgb(168, 222, 248) 15.8%, rgb(189, 250, 205) 23.6%, rgb(243, 250, 189) 35%, transparent 50%, rgb(250, 227, 189) 65%, rgb(248, 172, 172) 70%, rgb(254, 211, 252) 80%, transparent 100%);
+		}
+	}
+	
+	/* Navigation Light effect */
+	@media (width >= 44rem) {
+		#header-light, #header-light #header-light-mask {
+			position: fixed;
+		}
+		
+		#header-light {
+			top:            calc(var(--header-height) - 2px);
+			left:           0;
+			
+			z-index:        999989 !important;
+			
+			#header-light-mask, #light {
+				animation-timing-function: ease-out;
+			}
+			
+			#header-light-mask {
+				filter:        saturate(1.5);
+				mask-image:    linear-gradient(90deg, black 30%, white 50%, black 70%);
+				mask-mode:     luminance;
+				
+				width:         40vw;
+				transform:     translateX(-10vw);
+				opacity:       0;
+				height:        8px;
+				
+				#light {
+					justify-self:      center;
+					height:            2px !important;
+					width:             30vw;
+					filter:            saturate(1.2) contrast(1.05);
+					background-repeat: repeat-x;
+					background-image:  linear-gradient(90deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248,
+					172, 172) 90%, rgb(254, 211, 252) 99.7%);
+					
+					z-index:           999989 !important;
+				}
+			}
+		}
+		
+		#header-light.active #header-light-mask {
+			animation: headerNavMaskAnimation 3.5s;
+			animation-delay: 500ms;
+			
+			#light {
+				animation:                 headerNavLightAnimation 3.5s;
+				animation-delay:           500ms;
+			}
+		}
+		
+		#header-light {
+			#header-light-mask, #header-light-mask #light {
+				animation: none;
+			}
+		}
+		
+		@keyframes headerNavMaskAnimation {
+			0% {
+				width:     40vw;
+				transform: translateX(-20vw);
+			}
+			50% {
+				width: 70vw;
+			}
+			100% {
+				width:     40vw;
+				transform: translateX(110vw);
+			}
+			0%, 100% {
+				opacity: 0;
+			}
+			3.5%, 96.5% {
+				opacity: 1;
+			}
+		}
+		
+		@keyframes headerNavLightAnimation {
+			0% {
+				width:                 30vw !important;
+				background-position-x: 115vw;
+			}
+			10% {
+				background-position-x: 100vw;
+			}
+			50% {
+				width: 60vw !important;
+			}
+			100% {
+				width:                 30vw !important;
+				background-position-x: -15vw;
+			}
 		}
 	}
 </style>

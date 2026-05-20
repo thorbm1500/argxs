@@ -1,19 +1,11 @@
 <!--suppress CssUnusedSymbol -->
 <script lang="ts">
 	import { page } from '$app/state';
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import type { Attachment } from 'svelte/attachments';
 	
-	let { theme = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests } = $props();
+	let { theme = $bindable(), pageState = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests } = $props();
 	
-	let navState: 'active' | 'inactive' = $state.raw('inactive');
 	let isSidebarVisible = $derived(sidebarState);
-	
-	beforeNavigate(() => navState = 'inactive');
-	afterNavigate(() => {
-		navState = 'active';
-		sidebarState = false;
-	});
 	
 	// svelte-ignore state_referenced_locally
 	const formattedRequests = requests.total.toLocaleString('da-DK');
@@ -33,18 +25,11 @@
 	};
 </script>
 
-<div id="sidebar-light" class="{$state.eager(navState)}" inert>
-	<div id="sidebar-light-mask">
-		<div id="light"></div>
-	</div>
-</div>
-
-<section id="sidebar" class="{theme} {isSidebarVisible ? 'res-visible' : 'res-hidden'} {page.url.pathname === '/' ? 'home-page' : ''} {navState === 'active' ? 'button-anim' : ''}">
-	<button title="" class="toggle-sidebar-button" onclick="{() => sidebarState = !sidebarState}" inert>
+<section id="sidebar" class="{theme} {isSidebarVisible ? 'res-visible' : 'res-hidden'} {page.url.pathname === '/' ? 'home' : ''} {pageState ? 'button-anim' : ''}">
+	<button title="" class="toggle-sidebar-button" onclick="{() => sidebarState = !sidebarState}">
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 			<path d="M3 14a1 1 0 0 0 1 1h11.001v-.092a3 3 0 0 1 5.12 -2.03a.515 .515 0 0 0 .879 -.363v-6.515a3 3 0 0 0 -3 -3h-12a3 3 0 0 0 -3 3z" />
-			<path
-				d="M3 18a1 1 0 0 0 1 1h14.584l-1.291 1.293a1 1 0 0 0 -.083 1.32l.083 .094a1 1 0 0 0 1.414 0l3 -3q .054 -.053 .097 -.112l.071 -.11l.054 -.114l.035 -.105l.03 -.149l.006 -.117l-.003 -.075l-.017 -.126l-.03 -.111l-.044 -.111l-.052 -.098l-.067 -.096l-.08 -.09l-3 -3a1 1 0 0 0 -1.414 1.414l1.293 1.293h-14.586a1 1 0 0 0 -1 1" />
+			<path d="M3 18a1 1 0 0 0 1 1h14.584l-1.291 1.293a1 1 0 0 0 -.083 1.32l.083 .094a1 1 0 0 0 1.414 0l3 -3q .054 -.053 .097 -.112l.071 -.11l.054 -.114l.035 -.105l.03 -.149l.006 -.117l-.003 -.075l-.017 -.126l-.03 -.111l-.044 -.111l-.052 -.098l-.067 -.096l-.08 -.09l-3 -3a1 1 0 0 0 -1.414 1.414l1.293 1.293h-14.586a1 1 0 0 0 -1 1" />
 		</svg>
 	</button>
 	
@@ -304,10 +289,6 @@
 				animation: ButtonHighlightAnim 8s ease;
 			}
 			
-			&.res-visible .toggle-sidebar-button {
-				opacity: 0;
-			}
-			
 			&:hover .toggle-sidebar-button {
 				opacity:    0;
 				filter:     blur(2px);
@@ -343,7 +324,11 @@
 				transition:   1800ms 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
 			}
 			
-			&:hover, &.res-visible, &.home-page {
+			&:hover, &.res-visible, &.home {
+				.toggle-sidebar-button {
+					opacity: 0;
+				}
+				
 				.sidebar-section {
 					opacity:    1;
 					filter:     blur(0) drop-shadow(0 0 .35rem rgba(from var(--theme-ui-line) r g b / .15));
@@ -433,43 +418,6 @@
 						font-weight: 750;
 					}
 				}
-			}
-		}
-		
-		@keyframes sidebarNavAnim {
-			0% {
-				width:     40vw;
-				transform: translateX(-20vw);
-			}
-			50% {
-				width: 70vw;
-			}
-			100% {
-				width:     40vw;
-				transform: translateX(110vw);
-			}
-			0%, 100% {
-				opacity: 0;
-			}
-			3.5%, 96.5% {
-				opacity: 1;
-			}
-		}
-		
-		@keyframes sidebarNavLightAnim {
-			0% {
-				width:                 30vw !important;
-				background-position-x: 115vw;
-			}
-			10% {
-				background-position-x: 100vw;
-			}
-			50% {
-				width: 60vw !important;
-			}
-			100% {
-				width:                 30vw !important;
-				background-position-x: -15vw;
 			}
 		}
 	}
@@ -859,72 +807,6 @@
 		}
 		100% {
 			background-position-x: calc(var(--bg-x) * -1);
-		}
-	}
-	
-	/* BorderLight effect */
-	@media (width >= 44rem) {
-		#sidebar-light {
-			position:       absolute;
-			top:            calc(var(--header-height) - 1px);
-			left:           0;
-			pointer-events: none !important;
-			
-			overflow:       visible;
-			
-			height:         0 !important;
-			width:          0 !important;
-			
-			z-index:        100000;
-			
-			#sidebar-light-mask, #light {
-				animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-			}
-			
-			#sidebar-light-mask {
-				position:      absolute;
-				content:       '';
-				
-				align-self:    center;
-				align-content: center;
-				
-				filter:        saturate(1.5);
-				mask-image:    linear-gradient(90deg, transparent 30%, white 50%, transparent 70%);
-				mask-mode:     alpha;
-				
-				width:         40vw;
-				transform:     translateX(-10vw);
-				opacity:       0;
-				height:        8px;
-				
-				z-index:       99999;
-				
-				#light {
-					justify-self:      center;
-					height:            1px !important;
-					width:             30vw;
-					filter:            saturate(1.1) contrast(1.05) brightness(1);
-					background-repeat: repeat-x;
-					background-image:  linear-gradient(90deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248,
-					172, 172) 90%, rgb(254, 211, 252) 99.7%);
-				}
-			}
-		}
-		
-		#sidebar-light.active #sidebar-light-mask {
-			animation-timing-function: ease;
-			animation:                 sidebarNavAnim 2s;
-			
-			#light {
-				animation-timing-function: ease;
-				animation:                 sidebarNavLightAnim 2s;
-			}
-		}
-		
-		#sidebar-light.inactive {
-			#sidebar-light-mask, #sidebar-light-mask #light {
-				animation: none;
-			}
 		}
 	}
 </style>
