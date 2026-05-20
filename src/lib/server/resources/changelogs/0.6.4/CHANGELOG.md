@@ -1,14 +1,16 @@
 # v0.6.4
-#### 2026-05-18
+#### 2026-05-20
 
 ## Minor Changes
 - Page Footer is now hidden, until the page is fully loaded, to avoid awkward placements
+- Updated robots.txt
 ### Header
 - Updated design to better match the rest of argxs
 - Code cleanup
 ### Sidebar
 - Code cleanup
 ### Icons
+- Updated design to better match the rest of argxs
 - Code cleanup
 
 ## Fixes
