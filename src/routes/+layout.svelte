@@ -3,9 +3,9 @@
 	import Header from './Header.svelte';
 	import Sidebar from './Sidebar.svelte';
 	import Footer from './Footer.svelte';
-	import { beforeNavigate } from '$app/navigation';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import { updated } from '$app/state';
-	import { setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import ToastComponent, { type ToastRequest } from '$lib/components/ToastComponent.svelte';
 	import type { Attachment } from 'svelte/attachments';
 	import { innerHeight } from 'svelte/reactivity/window';
@@ -15,16 +15,23 @@
 	
 	const { children, data } = $props();
 	
-	let sidebarState: boolean = $state.raw(false);
+	let pageState: boolean = $state(false);
+	let sidebarState: boolean = $state(false);
 	
+	onMount(() => setTimeout(() => pageState = true, 1500));
+	afterNavigate(() => setTimeout(() => pageState = true, 1000));
 	beforeNavigate(({ willUnload, to }) => {
+		pageState = false;
+		sidebarState = false;
 		if (updated.current && !willUnload && to?.url) {
 			location.href = to.url.href;
+		} else {
+			scrollTo(0);
 		}
 	});
 	
 	//svelte-ignore state_referenced_locally
-	let theme: 'light' | 'dark' = $state.raw(data.theme ?? 'dark');
+	let theme: 'light' | 'dark' = $state(data.theme ?? 'dark');
 	setContext('theme', () => theme);
 	setContext('toggleTheme', (changedTo?: 'dark' | 'light') => {
 		if (changedTo) theme = changedTo;
@@ -38,8 +45,7 @@
 	let scrollY: number = $state(0);
 	setContext('scrollY', () => scrollY);
 	
-	let scrollTo: (y: number) => void = (y: number) => {
-	};
+	let scrollTo: (y: number) => void = (y: number) => {};
 	
 	const scrollListener: Attachment = (element) => {
 		scrollTo = (y: number) => {
@@ -60,22 +66,20 @@
 
 <div style="display: none;position:fixed;" inert>
 	<svg>
-		<filter id="btt-glass-distortion" x="0%" y="0%" width="200%" height="200%">
-			<feTurbulence type="fractalNoise" baseFrequency="0.001 0.001" numOctaves="4" seed="{Math.trunc(Date.now() / 1000000)}" result="noise" />
-			<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
-			<feDisplacementMap in="SourceGraphic" in2="blurred" scale="20" xChannelSelector="R" yChannelSelector="G" />
-		</filter>
-	</svg>
-	<svg>
-		<filter id="btt-morph-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
-			<feMorphology operator="dilate" radius="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology" />
-			<feGaussianBlur stdDeviation="0 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
-		</filter>
-	</svg>
-	<svg>
-		<filter id="btt-blur-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
-			<feGaussianBlur stdDeviation="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
-		</filter>
+		<defs>
+			<filter id="btt-glass-distortion" x="0%" y="0%" width="200%" height="200%">
+				<feTurbulence type="fractalNoise" baseFrequency="0.001 0.001" numOctaves="4" seed="{Math.trunc(Date.now() / 1000000)}" result="noise" />
+				<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+				<feDisplacementMap in="SourceGraphic" in2="blurred" scale="20" xChannelSelector="R" yChannelSelector="G" />
+			</filter>
+			<filter id="btt-morph-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
+				<feMorphology operator="dilate" radius="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology" />
+				<feGaussianBlur stdDeviation="0 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
+			</filter>
+			<filter id="btt-blur-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
+				<feGaussianBlur stdDeviation="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
+			</filter>
+		</defs>
 	</svg>
 </div>
 
@@ -98,11 +102,9 @@
 				</div>
 			{/if}
 		</div>
-		<button in:scale|global={{duration: prefersReducedMotion.current ? 0 : 75, easing: cubicOut, start:0}} out:scale|global={{duration: prefersReducedMotion.current ? 0 : 200, easing: cubicIn,
-		start:0}}
+		<button in:scale|global={{duration: prefersReducedMotion.current ? 0 : 75, easing: cubicOut, start:0}} out:scale|global={{duration: prefersReducedMotion.current ? 0 : 200, easing: cubicIn,start:0}}
 		        onclick="{() => scrollTo(0)}"
-		        class="btt back-to-top"
-		        tabindex="0">
+		        class="btt back-to-top" tabindex="0">
 			<svg width="24" height="24" viewBox="0 0 24 24">
 				<path d="M0 0h24v24H0z" fill="none" />
 				<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m17 14l-5-5m0 0l-5 5" />
@@ -121,8 +123,8 @@
 	{/if}
 </section>
 
-<Header bind:theme bind:sidebarState />
-<Sidebar bind:theme bind:sidebarState version={data.version} requests={data.requests} />
+<Header bind:theme bind:pageState bind:sidebarState />
+<Sidebar bind:theme bind:pageState bind:sidebarState version={data.version} requests={data.requests} />
 
 <style>
 	/* Desktop & Tablet */

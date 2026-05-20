@@ -6,14 +6,15 @@
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { draw, fade } from 'svelte/transition';
 	import { quartInOut } from 'svelte/easing';
-	import hljs from '$lib/dep/@highlight/es/highlight.js';
-	import type { LanguageFn } from '$lib/dep/@highlight/es/highlight.js';
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
 	import { page } from '$app/state';
 	import { beforeNavigate } from '$app/navigation';
+	import GlassButton from '$lib/components/GlassButton.svelte';
+	import hljs from '@highlightjs/cdn-assets/es/core.min.js';
+	import xml from '@highlightjs/cdn-assets/es/languages/xml.min.js';
 	
-	hljs.registerLanguage('xml', ((await import('$lib/dep/@highlight/es/languages/xml.min.js')).default as unknown) as LanguageFn);
+	hljs.registerLanguage('xml', xml);
 	
 	let iconType: string = $derived(String(page.params.type));
 	let isLoaded: boolean = $state(false);
@@ -80,15 +81,12 @@
 		
 		return result;
 	});
-	let rowAmount = $derived(((pagOffset / columnAmount)));
+	let rowAmount = $derived(pagOffset / columnAmount);
 	
 	// - Highlighted Icon Variables
 	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
 	let iconContainerOpened: number | null = null;
-	let hCurrentIcon: Icon | undefined = $derived.by(() => {
-		if (!highlightedIcon) return undefined;
-		return highlightedIcon.iconIndex[highlightedIcon.currentIcon];
-	});
+	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon ? highlightedIcon.iconIndex[highlightedIcon.currentIcon] : undefined);
 	
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
@@ -187,9 +185,9 @@
 	<title>{data.seo.title}</title>
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
-		{#await import('$lib/dep/@highlight/styles/github.min.css')}{/await}
+		{#await import('$lib/styles/github.min.css')}{/await}
 	{:else}
-		{#await import('$lib/dep/@highlight/styles/github-dark.min.css')}{/await}
+		{#await import('$lib/styles/github-dark.min.css')}{/await}
 	{/if}
 </svelte:head>
 
@@ -223,7 +221,7 @@
 							     alt={hCurrentIcon?.name} loading="lazy" />
 						</div>
 						<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
-						     alt={hCurrentIcon?.name} loading="lazy" inert/>
+						     alt={hCurrentIcon?.name} loading="lazy" inert />
 					{/key}
 					{#if highlightedIcon.iconIndex.length > 1}
 						<div class="current-icon-index" inert>
@@ -236,16 +234,18 @@
 									if (highlightedIcon.currentIcon > 0) highlightedIcon.currentIcon -= 1;
 									else highlightedIcon.currentIcon = highlightedIcon.iconIndex.length - 1;}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
+									<path
+										d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
 								</svg>
 							</button>
 							<button title="" class="element next-icon" tabindex="2" onclick="{() => {
 									currentSVG = '';
 									if (!highlightedIcon) return;
 									if (highlightedIcon.currentIcon < highlightedIcon.iconIndex.length - 1) highlightedIcon.currentIcon += 1;
-									else highlightedIcon.currentIcon = 0;}}" >
+									else highlightedIcon.currentIcon = 0;}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
+									<path
+										d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
 								</svg>
 							</button>
 						</div>
@@ -257,7 +257,8 @@
 						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition"
 						   href={hCurrentIcon?.href ?? highlightedIcon.icon.href} rel="external" target="_blank" tabindex="2">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
+								<path
+									d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
 							</svg>
 							{iconType === 'flags' && (highlightedIcon.icon.title === 'Ukraine' || highlightedIcon.icon.title === 'Palestine') ? 'Show Support' : 'Visit Page'}
 						</a>
@@ -281,19 +282,19 @@
 							</svg>
 							SVG
 						</button>
-						<button class="action" tabindex="11" disabled={!hCurrentIcon?.png} onclick={() => downloadImage(`/resources/icons/${iconType}/png/${hCurrentIcon?.png}`, 'png')} >
+						<button class="action" tabindex="11" disabled={!hCurrentIcon?.png} onclick={() => downloadImage(`/resources/icons/${iconType}/png/${hCurrentIcon?.png}`, 'png')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							PNG
 						</button>
-						<button class="action" tabindex="12" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage(`/resources/icons/${iconType}/webp/${hCurrentIcon?.webp}`, 'webp')} >
+						<button class="action" tabindex="12" disabled={!hCurrentIcon?.webp} onclick={() => downloadImage(`/resources/icons/${iconType}/webp/${hCurrentIcon?.webp}`, 'webp')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
 							WEBP
 						</button>
-						<button class="action" tabindex="13" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage(`/resources/icons/${iconType}/jpeg/${hCurrentIcon?.jpeg}`, 'jpeg')} >
+						<button class="action" tabindex="13" disabled={!hCurrentIcon?.jpeg} onclick={() => downloadImage(`/resources/icons/${iconType}/jpeg/${hCurrentIcon?.jpeg}`, 'jpeg')}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
 							</svg>
@@ -306,7 +307,7 @@
 						{:else if currentSVG === 'load'}
 							<strong style="color:var(--theme-text-third);padding:1rem;font-style:italic">Loading...</strong>
 						{:else}
-							<button title="Copy" class="copy-button" tabindex="14" onclick={() => copyToClipboard(currentSVG)} >
+							<button title="Copy" class="copy-button" tabindex="14" onclick={() => copyToClipboard(currentSVG)}>
 								<!--suppress HtmlUnknownTag -->
 								<div class="background"></div>
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -353,86 +354,96 @@
 		<div class="actions">
 			<div class="sorting">
 				{#if sorting !== 'default'}
-					<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action glass-button" onclick="{() => sorting = 'default'}" >
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path transition:draw|global={{duration: 1100, easing: quartInOut}}
-							      d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
-						</svg>
-					</button>
+					<GlassButton className="sort-action">
+						<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => sorting = 'default'}">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path transition:draw|global={{duration: 1100, easing: quartInOut}} d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
+							</svg>
+						</button>
+					</GlassButton>
 				{/if}
-				<button class="sort-action glass-button" onclick="{() =>  {
-						if (sorting !== 'alphabet') {
-							sorting = 'alphabet';
-							order = 'desc';
-						} else {
-							order = order === 'desc' ? 'asc' : 'desc';
-						}
-					}}" >
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						{#if sorting === 'alphabet'}
-							{#if order === 'asc'}
-								<path in:draw|global={{duration: 350}} d="M15 10v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
-								<path in:draw|global={{duration: 350}} d="M19 21h-4l4 -7h-4" />
+				<GlassButton className="sort-action">
+					<button class="sort-action" onclick="{() =>  {
+							if (sorting !== 'alphabet') {
+								sorting = 'alphabet';
+								order = 'desc';
+							} else {
+								order = order === 'desc' ? 'asc' : 'desc';
+							}}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							{#if sorting === 'alphabet'}
+								{#if order === 'asc'}
+									<path in:draw|global={{duration: 350}} d="M15 10v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
+									<path in:draw|global={{duration: 350}} d="M19 21h-4l4 -7h-4" />
+								{:else}
+									<path in:draw|global={{duration: 350}} d="M15 21v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
+									<path in:draw|global={{duration: 350}} d="M19 10h-4l4 -7h-4" />
+								{/if}
+								<path d="M4 15l3 3l3 -3" />
+								<path d="M7 6v12" />
 							{:else}
-								<path in:draw|global={{duration: 350}} d="M15 21v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
-								<path in:draw|global={{duration: 350}} d="M19 10h-4l4 -7h-4" />
+								<path in:draw|global={{duration: 350}} d="M16 8h4l-4 8h4" />
+								<path in:draw|global={{duration: 350}} d="M4 16v-6a2 2 0 1 1 4 0v6" />
+								<path d="M4 13h4" />
+								<path d="M11 12h2" />
 							{/if}
-							<path d="M4 15l3 3l3 -3" />
-							<path d="M7 6v12" />
-						{:else}
-							<path in:draw|global={{duration: 350}} d="M16 8h4l-4 8h4" />
-							<path in:draw|global={{duration: 350}} d="M4 16v-6a2 2 0 1 1 4 0v6" />
-							<path d="M4 13h4" />
-							<path d="M11 12h2" />
-						{/if}
-					</svg>
-					Name
-				</button>
-				<button class="sort-action glass-button" onclick="{() =>  {
-						if (sorting !== 'time') {
-							sorting = 'time';
-							order = 'desc';
-						} else {
-							order = order === 'desc' ? 'asc' : 'desc';
-						}
-					}}" >
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						{#if sorting === 'time'}
-							<path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448" />
-							<path d="M12 7v5l2.5 2.5" />
-							<path d="M19 22v-6" />
-							{#if order === 'asc'}
-								<path in:draw|global={{duration: 350}} d="M22 19l-3 -3l-3 3" />
+						</svg>Name</button>
+				</GlassButton>
+				<GlassButton className="sort-action">
+					<button class="sort-action" onclick="{() =>  {
+							if (sorting !== 'time') {
+								sorting = 'time';
+								order = 'desc';
+							} else {
+								order = order === 'desc' ? 'asc' : 'desc';
+							}
+						}}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							{#if sorting === 'time'}
+								<path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448" />
+								<path d="M12 7v5l2.5 2.5" />
+								<path d="M19 22v-6" />
+								{#if order === 'asc'}
+									<path in:draw|global={{duration: 350}} d="M22 19l-3 -3l-3 3" />
+								{:else}
+									<path in:draw|global={{duration: 350}} d="M22 19l-3 3l-3 -3" />
+								{/if}
 							{:else}
-								<path in:draw|global={{duration: 350}} d="M22 19l-3 3l-3 -3" />
+								<path d="M20.943 13.016a9 9 0 1 0 -8.915 7.984" />
+								<path d="M16 22l5 -5" />
+								<path d="M21 21.5v-4.5h-4.5" />
+								<path d="M12 7v5l2 2" />
 							{/if}
-						{:else}
-							<path d="M20.943 13.016a9 9 0 1 0 -8.915 7.984" />
-							<path d="M16 22l5 -5" />
-							<path d="M21 21.5v-4.5h-4.5" />
-							<path d="M12 7v5l2 2" />
-						{/if}
-					</svg>
-					Date Added
-				</button>
+						</svg>
+						Date Added
+					</button>
+				</GlassButton>
 			</div>
 			{#if iconType === 'brands'}
 				<div class="filter">
-					<button class="sort-action glass-button {!iconsOnly && !logosOnly ? 'active' : 'inactive'}" onclick="{() => {
-			currentPage = 1;
-			iconsOnly = false;
-			logosOnly = false;
-		}}" >All</button>
-					<button class="sort-action glass-button {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
-			currentPage = 1;
-			iconsOnly = !iconsOnly;
-			if (iconsOnly) logosOnly = false;
-		}}" >Icons Only</button>
-					<button class="sort-action glass-button {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
-			currentPage = 1;
-			logosOnly = !logosOnly;
-			if (logosOnly) iconsOnly = false;
-		}}" >Logos Only</button>
+					<GlassButton className="sort-action {!iconsOnly && !logosOnly ? 'active' : 'inactive'}">
+						<button class="sort-action {!iconsOnly && !logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+							currentPage = 1;
+							iconsOnly = false;
+							logosOnly = false;
+						}}">All
+						</button>
+					</GlassButton>
+					<GlassButton className="sort-action {iconsOnly ? 'active' : 'inactive'}">
+						<button class="sort-action {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
+							currentPage = 1;
+							iconsOnly = !iconsOnly;
+							if (iconsOnly) logosOnly = false;
+							}}">Icons Only
+						</button>
+					</GlassButton>
+					<GlassButton className="sort-action {logosOnly ? 'active' : 'inactive'}">
+						<button class="sort-action {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+							currentPage = 1;
+							logosOnly = !logosOnly;
+							if (logosOnly) iconsOnly = false;
+							}}">Logos Only
+						</button>
+					</GlassButton>
 				</div>
 			{/if}
 		</div>
@@ -451,32 +462,53 @@
 	</section>
 	
 	<div class="pagination-actions">
-		<button title="First Page" class="action glass-button {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">
-			1
-		</button>
+		<GlassButton className="action pagination {currentPage > 3 ? '' : 'hide'}">
+			<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">
+				1
+			</button>
+		</GlassButton>
 		<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}" inert>
-			<div class="circle glass-button"></div>
-			<div class="circle glass-button"></div>
-			<div class="circle glass-button"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
 		</div>
-		<button class="action glass-button {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}" tabindex="{currentPage > 2 ? 0 : -1}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
-		<button class="action glass-button {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}" tabindex="{currentPage > 1 ? 0 : -1}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
-		<p class="action current-page glass-button" inert>{currentPage}</p>
-		<button class="action glass-button {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}" tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
-		<button class="action glass-button {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}" tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
+		<GlassButton className="action pagination {currentPage > 2 ? '' : 'hide'}">
+			<button class="action pagination {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}" tabindex="{currentPage > 2 ? 0 : -1}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
+		</GlassButton>
+		<GlassButton className="action pagination {currentPage > 1 ? '' : 'hide'}">
+			<button class="action pagination {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}" tabindex="{currentPage > 1 ? 0 : -1}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
+		</GlassButton>
+		<GlassButton className="action current-page">
+			<p class="action current-page" inert>{currentPage}</p>
+		</GlassButton>
+		<GlassButton className="action pagination {currentPage < maxPage ? '' : 'hide'}">
+			<button class="action pagination {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}" tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1
+				: ' '}</button>
+		</GlassButton>
+		<GlassButton className="action pagination {(currentPage + 1) < maxPage ? '' : 'hide'}">
+			<button class="action pagination {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}" tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) <
+			maxPage ? currentPage + 2 : ' '}</button>
+		</GlassButton>
 		<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" inert>
-			<div class="circle glass-button"></div>
-			<div class="circle glass-button"></div>
-			<div class="circle glass-button"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
 		</div>
-		<button title="Last Page" class="action glass-button {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}" tabindex="{(currentPage + 2) < maxPage ? 0 : -1}">
-			{maxPage}
-		</button>
-		<button class="sort-action glass-button" onclick="{() => {
-			if (currentPage !== 1) currentPage = 1;
-			if (pagOffset === 24) pagOffset = 96;
-			else if (pagOffset === 48) pagOffset = 24;
-			else pagOffset = 48;}}" >Items: {pagOffset}</button>
+		<GlassButton className="action pagination {(currentPage + 2) < maxPage ? '' : 'hide'}">
+			<button title="Last Page" class="action pagination {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}"
+			        tabindex="{(currentPage + 2) < maxPage ? 0 : -1}">
+				{maxPage}
+			</button>
+		</GlassButton>
+		<GlassButton className="item-amount">
+			<button class="item-amount" onclick={() => {
+							if (currentPage !== 1) currentPage = 1;
+							if (pagOffset === 24) pagOffset = 96;
+							else if (pagOffset === 48) pagOffset = 24;
+							else pagOffset = 48;}}>
+				Items: {pagOffset}
+			</button>
+		</GlassButton>
 	</div>
 	
 	<div class="resource-info">
@@ -604,7 +636,7 @@
 				height: fit-content;
 			}
 			
-			.sort-action, .separator, .action:first-child, .action:nth-child(3), .action:nth-child(7), .action:nth-child(9) {
+			.item-amount, .separator, .action:first-child, .action:nth-child(3), .action:nth-child(7), .action:nth-child(9) {
 				visibility: hidden !important;
 				position:   fixed;
 			}
@@ -802,7 +834,6 @@
 			
 			.glass-border {
 				position:       absolute;
-				box-sizing:     border-box;
 				
 				width:          100%;
 				height:         100%;
@@ -822,7 +853,6 @@
 			
 			.glass-specular {
 				position:       absolute;
-				box-sizing:     border-box;
 				
 				width:          calc(100% + 1px);
 				height:         calc(100% + 1px);
@@ -1009,9 +1039,8 @@
 					height:          4.35rem;
 					
 					.brand-name {
-						font-size:   2.25rem;
-						height:      2.5rem;
-						padding-top: .175rem;
+						font-size: 2.25rem;
+						height:    2.5rem;
 					}
 					
 					.icon-name {
@@ -1160,21 +1189,21 @@
 					
 					:global(span) {
 						white-space: preserve-spaces;
-						text-wrap: nowrap;
+						text-wrap:   nowrap;
 						
 						&.hljs-tag {
 							white-space: preserve;
-							text-wrap: nowrap;
+							text-wrap:   nowrap;
 						}
 					}
 					
 					.copy-button {
-						position:  absolute;
-						right:     3rem;
-						padding:   .35rem;
+						position: absolute;
+						right:    3rem;
+						padding:  .35rem;
 						
-						cursor:    pointer;
-						z-index:   1000 !important;
+						cursor:   pointer;
+						z-index:  1000 !important;
 						
 						svg {
 							position: relative;
@@ -1304,7 +1333,7 @@
 			justify-content: center;
 			gap:             .15rem;
 			height:          2.5rem;
-			padding:         0 .25rem;
+			width:           2rem;
 			
 			&.shown {
 				opacity:    1;
@@ -1317,11 +1346,64 @@
 			}
 			
 			.circle {
-				background-image: var(--theme-ui-gradient-bg);
+				mask-image:       linear-gradient(135deg, transparent 10%, black 90%);
+				mask-type:        alpha;
+				
+				background-image: radial-gradient(ellipse 52.5% 52.5% at center, #FFFFFF11 27.5%, #FFFFFFAA 72.5%, #FFFFFFAA 77.5%, #FFFFFF22 100%);
 				border-radius:    100%;
-				width:            .35rem;
-				height:           .35rem;
+				width:            8px;
+				height:           8px;
+				
+				z-index:          10;
+				
+				&::after {
+					content:          '';
+					position:         absolute;
+					
+					mask-image:       linear-gradient(-45deg, transparent 10%, black 90%);
+					mask-type:        alpha;
+					
+					background-image: radial-gradient(ellipse 52.5% 52.5% at center, transparent 27.5%, #000000AA 72.5%, #000000AA 77.5%, transparent 100%);
+					border-radius:    100%;
+					width:            8px;
+					height:           8px;
+					
+					z-index:          15;
+				}
 			}
+		}
+		
+		.action.pagination, :global .action.pagination {
+			position:   relative !important;
+			width:      3rem;
+			height:     3rem;
+			
+			transition: var(--theme-transition-off);
+			
+			&.shown {
+				opacity: 1;
+			}
+			
+			&.hidden {
+				opacity: 0;
+			}
+			
+			&:hover {
+				transform:  scale(1.035);
+				filter:     brightness(1.15);
+				transition: var(--theme-transition-on);
+			}
+			
+			&:active {
+				transform: scale(.99) !important;
+			}
+		}
+		
+		.action.current-page, :global .current-page {
+			transform: scale(1.125);
+			position:  relative !important;
+			width:     3rem;
+			height:    3rem;
 		}
 		
 		.action {
@@ -1335,12 +1417,7 @@
 			font-size:       1.35rem;
 			font-weight:     900;
 			
-			border-radius:   .95rem;
-			
-			&.current-page {
-				transform: scale(1.1);
-				margin:    0 .5rem;
-			}
+			border-radius:   .9rem;
 			
 			&.shown {
 				opacity: 1;
@@ -1358,47 +1435,28 @@
 				opacity:        0;
 				pointer-events: none !important;
 			}
+			
+			&.current-page {
+				position: relative !important;
+			}
 		}
 		
-		.sort-action {
-			position: absolute;
-			right:    0;
-		}
-	}
-	
-	.sort-action {
-		display:         inline-flex;
-		align-items:     center;
-		justify-content: center;
-		gap:             .25rem;
-		
-		width:           fit-content;
-		height:          fit-content;
-		
-		padding:         .5rem .8rem;
-		
-		border-radius:   .75rem;
-		
-		font-size:       .9rem;
-		font-weight:     650;
-		text-wrap:       nowrap;
-		
-		cursor:          pointer;
-		
-		transform:       scale(1);
-		z-index:         500;
-		
-		svg {
-			width:  1.35rem;
-			height: 1.35rem;
-		}
-		
-		&:hover {
-			transform: scale(1.025);
-		}
-		
-		&:active {
-			transform: scale(.975);
+		:global .item-amount {
+			position:    absolute;
+			right:       0;
+			
+			width:       6.25rem;
+			height:      2.5rem;
+			
+			font-weight: 600;
+			
+			transition:  var(--theme-transition-off);
+			
+			&:hover {
+				filter:     brightness(1.15);
+				
+				transition: var(--theme-transition-on);
+			}
 		}
 	}
 	
@@ -1452,8 +1510,6 @@
 			justify-content: flex-end;
 			gap:             .5rem;
 			
-			width:           fit-content;
-			
 			z-index:         500;
 			
 			.sorting, .filter {
@@ -1464,9 +1520,50 @@
 				gap:             .5rem;
 			}
 			
-			.sort-action.inactive {
-				filter:  grayscale(.75);
-				opacity: .5;
+			.sort-action, :global .sort-action {
+				position:        relative !important;
+				
+				display:         flex;
+				align-items:     center;
+				justify-content: center;
+				gap:             .25rem;
+				
+				padding:         .3rem .45rem .3rem .25rem;
+				
+				font-size:       .925rem;
+				font-weight:     800;
+				text-wrap:       nowrap;
+				
+				cursor:          pointer;
+				
+				z-index:         999;
+				
+				transition:      var(--theme-transition-off);
+				
+				svg {
+					width:  1.35rem;
+					height: 1.35rem;
+				}
+				
+				&:hover {
+					transform: scale(1.025);
+					filter:     brightness(1.15);
+					transition: var(--theme-transition-on);
+				}
+				
+				&:active {
+					transform: scale(.975);
+				}
+				
+				&.inactive {
+					filter:  grayscale(.75);
+					opacity: .5;
+				}
+				
+				& > div {
+					top:  0;
+					left: 0;
+				}
 			}
 		}
 	}
