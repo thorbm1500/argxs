@@ -34,10 +34,10 @@
 	</svg>
 </div>
 
-<div class="header-effect a" inert></div>
-<div class="header-effect b" inert></div>
-<div class="header-effect c" inert></div>
-<div class="header-effect d" inert></div>
+<div class="{theme} header-effect a" inert></div>
+<div class="{theme} header-effect b" inert></div>
+<div class="{theme} header-effect c" inert></div>
+<div class="{theme} header-effect d" inert></div>
 
 <section class="header-section {theme}">
 	<div class="content">
@@ -212,10 +212,14 @@
 	}
 	
 	.header-effect {
-		&.a {
-			mask-type: luminance;
-			mask-image:      linear-gradient(to bottom, black 0%, black 7.5%, transparent 30%, transparent 100%), linear-gradient(to right, black 0%, transparent .75%, transparent 100%);
+		.dark&.a {
 			backdrop-filter: url('#header-bottom-glass-edge-distortion') brightness(1.35) saturate(1.5);
+		}
+		
+		&.a {
+			mask-type: alpha;
+			mask-image:      linear-gradient(to bottom, black 0%, black 7.5%, transparent 30%, transparent 100%), linear-gradient(to right, black 0%, transparent .75%, transparent 100%);
+			backdrop-filter: url('#header-bottom-glass-edge-distortion') saturate(1.3);
 			
 			transform: rotate(180deg);
 			padding:   1px 0;
@@ -223,8 +227,13 @@
 			z-index:   999990 !important;
 		}
 		
-		&.b {
+		.dark&.b {
+			display: initial;
 			backdrop-filter: brightness(1.05) url('#header-glass-distortion') saturate(1.15);
+		}
+		
+		&.b {
+			backdrop-filter: brightness(.975) saturate(1.15);
 			z-index:         999991 !important;
 		}
 		

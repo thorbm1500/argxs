@@ -82,7 +82,7 @@
 		}
 		
 		.effect-a {
-			
+			display: none;
 			overflow:        visible !important;
 			
 			mask-image:      linear-gradient(to top, transparent 80%, black 96%), linear-gradient(to bottom, transparent 80%, black 96%),
@@ -125,7 +125,7 @@
 		.effect-e {
 			overflow:         hidden;
 			
-			background-color: #FFFFFF11;
+			background-color: rgb(236 242 245 / 0.07);
 			mask-image:       linear-gradient(30deg, transparent 0%, black 100%), linear-gradient(to top, transparent 0%, rgb(0 0 0 / .5) 100%);
 			
 			z-index:          990 !important;
@@ -186,12 +186,12 @@
 				mix-blend-mode: lighten;
 				
 				.effect-d {
-					border: .15rem solid #FFFFFFAA;
+					border: .15rem solid rgb(244 248 252 / 0.67);
 				}
 			}
 			
 			.effect-g {
-				border-color: #000000AA;
+				border-color: rgb(55 72 86 / 0.67);
 			}
 		}
 	}
