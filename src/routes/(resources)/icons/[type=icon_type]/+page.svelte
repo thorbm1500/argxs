@@ -1529,6 +1529,7 @@
 				gap:             .25rem;
 				
 				padding:         .3rem .45rem .3rem .25rem;
+				border-radius: .9rem;
 				
 				font-size:       .925rem;
 				font-weight:     800;

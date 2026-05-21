@@ -1,4 +1,6 @@
 <script lang="ts">
+	import GlassButton from '$lib/components/GlassButton.svelte';
+	
 	const { data } = $props();
 
 	const lastUpdated: string = '25.04.2026';
@@ -91,27 +93,24 @@
 	<div class="part opt-out">
 		<h2>Do you still wish to opt out of site analytics?</h2>
 		<span><strong style="color:var(--theme-color-accent);font-weight:900;">argxs</strong> believes in owning your own data. Clicking the button below ensures that we wont process any data related to your person in the future. This is done by simple providing you with a cookie "argxs_do_not_track". The server checks for the cookie when a request is received, and skips processing analytics, if the cookie is present.</span>
-		<br>
-		<button class="opt-out-button {$state.eager(optedOut) ? 'out' : 'in'}" title="Opt ouf of cookies" onclick="{() => optOut()}">
-			{#if !hasChanged}
-				{#if optedOut}
-					Opt In
-				{:else}
-					Opt Out
-				{/if}
-			{:else}
-				{#if optedOut}
-					Opt Back In
-				{:else}
-					Opt Back Out
-				{/if}
+		<div class="actions">
+			<GlassButton className="opt-out-button {$state.eager(optedOut) ? 'out' : 'in'}" marginTop={0}>
+				<button class="opt-out-button {$state.eager(optedOut) ? 'out' : 'in'}" title="Opt in & out of cookies" onclick="{() => optOut()}">
+					<p>
+						{#if !hasChanged}
+							{#if optedOut}Opt In{:else}Opt Out{/if}
+						{:else}
+							{#if optedOut}Opt Back In{:else}Opt Back Out{/if}
+						{/if}
+					</p>
+				</button>
+			</GlassButton>
+			{#if !hasChanged && optedOut }
+				<span class="opted-out">You're already opted out.</span>
+			{:else if hasChanged }
+				<span class="opted-out changed">You've opted {optedOut ? 'out' : 'back in'}!</span>
 			{/if}
-		</button>
-		{#if !hasChanged && optedOut }
-			<span class="opted-out">You're already opted out.</span>
-		{:else if hasChanged }
-			<span class="opted-out changed">You've opted {optedOut ? 'out' : 'back in'}!</span>
-		{/if}
+		</div>
 	</div>
 </section>
 
@@ -266,43 +265,92 @@
 
         .part.opt-out {
             margin-top: 3rem;
-
-            .opt-out-button {
-                margin-top: 1.5rem;
-                margin-left: 1rem;
-
-                font-size: 1.05rem;
-
-                color: var(--theme-color-accent);
-
-                background: var(--theme-ui-container);
-                border: 1px solid var(--theme-ui-line);
-                border-radius: .65rem;
-                padding: .5rem .725rem;
-
-                cursor: pointer;
-            }
-
-            .opt-out-button:hover {
-                background: var(--theme-ui-container-hover);
-            }
-
-            .opt-out-button.out {
-                color: var(--theme-color-third);
-            }
-
-            .opted-out {
-                margin-left: .5rem;
-                font-size: .9rem;
-                font-style: italic;
-                font-weight: 700;
-
-                color: var(--theme-text-third);
-            }
-
-						.opted-out.changed {
-								color: var(--theme-color-success);
-						}
+	        
+	        .actions {
+		        display: flex;
+		        align-items: baseline;
+		        justify-content: flex-start;
+		        gap: .65rem;
+		        
+		        margin-top: 1rem;
+		        
+		        .opt-out-button, :global .opt-out-button {
+			        position: relative !important;
+			        
+			        display:         flex;
+			        align-items:     baseline;
+			        justify-content: center;
+			        gap:             .25rem;
+			        
+			        padding:         .3rem .45rem .3rem .3rem;
+			        
+			        width: fit-content;
+			        height: fit-content;
+			        
+			        font-size: 1.05rem;
+			        font-weight: 700;
+			        text-wrap: nowrap;
+			        
+			        z-index: 999;
+			        
+			        border-radius: .9rem;
+			        
+			        p {
+				        color: var(--theme-text-secondary);
+				        transition: var(--theme-transition-off);
+			        }
+			        
+			        cursor: pointer;
+			        
+			        transition: var(--theme-transition-off);
+			        
+			        &:hover {
+				        p {
+					        transition: var(--theme-transition-on);
+				        }
+			        }
+			        
+			        &.out {
+				        &:hover p {
+					        color: var(--theme-color-success);
+					        filter: drop-shadow(0 0 .25rem rgba(from var(--theme-color-success) r g b / .15));
+				        }
+			        }
+			        
+			        &.in {
+				        &:hover p {
+					        color: var(--theme-color-alert);
+					        filter: drop-shadow(0 0 .25rem rgba(from var(--theme-color-alert) r g b / .15));
+				        }
+			        }
+			        
+			        &:hover {
+				        filter: brightness(1.2);
+				        transition: var(--theme-transition-on);
+			        }
+			        
+			        &:active {
+				        transform: scale(0.975);
+			        }
+			        
+			        & > div {
+				        top:  0;
+				        left: 0;
+			        }
+		        }
+		        
+		        .opted-out {
+			        font-size: .9rem;
+			        font-style: italic;
+			        font-weight: 700;
+			        
+			        color: var(--theme-text-third);
+		        }
+		        
+		        .opted-out.changed {
+			        color: var(--theme-color-success);
+		        }
+	        }
         }
 
         .privacy-icon {

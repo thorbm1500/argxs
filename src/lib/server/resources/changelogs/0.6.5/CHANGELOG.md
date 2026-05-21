@@ -4,6 +4,8 @@
 ## Minor Changes
 - General cleanup
 - SEO improvement
+### Privacy
+- Updated design of Opt In/Out button
 
 ## Fixes
 
