@@ -3,6 +3,7 @@
 
 ## Minor Changes
 - General cleanup
+- SEO improvement
 
 ## Fixes
 
