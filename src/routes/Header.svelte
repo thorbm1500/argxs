@@ -21,10 +21,12 @@
 				<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
 				<feDisplacementMap in="SourceGraphic" in2="blurred" scale="-50" xChannelSelector="R" yChannelSelector="G" result="displace" />
 				<feDisplacementMap in="SourceGraphic" in2="blurred" scale="50" xChannelSelector="R" yChannelSelector="G" result="displace2" />
+				<!--suppress HtmlUnknownAttribute - Suppressing incorrect warnings for unknown attribute -->
 				<feGaussianBlur stdDeviation="1.2 1.75" x="0%" y="0%" width="100%" height="100%" in="displace" edgeMode="wrap" />
 			</filter>
 			<filter id="header-glass-distortion" x="0%" y="0%" width="100%" height="100%">
 				<feMorphology operator="dilate" radius="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="blur" />
+				<!--suppress HtmlUnknownAttribute - Suppressing incorrect warnings for unknown attribute -->
 				<feGaussianBlur stdDeviation=".75 0.5" x="0%" y="0%" width="100%" height="100%" in="blur" edgeMode="none" result="blur2" />
 				<feTurbulence type="fractalNoise" baseFrequency="0.010" numOctaves="32" seed="{seed}" stitchTiles="stitch" result="noise" />
 				<feGaussianBlur in="offset" stdDeviation="2" result="blurred" />
