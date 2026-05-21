@@ -6,3 +6,4 @@
 ## Fixes
 
 ## Dependencies
+- vite: *8.0.13 ➜ 8.0.14*
