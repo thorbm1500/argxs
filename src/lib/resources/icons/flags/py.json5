@@ -2,20 +2,22 @@
     country: 'Paraguay',
     flags: [
         {
+            name: 'Front Side',
             path: 'py-obverse.svg',
             date_added: '2026/5/12',
             source: {
                 name: 'Wikipedia',
-                href: 'https://en.wikipedia.org',
-            },
+                href: 'https://en.wikipedia.org'
+            }
         },
         {
+            name: 'Back Side',
             path: 'py-reserve.svg',
             date_added: '2026/5/12',
             source: {
                 name: 'Wikipedia',
-                href: 'https://en.wikipedia.org',
-            },
+                href: 'https://en.wikipedia.org'
+            }
         }
-    ],
+    ]
 }

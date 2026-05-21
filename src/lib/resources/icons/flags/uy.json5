@@ -1,0 +1,33 @@
+{
+    country: 'Uruguay',
+    flags: [
+        {
+            path: 'uy.svg',
+            date_added: '2026/5/21',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org'
+            }
+        },
+        {
+            name: 'Artigas Flag',
+            href: 'https://en.wikipedia.org/wiki/Artigas_flag',
+            path: 'uy-artigas.svg',
+            date_added: '2026/5/21',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org'
+            }
+        },
+        {
+            name: 'Flag of the Treinta y Tres',
+            href: 'https://en.wikipedia.org/wiki/Flag_of_the_Treinta_y_Tres',
+            path: 'uy-treinta-y-tres.svg',
+            date_added: '2026/5/21',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org'
+            }
+        }
+    ]
+}
