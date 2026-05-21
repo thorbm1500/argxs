@@ -347,7 +347,16 @@
 					style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.
 				{:else}
 					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different
-					countries, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> different flags.
+					countries<span style="font-size:.65rem !important;color:inherit;vertical-align: top">&#10033;</span>, consisting of <strong
+					style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong>
+					different
+					flags.<br>
+					<i style="font-size:.85rem;color:var(--theme-text-fourth);">
+						<span style="font-size:.65rem;color:inherit;vertical-align:top;">
+							&#10033;
+						</span>
+						This includes all member states and general observers of the United Nations, as well as de facto states
+					</i>
 				{/if}
 			</div>
 		</div>

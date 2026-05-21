@@ -12,7 +12,7 @@
 </svelte:head>
 
 <section class="easing-functions-sec">
-	<ContentHeaderComponent title="Easing Functions" type="functions" amount={29} />
+	<ContentHeaderComponent title="Easing Functions" type="easing functions" amount={29} />
 
 	<EasingFunctionComponent title="Linear" easingFunction="linear" duration={duration} />
 	<EasingFunctionComponent title="Ease" easingFunction="ease" duration={duration} />
