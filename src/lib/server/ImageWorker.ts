@@ -83,7 +83,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 async function process(icon: Icon, path: string) {
 	const IMAGE_PATH: string = `client/resources/data/icons/${path}/`;
 
-	console.info('  +', icon.name ?? 'Unnamed icon');
+	if (icon.name) console.info('  +',icon.name);
 
 	if (!icon.path.endsWith('.svg')) {
 		console.error('[ERROR] Failed. Not an SVG:', icon.path);
