@@ -1,0 +1,48 @@
+{
+	name: 'Astro',
+	href: 'https://astro.build',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'astro-icon.svg',
+				date_added: '2026/5/22'
+			},
+			dark: {
+				path: 'astro-icon-dark.svg',
+				date_added: '2026/5/22'
+			},
+			variable: [
+				{
+					path: 'astro-icon-black.svg',
+					date_added: '2026/5/22'
+				},
+				{
+					path: 'astro-icon-white.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'astro-logo.svg',
+				date_added: '2026/5/22'
+			},
+			dark: {
+				path: 'astro-logo-dark.svg',
+				date_added: '2026/5/22'
+			},
+			variable: [
+				{
+					path: 'astro-logo-black.svg',
+					date_added: '2026/5/22'
+				},
+				{
+					path: 'astro-logo-white.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		}
+	]
+}

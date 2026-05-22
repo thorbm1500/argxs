@@ -8,6 +8,7 @@
       - **[New]** Shopify
       - **[New]** Soundcloud
       - **[New]** Verkada
+      - **[New]** Astro
 
 ## Fixes
 ### Icons
