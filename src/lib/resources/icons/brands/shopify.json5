@@ -1,0 +1,72 @@
+{
+    name: 'Shopify',
+    href: 'https://www.shopify.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'shopify-icon.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            variable: [
+                {
+                    path: 'shopify-icon-black.svg',
+                    date_added: '2026/5/22',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    path: 'shopify-icon-white.svg',
+                    date_added: '2026/5/22',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                }
+            ]
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'shopify-logo.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'shopify-logo-dark.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            variable: [
+                {
+                    path: 'shopify-logo-black.svg',
+                    date_added: '2026/5/22',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    path: 'shopify-logo-white.svg',
+                    date_added: '2026/5/22',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                }
+            ]
+        }
+    ]
+}
