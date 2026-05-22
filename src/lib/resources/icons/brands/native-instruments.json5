@@ -1,0 +1,44 @@
+{
+	name: 'Native Instruments',
+	href: 'https://www.native-instruments.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'native-instruments-icon.svg',
+				date_added: '2026/5/21',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'native-instruments-icon-dark.svg',
+				date_added: '2026/5/21',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'native-instruments-logo.svg',
+				date_added: '2026/5/21',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'native-instruments-logo-dark.svg',
+				date_added: '2026/5/21',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

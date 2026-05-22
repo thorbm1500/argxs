@@ -1,19 +1,18 @@
 {
-    country: 'Paraguay',
+    country: 'South Ossetia',
     flags: [
         {
-            name: 'Paraguay (Front)',
-            path: 'py-obverse.svg',
-            date_added: '2026/5/12',
+            path: 'south_ossetia.svg',
+            date_added: '2026/5/21',
             source: {
                 name: 'Wikipedia',
                 href: 'https://en.wikipedia.org'
             }
         },
         {
-            name: 'Paraguay (Back)',
-            path: 'py-reserve.svg',
-            date_added: '2026/5/12',
+            name: 'Presidential Flag',
+            path: 'south_ossetia_presidential.svg',
+            date_added: '2026/5/21',
             source: {
                 name: 'Wikipedia',
                 href: 'https://en.wikipedia.org'

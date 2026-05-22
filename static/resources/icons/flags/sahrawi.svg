@@ -1,0 +1,9 @@
+<svg id="argxs" version="1.0" xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
+    <rect width="600" height="150" fill="#000"/>
+    <rect y="150" width="600" height="150" fill="#007A3D"/>
+    <rect y="100" width="600" height="100" fill="#FFF"/>
+    <path d="M 0,0 200,150 0,300 z" fill="#C4111B"/>
+    <circle cx="300" cy="150" r="40" fill="#C4111B"/>
+    <circle cx="315" cy="150" r="40" fill="#FFF"/>
+    <path d="m 289.26294,174.2204 17.05633,-12.19273 16.92296,12.37709 -6.32527,-19.98928 17.00081,-12.26999 -20.96556,-0.16131 -6.41591,-19.96036 -6.63215,19.88957 -20.96606,-0.0661 16.86669,12.45373 -6.54184,19.91946 z" fill="#C4111B"/>
+</svg>

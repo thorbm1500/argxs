@@ -1,0 +1,13 @@
+{
+    country: 'Europe',
+    flags: [
+        {
+            path: 'eu.svg',
+            date_added: '2026/5/21',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org'
+            }
+        }
+    ]
+}
