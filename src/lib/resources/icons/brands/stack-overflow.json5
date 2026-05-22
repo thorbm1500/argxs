@@ -1,0 +1,63 @@
+{
+	name: 'Stack Overflow',
+	href: 'https://stackoverflow.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'stack-overflow-icon.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'stack-overflow-icon-dark.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					name: 'Old Stack Overflow',
+					path: 'stack-overflow-old-icon.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'stack-overflow-logo.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				path: 'stack-overflow-logo-dark.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					name: 'Old Stack Overflow',
+					path: 'stack-overflow-old-logo.svg',
+					date_added: '2026/5/22'
+				},
+				{
+					name: 'Old Stack Overflow',
+					path: 'stack-overflow-old-logo-dark.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		}
+	]
+}
