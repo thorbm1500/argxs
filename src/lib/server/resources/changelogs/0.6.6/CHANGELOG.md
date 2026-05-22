@@ -12,5 +12,6 @@
 ## Fixes
 ### Icons
 - Fixed error preventing new images from being generated properly
+- Fixed gradient errors on all Vite icons
 
 ## Dependencies
