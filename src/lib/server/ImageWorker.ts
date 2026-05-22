@@ -73,7 +73,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 }
 
 async function process(icon: Icon, path: string) {
-	const IMAGE_PATH: string = `/client/resources/data/icons/${path}/`;
+	const IMAGE_PATH: string = `client/resources/data/icons/${path}/`;
 
 	if (icon.name) console.info('  +',icon.name);
 
