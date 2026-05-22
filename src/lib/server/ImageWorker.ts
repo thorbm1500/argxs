@@ -49,16 +49,8 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 	return { w: width + (diff * a), h: height + (diff * b) };
 }
 
-async function pngExists(icon: Icon, path: string) {
-	return (await Bun.$`ls ${path}`.text()).trim() === getPNGExtension(icon.path).slice(icon.path.lastIndexOf('/'));
-}
-
-async function webpExists(icon: Icon, path: string) {
-	return (await Bun.$`ls ${path}`.text()).trim() === getWEBPExtension(icon.path).slice(icon.path.lastIndexOf('/'));
-}
-
-async function jpegExists(icon: Icon, path: string) {
-	return (await Bun.$`ls ${path}`.text()).trim() === getJPEGExtension(icon.path).slice(icon.path.lastIndexOf('/'));
+async function imageExists(path: string) {
+	return !(await Bun.$`ls ${path}`.text()).includes('No such file');
 }
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
@@ -81,7 +73,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 }
 
 async function process(icon: Icon, path: string) {
-	const IMAGE_PATH: string = `client/resources/data/icons/${path}/`;
+	const IMAGE_PATH: string = `/client/resources/data/icons/${path}/`;
 
 	if (icon.name) console.info('  +',icon.name);
 
@@ -93,11 +85,11 @@ async function process(icon: Icon, path: string) {
 	const PNG_PATH: string = IMAGE_PATH.concat('png/', getPNGExtension(icon.path));
 
 	// Check if the PNG has already been generated.
-	if (!(await pngExists(icon, PNG_PATH))) {
+	if (!(await imageExists(PNG_PATH))) {
 		await convertSVGtoPNG(icon, path);
 
 		// Check again to make sure the PNG was generated successfully.
-		if (!(await pngExists(icon, PNG_PATH))) {
+		if (!(await imageExists(PNG_PATH))) {
 			console.error('[ERROR] Failed to generate PNG for:', icon.path);
 			return;
 		} else {
@@ -108,7 +100,7 @@ async function process(icon: Icon, path: string) {
 	icon.png = getPNGExtension(icon.path);
 
 	const WEBP_PATH: string = IMAGE_PATH.concat('webp/', getWEBPExtension(icon.path));
-	let isWEBPGenerated: boolean = await webpExists(icon, WEBP_PATH);
+	let isWEBPGenerated: boolean = await imageExists(WEBP_PATH);
 
 	// Check if the WEBP has already been generated.
 	if (!isWEBPGenerated) {
@@ -118,7 +110,7 @@ async function process(icon: Icon, path: string) {
 			console.error(e);
 		}
 
-		isWEBPGenerated = await webpExists(icon, WEBP_PATH);
+		isWEBPGenerated = await imageExists(WEBP_PATH);
 
 		// Check again to make sure the WEBP was generated successfully.
 		if (!isWEBPGenerated) {
@@ -131,7 +123,7 @@ async function process(icon: Icon, path: string) {
 	if (isWEBPGenerated) icon.webp = getWEBPExtension(icon.path);
 
 	const JPEG_PATH: string = IMAGE_PATH.concat('jpeg/', getJPEGExtension(icon.path));
-	let isJPEGGenerated: boolean = await jpegExists(icon, JPEG_PATH);
+	let isJPEGGenerated: boolean = await imageExists(JPEG_PATH);
 
 	// Check if the JPEG has already been generated.
 	if (!isJPEGGenerated) {
@@ -141,7 +133,7 @@ async function process(icon: Icon, path: string) {
 			console.error(e);
 		}
 
-		isJPEGGenerated = await jpegExists(icon, JPEG_PATH);
+		isJPEGGenerated = await imageExists(JPEG_PATH);
 
 		// Check again to make sure the JPEG was generated successfully.
 		if (!isJPEGGenerated) {
