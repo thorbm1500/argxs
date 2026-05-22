@@ -6,8 +6,8 @@
             date_added: '2026/4/14',
             source: {
                 name: 'Wikipedia',
-                href: 'https://en.wikipedia.org',
-            },
+                href: 'https://en.wikipedia.org'
+            }
         },
         {
             name: 'State Flag',
@@ -15,17 +15,18 @@
             date_added: '2026/4/14',
             source: {
                 name: 'Wikipedia',
-                href: 'https://en.wikipedia.org',
-            },
+                href: 'https://en.wikipedia.org'
+            }
         },
         {
             name: 'Wiphala',
+            href: 'https://en.wikipedia.org/wiki/Wiphala',
             path: 'wiphala.svg',
             date_added: '2026/4/14',
             source: {
                 name: 'Wikipedia',
-                href: 'https://en.wikipedia.org',
-            },
-        },
-    ],
+                href: 'https://en.wikipedia.org'
+            }
+        }
+    ]
 }

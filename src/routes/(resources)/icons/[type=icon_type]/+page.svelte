@@ -234,8 +234,7 @@
 									if (highlightedIcon.currentIcon > 0) highlightedIcon.currentIcon -= 1;
 									else highlightedIcon.currentIcon = highlightedIcon.iconIndex.length - 1;}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path
-										d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
+									<path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
 								</svg>
 							</button>
 							<button title="" class="element next-icon" tabindex="2" onclick="{() => {
@@ -244,8 +243,7 @@
 									if (highlightedIcon.currentIcon < highlightedIcon.iconIndex.length - 1) highlightedIcon.currentIcon += 1;
 									else highlightedIcon.currentIcon = 0;}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path
-										d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
+									<path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
 								</svg>
 							</button>
 						</div>
@@ -254,13 +252,21 @@
 				<div class="separator" inert></div>
 				<div class="right">
 					{#if highlightedIcon.icon.href || hCurrentIcon?.href}
-						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition"
-						   href={hCurrentIcon?.href ?? highlightedIcon.icon.href} rel="external" target="_blank" tabindex="2">
+						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ?? highlightedIcon.icon.href} rel="external" target="_blank" tabindex="2">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-								<path
-									d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
+								<path d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
 							</svg>
-							{iconType === 'flags' && (highlightedIcon.icon.title === 'Ukraine' || highlightedIcon.icon.title === 'Palestine') ? 'Show Support' : 'Visit Page'}
+							{#if iconType === 'flags'}
+								{#if ['Ukraine','Palestine'].includes(highlightedIcon.icon.title)}
+										Show Support
+								{:else if highlightedIcon.icon.title === 'Pride'}
+										Learn More
+								{:else}
+										Visit Page
+								{/if}
+							{:else}
+									Visit Page
+							{/if}
 						</a>
 					{/if}
 					<div class="name" tabindex="-1">
@@ -347,7 +353,16 @@
 					style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.
 				{:else}
 					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different
-					countries, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> different flags.
+					countries<span style="font-size:.65rem !important;color:inherit;vertical-align: top">&#10033;</span>, consisting of <strong
+					style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong>
+					different
+					flags.<br>
+					<i style="font-size:.85rem;color:var(--theme-text-fourth);">
+						<span style="font-size:.65rem;color:inherit;vertical-align:top;">
+							&#10033;
+						</span>
+						This includes all 193 member states and 2 general observers of the United Nations, as well as de facto states, and other famous flags
+					</i>
 				{/if}
 			</div>
 		</div>
@@ -1529,6 +1544,7 @@
 				gap:             .25rem;
 				
 				padding:         .3rem .45rem .3rem .25rem;
+				border-radius: .9rem;
 				
 				font-size:       .925rem;
 				font-weight:     800;

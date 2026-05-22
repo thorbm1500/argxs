@@ -3,7 +3,7 @@
 	import type { PageTheme } from '$lib/components/interfaces';
 	import { prefersReducedMotion } from 'svelte/motion';
 	
-	const { children, className } = $props();
+	const { children, className, marginTop = 0, marginRight = 0, marginBottom = 0, marginLeft = 0 } = $props();
 	
 	const themeFunction: Function | undefined = getContext('theme');
 	let theme: PageTheme = $derived(themeFunction?.() ?? 'dark');
@@ -29,7 +29,7 @@
 	</defs>
 </svg>
 
-<div class="{theme} svt-glass-button-parent {className}">
+<div class="{theme} svt-glass-button-parent {className}" style:margin-top="{marginTop}rem">
 	<div inert>
 		<div class="svt-glass-button effect-a"></div>
 		<div class="svt-glass-button effect-b"></div>
@@ -58,6 +58,8 @@
 		left: inherit;
 		right: inherit;
 		bottom: inherit;
+		
+		backdrop-filter: brightness(1.025);
 		
 		&.hide {
 			opacity: 0;

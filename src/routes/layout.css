@@ -95,9 +95,6 @@
 	--theme-sidebar-tag-hover-background: #DDE2E5;
 	
 	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, #222234 80%), linear-gradient(-170deg, #242433 20%, #0D0D0D 75%);
-	--theme-text-rgb-gradient:            linear-gradient(90deg, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
-	
-	--theme-ui-gradient-bg:               linear-gradient(to bottom, color-mix(var(--theme-ui-sidebar), var(--theme-color-primary) 2.5%) 0%, var(--theme-ui-line) 100%);
 	
 	--theme-markdown-code-bg:             #E5E7EA;
 }
@@ -131,9 +128,6 @@
 	--theme-sidebar-tag-hover-background: #1C1E26;
 	
 	--theme-text-gradient:                linear-gradient(5deg, transparent 40%, rgb(42 59 79 / 0.25) 80%), linear-gradient(-170deg, #B8C4D2 20%, #F7F9FC 75%);
-	--theme-text-rgb-gradient:            linear-gradient(90.7deg, rgb(255, 253, 218) 1.9%, rgb(246, 210, 255) 39.3%, rgb(152, 222, 254) 64.7%, rgb(251, 255, 210) 100.8%);
-	
-	--theme-ui-gradient-bg:               linear-gradient(to top, color-mix(var(--theme-ui-sidebar), var(--theme-color-primary) 2.5%) 0%, var(--theme-ui-line) 100%);
 	
 	--theme-markdown-code-bg:             #21242D;
 }

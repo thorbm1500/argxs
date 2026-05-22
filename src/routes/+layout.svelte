@@ -74,9 +74,11 @@
 			</filter>
 			<filter id="btt-morph-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
 				<feMorphology operator="dilate" radius="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology" />
+				<!--suppress HtmlUnknownAttribute - Suppressing incorrect warnings for unknown attribute -->
 				<feGaussianBlur stdDeviation="0 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
 			</filter>
 			<filter id="btt-blur-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
+				<!--suppress HtmlUnknownAttribute - Suppressing incorrect warnings for unknown attribute -->
 				<feGaussianBlur stdDeviation="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
 			</filter>
 		</defs>
@@ -109,6 +111,7 @@
 				<path d="M0 0h24v24H0z" fill="none" />
 				<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m17 14l-5-5m0 0l-5 5" />
 			</svg>
+			<!--suppress HtmlUnknownTag -->
 			<p>Back to Top</p>
 		</button>
 	</div>

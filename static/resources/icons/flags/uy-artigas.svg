@@ -1,0 +1,5 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet">
+    <rect fill="#003685" width="900" height="600"/>
+    <rect fill="#FFF" y="200" width="900" height="200"/>
+    <path fill="#B43232" d="m0,0h150l750,450v150h-150L0,150V0Z"/>
+</svg>

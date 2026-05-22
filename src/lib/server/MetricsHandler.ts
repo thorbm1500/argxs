@@ -13,7 +13,6 @@ export default class MetricsHandler {
 	private static requestsTotal: bigint = 0n;
 	private static visitorCache: Map<string, number> = new Map();
 
-	// Runs once every hour
 	// noinspection JSUnusedGlobalSymbols
 	static readonly garbageCollection = Bun.cron('@hourly', MetricsHandler.collect);
 

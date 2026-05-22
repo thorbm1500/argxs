@@ -1,0 +1,22 @@
+{
+    country: 'Venezuela',
+    flags: [
+        {
+            path: 've.svg',
+            date_added: '2026/5/21',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org'
+            }
+        },
+        {
+            name: 'State Flag',
+            path: 've-state.svg',
+            date_added: '2026/5/21',
+            source: {
+                name: 'Wikipedia',
+                href: 'https://en.wikipedia.org'
+            }
+        }
+    ]
+}

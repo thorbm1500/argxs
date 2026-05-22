@@ -1,0 +1,30 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="500" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+    <path fill="#308738" d="M0 0h1000v500H0z"/>
+    <path fill="#3081F7" d="M0 0h1000v250H0z"/>
+    <path fill="#EE162E" d="M0 160h1000v180H0z"/>
+    <path fill="#FFF" d="M0 170h1000v160H0z"/>
+    <circle cx="140" cy="80" r="60" fill="#FFF"/>
+    <circle cx="160" cy="80" r="60" fill="#3081F7"/>
+    <g transform="matrix(2 0 0 2 272 128)" fill="#FFF">
+        <g id="argxs_uzbekistan_attr_5">
+            <g id="argxs_uzbekistan_attr_4">
+                <g id="argxs_uzbekistan_attr_3">
+                    <g id="argxs_uzbekistan_attr_2">
+                        <path id="argxs_uzbekistan_attr_1" d="M0-6v6h3" transform="rotate(18 0 -6)"/>
+                        <use xlink:href="#argxs_uzbekistan_attr_1" transform="scale(-1 1)" width="100%" height="100%"/>
+                    </g>
+                    <use xlink:href="#argxs_uzbekistan_attr_2" transform="rotate(72)" width="100%" height="100%"/>
+                </g>
+                <use xlink:href="#argxs_uzbekistan_attr_2" transform="rotate(-72)" width="100%" height="100%"/>
+                <use xlink:href="#argxs_uzbekistan_attr_3" transform="rotate(144)" width="100%" height="100%"/>
+            </g>
+            <use xlink:href="#argxs_uzbekistan_attr_4" y="-24" width="100%" height="100%"/>
+            <use xlink:href="#argxs_uzbekistan_attr_4" y="-48" width="100%" height="100%"/>
+        </g>
+        <use xlink:href="#argxs_uzbekistan_attr_5" x="24" width="100%" height="100%"/>
+        <use xlink:href="#argxs_uzbekistan_attr_5" x="48" width="100%" height="100%"/>
+        <use xlink:href="#argxs_uzbekistan_attr_4" x="-48" width="100%" height="100%"/>
+        <use xlink:href="#argxs_uzbekistan_attr_4" x="-24" width="100%" height="100%"/>
+        <use xlink:href="#argxs_uzbekistan_attr_4" x="-24" y="-24" width="100%" height="100%"/>
+    </g>
+</svg>

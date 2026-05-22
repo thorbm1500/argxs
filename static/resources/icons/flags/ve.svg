@@ -1,0 +1,30 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="600" viewBox="0 0 180 120" preserveAspectRatio="xMidYMid meet">
+    <defs>
+        <g id="argxs_venezuela_attr_4" transform="translate(0 -36)">
+            <g id="argxs_venezuela_attr_3">
+                <g id="argxs_venezuela_attr_2">
+                    <path d="M0,-5V0H3z" fill="#FFF" transform="rotate(18 0 -5)" id="argxs_venezuela_attr_1"/>
+                    <use xlink:href="#argxs_venezuela_attr_1" transform="scale(-1 1)"/>
+                </g>
+                <use xlink:href="#argxs_venezuela_attr_2" transform="rotate(72)"/>
+            </g>
+            <use xlink:href="#argxs_venezuela_attr_2" transform="rotate(-72)"/>
+            <use xlink:href="#argxs_venezuela_attr_3" transform="rotate(144)"/>
+        </g>
+    </defs>
+    <rect fill="#CF142B" width="180" height="40" y="80" />
+    <rect fill="#00247D" width="180" height="40" y="40" />
+    <rect fill="#FC0" width="180" height="40" />
+    <g transform="translate(0 .2422087)" stroke-width="0.96302092">
+        <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-70 105.506451 -23.4739353) scale(1.0383988)" width="100%" height="100%"/>
+        <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-45.93376 147.3700758 -62.4017001) scale(1.0383988)" width="100%" height="100%"/>
+        <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-30 205.590447 -127.0402897) scale(1.0383988)" width="100%" height="100%"/>
+        <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-10 537.6970712 -472.5906531) scale(1.0383988)" width="100%" height="100%"/>
+        <g transform="matrix(-1 0 0 1 180.05129 .0000092)">
+            <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-70 105.506451 -23.4739353) scale(1.0383988)" width="100%" height="100%"/>
+            <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-45.93376 147.3700758 -62.4017001) scale(1.0383988)" width="100%" height="100%"/>
+            <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-30 205.590447 -127.0402897) scale(1.0383988)" width="100%" height="100%"/>
+            <use xlink:href="#argxs_venezuela_attr_4" transform="rotate(-10 537.6970712 -472.5906531) scale(1.0383988)" width="100%" height="100%"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,5 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
+    <rect fill="#FFF" width="1200" height="200" />
+    <rect fill="#D00" width="1200" height="200" y="200" />
+    <rect fill="#FFCE00" width="1200" height="200" y="400" />
+</svg>

@@ -1,4 +1,4 @@
-import type { Brand, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon, Source } from '$lib/components/interfaces';
+import type { Brand, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
@@ -25,12 +25,12 @@ export class Resources {
 
 	async init(): Promise<void> {
 		const startTime: number = Bun.nanoseconds();
-		console.log('Initializing resources...');
+		console.info('Initializing resources...');
 		await this.loadBrandIcons();
 		await this.loadFlagIcons();
 		await this.loadColorCombos();
 		await this.loadChangeLogs();
-		console.log(`Resource loading completed [${((Bun.nanoseconds() - startTime) / 1000000).toFixed(0)}ms]`);
+		console.info(`Resource loading completed [${((Bun.nanoseconds() - startTime) / 1000000).toFixed(0)}ms]`);
 	}
 
 	private async loadBrandIcons(): Promise<void> {
@@ -136,7 +136,7 @@ export class Resources {
 	}
 
 	private async loadColorCombos(): Promise<void> {
-		console.log('Loading color combos...');
+		console.info('Loading color combos...');
 		const conf: ColorCombos = Bun.JSON5.parse(await Bun.file(root.concat('/colors/combos/combos.json5')).text()) as ColorCombos;
 		this.COLOR_COMBOS.push(...conf.combos);
 		this.COLOR_COMBO_AMOUNT = this.COLOR_COMBOS.length;
