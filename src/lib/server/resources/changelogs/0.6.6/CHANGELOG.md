@@ -9,8 +9,11 @@
       - **[New]** Soundcloud
       - **[New]** Verkada
       - **[New]** Astro
+      - **[New]** Stack Overflow
+        - Incl. Old version
 
 ## Fixes
+- Code syntax coloring no longer fails after switching between themes, due to overlap between themes
 ### Icons
 - Fixed error preventing new images from being generated properly
 - Fixed gradient errors on all Vite icons
