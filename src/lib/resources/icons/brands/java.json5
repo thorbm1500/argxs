@@ -1,0 +1,13 @@
+{
+	name: 'Java',
+	href: 'https://www.java.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'java-icon.svg',
+				date_added: '2026/5/22'
+			}
+		}
+	]
+}
