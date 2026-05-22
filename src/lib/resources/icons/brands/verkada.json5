@@ -1,0 +1,44 @@
+{
+    name: 'Verkada',
+    href: 'https://www.verkada.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'verkada-icon.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'verkada-icon-dark.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'verkada-logo.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'verkada-logo-dark.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}

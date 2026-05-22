@@ -2,11 +2,15 @@
 #### 2026-05-22
 
 ## Minor Changes
+### Icons
 - **[Brands](https://argxs.com/icons/brands)**
     - **New Icons**
       - **[New]** Shopify
       - **[New]** Soundcloud
+      - **[New]** Verkada
 
 ## Fixes
+### Icons
+- Fixed error preventing new images from being generated properly
 
 ## Dependencies
