@@ -50,7 +50,7 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 }
 
 async function imageExists(path: string) {
-	return !(await Bun.$`ls ${path}`.text()).includes('No such file');
+	return (await Bun.$`ls ${path}`.text()).length !== 0;
 }
 
 async function convertSVGtoPNG(icon: Icon, path: string) {
