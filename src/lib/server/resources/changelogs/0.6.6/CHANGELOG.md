@@ -11,6 +11,7 @@
       - **[New]** Astro
       - **[New]** Stack Overflow
         - Incl. Old version
+      - **[New]** Java
 
 ## Fixes
 - Code syntax coloring no longer fails after switching between themes, due to overlap between themes
