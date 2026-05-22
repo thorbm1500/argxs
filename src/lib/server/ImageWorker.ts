@@ -93,7 +93,7 @@ async function process(icon: Icon, path: string) {
 			console.error('[ERROR] Failed to generate PNG for:', icon.path);
 			return;
 		} else {
-			console.info('  → PNG Generated successfully.');
+			console.info('  → PNG Generated successfully for:', icon.path);
 		}
 	}
 
@@ -116,7 +116,7 @@ async function process(icon: Icon, path: string) {
 		if (!isWEBPGenerated) {
 			console.error('[ERROR] Failed to generate WEBP for:', icon.path);
 		} else {
-			console.info('  → WEBP Generated successfully.');
+			console.info('  → WEBP Generated successfully for:', icon.path);
 		}
 	}
 
@@ -139,7 +139,7 @@ async function process(icon: Icon, path: string) {
 		if (!isJPEGGenerated) {
 			console.error('[ERROR] Failed to generate JPEG for:', icon.path);
 		} else {
-			console.info('  → JPEG Generated successfully.');
+			console.info('  → JPEG Generated successfully for:', icon.path);
 		}
 	}
 
