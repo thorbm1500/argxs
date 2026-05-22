@@ -1,0 +1,54 @@
+{
+    name: 'Soundcloud',
+    href: 'https://www.soundcloud.com',
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'soundcloud-icon.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                path: 'soundcloud-icon-dark.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                path: 'soundcloud-logo.svg',
+                date_added: '2026/5/22',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            variable: [
+                {
+                    path: 'soundcloud-logo-black.svg',
+                    date_added: '2026/5/22',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    path: 'soundcloud-logo-white.svg',
+                    date_added: '2026/5/22',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                }
+            ]
+        }
+    ]
+}

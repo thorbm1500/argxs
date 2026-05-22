@@ -5,6 +5,7 @@
 - **[Brands](https://argxs.com/icons/brands)**
     - **New Icons**
       - **[New]** Shopify
+      - **[New]** Soundcloud
 
 ## Fixes
 
