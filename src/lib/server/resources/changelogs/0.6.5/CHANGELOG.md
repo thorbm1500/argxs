@@ -81,4 +81,4 @@
       - Reserve
 
 ## Dependencies
-- vite: *8.0.13 ➜ [8.0.14](https://github.com/vitejs/vite/blob/v8.0.14/packages/vite/CHANGELOG.md)*
+- vite: *8.0.13 ➜ 8.0.14*
