@@ -34,7 +34,7 @@
 			height: 0.25rem;
 			border-radius: 0.65rem;
 
-			background: var(--theme-ui-icon);
+			background: var(--theme-ui-icon-dark);
 
 			transition:
 				transform 150ms cubic-bezier(0.6, 0.04, 0.98, 0.335),

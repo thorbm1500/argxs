@@ -1,12 +1,23 @@
 # v0.6.6
 #### 2026-05-23
 
+## New Features
+### Dimmable background
+**The background can now be dimmed when viewing icons in the Highlighted Icon modal. The background is "lit" as default, and can be dimmed by pressing the light bulb in the top left corner of the modal.**
+#### <br><span style="letter-spacing:initial;">Note: <i>This feature natively respects the user's preference for reduced transparency, and will default to a dimmed background, in case reduced transparency is prefered.</i></span>
+
 ## Minor Changes
+### Accessibility
+- Improved overall accessibility for users with preferences
+  - `prefers-reduced-motion: reduce`
+  - `prefers-reduced-transparency: reduce`
 ### Icons
 - Improved SEO: Added page description
 - Improved visibility of icon in Highlighted Icon modal, by making the modal background less see-through
+- Improved overall design of Highlighted Icon modal
 - **[Brands](https://argxs.com/icons/brands)**
     - **New Icons**
+      - **[New]** VivaBit
       - **[New]** Shopify
       - **[New]** Soundcloud
       - **[New]** Verkada
@@ -18,7 +29,6 @@
       - **[New]** Go
       - **[New]** Gradle
       - **[New]** Alpine.js
-      - **[New]** VivaBit
 
 ## Fixes
 - Code syntax coloring no longer fails after switching between themes, due to overlap between themes
