@@ -13,6 +13,7 @@
 	import GlassButton from '$lib/components/GlassButton.svelte';
 	import hljs from '@highlightjs/cdn-assets/es/core.min.js';
 	import xml from '@highlightjs/cdn-assets/es/languages/xml.min.js';
+	import { prefersReducedMotion } from 'svelte/motion';
 	
 	hljs.registerLanguage('xml', xml);
 	
@@ -87,24 +88,28 @@
 	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
 	let iconContainerOpened: number | null = null;
 	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon ? highlightedIcon.iconIndex[highlightedIcon.currentIcon] : undefined);
+	let hPreviousIcon: Icon | undefined = undefined;
 	
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
 	
 	$effect(() => {
-		if (currentSVG === '' && hCurrentIcon !== undefined) {
-			currentSVG = 'load';
-			currentLoadedSVG = hCurrentIcon.path;
-			fetch(`/resources/icons/${iconType}/${hCurrentIcon.path}`).then(res => {
-				if (currentSVG === '' || currentLoadedSVG !== hCurrentIcon.path) return;
-				res.text().then(res => {
-					if (!hCurrentIcon) {
-						currentSVG = '';
-						return;
-					} else if (currentLoadedSVG !== hCurrentIcon.path) return;
-					currentSVG = res;
+		if (hPreviousIcon !== hCurrentIcon) {
+			hPreviousIcon = hCurrentIcon;
+			if (hCurrentIcon !== undefined) {
+				currentSVG = 'load';
+				currentLoadedSVG = hCurrentIcon.path;
+				fetch(`/resources/icons/${iconType}/${hCurrentIcon.path}`).then(res => {
+					if (currentSVG === '' || currentLoadedSVG !== hCurrentIcon.path) return;
+					res.text().then(res => {
+						if (!hCurrentIcon) {
+							currentSVG = '';
+							return;
+						} else if (currentLoadedSVG !== hCurrentIcon.path) return;
+						currentSVG = res;
+					});
 				});
-			});
+			}
 		}
 	});
 	
@@ -182,7 +187,11 @@
 </script>
 
 <svelte:head>
+	<meta charset="utf-8">
 	<title>{data.seo.title}</title>
+	{#if data.seo.description}
+		<meta name="description" content={data.seo.description} />
+	{/if}
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
 		{#await import('$lib/styles/github.min.css')}{/await}
@@ -191,24 +200,40 @@
 	{/if}
 </svelte:head>
 
+<svg style="display: none;">
+	<defs>
+		<filter id="highlighted-icon-distortion-filter" x="0%" y="0%" width="200%" height="200%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="4" seed="{Math.trunc(Date.now() / 1000000)}" result="noise" />
+			<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+			<feDisplacementMap in="SourceGraphic" in2="blurred" scale="5" xChannelSelector="R" yChannelSelector="G" />
+		</filter>
+		<filter id="highlighted-icon-morph-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
+			<feMorphology operator="dilate" radius="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology" />
+			<!--suppress HtmlUnknownAttribute - edgeMode is a legal attribute for feGaussianBlur, but is giving an error, hence the suppression -->
+			<feGaussianBlur stdDeviation="0 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
+		</filter>
+		<filter id="highlighted-icon-blur-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
+			<!--suppress HtmlUnknownAttribute - edgeMode is a legal attribute for feGaussianBlur, but is giving an error, hence the suppression -->
+			<feGaussianBlur stdDeviation="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
+		</filter>
+	</defs>
+</svg>
+
 {#if highlightedIcon !== undefined}
-	{#key highlightedIcon.icon}
-		<div class="glass-effects" inert>
-			<div class="glass-border-glow"></div>
-		</div>
+	{#key hCurrentIcon}
 		<!--svelte-ignore a11y_positive_tabindex-->
 		<div class="highlighted-icon">
-			<svg style="display: none;">
-				<filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%">
-					<feTurbulence type="fractalNoise" baseFrequency="0.009 0.009" numOctaves="2" seed="{Math.trunc((Date.now() / 1000) / 1000)}" result="noise" />
-					<feGaussianBlur in="noise" stdDeviation="4" result="blurred" />
-					<feDisplacementMap in="SourceGraphic" in2="blurred" scale="15" xChannelSelector="R" yChannelSelector="G" />
-				</filter>
-			</svg>
+			<div style="display:contents;" inert>
+				<div class="glass-effect a"></div>
+				<div class="glass-effect b">
+					<div class="c"></div>
+				</div>
+				<div class="glass-effect d">
+					<div class="e"></div>
+				</div>
+				<div class="glass-effect f"></div>
+			</div>
 			<div class="h-icon">
-				<div class="glass-filter" inert></div>
-				<div class="glass-specular" inert></div>
-				<div class="glass-border" inert></div>
 				<!--svelte-ignore a11y_autofocus-->
 				<button title="Close" class="close-button" onclick={closeHighlightContainer} tabindex="1">
 					<!--suppress HtmlUnknownTag -->
@@ -234,7 +259,8 @@
 									if (highlightedIcon.currentIcon > 0) highlightedIcon.currentIcon -= 1;
 									else highlightedIcon.currentIcon = highlightedIcon.iconIndex.length - 1;}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
+									<path
+										d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
 								</svg>
 							</button>
 							<button title="" class="element next-icon" tabindex="2" onclick="{() => {
@@ -243,7 +269,8 @@
 									if (highlightedIcon.currentIcon < highlightedIcon.iconIndex.length - 1) highlightedIcon.currentIcon += 1;
 									else highlightedIcon.currentIcon = 0;}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
+									<path
+										d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
 								</svg>
 							</button>
 						</div>
@@ -252,20 +279,22 @@
 				<div class="separator" inert></div>
 				<div class="right">
 					{#if highlightedIcon.icon.href || hCurrentIcon?.href}
-						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition" href={hCurrentIcon?.href ?? highlightedIcon.icon.href} rel="external" target="_blank" tabindex="2">
+						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition"
+						   href={hCurrentIcon?.href ?? highlightedIcon.icon.href} rel="external" target="_blank" tabindex="2">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
+								<path
+									d="M7.5 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H9C11.7614 17 14 14.7614 14 12M16.5 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15C12.2386 7 10 9.23858 10 12" />
 							</svg>
 							{#if iconType === 'flags'}
-								{#if ['Ukraine','Palestine'].includes(highlightedIcon.icon.title)}
-										Show Support
+								{#if ['Ukraine', 'Palestine'].includes(highlightedIcon.icon.title)}
+									Show Support
 								{:else if highlightedIcon.icon.title === 'Pride'}
-										Learn More
+									Learn More
 								{:else}
-										Visit Page
+									Visit Page
 								{/if}
 							{:else}
-									Visit Page
+								Visit Page
 							{/if}
 						</a>
 					{/if}
@@ -351,10 +380,16 @@
 					argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
 					logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong
 					style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.
+					<br>
+					This collection currently consists of <strong style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.entryAmount}</strong> different brands,
+					frameworks,
+					programming
+					languages &
+					more.
 				{:else}
-					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different
+					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.entryAmount}</strong> different
 					countries<span style="font-size:.65rem !important;color:inherit;vertical-align: top">&#10033;</span>, consisting of <strong
-					style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong>
+					style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong>
 					different
 					flags.<br>
 					<i style="font-size:.85rem;color:var(--theme-text-fourth);">
@@ -372,7 +407,8 @@
 					<GlassButton className="sort-action">
 						<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => sorting = 'default'}">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path transition:draw|global={{duration: 1100, easing: quartInOut}} d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
+								<path transition:draw|global={{duration: 1100, easing: quartInOut}}
+								      d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
 							</svg>
 						</button>
 					</GlassButton>
@@ -384,7 +420,8 @@
 								order = 'desc';
 							} else {
 								order = order === 'desc' ? 'asc' : 'desc';
-							}}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							}}}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							{#if sorting === 'alphabet'}
 								{#if order === 'asc'}
 									<path in:draw|global={{duration: 350}} d="M15 10v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
@@ -401,7 +438,9 @@
 								<path d="M4 13h4" />
 								<path d="M11 12h2" />
 							{/if}
-						</svg>Name</button>
+						</svg>
+						Name
+					</button>
 				</GlassButton>
 				<GlassButton className="sort-action">
 					<button class="sort-action" onclick="{() =>  {
@@ -488,20 +527,24 @@
 			<div class="circle"></div>
 		</div>
 		<GlassButton className="action pagination {currentPage > 2 ? '' : 'hide'}">
-			<button class="action pagination {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}" tabindex="{currentPage > 2 ? 0 : -1}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
+			<button class="action pagination {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}"
+			        tabindex="{currentPage > 2 ? 0 : -1}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
 		</GlassButton>
 		<GlassButton className="action pagination {currentPage > 1 ? '' : 'hide'}">
-			<button class="action pagination {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}" tabindex="{currentPage > 1 ? 0 : -1}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
+			<button class="action pagination {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}"
+			        tabindex="{currentPage > 1 ? 0 : -1}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
 		</GlassButton>
 		<GlassButton className="action current-page">
 			<p class="action current-page" inert>{currentPage}</p>
 		</GlassButton>
 		<GlassButton className="action pagination {currentPage < maxPage ? '' : 'hide'}">
-			<button class="action pagination {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}" tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1
+			<button class="action pagination {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}"
+			        tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1
 				: ' '}</button>
 		</GlassButton>
 		<GlassButton className="action pagination {(currentPage + 1) < maxPage ? '' : 'hide'}">
-			<button class="action pagination {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}" tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) <
+			<button class="action pagination {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}"
+			        tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) <
 			maxPage ? currentPage + 2 : ' '}</button>
 		</GlassButton>
 		<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" inert>
@@ -743,34 +786,18 @@
 		margin:    0 auto;
 	}
 	
-	.glass-effects {
-		position:        fixed;
-		bottom:          0;
-		right:           0;
-		overflow:        visible !important;
-		
-		display:         flex;
-		align-items:     center;
-		justify-content: center;
-		
-		width:           100vw;
-		height:          calc(100vh - var(--header-height));
-		
-		mix-blend-mode:  overlay;
-		mask-image:      linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
-		
-		pointer-events:  none !important;
-		z-index:         60000 !important;
-		
-		.glass-border-glow {
-			position:      fixed;
-			width:         80vw;
-			height:        60vh;
-			max-width:     80.1rem;
-			max-height:    32.1rem;
-			overflow:      visible !important;
+	:global .main-container.dark {
+		.highlighted-icon {
+			.glass-effect.b {
+				mask-image: linear-gradient(55deg, black 0%, transparent 35%, transparent 65%, black 100%), linear-gradient(15deg, black 0%, transparent 35%, transparent 100%) !important;
+			}
+			.c {
+				border-color: rgb(244 248 252 / .5) !important;
+			}
 			
-			border-radius: 1rem;
+			.e {
+				border-color: rgb(55 72 86 / .15) !important;
+			}
 		}
 	}
 	
@@ -778,7 +805,6 @@
 		position:        fixed;
 		bottom:          0;
 		right:           0;
-		box-sizing:      border-box;
 		
 		display:         flex;
 		align-items:     center;
@@ -787,19 +813,74 @@
 		width:           100vw;
 		height:          calc(100vh - var(--header-height));
 		
-		background:      rgba(from var(--theme-ui-background) r g b / 0.3);
+		background:      rgba(from var(--theme-ui-background) r g b / .275);
 		
 		pointer-events:  none;
 		z-index:         50000;
 		
+		.glass-effect {
+			position:      absolute;
+			width:         80vw;
+			height:        60vh;
+			max-width:     80rem;
+			max-height:    32rem;
+			
+			z-index:       40000;
+			border-radius: .9rem;
+			
+			&.a {
+				backdrop-filter: url('#highlighted-icon-distortion-filter') brightness(1.1) saturate(1.35) contrast(1.0025) url('#highlighted-icon-blur-filter') blur(3px);
+				z-index:         40000 !important;
+			}
+			
+			&.f {
+				overflow:         hidden;
+				
+				background-color: rgb(236 242 245 / .04);
+				mask-image:       linear-gradient(30deg, transparent 0%, black 100%), linear-gradient(to top, transparent 0%, rgb(0 0 0 / .5) 100%);
+				
+				z-index:          39990 !important;
+			}
+			
+			&.b, &.d {
+				mask-type: alpha;
+				filter:    blur(3px);
+				
+				.c, .e {
+					position:      relative;
+					width:         inherit;
+					height:        inherit;
+					max-width:     inherit;
+					max-height:    inherit;
+					border-radius: inherit;
+				}
+			}
+			
+			&.b {
+				mask-image: linear-gradient(55deg, transparent 0%, black 35%, black 65%, transparent 100%), linear-gradient(15deg, transparent 0%, black 35%, black 100%);
+				
+				.c {
+					border: .25rem solid rgb(55 72 86 / .45);
+				}
+			}
+			
+			&.d {
+				mask-image: linear-gradient(55deg, transparent 0%, black 35%, black 65%, transparent 100%), linear-gradient(15deg, transparent 0%, black 35%, black 100%);
+				
+				.e {
+					border: .25rem solid rgb(244 248 252 / .15);
+				}
+			}
+		}
+		
 		.h-icon {
-			position:        relative;
+			position:        absolute;
+			
 			display:         flex;
 			flex-flow:       row nowrap;
 			align-items:     center;
 			justify-content: space-between;
 			
-			box-sizing:      border-box;
 			overflow:        hidden !important;
 			
 			width:           80vw;
@@ -807,80 +888,12 @@
 			max-width:       80rem;
 			max-height:      32rem;
 			
-			background:      linear-gradient(to bottom, rgba(from var(--theme-icon-hightlight-container) r g b / .35) 0%, rgba(from var(--theme-icon-hightlight-container) r g b / .575) 100%);
-			backdrop-filter: url(#glass-distortion) brightness(.8) saturate(120%) brightness(1.15) blur(1px) blur(.35rem);
-			border-radius:   1rem;
+			background:      linear-gradient(to bottom, rgba(from var(--theme-icon-hightlight-container) r g b / .5) 0%, rgba(from var(--theme-icon-hightlight-container) r g b / .75) 100%);
+			border-radius:   .9rem;
 			
 			pointer-events:  all;
 			
-			z-index:         500;
-			
-			&::before, &::after {
-				content:        '';
-				mix-blend-mode: overlay;
-				box-sizing:     border-box;
-				
-				position:       absolute;
-				width:          100%;
-				height:         100%;
-				
-				border-radius:  inherit;
-				
-				z-index:        400 !important;
-			}
-			
-			&::before {
-				border:           2px solid color-mix(rgba(from var(--theme-ui-black) r g b / .5), #4B0082 20%);
-				background-image: linear-gradient(45deg, #929BC966 0%, transparent 100%);
-				opacity:          .2;
-				
-				filter:           blur(.05rem) contrast(2) brightness(1.5);
-				mask-image:       linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
-			}
-			
-			&::after {
-				border:     3px solid var(--theme-ui-white);
-				
-				opacity:    .3;
-				
-				filter:     blur(.075rem) contrast(2) brightness(1.5);
-				mask-image: linear-gradient(-20deg, transparent 0%, black 50%, transparent 100%);
-			}
-			
-			.glass-border {
-				position:       absolute;
-				
-				width:          100%;
-				height:         100%;
-				inset:          0;
-				overflow:       visible;
-				
-				border-radius:  inherit;
-				mix-blend-mode: overlay;
-				
-				box-shadow:     inset 0 0 3px 5px rgba(255 255 255 /.15);
-				filter:         blur(1px) contrast(1.025);
-				opacity:        .15;
-				
-				pointer-events: none !important;
-				z-index:        500 !important;
-			}
-			
-			.glass-specular {
-				position:       absolute;
-				
-				width:          calc(100% + 1px);
-				height:         calc(100% + 1px);
-				inset:          0;
-				overflow:       visible;
-				
-				border:         1px solid light-dark(rgb(211 216 222 / 0.5), rgb(102 119 140 / 0.4));
-				border-radius:  inherit;
-				mix-blend-mode: overlay;
-				
-				pointer-events: none !important;
-				z-index:        500 !important;
-			}
+			z-index:         49999;
 			
 			.close-button {
 				position:      absolute;
@@ -1544,7 +1557,7 @@
 				gap:             .25rem;
 				
 				padding:         .3rem .45rem .3rem .25rem;
-				border-radius: .9rem;
+				border-radius:   .9rem;
 				
 				font-size:       .925rem;
 				font-weight:     800;
@@ -1562,7 +1575,7 @@
 				}
 				
 				&:hover {
-					transform: scale(1.025);
+					transform:  scale(1.025);
 					filter:     brightness(1.15);
 					transition: var(--theme-transition-on);
 				}

@@ -13,12 +13,16 @@
 </script>
 
 <svelte:head>
+	<meta charset="utf-8">
 	<title>{data.seo.title}</title>
+	{#if data.seo.description}
+		<meta name="description" content={data.seo.description} />
+	{/if}
 </svelte:head>
 
-<ContentHeaderComponent amount={36} title='Typography' type='fonts'/>
-
 <section class='other-typography-sec'>
+	<ContentHeaderComponent amount={36} title='Typography' type='fonts'/>
+	
 	<div class='font-actions'>
 		<div class='action'>
 			Font Size
@@ -187,6 +191,7 @@
     @media (width >= 44rem) {
 	    .other-typography-sec {
 		    padding-right: 16rem;
+		    margin-top: 4rem;
 		    
 		    .font-actions {
 			    position: fixed;
@@ -199,6 +204,9 @@
     
     /* Phone */
     @media (width < 44rem) {
+	    .other-typography-sec {
+		    margin-top: 3rem;
+	    }
 	    .font-actions {
 		    position:      relative;
 		    width:         100%;

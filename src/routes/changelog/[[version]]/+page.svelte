@@ -24,7 +24,11 @@
 </script>
 
 <svelte:head>
+	<meta charset="utf-8">
 	<title>{data.seo.title}</title>
+	{#if data.seo.description}
+		<meta name="description" content={data.seo.description} />
+	{/if}
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
 		{#await import('$lib/styles/github.min.css')}{/await}
