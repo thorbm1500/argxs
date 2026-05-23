@@ -788,11 +788,17 @@
 	
 	:global .main-container.dark {
 		.highlighted-icon {
+			background:      rgb(17 18 23 / .3) !important;
+			
+			.h-icon {
+				background:      linear-gradient(to bottom, rgb(17 18 23 / .6) 0%, rgb(17 18 23 / .8) 35%, rgb(17 18 23 / .95) 100%);
+			}
+			
 			.glass-effect.b {
 				mask-image: linear-gradient(55deg, black 0%, transparent 35%, transparent 65%, black 100%), linear-gradient(15deg, black 0%, transparent 35%, transparent 100%) !important;
 			}
 			.c {
-				border-color: rgb(244 248 252 / .5) !important;
+				border-color: rgb(244 248 252 / .65) !important;
 			}
 			
 			.e {
@@ -813,7 +819,7 @@
 		width:           100vw;
 		height:          calc(100vh - var(--header-height));
 		
-		background:      rgba(from var(--theme-ui-background) r g b / .275);
+		background:      rgb(247 249 252 / .3);
 		
 		pointer-events:  none;
 		z-index:         50000;
@@ -829,7 +835,7 @@
 			border-radius: .9rem;
 			
 			&.a {
-				backdrop-filter: url('#highlighted-icon-distortion-filter') brightness(1.1) saturate(1.35) contrast(1.0025) url('#highlighted-icon-blur-filter') blur(3px);
+				backdrop-filter: url('#highlighted-icon-distortion-filter') brightness(1.1) saturate(1.35) contrast(1.0025) url('#highlighted-icon-blur-filter') blur(4px);
 				z-index:         40000 !important;
 			}
 			
@@ -844,7 +850,7 @@
 			
 			&.b, &.d {
 				mask-type: alpha;
-				filter:    blur(3px);
+				filter:    blur(4px);
 				
 				.c, .e {
 					position:      relative;
@@ -888,7 +894,7 @@
 			max-width:       80rem;
 			max-height:      32rem;
 			
-			background:      linear-gradient(to bottom, rgba(from var(--theme-icon-hightlight-container) r g b / .5) 0%, rgba(from var(--theme-icon-hightlight-container) r g b / .75) 100%);
+			background:      linear-gradient(to bottom, rgb(247 249 252 / .3) 0%, rgb(247 249 252 / .6) 100%);
 			border-radius:   .9rem;
 			
 			pointer-events:  all;

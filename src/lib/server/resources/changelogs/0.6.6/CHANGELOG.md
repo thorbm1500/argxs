@@ -4,6 +4,7 @@
 ## Minor Changes
 ### Icons
 - Improved SEO: Added page description
+- Improved visibility of icon in Highlighted Icon modal, by making the modal background less see-through
 - **[Brands](https://argxs.com/icons/brands)**
     - **New Icons**
       - **[New]** Shopify
