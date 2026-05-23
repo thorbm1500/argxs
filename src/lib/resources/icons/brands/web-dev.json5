@@ -1,0 +1,87 @@
+{
+	name: 'web.dev',
+	href: 'https://web.dev',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'web-dev-icon.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'web-dev-logo.svg',
+				date_added: '2026/5/23'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'web-dev-logo-dark.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			name: 'Baseline',
+			href: 'https://web.dev/baseline/',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'web-dev-baseline-icon.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'MDN',
+					href: 'https://developer.mozilla.org/en-US/'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'web-dev-baseline-icon-dark.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'MDN',
+					href: 'https://developer.mozilla.org/en-US/'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'web-dev-baseline-newly-available-icon.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'MDN',
+						href: 'https://developer.mozilla.org/en-US/'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'web-dev-baseline-newly-available-icon-dark.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'MDN',
+						href: 'https://developer.mozilla.org/en-US/'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'web-dev-baseline-limited-icon.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'MDN',
+						href: 'https://developer.mozilla.org/en-US/'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'web-dev-baseline-limited-icon-dark.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'MDN',
+						href: 'https://developer.mozilla.org/en-US/'
+					}
+				}
+			]
+		}
+	]
+}

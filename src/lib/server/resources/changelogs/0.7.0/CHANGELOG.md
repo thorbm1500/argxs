@@ -1,4 +1,4 @@
-# v0.6.6
+# v0.7.0
 #### 2026-05-23
 
 ## New Features
@@ -12,9 +12,11 @@
   - `prefers-reduced-motion: reduce`
   - `prefers-reduced-transparency: reduce`
 ### Icons
+- Icons are now only showed depending on their theme; Light themed icons are only showcased when argxs is viewed in light mode, and vice versa for dark mode.
 - Improved SEO: Added page description
 - Improved visibility of icon in Highlighted Icon modal, by making the modal background less see-through
 - Improved overall design of Highlighted Icon modal
+- An icon is now considered `NEW` for a total of 7 days, increasing it by 2, from the previous 5 days
 - **[Brands](https://argxs.com/icons/brands)**
     - **New Icons**
       - **[New]** VivaBit
@@ -29,6 +31,18 @@
       - **[New]** Go
       - **[New]** Gradle
       - **[New]** Alpine.js
+      - **[New]** Apidog
+      - **[New]** Atom
+      - **[New]** Balena
+        - Incl. balenaCloud
+        - Incl. balenaEtcher
+        - Incl. openBalena
+      - **[New]** web.dev
+        - Incl. Baseline
+          - Incl. Newly Available
+          - Incl. Limited
+      - Apple
+        - Apple Pay
 
 ## Fixes
 - Code syntax coloring no longer fails after switching between themes, due to overlap between themes

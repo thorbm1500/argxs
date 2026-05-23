@@ -412,7 +412,10 @@
 					frameworks,
 					programming
 					languages &
-					more.
+					more.<br>
+					<i style="font-size:.85rem;color:var(--theme-text-fourth);">
+						Icons showcased may differ, depending on the currently selected page theme, to avoid fx. showing white icons on a white page.
+					</i>
 				{:else}
 					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.entryAmount}</strong> different
 					countries<span style="font-size:.65rem !important;color:inherit;vertical-align: top">&#10033;</span>, consisting of <strong
@@ -661,7 +664,7 @@
 				padding-left: 1rem;
 				
 				.title {
-					font-size: 3rem;
+					font-size: 3.15rem;
 				}
 				
 				.subtitle {

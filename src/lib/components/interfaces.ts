@@ -8,6 +8,9 @@ export interface SEO {
 export interface Icon {
 	/** The name of the icon */
 	name: string,
+	/** The theme of the icon, if the icon has one. This is specifically for icons that are hard to see in other themes than what they have been made for, such as all white or all black icons<br>
+	 * `Note:` This should be left undefined, if the icon is visible in all themes */
+	theme?: string | PageTheme,
 	/** The path to the icon */
 	path: string,
 	/** An external site linked to the icon */

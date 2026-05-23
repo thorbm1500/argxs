@@ -13,7 +13,22 @@
 	const getScrollY: Function | undefined = getContext('scrollY');
 	let scrollY: number = $derived(getScrollY?.() ?? 0);
 	
-	const icons: Icon[] = $state([icon.default, ...icon.variable]);
+	const icons: Icon[] = $derived.by(() => {
+		const icons: Icon[] = [];
+		
+		if (!icon.default.theme || icon.default.theme === theme) {
+			icons.push(icon.default);
+		}
+		if (icon.dark && (!icon.dark.theme || icon.dark.theme === theme)) {
+			icons.push(icon.dark);
+		}
+		for (const i of icon.variable) {
+			if (!i.theme || i.theme === theme) icons.push(i);
+		}
+		
+		// [icon.default, ...icon.variable]
+		return icons;
+	});
 	let currentIconIndex: number = $state(0);
 	
 	let currentTheme: PageTheme = $state(theme);
@@ -21,23 +36,21 @@
 	let isImageLoading: boolean = $state(true);
 	updateCurrentIcon();
 	
-	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 432000000));
-	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 432000000));
+	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 604800000));
+	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 604800000));
 	
 	$effect(() => {
 		if (theme !== currentTheme) {
 			currentTheme = theme;
+			
+			if ((highlightedIcon?.icon === icon)) {
+				highlightedIcon = { icon, iconIndex: icons, currentIcon: currentIconIndex };
+			}
 			updateCurrentIcon();
 		}
 	});
 	
 	function updateCurrentIcon() {
-		if (theme === 'light' || !icon.dark) {
-			icons[0] = icon.default;
-		} else {
-			icons[0] = icon.dark;
-		}
-		
 		currentIconIndex = 0;
 	}
 	

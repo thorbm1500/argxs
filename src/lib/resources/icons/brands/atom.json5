@@ -1,0 +1,26 @@
+{
+	name: 'Atom',
+	href: 'https://github.blog/news-insights/product-news/sunsetting-atom/',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'atom-icon.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'atom-logo.svg',
+				date_added: '2026/5/23'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'atom-logo-dark.svg',
+				date_added: '2026/5/23'
+			}
+		}
+	]
+}
