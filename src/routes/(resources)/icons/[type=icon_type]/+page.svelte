@@ -5,7 +5,7 @@
 	import BrandIconComponent from '$lib/components/BrandIconComponent.svelte';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { draw, fade } from 'svelte/transition';
-	import { quartInOut } from 'svelte/easing';
+	import { quartInOut, cubicOut } from 'svelte/easing';
 	import moment from 'moment';
 	import { copyToClipboard } from '$lib/utilities';
 	import { page } from '$app/state';
@@ -14,6 +14,7 @@
 	import hljs from '@highlightjs/cdn-assets/es/core.min.js';
 	import xml from '@highlightjs/cdn-assets/es/languages/xml.min.js';
 	import { prefersReducedMotion } from 'svelte/motion';
+	import { MediaQuery } from 'svelte/reactivity';
 	
 	hljs.registerLanguage('xml', xml);
 	
@@ -90,6 +91,8 @@
 	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon ? highlightedIcon.iconIndex[highlightedIcon.currentIcon] : undefined);
 	let hPreviousIcon: Icon | undefined = undefined;
 	
+	let backgroundLight: boolean = $state(!new MediaQuery('prefers-reduced-transparency', false).current);
+	
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
 	
@@ -131,7 +134,7 @@
 				let el: HTMLElement | null = event.target as HTMLElement;
 				while (el !== null) {
 					// Returning if expression matches, allowing certain elements to be clickable.
-					if (/(overlay buttons)|(highlighted-icon)|(header-section)/.test(el.className)) return;
+					if (/(overlay buttons)|(highlighted-icon)|(header-section)|(light-button)/.test(el.className)) return;
 					else el = el.parentElement;
 				}
 				
@@ -222,7 +225,7 @@
 {#if highlightedIcon !== undefined}
 	{#key hCurrentIcon}
 		<!--svelte-ignore a11y_positive_tabindex-->
-		<div class="highlighted-icon">
+		<div class="highlighted-icon {backgroundLight ? 'lights-on' : 'lights-off'}">
 			<div style="display:contents;" inert>
 				<div class="glass-effect a"></div>
 				<div class="glass-effect b">
@@ -239,13 +242,36 @@
 					<!--suppress HtmlUnknownTag -->
 					<div class="gradient" inert></div>
 				</button>
+				<button title="Turn lights {backgroundLight ? 'off' : 'on'}" class="light-button" onclick={() => backgroundLight = !backgroundLight} tabindex="2">
+					{#if backgroundLight}
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" />
+							<path d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" />
+							<path d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" />
+							<path d="M4.893 4.893a1 1 0 0 1 1.32 -.083l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 0 -1.414z" />
+							<path d="M17.693 4.893a1 1 0 0 1 1.497 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7z" />
+							<path d="M14 18a1 1 0 0 1 1 1a3 3 0 0 1 -6 0a1 1 0 0 1 .883 -.993l.117 -.007h4z" />
+							<path d="M12 6a6 6 0 0 1 3.6 10.8a1 1 0 0 1 -.471 .192l-.129 .008h-6a1 1 0 0 1 -.6 -.2a6 6 0 0 1 3.6 -10.8z" />
+						</svg>
+					{:else}
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+							<path in:draw={{duration: prefersReducedMotion.current ? 0 : 100}}
+							      d="M11.089 7.083a5 5 0 0 1 5.826 5.84m-1.378 2.611a5.012 5.012 0 0 1 -.537 .466a3.5 3.5 0 0 0 -1 3a2 2 0 1 1 -4 0a3.5 3.5 0 0 0 -1 -3a5 5 0 0 1 -.528 -7.544" />
+							<path d="M9.7 17h4.6" />
+							<path in:draw={{delay: prefersReducedMotion.current ? 0 : 50, duration: prefersReducedMotion.current ? 0 : 500, easing: cubicOut}} d="M3 3l18 18"/>
+						</svg>
+					{/if}
+				</button>
 				<div class="left">
 					{#key hCurrentIcon?.path}
 						<div class="img-fx" inert>
-							<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
+							<img in:fade|global={{duration: prefersReducedMotion.current ? 0 : 500}} src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
 							     alt={hCurrentIcon?.name} loading="lazy" />
 						</div>
-						<img in:fade|global src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
+						<img in:fade|global={{duration: prefersReducedMotion.current ? 0 : 350}} src="/resources/icons/{iconType}/{hCurrentIcon?.path}"
 						     alt={hCurrentIcon?.name} loading="lazy" inert />
 					{/key}
 					{#if highlightedIcon.iconIndex.length > 1}
@@ -298,7 +324,8 @@
 							{/if}
 						</a>
 					{/if}
-					<div class="name" tabindex="-1">
+					<div class="name" tabindex="-1"
+					     style="transform:translateY({!hCurrentIcon?.name && highlightedIcon.icon.title === highlightedIcon.icon.name && !hCurrentIcon?.href && !highlightedIcon.icon.href ? 1 : 0}rem)">
 						{#if hCurrentIcon?.name}
 							<h1 class="brand-name" tabindex="-1">{hCurrentIcon.name}</h1>
 							<h3 class="icon-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
@@ -407,8 +434,7 @@
 					<GlassButton className="sort-action">
 						<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => sorting = 'default'}">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path transition:draw|global={{duration: 1100, easing: quartInOut}}
-								      d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
+								<path d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
 							</svg>
 						</button>
 					</GlassButton>
@@ -424,17 +450,17 @@
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							{#if sorting === 'alphabet'}
 								{#if order === 'asc'}
-									<path in:draw|global={{duration: 350}} d="M15 10v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
-									<path in:draw|global={{duration: 350}} d="M19 21h-4l4 -7h-4" />
+									<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M15 10v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
+									<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M19 21h-4l4 -7h-4" />
 								{:else}
-									<path in:draw|global={{duration: 350}} d="M15 21v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
-									<path in:draw|global={{duration: 350}} d="M19 10h-4l4 -7h-4" />
+									<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M15 21v-5c0 -1.38 .62 -2 2 -2s2 .62 2 2v5m0 -3h-4" />
+									<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M19 10h-4l4 -7h-4" />
 								{/if}
 								<path d="M4 15l3 3l3 -3" />
 								<path d="M7 6v12" />
 							{:else}
-								<path in:draw|global={{duration: 350}} d="M16 8h4l-4 8h4" />
-								<path in:draw|global={{duration: 350}} d="M4 16v-6a2 2 0 1 1 4 0v6" />
+								<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M16 8h4l-4 8h4" />
+								<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M4 16v-6a2 2 0 1 1 4 0v6" />
 								<path d="M4 13h4" />
 								<path d="M11 12h2" />
 							{/if}
@@ -457,9 +483,9 @@
 								<path d="M12 7v5l2.5 2.5" />
 								<path d="M19 22v-6" />
 								{#if order === 'asc'}
-									<path in:draw|global={{duration: 350}} d="M22 19l-3 -3l-3 3" />
+									<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M22 19l-3 -3l-3 3" />
 								{:else}
-									<path in:draw|global={{duration: 350}} d="M22 19l-3 3l-3 -3" />
+									<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M22 19l-3 3l-3 -3" />
 								{/if}
 							{:else}
 								<path d="M20.943 13.016a9 9 0 1 0 -8.915 7.984" />
@@ -788,7 +814,12 @@
 	
 	:global .main-container.dark {
 		.highlighted-icon {
-			background:      rgb(17 18 23 / .3) !important;
+			&.lights-on {
+				background-color:      rgb(17 18 23 / .3) !important;
+			}
+			&.lights-off {
+				background-color:      rgb(17 18 23 / .95) !important;
+			}
 			
 			.h-icon {
 				background:      linear-gradient(to bottom, rgb(17 18 23 / .6) 0%, rgb(17 18 23 / .8) 35%, rgb(17 18 23 / .95) 100%);
@@ -819,10 +850,17 @@
 		width:           100vw;
 		height:          calc(100vh - var(--header-height));
 		
-		background:      rgb(247 249 252 / .3);
-		
 		pointer-events:  none;
 		z-index:         50000;
+		
+		&.lights-on {
+			background-color:      rgb(247 249 252 / .3);
+			transition: background-color var(--theme-transition-single-off);
+		}
+		&.lights-off {
+			background-color:      rgb(247 249 252 / .95);
+			transition: background-color var(--theme-transition-single-on);
+		}
 		
 		.glass-effect {
 			position:      absolute;
@@ -901,9 +939,32 @@
 			
 			z-index:         49999;
 			
-			.close-button {
+			.light-button, .close-button {
 				position:      absolute;
 				top:           1rem;
+			}
+			
+			.light-button {
+				left: 1rem;
+				
+				&:hover svg {
+					color: var(--theme-ui-icon-highlight);
+					
+					transition: color var(--theme-transition-single-on);
+				}
+				
+				svg {
+					width: 1.55rem;
+					height: 1.55rem;
+					
+					color: var(--theme-ui-icon);
+					pointer-events: none;
+					
+					transition: color var(--theme-transition-single-off);
+				}
+			}
+			
+			.close-button {
 				right:         1rem;
 				overflow:      hidden;
 				
