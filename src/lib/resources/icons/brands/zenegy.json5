@@ -16,7 +16,7 @@
 				path: 'zenegy-icon-dark.svg',
 				date_added: '2026/5/12',
 				source: {
-					name: 'Brandfetch',
+					name: 'Zenegy',
 					href: 'https://zenegy.com'
 				}
 			}
@@ -27,7 +27,7 @@
 				path: 'zenegy-logo.svg',
 				date_added: '2026/5/12',
 				source: {
-					name: 'Brandfetch',
+					name: 'Zenegy',
 					href: 'https://zenegy.com'
 				}
 			},
@@ -35,7 +35,7 @@
 				path: 'zenegy-logo-dark.svg',
 				date_added: '2026/5/12',
 				source: {
-					name: 'Brandfetch',
+					name: 'Zenegy',
 					href: 'https://zenegy.com'
 				}
 			}
