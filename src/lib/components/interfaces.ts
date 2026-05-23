@@ -1,7 +1,8 @@
 export type PageTheme = 'light' | 'dark';
 
 export interface SEO {
-	title: string
+	title: string,
+	description?: string
 }
 
 export interface Icon {
