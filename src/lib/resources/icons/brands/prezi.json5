@@ -12,14 +12,17 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			dark: {
-				path: 'prezi-icon-dark.svg',
-				date_added: '2026/5/5',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					theme: 'dark',
+					path: 'prezi-icon-dark.svg',
+					date_added: '2026/5/5',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			}
+			]
 		},
 		{
 			type: 'logo',
@@ -31,14 +34,17 @@
 					href: 'https://brandfetch.com'
 				}
 			},
-			dark: {
-				path: 'prezi-logo-dark.svg',
-				date_added: '2026/5/5',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+			variable: [
+				{
+					theme: 'dark',
+					path: 'prezi-logo-dark.svg',
+					date_added: '2026/5/5',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
 				}
-			}
+			]
 		}
 	]
 }

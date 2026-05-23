@@ -5,10 +5,12 @@
         {
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'rolldown-icon.svg',
                 date_added: '2026/4/25'
             },
             dark: {
+                theme: 'dark',
                 path: 'rolldown-icon-dark.svg',
                 date_added: '2026/4/25'
             }
@@ -16,10 +18,12 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'rolldown-logo.svg',
                 date_added: '2026/4/25'
             },
             dark: {
+                theme: 'dark',
                 path: 'rolldown-logo-dark.svg',
                 date_added: '2026/4/25'
             }

@@ -5,6 +5,7 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'native-instruments-icon.svg',
 				date_added: '2026/5/21',
 				source: {
@@ -13,6 +14,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'native-instruments-icon-dark.svg',
 				date_added: '2026/5/21',
 				source: {
@@ -24,6 +26,7 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'native-instruments-logo.svg',
 				date_added: '2026/5/21',
 				source: {
@@ -32,6 +35,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'native-instruments-logo-dark.svg',
 				date_added: '2026/5/21',
 				source: {

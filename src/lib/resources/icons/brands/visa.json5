@@ -14,6 +14,7 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'visa-logo-monochrome-black.svg',
 					date_added: '2026/4/29',
 					source: {
@@ -22,6 +23,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'visa-logo-monochrome-white.svg',
 					date_added: '2026/4/29',
 					source: {

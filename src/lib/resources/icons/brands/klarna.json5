@@ -14,6 +14,7 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'klarna-logo-monochrome-light.svg',
 					date_added: '2026/5/5',
 					source: {
@@ -22,6 +23,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'klarna-logo-monochrome-dark.svg',
 					date_added: '2026/5/5',
 					source: {

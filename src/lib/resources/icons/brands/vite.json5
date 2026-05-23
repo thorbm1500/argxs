@@ -5,10 +5,12 @@
         {
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'vite-icon.svg',
                 date_added: '2026/4/25'
             },
             dark: {
+                theme: 'dark',
                 path: 'vite-icon-dark.svg',
                 date_added: '2026/4/25'
             }
@@ -16,10 +18,12 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'vite-logo.svg',
                 date_added: '2026/4/25'
             },
             dark: {
+                theme: 'dark',
                 path: 'vite-logo-dark.svg',
                 date_added: '2026/4/25'
             }

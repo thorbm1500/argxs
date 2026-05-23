@@ -5,19 +5,23 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'astro-icon.svg',
 				date_added: '2026/5/22'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'astro-icon-dark.svg',
 				date_added: '2026/5/22'
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'astro-icon-black.svg',
 					date_added: '2026/5/22'
 				},
 				{
+					theme: 'dark',
 					path: 'astro-icon-white.svg',
 					date_added: '2026/5/22'
 				}
@@ -26,19 +30,23 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'astro-logo.svg',
 				date_added: '2026/5/22'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'astro-logo-dark.svg',
 				date_added: '2026/5/22'
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'astro-logo-black.svg',
 					date_added: '2026/5/22'
 				},
 				{
+					theme: 'dark',
 					path: 'astro-logo-white.svg',
 					date_added: '2026/5/22'
 				}

@@ -5,10 +5,12 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'grok-icon.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'grok-icon-dark.svg',
 				date_added: '2026/4/10'
 			}
@@ -16,10 +18,12 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'grok-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'grok-logo-dark.svg',
 				date_added: '2026/4/10'
 			}

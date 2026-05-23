@@ -13,6 +13,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'reddit-symbol-dark.svg',
                 date_added: '2026/4/29',
                 source: {
@@ -33,6 +34,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'reddit-icon-monochrome-black.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -41,6 +43,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'reddit-icon-monochrome-white.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -62,6 +65,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'reddit-icon-alternate-monochrome-black.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -70,6 +74,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'reddit-icon-alternate-monochrome-white.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -90,6 +95,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'reddit-full-logo-dark.svg',
                 date_added: '2026/4/29',
                 source: {
@@ -110,6 +116,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'reddit-logo-monochrome-black.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -118,6 +125,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'reddit-logo-monochrome-white.svg',
                     date_added: '2026/4/29',
                     source: {

@@ -5,6 +5,7 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'okta-icon.svg',
 				date_added: '2026/4/29',
 				source: {
@@ -13,6 +14,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'okta-icon-dark.svg',
 				date_added: '2026/4/29',
 				source: {
@@ -24,6 +26,7 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'okta-logo.svg',
 				date_added: '2026/4/29',
 				source: {
@@ -32,6 +35,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'okta-logo-dark.svg',
 				date_added: '2026/4/29',
 				source: {

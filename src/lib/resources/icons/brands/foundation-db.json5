@@ -6,10 +6,12 @@
         {
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'foundation-db-icon.svg',
                 date_added: '2026/4/24'
             },
             dark: {
+                theme: 'dark',
                 path: 'foundation-db-icon-dark.svg',
                 date_added: '2026/4/24'
             }
@@ -17,10 +19,12 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'foundation-db-logo.svg',
                 date_added: '2026/4/24'
             },
             dark: {
+                theme: 'dark',
                 path: 'foundation-db-logo-dark.svg',
                 date_added: '2026/4/24'
             }

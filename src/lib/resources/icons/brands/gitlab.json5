@@ -10,10 +10,12 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'gitlab-icon-monochrome-light.svg',
 					date_added: '2026/5/11'
 				},
 				{
+					theme: 'dark',
 					path: 'gitlab-icon-monochrome-dark.svg',
 					date_added: '2026/5/11'
 				}
@@ -22,19 +24,23 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'gitlab-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'gitlab-logo-dark.svg',
 				date_added: '2026/4/10'
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'gitlab-logo-monochrome-light.svg',
 					date_added: '2026/5/11'
 				},
 				{
+					theme: 'dark',
 					path: 'gitlab-logo-monochrome-dark.svg',
 					date_added: '2026/5/11'
 				}

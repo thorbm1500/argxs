@@ -5,10 +5,12 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'rust-icon.svg',
 				date_added: '2026/5/22'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'rust-icon-dark.svg',
 				date_added: '2026/5/22'
 			}

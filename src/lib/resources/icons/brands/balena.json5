@@ -56,6 +56,7 @@
 			href: 'https://etcher.balena.io',
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'balena-etcher-logo.svg',
 				date_added: '2026/5/23',
 				source: {
@@ -64,6 +65,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'balena-etcher-logo-dark.svg',
 				date_added: '2026/5/23',
 				source: {

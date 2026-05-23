@@ -5,6 +5,7 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'amazon-logo.svg',
                 date_added: '2026/4/30',
                 source: {
@@ -13,6 +14,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'amazon-logo-dark.svg',
                 date_added: '2026/4/30',
                 source: {
@@ -25,6 +27,7 @@
             name: 'Amazon Music',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'amazon-music-logo.svg',
                 date_added: '2026/4/30',
                 source: {
@@ -33,6 +36,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'amazon-music-logo-dark.svg',
                 date_added: '2026/4/30',
                 source: {

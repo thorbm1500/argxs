@@ -5,6 +5,7 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'vestas-logo.svg',
 				date_added: '2026/5/12',
 				source: {
@@ -13,6 +14,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'vestas-logo-dark.svg',
 				date_added: '2026/5/12',
 				source: {

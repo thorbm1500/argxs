@@ -9,6 +9,7 @@
 				date_added: '2026/4/10'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'adonis-js-icon-dark.svg',
 				date_added: '2026/4/10'
 			}
@@ -20,6 +21,7 @@
 				date_added: '2026/4/10'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'adonis-js-logo-dark.svg',
 				date_added: '2026/4/10'
 			}

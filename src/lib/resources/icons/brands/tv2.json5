@@ -7,6 +7,7 @@
 			href: 'https://www.tv2kosmopol.dk',
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'tv2-kosmopol-logo.svg',
 				date_added: '2026/5/12',
 				source: {
@@ -15,6 +16,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'tv2-kosmopol-logo-dark.svg',
 				date_added: '2026/5/12',
 				source: {

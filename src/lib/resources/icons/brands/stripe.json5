@@ -14,6 +14,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'stripe-logo.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -22,6 +23,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'stripe-logo-dark.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -44,6 +46,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'stripe-badge.svg',
                     date_added: '2026/4/29',
                     source: {
@@ -52,6 +55,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'stripe-badge-dark.svg',
                     date_added: '2026/4/29',
                     source: {

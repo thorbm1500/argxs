@@ -14,6 +14,7 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'mozilla-org-icon-monochrome-light.svg',
 					date_added: '2026/5/11',
 					source: {
@@ -22,6 +23,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'mozilla-org-icon-monochrome-dark.svg',
 					date_added: '2026/5/11',
 					source: {
@@ -43,6 +45,7 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'mozilla-org-logo-monochrome-light.svg',
 					date_added: '2026/5/11',
 					source: {
@@ -51,6 +54,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'mozilla-org-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
 					source: {
@@ -72,6 +76,7 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'mozilla-org-variant-logo-monochrome-light.svg',
 					date_added: '2026/5/11',
 					source: {
@@ -80,6 +85,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'mozilla-org-variant-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
 					source: {
