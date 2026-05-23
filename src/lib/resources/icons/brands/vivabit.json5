@@ -1,0 +1,25 @@
+{
+	name: 'VivaBit',
+	href: 'https://vivabit.io',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'vivabit-icon.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'VivaBit',
+					href: 'https://vivabit.io'
+				}
+			},
+			dark: {
+				path: 'vivabit-icon-dark.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'VivaBit',
+					href: 'https://vivabit.io'
+				}
+			}
+		}
+	]
+}
