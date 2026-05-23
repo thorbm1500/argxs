@@ -3,13 +3,8 @@
 @import '$lib/resources/other/typography/lexend/fonts.css';
 @import '$lib/resources/other/typography/funnel/fonts.css';
 @import '$lib/resources/other/typography/jetbrains-mono/fonts.css';
+@import '$lib/fonts/geologica.css';
 @import 'tailwindcss';
-
-@font-face {
-	font-family: 'Geologica';
-	font-display: swap;
-	src: url('$lib/fonts/Geologica-Variable.ttf');
-}
 
 :root {
 	/* Transitions */
