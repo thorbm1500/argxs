@@ -10,6 +10,7 @@ export class Resources {
 	BRAND_ICON_AMOUNT: number = 0;
 	BRAND_LOGO_AMOUNT: number = 0;
 	BRAND_TOTAL_AMOUNT: number = 0;
+	BRAND_AMOUNT: number = 0;
 
 	readonly FLAG_ICONS: ResourceIcon[] = [];
 	readonly FLAG_ICONS_SORTED_NEW: ResourceIcon[] = [];
@@ -39,6 +40,7 @@ export class Resources {
 
 		for (const brand of await fs.readdir(path)) {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
+			this.BRAND_AMOUNT++;
 
 			for (const icon of current.assets) {
 				const resource = {
