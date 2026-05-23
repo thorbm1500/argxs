@@ -1,0 +1,69 @@
+{
+	name: 'Gradle',
+	href: 'https://gradle.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'gradle-icon.svg',
+				date_added: '2026/5/22'
+			},
+			dark: {
+				path: 'gradle-icon-dark.svg',
+				date_added: '2026/5/22'
+			},
+			variable: [
+				{
+					path: 'gradle-icon-black.svg',
+					date_added: '2026/5/22'
+				},
+				{
+					path: 'gradle-icon-white.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'gradle-logo.svg',
+				date_added: '2026/5/22'
+			},
+			dark: {
+				path: 'gradle-logo-dark.svg',
+				date_added: '2026/5/22'
+			},
+			variable: [
+				{
+					path: 'gradle-logo-black.svg',
+					date_added: '2026/5/22'
+				},
+				{
+					path: 'gradle-logo-white.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'gradle-outline-logo.svg',
+				date_added: '2026/5/22'
+			},
+			dark: {
+				path: 'gradle-outline-logo-dark.svg',
+				date_added: '2026/5/22'
+			},
+			variable: [
+				{
+					path: 'gradle-outline-logo-black.svg',
+					date_added: '2026/5/22'
+				},
+				{
+					path: 'gradle-outline-logo-white.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		}
+	]
+}
