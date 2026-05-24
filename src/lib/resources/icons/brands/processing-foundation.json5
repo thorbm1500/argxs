@@ -1,0 +1,82 @@
+{
+	name: 'Processing Foundation',
+	href: 'https://processingfoundation.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'processing-foundation-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Processing',
+					href: 'https://processingfoundation.org'
+				}
+			}
+		},
+		{
+			name: 'Processing',
+			href: 'https://processing.org',
+			type: 'icon',
+			default: {
+				path: 'processing-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Processing',
+					href: 'https://processing.org'
+				}
+			}
+		},
+		{
+			name: 'p5.js',
+			href: 'https://p5js.org',
+			type: 'icon',
+			default: {
+				path: 'p5-js-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Processing',
+					href: 'https://processing.org'
+				}
+			}
+		},
+		{
+			name: 'p5.js',
+			href: 'https://p5js.org',
+			type: 'logo',
+			default: {
+				path: 'p5-js-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'p5.js',
+					href: 'https://p5js.org'
+				}
+			}
+		},
+		{
+			name: 'Processing Android',
+			href: 'https://android.processing.org',
+			type: 'icon',
+			default: {
+				path: 'processing-android-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Processing',
+					href: 'https://processing.org'
+				}
+			}
+		},
+		{
+			name: 'Processing Python',
+			href: 'https://py.processing.org',
+			type: 'icon',
+			default: {
+				path: 'processing-python-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Processing',
+					href: 'https://processing.org'
+				}
+			}
+		}
+	]
+}

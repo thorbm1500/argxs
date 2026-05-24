@@ -1,0 +1,13 @@
+{
+	name: 'Lua',
+	href: 'https://www.lua.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'lua-icon.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

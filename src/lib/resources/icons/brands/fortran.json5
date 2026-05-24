@@ -1,0 +1,13 @@
+{
+	name: 'Fortran',
+	href: 'https://fortran-lang.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'fortran-icon.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

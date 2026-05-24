@@ -1,0 +1,13 @@
+{
+	name: 'Clio',
+	href: 'https://clio-lang.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'clio-icon.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

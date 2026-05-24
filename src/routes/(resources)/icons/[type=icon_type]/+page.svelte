@@ -33,17 +33,21 @@
 	let sorting: 'default' | 'time' | 'alphabet' = $state('default');
 	let order: 'desc' | 'asc' = $state('desc');
 	let icons: ResourceIcon[] = $derived.by(() => {
-		let current = data.icons;
+		let current = [];
 		
 		switch (sorting) {
 			case 'time': {
-				if (order === 'asc') current = data.iconsSortedNew.toReversed();
+				if (order === 'desc') current = data.iconsSortedNew.toReversed();
 				else current = data.iconsSortedNew;
 				break;
 			}
 			case 'alphabet': {
-				if (order === 'asc') current = data.iconsSortedAtoZ.toReversed();
+				if (order === 'desc') current = data.iconsSortedAtoZ.toReversed();
 				else current = data.iconsSortedAtoZ;
+				break;
+			}
+			default: {
+				current = data.icons;
 				break;
 			}
 		}
@@ -53,7 +57,23 @@
 			else if (logosOnly) return current.filter((icon: ResourceIcon) => icon.type === 'logo');
 		}
 		
-		return current;
+		const result: ResourceIcon[] = [];
+		
+		for (const resource of current) {
+			if (!resource.default.theme || resource.default.theme === theme || (resource.dark && (!resource.dark.theme || resource.dark.theme === theme))) {
+				result.push(resource);
+				continue;
+			}
+			
+			for (const v of resource.variable) {
+				if (!v.theme || v.theme === $state.eager(theme)) {
+					result.push(resource);
+					break;
+				}
+			}
+		}
+		
+		return result;
 	});
 	
 	// - Pagination Variables
@@ -97,6 +117,9 @@
 	let currentLoadedSVG = '';
 	
 	$effect(() => {
+		// Prevents the container from closing immediately again, if attempted opened after an auto-close triggered by theme-switching.
+		if (!highlightedIcon && iconContainerOpened !== null) iconContainerOpened = null;
+		
 		if (hPreviousIcon !== hCurrentIcon) {
 			hPreviousIcon = hCurrentIcon;
 			if (hCurrentIcon !== undefined) {
@@ -182,7 +205,7 @@
 		iconsOnly = false;
 		logosOnly = false;
 		sorting = 'default';
-		order = 'desc';
+		order = 'asc';
 		currentPage = 1;
 		closeHighlightContainer();
 		await tick();
@@ -261,7 +284,7 @@
 							<path in:draw={{duration: prefersReducedMotion.current ? 0 : 100}}
 							      d="M11.089 7.083a5 5 0 0 1 5.826 5.84m-1.378 2.611a5.012 5.012 0 0 1 -.537 .466a3.5 3.5 0 0 0 -1 3a2 2 0 1 1 -4 0a3.5 3.5 0 0 0 -1 -3a5 5 0 0 1 -.528 -7.544" />
 							<path d="M9.7 17h4.6" />
-							<path in:draw={{delay: prefersReducedMotion.current ? 0 : 50, duration: prefersReducedMotion.current ? 0 : 500, easing: cubicOut}} d="M3 3l18 18"/>
+							<path in:draw={{delay: prefersReducedMotion.current ? 0 : 50, duration: prefersReducedMotion.current ? 0 : 500, easing: cubicOut}} d="M3 3l18 18" />
 						</svg>
 					{/if}
 				</button>
@@ -437,7 +460,8 @@
 					<GlassButton className="sort-action">
 						<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => sorting = 'default'}">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
+								<path
+									d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
 							</svg>
 						</button>
 					</GlassButton>
@@ -446,9 +470,9 @@
 					<button class="sort-action" onclick="{() =>  {
 							if (sorting !== 'alphabet') {
 								sorting = 'alphabet';
-								order = 'desc';
+								order = 'asc';
 							} else {
-								order = order === 'desc' ? 'asc' : 'desc';
+								order = order === 'asc' ? 'desc' : 'asc';
 							}}}">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							{#if sorting === 'alphabet'}
@@ -475,9 +499,9 @@
 					<button class="sort-action" onclick="{() =>  {
 							if (sorting !== 'time') {
 								sorting = 'time';
-								order = 'desc';
+								order = 'asc';
 							} else {
-								order = order === 'desc' ? 'asc' : 'desc';
+								order = order === 'asc' ? 'desc' : 'asc';
 							}
 						}}">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -546,9 +570,7 @@
 	
 	<div class="pagination-actions">
 		<GlassButton className="action pagination {currentPage > 3 ? '' : 'hide'}">
-			<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">
-				1
-			</button>
+			<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">1</button>
 		</GlassButton>
 		<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}" inert>
 			<div class="circle"></div>
@@ -568,13 +590,11 @@
 		</GlassButton>
 		<GlassButton className="action pagination {currentPage < maxPage ? '' : 'hide'}">
 			<button class="action pagination {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}"
-			        tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1
-				: ' '}</button>
+			        tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
 		</GlassButton>
 		<GlassButton className="action pagination {(currentPage + 1) < maxPage ? '' : 'hide'}">
 			<button class="action pagination {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}"
-			        tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) <
-			maxPage ? currentPage + 2 : ' '}</button>
+			        tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
 		</GlassButton>
 		<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" inert>
 			<div class="circle"></div>
@@ -583,9 +603,7 @@
 		</div>
 		<GlassButton className="action pagination {(currentPage + 2) < maxPage ? '' : 'hide'}">
 			<button title="Last Page" class="action pagination {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}"
-			        tabindex="{(currentPage + 2) < maxPage ? 0 : -1}">
-				{maxPage}
-			</button>
+			        tabindex="{(currentPage + 2) < maxPage ? 0 : -1}">{maxPage}</button>
 		</GlassButton>
 		<GlassButton className="item-amount">
 			<button class="item-amount" onclick={() => {
@@ -631,7 +649,6 @@
 	</div>
 </section>
 
-<!--suppress CssUnusedSymbol -->
 <style>
 	/* Desktop & Tablet */
 	@media (width >= 44rem) {
@@ -818,19 +835,23 @@
 	:global .main-container.dark {
 		.highlighted-icon {
 			&.lights-on {
-				background-color:      rgb(17 18 23 / .3) !important;
+				background-color:           rgb(17 18 23 / .3) !important;
+				transition-duration:        300ms !important;
+				transition-timing-function: linear(0, 0.151 8.1%, 0.223 11.7%, 0.304 15.2%, 0.392 18.4%, 0.497 21.6%, 0.619 24.8%, 0.752 27.9%, 0.999 33.3%, 0.842 37.1%, 0.79 38.6%, 0.748 40%, 0.714 41.4%, 0.691 42.7%, 0.677 44%, 0.673 44.7%, 0.672 45.3%, 0.676 46.5%, 0.69 47.8%, 0.712 49.1%, 0.743 50.4%, 0.824 53%, 0.999 57.7%, 0.927 60%, 0.883 61.8%, 0.867 62.7%, 0.856 63.6%, 0.85 64.4%, 0.848 65.3%, 0.849 66.1%, 0.855 67%, 0.865 67.9%, 0.879 68.8%, 0.911 70.5%, 0.999 74.5%, 0.97 76.2%, 0.953 77.5%, 0.943 78.8%, 0.94 80.2%, 0.942 81.4%, 0.95 82.7%, 0.989 86.9%, 1 88.2%, 0.99 90%, 0.987 91.9%, 0.989 93.5%, 0.998 97.5%, 1) !important;
 			}
+			
 			&.lights-off {
-				background-color:      rgb(17 18 23 / .95) !important;
+				background-color: rgb(17 18 23 / .95) !important;
 			}
 			
 			.h-icon {
-				background:      linear-gradient(to bottom, rgb(17 18 23 / .6) 0%, rgb(17 18 23 / .8) 35%, rgb(17 18 23 / .95) 100%);
+				background: linear-gradient(to bottom, rgb(17 18 23 / .6) 0%, rgb(17 18 23 / .8) 35%, rgb(17 18 23 / .95) 100%);
 			}
 			
 			.glass-effect.b {
 				mask-image: linear-gradient(55deg, black 0%, transparent 35%, transparent 65%, black 100%), linear-gradient(15deg, black 0%, transparent 35%, transparent 100%) !important;
 			}
+			
 			.c {
 				border-color: rgb(244 248 252 / .65) !important;
 			}
@@ -857,12 +878,13 @@
 		z-index:         50000;
 		
 		&.lights-on {
-			background-color:      rgb(247 249 252 / .3);
-			transition: background-color var(--theme-transition-single-off);
+			background-color: rgb(247 249 252 / .3);
+			transition:       background-color var(--theme-transition-single-off);
 		}
+		
 		&.lights-off {
-			background-color:      rgb(247 249 252 / .95);
-			transition: background-color var(--theme-transition-single-on);
+			background-color: rgb(247 249 252 / .95);
+			transition:       background-color var(--theme-transition-single-on);
 		}
 		
 		.glass-effect {
@@ -943,27 +965,27 @@
 			z-index:         49999;
 			
 			.light-button, .close-button {
-				position:      absolute;
-				top:           1rem;
+				position: absolute;
+				top:      1rem;
 			}
 			
 			.light-button {
 				left: 1rem;
 				
 				&:hover svg {
-					color: var(--theme-ui-icon-highlight);
+					color:      var(--theme-ui-icon-highlight);
 					
 					transition: color var(--theme-transition-single-on);
 				}
 				
 				svg {
-					width: 1.55rem;
-					height: 1.55rem;
+					width:          1.55rem;
+					height:         1.55rem;
 					
-					color: var(--theme-ui-icon);
+					color:          var(--theme-ui-icon);
 					pointer-events: none;
 					
-					transition: color var(--theme-transition-single-off);
+					transition:     color var(--theme-transition-single-off);
 				}
 			}
 			
@@ -1422,7 +1444,6 @@
 		margin-top:      1.75rem;
 		
 		user-select:     none !important;
-		z-index:         500;
 		
 		.separator {
 			display:         flex;
@@ -1472,11 +1493,13 @@
 		}
 		
 		.action.pagination, :global .action.pagination {
-			position:   relative !important;
-			width:      3rem;
-			height:     3rem;
+			position:      relative !important;
+			width:         3rem;
+			height:        3rem;
 			
-			transition: var(--theme-transition-off);
+			border-radius: .9rem;
+			
+			transition:    var(--theme-transition-off);
 			
 			&.shown {
 				opacity: 1;
@@ -1498,10 +1521,11 @@
 		}
 		
 		.action.current-page, :global .current-page {
-			transform: scale(1.125);
-			position:  relative !important;
-			width:     3rem;
-			height:    3rem;
+			transform:     scale(1.125);
+			position:      relative !important;
+			width:         3rem;
+			height:        3rem;
+			border-radius: .9rem;
 		}
 		
 		.action {
@@ -1540,15 +1564,17 @@
 		}
 		
 		:global .item-amount {
-			position:    absolute;
-			right:       0;
+			position:      absolute;
+			right:         0;
 			
-			width:       6.25rem;
-			height:      2.5rem;
+			width:         6.25rem;
+			height:        2.5rem;
 			
-			font-weight: 600;
+			font-weight:   600;
 			
-			transition:  var(--theme-transition-off);
+			border-radius: .9rem;
+			
+			transition:    var(--theme-transition-off);
 			
 			&:hover {
 				filter:     brightness(1.15);
@@ -1743,3 +1769,4 @@
 		}
 	}
 </style>
+<!--suppress CssUnusedSymbol -->

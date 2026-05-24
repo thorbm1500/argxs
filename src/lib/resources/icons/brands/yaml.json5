@@ -1,0 +1,27 @@
+{
+	name: 'YAML',
+	href: 'https://yaml.org',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'yaml-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Wikipedia',
+					href: 'https://wikimedia.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'yaml-logo-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Wikipedia',
+					href: 'https://wikimedia.org'
+				}
+			}
+		}
+	]
+}

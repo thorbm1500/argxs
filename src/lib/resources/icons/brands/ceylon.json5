@@ -1,0 +1,19 @@
+{
+	name: 'Ceylon',
+	href: 'https://projects.eclipse.org/projects/technology.ceylon',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'ceylon-logo.svg',
+				date_added: '2026/5/24'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'ceylon-logo-dark.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

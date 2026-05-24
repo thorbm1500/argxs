@@ -1,0 +1,49 @@
+{
+	name: 'Mint',
+	href: 'https://mint-lang.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				animated: true,
+				path: 'mint-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Mint',
+					href: 'https://mint-lang.com'
+				}
+			},
+			variable: [
+				{
+					path: 'mint-icon-static.svg',
+					date_added: '2026/5/24',
+					source: {
+						name: 'Mint',
+						href: 'https://mint-lang.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'mint-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Mint',
+					href: 'https://mint-lang.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'mint-logo-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Mint',
+					href: 'https://mint-lang.com'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,8 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" fill="#000" width="1000" height="1600" viewBox="0 0 100 160">
+    <path opacity=".8" d="M50 44.3013L25 1L0 44.3013L25 87.6025L50 44.3013Z"/>
+    <path opacity=".45" d="M50 44.3091L75 1.00781L25 1.00781L0 44.3091H50Z"/>
+    <path opacity=".6" d="M75 1.00781L25 1.00781L50 44.3091H100L75 1.00781Z"/>
+    <path opacity=".8" d="M50 115.699L75 159L100 115.699L75 72.3975L50 115.699Z"/>
+    <path opacity=".45" d="M50 115.691L25 158.993H75L100 115.691L50 115.691Z"/>
+    <path opacity=".6" d="M25 158.993H75L50 115.691L0 115.691L25 158.993Z"/>
+</svg>

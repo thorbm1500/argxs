@@ -1,0 +1,13 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 480 320">
+    <defs>
+        <clipPath id="argxs_buildkite_icon_attr">
+            <path fill="#FFF" d="M0 0h480v320H0z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#argxs_buildkite_icon_attr)">
+        <path fill="#14CC80" d="M320 160v160l160-80V80l-160 80Z"/>
+        <path fill="#30F2A2" d="M320 0v160l160-80L320 0Z"/>
+        <path fill="#14CC80" d="M160 80v160l160-80V0L160 80Z"/>
+        <path fill="#30F2A2" d="M0 0v160l160 80V80L0 0Z"/>
+    </g>
+</svg>

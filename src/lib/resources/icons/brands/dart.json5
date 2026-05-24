@@ -1,0 +1,17 @@
+{
+	name: 'Dart',
+	href: 'https://dart.dev',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'dart-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Dart',
+					href: 'https://dart.dev'
+				}
+			}
+		}
+	]
+}

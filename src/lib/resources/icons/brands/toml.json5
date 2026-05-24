@@ -1,0 +1,27 @@
+{
+	name: 'TOML',
+	href: 'https://toml.io',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'toml-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'TOML',
+					href: 'https://toml.io'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'toml-icon-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'TOML',
+					href: 'https://toml.io'
+				}
+			}
+		}
+	]
+}

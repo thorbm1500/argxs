@@ -1,0 +1,11 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="-600 -600 1200 1200">
+    <g transform="scale(2 -2)">
+        <polygon fill="#1293D8" points="-280,-90 0,190 280,-90" transform="translate(0 -210)"/>
+        <polygon fill="#1293D8" points="-280,-90 0,190 280,-90" transform="translate(-210 0) rotate(-90)"/>
+        <polygon fill="#1293D8" fill-opacity=".75" points="-198,-66 0,132 198,-66" transform="translate(207 207) rotate(-45)"/>
+        <polygon fill="#1293D8" points="-130,0 0,-130 130,0 0,130" transform="translate(150 0)"/>
+        <polygon fill="#1293D8" fill-opacity=".75" points="-191,61 69,61 191,-61 -69,-61" transform="translate(-89 239)"/>
+        <polygon fill="#1293D8" fill-opacity=".75" points="-130,-44 0,86  130,-44" transform="translate(0 106) rotate(-180)"/>
+        <polygon fill="#1293D8" fill-opacity=".75" points="-130,-44 0,86  130,-44" transform="translate(256 -150) rotate(-270)"/>
+    </g>
+</svg>

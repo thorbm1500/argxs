@@ -1,0 +1,25 @@
+{
+	name: 'Eta',
+	href: 'https://eta-lang.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'eta-icon.svg',
+				date_added: '2026/5/24'
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'dark',
+				path: 'eta-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Eta',
+					href: 'https://eta-lang.org'
+				}
+			}
+		}
+	]
+}

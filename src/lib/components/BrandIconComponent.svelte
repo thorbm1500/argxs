@@ -16,43 +16,42 @@
 	const icons: Icon[] = $derived.by(() => {
 		const icons: Icon[] = [];
 		
-		if (!icon.default.theme || icon.default.theme === theme) {
+		if (theme === 'light' || !icon.default.theme) icons.push(icon.default);
+		else if (icon.default.theme === theme) {
 			icons.push(icon.default);
 		}
-		if (icon.dark && (!icon.dark.theme || icon.dark.theme === theme)) {
+		
+		if (theme === 'dark' && icon.dark && (!icon.dark.theme || icon.dark.theme === theme)) {
 			icons.push(icon.dark);
 		}
+		
 		for (const i of icon.variable) {
 			if (!i.theme || i.theme === theme) icons.push(i);
 		}
 		
-		// [icon.default, ...icon.variable]
 		return icons;
 	});
+	
 	let currentIconIndex: number = $state(0);
 	
 	let currentTheme: PageTheme = $state(theme);
 	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
 	let isImageLoading: boolean = $state(true);
-	updateCurrentIcon();
 	
-	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 604800000));
-	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 604800000));
+	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 1209600000));
+	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 1209600000));
 	
 	$effect(() => {
 		if (theme !== currentTheme) {
 			currentTheme = theme;
 			
-			if ((highlightedIcon?.icon === icon)) {
-				highlightedIcon = { icon, iconIndex: icons, currentIcon: currentIconIndex };
-			}
-			updateCurrentIcon();
+			if (highlightedIcon === undefined
+				|| highlightedIcon.icon.default.path !== icon.default.path
+				|| currentIcon.theme === undefined) return;
+			
+			highlightedIcon = currentIcon.theme !== theme ? undefined : { icon, iconIndex: icons, currentIcon: currentIconIndex };
 		}
 	});
-	
-	function updateCurrentIcon() {
-		currentIconIndex = 0;
-	}
 	
 	const accessibilityTab: Attachment = (element) => {
 		element.setAttribute('tabindex', '0');
@@ -71,6 +70,8 @@
 		element.addEventListener('mousedown', (event) => {
 			if (!(event.target as HTMLElement)?.className.includes('overlay buttons')) return;
 			event.preventDefault();
+			isActive = false;
+			isButton = false;
 			
 			highlightedIcon = { icon, iconIndex: icons, currentIcon: currentIconIndex };
 		});
@@ -87,7 +88,7 @@
 		});
 		
 		return () => {
-			if (highlightedIcon?.icon === icon) highlightedIcon = undefined;
+			if (highlightedIcon !== undefined && highlightedIcon.icon.default.path === icon.default.path) highlightedIcon = undefined;
 		};
 	};
 	
@@ -165,31 +166,24 @@
 </script>
 
 <div id="brand-icon" style="position:absolute;width:100%;height:100%;background:white;border-radius:inherit;" hidden inert></div>
-<svg style="display: none;">
-	<filter id="icon-glass-distortion" x="0%" y="0%" width="100%" height="100%">
-		<feTurbulence type="fractalNoise" baseFrequency="0.007 0.007" numOctaves="3" seed="{Math.trunc(Math.random() * 100000)}" result="noise" />
-		<feGaussianBlur in="noise" stdDeviation="4" result="blurred" />
-		<feDisplacementMap in="SourceGraphic" in2="blurred" scale="15" xChannelSelector="R" yChannelSelector="G" />
-	</filter>
-	<filter id="pixelate" x="0%" y="0%" width="100%" height="100%">
-		<!--Thanks to Zoltan Fegyver for figuring out pixelation and producing the awesome pixelation map. -->
-		<feGaussianBlur stdDeviation="2" in="SourceGraphic" result="smoothed" />
-		<feImage width="15" height="15"
-		         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC"
-		         result="displacement-map" />
-		<feTile in="displacement-map" result="pixelate-map" />
-		<feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="5" result="pre-final" />
-		<feComposite operator="in" in2="SourceGraphic" />
-	</filter>
-</svg>
 <!--svelte-ignore a11y_no_noninteractive_tabindex-->
-<div class="icon theme-transition-all {$state.eager(isImageLoading) ? 'loading' : ''} {isActive ? (isButton ? 'active button' : 'active') : ''}" {@attach mouseGlow} {@attach externalLink} {@attach accessibilityTab}>
+<div class="icon theme-transition-all {$state.eager(isImageLoading) ? 'loading' : ''} {isActive ? (isButton ? 'active button' : 'active') : ''}" {@attach mouseGlow} {@attach externalLink}
+     {@attach accessibilityTab}>
+	{#if currentIcon.animated}
+		<div class="overlay animated" inert>
+			<div class="element marker">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke-width=".4" stroke="currentColor">
+					<path d="M14.143 11.486a1 1 0 0 1 1.714 1.028c-1.502 2.505 -2.41 4.89 -2.87 7.65c-.16 .956 -1.448 1.15 -1.881 .283c-2.06 -4.12 -3.858 -4.976 -6.79 -3.998a1 1 0 1 1 -.632 -1.898c3.2 -1.067 5.656 -.373 7.803 2.623l.091 .13l.011 -.04c.522 -1.828 1.267 -3.55 2.273 -5.3l.28 -.478z" />
+					<path d="M18 4a3 3 0 1 0 0 6a3 3 0 0 0 0 -6" />
+				</svg>
+			</div>
+		</div>
+	{/if}
 	{#if isNewVariant}
 		<div class="overlay is-new-variant" inert>
 			<div class="element marker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-					<path
-						d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z" />
+					<path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z" />
 				</svg>
 				NEW
 			</div>
@@ -202,13 +196,12 @@
 	<div class="overlay buttons">
 		{#if icons.length > 1}
 			<button title="" class="element prev-icon" onclick="{() => {if (currentIconIndex > 0) currentIconIndex--; else currentIconIndex = icons.length - 1}}" {@attach accessibilityTab}>
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-					<path
-						d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="pointer-events:none;">
+					<path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
 				</svg>
 			</button>
 			<button title="" class="element next-icon" onclick="{() => {if (currentIconIndex < icons.length - 1) currentIconIndex++; else currentIconIndex = 0}}" {@attach accessibilityTab}>
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"  style="pointer-events:none;">
 					<path
 						d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
 				</svg>
@@ -524,6 +517,16 @@
 					color:      var(--theme-color-secondary);
 					transition: 200ms ease-in;
 				}
+			}
+		}
+		
+		.animated .marker {
+			top:   .45rem;
+			right: -5.45rem;
+			
+			svg {
+				width: 1.1rem;
+				height: 1.1rem;
 			}
 		}
 		

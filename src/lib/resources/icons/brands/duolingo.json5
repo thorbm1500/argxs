@@ -14,7 +14,7 @@
 			},
 			variable: [
 				{
-					theme: 'light',
+					theme: 'dark',
 					path: 'duolingo-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
 					source: {

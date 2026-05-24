@@ -1,0 +1,27 @@
+{
+	name: 'Crystal',
+	href: 'https://crystal-lang.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'crystal-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Crystal',
+					href: 'https://crystal-lang.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'crystal-icon-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Crystal',
+					href: 'https://crystal-lang.org'
+				}
+			}
+		}
+	]
+}

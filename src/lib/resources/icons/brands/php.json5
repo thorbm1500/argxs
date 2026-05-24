@@ -1,0 +1,78 @@
+{
+	name: 'PHP',
+	href: 'https://www.php.net',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				name: 'PHP 8.5',
+				href: 'https://www.php.net/releases/8.5/en.php',
+				theme: 'light',
+				path: 'php-8-5-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'PHP',
+					href: 'https://www.php.net'
+				}
+			},
+			dark: {
+				name: 'PHP 8.5',
+				href: 'https://www.php.net/releases/8.5/en.php',
+				theme: 'dark',
+				path: 'php-8-5-logo-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'PHP',
+					href: 'https://www.php.net'
+				}
+			},
+			variable: [
+				{
+					name: 'PHP 8.5',
+					href: 'https://www.php.net/releases/8.5/en.php',
+					theme: 'light',
+					path: 'php-8-5-logo-monochrome-black.svg',
+					date_added: '2026/5/24',
+					source: {
+						name: 'PHP',
+						href: 'https://www.php.net'
+					}
+				},
+				{
+					name: 'PHP 8.5',
+					href: 'https://www.php.net/releases/8.5/en.php',
+					theme: 'dark',
+					path: 'php-8-5-logo-monochrome-white.svg',
+					date_added: '2026/5/24',
+					source: {
+						name: 'PHP',
+						href: 'https://www.php.net'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'php-logo.svg',
+					date_added: '2026/5/24',
+					source: {
+						name: 'PHP',
+						href: 'https://www.php.net'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'php-logo-dark.svg',
+					date_added: '2026/5/24',
+					source: {
+						name: 'PHP',
+						href: 'https://www.php.net'
+					}
+				},
+				{
+					name: 'Old PHP',
+					path: 'php-old-logo.svg',
+					date_added: '2026/5/24'
+				}
+			]
+		}
+	]
+}
