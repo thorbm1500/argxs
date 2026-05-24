@@ -16,6 +16,7 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'axis-communications-logo.svg',
                 date_added: '2026/5/4',
                 source: {

@@ -1,0 +1,27 @@
+{
+	name: 'Markdown',
+	href: 'https://daringfireball.net/projects/markdown/',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'markdown-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Wikipedia',
+					href: 'https://www.wikipedia.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'markdown-icon-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Wikipedia',
+					href: 'https://www.wikipedia.org'
+				}
+			}
+		}
+	]
+}

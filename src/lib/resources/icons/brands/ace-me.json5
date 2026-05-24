@@ -5,6 +5,7 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'dark',
 				path: 'ace-me-icon.svg',
 				date_added: '2026/5/5',
 				source: {
@@ -16,6 +17,7 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'dark',
 				path: 'ace-me-logo.svg',
 				date_added: '2026/5/5',
 				source: {

@@ -1,0 +1,17 @@
+{
+	name: 'C (Language)',
+	href: 'https://www.c-language.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'c-language-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Wikipedia',
+					href: 'https://www.wikipedia.org'
+				}
+			}
+		}
+	]
+}

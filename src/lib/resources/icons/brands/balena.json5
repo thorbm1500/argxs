@@ -1,0 +1,100 @@
+{
+	name: 'Balena',
+	href: 'https://www.balena.io',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'balena-icon.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'balena-logo.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'Balena',
+					href: 'https://www.balena.io'
+				}
+			}
+		},
+		{
+			name: 'balenaCloud',
+			href: 'https://www.balena.io/cloud',
+			type: 'icon',
+			default: {
+				path: 'balena-cloud-icon.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			name: 'balenaCloud',
+			href: 'https://www.balena.io/cloud',
+			type: 'logo',
+			default: {
+				path: 'balena-cloud-logo.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'Balena',
+					href: 'https://www.balena.io'
+				}
+			}
+		},
+		{
+			name: 'balenaEtcher',
+			href: 'https://etcher.balena.io',
+			type: 'icon',
+			default: {
+				path: 'balena-etcher-icon.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			name: 'balenaEtcher',
+			href: 'https://etcher.balena.io',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'balena-etcher-logo.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'Balena',
+					href: 'https://www.balena.io'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'balena-etcher-logo-dark.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'Balena',
+					href: 'https://www.balena.io'
+				}
+			}
+		},
+		{
+			name: 'openBalena',
+			href: 'https://www.balena.io/open',
+			type: 'icon',
+			default: {
+				path: 'balena-open-icon.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			name: 'openBalena',
+			href: 'https://www.balena.io/open',
+			type: 'logo',
+			default: {
+				path: 'balena-open-logo.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'Balena',
+					href: 'https://www.balena.io'
+				}
+			}
+		}
+	]
+}

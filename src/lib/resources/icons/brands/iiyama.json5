@@ -14,6 +14,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'iiyama-logo-monochrome-light.svg',
                     date_added: '2026/5/4',
                     source: {
@@ -22,6 +23,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'iiyama-logo-monochrome-dark.svg',
                     date_added: '2026/5/4',
                     source: {

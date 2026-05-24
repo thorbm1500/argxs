@@ -5,10 +5,12 @@
         {
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'threads-icon.svg',
                 date_added: '2026/4/10'
             },
             dark: {
+                theme: 'dark',
                 path: 'threads-icon-dark.svg',
                 date_added: '2026/4/10'
             }
@@ -16,10 +18,12 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'threads-logo.svg',
                 date_added: '2026/4/10'
             },
             dark: {
+                theme: 'dark',
                 path: 'threads-logo-dark.svg',
                 date_added: '2026/4/10'
             }

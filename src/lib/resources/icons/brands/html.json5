@@ -1,0 +1,19 @@
+{
+	name: 'HTML5',
+	href: 'https://html.spec.whatwg.org/multipage/',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'html-icon.svg',
+				date_added: '2026/5/24'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'html-icon-dark.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

@@ -16,6 +16,7 @@
         {
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'figma-icon.svg',
                 date_added: '2026/4/29',
                 source: {
@@ -24,6 +25,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'figma-icon-dark.svg',
                 date_added: '2026/4/29',
                 source: {
@@ -35,6 +37,7 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'figma-logo.svg',
                 date_added: '2026/4/29',
                 source: {
@@ -43,6 +46,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'figma-logo-dark.svg',
                 date_added: '2026/4/29',
                 source: {

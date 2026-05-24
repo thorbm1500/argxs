@@ -5,10 +5,12 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'intel-logo.svg',
 				date_added: '2026/4/24'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'intel-logo-dark.svg',
 				date_added: '2026/4/24'
 			}

@@ -3,13 +3,8 @@
 @import '$lib/resources/other/typography/lexend/fonts.css';
 @import '$lib/resources/other/typography/funnel/fonts.css';
 @import '$lib/resources/other/typography/jetbrains-mono/fonts.css';
+@import '$lib/fonts/geologica.css';
 @import 'tailwindcss';
-
-@font-face {
-	font-family: 'Geologica';
-	font-display: swap;
-	src: url('$lib/fonts/Geologica-Variable.ttf');
-}
 
 :root {
 	/* Transitions */
@@ -48,12 +43,22 @@
 			}
 		}
 		
-		--theme-cubic-out:      cubic-bezier(0.215, 0.610, 0.355, 1.000);
-		--theme-transition-off: all 150ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
-		--theme-transition-on:  all 75ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		--theme-cubic-out:             cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		--theme-transition-off:        all 150ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
+		--theme-transition-on:         all 75ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		--theme-transition-single-off: 150ms cubic-bezier(0.550, 0.055, 0.675, 0.190);
+		--theme-transition-single-on:  75ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
 	}
 	
-	button,a {
+	@variant motion-reduce {
+		--theme-cubic-out:             none !important;
+		--theme-transition-off:        none !important;
+		--theme-transition-on:         none !important;
+		--theme-transition-single-off: none !important;
+		--theme-transition-single-on:  none !important;
+	}
+	
+	button, a {
 		cursor: pointer;
 	}
 }
@@ -88,6 +93,8 @@
 	--theme-ui-header:                    #EFF1F3;
 	--theme-ui-sidebar:                   #F3F4F6;
 	--theme-ui-sidebar-highlight:         #ECEEF1;
+	
+	--theme-ui-icon-dark:                 #5D697E;
 	--theme-ui-icon:                      #5D697E;
 	
 	--theme-sidebar-toggle-icon:          #EBECF1;
@@ -121,7 +128,10 @@
 	--theme-ui-line-highlight:            #38455D;
 	--theme-ui-sidebar:                   #16181E;
 	--theme-ui-sidebar-highlight:         #20242C;
-	--theme-ui-icon:                      #5E687A;
+	
+	--theme-ui-icon-dark:                 #5E687A;
+	--theme-ui-icon:                      #ACB6C9;
+	--theme-ui-icon-highlight:            #D6DDEA;
 	
 	--theme-sidebar-toggle-icon:          #222531;
 	--theme-sidebar-tag-background:       #232631;
@@ -167,7 +177,7 @@
 	scroll-behavior:         smooth;
 	-webkit-font-smoothing:  antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	box-sizing: border-box;
+	box-sizing:              border-box;
 }
 
 body {
@@ -220,7 +230,7 @@ body {
 	
 	h3, h4, h5, h6 {
 		font-family: 'Geologica', 'Google Sans', sans-serif;
-		color: var(--theme-text-secondary);
+		color:       var(--theme-text-secondary);
 	}
 	
 	svg {

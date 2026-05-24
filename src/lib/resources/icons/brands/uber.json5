@@ -5,6 +5,7 @@
         {
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'uber-icon.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -13,6 +14,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-icon-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -24,6 +26,7 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -32,6 +35,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -44,6 +48,7 @@
             name: 'Uber Driver',
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'uber-driver-icon.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -52,6 +57,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-driver-icon-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -64,6 +70,7 @@
             name: 'Uber Freight',
             type: 'icon',
             default: {
+                theme: 'light',
                 path: 'uber-freight-icon.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -72,6 +79,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-freight-icon-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -108,6 +116,7 @@
             name: 'Uber Eats',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-eats-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -116,6 +125,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-eats-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -128,6 +138,7 @@
             name: 'Cornershop by Uber',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'cornershop-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -136,6 +147,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'cornershop-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -148,6 +160,7 @@
             name: 'Uber Flash',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-flash-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -156,6 +169,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-flash-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -168,6 +182,7 @@
             name: 'Uber Max',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-max-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -176,6 +191,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-max-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -185,6 +201,7 @@
             },
             variants: [
                 {
+                    theme: 'light',
                     path: 'uber-max-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -193,6 +210,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-max-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -206,6 +224,7 @@
             name: 'Uber Black',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-black-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -214,6 +233,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-black-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -223,6 +243,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-black-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -231,6 +252,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-black-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -244,6 +266,7 @@
             name: 'Uber Electric',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-electric-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -252,6 +275,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-electric-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -261,6 +285,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-electric-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -269,6 +294,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-electric-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -282,6 +308,7 @@
             name: 'Uber Scooter',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-scooter-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -290,6 +317,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-scooter-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -299,6 +327,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-scooter-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -307,6 +336,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-scooter-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -320,6 +350,7 @@
             name: 'Uber Parcel',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-parcel-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -328,6 +359,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-parcel-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -337,6 +369,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-parcel-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -345,6 +378,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-parcel-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -358,6 +392,7 @@
             name: 'Uber AI Solutions',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-ai-solutions-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -366,6 +401,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-ai-solutions-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -375,6 +411,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-ai-solutions-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -383,6 +420,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-ai-solutions-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -396,6 +434,7 @@
             name: 'Uber Envios',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-envios-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -404,6 +443,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-envios-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -413,6 +453,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-envios-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -421,6 +462,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-envios-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -434,6 +476,7 @@
             name: 'Pass Uber Eats',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'pass-uber-eats-stacked-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -442,6 +485,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'pass-uber-eats-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -451,6 +495,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'pass-uber-eats-stacked-logo-monochrome-black.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -459,6 +504,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'pass-uber-eats-stacked-logo-monochrome-white.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -467,6 +513,7 @@
                     }
                 },
                 {
+                    theme: 'light',
                     path: 'pass-uber-eats-logo.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -475,6 +522,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'pass-uber-eats-logo-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -483,6 +531,7 @@
                     }
                 },
                 {
+                    theme: 'light',
                     path: 'pass-uber-eats-logo-monochrome-black.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -491,6 +540,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'pass-uber-eats-logo-monochrome-white.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -513,6 +563,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-one-icon-monochrome-black.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -521,6 +572,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-icon-monochrome-white.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -534,6 +586,7 @@
             name: 'Uber One',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-one-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -542,6 +595,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-one-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -551,6 +605,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-one-logo-monochrome-black.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -559,6 +614,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-logo-monochrome-white.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -572,6 +628,7 @@
             name: 'Uber One for Students',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-one-students-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -580,6 +637,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-one-students-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -589,6 +647,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-one-students-logo-monochrome-black.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -597,6 +656,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-students-logo-monochrome-white.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -610,6 +670,7 @@
             name: 'Uber One Exclusive',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'uber-one-exclusive-logo.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -618,6 +679,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'uber-one-exclusive-logo-dark.svg',
                 date_added: '2026/4/27',
                 source: {
@@ -627,6 +689,7 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'uber-one-exclusive-logo-monochrome-light.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -635,6 +698,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-exclusive-logo-monochrome-dark.svg',
                     date_added: '2026/4/27',
                     source: {
@@ -643,6 +707,7 @@
                     }
                 },
                 {
+                    theme: 'light',
                     path: 'uber-one-exclusive-french-logo.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -651,6 +716,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-exclusive-french-logo-dark.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -659,6 +725,7 @@
                     }
                 },
                 {
+                    theme: 'light',
                     path: 'uber-one-exclusive-german-logo.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -667,6 +734,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-exclusive-german-logo-dark.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -675,6 +743,7 @@
                     }
                 },
                 {
+                    theme: 'light',
                     path: 'uber-one-exclusive-spanish-logo.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -683,6 +752,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-exclusive-spanish-logo-dark.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -691,6 +761,7 @@
                     }
                 },
                 {
+                    theme: 'light',
                     path: 'uber-one-exclusive-spanish-var-logo.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -699,6 +770,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-exclusive-spanish-var-logo-dark.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -707,6 +779,7 @@
                     }
                 },
                 {
+                    theme: 'light',
                     path: 'uber-one-exclusive-japanese-logo.svg',
                     date_added: '2026/5/6',
                     source: {
@@ -715,6 +788,7 @@
                     }
                 },
                 {
+                    theme: 'dark',
                     path: 'uber-one-exclusive-japanese-logo-dark.svg',
                     date_added: '2026/5/6',
                     source: {

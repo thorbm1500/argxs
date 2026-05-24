@@ -1,0 +1,22 @@
+{
+	name: 'Alpine.js',
+	href: 'https://alpinejs.dev',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'alpine-js-icon.svg',
+				date_added: '2026/5/23'
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'alpine-js-logo.svg',
+				date_added: '2026/5/23'
+			}
+		}
+	]
+}

@@ -24,7 +24,11 @@
 </script>
 
 <svelte:head>
+	<meta charset="utf-8">
 	<title>{data.seo.title}</title>
+	{#if data.seo.description}
+		<meta name="description" content={data.seo.description} />
+	{/if}
 	<!--Dynamic syntax highlighting-->
 	{#if theme === 'light'}
 		{#await import('$lib/styles/github.min.css')}{/await}
@@ -156,7 +160,10 @@
 			
 			h3 {
 				font-weight: 700;
-				color:       var(--theme-text-secondary);
+				
+				&, * {
+					color:       var(--theme-text-secondary);
+				}
 			}
 			
 			h4 {
@@ -164,10 +171,13 @@
 				margin-bottom:  1rem;
 				
 				font-family:    'Funnel Sans', sans-serif;
-				color:          var(--theme-text-third);
 				font-weight:    600;
 				font-size:      .8rem;
 				letter-spacing: .1rem;
+				
+				&, * {
+					color:          var(--theme-text-third);
+				}
 			}
 			
 			a {
@@ -263,8 +273,9 @@
 			
 			.codespan {
 				width:   fit-content;
-				padding: .2rem .4rem .15rem .4rem;
+				padding: .21rem .4rem .15rem .4rem;
 				margin:  0;
+				font-size: .925rem;
 			}
 		}
 	}

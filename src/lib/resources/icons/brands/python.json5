@@ -1,0 +1,32 @@
+{
+	name: 'Python',
+	href: 'https://python.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'python-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		},
+		{
+			name: 'MicroPython',
+			href: 'https://micropython.org',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'micro-python-icon.svg',
+				date_added: '2026/5/24'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'micro-python-icon-dark.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

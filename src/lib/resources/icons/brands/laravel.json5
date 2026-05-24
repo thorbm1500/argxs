@@ -13,6 +13,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'laravel-icon-dark.svg',
                 date_added: '2026/5/4',
                 source: {
@@ -32,6 +33,7 @@
                 }
             },
             dark: {
+                theme: 'dark',
                 path: 'laravel-logo-dark.svg',
                 date_added: '2026/5/4',
                 source: {

@@ -1,0 +1,69 @@
+{
+	name: 'Stack Overflow',
+	href: 'https://stackoverflow.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'stack-overflow-icon.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'stack-overflow-icon-dark.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					name: 'Old Stack Overflow',
+					path: 'stack-overflow-old-icon.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'stack-overflow-logo.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'stack-overflow-logo-dark.svg',
+				date_added: '2026/5/22',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					name: 'Old Stack Overflow',
+					path: 'stack-overflow-old-logo.svg',
+					date_added: '2026/5/22'
+				},
+				{
+					theme: 'dark',
+					name: 'Old Stack Overflow',
+					path: 'stack-overflow-old-logo-dark.svg',
+					date_added: '2026/5/22'
+				}
+			]
+		}
+	]
+}

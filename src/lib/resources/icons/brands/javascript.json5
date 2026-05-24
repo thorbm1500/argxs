@@ -1,0 +1,17 @@
+{
+	name: 'JavaScript',
+	href: 'https://en.wikipedia.org/wiki/ECMAScript',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'javascript-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Wikipedia',
+					href: 'https://www.wikipedia.org'
+				}
+			}
+		}
+	]
+}

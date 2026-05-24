@@ -9,6 +9,7 @@
 				date_added: '2026/4/11'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'cloudflare-icon-dark.svg',
 				date_added: '2026/4/11'
 			}
@@ -16,6 +17,7 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'cloudflare-logo.svg',
 				date_added: '2026/4/11',
 				source: {
@@ -24,6 +26,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'cloudflare-logo-dark.svg',
 				date_added: '2026/4/11'
 			}

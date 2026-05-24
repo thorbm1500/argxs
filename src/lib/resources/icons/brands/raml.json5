@@ -1,0 +1,17 @@
+{
+	name: 'RAML',
+	href: 'https://raml.org',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'raml-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'RAML',
+					href: 'https://raml.org'
+				}
+			}
+		}
+	]
+}

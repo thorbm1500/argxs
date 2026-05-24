@@ -10,6 +10,7 @@ export class Resources {
 	BRAND_ICON_AMOUNT: number = 0;
 	BRAND_LOGO_AMOUNT: number = 0;
 	BRAND_TOTAL_AMOUNT: number = 0;
+	BRAND_AMOUNT: number = 0;
 
 	readonly FLAG_ICONS: ResourceIcon[] = [];
 	readonly FLAG_ICONS_SORTED_NEW: ResourceIcon[] = [];
@@ -39,6 +40,7 @@ export class Resources {
 
 		for (const brand of await fs.readdir(path)) {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
+			this.BRAND_AMOUNT++;
 
 			for (const icon of current.assets) {
 				const resource = {
@@ -55,12 +57,19 @@ export class Resources {
 
 				let iconAmount = 1;
 
+				if (icon.default.animated === undefined) icon.default.animated = false;
+
 				if (icon.dark) {
+					if (icon.dark.animated === undefined) icon.dark.animated = false;
 					resource.dark = icon.dark;
 					iconAmount++;
 				}
 
 				iconAmount += resource.variable.length;
+
+				for (const icon of resource.variable) {
+					if (icon.animated === undefined) icon.animated = false;
+				}
 
 				if (resource.type === 'icon') this.BRAND_ICON_AMOUNT += iconAmount;
 				else if (resource.type === 'logo') this.BRAND_LOGO_AMOUNT += iconAmount;
@@ -117,6 +126,7 @@ export class Resources {
 			for (const flag of current.flags) {
 				const dateAdded = Date.parse(flag.date_added);
 				if (dateAdded > lastUpdated) lastUpdated = dateAdded;
+				if (flag.animated === undefined) flag.animated = false;
 
 				if (flag.path !== first) {
 					resource.variable.push(flag);

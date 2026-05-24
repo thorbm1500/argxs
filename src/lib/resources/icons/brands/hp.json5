@@ -14,6 +14,7 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'hp-icon-monochrome-light.svg',
 					date_added: '2026/5/9',
 					source: {
@@ -22,6 +23,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'hp-icon-monochrome-dark.svg',
 					date_added: '2026/5/9',
 					source: {

@@ -12,10 +12,12 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'bash-logo.svg',
 				date_added: '2026/4/10'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'bash-logo-dark.svg',
 				date_added: '2026/4/10'
 			}

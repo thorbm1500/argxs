@@ -1,0 +1,27 @@
+{
+	name: 'Solidity',
+	href: 'https://www.soliditylang.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'solidity-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Solidity',
+					href: 'https://www.soliditylang.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'solidity-icon-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Solidity',
+					href: 'https://www.soliditylang.org'
+				}
+			}
+		}
+	]
+}

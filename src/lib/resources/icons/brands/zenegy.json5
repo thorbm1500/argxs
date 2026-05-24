@@ -5,6 +5,7 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'zenegy-icon.svg',
 				date_added: '2026/5/12',
 				source: {
@@ -13,10 +14,11 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'zenegy-icon-dark.svg',
 				date_added: '2026/5/12',
 				source: {
-					name: 'Brandfetch',
+					name: 'Zenegy',
 					href: 'https://zenegy.com'
 				}
 			}
@@ -24,18 +26,20 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'zenegy-logo.svg',
 				date_added: '2026/5/12',
 				source: {
-					name: 'Brandfetch',
+					name: 'Zenegy',
 					href: 'https://zenegy.com'
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'zenegy-logo-dark.svg',
 				date_added: '2026/5/12',
 				source: {
-					name: 'Brandfetch',
+					name: 'Zenegy',
 					href: 'https://zenegy.com'
 				}
 			}

@@ -1,6 +1,5 @@
 import { RESOURCES } from '../../hooks.server.ts';
 import type { Icon, ResourceIcon } from '$lib/components/interfaces';
-import type { BunFile } from 'bun';
 
 function getPNGExtension(filename: string) {
 	return filename.replace('.svg', '.png');
@@ -50,6 +49,10 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 	return { w: width + (diff * a), h: height + (diff * b) };
 }
 
+async function imageExists(path: string) {
+	return (await Bun.$`ls ${path}`.text()).length !== 0;
+}
+
 async function convertSVGtoPNG(icon: Icon, path: string) {
 	try {
 		const size: string[] = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.quiet().text()).split('\n');
@@ -70,45 +73,77 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 }
 
 async function process(icon: Icon, path: string) {
-	if (icon.name) console.info('  +', icon.name);
+	const IMAGE_PATH: string = `client/resources/data/icons/${path}/`;
+
+	if (icon.name) console.info('  +',icon.name);
 
 	if (!icon.path.endsWith('.svg')) {
-		console.error('  - Failed:', icon.path);
+		console.error('[ERROR] Failed. Not an SVG:', icon.path);
 		return;
 	}
 
-	const PNG: BunFile = Bun.file(`client/resources/data/icons/${path}/png/` + getPNGExtension(icon.path));
+	const PNG_PATH: string = IMAGE_PATH.concat('png/', getPNGExtension(icon.path));
 
 	// Check if the PNG has already been generated.
-	if (!icon.png && !(await PNG.exists())) {
+	if (!(await imageExists(PNG_PATH))) {
 		await convertSVGtoPNG(icon, path);
-	}
 
-	if (await PNG.exists()) icon.png = getPNGExtension(icon.path);
-
-	if (!icon.webp) {
-		try {
-			// Check if the WEBP has already been generated.
-			if (!(await Bun.file(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path)).exists())) {
-				await PNG.image().webp({ lossless: true }).write(`client/resources/data/icons/${path}/webp/` + getWEBPExtension(icon.path));
-			}
-			icon.webp = getWEBPExtension(icon.path);
-		} catch (e) {
-			console.error(e);
+		// Check again to make sure the PNG was generated successfully.
+		if (!(await imageExists(PNG_PATH))) {
+			console.error('[ERROR] Failed to generate PNG for:', icon.path);
+			return;
+		} else {
+			console.info('  → PNG Generated successfully for:', icon.path);
 		}
 	}
 
-	if (!icon.jpeg) {
+	icon.png = getPNGExtension(icon.path);
+
+	const WEBP_PATH: string = IMAGE_PATH.concat('webp/', getWEBPExtension(icon.path));
+	let isWEBPGenerated: boolean = await imageExists(WEBP_PATH);
+
+	// Check if the WEBP has already been generated.
+	if (!isWEBPGenerated) {
 		try {
-			// Check if the JPEG has already been generated.
-			if (!(await Bun.file(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path)).exists())) {
-				await PNG.image().jpeg({ quality: 80 }).write(`client/resources/data/icons/${path}/jpeg/` + getJPEGExtension(icon.path));
-			}
-			icon.jpeg = getJPEGExtension(icon.path);
+			await Bun.file(PNG_PATH).image().webp({ lossless: true }).write(WEBP_PATH);
 		} catch (e) {
 			console.error(e);
 		}
+
+		isWEBPGenerated = await imageExists(WEBP_PATH);
+
+		// Check again to make sure the WEBP was generated successfully.
+		if (!isWEBPGenerated) {
+			console.error('[ERROR] Failed to generate WEBP for:', icon.path);
+		} else {
+			console.info('  → WEBP Generated successfully for:', icon.path);
+		}
 	}
+
+	if (isWEBPGenerated) icon.webp = getWEBPExtension(icon.path);
+
+	const JPEG_PATH: string = IMAGE_PATH.concat('jpeg/', getJPEGExtension(icon.path));
+	let isJPEGGenerated: boolean = await imageExists(JPEG_PATH);
+
+	// Check if the JPEG has already been generated.
+	if (!isJPEGGenerated) {
+		try {
+			await Bun.file(PNG_PATH).image().jpeg({ quality: 80 }).write(JPEG_PATH);
+		} catch (e) {
+			console.error(e);
+		}
+
+		isJPEGGenerated = await imageExists(JPEG_PATH);
+
+		// Check again to make sure the JPEG was generated successfully.
+		if (!isJPEGGenerated) {
+			console.error('[ERROR] Failed to generate JPEG for:', icon.path);
+		} else {
+			console.info('  → JPEG Generated successfully for:', icon.path);
+		}
+	}
+
+	if(isJPEGGenerated) icon.jpeg = getJPEGExtension(icon.path);
 }
 
 async function processList(list: ResourceIcon[], path: string) {

@@ -1,0 +1,27 @@
+{
+	name: 'Hack',
+	href: 'https://hacklang.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'hack-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Hack',
+					href: 'https://hacklang.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'hack-icon-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Hack',
+					href: 'https://hacklang.org'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,13 @@
+{
+	name: 'V (Language)',
+	href: 'https://vlang.io',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'v-language-icon.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

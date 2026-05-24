@@ -1,0 +1,60 @@
+{
+	name: 'Apidog',
+	href: 'https://apidog.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'apidog-icon.svg',
+				date_added: '2026/5/23'
+			},
+			variable: [
+				{
+					theme: 'dark',
+					path: 'apidog-variant-icon-dark.svg',
+					date_added: '2026/5/23'
+				},
+				{
+					theme: 'light',
+					path: 'apidog-icon-black.svg',
+					date_added: '2026/5/23'
+				},
+				{
+					theme: 'dark',
+					path: 'apidog-icon-white.svg',
+					date_added: '2026/5/23'
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'apidog-logo.svg',
+				date_added: '2026/5/23'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'apidog-logo-dark.svg',
+				date_added: '2026/5/23'
+			},
+			variable: [
+				{
+					theme: 'dark',
+					path: 'apidog-variant-logo-dark.svg',
+					date_added: '2026/5/23'
+				},
+				{
+					theme: 'light',
+					path: 'apidog-logo-black.svg',
+					date_added: '2026/5/23'
+				},
+				{
+					theme: 'dark',
+					path: 'apidog-logo-white.svg',
+					date_added: '2026/5/23'
+				}
+			]
+		}
+	]
+}

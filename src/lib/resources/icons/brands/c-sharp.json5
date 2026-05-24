@@ -1,0 +1,17 @@
+{
+	name: 'C#',
+	href: 'https://dotnet.microsoft.com/languages/csharp',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'c-sharp-icon.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Wikipedia',
+					href: 'https://www.wikipedia.org'
+				}
+			}
+		}
+	]
+}

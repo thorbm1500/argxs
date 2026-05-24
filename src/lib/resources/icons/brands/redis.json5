@@ -12,10 +12,12 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'redis-logo.svg',
 				date_added: '2026/4/25'
 			},
 			dark: {
+				theme: 'dark',
 				path: 'redis-logo-dark.svg',
 				date_added: '2026/4/25'
 			}

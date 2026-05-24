@@ -5,6 +5,7 @@
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'apple-icon.svg',
 				date_added: '2026/4/29',
 				source: {
@@ -13,12 +14,28 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'apple-icon-dark.svg',
 				date_added: '2026/4/29',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
+			}
+		},
+		{
+			name: 'Apply Pay',
+			href: 'https://www.apple.com/apple-pay/',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'apple-pay-logo.svg',
+				date_added: '2026/5/23'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'apple-pay-logo-dark.svg',
+				date_added: '2026/5/23'
 			}
 		},
 		{

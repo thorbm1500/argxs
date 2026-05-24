@@ -14,6 +14,7 @@
 			},
 			variable: [
 				{
+					theme: 'dark',
 					path: 'tailwindcss-icon-monochrome-dark.svg',
 					date_added: '2026/5/11',
 					source: {
@@ -26,6 +27,7 @@
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'tailwindcss-logo.svg',
 				date_added: '2026/5/11',
 				source: {
@@ -34,6 +36,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'tailwindcss-logo-dark.svg',
 				date_added: '2026/5/11',
 				source: {
@@ -43,6 +46,7 @@
 			},
 			variable: [
 				{
+					theme: 'dark',
 					path: 'tailwindcss-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
 					source: {

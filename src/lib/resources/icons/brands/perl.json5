@@ -1,0 +1,18 @@
+{
+	name: 'Perl',
+	href: 'https://www.perl.org',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'dark',
+				path: 'perl-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Perl',
+					href: 'https://www.perl.org'
+				}
+			}
+		}
+	]
+}

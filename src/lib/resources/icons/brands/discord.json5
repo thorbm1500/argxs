@@ -13,6 +13,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'discord-icon-dark.svg',
 				date_added: '2026/4/10',
 				source: {
@@ -32,6 +33,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'discord-logo-dark.svg',
 				date_added: '2026/4/10',
 				source: {

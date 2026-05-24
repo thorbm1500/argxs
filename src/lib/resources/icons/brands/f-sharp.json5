@@ -1,0 +1,18 @@
+{
+	name: 'F#',
+	href: 'https://fsharp.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'f-sharp-icon.svg',
+				date_added: '2026/5/24'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'f-sharp-icon-dark.svg',
+				date_added: '2026/5/24'
+			}
+		}
+	]
+}

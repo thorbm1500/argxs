@@ -1,0 +1,51 @@
+{
+	name: 'Zig',
+	href: 'https://ziglang.org',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'zig-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Zig',
+					href: 'https://ziglang.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'zig-logo-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Zig',
+					href: 'https://ziglang.org'
+				}
+			}
+		},
+		{
+			name: 'Zero (Mascot)',
+			type: 'icon',
+			default: {
+				path: 'zig-mascot-zero.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Zig',
+					href: 'https://ziglang.org'
+				}
+			}
+		},
+		{
+			name: 'Ziggy (Mascot)',
+			type: 'icon',
+			default: {
+				path: 'zig-mascot-ziggy.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Zig',
+					href: 'https://ziglang.org'
+				}
+			}
+		}
+	]
+}

@@ -12,10 +12,12 @@
         {
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'svelte-logo.svg',
                 date_added: '2026/4/25'
             },
             dark: {
+                theme: 'dark',
                 path: 'svelte-logo-dark.svg',
                 date_added: '2026/4/25'
             }
@@ -25,10 +27,12 @@
             href: 'https://svelte.dev/docs/kit/introduction',
             type: 'logo',
             default: {
+                theme: 'light',
                 path: 'sveltekit-logo.svg',
                 date_added: '2026/4/25'
             },
             dark: {
+                theme: 'dark',
                 path: 'sveltekit-logo-dark.svg',
                 date_added: '2026/4/25'
             }

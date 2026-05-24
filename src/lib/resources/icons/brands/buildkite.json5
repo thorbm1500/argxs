@@ -1,0 +1,76 @@
+{
+	name: 'BuildKite',
+	href: 'https://buildkite.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'buildkite-icon.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'BuildKite',
+					href: 'https://buildkite.com/about/brand-assets/'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'buildkite-logo.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'BuildKite',
+					href: 'https://buildkite.com/about/brand-assets/'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'buildkite-logo-dark.svg',
+				date_added: '2026/5/23',
+				source: {
+					name: 'BuildKite',
+					href: 'https://buildkite.com/about/brand-assets/'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'buildkite-portrait-logo.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'BuildKite',
+						href: 'https://buildkite.com/about/brand-assets/'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'buildkite-portrait-logo-dark.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'BuildKite',
+						href: 'https://buildkite.com/about/brand-assets/'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'buildkite-wordmark-logo.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'BuildKite',
+						href: 'https://buildkite.com/about/brand-assets/'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'buildkite-wordmark-logo-dark.svg',
+					date_added: '2026/5/23',
+					source: {
+						name: 'BuildKite',
+						href: 'https://buildkite.com/about/brand-assets/'
+					}
+				}
+			]
+		}
+	]
+}

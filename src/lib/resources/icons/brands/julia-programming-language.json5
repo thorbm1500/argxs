@@ -1,0 +1,50 @@
+{
+	name: 'Julia Programming Language',
+	href: 'https://julialang.org',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'julia-programming-language-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Julia Programming Language',
+					href: 'https://julialang.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'julia-programming-language-logo-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Julia Programming Language',
+					href: 'https://julialang.org'
+				}
+			}
+		},
+		{
+			name: 'JuliaCon',
+			href: 'https://juliacon.org',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'juliacon-logo.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Julia Programming Language',
+					href: 'https://julialang.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'juliacon-logo-dark.svg',
+				date_added: '2026/5/24',
+				source: {
+					name: 'Julia Programming Language',
+					href: 'https://julialang.org'
+				}
+			}
+		}
+	]
+}

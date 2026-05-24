@@ -25,6 +25,7 @@
 			},
 			variable: [
 				{
+					theme: 'light',
 					path: 'starbucks-logo-monochrome-black.svg',
 					date_added: '2026/4/29',
 					source: {
@@ -33,6 +34,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'starbucks-logo-monochrome-white.svg',
 					date_added: '2026/4/29',
 					source: {

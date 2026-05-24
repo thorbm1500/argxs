@@ -10,10 +10,12 @@
             },
             variable: [
                 {
+                    theme: 'light',
                     path: 'netflix-logo-monochrome-black.svg',
                     date_added: '2026/4/29'
                 },
                 {
+                    theme: 'dark',
                     path: 'netflix-logo-monochrome-white.svg',
                     date_added: '2026/4/29'
                 }

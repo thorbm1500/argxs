@@ -13,6 +13,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'atlassian-icon-dark.svg',
 				date_added: '2026/5/5',
 				source: {
@@ -38,6 +39,7 @@
 					}
 				},
 				{
+					theme: 'light',
 					path: 'atlassian-variation-icon-3.svg',
 					date_added: '2026/5/5',
 					source: {
@@ -66,6 +68,7 @@
 				}
 			},
 			dark: {
+				theme: 'dark',
 				path: 'atlassian-logo-dark.svg',
 				date_added: '2026/5/5',
 				source: {
@@ -91,6 +94,7 @@
 					}
 				},
 				{
+					theme: 'dark',
 					path: 'atlassian-variation-logo-3.svg',
 					date_added: '2026/5/5',
 					source: {
