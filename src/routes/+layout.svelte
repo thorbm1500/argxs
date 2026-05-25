@@ -64,27 +64,6 @@
 
 <ToastComponent bind:sendFunction={sendToast} />
 
-<div style="display: none;position:fixed;" inert>
-	<svg>
-		<defs>
-			<filter id="btt-glass-distortion" x="0%" y="0%" width="200%" height="200%">
-				<feTurbulence type="fractalNoise" baseFrequency="0.001 0.001" numOctaves="4" seed="{Math.trunc(Date.now() / 1000000)}" result="noise" />
-				<feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
-				<feDisplacementMap in="SourceGraphic" in2="blurred" scale="20" xChannelSelector="R" yChannelSelector="G" />
-			</filter>
-			<filter id="btt-morph-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
-				<feMorphology operator="dilate" radius="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology" />
-				<!--suppress HtmlUnknownAttribute - Suppressing incorrect warnings for unknown attribute -->
-				<feGaussianBlur stdDeviation="0 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
-			</filter>
-			<filter id="btt-blur-filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
-				<!--suppress HtmlUnknownAttribute - Suppressing incorrect warnings for unknown attribute -->
-				<feGaussianBlur stdDeviation="1 1" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur" />
-			</filter>
-		</defs>
-	</svg>
-</div>
-
 {#if scrollY > 750}
 	<div class="{theme} btt-parent {scrollY > ((innerHeight.current ?? 1080) * .25) ? 'active' : 'inactive'}">
 		<div in:scale|global={{duration: prefersReducedMotion.current ? 0 : 75, easing: cubicOut, start:0}} out:scale|global={{duration: prefersReducedMotion.current ? 0 : 200, easing: cubicIn,
@@ -328,6 +307,8 @@
 		overflow-x:  hidden !important;
 		/*noinspection CssOverwrittenProperties*/
 		overflow:    auto;
+		
+		scrollbar-gutter: stable;
 		
 		background:  var(--theme-ui-background);
 		
