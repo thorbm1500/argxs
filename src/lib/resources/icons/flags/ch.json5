@@ -1,12 +1,15 @@
 {
     country: 'Switzerland',
+    type: 'country',
     flags: [
         {
-            path: 'ch.svg',
-            date_added: '2026/5/15',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'ch.svg',
+                date_added: '2026/5/15',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

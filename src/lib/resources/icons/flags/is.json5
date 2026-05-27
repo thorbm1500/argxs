@@ -1,21 +1,26 @@
 {
     country: 'Iceland',
+    type: 'country',
     flags: [
         {
-            path: 'is.svg',
-            date_added: '2026/4/16',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'is.svg',
+                date_added: '2026/4/16',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         },
         {
-            name: 'State Flag',
-            path: 'is-state.svg',
-            date_added: '2026/4/16',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            name: 'Iceland State Flag',
+            default: {
+                path: 'is-state.svg',
+                date_added: '2026/4/16',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

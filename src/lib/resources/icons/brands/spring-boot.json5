@@ -1,0 +1,38 @@
+{
+	name: 'Spring Boot',
+	href: 'https://spring.io',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'spring-boot-icon.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'Spring Boot',
+					href: 'https://spring.io'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'spring-boot-logo.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'Spring Boot',
+					href: 'https://spring.io'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'spring-boot-logo-dark.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'Spring Boot',
+					href: 'https://spring.io'
+				}
+			}
+		}
+	]
+}

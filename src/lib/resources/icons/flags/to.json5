@@ -1,12 +1,15 @@
 {
     country: 'Tonga',
+    type: 'country',
     flags: [
         {
-            path: 'to.svg',
-            date_added: '2026/5/15',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'to.svg',
+                date_added: '2026/5/15',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

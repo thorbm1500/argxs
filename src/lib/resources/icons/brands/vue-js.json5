@@ -1,0 +1,17 @@
+{
+	name: 'Vue.js',
+	href: 'https://vuejs.org',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'vue-js-icon.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'Vue.js',
+					href: 'https://vuejs.org'
+				}
+			}
+		}
+	]
+}

@@ -1,12 +1,195 @@
 {
     country: 'United States of America',
+    type: 'country',
     flags: [
         {
-            path: 'us.svg',
-            date_added: '2026/5/15',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'us.svg',
+                date_added: '2026/5/15',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Alabama',
+                type: 'state',
+                path: 'us-alabama.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Alaska',
+                type: 'state',
+                path: 'us-alaska.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Arizona',
+                type: 'state',
+                path: 'us-arizona.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Arkansas',
+                type: 'state',
+                path: 'us-arkansas.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'California',
+                type: 'state',
+                path: 'us-california.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Colorado',
+                type: 'state',
+                path: 'us-colorado.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Connecticut',
+                type: 'state',
+                path: 'us-connecticut.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Delaware',
+                type: 'state',
+                path: 'us-delaware.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Florida',
+                type: 'state',
+                path: 'us-florida.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Georgia',
+                type: 'state',
+                path: 'us-georgia.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Hawaii',
+                type: 'state',
+                path: 'us-hawaii.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Idaho',
+                type: 'state',
+                path: 'us-idaho.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Illinois',
+                type: 'state',
+                path: 'us-illinois.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Indiana',
+                type: 'state',
+                path: 'us-indiana.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Iowa',
+                type: 'state',
+                path: 'us-iowa.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

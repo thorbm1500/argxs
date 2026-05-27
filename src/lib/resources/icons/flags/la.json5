@@ -1,12 +1,15 @@
 {
     country: 'Laos',
+    type: 'country',
     flags: [
         {
-            path: 'la.svg',
-            date_added: '2026/4/17',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'la.svg',
+                date_added: '2026/4/17',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

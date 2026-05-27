@@ -1,12 +1,15 @@
 {
     country: 'Morocco',
+    type: 'country',
     flags: [
         {
-            path: 'ma.svg',
-            date_added: '2026/4/27',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'ma.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

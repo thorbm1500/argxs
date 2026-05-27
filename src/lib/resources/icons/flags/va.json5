@@ -1,12 +1,15 @@
 {
     country: 'Vatican City',
+    type: 'country',
     flags: [
         {
-            path: 'va.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'va.svg',
+                date_added: '2026/5/21',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

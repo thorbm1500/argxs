@@ -1,21 +1,26 @@
 {
     country: 'Germany',
+    type: 'country',
     flags: [
         {
-            path: 'de.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'argxs',
-                href: 'https://argxs.com'
+            default: {
+                path: 'de.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'argxs',
+                    href: 'https://argxs.com'
+                }
             }
         },
         {
-            name: 'State Flag',
-            path: 'de-state.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            name: 'Germany State Flag',
+            default: {
+                path: 'de-state.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

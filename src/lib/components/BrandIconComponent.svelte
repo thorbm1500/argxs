@@ -95,17 +95,16 @@
 	const mouseGlow: Attachment = (element) => {
 		const mouseBlurContainer = document.createElement('div');
 		mouseBlurContainer.className = 'blur-container';
+		mouseBlurContainer.setAttribute('inert', 'true');
 		mouseBlurContainer.style.position = 'absolute';
 		mouseBlurContainer.style.width = '7rem';
 		mouseBlurContainer.style.height = '7rem';
 		mouseBlurContainer.style.top = '0';
 		mouseBlurContainer.style.left = '0';
 		mouseBlurContainer.style.borderRadius = '1rem';
-		mouseBlurContainer.style.pointerEvents = 'none';
 		mouseBlurContainer.style.overflow = 'hidden';
 		mouseBlurContainer.style.zIndex = '400';
 		mouseBlurContainer.style.boxSizing = 'content-box';
-		mouseBlurContainer.style.filter = 'saturate(1.1)';
 		mouseBlurContainer.style.transition = 'opacity 500ms ease';
 		
 		const mouseBlurElement = document.createElement('div');
@@ -114,13 +113,10 @@
 		mouseBlurElement.style.width = '1rem';
 		mouseBlurElement.style.height = '1rem';
 		mouseBlurElement.style.zIndex = '-1';
-		mouseBlurElement.style.backgroundColor = 'white';
-		mouseBlurElement.style.pointerEvents = 'none';
-		mouseBlurElement.style.filter = 'blur(1.5rem) brightness(2) saturate(2)';
-		mouseBlurElement.style.opacity = '.75';
+		mouseBlurElement.style.backgroundColor = '#FFF';
+		mouseBlurElement.style.filter = 'blur(1.5rem)';
 		mouseBlurElement.style.marginTop = 'calc(-' + element.getBoundingClientRect().y + 'px - .5rem)';
 		mouseBlurElement.style.marginLeft = 'calc(-' + element.getBoundingClientRect().x + 'px - .75rem)';
-		mouseBlurElement.style.mixBlendMode = 'soft-light';
 		
 		mouseBlurContainer.appendChild(mouseBlurElement);
 		
@@ -140,8 +136,6 @@
 		
 		return () => {
 			window.removeEventListener('mousemove', mouseMoveEvent);
-			
-			mouseBlurElement.remove();
 			mouseBlurContainer.remove();
 		};
 	};
@@ -226,9 +220,11 @@
 	{#key currentIcon.path}
 		<div class="hover-fx" inert>
 			<!--svelte-ignore a11y_missing_attribute-->
-			<img {@attach iconImage} src={`/resources/icons/${type}/${currentIcon.path}`} alt="" loading="lazy" />
+			<!-- svelte-ignore a11y_no_redundant_roles -->
+			<img {@attach iconImage} src={`/resources/icons/${type}/${currentIcon.path}`} alt="" role="img" decoding="async" loading="lazy" />
 		</div>
-		<img {@attach iconImage} in:fade src={`/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} loading="lazy" />
+		<!-- svelte-ignore a11y_no_redundant_roles -->
+		<img {@attach iconImage} in:fade src={`/resources/icons/${type}/${currentIcon.path}`} alt={icon.name} role="img" decoding="async" loading="lazy" inert/>
 	{/key}
 	<h3 class="icon-name" inert>{currentIcon.name ?? icon.name}</h3>
 </div>

@@ -1,12 +1,15 @@
 {
     country: 'Syria',
+    type: 'country',
     flags: [
         {
-            path: 'sy.svg',
-            date_added: '2026/5/15',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'sy.svg',
+                date_added: '2026/5/15',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

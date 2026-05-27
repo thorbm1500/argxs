@@ -1,12 +1,15 @@
 {
     country: 'Saint Vincent and the Grenadines',
+    type: 'country',
     flags: [
         {
-            path: 'vc.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'vc.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

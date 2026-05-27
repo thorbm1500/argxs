@@ -1,24 +1,27 @@
 {
     country: 'Pride',
+    href: 'https://www.un.org/en/lgbtiq-people',
     flags: [
         {
-            href: 'https://www.un.org/en/lgbtiq-people',
-            path: 'pride.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
-            }
-        },
-        {
-            name: 'Old Pride Flag',
-            href: 'https://www.un.org/en/lgbtiq-people',
-            path: 'pride_old.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
-            }
+            default: {
+                path: 'pride.svg',
+                date_added: '2026/5/21',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Old Pride Flag',
+                    path: 'pride_old.svg',
+                    date_added: '2026/5/21',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         }
     ]
 }

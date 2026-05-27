@@ -1,12 +1,15 @@
 {
     country: 'São Tomé and Príncipe',
+    type: 'country',
     flags: [
         {
-            path: 'st.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'st.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

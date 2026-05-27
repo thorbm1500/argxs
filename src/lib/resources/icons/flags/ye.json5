@@ -1,12 +1,15 @@
 {
     country: 'Yemen',
+    type: 'country',
     flags: [
         {
-            path: 'ye.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'argxs',
-                href: 'https://argxs.com'
+            default: {
+                path: 'ye.svg',
+                date_added: '2026/5/21',
+                source: {
+                    name: 'argxs',
+                    href: 'https://argxs.com'
+                }
             }
         }
     ]

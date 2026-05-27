@@ -1,12 +1,15 @@
 {
     country: 'Kuwait',
+    type: 'country',
     flags: [
         {
-            path: 'kw.svg',
-            date_added: '2026/4/17',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'kw.svg',
+                date_added: '2026/4/17',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

@@ -1,12 +1,15 @@
 {
     country: 'Maldives',
+    type: 'country',
     flags: [
         {
-            path: 'mv.svg',
-            date_added: '2026/4/27',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'mv.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

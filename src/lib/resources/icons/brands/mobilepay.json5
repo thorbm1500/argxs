@@ -1,0 +1,50 @@
+{
+	name: 'MobilePay',
+	href: 'https://mobilepay.dk',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'mobilepay-icon.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'MobilePay',
+					href: 'https://mobilepay.dk'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'mobilepay-logo.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'MobilePay',
+					href: 'https://mobilepay.dk'
+				}
+			}
+		},
+		{
+			name: 'Vipps MobilePay',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'mobilepay-vipps-logo.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'Vipps MobilePay',
+					href: 'https://vippsmobilepay.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'mobilepay-vipps-logo-dark.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'Vipps MobilePay',
+					href: 'https://vippsmobilepay.com'
+				}
+			}
+		}
+	]
+}

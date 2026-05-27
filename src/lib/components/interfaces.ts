@@ -5,6 +5,8 @@ export interface SEO {
 	description?: string
 }
 
+export type IconType = 'icon' | 'logo' | 'country' | 'state';
+
 export interface Icon {
 	/** The name of the icon */
 	name: string,
@@ -19,6 +21,7 @@ export interface Icon {
 	path: string,
 	/** An external site linked to the icon */
 	href?: string,
+	type?: IconType,
 	/** The date of which the icon was added or updated */
 	date_added: string,
 	/** The source of the icon */
@@ -55,10 +58,11 @@ export interface ResourceIcon {
 	href?: string,
 	/** The type of icon.<br>
 	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
-	type: 'icon' | 'logo' | 'other',
+	type: IconType | 'undefined',
 	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
 	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
 	last_updated: number,
+	tags: string[],
 	/** The default version of the icon. This will in most cases be the light themed version of the icon.<br>
 	 * `Note:` In the case that the icon only has one version of either light or dark, it shall be defined here */
 	default: Icon,
@@ -70,7 +74,8 @@ export interface ResourceIcon {
 
 export interface Brand {
 	name: string,
-	href: string,
+	href?: string,
+	type?: 'icon' | 'logo',
 	assets: BrandIcon[]
 }
 
@@ -78,9 +83,9 @@ export interface BrandIcon {
 	/** The name of the icon */
 	name: string,
 	/** An external site linked to the icon */
-	href: string,
+	href?: string,
 	/** The icon's type. Mostly used for sorting the icons */
-	type: 'icon' | 'logo' | 'other',
+	type?: 'icon' | 'logo',
 	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
 	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
 	last_updated: number,
@@ -98,9 +103,28 @@ export interface Flag {
 	 * @todo Change from `country` to `name` */
 	country: string,
 	/** An external site linked to the icon */
-	href: string,
+	href?: string,
+	/** The icon's type. Mostly used for sorting the icons */
+	type: 'country' | 'state' | 'undefined',
+	tags: string[],
 	/** Flags linked to the country, such as the country's national flag, state flags, etc. */
-	flags: Icon[]
+	flags: FlagIcon[]
+}
+
+export interface FlagIcon {
+	/** The name of the icon */
+	name: string,
+	/** An external site linked to the icon */
+	href?: string,
+	/** The icon's type. Mostly used for sorting the icons */
+	type?: 'country' | 'state',
+	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
+	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
+	last_updated: number,
+	/** The default version of the flag icon. */
+	default: Icon,
+	/** A list of extra flag icons, in some way related to this icon. Could be an anniversary version of a flag, or old versions of the flag */
+	variable: Icon[]
 }
 
 export interface ColorCombos {
