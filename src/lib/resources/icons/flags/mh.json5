@@ -1,12 +1,15 @@
 {
     country: 'Marshall Islands',
+    type: 'country',
     flags: [
         {
-            path: 'mh.svg',
-            date_added: '2026/4/27',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'mh.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

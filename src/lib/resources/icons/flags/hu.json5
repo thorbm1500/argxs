@@ -1,12 +1,15 @@
 {
     country: 'Hungary',
+    type: 'country',
     flags: [
         {
-            path: 'hu.svg',
-            date_added: '2026/4/16',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'hu.svg',
+                date_added: '2026/4/16',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

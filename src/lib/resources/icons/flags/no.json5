@@ -1,21 +1,26 @@
 {
     country: 'Norway',
+    type: 'country',
     flags: [
         {
-            path: 'no.svg',
-            date_added: '2026/5/11',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'no.svg',
+                date_added: '2026/5/11',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         },
         {
-            name: 'State Flag',
-            path: 'no-state.svg',
-            date_added: '2026/5/11',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            name: 'Norway State Flag',
+            default: {
+                path: 'no-state.svg',
+                date_added: '2026/5/11',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

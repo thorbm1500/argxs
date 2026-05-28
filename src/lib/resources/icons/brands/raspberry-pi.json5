@@ -1,0 +1,85 @@
+{
+	name: 'Raspberry Pi',
+	href: 'https://www.raspberrypi.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'raspberry-pi-foundation-logo.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'Raspberry Pi Foundation',
+					href: 'https://www.raspberrypi.org'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'raspberry-pi-foundation-logo-monochrome-black.svg',
+					date_added: '2026/5/27',
+					source: {
+						name: 'Raspberry Pi Foundation',
+						href: 'https://www.raspberrypi.org'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'raspberry-pi-foundation-logo-monochrome-white.svg',
+					date_added: '2026/5/27',
+					source: {
+						name: 'Raspberry Pi Foundation',
+						href: 'https://www.raspberrypi.org'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'raspberry-pi-powered-by-logo.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'Raspberry Pi',
+					href: 'https://www.raspberrypi.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'raspberry-pi-powered-by-logo-dark.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'Raspberry Pi',
+					href: 'https://www.raspberrypi.com'
+				}
+			}
+		},
+		{
+			name: 'Astro Pi',
+			type: 'icon',
+			default: {
+				name: 'MISSION ZERO',
+				path: 'astro-pi-mission-zero-icon.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'Astro Pi',
+					href: 'https://astro-pi.org'
+				}
+			}
+		},
+		{
+			name: 'Astro Pi',
+			type: 'icon',
+			default: {
+				name: 'SPACE LAB',
+				path: 'astro-pi-space-lab-icon.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'Astro Pi',
+					href: 'https://astro-pi.org'
+				}
+			}
+		}
+	]
+}

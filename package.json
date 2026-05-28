@@ -1,6 +1,6 @@
 {
     "name": "argxs",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
@@ -35,17 +35,17 @@
         "svelte-adapter-bun": "^1.0.1",
         "tailwindcss": "^4.3.0",
         "typescript": "^6.0.3",
-        "typescript-eslint": "^8.59.4",
+        "typescript-eslint": "^8.60.0",
         "vite": "^8.0.14"
     },
     "keywords": [
         "svelte"
     ],
     "dependencies": {
-        "svelte": "^5.55.9",
+        "svelte": "^5.55.10",
         "@sveltejs/kit": "^2.61.1",
         "@highlightjs/cdn-assets": "^11.11.1",
-        "@humanspeak/svelte-markdown": "^1.5.2",
+        "@humanspeak/svelte-markdown": "^1.5.3",
         "highlight.js": "^11.11.1",
         "moment": "^2.30.1"
     }

@@ -1,12 +1,15 @@
 {
     country: 'Saint Kitts and Nevis',
+    type: 'country',
     flags: [
         {
-            path: 'kn.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'kn.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

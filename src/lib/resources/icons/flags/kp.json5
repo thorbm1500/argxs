@@ -1,12 +1,15 @@
 {
     country: 'North Korea',
+    type: 'country',
     flags: [
         {
-            path: 'kp.svg',
-            date_added: '2026/5/11',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'kp.svg',
+                date_added: '2026/5/11',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

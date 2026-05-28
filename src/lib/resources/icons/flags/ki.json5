@@ -1,12 +1,15 @@
 {
     country: 'Kiribati',
+    type: 'country',
     flags: [
         {
-            path: 'ki.svg',
-            date_added: '2026/4/17',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'ki.svg',
+                date_added: '2026/4/17',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

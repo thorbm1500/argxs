@@ -49,6 +49,7 @@ export class Resources {
 					href: current.href,
 					type: icon.type,
 					last_updated: 0,
+					tags: [], //TODO: Implement tags
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
 				} as ResourceIcon;
@@ -83,6 +84,44 @@ export class Resources {
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
+	private async loadFlagIcons(): Promise<void> {
+		console.info('Loading flag icons...');
+		const path: string = root.concat('/icons/flags');
+		const dir: string[] = await fs.readdir(path);
+
+		for (const flag of dir) {
+			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
+
+			for (const icon of current.flags) {
+				const resource: ResourceIcon = {
+					title: current.country,
+					name: icon.name ?? current.country,
+					href: icon.href ?? current.href,
+					type: icon.type ? icon.type : (current.type ? current.type : 'undefined'),
+					last_updated: 0,
+					tags: current.tags !== undefined ? current.tags : [],
+					default: icon.default,
+					variable: icon.variable !== undefined ? icon.variable : []
+				} as ResourceIcon;
+
+				this.updateLatestDate(resource);
+
+				if (resource.default.animated === undefined) resource.default.animated = false;
+				for (const flag of resource.variable) {
+					if (flag.animated === undefined) flag.animated = false;
+				}
+
+				this.FLAG_ICON_AMOUNT += resource.variable.length + 1;
+				this.FLAG_ICONS.push(resource);
+			}
+		}
+
+		this.FLAG_TOTAL_AMOUNT = this.FLAG_ICONS.length;
+
+		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => b.last_updated - a.last_updated));
+		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
+	}
+
 	private updateLatestDate(icon: ResourceIcon): void {
 		if (icon.default.date_added) {
 			const current = Date.parse(icon.default.date_added);
@@ -92,57 +131,13 @@ export class Resources {
 			const current = Date.parse(icon.dark.date_added);
 			if (current > icon.last_updated) icon.last_updated = current;
 		}
-		if (!!icon.variable) {
+		if (icon.variable !== undefined) {
 			for (const variable of icon.variable) {
 				if (!variable.date_added) continue;
 				const current = Date.parse(variable.date_added);
 				if (current > icon.last_updated) icon.last_updated = current;
 			}
 		}
-	}
-
-	private async loadFlagIcons(): Promise<void> {
-		console.info('Loading flag icons...');
-		const path = root.concat('/icons/flags');
-		const dir: string[] = await fs.readdir(path);
-
-		for (const flag of dir) {
-			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
-			this.FLAG_ICON_AMOUNT++;
-
-			const resource: ResourceIcon = {
-				title: current.country,
-				name: current.country,
-				href: current.href,
-				type: 'other',
-				last_updated: 0,
-				default: current.flags[0],
-				variable: []
-			} as ResourceIcon;
-
-			const first: string = resource.default.path;
-			let lastUpdated = 0;
-
-			for (const flag of current.flags) {
-				const dateAdded = Date.parse(flag.date_added);
-				if (dateAdded > lastUpdated) lastUpdated = dateAdded;
-				if (flag.animated === undefined) flag.animated = false;
-
-				if (flag.path !== first) {
-					resource.variable.push(flag);
-					this.FLAG_ICON_AMOUNT++;
-				}
-			}
-
-			resource.last_updated = lastUpdated;
-
-			this.FLAG_ICONS.push(resource);
-		}
-
-		this.FLAG_TOTAL_AMOUNT = this.FLAG_ICONS.length;
-
-		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => b.last_updated - a.last_updated));
-		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
 	private async loadColorCombos(): Promise<void> {

@@ -1,12 +1,15 @@
 {
     country: 'Panama',
+    type: 'country',
     flags: [
         {
-            path: 'pa.svg',
-            date_added: '2026/5/11',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'pa.svg',
+                date_added: '2026/5/11',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

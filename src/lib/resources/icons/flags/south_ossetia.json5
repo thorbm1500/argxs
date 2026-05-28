@@ -1,22 +1,27 @@
 {
     country: 'South Ossetia',
+    type: 'state',
     flags: [
         {
-            path: 'south_ossetia.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
-            }
-        },
-        {
-            name: 'Presidential Flag',
-            path: 'south_ossetia_presidential.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
-            }
+            default: {
+                path: 'south_ossetia.svg',
+                date_added: '2026/5/21',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Presidential Flag',
+                    path: 'south_ossetia_presidential.svg',
+                    date_added: '2026/5/21',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         }
     ]
 }

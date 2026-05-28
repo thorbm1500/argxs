@@ -1,0 +1,27 @@
+{
+	name: 'React',
+	href: 'https://react.dev',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'react-icon.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'React',
+					href: 'https://react.dev'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'react-icon-dark.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'React',
+					href: 'https://react.dev'
+				}
+			}
+		}
+	]
+}

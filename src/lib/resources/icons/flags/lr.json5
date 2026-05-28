@@ -1,12 +1,15 @@
 {
     country: 'Liberia',
+    type: 'country',
     flags: [
         {
-            path: 'lr.svg',
-            date_added: '2026/4/17',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'lr.svg',
+                date_added: '2026/4/17',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

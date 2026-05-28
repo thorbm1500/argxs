@@ -1,12 +1,15 @@
 {
     country: 'Mexico',
+    type: 'country',
     flags: [
         {
-            path: 'mx.svg',
-            date_added: '2026/4/27',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'mx.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

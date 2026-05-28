@@ -1,21 +1,26 @@
 {
     country: 'El Salvador',
+    type: 'country',
     flags: [
         {
-            path: 'sv.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'sv.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         },
         {
-            name: 'State Flag',
-            path: 'sv-state.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            name: 'El Salvador State Flag',
+            default: {
+                path: 'sv-state.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

@@ -1,21 +1,26 @@
 {
     country: 'Spain',
+    type: 'country',
     flags: [
         {
-            path: 'es.svg',
-            date_added: '2026/5/15',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'es.svg',
+                date_added: '2026/5/15',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         },
         {
-            name: 'State Flag',
-            path: 'es-state.svg',
-            date_added: '2026/5/15',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            name: 'Spain State Flag',
+            default: {
+                path: 'es-state.svg',
+                date_added: '2026/5/15',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

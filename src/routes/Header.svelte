@@ -54,6 +54,7 @@
 		</div>
 	</div>
 </section>
+<div class="{theme} header-lightbar"></div>
 
 <style>
 	/* Desktop & Tablet */
@@ -119,9 +120,48 @@
 		}
 	}
 	
+	@keyframes HeaderLightbarAnimation {
+		0%,35%,65%,100% {
+			filter: brightness(.35);
+		}
+		40% {
+			left: 0;
+		}
+		45%,55% {
+			filter: brightness(1);
+		}
+		60% {
+			left: -100vw;
+		}
+	}
+	
+	.dark.header-lightbar {
+		background-image: radial-gradient(circle at 10% 20%, rgb(218 149 252) 10%, rgb(138 217 255) 20%, rgb(140 253 170) 40%, rgb(245 255 166) 52.5%, rgb(250, 227, 189) 60%, rgb(248, 172, 172) 70%,
+		rgb(254, 211, 252) 80%, rgb(222, 168, 248) 90%) !important;
+	}
+	
+	.header-lightbar {
+		position: fixed;
+		
+		top: 0;
+		
+		height: 2px;
+		width: 200vw;
+		opacity: 1;
+		
+		background-image: radial-gradient(circle at 10% 20%, rgb(181 102 255) 10%, rgb(62 175 229) 20%, rgb(45 208 51) 40%, rgb(224 196 16) 52.5%, rgb(255 143 28) 60%, rgb(222 70 70) 70%,
+		rgb(255 123 249) 80%, rgb(181 102 255) 90%);
+		background-repeat: repeat;
+		background-size: 100vw;
+		
+		animation: HeaderLightbarAnimation 30s linear infinite !important;
+		
+		z-index:          1000000 !important;
+	}
+	
 	.header-section, .header-effect {
 		position: fixed !important;
-		top:      0;
+		top:      2px;
 		left:     0;
 		
 		height:   var(--header-height);

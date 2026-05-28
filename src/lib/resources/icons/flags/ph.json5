@@ -1,12 +1,15 @@
 {
     country: 'Philippines',
+    type: 'country',
     flags: [
         {
-            path: 'ph.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'ph.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

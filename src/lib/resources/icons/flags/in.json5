@@ -1,12 +1,15 @@
 {
     country: 'India',
+    type: 'country',
     flags: [
         {
-            path: 'in.svg',
-            date_added: '2026/4/16',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'in.svg',
+                date_added: '2026/4/16',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

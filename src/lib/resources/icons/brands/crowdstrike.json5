@@ -1,0 +1,27 @@
+{
+	name: 'CrowdStrike',
+	href: 'https://crowdstrike.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'crowdstrike-logo.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'CrowdStrike',
+					href: 'https://crowdstrike.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'crowdstrike-logo-dark.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'CrowdStrike',
+					href: 'https://crowdstrike.com'
+				}
+			}
+		}
+	]
+}

@@ -1,12 +1,15 @@
 {
     country: 'Oman',
+    type: 'country',
     flags: [
         {
-            path: 'om.svg',
-            date_added: '2026/5/11',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'om.svg',
+                date_added: '2026/5/11',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

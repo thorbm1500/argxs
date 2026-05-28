@@ -30,8 +30,13 @@
 	// - Sorting Variables
 	let iconsOnly: boolean = $state(false);
 	let logosOnly: boolean = $state(false);
-	let sorting: 'default' | 'time' | 'alphabet' = $state('default');
-	let order: 'desc' | 'asc' = $state('desc');
+	let countriesOnly: boolean = $state(false);
+	let statesOnly: boolean = $state(false);
+	let animatedOnly: boolean = $state(false);
+	let sorting: string | 'default' | 'time' | 'alphabet' = $state(localStorage.getItem('icons#sorting') ?? 'default');
+	let order: string | 'desc' | 'asc' = $state(localStorage.getItem('icons#sorting_order') ?? 'desc');
+	let search: string = $state('');
+	
 	let icons: ResourceIcon[] = $derived.by(() => {
 		let current = [];
 		
@@ -53,11 +58,37 @@
 		}
 		
 		if (iconType === 'brands') {
-			if (iconsOnly) return current.filter((icon: ResourceIcon) => icon.type === 'icon');
-			else if (logosOnly) return current.filter((icon: ResourceIcon) => icon.type === 'logo');
+			if (iconsOnly) current = current.filter((icon: ResourceIcon) => icon.type === 'icon');
+			else if (logosOnly) current = current.filter((icon: ResourceIcon) => icon.type === 'logo');
+		} else if (iconType === 'flags') {
+			if (countriesOnly) current = current.filter((icon: ResourceIcon) => icon.type === 'country');
+			else if (statesOnly) {
+				const newCurrent: ResourceIcon[] = [];
+				
+				for (const country of current) {
+					const current: ResourceIcon = {...country};
+					current.variable = [];
+					let isStateOnly = false;
+					
+					if (country?.type === 'state' || current.default?.type === 'state') isStateOnly = true;
+					
+					for (const flag of country.variable) {
+						if (flag?.type === 'state') {
+							if (!isStateOnly) {
+								isStateOnly = true;
+								current.default = flag;
+							} else current.variable.push(flag);
+						}
+					}
+					
+					if (isStateOnly) newCurrent.push(current);
+				}
+				
+				current = newCurrent;
+			}
 		}
 		
-		const result: ResourceIcon[] = [];
+		let result: ResourceIcon[] = [];
 		
 		for (const resource of current) {
 			if (!resource.default.theme || resource.default.theme === theme || (resource.dark && (!resource.dark.theme || resource.dark.theme === theme))) {
@@ -73,13 +104,99 @@
 			}
 		}
 		
+		if (search !== '') {
+			const searchResult: ResourceIcon[] = [];
+			
+			for (const resource of result) {
+				if (regexSearch(resource.title) || regexSearch(resource.name)) searchResult.push(resource);
+			}
+			
+			result = searchResult.sort((a, b) => {
+				const aa = a.name ?? a.title;
+				const bb = b.name ?? b.title;
+				
+				const minLength = Math.min(aa.length, bb.length);
+				let current = 0;
+				
+				for (let i = 0; i < search.length; i++) {
+					const currentReg = new RegExp(search.charAt(i), 'i');
+					
+					for (let j = 0; j < minLength; j++) {
+						const currentA = aa.charAt(j);
+						const currentB = bb.charAt(j);
+						
+						if (!currentReg.test(currentA) && !currentReg.test(currentB)) {
+							// Both icon names match equally, but are both longer than the search string. Returns a comparrison of the entire name of both icons
+							return aa.localeCompare(bb);
+						} else {
+							if (currentReg.test(currentA)) current--;
+							if (currentReg.test(currentB)) current++;
+						}
+						// Break if a result has been concluded
+						if (current !== 0) break;
+					}
+					// Required to not continue searching through the rest of the search string, in case the inner loop broke
+					if (current !== 0) break;
+				}
+				
+				return current === 0 ? aa.localeCompare(bb) : current;
+			});
+		}
+		
+		const sorted: ResourceIcon[] = [];
+		
+		if (animatedOnly) {
+			for (const resource of result) {
+				let isAnimated = false;
+				let current: ResourceIcon = { ...resource };
+				
+				if (resource.default.animated) isAnimated = true;
+				
+				if (!isAnimated && resource.dark?.animated) {
+					current.default = resource.dark;
+					current.dark = undefined;
+					isAnimated = true;
+				}
+				if (current.dark && !resource.dark?.animated) {
+					current.dark = undefined;
+				}
+				if (resource.variable.length !== 0) {
+					current.variable = [];
+					
+					for (const v of resource.variable) {
+						if (v.animated) {
+							if (isAnimated) {
+								current.variable.push(v);
+							} else {
+								current.default = v;
+							}
+						}
+					}
+				}
+				
+				if (isAnimated) sorted.push(current);
+			}
+			result = sorted;
+		}
+		
 		return result;
 	});
+	
+	let noSearchResult = $derived(search !== '' && icons.length === 0);
+	
+	function regexSearch(value: string) {
+		return new RegExp(search, 'iu').test(value);
+	}
+	
+	function saveCurrentSorting(): void {
+		localStorage.setItem('icons#sorting', sorting);
+		localStorage.setItem('icons#sorting_order', order);
+	}
 	
 	// - Pagination Variables
 	let pagMax = $derived(icons.length);
 	let currentPage = $state(1);
-	let pagOffset: 24 | 48 | 96 = $state(48);
+	let pagOffset: number | 24 | 48 | 96 = $state(Number.parseInt(localStorage.getItem('icons#pagination_offset') ?? '48'));
 	let pagStart = $derived(Math.max(0, (currentPage - 1) * pagOffset));
 	let pagEnd = $derived(Math.min(pagMax, currentPage * pagOffset));
 	let maxPage = $derived(Math.ceil(pagMax / pagOffset));
@@ -94,7 +211,7 @@
 	let currentIcons: (ResourceIcon | number)[] = $derived([...cIcons, ...blankIcons]);
 	
 	let columnAmount: number = $derived.by(() => {
-		let result = Math.trunc((innerWidth.current ?? 1920) / 140);
+		let result = Math.trunc(Math.min(1920, innerWidth.current ?? 1920) / 140);
 		
 		while (true) {
 			if (((pagOffset / result) % 2) !== 0) result--;
@@ -110,9 +227,7 @@
 	let iconContainerOpened: number | null = null;
 	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon ? highlightedIcon.iconIndex[highlightedIcon.currentIcon] : undefined);
 	let hPreviousIcon: Icon | undefined = undefined;
-	
-	let backgroundLight: boolean = $state(!new MediaQuery('prefers-reduced-transparency', false).current);
-	
+	let backgroundLight: boolean = $state(localStorage.getItem('icons#background_light') !== null ? Boolean(localStorage.getItem('icons#background_light') === 'true') : !new MediaQuery('prefers-reduced-transparency', false).current);
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
 	
@@ -202,12 +317,12 @@
 	}
 	
 	beforeNavigate(async () => {
-		iconsOnly = false;
-		logosOnly = false;
-		sorting = 'default';
-		order = 'asc';
 		currentPage = 1;
 		closeHighlightContainer();
+		iconsOnly = false;
+		logosOnly = false;
+		animatedOnly = false;
+		
 		await tick();
 	});
 </script>
@@ -265,7 +380,10 @@
 					<!--suppress HtmlUnknownTag -->
 					<div class="gradient" inert></div>
 				</button>
-				<button title="Turn lights {backgroundLight ? 'off' : 'on'}" class="light-button" onclick={() => backgroundLight = !backgroundLight} tabindex="2">
+				<button title="Turn lights {backgroundLight ? 'off' : 'on'}" class="light-button" onclick={() => {
+					backgroundLight = !backgroundLight;
+					localStorage.setItem('icons#background_light',String(backgroundLight));
+				}} tabindex="2">
 					{#if backgroundLight}
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -392,7 +510,9 @@
 						{:else if currentSVG === 'load'}
 							<strong style="color:var(--theme-text-third);padding:1rem;font-style:italic">Loading...</strong>
 						{:else}
-							<button title="Copy" class="copy-button" tabindex="14" onclick={() => copyToClipboard(currentSVG)}>
+							<button title="Copy" class="copy-button" tabindex="14" onclick={async () => {
+								if (await copyToClipboard(currentSVG)) sendToast?.({ message: 'Copied', duration: 1250, type: 'copy', status: 'success' })
+							}}>
 								<!--suppress HtmlUnknownTag -->
 								<div class="background"></div>
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -421,59 +541,73 @@
 
 <section class="icons-page">
 	<section class="content-header">
-		<div class="text" inert>
-			<h1 class="title">
-				{iconType === 'brands' ? 'Brand' : 'Flag'} Icons
-			</h1>
-			<div class="subtitle">
+		<div class="top-section flex flex-row flex-nowrap justify-between items-center">
+			<div class="text">
+				<h1 class="title" inert>
+					{iconType === 'brands' ? 'Brand' : 'Flag'} Icons
+				</h1>
 				{#if iconType === 'brands'}
-					argxs currently showcases a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong> different brand icons &
-					logos, consisting of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.iconAmount}</strong> icons, and <strong
-					style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.logoAmount}</strong> logos.
-					<br>
-					This collection currently consists of <strong style="color:color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.entryAmount}</strong> different brands,
-					frameworks,
-					programming
-					languages &
-					more.<br>
-					<i style="font-size:.85rem;color:var(--theme-text-fourth);">
-						Icons showcased may differ, depending on the currently selected page theme, to avoid fx. showing white icons on a white page.
-					</i>
+					<div class="subtitle">
+						<span>Browse through a total of </span>
+						<span class="callout">{#each data.totalAmount.toString().split('') as char}<div class="number">{char}</div>{/each}</span>
+						<span> different icons & logos!</span>
+					</div>
+					<div class="description">
+						<span>This collection is made up of</span>
+						<span class="callout"> {data.iconAmount} </span>
+						<span>icons, and </span>
+						<span class="callout"> {data.logoAmount} </span>
+						<span>logos, from</span>
+						<span class="callout"> {data.entryAmount} </span>
+						<span>different brands, frameworks, programming languages & more.</span><br>
+						<i style="font-size:.85rem;color:var(--theme-text-fourth);">
+							Icons showcased may differ, depending on the currently selected page theme, to avoid fx. showing white icons on a white page.
+						</i>
+					</div>
 				{:else}
-					argxs currently showcases flags from a total of <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.entryAmount}</strong> different
-					countries<span style="font-size:.65rem !important;color:inherit;vertical-align: top">&#10033;</span>, consisting of <strong
-					style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{data.totalAmount}</strong>
-					different
-					flags.<br>
-					<i style="font-size:.85rem;color:var(--theme-text-fourth);">
-						<span style="font-size:.65rem;color:inherit;vertical-align:top;">
-							&#10033;
-						</span>
-						This includes all 193 member states and 2 general observers of the United Nations, as well as de facto states, and other famous flags
-					</i>
+					<div class="subtitle">
+						<span>Browse through a total of </span>
+						<span class="callout">{#each data.totalAmount.toString().split('') as char}<div class="number">{char}</div>{/each}</span>
+						<span> different flags!</span>
+					</div>
+					<div class="description">
+						<span>This collection is made up of</span>
+						<span class="callout"> {data.entryAmount} </span>
+						<span>different countries & nations, states & de facto states, and other famous entities!</span><br>
+						<span>This includes <strong>all</strong></span>
+						<span class="callout"> 193 </span>
+						<span>member states and</span>
+						<span class="callout"> 2 </span>
+						<span>general observers of the United Nations.</span>
+					</div>
 				{/if}
 			</div>
+			<GlassButton className="search-field">
+				<form class="search-field" onsubmit="{(e) => {
+					e.preventDefault();
+					search = ((e.target as HTMLFormElement)[0] as HTMLInputElement)?.value ?? '';
+				}}">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M21 21L16.65 16.65M11 6C13.7614 6 16 8.23858 16 11M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" />
+					</svg>
+					<input type="search" id="icon-search-field" placeholder="Search..." oninput="{(e) => {
+						if ((e.target as HTMLInputElement).value.trim() === '') search = '';
+					}}">
+				</form>
+			</GlassButton>
 		</div>
 		<div class="actions">
 			<div class="sorting">
-				{#if sorting !== 'default'}
-					<GlassButton className="sort-action">
-						<button transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => sorting = 'default'}">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path
-									d="M12 16l3.644 3.644a1.21 1.21 0 0 0 1.712 0l2.288 -2.288a1.21 1.21 0 0 0 0 -1.712l-3.644 -3.644l3.644 -3.644a1.21 1.21 0 0 0 0 -1.712l-2.288 -2.288a1.21 1.21 0 0 0 -1.712 0l-3.644 3.644l-3.644 -3.644a1.21 1.21 0 0 0 -1.712 0l-2.288 2.288a1.21 1.21 0 0 0 0 1.712l3.644 3.644l-3.644 3.644a1.21 1.21 0 0 0 0 1.712l2.288 2.288a1.21 1.21 0 0 0 1.712 0m3.644 -3.644" />
-							</svg>
-						</button>
-					</GlassButton>
-				{/if}
 				<GlassButton className="sort-action">
-					<button class="sort-action" onclick="{() =>  {
+					<button type="button" class="sort-action" onclick="{() =>  {
 							if (sorting !== 'alphabet') {
 								sorting = 'alphabet';
 								order = 'asc';
 							} else {
 								order = order === 'asc' ? 'desc' : 'asc';
-							}}}">
+							}
+							saveCurrentSorting();
+					}}">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							{#if sorting === 'alphabet'}
 								{#if order === 'asc'}
@@ -496,13 +630,14 @@
 					</button>
 				</GlassButton>
 				<GlassButton className="sort-action">
-					<button class="sort-action" onclick="{() =>  {
+					<button type="button" class="sort-action" onclick="{() =>  {
 							if (sorting !== 'time') {
 								sorting = 'time';
 								order = 'asc';
 							} else {
 								order = order === 'asc' ? 'desc' : 'asc';
 							}
+							saveCurrentSorting();
 						}}">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							{#if sorting === 'time'}
@@ -524,19 +659,43 @@
 						Date Added
 					</button>
 				</GlassButton>
+				{#if sorting !== 'default'}
+					<GlassButton className="sort-action">
+						<button type="button" transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => {
+							sorting = 'default';
+							order = 'desc';
+							saveCurrentSorting();
+						}}">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M8 4h12v2.172a2 2 0 0 1 -.586 1.414l-3.914 3.914m-.5 3.5v4l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227" />
+								<path d="M3 3l18 18" />
+							</svg>
+						</button>
+					</GlassButton>
+				{/if}
 			</div>
-			{#if iconType === 'brands'}
-				<div class="filter">
-					<GlassButton className="sort-action {!iconsOnly && !logosOnly ? 'active' : 'inactive'}">
-						<button class="sort-action {!iconsOnly && !logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+			<div class="filter">
+				<GlassButton className="sort-action {!(iconsOnly || logosOnly || countriesOnly || statesOnly) ? 'active' : 'inactive'}">
+					<button type="button" class="sort-action {!(iconsOnly || logosOnly || countriesOnly || statesOnly) ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							iconsOnly = false;
 							logosOnly = false;
+							countriesOnly = false;
+							statesOnly = false;
+							animatedOnly = false;
 						}}">All
-						</button>
-					</GlassButton>
+					</button>
+				</GlassButton>
+				<GlassButton className="sort-action {animatedOnly ? 'active' : 'inactive'}">
+					<button type="button" class="sort-action {animatedOnly ? 'active' : 'inactive'}" onclick="{() => {
+							currentPage = 1;
+							animatedOnly = !animatedOnly;
+							}}">Animated Only
+					</button>
+				</GlassButton>
+				{#if iconType === 'brands'}
 					<GlassButton className="sort-action {iconsOnly ? 'active' : 'inactive'}">
-						<button class="sort-action {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
+						<button type="button" class="sort-action {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							iconsOnly = !iconsOnly;
 							if (iconsOnly) logosOnly = false;
@@ -544,31 +703,74 @@
 						</button>
 					</GlassButton>
 					<GlassButton className="sort-action {logosOnly ? 'active' : 'inactive'}">
-						<button class="sort-action {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+						<button type="button" class="sort-action {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							logosOnly = !logosOnly;
 							if (logosOnly) iconsOnly = false;
 							}}">Logos Only
 						</button>
 					</GlassButton>
-				</div>
+				{:else if iconType === 'flags'}
+					<GlassButton className="sort-action {countriesOnly ? 'active' : 'inactive'}">
+						<button type="button" class="sort-action {countriesOnly ? 'active' : 'inactive'}" onclick="{() => {
+							currentPage = 1;
+							countriesOnly = !countriesOnly;
+							if (countriesOnly) statesOnly = false;
+							}}">Countries Only
+						</button>
+					</GlassButton>
+					<GlassButton className="sort-action {statesOnly ? 'active' : 'inactive'}">
+						<button type="button" class="sort-action {statesOnly ? 'active' : 'inactive'}" onclick="{() => {
+							currentPage = 1;
+							statesOnly = !statesOnly;
+							if (statesOnly) countriesOnly = false;
+							}}">States Only
+						</button>
+					</GlassButton>
+				{/if}
+			</div>
+		</div>
+	</section>
+	
+	<section class="brand-icons-sec" style:--current-width={Math.min(1920, innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}>
+		{#if noSearchResult}
+			<div class="failed-search">
+				<h3>Sorry! We couldn't find what you were looking for...</h3>
+				{#key search}
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<g>
+							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M14.986 3.51a9 9 0 1 0 1.514 16.284c2.489 -1.437 4.181 -3.978 4.5 -6.794" />
+							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M10 10h.01" />
+							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M14 8h.01" />
+							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M12 15c1 -1.333 2 -2 3 -2">
+								<animateTransform attributeName="transform" attributeType="XML" dur="5s" keyTimes="0; 0.05; 0.2; 1" repeatCount="indefinite" type="rotate" values="0; 0; 2; 0" />
+							</path>
+							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M20 9v.01" />
+							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M20 6a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483">
+								<animateTransform attributeName="transform" attributeType="XML" dur="4s" keyTimes="0; 0.05; 0.1; 1" repeatCount="indefinite" type="rotate" values="0; 1.25; 0; 0" />
+							</path>
+							<animateTransform attributeName="transform" attributeType="XML" dur="5s" keyTimes="0; 0.2; 0.5; 0.8; 1" repeatCount="indefinite" type="rotate"
+							                  values="0; 3; 0; -3; 0" />
+						</g>
+					</svg>
+				{/key}
+			</div>
+		{/if}
+		
+		<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7.5rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
+			{#if !noSearchResult}
+				{#each currentIcons as icon (icon)}
+					{#if typeof icon === 'number'}
+						<div class="icon blank {isLoaded ? 'loaded' : 'loading'}" inert></div>
+					{:else}
+						<BrandIconComponent type={iconType} bind:highlightedIcon bind:theme icon={icon} />
+					{/if}
+				{/each}
 			{/if}
 		</div>
 	</section>
 	
-	<section class="brand-icons-sec" style:--current-width={(innerWidth.current ?? 1920) + 'px'} style:--column-amount={columnAmount} style:--row-amount={rowAmount}>
-		<div class="icons" style="row-gap:calc(((var(--current-width) - 12rem) / var(--column-amount)) - 7.5rem);grid-template-columns: repeat(var(--column-amount), 7rem);">
-			{#each currentIcons as icon (icon)}
-				{#if typeof icon === 'number'}
-					<div class="icon blank {isLoaded ? 'loaded' : 'loading'}" inert></div>
-				{:else}
-					<BrandIconComponent type={iconType} bind:highlightedIcon bind:theme icon={icon} />
-				{/if}
-			{/each}
-		</div>
-	</section>
-	
-	<div class="pagination-actions">
+	<div class="pagination-actions" style="{noSearchResult ? 'display:none' : ''}">
 		<GlassButton className="action pagination {currentPage > 3 ? '' : 'hide'}">
 			<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">1</button>
 		</GlassButton>
@@ -610,7 +812,8 @@
 							if (currentPage !== 1) currentPage = 1;
 							if (pagOffset === 24) pagOffset = 96;
 							else if (pagOffset === 48) pagOffset = 24;
-							else pagOffset = 48;}}>
+							else pagOffset = 48;
+							localStorage.setItem('icons#pagination_offset',String(pagOffset))}}>
 				Items: {pagOffset}
 			</button>
 		</GlassButton>
@@ -670,27 +873,39 @@
 		}
 		
 		.content-header {
-			display:         flex;
-			flex-flow:       row nowrap;
-			align-items:     flex-end;
-			justify-content: space-between;
-			
-			padding-bottom:  2rem;
+			padding-bottom: 1rem;
 			
 			.text {
-				padding-left: 1rem;
+				padding: 0 1rem;
 				
 				.title {
-					font-size: 3.15rem;
+					font-size:  3.25rem;
+					width:      fit-content;
+					height:     fit-content;
+					padding:    .5rem 0;
+					box-sizing: content-box;
 				}
 				
 				.subtitle {
-					font-size: 0.95rem;
+					font-size: 1.05rem;
+				}
+				
+				.description {
+					font-size: .95rem;
 				}
 			}
 			
-			.actions {
+			.top-section {
 				padding-right: 1rem;
+			}
+			
+			.actions {
+				flex-flow:       row nowrap;
+				align-items:     flex-end;
+				justify-content: space-between;
+				gap:             .5rem;
+				
+				padding:         0 1rem;
 			}
 		}
 		
@@ -701,10 +916,14 @@
 			
 			.subtitle {
 				font-size: 1.05rem;
+			}
+			
+			.subtitle {
+				font-size: .95rem;
 				
 				ul li ul li {
 					white-space:         pre;
-					font-size:           .9rem;
+					font-size:           .85rem;
 					list-style-position: inside;
 				}
 			}
@@ -754,23 +973,27 @@
 		}
 		
 		.content-header {
-			display:         flex;
-			flex-flow:       column nowrap;
-			align-items:     flex-end;
-			justify-content: space-between;
-			
 			.text {
 				.title {
 					font-size: 2rem;
 				}
 				
-				.subtitle {
+				.description {
 					font-size: 0.8rem;
 				}
 			}
 			
 			.actions {
-				margin-top: 1rem;
+				flex-flow:       column wrap;
+				align-items:     center;
+				justify-content: space-between;
+				margin-top:      1rem;
+				
+				max-width:       100%;
+				
+				.sorting {
+					flex-flow: row wrap;
+				}
 			}
 		}
 		
@@ -825,6 +1048,11 @@
 				backdrop-filter: none !important;
 			}
 		}
+	}
+	
+	.search-field :global .search-field {
+		position: relative !important;
+		z-index:  1000 !important;
 	}
 	
 	.icons-page {
@@ -1397,6 +1625,32 @@
 		position:    relative;
 		user-select: none;
 		
+		.failed-search {
+			display:         flex;
+			align-items:     center;
+			justify-content: center;
+			gap:             .25rem;
+			
+			width:           100%;
+			height:          inherit;
+			box-sizing:      content-box;
+			
+			font-size:       1.25rem;
+			font-weight:     450;
+			text-wrap:       pretty;
+			
+			h3 {
+				color: var(--theme-text-secondary) !important;
+			}
+			
+			svg {
+				height: 2rem;
+				width:  2rem;
+				
+				color:  var(--theme-text-secondary);
+			}
+		}
+		
 		.icons {
 			display: grid;
 			
@@ -1585,14 +1839,18 @@
 	}
 	
 	.content-header {
-		height:      fit-content;
-		width:       100%;
+		display:         flex;
+		flex-flow:       column nowrap;
+		justify-content: flex-start;
 		
-		user-select: none;
-		z-index:     500;
+		height:          fit-content;
+		width:           100%;
+		
+		z-index:         500;
 		
 		.text {
-			z-index: 500;
+			padding-bottom: 1.5rem;
+			z-index:        500;
 			
 			.title {
 				background-image: var(--theme-text-gradient);
@@ -1602,11 +1860,61 @@
 				overflow:         visible;
 			}
 			
-			.subtitle {
+			.subtitle, .description {
 				text-wrap:   pretty;
 				font-family: 'Geologica', sans-serif;
-				font-weight: 500;
-				color:       var(--theme-text-third);
+			}
+			
+			.subtitle {
+				cursor: default;
+			}
+			
+			.subtitle span {
+				font-weight: 600;
+				
+				cursor:      default;
+				
+				&.callout {
+					box-sizing:  content-box;
+					height:      fit-content;
+					
+					padding:     .025rem .125rem;
+					
+					background:  color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);
+					
+					font-weight: 900;
+					color:       var(--theme-ui-white);
+					
+					.number {
+						display:    inline-flex;
+						
+						width:      fit-content;
+						padding:    0 .025rem;
+						
+						transition: 255ms 225ms ease-in;
+						
+						z-index:    100;
+						
+						&:hover {
+							transform:  scale(1.25) rotate(2deg);
+							transition: 50ms ease-out;
+							z-index:    200;
+						}
+					}
+				}
+			}
+			
+			.description {
+				margin-top: 1.25rem;
+				
+				span {
+					font-weight: 500;
+					color:       var(--theme-text-third);
+					
+					&.callout {
+						color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);
+					}
+				}
 			}
 		}
 		
@@ -1620,21 +1928,61 @@
 			width:            120vw;
 			height:           40vh;
 			
-			background-image: linear-gradient(to bottom, var(--theme-color-primary) 0%, transparent 100%);
+			background-image: linear-gradient(to bottom, rgba(from var(--theme-color-primary) r g b / .25) 0%, transparent 100%);
 			transform:        rotate(3deg);
 			filter:           blur(6rem);
 			
 			z-index:          1;
 		}
 		
-		.actions {
-			display:         flex;
-			flex-flow:       column wrap;
-			align-items:     flex-end;
-			justify-content: flex-end;
-			gap:             .5rem;
+		.search-field, :global .search-field {
+			position:      relative !important;
+			border-radius: .9rem;
 			
-			z-index:         500;
+			svg {
+				position:  absolute;
+				height:    1.25rem;
+				width:     1.25rem;
+				
+				color:     var(--theme-text-third);
+				
+				transform: translate(.675rem, .6rem);
+			}
+			
+			input {
+				font-family: 'Geologica', 'Google Sans', sans-serif;
+				font-weight: 500;
+				color:       var(--theme-text-third);
+				
+				padding:     .5rem 1rem .5rem 2.25rem;
+				
+				&:hover {
+					backdrop-filter: brightness(.5);
+					color:           var(--theme-text-secondary);
+				}
+				
+				&:focus {
+					backdrop-filter: brightness(.9);
+					color:           var(--theme-text-primary);
+				}
+				
+				&:hover, &:active, &:focus {
+					box-shadow: none;
+					outline:    none;
+				}
+			}
+			
+			z-index:       999;
+		}
+		
+		.actions {
+			display:     flex;
+			
+			padding-top: 1rem;
+			
+			width:       100%;
+			
+			z-index:     500;
 			
 			.sorting, .filter {
 				display:         flex;

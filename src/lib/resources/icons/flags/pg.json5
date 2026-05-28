@@ -1,12 +1,15 @@
 {
     country: 'Papua New Guinea',
+    type: 'country',
     flags: [
         {
-            path: 'pg.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'pg.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

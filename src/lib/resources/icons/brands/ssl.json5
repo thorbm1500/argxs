@@ -1,0 +1,37 @@
+{
+	name: 'SSL',
+	href: 'https://ssl.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'ssl-logo.svg',
+				date_added: '2026/5/27',
+				source: {
+					name: 'SSL',
+					href: 'https://ssl.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'ssl-logo-monochrome-black.svg',
+					date_added: '2026/5/27',
+					source: {
+						name: 'SSL',
+						href: 'https://ssl.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'ssl-logo-monochrome-white.svg',
+					date_added: '2026/5/27',
+					source: {
+						name: 'SSL',
+						href: 'https://ssl.com'
+					}
+				}
+			]
+		}
+	]
+}

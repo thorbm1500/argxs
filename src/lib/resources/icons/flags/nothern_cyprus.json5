@@ -1,12 +1,15 @@
 {
     country: 'Nothern Cyprus',
+    type: 'state',
     flags: [
         {
-            path: 'nothern_cyprus.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'nothern_cyprus.svg',
+                date_added: '2026/5/21',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

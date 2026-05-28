@@ -1,0 +1,27 @@
+{
+	name: 'Django',
+	href: 'https://djangoproject.com',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'django-logo.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'django-logo-dark.svg',
+				date_added: '2026/5/26',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			}
+		}
+	]
+}

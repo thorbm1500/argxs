@@ -1,12 +1,15 @@
 {
     country: 'Bahamas',
+    type: 'country',
     flags: [
         {
-            path: 'bs.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'bs.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

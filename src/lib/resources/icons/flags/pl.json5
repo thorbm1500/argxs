@@ -1,21 +1,26 @@
 {
     country: 'Poland',
+    type: 'country',
     flags: [
         {
-            path: 'pl.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'pl.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         },
         {
-            name: 'State Flag',
-            path: 'pl-state.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            name: 'Poland State Flag',
+            default: {
+                path: 'pl-state.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

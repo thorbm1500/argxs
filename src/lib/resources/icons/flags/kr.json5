@@ -1,12 +1,15 @@
 {
     country: 'South Korea',
+    type: 'country',
     flags: [
         {
-            path: 'kr.svg',
-            date_added: '2026/5/12',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'kr.svg',
+                date_added: '2026/5/12',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

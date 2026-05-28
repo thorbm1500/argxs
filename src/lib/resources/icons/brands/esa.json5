@@ -1,0 +1,27 @@
+{
+	name: 'ESA',
+	href: 'https://www.esa.int',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'esa-logo.svg',
+				date_added: '2026/5/28',
+				source: {
+					name: 'ESA',
+					href: 'https://esa.int'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'esa-logo-dark.svg',
+				date_added: '2026/5/28',
+				source: {
+					name: 'ESA',
+					href: 'https://esa.int'
+				}
+			}
+		}
+	]
+}

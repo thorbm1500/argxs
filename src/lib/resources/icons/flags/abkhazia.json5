@@ -1,12 +1,15 @@
 {
     country: 'Abkhazia',
+    type: 'country',
     flags: [
         {
-            path: 'abkhazia.svg',
-            date_added: '2026/5/21',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'abkhazia.svg',
+                date_added: '2026/5/21',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

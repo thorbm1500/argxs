@@ -1,21 +1,26 @@
 {
     country: 'Denmark',
+    type: 'country',
     flags: [
         {
-            path: 'dk.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'dk.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         },
         {
-            name: 'State Flag',
-            path: 'dk-state.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            name: 'Denmark State Flag',
+            default: {
+                path: 'dk-state.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

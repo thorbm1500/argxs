@@ -1,12 +1,15 @@
 {
     country: 'Greece',
+    type: 'country',
     flags: [
         {
-            path: 'gr.svg',
-            date_added: '2026/4/14',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'gr.svg',
+                date_added: '2026/4/14',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]

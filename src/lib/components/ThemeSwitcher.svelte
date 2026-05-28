@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
+	import { fade } from 'svelte/transition';
 	
 	const updateThemeContext = getContext('toggleTheme') as Function;
 	
@@ -14,17 +15,20 @@
 
 <!--svelte-ignore a11y_positive_tabindex-->
 <button title="" onclick={updateTheme} class="{theme} theme-switch-button" tabindex="999">
-	<div class="theme-switch-glass-effect a"></div>
-	<div class="theme-switch-glass-effect b"></div>
-	<div class="theme-switch-glass-effect c"></div>
+	<!--suppress HtmlUnknownTag -->
+	<div class="theme-switch-glass-effect a" inert></div>
+	<!--suppress HtmlUnknownTag -->
+	<div class="theme-switch-glass-effect b" inert></div>
+	<!--suppress HtmlUnknownTag -->
+	<div class="theme-switch-glass-effect c" inert></div>
 	<!--suppress HtmlUnknownTag -->
 	<div class="button-switch">
 		{#if theme === 'light'}
-			<svg fill="currentColor" width="512" height="512" viewBox="0 0 512 512">
+			<svg in:fade|global={{duration: 250}} fill="currentColor" width="24" height="24" viewBox="0 0 512 512">
 				<path d="M256 118a22 22 0 0 1-22-22V48a22 22 0 0 1 44 0v48a22 22 0 0 1-22 22m0 368a22 22 0 0 1-22-22v-48a22 22 0 0 1 44 0v48a22 22 0 0 1-22 22m113.14-321.14a22 22 0 0 1-15.56-37.55l33.94-33.94a22 22 0 0 1 31.11 31.11l-33.94 33.94a21.93 21.93 0 0 1-15.55 6.44M108.92 425.08a22 22 0 0 1-15.55-37.56l33.94-33.94a22 22 0 1 1 31.11 31.11l-33.94 33.94a21.94 21.94 0 0 1-15.56 6.45M464 278h-48a22 22 0 0 1 0-44h48a22 22 0 0 1 0 44m-368 0H48a22 22 0 0 1 0-44h48a22 22 0 0 1 0 44m307.08 147.08a21.94 21.94 0 0 1-15.56-6.45l-33.94-33.94a22 22 0 0 1 31.11-31.11l33.94 33.94a22 22 0 0 1-15.55 37.56M142.86 164.86a21.9 21.9 0 0 1-15.55-6.44l-33.94-33.94a22 22 0 0 1 31.11-31.11l33.94 33.94a22 22 0 0 1-15.56 37.55M256 358a102 102 0 1 1 102-102a102.12 102.12 0 0 1-102 102" />
 			</svg>
 		{:else}
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+			<svg in:fade|global={{duration: 250}} fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
 				<path d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z" />
 			</svg>
 		{/if}
@@ -62,19 +66,18 @@
 	.theme-switch-button {
 		position:        relative;
 		
-		width:           3rem;
-		height:          1.5rem;
+		width:           2rem;
+		height:          2rem;
 		
 		cursor:          pointer;
-		background:      none !important;
+		background:      radial-gradient(circle at 50% 50%, var(--theme-ui-sidebar) 0%, var(--theme-ui-sidebar-highlight) 100%) !important;
 		
 		border:          1px solid rgba(from var(--theme-color-primary) r g b / .025);
 		border-radius:   1rem;
 		
 		.button-switch {
 			position:        relative;
-			top:             0.05rem;
-			left:            0.15rem;
+			margin: 0 auto;
 			
 			display:         flex;
 			align-items:     center;
@@ -99,19 +102,21 @@
 				transition:      175ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
 			}
 		}
-	}
-	
-	.theme-switch-button:hover .button-switch {
-		svg {
-			transform: scale(1.5);
-			color: var(--theme-color-primary);
-			transition: 125ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
+		
+		&:hover, &:active {
+			&, svg {
+				transition: 125ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
+			}
 		}
-	}
-	
-	.theme-switch-button.dark .button-switch {
-		left:       1.6rem;
-		transform:  rotate(720deg);
-		transition: 175ms cubic-bezier(0.125, 0.885, 0.42, 1.2);
+		
+		&:hover svg {
+			transform: scale(1.1);
+			color: var(--theme-color-primary);
+		}
+		
+		&:active svg {
+			transform: scale(.95);
+			color: var(--theme-color-primary);
+		}
 	}
 </style>

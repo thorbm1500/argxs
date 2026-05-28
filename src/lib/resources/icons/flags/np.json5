@@ -1,12 +1,15 @@
 {
     country: 'Nepal',
+    type: 'country',
     flags: [
         {
-            path: 'np.svg',
-            date_added: '2026/4/27',
-            source: {
-                name: 'Wikipedia',
-                href: 'https://en.wikipedia.org'
+            default: {
+                path: 'np.svg',
+                date_added: '2026/4/27',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
             }
         }
     ]
