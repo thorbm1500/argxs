@@ -191,6 +191,30 @@
                     href: 'https://en.wikipedia.org'
                 }
             }
+        },
+        {
+            default: {
+                name: 'Kansas',
+                type: 'state',
+                path: 'us-kansas.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            default: {
+                name: 'Kentucky',
+                type: 'state',
+                path: 'us-kentucky.svg',
+                date_added: '2026/5/26',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
         }
     ]
 }
