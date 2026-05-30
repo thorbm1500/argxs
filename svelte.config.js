@@ -18,7 +18,7 @@ const config = {
 	},
 	kit: {
 		version: {
-			name: '0.7.1',
+			name: '0.7.2',
 			pollInterval: 300000
 		},
 		experimental: {

@@ -1,6 +1,6 @@
 {
     "name": "argxs",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
@@ -42,7 +42,7 @@
         "svelte"
     ],
     "dependencies": {
-        "svelte": "^5.55.10",
+        "svelte": "^5.56.0",
         "@sveltejs/kit": "^2.61.1",
         "@highlightjs/cdn-assets": "^11.11.1",
         "@humanspeak/svelte-markdown": "^1.5.3",
