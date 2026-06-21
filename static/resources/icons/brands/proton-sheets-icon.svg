@@ -1,14 +1,14 @@
-<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M45.9277 63.9784C45.9277 54.0314 53.9914 45.9678 63.9383 45.9678H135.981C145.928 45.9678 153.991 54.0314 153.991 63.9784V136.021C153.991 145.968 145.928 154.031 135.981 154.031H63.9383C53.9914 154.031 45.9277 145.968 45.9277 136.021V63.9784Z" fill="url(#paint0_radial_7651_554)"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M78.6352 91.1122C81.1419 91.1122 83.1739 93.1442 83.1739 95.6509L83.1739 134.121C83.1739 136.628 81.1419 138.66 78.6352 138.66C76.1286 138.66 74.0966 136.628 74.0966 134.121L74.0966 95.6509C74.0966 93.1442 76.1286 91.1122 78.6352 91.1122Z" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M58.9683 120.722C58.9683 118.215 61.0004 116.183 63.507 116.183L106.3 116.183C108.807 116.183 110.839 118.215 110.839 120.722C110.839 123.229 108.807 125.261 106.3 125.261L63.507 125.261C61.0004 125.261 58.9683 123.229 58.9683 120.722Z" fill="white"/>
-<path d="M99.9596 45.9678H126.975V72.9837H99.9596V45.9678Z" fill="white" fill-opacity="0.5"/>
-<path d="M126.974 45.9678H135.98C145.927 45.9678 153.99 54.0314 153.99 63.9784V72.9837H126.974V45.9678Z" fill="white" fill-opacity="0.8"/>
-<path d="M126.974 72.9839H153.99V99.9998H126.974V72.9839Z" fill="white" fill-opacity="0.5"/>
-<defs>
-<radialGradient id="paint0_radial_7651_554" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(38.4547 175.613) rotate(-53.1504) scale(127.518)">
-<stop stop-color="#1B854C"/>
-<stop offset="1" stop-color="#26DA79"/>
-</radialGradient>
-</defs>
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 108.06 108.06">
+  <defs>
+    <radialGradient id="b" cx="-244.02" cy="472.18" fx="-244.02" fy="472.18" r="1" gradientTransform="translate(66835.1 11339.44) rotate(-53.15) scale(127.52 -127.52)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b854c"/>
+      <stop offset="1" stop-color="#26da79"/>
+    </radialGradient>
+  </defs>
+  <path d="M0,18.01C0,8.06,8.06,0,18.01,0h72.04c9.95,0,18.01,8.06,18.01,18.01v72.04c0,9.95-8.06,18.01-18.01,18.01H18.01c-9.95,0-18.01-8.06-18.01-18.01V18.01Z" fill="url(#b)"/>
+  <path d="M32.71,45.14c2.51,0,4.54,2.03,4.54,4.54v38.47c0,2.51-2.03,4.54-4.54,4.54s-4.54-2.03-4.54-4.54v-38.47c0-2.51,2.03-4.54,4.54-4.54Z" fill="#fff" fill-rule="evenodd"/>
+  <path d="M13.04,74.75c0-2.51,2.03-4.54,4.54-4.54h42.79c2.51,0,4.54,2.03,4.54,4.54s-2.03,4.54-4.54,4.54H17.58c-2.51,0-4.54-2.03-4.54-4.54Z" fill="#fff" fill-rule="evenodd"/>
+  <path d="M54.03,0h27.02v27.02h-27.02V0Z" fill="#FFF" opacity=".5"/>
+  <path d="M81.05,0h9.01c9.95,0,18.01,8.06,18.01,18.01v9.01h-27.02V0Z" fill="#FFF" opacity=".8"/>
+  <path d="M81.05,27.02h27.02v27.02h-27.02v-27.02Z" fill="#FFF" opacity=".5"/>
 </svg>
