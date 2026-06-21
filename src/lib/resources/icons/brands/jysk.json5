@@ -1,0 +1,13 @@
+{
+	name: 'Jysk',
+	href: 'https://jysk.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'jysk-logo.svg',
+				date_added: '2026/6/21'
+			}
+		}
+	]
+}
