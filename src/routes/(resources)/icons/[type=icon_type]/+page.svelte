@@ -834,7 +834,7 @@
 					Ensuring no SVGs overlap and conflict due to having attributes with matching names, and for a hope of minimizing the amount of redundant data being transferred across the internet.
 				</li>
 				<li>
-					Embedding an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are directly embedded on the page, so they can be safely omitted.
+					Inlining an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are inlined directly in the html, so they can be safely omitted.
 					<ul>
 						<li>
 							xmlns | Fx. xmlns="http://www.w3.org/2000/svg"
