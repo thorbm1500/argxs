@@ -6,6 +6,12 @@
   - Updated "Good to know" text
 ## 8 New [Brand Icons](https://argxs.com/icons/brands)
 - **[New]** Pitch
+- **[New]** Rockstar Games
+  - Incl. Grand Theft Auto VI
+  - Incl. Grand Theft Auto V
+  - Incl. Grand Theft Auto Online
+  - Incl. Red Dead Redemption 2
+  - Incl. Red Dead Online
 
 ## Dependencies
 - svelte: *5.55.10 ➜ 5.56.4*
