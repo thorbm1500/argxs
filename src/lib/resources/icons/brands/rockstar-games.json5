@@ -106,6 +106,20 @@
 			}
 		},
 		{
+			name: 'GTA Plus',
+			href: 'https://www.rockstargames.com/gta-plus/join',
+			type: 'logo',
+			default: {
+				path: 'gta-plus-membership-logo.svg',
+				date_added: '2026/7/2',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			}
+		},
+		{
 			name: 'Red Dead Redemption 2',
 			href: 'https://www.rockstargames.com/reddeadonline',
 			type: 'logo',
