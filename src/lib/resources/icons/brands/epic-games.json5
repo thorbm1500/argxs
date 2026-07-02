@@ -1,0 +1,53 @@
+{
+	name: 'Epic Games',
+	href: 'https://www.epicgames.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'epic-games-icon.svg',
+				date_added: '2026/7/2',
+				version: '0.7.2',
+				source: {
+					name: 'Epic Games',
+					href: 'https://www.epicgames.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'epic-games-icon-dark.svg',
+				date_added: '2026/7/2',
+				version: '0.7.2',
+				source: {
+					name: 'Epic Games',
+					href: 'https://www.epicgames.com'
+				}
+			}
+		},
+		{
+			name: 'Unreal Engine',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'epic-games-unreal-engine-logo.svg',
+				date_added: '2026/7/2',
+				version: '0.7.2',
+				source: {
+					name: 'Epic Games',
+					href: 'https://www.unrealengine.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'epic-games-unreal-engine-logo-dark.svg',
+				date_added: '2026/7/2',
+				version: '0.7.2',
+				source: {
+					name: 'Epic Games',
+					href: 'https://www.unrealengine.com'
+				}
+			}
+		}
+	]
+}

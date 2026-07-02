@@ -12,6 +12,8 @@
   - Incl. Grand Theft Auto Online
   - Incl. Red Dead Redemption 2
   - Incl. Red Dead Online
+- **[New]** Epic Games
+  - Incl. Unreal Engine
 
 ## Dependencies
 - svelte: *5.55.10 ➜ 5.56.4*
