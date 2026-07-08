@@ -24,6 +24,8 @@ export interface Icon {
 	type?: IconType,
 	/** The date of which the icon was added or updated */
 	date_added: string,
+	/** The version of which the icon was added or updated */
+	version?: string,
 	/** The source of the icon */
 	source?: Source
 	/** A path to the icon's PNG version, otherwise undefined or no PNG version exists, or if it is yet to be processed. */
