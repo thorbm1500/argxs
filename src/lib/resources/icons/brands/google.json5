@@ -62,6 +62,19 @@
 			}
 		},
 		{
+			name: 'Google Play Store Badge',
+			href: 'https://play.google.com/store/games',
+			type: 'logo',
+			default: {
+				path: 'google-play-badge-logo.svg',
+				date_added: '2026/7/8',
+				source: {
+					name: 'Ønskeskyen',
+					href: 'https://onskeskyen.dk'
+				}
+			}
+		},
+		{
 			name: 'Google Play Console',
 			href: 'https://play.google.com/console',
 			type: 'icon',
