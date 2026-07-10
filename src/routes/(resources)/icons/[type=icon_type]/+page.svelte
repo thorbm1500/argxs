@@ -36,6 +36,8 @@
 	let sorting: string | 'default' | 'time' | 'alphabet' = $state(localStorage.getItem('icons#sorting') ?? 'default');
 	let order: string | 'desc' | 'asc' = $state(localStorage.getItem('icons#sorting_order') ?? 'desc');
 	let search: string = $state('');
+	let searchbarValue: string = $state('');
+	let latestSearchStateChange: number = $state(0);
 	
 	let icons: ResourceIcon[] = $derived.by(() => {
 		let current = [];
@@ -60,7 +62,8 @@
 		if (iconType === 'brands') {
 			if (iconsOnly) current = current.filter((icon: ResourceIcon) => icon.type === 'icon');
 			else if (logosOnly) current = current.filter((icon: ResourceIcon) => icon.type === 'logo');
-		} else if (iconType === 'flags') {
+		}
+		else if (iconType === 'flags') {
 			if (countriesOnly) current = current.filter((icon: ResourceIcon) => icon.type === 'country');
 			else if (statesOnly) {
 				const newCurrent: ResourceIcon[] = [];
@@ -126,7 +129,7 @@
 						const currentB = bb.charAt(j);
 						
 						if (!currentReg.test(currentA) && !currentReg.test(currentB)) {
-							// Both icon names match equally, but are both longer than the search string. Returns a comparrison of the entire name of both icons
+							// Both icon names match equally, but are both longer than the search string. Returns a comparison of the entire name of both icons
 							return aa.localeCompare(bb);
 						} else {
 							if (currentReg.test(currentA)) current--;
@@ -181,7 +184,8 @@
 		
 		return result;
 	});
-	
+
+	// True if a search has been executed, but no icons are present
 	let noSearchResult = $derived(search !== '' && icons.length === 0);
 	
 	function regexSearch(value: string) {
@@ -585,13 +589,20 @@
 			<GlassButton className="search-field">
 				<form class="search-field" onsubmit="{(e) => {
 					e.preventDefault();
-					search = ((e.target as HTMLFormElement)[0] as HTMLInputElement)?.value ?? '';
+					search = searchbarValue;
 				}}">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M21 21L16.65 16.65M11 6C13.7614 6 16 8.23858 16 11M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" />
 					</svg>
-					<input type="search" id="icon-search-field" placeholder="Search..." oninput="{(e) => {
-						if ((e.target as HTMLInputElement).value.trim() === '') search = '';
+					<input type="search" id="icon-search-field" placeholder="Search..." bind:value={searchbarValue}
+					       onfocusout="{(e) => search = searchbarValue}"
+								 oninput="{(e) => {
+									 latestSearchStateChange = Date.now();
+									 if (searchbarValue.trim() === '') search = '';
+									 setTimeout(() => {
+										 if (search === searchbarValue || Date.now() - latestSearchStateChange < 450) return;
+										 search = searchbarValue;
+									 }, 500);
 					}}">
 				</form>
 			</GlassButton>
