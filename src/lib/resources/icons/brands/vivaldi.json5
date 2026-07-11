@@ -24,6 +24,31 @@
 				date_added: '2026/4/25',
 				version: '0.2.13'
 			}
+		},
+		{
+			name: 'Vivaldi Community',
+			type: 'icon',
+			default: {
+				path: 'vivaldi-community-icon.svg',
+				date_added: '2026/7/11',
+				version: '0.7.2'
+			}
+		},
+		{
+			name: 'Vivaldi Community',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'vivaldi-community-logo.svg',
+				date_added: '2026/7/11',
+				version: '0.7.2'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'vivaldi-community-logo-dark.svg',
+				date_added: '2026/7/11',
+				version: '0.7.2'
+			}
 		}
 	]
 }
