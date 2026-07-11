@@ -8,6 +8,7 @@
                 theme: 'light',
                 path: 'volvo-icon.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
                 theme: 'dark',
                 path: 'volvo-icon-dark.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -29,6 +31,7 @@
                 theme: 'light',
                 path: 'volvo-logo.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
                 theme: 'dark',
                 path: 'volvo-logo-dark.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'

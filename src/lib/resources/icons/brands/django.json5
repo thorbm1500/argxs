@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'django-logo.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'django-logo-dark.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'

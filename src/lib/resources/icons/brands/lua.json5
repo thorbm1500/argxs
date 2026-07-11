@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'lua-icon.svg',
-				date_added: '2026/5/24'
+				date_added: '2026/5/24',
+				version: '0.7.0'
 			}
 		}
 	]

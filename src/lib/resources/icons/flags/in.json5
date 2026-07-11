@@ -6,6 +6,7 @@
             default: {
                 path: 'in.svg',
                 date_added: '2026/4/16',
+                version: '0.0.9',
                 source: {
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'

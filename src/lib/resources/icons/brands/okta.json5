@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'okta-icon.svg',
 				date_added: '2026/4/29',
+				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'okta-icon-dark.svg',
 				date_added: '2026/4/29',
+				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -29,6 +31,7 @@
 				theme: 'light',
 				path: 'okta-logo.svg',
 				date_added: '2026/4/29',
+				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
 				theme: 'dark',
 				path: 'okta-logo-dark.svg',
 				date_added: '2026/4/29',
+				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'

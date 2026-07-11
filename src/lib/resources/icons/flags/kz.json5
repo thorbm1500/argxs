@@ -6,6 +6,7 @@
             default: {
                 path: 'kz.svg',
                 date_added: '2026/4/17',
+                version: '0.0.10',
                 source: {
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'

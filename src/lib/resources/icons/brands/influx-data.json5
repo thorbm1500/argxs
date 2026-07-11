@@ -8,6 +8,7 @@
                 theme: 'light',
                 path: 'influx-data-icon.svg',
                 date_added: '2026/4/10',
+                version: '0.0.1',
                 source: {
                     name: 'InfluxData',
                     href: 'https://www.influxdata.com'
@@ -17,6 +18,7 @@
                 theme: 'dark',
                 path: 'influx-data-icon-dark.svg',
                 date_added: '2026/4/10',
+                version: '0.0.1',
                 source: {
                     name: 'InfluxData',
                     href: 'https://www.influxdata.com'
@@ -29,6 +31,7 @@
                 theme: 'light',
                 path: 'influx-data-logo.svg',
                 date_added: '2026/4/10',
+                version: '0.0.1',
                 source: {
                     name: 'InfluxData',
                     href: 'https://www.influxdata.com'
@@ -38,6 +41,7 @@
                 theme: 'dark',
                 path: 'influx-data-logo-dark.svg',
                 date_added: '2026/4/10',
+                version: '0.0.1',
                 source: {
                     name: 'InfluxData',
                     href: 'https://www.influxdata.com'

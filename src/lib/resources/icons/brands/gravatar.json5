@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'gravatar-icon.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		},
 		{
@@ -14,12 +15,14 @@
 			default: {
 				theme: 'light',
 				path: 'gravatar-logo.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'gravatar-logo-dark.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		}
 	]

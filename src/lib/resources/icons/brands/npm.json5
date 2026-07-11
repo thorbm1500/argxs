@@ -6,14 +6,16 @@
             type: 'icon',
             default: {
                 path: 'npm-icon.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         },
         {
             type: 'logo',
             default: {
                 path: 'npm-logo.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         }
     ]

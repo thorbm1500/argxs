@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'carlsberg-group-logo.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'carlsberg-group-logo-dark.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'

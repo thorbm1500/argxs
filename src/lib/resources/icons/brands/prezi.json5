@@ -7,7 +7,8 @@
 			default: {
 				path: 'prezi-icon.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -17,7 +18,8 @@
 					theme: 'dark',
 					path: 'prezi-icon-dark.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -29,7 +31,8 @@
 			default: {
 				path: 'prezi-logo.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -39,7 +42,8 @@
 					theme: 'dark',
 					path: 'prezi-logo-dark.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}

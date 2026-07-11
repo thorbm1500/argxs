@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'flare-logo.svg',
 				date_added: '2026/4/30',
+				version: '0.3.4',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'flare-logo-dark.svg',
 				date_added: '2026/4/30',
+				version: '0.3.4',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'

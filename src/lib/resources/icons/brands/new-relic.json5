@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'new-relic-icon.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'New Relic',
 					href: 'https://newrelic.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'new-relic-icon-dark.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'New Relic',
 					href: 'https://newrelic.com'
@@ -27,6 +29,7 @@
 					theme: 'dark',
 					path: 'new-relic-logo-monochrome-white.svg',
 					date_added: '2026/5/26',
+					version: '0.7.1',
 					source: {
 						name: 'New Relic',
 						href: 'https://newrelic.com'
@@ -40,6 +43,7 @@
 				theme: 'light',
 				path: 'new-relic-logo.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'New Relic',
 					href: 'https://newrelic.com'
@@ -49,6 +53,7 @@
 				theme: 'dark',
 				path: 'new-relic-logo-dark.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'New Relic',
 					href: 'https://newrelic.com'
@@ -59,6 +64,7 @@
 					theme: 'dark',
 					path: 'new-relic-logo-monochrome-white.svg',
 					date_added: '2026/5/26',
+					version: '0.7.1',
 					source: {
 						name: 'New Relic',
 						href: 'https://newrelic.com'
@@ -68,6 +74,7 @@
 					theme: 'dark',
 					path: 'new-relic-logo-monochrome-green.svg',
 					date_added: '2026/5/26',
+					version: '0.7.1',
 					source: {
 						name: 'New Relic',
 						href: 'https://newrelic.com'

@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'native-instruments-icon.svg',
 				date_added: '2026/5/21',
+				version: '0.6.5',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'native-instruments-icon-dark.svg',
 				date_added: '2026/5/21',
+				version: '0.6.5',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -29,6 +31,7 @@
 				theme: 'light',
 				path: 'native-instruments-logo.svg',
 				date_added: '2026/5/21',
+				version: '0.6.5',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
 				theme: 'dark',
 				path: 'native-instruments-logo-dark.svg',
 				date_added: '2026/5/21',
+				version: '0.6.5',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'

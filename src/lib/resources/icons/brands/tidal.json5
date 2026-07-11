@@ -7,12 +7,14 @@
             default: {
                 theme: 'light',
                 path: 'tidal-icon.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             },
             dark: {
                 theme: 'dark',
                 path: 'tidal-icon-dark.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             }
         },
         {
@@ -20,12 +22,14 @@
             default: {
                 theme: 'light',
                 path: 'tidal-logo.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             },
             dark: {
                 theme: 'dark',
                 path: 'tidal-logo-dark.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             }
         }
     ]

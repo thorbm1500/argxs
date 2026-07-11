@@ -6,14 +6,16 @@
 			type: 'icon',
 			default: {
 				path: 'deepseek-icon.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		},
 		{
 			type: 'logo',
 			default: {
 				path: 'deepseek-logo.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		}
 	]

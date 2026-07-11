@@ -7,12 +7,14 @@
             default: {
                 theme: 'light',
                 path: 'oxc-icon.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.14'
             },
             dark: {
                 theme: 'dark',
                 path: 'oxc-icon-dark.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.14'
             }
         },
         {
@@ -20,12 +22,14 @@
             default: {
                 theme: 'light',
                 path: 'oxc-logo.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.14'
             },
             dark: {
                 theme: 'dark',
                 path: 'oxc-logo-dark.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.14'
             }
         }
     ]

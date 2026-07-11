@@ -6,6 +6,7 @@
             default: {
                 path: 'de.svg',
                 date_added: '2026/4/14',
+                version: '0.0.5',
                 source: {
                     name: 'argxs',
                     href: 'https://argxs.com'
@@ -17,6 +18,7 @@
             default: {
                 path: 'de-state.svg',
                 date_added: '2026/4/14',
+                version: '0.0.5',
                 source: {
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'

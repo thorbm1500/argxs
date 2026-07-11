@@ -7,7 +7,8 @@
 			default: {
 				path: 'vk-icon.svg',
 				date_added: '2026/5/6',
-				source: {
+                version: '0.4.1',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -17,7 +18,8 @@
 					theme: 'light',
 					path: 'vk-variable-icon-light.svg',
 					date_added: '2026/5/6',
-					source: {
+                version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -26,7 +28,8 @@
 					theme: 'dark',
 					path: 'vk-variable-icon-dark.svg',
 					date_added: '2026/5/6',
-					source: {
+                version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -39,7 +42,8 @@
 				theme: 'light',
 				path: 'vk-logo.svg',
 				date_added: '2026/5/6',
-				source: {
+                version: '0.4.1',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -48,7 +52,8 @@
 				theme: 'dark',
 				path: 'vk-logo-dark.svg',
 				date_added: '2026/5/6',
-				source: {
+                version: '0.4.1',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -57,7 +62,8 @@
 				{
 					path: 'vk-variable-logo-light.svg',
 					date_added: '2026/5/6',
-					source: {
+                version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -65,7 +71,8 @@
 				{
 					path: 'vk-variable-logo-dark.svg',
 					date_added: '2026/5/6',
-					source: {
+                version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}

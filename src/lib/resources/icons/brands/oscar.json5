@@ -7,6 +7,7 @@
 			default: {
 				path: 'oscar-logo.svg',
 				date_added: '2026/5/27',
+				version: '0.7.1',
 				source: {
 					name: 'Oscar Biludlejning',
 					href: 'https://hejoscar.dk'
@@ -17,6 +18,7 @@
 					theme: 'light',
 					path: 'oscar-logo-monochrome-black.svg',
 					date_added: '2026/5/27',
+					version: '0.7.1',
 					source: {
 						name: 'Oscar Biludlejning',
 						href: 'https://hejoscar.dk'
@@ -26,6 +28,7 @@
 					theme: 'dark',
 					path: 'oscar-logo-monochrome-white.svg',
 					date_added: '2026/5/27',
+					version: '0.7.1',
 					source: {
 						name: 'Oscar Biludlejning',
 						href: 'https://hejoscar.dk'

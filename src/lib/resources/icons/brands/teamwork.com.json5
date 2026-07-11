@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'teamwork.com-icon.svg',
 				date_added: '2026/4/11',
+                version: '0.0.2',
 				source: {
 					name: 'teamwork.com',
 					href: 'https://www.teamwork.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'teamwork.com-icon-dark.svg',
 				date_added: '2026/4/11',
+                version: '0.0.2',
 				source: {
 					name: 'teamwork.com',
 					href: 'https://www.teamwork.com'
@@ -29,6 +31,7 @@
 				theme: 'light',
 				path: 'teamwork.com-logo.svg',
 				date_added: '2026/4/11',
+                version: '0.0.2',
 				source: {
 					name: 'teamwork.com',
 					href: 'https://www.teamwork.com'
@@ -38,6 +41,7 @@
 				theme: 'dark',
 				path: 'teamwork.com-logo-dark.svg',
 				date_added: '2026/4/11',
+                version: '0.0.2',
 				source: {
 					name: 'teamwork.com',
 					href: 'https://www.teamwork.com'

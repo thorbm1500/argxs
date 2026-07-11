@@ -6,7 +6,8 @@
 			type: 'logo',
 			default: {
 				path: 'jysk-logo.svg',
-				date_added: '2026/6/21'
+				date_added: '2026/6/21',
+				version: '0.6.5'
 			}
 		}
 	]

@@ -7,7 +7,8 @@
 			default: {
 				theme: 'light',
 				path: 'alpine-js-icon.svg',
-				date_added: '2026/5/23'
+				date_added: '2026/5/23',
+				version: '0.7.0'
 			}
 		},
 		{
@@ -15,7 +16,8 @@
 			default: {
 				theme: 'light',
 				path: 'alpine-js-logo.svg',
-				date_added: '2026/5/23'
+				date_added: '2026/5/23',
+				version: '0.7.0'
 			}
 		}
 	]

@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'toml-icon.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'TOML',
 					href: 'https://toml.io'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'toml-icon-dark.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'TOML',
 					href: 'https://toml.io'

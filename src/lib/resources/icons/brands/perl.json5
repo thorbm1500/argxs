@@ -8,6 +8,7 @@
 				theme: 'dark',
 				path: 'perl-logo.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Perl',
 					href: 'https://www.perl.org'

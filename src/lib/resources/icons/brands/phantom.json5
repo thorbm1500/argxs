@@ -8,6 +8,7 @@
                 theme: 'light',
                 path: 'phantom-icon.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
                 theme: 'dark',
                 path: 'phantom-icon-dark.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -29,6 +31,7 @@
                 theme: 'light',
                 path: 'phantom-logo.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
                 theme: 'dark',
                 path: 'phantom-logo-dark.svg',
                 date_added: '2026/4/30',
+                version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'

@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'vivabit-icon.svg',
 				date_added: '2026/5/23',
+				version: '0.7.0',
 				source: {
 					name: 'VivaBit',
 					href: 'https://vivabit.io'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'vivabit-icon-dark.svg',
 				date_added: '2026/5/23',
+				version: '0.7.0',
 				source: {
 					name: 'VivaBit',
 					href: 'https://vivabit.io'

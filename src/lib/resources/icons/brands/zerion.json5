@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'zerion-icon.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'zerion-icon-dark.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -29,6 +31,7 @@
 				theme: 'light',
 				path: 'zerion-logo.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
 				theme: 'dark',
 				path: 'zerion-logo-dark.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'

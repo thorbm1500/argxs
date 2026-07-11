@@ -7,6 +7,7 @@
 			default: {
 				path: 'tailwindcss-icon.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 					theme: 'dark',
 					path: 'tailwindcss-icon-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -30,6 +32,7 @@
 				theme: 'light',
 				path: 'tailwindcss-logo.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -39,6 +42,7 @@
 				theme: 'dark',
 				path: 'tailwindcss-logo-dark.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -49,6 +53,7 @@
 					theme: 'dark',
 					path: 'tailwindcss-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'

@@ -7,7 +7,8 @@
 			default: {
 				path: 'samsung-logo.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -17,7 +18,8 @@
 					theme: 'light',
 					path: 'samsung-logo-monochrome-light.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -26,7 +28,8 @@
 					theme: 'dark',
 					path: 'samsung-logo-monochrome-dark.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}

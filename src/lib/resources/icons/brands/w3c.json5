@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'w3c-icon.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'World Wide Web Consortium',
 					href: 'https://www.w3.org'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'w3c-icon-dark.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'World Wide Web Consortium',
 					href: 'https://www.w3.org'
@@ -27,6 +29,7 @@
 					theme: 'light',
 					path: 'w3c-icon-monochrome-black.svg',
 					date_added: '2026/5/24',
+					version: '0.7.0',
 					source: {
 						name: 'World Wide Web Consortium',
 						href: 'https://www.w3.org'
@@ -36,6 +39,7 @@
 					theme: 'dark',
 					path: 'w3c-icon-monochrome-white.svg',
 					date_added: '2026/5/24',
+					version: '0.7.0',
 					source: {
 						name: 'World Wide Web Consortium',
 						href: 'https://www.w3.org'

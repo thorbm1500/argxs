@@ -8,6 +8,7 @@
                 theme: 'light',
                 path: 'meta-logo.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Meta',
                     href: 'https://www.meta.com/brand/resources/meta/company-brand'
@@ -17,6 +18,7 @@
                 theme: 'dark',
                 path: 'meta-logo-dark.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Meta',
                     href: 'https://www.meta.com/brand/resources/meta/company-brand'
@@ -27,6 +29,7 @@
                     theme: 'light',
                     path: 'meta-logo-monochrome-black.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Meta',
                         href: 'https://www.meta.com/brand/resources/meta/company-brand'
@@ -36,6 +39,7 @@
                     theme: 'dark',
                     path: 'meta-logo-monochrome-white.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Meta',
                         href: 'https://www.meta.com/brand/resources/meta/company-brand'

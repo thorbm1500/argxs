@@ -7,6 +7,7 @@
             default: {
                 path: 'reddit-symbol.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -16,6 +17,7 @@
                 theme: 'dark',
                 path: 'reddit-symbol-dark.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -27,6 +29,7 @@
             default: {
                 path: 'reddit-icon.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -37,6 +40,7 @@
                     theme: 'light',
                     path: 'reddit-icon-monochrome-black.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'
@@ -46,6 +50,7 @@
                     theme: 'dark',
                     path: 'reddit-icon-monochrome-white.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'
@@ -58,6 +63,7 @@
             default: {
                 path: 'reddit-icon-alternate.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -68,6 +74,7 @@
                     theme: 'light',
                     path: 'reddit-icon-alternate-monochrome-black.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'
@@ -77,6 +84,7 @@
                     theme: 'dark',
                     path: 'reddit-icon-alternate-monochrome-white.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'
@@ -89,6 +97,7 @@
             default: {
                 path: 'reddit-full-logo.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -98,6 +107,7 @@
                 theme: 'dark',
                 path: 'reddit-full-logo-dark.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -109,6 +119,7 @@
             default: {
                 path: 'reddit-logo.svg',
                 date_added: '2026/4/29',
+                version: '0.3.2',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -119,6 +130,7 @@
                     theme: 'light',
                     path: 'reddit-logo-monochrome-black.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'
@@ -128,6 +140,7 @@
                     theme: 'dark',
                     path: 'reddit-logo-monochrome-white.svg',
                     date_added: '2026/4/29',
+                    version: '0.3.2',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'

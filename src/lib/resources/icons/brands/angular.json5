@@ -6,14 +6,16 @@
 			type: 'icon',
 			default: {
 				path: 'angular-icon.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		},
 		{
 			type: 'logo',
 			default: {
 				path: 'angular-logo.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		}
 	]

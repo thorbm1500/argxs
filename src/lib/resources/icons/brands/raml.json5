@@ -7,6 +7,7 @@
 			default: {
 				path: 'raml-logo.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'RAML',
 					href: 'https://raml.org'

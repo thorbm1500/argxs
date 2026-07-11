@@ -6,14 +6,16 @@
             type: 'icon',
             default: {
                 path: 'spotify-icon.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             }
         },
         {
             type: 'logo',
             default: {
                 path: 'spotify-logo.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             }
         }
     ]

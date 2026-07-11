@@ -7,6 +7,7 @@
 			default: {
 				path: 'starbucks-icon.svg',
 				date_added: '2026/4/29',
+				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -18,6 +19,7 @@
 			default: {
 				path: 'starbucks-logo.svg',
 				date_added: '2026/4/29',
+				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -28,6 +30,7 @@
 					theme: 'light',
 					path: 'starbucks-logo-monochrome-black.svg',
 					date_added: '2026/4/29',
+					version: '0.3.2',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -37,6 +40,7 @@
 					theme: 'dark',
 					path: 'starbucks-logo-monochrome-white.svg',
 					date_added: '2026/4/29',
+					version: '0.3.2',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'

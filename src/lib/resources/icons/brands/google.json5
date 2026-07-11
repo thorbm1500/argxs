@@ -6,14 +6,16 @@
 			type: 'icon',
 			default: {
 				path: 'google-icon.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		},
 		{
 			type: 'logo',
 			default: {
 				path: 'google-logo.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		},
 		{
@@ -22,7 +24,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-chrome-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -31,7 +34,8 @@
 			type: 'icon',
 			default: {
 				path: 'chrome-web-store-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.12'
 			}
 		},
 		{
@@ -40,7 +44,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-search-console-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.12'
 			}
 		},
 		{
@@ -49,7 +54,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-play-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -58,7 +64,8 @@
 			type: 'logo',
 			default: {
 				path: 'google-play-logo.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -80,7 +87,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-play-console-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -89,7 +97,8 @@
 			type: 'logo',
 			default: {
 				path: 'google-play-console-logo.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -98,7 +107,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-calender-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -107,7 +117,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-drive-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -116,7 +127,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-gmail-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -125,7 +137,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-home-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -134,7 +147,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-maps-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -143,7 +157,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-photos-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -152,7 +167,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-meet-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -161,7 +177,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-keep-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -170,7 +187,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-ad-mob-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -179,7 +197,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-ad-sense-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -188,7 +207,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-analytics-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -197,7 +217,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-fit-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -206,7 +227,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-one-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -215,7 +237,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-developers-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -224,7 +247,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-pay-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -233,7 +257,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-data-studio-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -242,7 +267,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-optimize-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -251,7 +277,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-tag-manager-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -260,7 +287,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-domains-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -269,7 +297,8 @@
 			type: 'logo',
 			default: {
 				path: 'google-domains-logo.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -278,7 +307,8 @@
 			type: 'logo',
 			default: {
 				path: 'google-workspace-logo.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -287,7 +317,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-360-suite.svg',
-				date_added: '2026/4/24'
+				date_added: '2026/4/24',
+				version: '0.2.11'
 			}
 		},
 		{
@@ -296,7 +327,8 @@
 			type: 'logo',
 			default: {
 				path: 'google-gemini-logo.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -305,7 +337,8 @@
 			type: 'icon',
 			default: {
 				path: 'google-palm-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.14'
 			}
 		},
 		{
@@ -314,7 +347,8 @@
 			type: 'icon',
 			default: {
 				path: 'chrome-lighthouse-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		}
 	]

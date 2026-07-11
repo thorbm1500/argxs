@@ -8,6 +8,7 @@
                 theme: 'light',
                 path: 'soundcloud-icon.svg',
                 date_added: '2026/5/22',
+                version: '0.7.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
                 theme: 'dark',
                 path: 'soundcloud-icon-dark.svg',
                 date_added: '2026/5/22',
+                version: '0.7.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -28,6 +30,7 @@
             default: {
                 path: 'soundcloud-logo.svg',
                 date_added: '2026/5/22',
+                version: '0.7.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
                     theme: 'light',
                     path: 'soundcloud-logo-black.svg',
                     date_added: '2026/5/22',
+                    version: '0.7.0',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'
@@ -47,6 +51,7 @@
                     theme: 'dark',
                     path: 'soundcloud-logo-white.svg',
                     date_added: '2026/5/22',
+                    version: '0.7.0',
                     source: {
                         name: 'Brandfetch',
                         href: 'https://brandfetch.com'
