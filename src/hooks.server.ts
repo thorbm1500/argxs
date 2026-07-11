@@ -37,8 +37,7 @@ export const init: ServerInit = async () => {
 		Bun.cron('0 0 */1 * *', processImages);
 	}
 
-	console.info('Initialization completed.');
-	console.info(`[Status]\n+ VERSION: ${VERSION}`);
+	console.info(`Initialization completed.\n[Status] VERSION: ${VERSION}`);
 };
 
 export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
