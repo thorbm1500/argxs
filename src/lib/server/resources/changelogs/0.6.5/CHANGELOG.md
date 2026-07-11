@@ -50,6 +50,7 @@
     - Added custom external site text 'Learn More'
 - **[Brands](https://argxs.com/icons/brands)**
   - **New icons**
+    - **[New]** Jysk
     - **[New]** Native Instruments
 
 ## Fixes
