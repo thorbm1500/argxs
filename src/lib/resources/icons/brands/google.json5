@@ -75,6 +75,7 @@
 			default: {
 				path: 'google-play-badge-logo.svg',
 				date_added: '2026/7/8',
+				version: '0.7.2',
 				source: {
 					name: 'Ønskeskyen',
 					href: 'https://onskeskyen.dk'
