@@ -228,9 +228,9 @@
 	
 	// - Highlighted Icon Variables
 	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
+	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon?.iconIndex[highlightedIcon.currentIcon] ?? undefined);
+	let hPreviousIcon: Icon | undefined = $state(undefined);
 	let iconContainerOpened: number | null = null;
-	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon ? highlightedIcon.iconIndex[highlightedIcon.currentIcon] : undefined);
-	let hPreviousIcon: Icon | undefined = undefined;
 	let backgroundLight: boolean = $state(localStorage.getItem('icons#background_light') !== null ? Boolean(localStorage.getItem('icons#background_light') === 'true') : !new MediaQuery('prefers-reduced-transparency', false).current);
 	let currentSVG = $state('');
 	let currentLoadedSVG = '';
@@ -238,6 +238,7 @@
 	$effect(() => {
 		// Prevents the container from closing immediately again, if attempted opened after an auto-close triggered by theme-switching.
 		if (!highlightedIcon && iconContainerOpened !== null) iconContainerOpened = null;
+		if (highlightedIcon && (!hCurrentIcon || highlightedIcon.currentIcon > highlightedIcon.iconIndex.length)) highlightedIcon.currentIcon = highlightedIcon.iconIndex.length - 1;
 		
 		if (hPreviousIcon !== hCurrentIcon) {
 			hPreviousIcon = hCurrentIcon;
@@ -480,7 +481,7 @@
 						{/if}
 					</div>
 					<div class="actions" tabindex="-1">
-						<p class="last-updated" tabindex="-1">Last Updated {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
+						<p class="last-updated" tabindex="-1">Last Modified {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.last_modified ?? '')).calendar()}</p>
 						<button class="action" tabindex="10" onclick={() => downloadImage(`/resources/icons/${iconType}/${hCurrentIcon?.path}`, 'svg+xml', true)}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />

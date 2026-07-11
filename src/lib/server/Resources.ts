@@ -64,10 +64,12 @@ export class Resources {
 
 				if (icon.default.animated === undefined) icon.default.animated = false;
 				icon.default.isNew = icon.default.version === VERSION;
+				if (!icon.default.last_modified) icon.default.last_modified = icon.default.date_added;
 
 				if (icon.dark) {
 					if (icon.dark.animated === undefined) icon.dark.animated = false;
 					icon.dark.isNew = icon.dark.version === VERSION;
+					if (!icon.dark.last_modified) icon.dark.last_modified = icon.dark.date_added;
 					resource.dark = icon.dark;
 					iconAmount++;
 				}
@@ -76,6 +78,7 @@ export class Resources {
 
 				for (const icon of resource.variable) {
 					if (icon.animated === undefined) icon.animated = false;
+					if (!icon.last_modified) icon.last_modified = icon.date_added;
 					icon.isNew = icon.version === VERSION;
 				}
 
@@ -115,10 +118,12 @@ export class Resources {
 				this.updateLatestDate(resource);
 
 				if (resource.default.animated === undefined) resource.default.animated = false;
+				if (!resource.default.last_modified) resource.default.last_modified = resource.default.date_added;
 				resource.default.isNew = resource.default.version === VERSION;
 
 				for (const flag of resource.variable) {
 					if (flag.animated === undefined) flag.animated = false;
+					if (!flag.last_modified) flag.last_modified = flag.date_added;
 					flag.isNew = flag.version === VERSION;
 				}
 

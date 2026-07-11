@@ -24,6 +24,8 @@ export interface Icon {
 	type?: IconType,
 	/** The date of which the icon was added or updated */
 	date_added: string,
+	/** The date of which the icon was last modified. This value is equal to 'date_added' if no value has been set. */
+	last_modified: string,
 	/** The version of which the icon was added or updated */
 	version?: string,
 	/** Whether the icon was added this version, and thus should be marked as "NEW" */

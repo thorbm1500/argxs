@@ -15,15 +15,9 @@
 	
 	const icons: Icon[] = $derived.by(() => {
 		const icons: Icon[] = [];
-		
-		if (theme === 'light' || !icon.default.theme) icons.push(icon.default);
-		else if (icon.default.theme === theme) {
-			icons.push(icon.default);
-		}
-		
-		if (theme === 'dark' && icon.dark && (!icon.dark.theme || icon.dark.theme === theme)) {
-			icons.push(icon.dark);
-		}
+
+		if (!icon.default.theme || theme === icon.default.theme) icons.push(icon.default);
+		if (icon.dark && (!icon.dark.theme || icon.dark.theme === theme)) icons.push(icon.dark);
 		
 		for (const i of icon.variable) {
 			if (!i.theme || i.theme === theme) icons.push(i);
@@ -35,18 +29,16 @@
 	let currentIconIndex: number = $state(0);
 	
 	let currentTheme: PageTheme = $state(theme);
-	let currentIcon: Icon = $derived((icons[currentIconIndex] as Icon) ?? icon.default);
+	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
 	let isImageLoading: boolean = $state(true);
 
 	$effect(() => {
 		if (theme !== currentTheme) {
 			currentTheme = theme;
-			
-			if (highlightedIcon === undefined
-				|| highlightedIcon.icon.default.path !== icon.default.path
-				|| currentIcon.theme === undefined) return;
-			
-			highlightedIcon = currentIcon.theme !== theme ? undefined : { icon, iconIndex: icons, currentIcon: currentIconIndex };
+			if (highlightedIcon === undefined || highlightedIcon.icon.default.path !== icon.default.path) return;
+			if (currentIconIndex >= icons.length) currentIconIndex = 0;
+
+			highlightedIcon = { icon, iconIndex: icons, currentIcon: currentIconIndex };
 		}
 	});
 	
