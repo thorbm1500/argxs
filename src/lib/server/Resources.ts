@@ -51,6 +51,7 @@ export class Resources {
 					href: current.href,
 					type: icon.type,
 					last_updated: 0,
+					latest_version: '0.0.0',
 					hasNewVariant: false,
 					tags: [], //TODO: Implement tags
 					default: icon.default,
@@ -128,20 +129,20 @@ export class Resources {
 
 		this.FLAG_TOTAL_AMOUNT = this.FLAG_ICONS.length;
 
-		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => b.last_updated - a.last_updated));
+		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
 	private updateLatestDate(icon: ResourceIcon): void {
-		if (compareVersionTags(icon.latest_version, icon.default.version)) icon.latest_version = icon.default.version;
-		if (compareVersionTags(icon.latest_version, icon.dark?.version)) icon.latest_version = icon.dark?.version;
+		if (compareVersionTags(icon.latest_version, icon.default.version) === 1) icon.latest_version = icon.default.version;
+		if (compareVersionTags(icon.latest_version, icon.dark?.version) === 1) icon.latest_version = icon.dark?.version;
 		if (icon.variable !== undefined) {
 			for (const variable of icon.variable) {
-				if (compareVersionTags(icon.latest_version, variable.version)) icon.latest_version = variable.version;
+				if (compareVersionTags(icon.latest_version, variable.version) === 1) icon.latest_version = variable.version;
 			}
 		}
 
-		if (icon.latest_version === VERSION) icon.hasNewVariant = true;
+		icon.hasNewVariant = icon.latest_version === VERSION;
 
 		if (icon.default.date_added) {
 			const current = Date.parse(icon.default.date_added);
