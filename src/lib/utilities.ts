@@ -28,14 +28,14 @@ export function compareVersionTags(a: string | undefined, b: string | undefined)
 
 	ao.first = Number.parseInt(a.slice(0, a.indexOf('.')));
 	bo.first = Number.parseInt(b.slice(0, b.indexOf('.')));
-	if (ao.first - bo.first !== 0) return ao.first - bo.first;
+	if (ao.first - bo.first !== 0) return ao.first > bo.first ? -1 : 1;
 
 	ao.second = Number.parseInt(a.slice(aIndex + 1, a.indexOf('.', aIndex + 1)));
 	bo.second = Number.parseInt(b.slice(bIndex + 1, b.indexOf('.', bIndex + 1)));
-	if (ao.second - bo.second !== 0) return ao.second - bo.second;
+	if (ao.second - bo.second !== 0) return ao.second > bo.second ? -1 : 1;
 
 	ao.third = Number.parseInt(a.slice(a.indexOf('.', aIndex + 1) + 1));
 	bo.third = Number.parseInt(b.slice(b.indexOf('.', bIndex + 1) + 1));
 
-	return ao.third - bo.third;
+	return ao.third > bo.third ? -1 : 1;
 }
