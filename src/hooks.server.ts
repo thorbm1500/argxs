@@ -11,8 +11,8 @@ const metricsHandler = new MetricsHandler();
 export const VERSION: string = await Bun.file('./package.json').json().then((pkg) => pkg.version);
 export const RESOURCES: Resources = new Resources();
 
-export const handleError: HandleServerError = async ({error}) => {
-	console.error(Bun.inspect(error, { colors: true, compact: false, depth: 50, sorted: false}));
+export const handleError: HandleServerError = async ({ error }) => {
+	console.error(Bun.inspect(error, { colors: true, compact: false, depth: 50, sorted: false }));
 
 	return {
 		message: 'Whoops.. Sorry!'
@@ -38,7 +38,7 @@ export const init: ServerInit = async () => {
 	}
 
 	console.info('Initialization completed.');
-	console.info(`[Status]\n+ VERSION: ${VERSION}`)
+	console.info(`[Status]\n+ VERSION: ${VERSION}`);
 };
 
 export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
