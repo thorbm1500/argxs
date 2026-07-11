@@ -1,5 +1,7 @@
 import type { Brand, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
+import { compareVersionTags } from '$lib/utilities';
+import { VERSION } from '../../hooks.server.ts';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
 
@@ -49,6 +51,7 @@ export class Resources {
 					href: current.href,
 					type: icon.type,
 					last_updated: 0,
+					hasNewVariant: false,
 					tags: [], //TODO: Implement tags
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
@@ -59,9 +62,11 @@ export class Resources {
 				let iconAmount = 1;
 
 				if (icon.default.animated === undefined) icon.default.animated = false;
+				icon.default.isNew = icon.default.version === VERSION;
 
 				if (icon.dark) {
 					if (icon.dark.animated === undefined) icon.dark.animated = false;
+					icon.dark.isNew = icon.dark.version === VERSION;
 					resource.dark = icon.dark;
 					iconAmount++;
 				}
@@ -70,6 +75,7 @@ export class Resources {
 
 				for (const icon of resource.variable) {
 					if (icon.animated === undefined) icon.animated = false;
+					icon.isNew = icon.version === VERSION;
 				}
 
 				if (resource.type === 'icon') this.BRAND_ICON_AMOUNT += iconAmount;
@@ -80,7 +86,7 @@ export class Resources {
 			}
 		}
 
-		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => b.last_updated - a.last_updated));
+		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 	}
 
@@ -99,6 +105,7 @@ export class Resources {
 					href: icon.href ?? current.href,
 					type: icon.type ? icon.type : (current.type ? current.type : 'undefined'),
 					last_updated: 0,
+					hasNewVariant: false,
 					tags: current.tags !== undefined ? current.tags : [],
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
@@ -107,8 +114,11 @@ export class Resources {
 				this.updateLatestDate(resource);
 
 				if (resource.default.animated === undefined) resource.default.animated = false;
+				resource.default.isNew = resource.default.version === VERSION;
+
 				for (const flag of resource.variable) {
 					if (flag.animated === undefined) flag.animated = false;
+					flag.isNew = flag.version === VERSION;
 				}
 
 				this.FLAG_ICON_AMOUNT += resource.variable.length + 1;
@@ -123,6 +133,16 @@ export class Resources {
 	}
 
 	private updateLatestDate(icon: ResourceIcon): void {
+		if (compareVersionTags(icon.latest_version, icon.default.version)) icon.latest_version = icon.default.version;
+		if (compareVersionTags(icon.latest_version, icon.dark?.version)) icon.latest_version = icon.dark?.version;
+		if (icon.variable !== undefined) {
+			for (const variable of icon.variable) {
+				if (compareVersionTags(icon.latest_version, variable.version)) icon.latest_version = variable.version;
+			}
+		}
+
+		if (icon.latest_version === VERSION) icon.hasNewVariant = true;
+
 		if (icon.default.date_added) {
 			const current = Date.parse(icon.default.date_added);
 			if (current > icon.last_updated) icon.last_updated = current;

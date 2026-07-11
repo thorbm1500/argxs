@@ -35,12 +35,9 @@
 	let currentIconIndex: number = $state(0);
 	
 	let currentTheme: PageTheme = $state(theme);
-	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
+	let currentIcon: Icon = $derived((icons[currentIconIndex] as Icon) ?? icon.default);
 	let isImageLoading: boolean = $state(true);
-	
-	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 1209600000));
-	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 1209600000));
-	
+
 	$effect(() => {
 		if (theme !== currentTheme) {
 			currentTheme = theme;
@@ -173,7 +170,7 @@
 			</div>
 		</div>
 	{/if}
-	{#if isNewVariant}
+	{#if currentIcon.isNew}
 		<div class="overlay is-new-variant" inert>
 			<div class="element marker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -182,7 +179,7 @@
 				NEW
 			</div>
 		</div>
-	{:else if hasNewIconVariant}
+	{:else if icon.hasNewVariant}
 		<div class="overlay has-new-variant" inert>
 			<div class="element marker"></div>
 		</div>

@@ -26,6 +26,8 @@ export interface Icon {
 	date_added: string,
 	/** The version of which the icon was added or updated */
 	version?: string,
+	/** Whether the icon was added this version, and thus should be marked as "NEW" */
+	isNew: boolean,
 	/** The source of the icon */
 	source?: Source
 	/** A path to the icon's PNG version, otherwise undefined or no PNG version exists, or if it is yet to be processed. */
@@ -64,6 +66,12 @@ export interface ResourceIcon {
 	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
 	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
 	last_updated: number,
+	/** The newest found version tag of all icons of the collection<br>
+	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
+	latest_version?: string,
+	/** Used for marking icons with "NEW" tag, if an icon in the collection was added in the current version<br>
+	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
+	hasNewVariant: boolean,
 	tags: string[],
 	/** The default version of the icon. This will in most cases be the light themed version of the icon.<br>
 	 * `Note:` In the case that the icon only has one version of either light or dark, it shall be defined here */
