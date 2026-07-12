@@ -542,6 +542,9 @@
 				</div>
 			</div>
 		</div>
+		{#if !backgroundLight}
+			<div style="position: absolute; z-index: 49999; top: 0; left: 0; width: 100vw; height: 100vh; background: none;"></div>
+		{/if}
 	{/key}
 {/if}
 
