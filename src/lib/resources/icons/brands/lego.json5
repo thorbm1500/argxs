@@ -3,13 +3,27 @@
 	href: 'https://lego.com',
 	assets: [
 		{
+			type: 'logo',
+			default: {
+				path: 'lego-logo.svg',
+				date_added: '2026/5/12',
+				last_modified: '2026/7/11',
+				version: '0.5.2',
+				source: {
+					name: 'Lego',
+					href: 'https://www.lego.com'
+				}
+			}
+		},
+		{
 			type: 'icon',
 			default: {
-				path: 'lego-icon.svg',
-				date_added: '2026/5/12',
+				path: 'lego-figure-icon.svg',
+				date_added: '2026/7/11',
+				version: '0.7.2',
 				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+					name: 'Lego',
+					href: 'https://www.lego.com'
 				}
 			}
 		}

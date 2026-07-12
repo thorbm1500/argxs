@@ -1,0 +1,39 @@
+{
+	name: 'EK',
+	href: 'https://www.ek.dk',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'ek-icon.svg',
+				date_added: '2026/7/11',
+				version: '0.7.2',
+				source: {
+					name: 'EK',
+					href: 'https://www.ek.dk'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'ek-logo.svg',
+				date_added: '2026/7/11',
+				version: '0.7.2',
+				source: {
+					name: 'EK',
+					href: 'https://www.ek.dk'
+				}
+			},
+			variable: [{
+				path: 'ek-badge-logo.svg',
+				date_added: '2026/7/11',
+				version: '0.7.2',
+				source: {
+					name: 'EK',
+					href: 'https://www.ek.dk'
+				}
+			}]
+		}
+	]
+}

@@ -7,6 +7,7 @@
 			default: {
 				path: 'mozilla-org-icon.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 					theme: 'light',
 					path: 'mozilla-org-icon-monochrome-light.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -26,6 +28,7 @@
 					theme: 'dark',
 					path: 'mozilla-org-icon-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
 			default: {
 				path: 'mozilla-org-logo.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -48,6 +52,7 @@
 					theme: 'light',
 					path: 'mozilla-org-logo-monochrome-light.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -57,6 +62,7 @@
 					theme: 'dark',
 					path: 'mozilla-org-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -69,6 +75,7 @@
 			default: {
 				path: 'mozilla-org-variant-logo.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -79,6 +86,7 @@
 					theme: 'light',
 					path: 'mozilla-org-variant-logo-monochrome-light.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -88,6 +96,7 @@
 					theme: 'dark',
 					path: 'mozilla-org-variant-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'

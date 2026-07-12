@@ -7,12 +7,14 @@
 			default: {
 				theme: 'light',
 				path: 'intel-logo.svg',
-				date_added: '2026/4/24'
+				date_added: '2026/4/24',
+				version: '0.2.11'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'intel-logo-dark.svg',
-				date_added: '2026/4/24'
+				date_added: '2026/4/24',
+				version: '0.2.11'
 			}
 		}
 	]

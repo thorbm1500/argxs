@@ -7,6 +7,7 @@
 			default: {
 				path: 'haxe-icon.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Haxe',
 					href: 'https://haxe.org'
@@ -19,6 +20,7 @@
 				theme: 'light',
 				path: 'haxe-logo.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Haxe',
 					href: 'https://haxe.org'
@@ -28,6 +30,7 @@
 				theme: 'dark',
 				path: 'haxe-logo-dark.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Haxe',
 					href: 'https://haxe.org'

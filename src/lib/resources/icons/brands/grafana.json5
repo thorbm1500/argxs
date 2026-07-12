@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'grafana-icon.svg',
-				date_added: '2026/4/24'
+				date_added: '2026/4/24',
+				version: '0.2.11'
 			}
 		}
 	]

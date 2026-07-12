@@ -7,26 +7,30 @@
 			default: {
 				theme: 'light',
 				path: 'bubble-icon.svg',
-				date_added: '2026/4/11'
-			},
+				date_added: '2026/4/11',
+                version: '0.0.2'
+            },
 			dark: {
 				theme: 'dark',
 				path: 'bubble-icon-dark.svg',
-				date_added: '2026/4/11'
-			}
+				date_added: '2026/4/11',
+                version: '0.0.2'
+            }
 		},
 		{
 			type: 'logo',
 			default: {
 				theme: 'light',
 				path: 'bubble-logo.svg',
-				date_added: '2026/4/11'
-			},
+				date_added: '2026/4/11',
+                version: '0.0.2'
+            },
 			dark: {
 				theme: 'dark',
 				path: 'bubble-logo-dark.svg',
-				date_added: '2026/4/11'
-			}
+				date_added: '2026/4/11',
+                version: '0.0.2'
+            }
 		}
 	]
 }

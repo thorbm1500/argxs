@@ -7,6 +7,7 @@
 			default: {
 				path: 'spring-boot-icon.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'Spring Boot',
 					href: 'https://spring.io'
@@ -19,6 +20,7 @@
 				theme: 'light',
 				path: 'spring-boot-logo.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'Spring Boot',
 					href: 'https://spring.io'
@@ -28,6 +30,7 @@
 				theme: 'dark',
 				path: 'spring-boot-logo-dark.svg',
 				date_added: '2026/5/26',
+				version: '0.7.1',
 				source: {
 					name: 'Spring Boot',
 					href: 'https://spring.io'

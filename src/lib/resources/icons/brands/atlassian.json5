@@ -7,7 +7,8 @@
 			default: {
 				path: 'atlassian-icon.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -16,7 +17,8 @@
 				theme: 'dark',
 				path: 'atlassian-icon-dark.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -25,7 +27,8 @@
 				{
 					path: 'atlassian-variation-icon-1.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -33,7 +36,8 @@
 				{
 					path: 'atlassian-variation-icon-2.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -42,7 +46,8 @@
 					theme: 'light',
 					path: 'atlassian-variation-icon-3.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -50,7 +55,8 @@
 				{
 					path: 'atlassian-variation-icon-4.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -62,7 +68,8 @@
 			default: {
 				path: 'atlassian-logo.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -71,7 +78,8 @@
 				theme: 'dark',
 				path: 'atlassian-logo-dark.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -80,7 +88,8 @@
 				{
 					path: 'atlassian-variation-logo-1.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -88,7 +97,8 @@
 				{
 					path: 'atlassian-variation-logo-2.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -97,7 +107,8 @@
 					theme: 'dark',
 					path: 'atlassian-variation-logo-3.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -105,7 +116,8 @@
 				{
 					path: 'atlassian-variation-logo-4.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}

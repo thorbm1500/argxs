@@ -8,7 +8,8 @@
 				theme: 'light',
 				path: 'vercel-icon.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -17,7 +18,8 @@
 				theme: 'dark',
 				path: 'vercel-icon-dark.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -29,7 +31,8 @@
 				theme: 'light',
 				path: 'vercel-logo.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -38,7 +41,8 @@
 				theme: 'dark',
 				path: 'vercel-logo-dark.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}

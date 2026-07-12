@@ -6,18 +6,21 @@
             type: 'logo',
             default: {
                 path: 'netflix-logo.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             },
             variable: [
                 {
                     theme: 'light',
                     path: 'netflix-logo-monochrome-black.svg',
-                    date_added: '2026/4/29'
+                    date_added: '2026/4/29',
+                    version: '0.3.2'
                 },
                 {
                     theme: 'dark',
                     path: 'netflix-logo-monochrome-white.svg',
-                    date_added: '2026/4/29'
+                    date_added: '2026/4/29',
+                    version: '0.3.2'
                 }
             ]
         }

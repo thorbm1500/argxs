@@ -7,23 +7,27 @@
 			default: {
 				theme: 'light',
 				path: 'gradle-icon.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'gradle-icon-dark.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			},
 			variable: [
 				{
 					theme: 'light',
 					path: 'gradle-icon-black.svg',
-					date_added: '2026/5/22'
+					date_added: '2026/5/22',
+					version: '0.7.0'
 				},
 				{
 					theme: 'dark',
 					path: 'gradle-icon-white.svg',
-					date_added: '2026/5/22'
+					date_added: '2026/5/22',
+					version: '0.7.0'
 				}
 			]
 		},
@@ -32,23 +36,27 @@
 			default: {
 				theme: 'light',
 				path: 'gradle-logo.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'gradle-logo-dark.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			},
 			variable: [
 				{
 					theme: 'light',
 					path: 'gradle-logo-black.svg',
-					date_added: '2026/5/22'
+					date_added: '2026/5/22',
+					version: '0.7.0'
 				},
 				{
 					theme: 'dark',
 					path: 'gradle-logo-white.svg',
-					date_added: '2026/5/22'
+					date_added: '2026/5/22',
+					version: '0.7.0'
 				}
 			]
 		},
@@ -57,23 +65,27 @@
 			default: {
 				theme: 'light',
 				path: 'gradle-outline-logo.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'gradle-outline-logo-dark.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			},
 			variable: [
 				{
 					theme: 'light',
 					path: 'gradle-outline-logo-black.svg',
-					date_added: '2026/5/22'
+					date_added: '2026/5/22',
+					version: '0.7.0'
 				},
 				{
 					theme: 'dark',
 					path: 'gradle-outline-logo-white.svg',
-					date_added: '2026/5/22'
+					date_added: '2026/5/22',
+					version: '0.7.0'
 				}
 			]
 		}

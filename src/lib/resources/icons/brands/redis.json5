@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'redis-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -14,12 +15,14 @@
 			default: {
 				theme: 'light',
 				path: 'redis-logo.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'redis-logo-dark.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		}
 	]

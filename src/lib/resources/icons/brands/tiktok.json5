@@ -7,12 +7,14 @@
             default: {
                 theme: 'light',
                 path: 'tiktok-icon.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             },
             dark: {
                 theme: 'dark',
                 path: 'tiktok-icon-dark.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             }
         },
         {
@@ -20,12 +22,14 @@
             default: {
                 theme: 'light',
                 path: 'tiktok-logo.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             },
             dark: {
                 theme: 'dark',
                 path: 'tiktok-logo-dark.svg',
-                date_added: '2026/4/25'
+                date_added: '2026/4/25',
+                version: '0.2.13'
             }
         }
     ]

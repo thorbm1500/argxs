@@ -7,6 +7,7 @@
 			default: {
 				path: 'ruby-icon.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Ruby',
 					href: 'https://ruby-lang.org'
@@ -20,6 +21,7 @@
 			default: {
 				path: 'ruby-on-rails-logo.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Ruby on Rails',
 					href: 'https://rubyonrails.org'
@@ -30,6 +32,7 @@
 					theme: 'light',
 					path: 'ruby-on-rails-logo-monochrome-black.svg',
 					date_added: '2026/5/24',
+					version: '0.7.0',
 					source: {
 						name: 'Ruby on Rails',
 						href: 'https://rubyonrails.org'
@@ -39,6 +42,7 @@
 					theme: 'dark',
 					path: 'ruby-on-rails-logo-monochrome-white.svg',
 					date_added: '2026/5/24',
+					version: '0.7.0',
 					source: {
 						name: 'Ruby on Rails',
 						href: 'https://rubyonrails.org'

@@ -6,20 +6,22 @@
 			type: 'icon',
 			default: {
 				path: 'proton-icon.svg',
-				date_added: '2026/5/11',
+				date_added: '2026/6/21',
+				version: '0.7.2',
 				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+					name: 'Proton',
+					href: 'https://proton.me'
 				}
 			},
 			variable: [
 				{
 					theme: 'dark',
 					path: 'proton-icon-dark.svg',
-					date_added: '2026/5/11',
+					date_added: '2026/6/21',
+					version: '0.7.2',
 					source: {
-						name: 'Brandfetch',
-						href: 'https://brandfetch.com'
+						name: 'Proton',
+						href: 'https://proton.me'
 					}
 				}
 			]
@@ -28,33 +30,183 @@
 			type: 'logo',
 			default: {
 				path: 'proton-logo.svg',
-				date_added: '2026/5/11',
+				date_added: '2026/6/21',
+				version: '0.7.2',
 				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+					name: 'Proton',
+					href: 'https://proton.me'
 				}
 			},
 			variable: [
 				{
+					path: 'proton-alternative-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
 					theme: 'dark',
 					path: 'proton-logo-dark.svg',
-					date_added: '2026/5/11',
+					date_added: '2026/6/21',
+					version: '0.7.2',
 					source: {
-						name: 'Brandfetch',
-						href: 'https://brandfetch.com'
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-alternative-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					path: 'proton-tagline-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-tagline-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					path: 'proton-tagline-md-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-tagline-md-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					path: 'proton-tagline-sm-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-tagline-sm-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
 					}
 				}
 			]
+		},
+		{
+			name: 'Proton Foundation',
+			type: 'logo',
+			default: {
+				path: 'proton-foundation-logo.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-foundation-logo-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton for Business',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-for-business-logo.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-for-business-logo-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
 		},
 		{
 			name: 'Proton Mail',
 			type: 'icon',
 			default: {
 				path: 'proton-mail-icon.svg',
-				date_added: '2026/5/11',
+				date_added: '2026/6/20',
+				version: '0.7.2',
 				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Mail',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-mail-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-mail-logo-dark.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
 				}
 			}
 		},
@@ -63,10 +215,72 @@
 			type: 'icon',
 			default: {
 				path: 'proton-calender-icon.svg',
-				date_added: '2026/5/11',
+				date_added: '2026/6/20',
+				version: '0.7.2',
 				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Calender',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-calender-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-calender-logo-dark.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Meet',
+			type: 'icon',
+			default: {
+				path: 'proton-meet-icon.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Meet',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-meet-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-meet-logo-dark.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
 				}
 			}
 		},
@@ -75,22 +289,11 @@
 			type: 'icon',
 			default: {
 				path: 'proton-vpn-icon.svg',
-				date_added: '2026/5/11',
+				date_added: '2026/6/20',
+				version: '0.7.2',
 				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			}
-		},
-		{
-			name: 'Proton Drive',
-			type: 'icon',
-			default: {
-				path: 'proton-drive-icon.svg',
-				date_added: '2026/5/11',
-				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+					name: 'Proton',
+					href: 'https://proton.me'
 				}
 			}
 		},
@@ -99,12 +302,531 @@
 			type: 'icon',
 			default: {
 				path: 'proton-pass-icon.svg',
-				date_added: '2026/5/11',
+				date_added: '2026/6/20',
+				version: '0.7.2',
 				source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-pass-bg-icon.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
 				}
 			}
+		},
+		{
+			name: 'Proton Authenticator',
+			type: 'icon',
+			default: {
+				path: 'proton-authenticator-icon.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-authenticator-bg-icon-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'proton-authenticator-icon-monochrome-light.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-authenticator-icon-monochrome-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				}
+			]
+		},
+		{
+			name: 'Proton Authenticator',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-authenticator-logo.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-authenticator-logo-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'proton-authenticator-bg-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-authenticator-bg-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'proton-authenticator-alternative-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-authenticator-alternative-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				}
+			]
+		},
+		{
+			name: 'Proton VPN',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-vpn-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-vpn-logo-dark.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Drive',
+			type: 'icon',
+			default: {
+				path: 'proton-drive-icon.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Drive',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-drive-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-drive-logo-dark.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Wallet',
+			type: 'icon',
+			default: {
+				path: 'proton-wallet-icon.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			variable: [
+				{
+					theme: 'dark',
+					path: 'proton-wallet-bg-icon.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				}
+			]
+		},
+		{
+			name: 'Proton Wallet',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-wallet-logo.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-wallet-logo-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'proton-wallet-bg-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-wallet-bg-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				}
+			]
+		},
+		{
+			name: 'Proton Docs',
+			type: 'icon',
+			default: {
+				path: 'proton-docs-icon.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Docs',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-docs-logo.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-docs-logo-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Sheets',
+			type: 'icon',
+			default: {
+				path: 'proton-sheets-icon.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Proton Sheets',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-sheets-logo.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-sheets-logo-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Lumo AI',
+			type: 'icon',
+			default: {
+				path: 'proton-lumo-mascot-icon.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			}
+		},
+		{
+			name: 'Lumo AI',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-lumo-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-lumo-logo-dark.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'proton-lumo-stacked-logo.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-lumo-stacked-logo-dark.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'proton-lumo-alternative-logo.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					path: 'proton-lumo-alternative-logo-gray.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-lumo-alternative-logo-dark.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'proton-lumo-alternative-horizontal-logo.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'proton-lumo-alternative-horizontal-logo-dark-purple.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					path: 'proton-lumo-alternative-horizontal-logo-gray.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-lumo-alternative-horizontal-logo-dark.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'proton-lumo-alternative-vertical-logo.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'proton-lumo-alternative-vertical-logo-dark-purple.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					path: 'proton-lumo-alternative-vertical-logo-gray.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-lumo-alternative-vertical-logo-dark.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				}
+			]
+		},
+		{
+			name: 'Lumo AI Mascot',
+			type: 'logo',
+			default: {
+				path: 'proton-lumo-mascot-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			variable: [
+				{
+					name: 'Lumo AI Ghost Mascot',
+					path: 'proton-lumo-mascot-ghost-logo.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				}
+			]
 		}
 	]
 }

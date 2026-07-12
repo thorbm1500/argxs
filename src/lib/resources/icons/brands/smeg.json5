@@ -8,6 +8,7 @@
                 theme: 'light',
                 path: 'smeg-icon.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
                 theme: 'dark',
                 path: 'smeg-icon-dark.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -29,6 +31,7 @@
                 theme: 'light',
                 path: 'smeg-logo.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -38,6 +41,7 @@
                 theme: 'dark',
                 path: 'smeg-logo-dark.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'

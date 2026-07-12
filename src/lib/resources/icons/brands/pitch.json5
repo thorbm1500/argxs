@@ -1,0 +1,85 @@
+{
+	name: 'Pitch',
+	href: 'https://pitch.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'pitch-icon.svg',
+				date_added: '2026/5/30',
+				version: '0.7.2',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'pitch-icon-monochrome-black.svg',
+					date_added: '2026/5/30',
+					version: '0.7.2',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'pitch-icon-monochrome-white.svg',
+					date_added: '2026/5/30',
+					version: '0.7.2',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'pitch-logo.svg',
+				date_added: '2026/5/30',
+				version: '0.7.2',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'pitch-logo-dark.svg',
+				date_added: '2026/5/30',
+				version: '0.7.2',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'pitch-logo-monochrome-black.svg',
+					date_added: '2026/5/30',
+					version: '0.7.2',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'pitch-logo-monochrome-white.svg',
+					date_added: '2026/5/30',
+					version: '0.7.2',
+					source: {
+						name: 'Brandfetch',
+						href: 'https://brandfetch.com'
+					}
+				}
+			]
+		}
+	]
+}

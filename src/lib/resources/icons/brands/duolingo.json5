@@ -7,6 +7,7 @@
 			default: {
 				path: 'duolingo-logo.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 					theme: 'dark',
 					path: 'duolingo-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -25,6 +27,7 @@
 				{
 					path: 'duolingo-variant-logo.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'

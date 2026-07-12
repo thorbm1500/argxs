@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'bash-icon.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		},
 		{
@@ -14,12 +15,14 @@
 			default: {
 				theme: 'light',
 				path: 'bash-logo.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'bash-logo-dark.svg',
-				date_added: '2026/4/10'
+				date_added: '2026/4/10',
+				version: '0.0.1'
 			}
 		}
 	]

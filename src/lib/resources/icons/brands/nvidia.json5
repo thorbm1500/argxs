@@ -7,7 +7,8 @@
 			default: {
 				path: 'nvidia-icon.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -17,7 +18,8 @@
 					theme: 'light',
 					path: 'nvidia-icon-monochrome-light.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -26,7 +28,8 @@
 					theme: 'dark',
 					path: 'nvidia-icon-monochrome-dark.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -39,7 +42,8 @@
 				theme: 'light',
 				path: 'nvidia-logo.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -48,7 +52,8 @@
 				theme: 'dark',
 				path: 'nvidia-logo-dark.svg',
 				date_added: '2026/5/5',
-				source: {
+                version: '0.4.0',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -58,7 +63,8 @@
 					theme: 'light',
 					path: 'nvidia-logo-monochrome-light.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -67,7 +73,8 @@
 					theme: 'dark',
 					path: 'nvidia-logo-monochrome-dark.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -75,7 +82,8 @@
 				{
 					path: 'nvidia-variation-logo.svg',
 					date_added: '2026/5/5',
-					source: {
+                version: '0.4.0',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}

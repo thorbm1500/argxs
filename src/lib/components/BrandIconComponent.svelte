@@ -15,15 +15,9 @@
 	
 	const icons: Icon[] = $derived.by(() => {
 		const icons: Icon[] = [];
-		
-		if (theme === 'light' || !icon.default.theme) icons.push(icon.default);
-		else if (icon.default.theme === theme) {
-			icons.push(icon.default);
-		}
-		
-		if (theme === 'dark' && icon.dark && (!icon.dark.theme || icon.dark.theme === theme)) {
-			icons.push(icon.dark);
-		}
+
+		if (!icon.default.theme || theme === icon.default.theme) icons.push(icon.default);
+		if (icon.dark && (!icon.dark.theme || icon.dark.theme === theme)) icons.push(icon.dark);
 		
 		for (const i of icon.variable) {
 			if (!i.theme || i.theme === theme) icons.push(i);
@@ -37,19 +31,14 @@
 	let currentTheme: PageTheme = $state(theme);
 	let currentIcon: Icon = $derived(icons[currentIconIndex] ?? icon.default);
 	let isImageLoading: boolean = $state(true);
-	
-	let hasNewIconVariant: boolean = $derived(icon.last_updated > (Date.now() - 1209600000));
-	let isNewVariant: boolean = $derived(hasNewIconVariant && currentIcon.date_added !== undefined && Date.parse(currentIcon.date_added) > (Date.now() - 1209600000));
-	
+
 	$effect(() => {
 		if (theme !== currentTheme) {
 			currentTheme = theme;
-			
-			if (highlightedIcon === undefined
-				|| highlightedIcon.icon.default.path !== icon.default.path
-				|| currentIcon.theme === undefined) return;
-			
-			highlightedIcon = currentIcon.theme !== theme ? undefined : { icon, iconIndex: icons, currentIcon: currentIconIndex };
+			if (highlightedIcon === undefined || highlightedIcon.icon.default.path !== icon.default.path) return;
+			if (currentIconIndex >= icons.length) currentIconIndex = 0;
+
+			highlightedIcon = { icon, iconIndex: icons, currentIcon: currentIconIndex };
 		}
 	});
 	
@@ -173,7 +162,7 @@
 			</div>
 		</div>
 	{/if}
-	{#if isNewVariant}
+	{#if currentIcon.isNew}
 		<div class="overlay is-new-variant" inert>
 			<div class="element marker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -182,7 +171,7 @@
 				NEW
 			</div>
 		</div>
-	{:else if hasNewIconVariant}
+	{:else if icon.hasNewVariant}
 		<div class="overlay has-new-variant" inert>
 			<div class="element marker"></div>
 		</div>

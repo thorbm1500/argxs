@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'upflow-icon.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'upflow-icon-dark.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -27,6 +29,7 @@
 					theme: 'light',
 					path: 'upflow-icon-monochrome-light.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -36,6 +39,7 @@
 					theme: 'dark',
 					path: 'upflow-icon-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -49,6 +53,7 @@
 				theme: 'light',
 				path: 'upflow-logo.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -58,6 +63,7 @@
 				theme: 'dark',
 				path: 'upflow-logo-dark.svg',
 				date_added: '2026/5/11',
+				version: '0.5.1',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -68,6 +74,7 @@
 					theme: 'light',
 					path: 'upflow-logo-monochrome-light.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
@@ -77,6 +84,7 @@
 					theme: 'dark',
 					path: 'upflow-logo-monochrome-dark.svg',
 					date_added: '2026/5/11',
+					version: '0.5.1',
 					source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'

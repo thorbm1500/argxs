@@ -7,12 +7,14 @@
 			default: {
 				theme: 'light',
 				path: 'rust-icon.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'rust-icon-dark.svg',
-				date_added: '2026/5/22'
+				date_added: '2026/5/22',
+				version: '0.7.0'
 			}
 		}
 	]

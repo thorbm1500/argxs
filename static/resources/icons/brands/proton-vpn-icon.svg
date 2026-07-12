@@ -1,18 +1,15 @@
-<svg id="argxs" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="383" height="350" viewBox="0 0 38.3 35" style="enable-background:new 0 0 38.3 35;" xml:space="preserve">
-    <linearGradient id="argxs_proton_vpn_attr_1" gradientUnits="userSpaceOnUse" x1="18.3824" y1="46.106" x2="19.6872" y2="1.7454" gradientTransform="matrix(1 0 0 -1 0 24.9725)">
-        <stop offset="0.9887" stop-color="#6D4AFF"/>
-        <stop offset="1" stop-color="#000"/>
-    </linearGradient>
-    <linearGradient id="argxs_proton_vpn_attr_2" gradientUnits="userSpaceOnUse" x1="23.8723" y1="39.4521" x2="13.0298" y2="-7.2303" gradientTransform="matrix(1 0 0 -1 0 24.9725)">
-        <stop offset="0.4799" stop-color="#24ECC6" stop-opacity="0"/>
-        <stop offset="0.9944" stop-color="#24ECC6"/>
-    </linearGradient>
-    <linearGradient id="argxs_proton_vpn_attr_3" gradientUnits="userSpaceOnUse" x1="33.8065" y1="-6.5512" x2="9.7665" y2="34.5598" gradientTransform="matrix(1 0 0 -1 0 24.9725)">
-        <stop offset="6.601250e-02" stop-color="#ABFFEF"/>
-        <stop offset="0.4499" stop-color="#CAC9FF"/>
-        <stop offset="1" stop-color="#6D4AFF"/>
-    </linearGradient>
-    <path fill="url(#argxs_proton_vpn_attr_1)" fill-rule="evenodd" clip-rule="evenodd" d="M15.4,32.9c1.5,2.6,5.2,2.8,6.9,0.3L37.7,9.7c1.6-2.5,0.1-5.8-2.9-6.2L4.5,0c-3.2-0.4-5.5,3.1-4,5.9L15.4,32.9 z"/>
-    <path fill="url(#argxs_proton_vpn_attr_2)" fill-rule="evenodd" clip-rule="evenodd" d="M15.4,32.9c1.5,2.6,5.2,2.8,6.9,0.3L37.7,9.7c1.6-2.5,0.1-5.8-2.9-6.2L4.5,0c-3.2-0.4-5.5,3.1-4,5.9L15.4,32.9 z"/>
-    <path fill="url(#argxs_proton_vpn_attr_3)" d="M17.6,28.4l-1.4,2.1c-0.6,0.8-1.8,0.8-2.3-0.1l1.4,2.6c0.3,0.5,0.6,0.8,0.9,1.1l0,0c1.8,1.5,4.5,1.2,5.9-0.9 L37.7,9.7c1.6-2.5,0.1-5.8-2.9-6.2L4.5,0c-3.2-0.4-5.5,3.1-4,5.9l0.1,0.2l25.8,3c1.6,0.2,2.5,2,1.6,3.4L17.6,28.4z"/>
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" fill="none" width="1836" height="1666" viewBox="0 0 918 833">
+    <defs>
+        <linearGradient id="argxs_proton_vpn_icon_attr_1" x1="830.496" y1="783.548" x2="239.715" y2="-235.266" gradientUnits="userSpaceOnUse">
+            <stop offset=".0660125" stop-color="#8EFFEE"/>
+            <stop offset=".4499" stop-color="#C9C7FF"/>
+            <stop offset="1" stop-color="#7341FF"/>
+        </linearGradient>
+        <linearGradient id="argxs_proton_vpn_icon_attr_2" x1="884.537" y1="-908.44" x2="57.2415" y2="861.083" gradientUnits="userSpaceOnUse">
+            <stop offset=".4799" stop-color="#6D4AFF"/>
+            <stop offset=".9944" stop-color="#00F0C3"/>
+        </linearGradient>
+    </defs>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M369.025 783.591C403.919 846.321 493.528 849.718 533.145 789.813L902.547 231.232C941.721 171.996 904.24 92.5773 833.301 84.5058L107.232 1.89232C29.8225 -6.91551 -25.2938 74.7083 12.3576 142.396L369.025 783.591Z" fill="url(#argxs_proton_vpn_icon_attr_1)"/>
+    <path d="M389.854 725.08L422.638 676.182L671.66 300.021C693.433 267.133 672.652 223.014 633.259 218.491L15.25 147.539L335.396 723.082C347.08 743.681 376.623 744.814 389.854 725.08Z" fill="url(#argxs_proton_vpn_icon_attr_2)"/>
 </svg>

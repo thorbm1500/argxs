@@ -1,0 +1,171 @@
+{
+	name: 'Rockstar Games',
+	href: 'https://www.rockstargames.com',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'rockstar-games-icon.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'rockstar-games-icon-dark.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			}
+		},
+		{
+			name: 'Grand Theft Auto VI',
+			href: 'https://www.rockstargames.com/VI',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'grand-theft-auto-vi-icon.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com/VI'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'grand-theft-auto-vi-icon-dark.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com/VI'
+				}
+			}
+		},
+		{
+			name: 'Grand Theft Auto VI',
+			href: 'https://www.rockstargames.com/VI',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'grand-theft-auto-vi-minimal-icon.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com/VI'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'grand-theft-auto-vi-minimal-icon-dark.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com/VI'
+				}
+			}
+		},
+		{
+			name: 'Grand Theft Auto V',
+			href: 'https://www.rockstargames.com/gta-v',
+			type: 'logo',
+			default: {
+				path: 'grand-theft-auto-v-logo.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			},
+			variable: [
+				{
+					path: 'grand-theft-auto-v-horizontal-logo.svg',
+					date_added: '2026/6/26',
+					version: '0.7.2',
+					source: {
+						name: 'Rockstar Games',
+						href: 'https://www.rockstargames.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'Grand Theft Auto Online',
+			href: 'https://www.rockstargames.com/gta-v',
+			type: 'logo',
+			default: {
+				path: 'grand-theft-auto-online-logo.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			}
+		},
+		{
+			name: 'GTA Plus',
+			href: 'https://www.rockstargames.com/gta-plus/join',
+			type: 'logo',
+			default: {
+				path: 'gta-plus-membership-logo.svg',
+				date_added: '2026/7/2',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			}
+		},
+		{
+			name: 'Red Dead Redemption 2',
+			href: 'https://www.rockstargames.com/reddeadonline',
+			type: 'logo',
+			default: {
+				path: 'red-dead-redemption-2-horizontal-logo.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			}
+		},
+		{
+			name: 'Red Dead Online',
+			href: 'https://www.rockstargames.com/reddeadonline',
+			type: 'logo',
+			default: {
+				path: 'red-dead-redemption-online-logo.svg',
+				date_added: '2026/6/26',
+				version: '0.7.2',
+				source: {
+					name: 'Rockstar Games',
+					href: 'https://www.rockstargames.com'
+				}
+			},
+			variable: [
+				{
+					path: 'red-dead-redemption-online-horizontal-logo.svg',
+					date_added: '2026/6/26',
+					version: '0.7.2',
+					source: {
+						name: 'Rockstar Games',
+						href: 'https://www.rockstargames.com'
+					}
+				}
+			]
+		}
+	]
+}

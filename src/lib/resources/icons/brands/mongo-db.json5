@@ -8,7 +8,8 @@
 				theme: 'light',
 				path: 'mongo-db-icon.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -17,7 +18,8 @@
 				theme: 'dark',
 				path: 'mongo-db-icon-dark.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -27,7 +29,8 @@
 					theme: 'light',
 					path: 'mongo-db-icon-monochrome-light.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -36,7 +39,8 @@
 					theme: 'dark',
 					path: 'mongo-db-icon-monochrome-dark.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -44,7 +48,8 @@
 				{
 					path: 'mongo-db-variation-icon.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -57,7 +62,8 @@
 				theme: 'light',
 				path: 'mongo-db-logo.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -66,7 +72,8 @@
 				theme: 'dark',
 				path: 'mongo-db-logo-dark.svg',
 				date_added: '2026/5/9',
-				source: {
+                version: '0.4.2',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -76,7 +83,8 @@
 					theme: 'light',
 					path: 'mongo-db-logo-monochrome-light.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -85,7 +93,8 @@
 					theme: 'dark',
 					path: 'mongo-db-logo-monochrome-dark.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -93,7 +102,8 @@
 				{
 					path: 'mongo-db-variation-logo.svg',
 					date_added: '2026/5/9',
-					source: {
+                version: '0.4.2',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}

@@ -7,6 +7,7 @@
 			default: {
 				path: 'python-icon.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -20,12 +21,14 @@
 			default: {
 				theme: 'light',
 				path: 'micro-python-icon.svg',
-				date_added: '2026/5/24'
+				date_added: '2026/5/24',
+				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'micro-python-icon-dark.svg',
-				date_added: '2026/5/24'
+				date_added: '2026/5/24',
+				version: '0.7.0'
 			}
 		}
 	]

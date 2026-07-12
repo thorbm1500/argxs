@@ -1,0 +1,51 @@
+{
+	name: 'SeeSafe',
+	href: 'https://seesafe.dk',
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'seesafe-logo.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'SeeSafe',
+					href: 'https://seesafe.dk'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'seesafe-logo-dark.svg',
+				date_added: '2026/6/21',
+				version: '0.7.2',
+				source: {
+					name: 'SeeSafe',
+					href: 'https://seesafe.dk'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'seesafe-tagline-logo.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'SeeSafe',
+						href: 'https://seesafe.dk'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'seesafe-tagline-logo-dark.svg',
+					date_added: '2026/6/21',
+					version: '0.7.2',
+					source: {
+						name: 'SeeSafe',
+						href: 'https://seesafe.dk'
+					}
+				}
+			]
+		}
+	]
+}

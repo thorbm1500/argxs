@@ -7,6 +7,7 @@
 			default: {
 				path: 'discord-icon.svg',
 				date_added: '2026/4/10',
+				version: '0.0.1',
 				source: {
 					name: 'Discord',
 					href: 'https://discord.com/branding'
@@ -16,6 +17,7 @@
 				theme: 'dark',
 				path: 'discord-icon-dark.svg',
 				date_added: '2026/4/10',
+				version: '0.0.1',
 				source: {
 					name: 'Discord',
 					href: 'https://discord.com/branding'
@@ -27,6 +29,7 @@
 			default: {
 				path: 'discord-logo.svg',
 				date_added: '2026/4/10',
+				version: '0.0.1',
 				source: {
 					name: 'Discord',
 					href: 'https://discord.com/branding'
@@ -36,6 +39,7 @@
 				theme: 'dark',
 				path: 'discord-logo-dark.svg',
 				date_added: '2026/4/10',
+				version: '0.0.1',
 				source: {
 					name: 'Discord',
 					href: 'https://discord.com/branding'

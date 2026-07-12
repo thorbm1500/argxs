@@ -7,6 +7,7 @@
 			default: {
 				path: 'mobilepay-icon.svg',
 				date_added: '2026/5/27',
+				version: '0.7.1',
 				source: {
 					name: 'MobilePay',
 					href: 'https://mobilepay.dk'
@@ -18,6 +19,7 @@
 			default: {
 				path: 'mobilepay-logo.svg',
 				date_added: '2026/5/27',
+				version: '0.7.1',
 				source: {
 					name: 'MobilePay',
 					href: 'https://mobilepay.dk'
@@ -31,6 +33,7 @@
 				theme: 'light',
 				path: 'mobilepay-vipps-logo.svg',
 				date_added: '2026/5/27',
+				version: '0.7.1',
 				source: {
 					name: 'Vipps MobilePay',
 					href: 'https://vippsmobilepay.com'
@@ -40,6 +43,7 @@
 				theme: 'dark',
 				path: 'mobilepay-vipps-logo-dark.svg',
 				date_added: '2026/5/27',
+				version: '0.7.1',
 				source: {
 					name: 'Vipps MobilePay',
 					href: 'https://vippsmobilepay.com'

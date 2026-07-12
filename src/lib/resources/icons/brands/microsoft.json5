@@ -6,14 +6,16 @@
             type: 'icon',
             default: {
                 path: 'microsoft-icon.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         },
         {
             type: 'logo',
             default: {
                 path: 'microsoft-logo.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         },
         {
@@ -21,7 +23,8 @@
             type: 'icon',
             default: {
                 path: 'microsoft-edge-icon.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         },
         {
@@ -29,7 +32,8 @@
             type: 'icon',
             default: {
                 path: 'microsoft-teams-icon.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         },
         {
@@ -37,7 +41,8 @@
             type: 'icon',
             default: {
                 path: 'microsoft-one-drive-icon.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         },
         {
@@ -45,7 +50,8 @@
             type: 'icon',
             default: {
                 path: 'microsoft-azure-icon.svg',
-                date_added: '2026/4/24'
+                date_added: '2026/4/24',
+                version: '0.2.11'
             }
         }
     ]

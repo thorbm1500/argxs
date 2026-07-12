@@ -1,0 +1,14 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 107.71 107.71">
+  <defs>
+    <radialGradient id="argxs_proton_docs_icon_attr" cx="-244.2" cy="472.49" fx="-244.2" fy="472.49" r="1" gradientTransform="translate(66662.73 11307.13) rotate(-53.15) scale(127.1 -127.1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6D4AFF"/>
+      <stop offset="1" stop-color="#34B8EE"/>
+    </radialGradient>
+  </defs>
+  <path d="M0,17.95C0,8.04,8.04,0,17.95,0h71.81c9.91,0,17.95,8.04,17.95,17.95v71.81c0,9.91-8.04,17.95-17.95,17.95H17.95c-9.91,0-17.95-8.04-17.95-17.95V17.95Z" fill="url(#argxs_proton_docs_icon_attr)"/>
+  <rect x="53.86" width="26.93" height="26.93" fill="#85D4F5"/>
+  <path d="M80.78,0h8.98c9.91,0,17.95,8.04,17.95,17.95v8.98h-26.93V0Z" fill="#D6F1FC"/>
+  <rect x="80.78" y="26.93" width="26.93" height="26.93" fill="#85D4F5"/>
+  <path d="M58.34,85.27c0,2.48-2.01,4.49-4.49,4.49h-31.42c-2.48,0-4.49-2.01-4.49-4.49h0c0-2.48,2.01-4.49,4.49-4.49h31.42c2.48,0,4.49,2.01,4.49,4.49h0Z" fill="#FFF" fill-rule="evenodd"/>
+  <path d="M44.88,67.32c0,2.48-2.01,4.49-4.49,4.49h-17.95c-2.48,0-4.49-2.01-4.49-4.49h0c0-2.48,2.01-4.49,4.49-4.49h17.95c2.48,0,4.49,2.01,4.49,4.49h0Z" fill="#FFF" fill-rule="evenodd"/>
+</svg>

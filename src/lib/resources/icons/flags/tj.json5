@@ -6,6 +6,7 @@
             default: {
                 path: 'tj.svg',
                 date_added: '2026/5/15',
+                version: '0.6.1',
                 source: {
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'

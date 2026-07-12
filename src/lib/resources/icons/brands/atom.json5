@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'atom-icon.svg',
-				date_added: '2026/5/23'
+				date_added: '2026/5/23',
+				version: '0.7.0'
 			}
 		},
 		{
@@ -14,12 +15,14 @@
 			default: {
 				theme: 'light',
 				path: 'atom-logo.svg',
-				date_added: '2026/5/23'
+				date_added: '2026/5/23',
+				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'atom-logo-dark.svg',
-				date_added: '2026/5/23'
+				date_added: '2026/5/23',
+				version: '0.7.0'
 			}
 		}
 	]

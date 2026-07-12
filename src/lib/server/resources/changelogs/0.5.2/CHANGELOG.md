@@ -7,6 +7,7 @@
   - A **Good to know** section at the bottom of the page, with info, and tips & tricks
 - **[Flags](https://argxs.com/icons/flags)**
   - **New icons**
+    - **[New]** Papua New Guinea
     - **[New]** Paraguay
       - Front (observe) & Back (reserve)
     - **[New]** Peru

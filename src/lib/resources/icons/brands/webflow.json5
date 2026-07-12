@@ -7,7 +7,8 @@
 			default: {
 				path: 'webflow-icon.svg',
 				date_added: '2026/5/6',
-				source: {
+                version: '0.4.1',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -17,7 +18,8 @@
 					theme: 'light',
 					path: 'webflow-icon-monochrome-light.svg',
 					date_added: '2026/5/6',
-					source: {
+                	version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -26,7 +28,8 @@
 					theme: 'dark',
 					path: 'webflow-icon-monochrome-dark.svg',
 					date_added: '2026/5/6',
-					source: {
+               		version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -39,7 +42,8 @@
 				theme: 'light',
 				path: 'webflow-logo.svg',
 				date_added: '2026/5/6',
-				source: {
+                version: '0.4.1',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -48,7 +52,8 @@
 				theme: 'dark',
 				path: 'webflow-logo-dark.svg',
 				date_added: '2026/5/6',
-				source: {
+                version: '0.4.1',
+                source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
 				}
@@ -58,7 +63,8 @@
 					theme: 'light',
 					path: 'webflow-logo-monochrome-light.svg',
 					date_added: '2026/5/6',
-					source: {
+                	version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}
@@ -67,7 +73,8 @@
 					theme: 'dark',
 					path: 'webflow-logo-monochrome-dark.svg',
 					date_added: '2026/5/6',
-					source: {
+                	version: '0.4.1',
+                source: {
 						name: 'Brandfetch',
 						href: 'https://brandfetch.com'
 					}

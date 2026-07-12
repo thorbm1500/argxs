@@ -7,12 +7,14 @@
 			default: {
 				theme: 'light',
 				path: 'purescript-icon.svg',
-				date_added: '2026/5/24'
+				date_added: '2026/5/24',
+				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'purescript-icon-dark.svg',
-				date_added: '2026/5/24'
+				date_added: '2026/5/24',
+				version: '0.7.0'
 			}
 		},
 		{
@@ -21,6 +23,7 @@
 				theme: 'light',
 				path: 'purescript-logo.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'PureScript',
 					href: 'https://www.purescript.org'
@@ -30,6 +33,7 @@
 				theme: 'dark',
 				path: 'purescript-logo-dark.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'PureScript',
 					href: 'https://www.purescript.org'

@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'eta-icon.svg',
-				date_added: '2026/5/24'
+				date_added: '2026/5/24',
+				version: '0.7.0'
 			}
 		},
 		{
@@ -15,6 +16,7 @@
 				theme: 'dark',
 				path: 'eta-logo.svg',
 				date_added: '2026/5/24',
+				version: '0.7.0',
 				source: {
 					name: 'Eta',
 					href: 'https://eta-lang.org'

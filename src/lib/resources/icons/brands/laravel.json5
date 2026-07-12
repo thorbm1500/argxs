@@ -7,6 +7,7 @@
             default: {
                 path: 'laravel-icon.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -16,6 +17,7 @@
                 theme: 'dark',
                 path: 'laravel-icon-dark.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -27,6 +29,7 @@
             default: {
                 path: 'laravel-logo.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
@@ -36,6 +39,7 @@
                 theme: 'dark',
                 path: 'laravel-logo-dark.svg',
                 date_added: '2026/5/4',
+                version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'

@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'noma-logo.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Restaurant Noma',
 					href: 'https://noma.dk'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'noma-logo-dark.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Restaurant Noma',
 					href: 'https://noma.dk'

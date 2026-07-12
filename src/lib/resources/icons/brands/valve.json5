@@ -1,0 +1,55 @@
+{
+    name: 'Valve',
+    href: 'https://www.valvesoftware.com',
+    assets: [
+        {
+            type: 'logo',
+            default: {
+                path: 'valve-logo.svg',
+                date_added: '2026/7/11',
+                version: '0.7.2',
+                source: {
+                    name: 'Valve',
+                    href: 'https://www.valvesoftware.com'
+                }
+            }
+        },
+        {
+            name: 'Steam',
+            href: 'https://store.steampowered.com',
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'steam-logo.svg',
+                date_added: '2026/7/11',
+                version: '0.7.2',
+                source: {
+                    name: 'Steam',
+                    href: 'https://store.steampowered.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'steam-logo-dark.svg',
+                date_added: '2026/7/11',
+                version: '0.7.2',
+                source: {
+                    name: 'Steam',
+                    href: 'https://store.steampowered.com'
+                }
+            },
+            variable: [
+                {
+                    theme: 'dark',
+                    path: 'steam-logo-variable.svg',
+                    date_added: '2026/7/11',
+                    version: '0.7.2',
+                    source: {
+                        name: 'Steam',
+                        href: 'https://store.steampowered.com'
+                    }
+                }
+            ]
+        }
+    ]
+}

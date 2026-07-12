@@ -1,0 +1,14 @@
+<svg id="argxs" xmlns="http://www.w3.org/2000/svg" fill="#FFF" width="1000" height="1000" viewBox="0 0 108.06 108.06">
+  <defs>
+    <radialGradient id="argxs_proton_sheets_icon_attr" cx="-244.02" cy="472.18" fx="-244.02" fy="472.18" r="1" gradientTransform="translate(66835.1 11339.44) rotate(-53.15) scale(127.52 -127.52)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B854C"/>
+      <stop offset="1" stop-color="#26DA79"/>
+    </radialGradient>
+  </defs>
+  <path d="M0,18.01C0,8.06,8.06,0,18.01,0h72.04c9.95,0,18.01,8.06,18.01,18.01v72.04c0,9.95-8.06,18.01-18.01,18.01H18.01c-9.95,0-18.01-8.06-18.01-18.01V18.01Z" fill="url(#argxs_proton_sheets_icon_attr)"/>
+  <path d="M32.71,45.14c2.51,0,4.54,2.03,4.54,4.54v38.47c0,2.51-2.03,4.54-4.54,4.54s-4.54-2.03-4.54-4.54v-38.47c0-2.51,2.03-4.54,4.54-4.54Z" fill-rule="evenodd"/>
+  <path d="M13.04,74.75c0-2.51,2.03-4.54,4.54-4.54h42.79c2.51,0,4.54,2.03,4.54,4.54s-2.03,4.54-4.54,4.54H17.58c-2.51,0-4.54-2.03-4.54-4.54Z" fill-rule="evenodd"/>
+  <path d="M54.03,0h27.02v27.02h-27.02V0Z" opacity=".5"/>
+  <path d="M81.05,0h9.01c9.95,0,18.01,8.06,18.01,18.01v9.01h-27.02V0Z" opacity=".8"/>
+  <path d="M81.05,27.02h27.02v27.02h-27.02v-27.02Z" opacity=".5"/>
+</svg>

@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'zenegy-icon.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Zenegy',
 					href: 'https://zenegy.com'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'zenegy-icon-dark.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Zenegy',
 					href: 'https://zenegy.com'
@@ -29,6 +31,7 @@
 				theme: 'light',
 				path: 'zenegy-logo.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Zenegy',
 					href: 'https://zenegy.com'
@@ -38,6 +41,7 @@
 				theme: 'dark',
 				path: 'zenegy-logo-dark.svg',
 				date_added: '2026/5/12',
+				version: '0.5.2',
 				source: {
 					name: 'Zenegy',
 					href: 'https://zenegy.com'

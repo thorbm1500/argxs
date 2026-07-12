@@ -6,13 +6,15 @@
 			type: 'icon',
 			default: {
 				path: 'cloudflare-icon.svg',
-				date_added: '2026/4/11'
-			},
+				date_added: '2026/4/11',
+                version: '0.0.2'
+            },
 			dark: {
 				theme: 'dark',
 				path: 'cloudflare-icon-dark.svg',
-				date_added: '2026/4/11'
-			}
+				date_added: '2026/4/11',
+                version: '0.0.2'
+            }
 		},
 		{
 			type: 'logo',
@@ -20,7 +22,8 @@
 				theme: 'light',
 				path: 'cloudflare-logo.svg',
 				date_added: '2026/4/11',
-				source: {
+                version: '0.0.2',
+                source: {
 					name: 'Cloudflare',
 					href: 'https://www.cloudflare.com/'
 				}
@@ -28,8 +31,9 @@
 			dark: {
 				theme: 'dark',
 				path: 'cloudflare-logo-dark.svg',
-				date_added: '2026/4/11'
-			}
+				date_added: '2026/4/11',
+                version: '0.0.2'
+            }
 		}
 	]
 }

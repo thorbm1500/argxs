@@ -8,6 +8,7 @@
 				theme: 'light',
 				path: 'esa-logo.svg',
 				date_added: '2026/5/28',
+				version: '0.7.1',
 				source: {
 					name: 'ESA',
 					href: 'https://esa.int'
@@ -17,6 +18,7 @@
 				theme: 'dark',
 				path: 'esa-logo-dark.svg',
 				date_added: '2026/5/28',
+				version: '0.7.1',
 				source: {
 					name: 'ESA',
 					href: 'https://esa.int'

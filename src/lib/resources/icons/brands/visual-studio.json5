@@ -6,7 +6,8 @@
 			type: 'icon',
 			default: {
 				path: 'visual-studio-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		},
 		{
@@ -15,7 +16,8 @@
 			type: 'icon',
 			default: {
 				path: 'vscode-icon.svg',
-				date_added: '2026/4/25'
+				date_added: '2026/4/25',
+				version: '0.2.13'
 			}
 		}
 	]
