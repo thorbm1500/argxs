@@ -1,0 +1,52 @@
+{
+	name: 'BLAST.tv',
+	href: 'https://blast.tv',
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'blast-tv-icon.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'BLAST.tv',
+					href: 'https://blast.tv'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'blast-tv-icon-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'BLAST.tv',
+					href: 'https://blast.tv'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'blast-tv-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'BLAST.tv',
+					href: 'https://blast.tv'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'blast-tv-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'BLAST.tv',
+					href: 'https://blast.tv'
+				}
+			}
+		}
+	]
+}
