@@ -1130,9 +1130,11 @@
       .glass-effect {
           position: absolute;
           width: 80vw;
+          max-width: 82rem;
+
+          min-height: 24rem;
           height: 60vh;
-          max-width: 80rem;
-          max-height: 32rem;
+          max-height: 30rem;
 
           z-index: 40000;
           border-radius: .9rem;
@@ -1159,6 +1161,7 @@
                   position: relative;
                   width: inherit;
                   height: inherit;
+                  min-height: inherit;
                   max-width: inherit;
                   max-height: inherit;
                   border-radius: inherit;
@@ -1193,9 +1196,11 @@
           overflow: hidden !important;
 
           width: 80vw;
+          max-width: 82rem;
+
+          min-height: 24rem;
           height: 60vh;
-          max-width: 80rem;
-          max-height: 32rem;
+          max-height: 30rem;
 
           background: linear-gradient(to bottom, rgb(247 249 252 / .3) 0%, rgb(247 249 252 / .6) 100%);
           border-radius: .9rem;
@@ -1331,7 +1336,6 @@
                   img {
                       position: relative;
 
-
                       width: 100%;
                       height: 100%;
                       max-height: 14rem;
@@ -1347,7 +1351,7 @@
               }
 
               img {
-                  width: 100%;
+                  width: 95%;
                   height: 100%;
                   max-height: 14rem;
                   aspect-ratio: 1;
