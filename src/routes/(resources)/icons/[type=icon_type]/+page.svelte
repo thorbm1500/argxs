@@ -669,7 +669,7 @@
 								<path d="M12 7v5l2 2" />
 							{/if}
 						</svg>
-						Date Added
+						Version
 					</button>
 				</GlassButton>
 				{#if sorting !== 'default'}
