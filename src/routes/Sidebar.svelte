@@ -747,14 +747,13 @@
                     font-size: 1.25rem;
                     font-weight: 1000;
 
-                    color: var(--theme-text-third);
-
                     .value {
                         display: flex;
                         flex-flow: row nowrap;
                         justify-content: center;
                         margin: 0 .125rem;
                         width: fit-content;
+
                         color: var(--theme-text-third);
 
                         background: linear-gradient(to top, rgba(from var(--theme-text-fourth) r g b / .4) 0%, rgba(from var(--theme-text-fourth) r g b / .6) 100%);
@@ -779,9 +778,9 @@
                     .dot::after {
                         position: relative;
                         content: '.';
-                        color: var(--theme-text-secondary);
                         right: 3px;
                         top: -5px;
+                        color: var(--theme-text-third);
                     }
                 }
             }
