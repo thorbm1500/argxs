@@ -4,14 +4,8 @@
   "title": "Brand Configuration Schema",
   "type": "object",
   "properties": {
-    "name": {
-      "$ref": "#/$defs/name",
-      "description": "Name of the brand"
-    },
-    "href": {
-      "$ref": "#/$defs/href",
-      "description": "An external link to the brand"
-    },
+    "name": { "$ref": "#/$defs/name" },
+    "href": { "$ref": "#/$defs/href" },
     "tags": { "$ref": "#/$defs/tags" },
     "assets": {
       "type": "array",
@@ -33,14 +27,21 @@
             "items": { "$ref": "#/$defs/icon" }
           }
         },
-        "required": ["type","default"]
+        "required": ["type","default"],
+        "minItems": 1
       }
     }
   },
   "required": ["name","assets"],
   "$defs": {
-    "name": { "type": "string" },
-    "href": { "type": "string" },
+    "name": {
+      "type": "string",
+      "description": "Name of the brand"
+    },
+    "href": {
+      "type": "string",
+      "description": "An external link to the brand"
+    },
     "tags": {
       "type": "array",
       "description": "Tags related to the icon",
