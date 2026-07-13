@@ -471,13 +471,13 @@
 					{/if}
 					<div class="name" tabindex="-1" style="transform:translateY({!hCurrentIcon?.name && highlightedIcon.icon.title === highlightedIcon.icon.name && !hCurrentIcon?.href && !highlightedIcon.icon.href ? 1 : 0}rem)">
 						{#if hCurrentIcon?.name}
-							<h1 class="brand-name" tabindex="-1">{hCurrentIcon.name}</h1>
-							<h3 class="icon-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
+							<h1 class="icon-name" tabindex="-1">{hCurrentIcon.name}</h1>
+							<h3 class="brand-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else if highlightedIcon.icon.title !== highlightedIcon.icon.name}
-							<h1 class="brand-name" tabindex="-1">{highlightedIcon.icon.name}</h1>
-							<h3 class="icon-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
+							<h1 class="icon-name" tabindex="-1">{highlightedIcon.icon.name}</h1>
+							<h3 class="brand-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else}
-							<h1 class="brand-name" style="transform: translateY(.2rem)" tabindex="-1">{highlightedIcon.icon.title}</h1>
+							<h1 class="icon-name" style="transform: translateY(.2rem)" tabindex="-1">{highlightedIcon.icon.title}</h1>
 						{/if}
 					</div>
 					<div class="actions" tabindex="-1">
@@ -1404,17 +1404,25 @@
                   align-items: flex-start;
                   justify-content: flex-start;
                   height: 4.35rem;
+                  max-width: 100%;
+									overflow: visible;
 
-                  .brand-name {
-                      font-size: 2.25rem;
-                      height: 2.5rem;
-                  }
+                  text-wrap: nowrap !important;
 
                   .icon-name {
-                      font-size: 1.1rem;
+                      font-size: 2rem;
+                      height: 3.15rem;
+                      max-width: 100%;
+
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                  }
+
+                  .brand-name {
+                      font-size: 1rem;
                       font-weight: 450;
                       color: var(--theme-text-secondary);
-                      padding-top: .1rem;
+											margin-bottom: .3rem;
                   }
 
                   z-index: 500 !important;
@@ -1436,11 +1444,11 @@
                   z-index: 510 !important;
 
                   &.top {
-                      transform: translateY(.8rem);
+                      transform: translateY(.5rem);
                   }
 
                   &.bottom {
-                      transform: translateY(4.1rem);
+                      transform: translateY(4rem);
                   }
 
                   svg {
