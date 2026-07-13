@@ -367,7 +367,7 @@
 
 {#if highlightedIcon && hCurrentIcon}
 		<!--svelte-ignore a11y_positive_tabindex-->
-		<div class="highlighted-icon {backgroundLight ? 'lights-on' : 'lights-off'}" transition:fade={{duration: 100}}>
+		<div class="highlighted-icon {backgroundLight ? 'lights-on' : 'lights-off'}" transition:fade={{duration: prefersReducedMotion ? 0 : 100}}>
 			<div style="display:contents;" inert>
 				<div class="glass-effect a"></div>
 				<div class="glass-effect b">
