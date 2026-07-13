@@ -4,8 +4,14 @@
   "title": "Brand Configuration Schema",
   "type": "object",
   "properties": {
-    "name": { "$ref": "#/$defs/name" },
-    "href": { "$ref": "#/$defs/href" },
+    "name": {
+      "$ref": "#/$defs/name",
+      "description": "Name of the brand"
+    },
+    "href": {
+      "$ref": "#/$defs/href",
+      "description": "An external link to the brand"
+    },
     "tags": { "$ref": "#/$defs/tags" },
     "assets": {
       "type": "array",
@@ -14,7 +20,11 @@
         "properties": {
           "name": { "$ref": "#/$defs/name" },
           "href": { "$ref": "#/$defs/href" },
-          "type": { "$ref": "#/$defs/type" },
+          "type": {
+            "type": "string",
+            "description": "The asset type",
+            "enum": ["icon","logo"]
+          },
           "tags": { "$ref": "#/$defs/tags" },
           "default": { "$ref": "#/$defs/icon" },
           "dark": { "$ref": "#/$defs/icon" },
@@ -29,20 +39,11 @@
   },
   "required": ["name","assets"],
   "$defs": {
-    "name": {
-      "type": "string",
-      "description": "Name of the brand"
-    },
-    "href": {
-      "type": "string",
-      "description": "An external link to the brand"
-    },
-    "type": {
-      "type": "string",
-      "enum": ["icon","logo"]
-    },
+    "name": { "type": "string" },
+    "href": { "type": "string" },
     "tags": {
       "type": "array",
+      "description": "Tags related to the icon",
       "items": {
         "type": "string",
         "enum": ["Gaming","E-Sports","Social Media","Development","Automotive","Music"]
@@ -67,20 +68,30 @@
         },
         "theme": {
           "type": "string",
+          "description": "The theme of the icon. Only to be set if the icon is of such dark/light colors, that it can only properly be seen in a specific theme",
           "enum": ["light","dark"]
         },
         "animated": {
           "type": "boolean",
+          "description": "Whether the icon is animated or not",
           "default": false
         },
         "path": {
           "type": "string",
+          "description": "The path to the icon",
           "pattern": "^[\\w\\-_]+\\.svg$"
         },
-        "date_added": { "$ref": "#/$defs/date" },
-        "last_modified": { "$ref": "#/$defs/date" },
+        "date_added": {
+          "$ref": "#/$defs/date",
+          "description": "The date of which the icon was added"
+        },
+        "last_modified": {
+          "$ref": "#/$defs/date",
+          "description": "The date of which the icon was last modified"
+        },
         "version": {
           "type": "string",
+          "description": "The version of which the icon was added",
           "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
         },
         "source": {
