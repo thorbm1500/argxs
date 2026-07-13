@@ -365,10 +365,9 @@
 	</defs>
 </svg>
 
-{#if highlightedIcon !== undefined}
-	{#key hCurrentIcon}
+{#if highlightedIcon && hCurrentIcon}
 		<!--svelte-ignore a11y_positive_tabindex-->
-		<div class="highlighted-icon {backgroundLight ? 'lights-on' : 'lights-off'}">
+		<div class="highlighted-icon {backgroundLight ? 'lights-on' : 'lights-off'}" transition:fade={{duration: 100}}>
 			<div style="display:contents;" inert>
 				<div class="glass-effect a"></div>
 				<div class="glass-effect b">
@@ -380,6 +379,7 @@
 				<div class="glass-effect f"></div>
 			</div>
 			<div class="h-icon">
+				{#key hCurrentIcon}
 				<!--svelte-ignore a11y_autofocus-->
 				<button title="Close" class="close-button" onclick={closeHighlightContainer} tabindex="1">
 					<!--suppress HtmlUnknownTag -->
@@ -540,12 +540,12 @@
 							<p class="version-tag" tabindex="-1">Added in Version {highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.version}</p>
 						</div>
 				</div>
+				{/key}
 			</div>
 		</div>
 		{#if !backgroundLight}
 			<div style="position: absolute; z-index: 49999; top: 0; left: 0; width: 100vw; height: 100vh; background: none;"></div>
 		{/if}
-	{/key}
 {/if}
 
 <section class="icons-page">
@@ -1129,6 +1129,18 @@
           background-color: rgb(247 249 252 / .95);
           transition: background-color var(--theme-transition-single-on);
       }
+
+			.glass-effect, .h-icon {
+          transform: scale(1);
+          opacity: 1;
+          transition: transform 175ms ease,
+          opacity 175ms ease;
+
+          @starting-style {
+              transform: scale(.925);
+              opacity: 0;
+          }
+			}
 
       .glass-effect {
           position: absolute;
