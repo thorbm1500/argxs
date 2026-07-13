@@ -1,5 +1,5 @@
 {
-    country: 'Kosovo',
+    name: 'Kosovo',
     type: 'country',
     flags: [
         {

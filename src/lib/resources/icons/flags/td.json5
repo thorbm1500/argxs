@@ -1,5 +1,5 @@
 {
-    country: 'Chad',
+    name: 'Chad',
     type: 'country',
     flags: [
         {

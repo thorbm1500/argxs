@@ -1,5 +1,5 @@
 {
-    country: 'Sierra Leone',
+    name: 'Sierra Leone',
     type: 'country',
     flags: [
         {

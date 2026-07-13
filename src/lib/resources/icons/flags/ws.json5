@@ -1,5 +1,5 @@
 {
-    country: 'Samoa',
+    name: 'Samoa',
     type: 'country',
     flags: [
         {

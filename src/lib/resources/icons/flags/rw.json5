@@ -1,5 +1,5 @@
 {
-    country: 'Rwanda',
+    name: 'Rwanda',
     type: 'country',
     flags: [
         {

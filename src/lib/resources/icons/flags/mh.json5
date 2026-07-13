@@ -1,5 +1,5 @@
 {
-    country: 'Marshall Islands',
+    name: 'Marshall Islands',
     type: 'country',
     flags: [
         {

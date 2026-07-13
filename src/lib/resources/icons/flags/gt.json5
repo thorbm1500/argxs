@@ -1,5 +1,5 @@
 {
-    country: 'Guatemala',
+    name: 'Guatemala',
     type: 'country',
     flags: [
         {

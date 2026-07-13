@@ -1,5 +1,5 @@
 {
-    country: 'Malaysia',
+    name: 'Malaysia',
     type: 'country',
     flags: [
         {

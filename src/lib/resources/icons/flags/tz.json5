@@ -1,5 +1,5 @@
 {
-    country: 'Tanzania',
+    name: 'Tanzania',
     type: 'country',
     flags: [
         {

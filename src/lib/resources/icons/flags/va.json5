@@ -1,5 +1,5 @@
 {
-    country: 'Vatican City',
+    name: 'Vatican City',
     type: 'country',
     flags: [
         {

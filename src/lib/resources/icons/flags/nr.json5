@@ -1,5 +1,5 @@
 {
-    country: 'Nauru',
+    name: 'Nauru',
     type: 'country',
     flags: [
         {

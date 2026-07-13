@@ -1,5 +1,5 @@
 {
-    country: 'Tuvalu',
+    name: 'Tuvalu',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Andorra',
+    name: 'Andorra',
     type: 'country',
     flags: [
         {

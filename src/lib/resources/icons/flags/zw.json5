@@ -1,5 +1,5 @@
 {
-    country: 'Zimbabwe',
+    name: 'Zimbabwe',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Cameroon',
+    name: 'Cameroon',
     type: 'country',
     flags: [
         {

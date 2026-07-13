@@ -1,5 +1,5 @@
 {
-    country: 'Fiji',
+    name: 'Fiji',
     type: 'country',
     flags: [
         {

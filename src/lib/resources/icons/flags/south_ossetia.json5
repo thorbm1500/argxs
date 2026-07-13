@@ -1,5 +1,5 @@
 {
-    country: 'South Ossetia',
+    name: 'South Ossetia',
     type: 'state',
     flags: [
         {

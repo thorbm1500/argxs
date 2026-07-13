@@ -1,5 +1,5 @@
 {
-    country: 'Northern Cyprus',
+    name: 'Northern Cyprus',
     type: 'state',
     flags: [
         {

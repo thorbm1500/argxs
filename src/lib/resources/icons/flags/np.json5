@@ -1,5 +1,5 @@
 {
-    country: 'Nepal',
+    name: 'Nepal',
     type: 'country',
     flags: [
         {

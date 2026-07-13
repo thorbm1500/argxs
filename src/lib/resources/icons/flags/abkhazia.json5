@@ -1,5 +1,5 @@
 {
-    country: 'Abkhazia',
+    name: 'Abkhazia',
     type: 'country',
     flags: [
         {

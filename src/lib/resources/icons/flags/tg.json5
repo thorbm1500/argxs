@@ -1,5 +1,5 @@
 {
-    country: 'Togo',
+    name: 'Togo',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Nato',
+    name: 'Nato',
     flags: [
         {
             default: {

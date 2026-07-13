@@ -1,5 +1,5 @@
 {
-    country: 'Mongolia',
+    name: 'Mongolia',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Côte d\'Ivoire',
+    name: 'Côte d\'Ivoire',
     type: 'country',
     flags: [
         {

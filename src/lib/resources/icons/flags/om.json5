@@ -1,5 +1,5 @@
 {
-    country: 'Oman',
+    name: 'Oman',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'South Korea',
+    name: 'South Korea',
     type: 'country',
     flags: [
         {

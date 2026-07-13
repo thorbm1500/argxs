@@ -1,5 +1,5 @@
 {
-    country: 'Qatar',
+    name: 'Qatar',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Solomon Islands',
+    name: 'Solomon Islands',
     type: 'country',
     flags: [
         {

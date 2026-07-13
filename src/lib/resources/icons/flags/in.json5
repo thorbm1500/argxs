@@ -1,5 +1,5 @@
 {
-    country: 'India',
+    name: 'India',
     type: 'country',
     flags: [
         {

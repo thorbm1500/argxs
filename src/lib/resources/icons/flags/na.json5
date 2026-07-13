@@ -1,5 +1,5 @@
 {
-    country: 'Namibia',
+    name: 'Namibia',
     type: 'country',
     flags: [
         {

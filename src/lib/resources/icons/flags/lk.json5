@@ -1,5 +1,5 @@
 {
-    country: 'Sri Lanka',
+    name: 'Sri Lanka',
     type: 'country',
     flags: [
         {

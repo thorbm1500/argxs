@@ -1,5 +1,5 @@
 {
-    country: 'United Arab Emirates',
+    name: 'United Arab Emirates',
     type: 'country',
     flags: [
         {

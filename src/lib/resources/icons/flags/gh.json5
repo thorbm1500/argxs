@@ -1,5 +1,5 @@
 {
-    country: 'Ghana',
+    name: 'Ghana',
     type: 'country',
     flags: [
         {

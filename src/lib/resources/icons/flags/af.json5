@@ -1,5 +1,5 @@
 {
-    country: 'Afghanistan',
+    name: 'Afghanistan',
     type: 'country',
     flags: [
         {

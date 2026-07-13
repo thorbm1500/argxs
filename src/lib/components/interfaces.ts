@@ -115,9 +115,8 @@ export interface BrandIcon extends IconConfig {
 }
 
 export interface Flag {
-	/** The name of the country or flag
-	 * @todo Change from `country` to `name` */
-	country: string,
+	/** The name of the country or flag */
+	name: string,
 	/** An external site linked to the icon */
 	href?: string,
 	/** The icon's type. Mostly used for sorting the icons */

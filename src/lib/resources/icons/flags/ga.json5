@@ -1,5 +1,5 @@
 {
-    country: 'Gabon',
+    name: 'Gabon',
     type: 'country',
     flags: [
         {

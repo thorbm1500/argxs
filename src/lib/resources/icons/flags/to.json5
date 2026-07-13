@@ -1,5 +1,5 @@
 {
-    country: 'Tonga',
+    name: 'Tonga',
     type: 'country',
     flags: [
         {

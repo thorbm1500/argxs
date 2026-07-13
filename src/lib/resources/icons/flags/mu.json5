@@ -1,5 +1,5 @@
 {
-    country: 'Mauritius',
+    name: 'Mauritius',
     type: 'country',
     flags: [
         {

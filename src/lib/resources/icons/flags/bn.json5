@@ -1,5 +1,5 @@
 {
-    country: 'Brunei',
+    name: 'Brunei',
     type: 'country',
     flags: [
         {

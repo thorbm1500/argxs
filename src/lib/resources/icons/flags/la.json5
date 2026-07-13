@@ -1,5 +1,5 @@
 {
-    country: 'Laos',
+    name: 'Laos',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Antigua and Barbuda',
+    name: 'Antigua and Barbuda',
     type: 'country',
     flags: [
         {

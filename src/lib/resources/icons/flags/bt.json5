@@ -1,5 +1,5 @@
 {
-    country: 'Bhutan',
+    name: 'Bhutan',
     type: 'country',
     flags: [
         {

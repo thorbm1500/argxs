@@ -1,5 +1,5 @@
 {
-    country: 'United Nations',
+    name: 'United Nations',
     flags: [
         {
             default: {

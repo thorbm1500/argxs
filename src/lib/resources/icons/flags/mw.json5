@@ -1,5 +1,5 @@
 {
-    country: 'Malawi',
+    name: 'Malawi',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Cambodia',
+    name: 'Cambodia',
     type: 'country',
     flags: [
         {

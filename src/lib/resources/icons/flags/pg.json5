@@ -1,5 +1,5 @@
 {
-    country: 'Papua New Guinea',
+    name: 'Papua New Guinea',
     type: 'country',
     flags: [
         {

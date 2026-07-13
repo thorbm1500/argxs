@@ -1,5 +1,5 @@
 {
-    country: 'Djibouti',
+    name: 'Djibouti',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Angola',
+    name: 'Angola',
     type: 'country',
     flags: [
         {

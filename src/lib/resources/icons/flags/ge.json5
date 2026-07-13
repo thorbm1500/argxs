@@ -1,5 +1,5 @@
 {
-    country: 'Georgia',
+    name: 'Georgia',
     type: 'country',
     flags: [
         {

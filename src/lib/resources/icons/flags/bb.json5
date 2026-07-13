@@ -1,5 +1,5 @@
 {
-    country: 'Barbados',
+    name: 'Barbados',
     type: 'country',
     flags: [
         {

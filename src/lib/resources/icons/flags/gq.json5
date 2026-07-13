@@ -1,5 +1,5 @@
 {
-    country: 'Equatorial Guinea',
+    name: 'Equatorial Guinea',
     type: 'country',
     flags: [
         {

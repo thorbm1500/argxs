@@ -1,5 +1,5 @@
 {
-    country: 'Libya',
+    name: 'Libya',
     type: 'country',
     flags: [
         {

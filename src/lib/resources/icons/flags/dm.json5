@@ -1,5 +1,5 @@
 {
-    country: 'Dominica',
+    name: 'Dominica',
     type: 'country',
     flags: [
         {

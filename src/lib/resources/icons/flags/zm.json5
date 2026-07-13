@@ -1,5 +1,5 @@
 {
-    country: 'Zambia',
+    name: 'Zambia',
     type: 'country',
     flags: [
         {

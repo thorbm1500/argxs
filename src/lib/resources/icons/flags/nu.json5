@@ -1,5 +1,5 @@
 {
-    country: 'Niue',
+    name: 'Niue',
     type: 'country',
     flags: [
         {

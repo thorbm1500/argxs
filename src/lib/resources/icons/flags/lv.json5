@@ -1,5 +1,5 @@
 {
-    country: 'Latvia',
+    name: 'Latvia',
     type: 'country',
     flags: [
         {

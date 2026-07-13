@@ -1,5 +1,5 @@
 {
-    country: 'Cape Verde',
+    name: 'Cape Verde',
     type: 'country',
     flags: [
         {

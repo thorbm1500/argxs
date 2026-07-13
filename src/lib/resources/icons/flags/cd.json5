@@ -1,5 +1,5 @@
 {
-    country: 'Democratic Republic of the Congo',
+    name: 'Democratic Republic of the Congo',
     type: 'country',
     flags: [
         {

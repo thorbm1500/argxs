@@ -1,5 +1,5 @@
 {
-    country: 'Japan',
+    name: 'Japan',
     type: 'country',
     flags: [
         {

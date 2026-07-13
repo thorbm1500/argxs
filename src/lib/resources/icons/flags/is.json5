@@ -1,5 +1,5 @@
 {
-    country: 'Iceland',
+    name: 'Iceland',
     type: 'country',
     flags: [
         {

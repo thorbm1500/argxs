@@ -1,5 +1,5 @@
 {
-    country: 'Trinidad and Tobago',
+    name: 'Trinidad and Tobago',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Cyprus',
+    name: 'Cyprus',
     type: 'country',
     flags: [
         {

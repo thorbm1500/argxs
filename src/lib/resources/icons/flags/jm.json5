@@ -1,5 +1,5 @@
 {
-    country: 'Jamaica',
+    name: 'Jamaica',
     type: 'country',
     flags: [
         {

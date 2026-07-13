@@ -1,5 +1,5 @@
 {
-    country: 'Eswatini',
+    name: 'Eswatini',
     type: 'country',
     flags: [
         {

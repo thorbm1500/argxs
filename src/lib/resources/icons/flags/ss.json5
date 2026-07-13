@@ -1,5 +1,5 @@
 {
-    country: 'South Sudan',
+    name: 'South Sudan',
     type: 'country',
     flags: [
         {

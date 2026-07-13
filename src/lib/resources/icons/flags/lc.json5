@@ -1,5 +1,5 @@
 {
-    country: 'Saint Lucia',
+    name: 'Saint Lucia',
     type: 'country',
     flags: [
         {

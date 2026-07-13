@@ -1,5 +1,5 @@
 {
-    country: 'Kyrgyzstan',
+    name: 'Kyrgyzstan',
     type: 'country',
     flags: [
         {

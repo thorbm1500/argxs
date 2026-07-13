@@ -1,5 +1,5 @@
 {
-    country: 'Uganda',
+    name: 'Uganda',
     type: 'country',
     flags: [
         {

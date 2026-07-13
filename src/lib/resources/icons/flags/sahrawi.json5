@@ -1,5 +1,5 @@
 {
-    country: 'Sahrawi Arab Democratic Republic',
+    name: 'Sahrawi Arab Democratic Republic',
     type: 'state',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Haiti',
+    name: 'Haiti',
     type: 'country',
     flags: [
         {

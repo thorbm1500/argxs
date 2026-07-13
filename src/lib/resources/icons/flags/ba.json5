@@ -1,5 +1,5 @@
 {
-    country: 'Bosnia and Herzegovina',
+    name: 'Bosnia and Herzegovina',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Mali',
+    name: 'Mali',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Tajikistan',
+    name: 'Tajikistan',
     type: 'country',
     flags: [
         {

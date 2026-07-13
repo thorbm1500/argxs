@@ -1,5 +1,5 @@
 {
-    country: 'Kiribati',
+    name: 'Kiribati',
     type: 'country',
     flags: [
         {

@@ -1,5 +1,5 @@
 {
-    country: 'Myanmar',
+    name: 'Myanmar',
     type: 'country',
     flags: [
         {

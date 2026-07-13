@@ -1,5 +1,5 @@
 {
-    country: 'Somaliland',
+    name: 'Somaliland',
     type: 'state',
     flags: [
         {

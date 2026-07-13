@@ -1,5 +1,5 @@
 {
-    country: 'Saint Kitts and Nevis',
+    name: 'Saint Kitts and Nevis',
     type: 'country',
     flags: [
         {

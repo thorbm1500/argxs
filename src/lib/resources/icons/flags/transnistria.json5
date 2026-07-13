@@ -1,5 +1,5 @@
 {
-    country: 'Transnistia',
+    name: 'Transnistia',
     type: 'state',
     flags: [
         {

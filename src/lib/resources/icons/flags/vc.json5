@@ -1,5 +1,5 @@
 {
-    country: 'Saint Vincent and the Grenadines',
+    name: 'Saint Vincent and the Grenadines',
     type: 'country',
     flags: [
         {

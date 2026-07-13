@@ -1,5 +1,5 @@
 {
-    country: 'Ukraine',
+    name: 'Ukraine',
     href: 'https://www.unhcr.org/emergencies/ukraine-emergency',
     type: 'country',
     flags: [

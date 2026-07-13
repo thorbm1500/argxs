@@ -1,5 +1,5 @@
 {
-    country: 'North Macedonia',
+    name: 'North Macedonia',
     type: 'country',
     flags: [
         {

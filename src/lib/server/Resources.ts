@@ -104,8 +104,8 @@ export class Resources {
 
 			for (const icon of current.flags) {
 				const resource: ResourceIcon = {
-					title: current.country,
-					name: icon.name ?? current.country,
+					title: current.name,
+					name: icon.name ?? current.name,
 					href: icon.href ?? current.href,
 					type: icon.type ? icon.type : (current.type ? current.type : 'undefined'),
 					last_updated: 0,

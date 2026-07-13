@@ -1,5 +1,5 @@
 {
-    country: 'Liechtenstein',
+    name: 'Liechtenstein',
     type: 'country',
     flags: [
         {

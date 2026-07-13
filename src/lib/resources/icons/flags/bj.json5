@@ -1,5 +1,5 @@
 {
-    country: 'Benin',
+    name: 'Benin',
     type: 'country',
     flags: [
         {
