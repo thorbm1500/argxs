@@ -1,6 +1,7 @@
 {
 	name: 'Bubble',
 	href: 'https://bubble.io',
+	tags: ["AI","Development"],
 	assets: [
 		{
 			type: 'icon',

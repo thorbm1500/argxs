@@ -1,6 +1,7 @@
 {
 	name: 'Battlefield',
 	href: 'https://www.ea.com/games/battlefield',
+	tags: ["Gaming"],
 	assets: [
 		{
 			name: 'Battlefield 6',

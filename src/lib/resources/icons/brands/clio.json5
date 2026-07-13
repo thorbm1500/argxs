@@ -1,6 +1,7 @@
 {
 	name: 'Clio',
 	href: 'https://clio-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

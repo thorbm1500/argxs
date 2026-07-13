@@ -1,6 +1,7 @@
 {
 	name: 'W3C',
 	href: 'https://www.w3.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
     name: 'Moog Synthesizers',
     href: 'https://www.moogmusic.com',
+    tags: ["Music"],
     assets: [
         {
             type: 'logo',

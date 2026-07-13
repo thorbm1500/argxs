@@ -42,3 +42,8 @@
   - Fixed color mismatch on dot in visitor count
 - **Footer**
   - Center aligned sponsor logo
+
+## Dependencies
+- @sveltejs/kit: *2.69.2 ➜ 2.69.3*
+- @humanspeak/svelte-markdown: *1.7.10 ➜ 1.8.2*
+- typescript-eslint: *8.63.0 ➜ 8.64.0*

@@ -1,6 +1,7 @@
 {
 	name: 'Alpine.js',
 	href: 'https://alpinejs.dev',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

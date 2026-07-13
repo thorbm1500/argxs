@@ -1,6 +1,7 @@
 {
 	name: 'Visa',
 	href: 'https://www.visa.com',
+	tags: ["Finance"],
 	assets: [
 		{
 			type: 'logo',

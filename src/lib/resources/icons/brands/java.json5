@@ -1,6 +1,7 @@
 {
 	name: 'Java',
 	href: 'https://www.java.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

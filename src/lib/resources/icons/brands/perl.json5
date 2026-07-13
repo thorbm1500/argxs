@@ -1,6 +1,7 @@
 {
 	name: 'Perl',
 	href: 'https://www.perl.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

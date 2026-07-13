@@ -1,6 +1,7 @@
 {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com',
+    tags: ["Social Media"],
     assets: [
         {
             type: 'icon',

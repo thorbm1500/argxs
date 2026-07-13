@@ -1,6 +1,7 @@
 {
 	name: 'Angular',
 	href: 'https://angular.dev',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

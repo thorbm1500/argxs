@@ -1,6 +1,7 @@
 {
 	name: 'Attio',
 	href: 'https://www.attio.com',
+	tags: ["AI"],
 	assets: [
 		{
 			type: 'icon',

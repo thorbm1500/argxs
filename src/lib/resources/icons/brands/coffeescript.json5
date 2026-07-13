@@ -1,6 +1,7 @@
 {
 	name: 'CoffeeScript',
 	href: 'https://coffeescript.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

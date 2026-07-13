@@ -1,6 +1,7 @@
 {
 	name: 'Redis',
 	href: 'https://redis.io',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

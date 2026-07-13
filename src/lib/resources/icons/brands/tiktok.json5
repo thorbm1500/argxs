@@ -1,6 +1,7 @@
 {
     name: 'TikTok',
     href: 'https://www.tiktok.com',
+    tags: ["Social Media","Live Streaming"],
     assets: [
         {
             type: 'icon',

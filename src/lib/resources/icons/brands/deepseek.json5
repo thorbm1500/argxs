@@ -1,6 +1,7 @@
 {
 	name: 'DeepSeek',
 	href: 'https://www.deepseek.com',
+	tags: ["AI"],
 	assets: [
 		{
 			type: 'icon',

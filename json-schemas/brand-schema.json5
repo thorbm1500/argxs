@@ -47,7 +47,19 @@
       "description": "Tags related to the icon",
       "items": {
         "type": "string",
-        "enum": ["Gaming","E-Sports","Social Media","Development","Automotive","Music"]
+        "enum": [
+          "Gaming",
+          "E-Sports",
+          "Live Streaming",
+          "Social Media",
+          "Development",
+          "Automotive",
+          "Music",
+          "Food",
+          "AI",
+          "Education",
+          "Finance"
+        ]
       },
       "minItems": 0,
       "uniqueItems": true

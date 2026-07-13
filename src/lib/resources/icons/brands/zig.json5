@@ -1,6 +1,7 @@
 {
 	name: 'Zig',
 	href: 'https://ziglang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

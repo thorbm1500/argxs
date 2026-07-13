@@ -1,6 +1,7 @@
 {
 	name: 'SSL',
 	href: 'https://ssl.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

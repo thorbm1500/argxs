@@ -1,6 +1,7 @@
 {
 	name: 'Formula 1',
 	href: 'https://www.formula1.com',
+	tags: ["Automotive"],
 	assets: [
 		{
 			type: 'logo',

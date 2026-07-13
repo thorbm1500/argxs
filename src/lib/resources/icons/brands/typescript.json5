@@ -1,6 +1,7 @@
 {
 	name: 'TypeScript',
 	href: 'https://www.typescriptlang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

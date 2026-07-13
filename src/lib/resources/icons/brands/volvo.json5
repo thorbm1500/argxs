@@ -1,6 +1,7 @@
 {
     name: 'Volvo',
     href: 'https://volvo.com',
+    tags: ["Automotive"],
     assets: [
         {
             type: 'icon',

@@ -1,6 +1,7 @@
 {
 	name: 'Anthropic',
 	href: 'https://anthropic.com',
+	tags: ["AI"],
 	assets: [
 		{
 			type: 'icon',

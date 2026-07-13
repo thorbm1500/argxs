@@ -1,6 +1,7 @@
 {
 	name: 'C#',
 	href: 'https://dotnet.microsoft.com/languages/csharp',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

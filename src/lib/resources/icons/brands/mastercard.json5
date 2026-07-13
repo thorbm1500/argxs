@@ -1,6 +1,7 @@
 {
 	name: 'Mastercard',
 	href: 'https://www.mastercard.com',
+	tags: ["Finance"],
 	assets: [
 		{
 			type: 'icon',

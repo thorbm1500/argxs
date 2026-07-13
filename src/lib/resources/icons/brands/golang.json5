@@ -1,6 +1,7 @@
 {
 	name: 'Go',
 	href: 'https://go.dev',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

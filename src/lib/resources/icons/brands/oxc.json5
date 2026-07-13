@@ -1,6 +1,7 @@
 {
     name: 'OXC',
     href: 'https://oxc.rs',
+    tags: ["Development"],
     assets: [
         {
             type: 'icon',

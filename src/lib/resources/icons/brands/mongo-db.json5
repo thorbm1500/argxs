@@ -1,6 +1,7 @@
 {
 	name: 'MongoDB',
 	href: 'https://www.mongodb.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

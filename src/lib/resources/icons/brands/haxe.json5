@@ -1,6 +1,7 @@
 {
 	name: 'Haxe',
 	href: 'https://haxe.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

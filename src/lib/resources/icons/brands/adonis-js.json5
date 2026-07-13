@@ -1,6 +1,7 @@
 {
 	name: 'AdonisJS',
 	href: 'https://adonisjs.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

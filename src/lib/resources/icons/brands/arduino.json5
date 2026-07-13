@@ -1,6 +1,7 @@
 {
     name: 'Arduino',
     href: 'https://www.arduino.cc',
+    tags: ["Development"],
     assets: [
         {
             type: 'logo',

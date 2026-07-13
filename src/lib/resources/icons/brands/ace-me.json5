@@ -1,6 +1,7 @@
 {
 	name: 'ace.me',
 	href: 'https://www.ace.me',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

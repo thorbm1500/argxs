@@ -1,6 +1,7 @@
 {
 	name: 'R (Language)',
 	href: 'https://www.r-project.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

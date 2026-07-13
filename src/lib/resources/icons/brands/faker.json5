@@ -1,6 +1,7 @@
 {
 	name: 'Faker',
 	href: 'https://fakerjs.dev',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

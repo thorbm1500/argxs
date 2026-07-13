@@ -1,6 +1,7 @@
 {
 	name: 'EK',
 	href: 'https://www.ek.dk',
+	tags: ["Education"],
 	assets: [
 		{
 			type: 'icon',

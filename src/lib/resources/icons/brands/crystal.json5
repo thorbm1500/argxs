@@ -1,6 +1,7 @@
 {
 	name: 'Crystal',
 	href: 'https://crystal-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
 	name: 'HTML5',
 	href: 'https://html.spec.whatwg.org/multipage/',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

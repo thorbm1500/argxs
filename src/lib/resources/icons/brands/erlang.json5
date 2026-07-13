@@ -1,6 +1,7 @@
 {
 	name: 'Erlang',
 	href: 'https://www.erlang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

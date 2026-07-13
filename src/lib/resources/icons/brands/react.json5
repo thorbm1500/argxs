@@ -1,6 +1,7 @@
 {
 	name: 'React',
 	href: 'https://react.dev',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

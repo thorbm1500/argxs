@@ -1,6 +1,7 @@
 {
 	name: 'Visual Studio',
 	href: 'https://visualstudio.microsoft.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

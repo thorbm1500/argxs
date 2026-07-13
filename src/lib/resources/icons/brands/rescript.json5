@@ -1,6 +1,7 @@
 {
 	name: 'ReScript',
 	href: 'https://rescript-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
 	name: 'Electronic Arts',
 	href: 'https://ea.com',
+	tags: ["Gaming"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
 	name: 'BLAST.tv',
 	href: 'https://blast.tv',
+	tags: ["E-Sports","Gaming"],
 	assets: [
 		{
 			type: 'icon',

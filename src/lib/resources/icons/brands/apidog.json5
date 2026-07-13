@@ -1,6 +1,7 @@
 {
 	name: 'Apidog',
 	href: 'https://apidog.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

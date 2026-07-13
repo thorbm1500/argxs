@@ -1,6 +1,7 @@
 {
 	name: 'Grok',
 	href: 'https://grok.com',
+	tags: ["AI"],
 	assets: [
 		{
 			type: 'icon',

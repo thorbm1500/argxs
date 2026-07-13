@@ -1,6 +1,7 @@
 {
 	name: 'Stack Overflow',
 	href: 'https://stackoverflow.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

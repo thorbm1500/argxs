@@ -1,6 +1,7 @@
 {
 	name: 'Resend',
 	href: 'https://resend.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

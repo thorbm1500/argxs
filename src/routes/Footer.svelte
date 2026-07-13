@@ -67,9 +67,8 @@
             color: var(--theme-text-third);
 
             svg {
-                height: auto;
+                height: 100%;
                 width: 3.5rem;
-								transform: translateY(-1px);
             }
         }
 

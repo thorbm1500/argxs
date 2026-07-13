@@ -1,6 +1,7 @@
 {
 	name: 'YAML',
 	href: 'https://yaml.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

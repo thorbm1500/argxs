@@ -1,6 +1,7 @@
 {
 	name: 'BuildKite',
 	href: 'https://buildkite.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
 	name: 'Haskell',
 	href: 'https://www.haskell.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

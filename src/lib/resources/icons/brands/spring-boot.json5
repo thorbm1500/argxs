@@ -1,6 +1,7 @@
 {
 	name: 'Spring Boot',
 	href: 'https://spring.io',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

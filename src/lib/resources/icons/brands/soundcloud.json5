@@ -1,6 +1,7 @@
 {
     name: 'Soundcloud',
     href: 'https://www.soundcloud.com',
+    tags: ["Music"],
     assets: [
         {
             type: 'icon',

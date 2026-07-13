@@ -1,6 +1,7 @@
 {
     name: 'Tidal',
     href: 'https://tidal.com',
+    tags: ["Music"],
     assets: [
         {
             type: 'icon',

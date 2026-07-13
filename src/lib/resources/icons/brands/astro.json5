@@ -1,6 +1,7 @@
 {
 	name: 'Astro',
 	href: 'https://astro.build',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

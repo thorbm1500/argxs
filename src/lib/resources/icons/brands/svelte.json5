@@ -1,6 +1,7 @@
 {
     name: 'Svelte',
     href: 'https://svelte.dev',
+    tags: ["Development"],
     assets: [
         {
             type: 'icon',

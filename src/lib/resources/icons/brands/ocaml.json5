@@ -1,6 +1,7 @@
 {
 	name: 'OCaml',
 	href: 'https://ocaml.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

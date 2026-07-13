@@ -1,6 +1,7 @@
 {
     name: 'JetBrains',
     href: 'https://www.jetbrains.com',
+    tags: ["Development"],
     assets: [
         {
             type: 'icon',

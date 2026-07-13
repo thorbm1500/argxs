@@ -1,6 +1,7 @@
 {
 	name: 'V (Language)',
 	href: 'https://vlang.io',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',
