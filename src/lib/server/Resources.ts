@@ -44,6 +44,8 @@ export class Resources {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
 			this.BRAND_AMOUNT++;
 
+			if (!current.tags) current.tags = [];
+
 			for (const icon of current.assets) {
 				const resource = {
 					title: current.name,
@@ -53,7 +55,7 @@ export class Resources {
 					last_updated: 0,
 					latest_version: '0.0.0',
 					hasNewVariant: false,
-					tags: [], //TODO: Implement tags
+					tags: icon.tags ? icon.tags : current.tags,
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
 				} as ResourceIcon;
@@ -101,6 +103,7 @@ export class Resources {
 
 		for (const flag of dir) {
 			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
+			if (!current.tags) current.tags = [];
 
 			for (const icon of current.flags) {
 				const resource: ResourceIcon = {
@@ -110,7 +113,7 @@ export class Resources {
 					type: icon.type ? icon.type : (current.type ? current.type : 'undefined'),
 					last_updated: 0,
 					hasNewVariant: false,
-					tags: current.tags !== undefined ? current.tags : [],
+					tags: icon.tags ? icon.tags : current.tags,
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
 				} as ResourceIcon;
