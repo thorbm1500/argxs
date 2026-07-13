@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:argxs:flag-schema",
+  "title": "Flag Configuration Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "$ref": "#/$defs/name",
+      "description": "Name of the country/organization/etc. of the flag"
+    },
+    "href": {
+      "$ref": "#/$defs/href",
+      "description": "An external link related to the flag(s)"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the entity defined, such as country, organization, etc.",
+      "enum": ["country","state","organization","other"]
+    },
+    "tags": { "$ref": "#/$defs/tags" },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "$ref": "#/$defs/name" },
+          "href": { "$ref": "#/$defs/href" },
+          "tags": { "$ref": "#/$defs/tags" },
+          "default": { "$ref": "#/$defs/icon" },
+          "variable": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/icon" },
+            "minItems": 1
+          }
+        },
+        "required": ["default"],
+        "minItems": 1
+      }
+    }
+  },
+  "required": ["name","type","flags"],
+  "$defs": {
+    "name": { "type": "string" },
+    "href": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "description": "Tags related to the flag(s)",
+      "items": {
+        "type": "string",
+        "enum": ["Africa","Asia","Europe","North America","South America","Antarctica","Australia","Country","State","Organization"]
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^2[0-9]{3}/[0-9]{1,2}/[0-9]{1,2}$"
+    },
+    "icon": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name",
+          "description": "Name of the icon"
+        },
+        "href": {
+          "$ref": "#/$defs/href",
+          "description": "An external link related to the icon"
+        },
+        "animated": {
+          "type": "boolean",
+          "description": "Whether the icon is animated or not",
+          "default": false
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the icon",
+          "pattern": "^[\\w\\-_]+\\.svg$"
+        },
+        "date_added": {
+          "$ref": "#/$defs/date",
+          "description": "The date of which the icon was added"
+        },
+        "last_modified": {
+          "$ref": "#/$defs/date",
+          "description": "The date of which the icon was last modified"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of which the icon was added",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "$ref": "#/$defs/name",
+              "description": "Name of the source"
+            },
+            "href": {
+              "$ref": "#/$defs/href",
+              "description": "An external link to the source"
+            }
+          },
+          "required": ["name","href"]
+        }
+      },
+      "required": ["path","date_added","version"]
+    }
+  }
+}
