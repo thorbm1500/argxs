@@ -1,6 +1,7 @@
 {
     name: 'Amazon',
     href: 'https://www.amazon.com',
+    tags: ["Tech","E-Commerce"],
     assets: [
         {
             type: 'logo',
@@ -28,6 +29,7 @@
         {
             name: 'Amazon Music',
             type: 'logo',
+            tags: ["Music"],
             default: {
                 theme: 'light',
                 path: 'amazon-music-logo.svg',

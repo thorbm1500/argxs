@@ -1,6 +1,7 @@
 {
 	name: 'ESA',
 	href: 'https://www.esa.int',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

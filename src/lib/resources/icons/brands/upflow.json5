@@ -1,7 +1,7 @@
 {
 	name: 'Upflow',
 	href: 'https://upflow.io',
-	tags: ["Development"],
+	tags: ["Development","Finance"],
 	assets: [
 		{
 			type: 'icon',

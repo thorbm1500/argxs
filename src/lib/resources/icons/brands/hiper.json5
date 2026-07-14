@@ -1,6 +1,7 @@
 {
 	name: 'Hiper',
 	href: 'https://www.hiper.dk',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

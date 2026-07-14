@@ -1,7 +1,7 @@
 {
 	name: 'Twitch.tv',
 	href: 'https://www.twitch.tv',
-	tags: ['Gaming','E-Sports','Live Streaming'],
+	tags: ["Gaming","E-Sports","Live Streaming","Entertainment"],
 	assets: [
 		{
 			name: 'Twitch',

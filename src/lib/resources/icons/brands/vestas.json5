@@ -1,6 +1,7 @@
 {
 	name: 'Vestas',
 	href: 'https://vestas.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

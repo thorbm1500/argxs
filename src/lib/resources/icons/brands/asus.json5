@@ -1,6 +1,7 @@
 {
 	name: 'Asus',
 	href: 'https://www.asus.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

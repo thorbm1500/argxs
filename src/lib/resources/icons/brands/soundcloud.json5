@@ -1,5 +1,5 @@
 {
-    name: 'Soundcloud',
+    name: 'SoundCloud',
     href: 'https://www.soundcloud.com',
     tags: ["Music"],
     assets: [

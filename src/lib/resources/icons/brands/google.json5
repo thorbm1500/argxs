@@ -1,6 +1,7 @@
 {
 	name: 'Google',
 	href: 'https://google.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',
@@ -42,6 +43,7 @@
 			name: 'Google Search Console',
 			href: 'https://search.google.com/search-console/about',
 			type: 'icon',
+			tags: ["Development"],
 			default: {
 				path: 'google-search-console-icon.svg',
 				date_added: '2026/4/25',
@@ -52,6 +54,7 @@
 			name: 'Google Play',
 			href: 'https://play.google.com/store/games',
 			type: 'icon',
+			tags: ["Gaming"],
 			default: {
 				path: 'google-play-icon.svg',
 				date_added: '2026/4/25',
@@ -62,6 +65,7 @@
 			name: 'Google Play',
 			href: 'https://play.google.com/store/games',
 			type: 'logo',
+			tags: ["Gaming"],
 			default: {
 				path: 'google-play-logo.svg',
 				date_added: '2026/4/25',
@@ -72,6 +76,7 @@
 			name: 'Google Play Store Badge',
 			href: 'https://play.google.com/store/games',
 			type: 'logo',
+			tags: ["Gaming"],
 			default: {
 				path: 'google-play-badge-logo.svg',
 				date_added: '2026/7/8',
@@ -86,6 +91,7 @@
 			name: 'Google Play Console',
 			href: 'https://play.google.com/console',
 			type: 'icon',
+			tags: ["Development"],
 			default: {
 				path: 'google-play-console-icon.svg',
 				date_added: '2026/4/25',
@@ -96,6 +102,7 @@
 			name: 'Google Play Console',
 			href: 'https://play.google.com/console',
 			type: 'logo',
+			tags: ["Development"],
 			default: {
 				path: 'google-play-console-logo.svg',
 				date_added: '2026/4/25',
@@ -186,6 +193,7 @@
 			name: 'Google AdMob',
 			href: 'https://admob.google.com/home/',
 			type: 'icon',
+			tags: ["Finance"],
 			default: {
 				path: 'google-ad-mob-icon.svg',
 				date_added: '2026/4/25',
@@ -196,6 +204,7 @@
 			name: 'Google AdSense',
 			href: 'https://adsense.google.com/start/',
 			type: 'icon',
+			tags: ["Finance"],
 			default: {
 				path: 'google-ad-sense-icon.svg',
 				date_added: '2026/4/25',
@@ -236,6 +245,7 @@
 			name: 'Google Developers',
 			href: 'https://developers.google.com',
 			type: 'icon',
+			tags: ["Development"],
 			default: {
 				path: 'google-developers-icon.svg',
 				date_added: '2026/4/25',
@@ -246,6 +256,7 @@
 			name: 'Google Pay',
 			href: 'https://pay.google.com',
 			type: 'icon',
+			tags: ["Finance"],
 			default: {
 				path: 'google-pay-icon.svg',
 				date_added: '2026/4/25',
@@ -256,6 +267,7 @@
 			name: 'Google Data Studio',
 			href: 'https://cloud.google.com/data-studio',
 			type: 'icon',
+			tags: ["Development"],
 			default: {
 				path: 'google-data-studio-icon.svg',
 				date_added: '2026/4/25',
@@ -266,6 +278,7 @@
 			name: 'Google Optimize',
 			href: 'https://support.google.com/analytics/answer/12979939',
 			type: 'icon',
+			tags: ["Development"],
 			default: {
 				path: 'google-optimize-icon.svg',
 				date_added: '2026/4/25',
@@ -286,6 +299,7 @@
 			name: 'Google Domains',
 			href: 'https://domains.google',
 			type: 'icon',
+			tags: ["Development"],
 			default: {
 				path: 'google-domains-icon.svg',
 				date_added: '2026/4/25',
@@ -296,6 +310,7 @@
 			name: 'Google Domains',
 			href: 'https://domains.google',
 			type: 'logo',
+			tags: ["Development"],
 			default: {
 				path: 'google-domains-logo.svg',
 				date_added: '2026/4/25',
@@ -326,6 +341,7 @@
 			name: 'Google Gemini',
 			href: 'https://gemini.google.com',
 			type: 'logo',
+			tags: ["AI"],
 			default: {
 				path: 'google-gemini-logo.svg',
 				date_added: '2026/4/25',
@@ -336,6 +352,7 @@
 			name: 'Google PaLM',
 			href: 'https://blog.google/innovation-and-ai/products/google-palm-2-ai-large-language-model/',
 			type: 'icon',
+			tags: ["AI"],
 			default: {
 				path: 'google-palm-icon.svg',
 				date_added: '2026/4/25',
@@ -346,6 +363,7 @@
 			name: 'Lighthouse',
 			href: 'https://developer.chrome.com/docs/lighthouse',
 			type: 'icon',
+			tags: ["Development"],
 			default: {
 				path: 'chrome-lighthouse-icon.svg',
 				date_added: '2026/4/25',

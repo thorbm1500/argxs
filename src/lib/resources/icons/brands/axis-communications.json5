@@ -1,6 +1,7 @@
 {
     name: 'Axis Communications',
     href: 'https://www.axis.com',
+    tags: ["Tech"],
     assets: [
         {
             type: 'icon',

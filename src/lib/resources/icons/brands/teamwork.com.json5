@@ -1,6 +1,7 @@
 {
 	name: 'teamwork.com',
 	href: 'https://www.teamwork.com',
+	tags: ["AI","Finance"],
 	assets: [
 		{
 			type: 'icon',

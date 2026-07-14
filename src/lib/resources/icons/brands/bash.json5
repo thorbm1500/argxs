@@ -1,6 +1,7 @@
 {
 	name: 'Bash',
 	href: 'https://www.gnu.org/software/bash/',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

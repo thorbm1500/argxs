@@ -1,6 +1,7 @@
 {
 	name: 'Zerion',
 	href: 'https://zerion.io',
+	tags: ["Finance"],
 	assets: [
 		{
 			type: 'icon',

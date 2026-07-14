@@ -1,6 +1,7 @@
 {
 	name: 'Synthesia',
 	href: 'https://www.synthesia.io',
+	tags: ["AI"],
 	assets: [
 		{
 			type: 'icon',

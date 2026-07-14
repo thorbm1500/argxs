@@ -52,13 +52,16 @@
           "E-Sports",
           "Live Streaming",
           "Social Media",
+          "Entertainment",
           "Development",
+          "Tech",
           "Automotive",
           "Music",
           "Food",
           "AI",
           "Education",
-          "Finance"
+          "Finance",
+          "E-Commerce"
         ]
       },
       "minItems": 0,

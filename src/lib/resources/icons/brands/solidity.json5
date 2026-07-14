@@ -1,6 +1,7 @@
 {
 	name: 'Solidity',
 	href: 'https://www.soliditylang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

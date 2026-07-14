@@ -1,6 +1,7 @@
 {
     name: 'Electrolux',
     href: 'https://www.electrolux.com',
+    tags: ["Tech"],
     assets: [
         {
             type: 'icon',

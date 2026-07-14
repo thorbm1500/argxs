@@ -1,7 +1,7 @@
 {
 	name: 'Vercel',
 	href: 'https://www.vercel.com',
-	tags: ["Development"],
+	tags: ["AI","Development"],
 	assets: [
 		{
 			type: 'icon',

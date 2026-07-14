@@ -1,7 +1,7 @@
 {
 	name: 'Rockstar Games',
 	href: 'https://www.rockstargames.com',
-	tags: ["Gaming"],
+	tags: ["Gaming","Entertainment"],
 	assets: [
 		{
 			type: 'icon',

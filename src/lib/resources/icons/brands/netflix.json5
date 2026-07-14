@@ -1,6 +1,7 @@
 {
     name: 'Netflix',
     href: 'https://netflix.com',
+    tags: ["Entertainment"],
     assets: [
         {
             type: 'logo',

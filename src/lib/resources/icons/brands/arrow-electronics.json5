@@ -1,6 +1,7 @@
 {
     name: 'Arrow Electronics',
     href: 'https://www.arrow.com',
+    tags: ["Tech"],
     assets: [
         {
             type: 'logo',

@@ -1,6 +1,7 @@
 {
 	name: 'NVIDIA',
 	href: 'https://www.nvidia.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',

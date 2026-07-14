@@ -1,6 +1,7 @@
 {
 	name: 'Ønskeskyen',
 	href: 'https://onskeskyen.dk',
+	tags: ["E-Commerce"],
 	assets: [
 		{
 			type: 'icon',

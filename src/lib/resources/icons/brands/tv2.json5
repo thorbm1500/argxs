@@ -1,6 +1,7 @@
 {
 	name: 'TV 2',
 	href: 'https://www.tv2.dk',
+	tags: ["Entertainment"],
 	assets: [
 		{
 			name: 'TV 2 Kosmopol',

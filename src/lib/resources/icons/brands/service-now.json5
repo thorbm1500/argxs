@@ -1,6 +1,7 @@
 {
     name: 'ServiceNow',
     href: 'https://www.servicenow.com',
+    tags: ["AI"],
     assets: [
         {
             type: 'logo',

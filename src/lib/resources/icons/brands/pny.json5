@@ -1,6 +1,7 @@
 {
     name: 'PNY Technologies',
     href: 'https://www.pny.com',
+    tags: ["Tech"],
     assets: [
         {
             type: 'logo',

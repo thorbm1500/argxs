@@ -1,6 +1,7 @@
 {
 	name: 'Zenegy',
 	href: 'https://zenegy.com',
+	tags: ["Finance"],
 	assets: [
 		{
 			type: 'icon',

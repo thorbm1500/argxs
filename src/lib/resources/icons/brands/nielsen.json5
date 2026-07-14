@@ -1,6 +1,7 @@
 {
 	name: 'Nielsen',
 	href: 'https://nielsen.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',

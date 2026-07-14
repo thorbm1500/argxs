@@ -1,6 +1,7 @@
 {
 	name: 'Flare',
 	href: 'https://flare.io',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

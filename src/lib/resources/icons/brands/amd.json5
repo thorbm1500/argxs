@@ -1,6 +1,7 @@
 {
 	name: 'AMD',
 	href: 'https://www.amd.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',
