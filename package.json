@@ -42,10 +42,10 @@
         "svelte"
     ],
     "dependencies": {
-        "svelte": "^5.56.4",
+        "svelte": "^5.56.5",
         "@sveltejs/kit": "^2.69.3",
         "@highlightjs/cdn-assets": "^11.11.1",
-        "@humanspeak/svelte-markdown": "^1.8.2",
+        "@humanspeak/svelte-markdown": "^1.8.3",
         "highlight.js": "^11.11.1",
         "moment": "^2.30.1"
     }

@@ -20,6 +20,7 @@
 		"types": ["bun"],
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedIndexedAccess": true,
-		"noImplicitOverride": true
+		"noImplicitOverride": true,
+		"removeComments": true
 	}
 }
