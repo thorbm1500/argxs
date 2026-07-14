@@ -44,6 +44,7 @@
   - Center aligned sponsor logo
 
 ## Dependencies
+- svelte: *5.56.4 ➜ 5.56.5*
 - @sveltejs/kit: *2.69.2 ➜ 2.69.3*
-- @humanspeak/svelte-markdown: *1.7.10 ➜ 1.8.2*
+- @humanspeak/svelte-markdown: *1.7.10 ➜ 1.8.3*
 - typescript-eslint: *8.63.0 ➜ 8.64.0*

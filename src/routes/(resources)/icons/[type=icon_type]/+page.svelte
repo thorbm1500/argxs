@@ -44,22 +44,41 @@
 	data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
 
 	let activeFilters: { id: number, tag: string, active: boolean }[] = $derived(allFilters.filter(t => t.active));
-	let inactiveFilters: { id: number, tag: string, active: boolean }[] = $derived(allFilters.filter(t => !t.active));
+	let inactiveFilters: { id: number, tag: string, active: boolean }[] = $derived.by(() => {
+		if (!activeFilters.length) return allFilters.filter(t => !t.active);
+
+		const filters: { id: number, tag: string, active: boolean }[] = [];
+
+		for (const filter of allFilters.filter(t => !t.active)) {
+			for (const icon of icons) {
+				if (icon.tags.includes(filter.tag) || icon.default.tags.includes(filter.tag) || icon.dark?.tags.includes(filter.tag)) {
+					filters.push(filter);
+					break;
+				}
+
+				for (const v of icon.variable) {
+					if (v.tags.includes(filter.tag)) {
+						filters.push(filter);
+						break;
+					}
+				}
+			}
+		}
+
+		return filters;
+	});
 
 	const [send, receive] = crossfade({
 		duration: (d) => Math.sqrt(d * 200),
 
-		fallback(node, params) {
+		fallback(node) {
 			const style = getComputedStyle(node);
 			const transform = style.transform === 'none' ? '' : style.transform;
 
 			return {
 				duration: 600,
 				easing: quintOut,
-				css: (t) => `
-				transform: ${transform} scale(${t});
-				opacity: ${t}
-			`
+				css: (t) => `transform: ${transform} scale(${t}); opacity: ${t};`
 			};
 		}
 	});
@@ -213,6 +232,7 @@
 			}
 			return true;
 		}
+
 		if (filters.length) {
 			const newResult: ResourceIcon[] = [];
 
