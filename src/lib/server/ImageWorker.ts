@@ -1,5 +1,7 @@
 import { RESOURCES } from '../../hooks.server.ts';
 import type { Icon, ResourceIcon } from '$lib/components/interfaces';
+import { formatNanoseconds } from '$lib/utilities';
+import { readdir } from "node:fs/promises";
 
 const IMAGE_RES_TARGET: number = 1000000;
 
@@ -46,7 +48,7 @@ function integerScaling(width: number, height: number): { w: number, h: number }
 	return { w: diff * a, h: diff * b };
 }
 
-async function convertSVGtoPNG(icon: Icon, path: string) {
+async function convertSVGtoPNG(icon: Icon, path: string): Promise<void> {
 	try {
 		const size: string[] = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.quiet().text()).split('\n');
 		let width: number = Number.parseFloat(size[0] ?? 'nan');
@@ -65,7 +67,7 @@ async function convertSVGtoPNG(icon: Icon, path: string) {
 	}
 }
 
-async function process(icon: Icon, path: string) {
+async function generateImage(icon: Icon, path: string): Promise<void> {
 	const IMAGE_PATH: string = `client/resources/data/icons/${path}/`;
 
 	if (icon.name) console.info('  +',icon.name);
@@ -78,11 +80,11 @@ async function process(icon: Icon, path: string) {
 	const PNG_PATH: string = IMAGE_PATH.concat('png/', getPNGExtension(icon.path));
 
 	// Check if the PNG has already been generated.
-	if (!(await imageExists(PNG_PATH))) {
+	if (!(await Bun.file(PNG_PATH).exists())) {
 		await convertSVGtoPNG(icon, path);
 
 		// Check again to make sure the PNG was generated successfully.
-		if (!(await imageExists(PNG_PATH))) {
+		if (!(await Bun.file(PNG_PATH).exists())) {
 			console.error('[ERROR] Failed to generate PNG for:', icon.path);
 			return;
 		} else {
@@ -93,7 +95,7 @@ async function process(icon: Icon, path: string) {
 	icon.png = getPNGExtension(icon.path);
 
 	const WEBP_PATH: string = IMAGE_PATH.concat('webp/', getWEBPExtension(icon.path));
-	let isWEBPGenerated: boolean = await imageExists(WEBP_PATH);
+	let isWEBPGenerated: boolean = await Bun.file(WEBP_PATH).exists();
 
 	// Check if the WEBP has already been generated.
 	if (!isWEBPGenerated) {
@@ -103,7 +105,7 @@ async function process(icon: Icon, path: string) {
 			console.error(e);
 		}
 
-		isWEBPGenerated = await imageExists(WEBP_PATH);
+		isWEBPGenerated = await Bun.file(WEBP_PATH).exists();
 
 		// Check again to make sure the WEBP was generated successfully.
 		if (!isWEBPGenerated) {
@@ -116,7 +118,7 @@ async function process(icon: Icon, path: string) {
 	if (isWEBPGenerated) icon.webp = getWEBPExtension(icon.path);
 
 	const JPEG_PATH: string = IMAGE_PATH.concat('jpeg/', getJPEGExtension(icon.path));
-	let isJPEGGenerated: boolean = await imageExists(JPEG_PATH);
+	let isJPEGGenerated: boolean = await Bun.file(JPEG_PATH).exists();
 
 	// Check if the JPEG has already been generated.
 	if (!isJPEGGenerated) {
@@ -126,7 +128,7 @@ async function process(icon: Icon, path: string) {
 			console.error(e);
 		}
 
-		isJPEGGenerated = await imageExists(JPEG_PATH);
+		isJPEGGenerated = await Bun.file(JPEG_PATH).exists();
 
 		// Check again to make sure the JPEG was generated successfully.
 		if (!isJPEGGenerated) {
@@ -139,32 +141,66 @@ async function process(icon: Icon, path: string) {
 	if(isJPEGGenerated) icon.jpeg = getJPEGExtension(icon.path);
 }
 
-async function processList(list: ResourceIcon[], path: string) {
+async function processGeneration(list: ResourceIcon[], path: string): Promise<void> {
 	const startTime: number = Bun.nanoseconds();
-	console.info(`Processing icons#${path}...`);
+	console.info(`Initiating image generation for icons#${path}...`);
 
 	for (const icon of list) {
 		console.info('Current: ', icon.name);
 
-		await process(icon.default, path);
+		await generateImage(icon.default, path);
 
-		if (icon.dark) await process(icon.dark, path);
+		if (icon.dark) await generateImage(icon.dark, path);
 
 		for (const variableIcon of icon.variable) {
-			await process(variableIcon, path);
+			await generateImage(variableIcon, path);
 		}
 	}
-	console.info(`Completed generation of icons#${path} [${((Bun.nanoseconds() - startTime) / 1000000000).toFixed(2)}s]`);
+	console.info(`Completed generation of icons#${path} [${formatNanoseconds(startTime, Bun.nanoseconds())}]`);
 }
 
-export default async function processImages() {
+async function processCleanup(list: ResourceIcon[], path: string): Promise<void> {
+	const startTime: number = Bun.nanoseconds();
+	console.info(`Initiating image cleanup for icons#${path}...`);
+
+	const DATA_IMAGE_PATH: string = `client/resources/data/icons/${path}`;
+	const existingFiles: string[] = [];
+
+	for (const icon of list) {
+		existingFiles.push(icon.default.path);
+		if (icon.dark) existingFiles.push(icon.dark.path);
+
+		for (const v of icon.variable) {
+			existingFiles.push(v.path);
+		}
+	}
+
+	let i = 0;
+
+	for (const file of await readdir(DATA_IMAGE_PATH.concat('/png'))) {
+		const fileName: string = file.replace('.png','.svg');
+		if (!existingFiles.includes(fileName)) {
+			await Bun.file(DATA_IMAGE_PATH.concat('/png/',getPNGExtension(file))).delete();
+			await Bun.file(DATA_IMAGE_PATH.concat('/webp/',getWEBPExtension(file))).delete();
+			await Bun.file(DATA_IMAGE_PATH.concat('/jpeg/',getJPEGExtension(file))).delete();
+			i++;
+		}
+	}
+
+	console.info(`Completed cleanup of icons#${path}. ${i} stale images deleted [${formatNanoseconds(startTime, Bun.nanoseconds())}]`);
+}
+
+export default async function processImages(): Promise<void> {
 	Bun.$.nothrow();
 
 	const startTime: number = Bun.nanoseconds();
 	console.info('Image processing initiating...');
 
-	await processList(RESOURCES.FLAG_ICONS, 'flags');
-	await processList(RESOURCES.BRAND_ICONS, 'brands');
+	await processCleanup(RESOURCES.FLAG_ICONS, 'flags');
+	await processCleanup(RESOURCES.BRAND_ICONS, 'brands');
 
-	console.info(`Image processing completed [${((Bun.nanoseconds() - startTime) / 1000000000).toFixed(2)}s]`);
+	await processGeneration(RESOURCES.FLAG_ICONS, 'flags');
+	await processGeneration(RESOURCES.BRAND_ICONS, 'brands');
+
+	console.info(`Image processing completed [${formatNanoseconds(startTime, Bun.nanoseconds())}]`);
 }
