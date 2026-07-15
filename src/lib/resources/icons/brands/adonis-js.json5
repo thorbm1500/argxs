@@ -8,12 +8,14 @@
 			default: {
 				path: 'adonis-js-icon.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-15T10:30+02:00",
 				version: '0.0.1'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'adonis-js-icon-dark.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-15T10:30+02:00",
 				version: '0.0.1'
 			}
 		},
@@ -22,12 +24,14 @@
 			default: {
 				path: 'adonis-js-logo.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-15T10:30+02:00",
                 version: '0.0.1',
 			},
 			dark: {
 				theme: 'dark',
 				path: 'adonis-js-logo-dark.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-15T10:30+02:00",
 				version: '0.0.1'
 			}
 		}

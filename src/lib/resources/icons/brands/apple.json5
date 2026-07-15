@@ -9,6 +9,7 @@
 				theme: 'light',
 				path: 'apple-icon.svg',
 				date_added: '2026/4/29',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
@@ -19,6 +20,7 @@
 				theme: 'dark',
 				path: 'apple-icon-dark.svg',
 				date_added: '2026/4/29',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
@@ -34,12 +36,14 @@
 				theme: 'light',
 				path: 'apple-pay-logo.svg',
 				date_added: '2026/5/23',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'apple-pay-logo-dark.svg',
 				date_added: '2026/5/23',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.0'
 			}
 		},
@@ -50,6 +54,7 @@
 			default: {
 				path: 'apple-app-store-icon.svg',
 				date_added: '2026/4/25',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.2.13'
 			}
 		},
@@ -60,6 +65,7 @@
 			default: {
 				path: 'apple-app-store-badge-logo.svg',
 				date_added: '2026/7/8',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.2',
 				source: {
 					name: 'Ønskeskyen',

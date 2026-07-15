@@ -9,6 +9,7 @@
                 theme: 'light',
                 path: 'arduino-logo.svg',
                 date_added: '2026/5/4',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.4.0',
                 source: {
                     name: 'Arduino',
@@ -19,6 +20,7 @@
                 theme: 'dark',
                 path: 'arduino-logo-dark.svg',
                 date_added: '2026/5/4',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.4.0',
                 source: {
                     name: 'Arduino',
@@ -29,8 +31,9 @@
                 {
                     path: 'arduino-logo-variant-1.svg',
                     date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
+                    last_modified: "2026-07-15T10:45+02:00",
+                    version: '0.4.0',
+                    source: {
                         name: 'Arduino',
                         href: 'https://www.arduino.cc'
                     }
@@ -38,8 +41,9 @@
                 {
                     path: 'arduino-logo-variant-2.svg',
                     date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
+                    last_modified: "2026-07-15T10:45+02:00",
+                    version: '0.4.0',
+                    source: {
                         name: 'Arduino',
                         href: 'https://www.arduino.cc'
                     }

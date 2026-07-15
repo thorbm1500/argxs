@@ -174,6 +174,7 @@
             default: {
                 path: 'ai-assistant-icon.svg',
                 date_added: '2026/4/10',
+                last_modified: "2026-07-15T10:30+02:00",
                 version: '0.0.1',
                 source: {
                     name: 'JetBrains',
@@ -189,6 +190,7 @@
                 theme: 'light',
                 path: 'ai-assistant-logo.svg',
                 date_added: '2026/4/10',
+                last_modified: "2026-07-15T10:30+02:00",
                 version: '0.0.1',
                 source: {
                     name: 'JetBrains',
@@ -199,6 +201,7 @@
                 theme: 'dark',
                 path: 'ai-assistant-logo-dark.svg',
                 date_added: '2026/4/10',
+                last_modified: "2026-07-15T10:30+02:00",
                 version: '0.0.1',
                 source: {
                     name: 'JetBrains',

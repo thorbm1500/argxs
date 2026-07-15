@@ -9,6 +9,7 @@
                 theme: 'light',
                 path: 'amazon-logo.svg',
                 date_added: '2026/4/30',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
@@ -19,6 +20,7 @@
                 theme: 'dark',
                 path: 'amazon-logo-dark.svg',
                 date_added: '2026/4/30',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
@@ -34,6 +36,7 @@
                 theme: 'light',
                 path: 'amazon-music-logo.svg',
                 date_added: '2026/4/30',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.3.4',
                 source: {
                     name: 'Brandfetch',
@@ -44,6 +47,7 @@
                 theme: 'dark',
                 path: 'amazon-music-logo-dark.svg',
                 date_added: '2026/4/30',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.3.4',
                 source: {
                     name: 'Brandfetch',

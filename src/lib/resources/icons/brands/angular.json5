@@ -8,6 +8,7 @@
 			default: {
 				path: 'angular-icon.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.0.1'
 			}
 		},
@@ -16,6 +17,7 @@
 			default: {
 				path: 'angular-logo.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.0.1'
 			}
 		}

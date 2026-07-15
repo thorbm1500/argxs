@@ -9,6 +9,7 @@
 				theme: 'light',
 				path: 'alpine-js-icon.svg',
 				date_added: '2026/5/23',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.0'
 			}
 		},
@@ -18,6 +19,7 @@
 				theme: 'light',
 				path: 'alpine-js-logo.svg',
 				date_added: '2026/5/23',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.0'
 			}
 		}
