@@ -1,7 +1,9 @@
 import { RESOURCES } from '../../hooks.server.ts';
 import type { Icon, ResourceIcon } from '$lib/components/interfaces';
 
-function getPNGExtension(filename: string) {
+const IMAGE_RES_TARGET: number = 1000000;
+
+function getPNGExtension(filename: string): string {
 	return filename.replace('.svg', '.png');
 }
 
@@ -13,24 +15,17 @@ function getJPEGExtension(filename: string) {
 	return filename.replace('.svg', '.jpeg');
 }
 
-function integerScaling(width: number, height: number, target: number = 1000): { w: number, h: number } {
-	if (width > 1000 && height > 1000) {
-		if (width % 1 === 0 && height % 1 === 0) return { w: width, h: height };
-
-		width = width / 4;
-		height = height / 4;
-	}
-
+function integerScaling(width: number, height: number): { w: number, h: number } {
 	let a: number = 1;
 	let b: number = 1;
 
-	if (width < height) {
-		a = width / height;
-	} else if (width > height) {
-		b = height / width;
-	}
+	width = width / 4;
+	height = height / 4;
 
-	if (a !== b) {
+	if (width !== height) {
+		if (width < height) a = width / height;
+		else if (width > height) b = height / width;
+
 		if (a % .25 !== 0 || b % .25 !== 0) {
 			a = Math.round(a * 3);
 			b = Math.round(b * 3);
@@ -45,12 +40,10 @@ function integerScaling(width: number, height: number, target: number = 1000): {
 		}
 	}
 
-	const diff: number = target - Math.min(width, height);
-	return { w: width + (diff * a), h: height + (diff * b) };
-}
+	let diff: number = Math.sqrt(IMAGE_RES_TARGET / (a * b));
+	diff = diff % 1 === 0 ? diff : Math.trunc(diff) + 1;
 
-async function imageExists(path: string) {
-	return (await Bun.$`ls ${path}`.text()).length !== 0;
+	return { w: diff * a, h: diff * b };
 }
 
 async function convertSVGtoPNG(icon: Icon, path: string) {

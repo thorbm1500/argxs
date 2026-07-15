@@ -989,7 +989,7 @@
 					</ul>
 				</li>
 				<li>
-					All <strong>PNG</strong>, <strong>WEBP</strong> and <strong>JPEG</strong> images have a minimum width/height of 1000px.
+					All <strong>PNG</strong>, <strong>WEBP</strong> and <strong>JPEG</strong> images are generated with a minimum pixel count of <strong>1.000.000</strong>. This is equal to an image of 1000x1000px, or 2000x500px, and so on.
 				</li>
 			</ul>
 		</div>
