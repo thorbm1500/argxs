@@ -1,0 +1,53 @@
+{
+	name: 'CORSAIR',
+	href: 'https://www.corsair.com',
+	tags: ["Gaming","Tech"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'corsair-icon.svg',
+				date_added: '2026/7/15',
+				version: '0.7.3',
+				source: {
+					name: 'CORSAIR',
+					href: 'https://www.corsair.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'corsair-icon-dark.svg',
+				date_added: '2026/7/15',
+				version: '0.7.3',
+				source: {
+					name: 'CORSAIR',
+					href: 'https://www.corsair.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'corsair-logo.svg',
+				date_added: '2026/7/15',
+                version: '0.7.3',
+				source: {
+					name: 'CORSAIR',
+					href: 'https://www.corsair.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'corsair-logo-dark.svg',
+				date_added: '2026/7/15',
+				version: '0.7.3',
+				source: {
+					name: 'CORSAIR',
+					href: 'https://www.corsair.com'
+				},
+			}
+		}
+	]
+}
