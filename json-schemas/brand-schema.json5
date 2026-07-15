@@ -57,11 +57,13 @@
           "Tech",
           "Automotive",
           "Music",
-          "Food",
+          "Food & Drink",
           "AI",
           "Education",
           "Finance",
-          "E-Commerce"
+          "E-Commerce",
+          "Shopping",
+          "Business"
         ]
       },
       "minItems": 0,

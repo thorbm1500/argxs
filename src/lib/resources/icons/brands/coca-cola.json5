@@ -1,7 +1,7 @@
 {
 	name: 'The Coca-Cola Company',
 	href: 'https://www.coca-cola.com',
-	tags: ["Food"],
+	tags: ["Food & Drink"],
 	assets: [
 		{
 			type: 'logo',

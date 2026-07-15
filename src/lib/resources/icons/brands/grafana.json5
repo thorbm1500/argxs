@@ -1,7 +1,7 @@
 {
 	name: 'Grafana',
 	href: 'https://grafana.com',
-	tags: ["Tech"],
+	tags: ["Business","Development"],
 	assets: [
 		{
 			type: 'icon',

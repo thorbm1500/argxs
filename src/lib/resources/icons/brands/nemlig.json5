@@ -1,7 +1,7 @@
 {
 	name: 'Nemlig.com',
 	href: 'https://www.nemlig.com',
-	tags: ["Food"],
+	tags: ["Food & Drink"],
 	assets: [
 		{
 			type: 'logo',

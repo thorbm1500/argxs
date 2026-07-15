@@ -1,7 +1,7 @@
 {
 	name: 'Restaurant Noma',
 	href: 'https://www.noma.dk',
-	tags: ["Food"],
+	tags: ["Food & Drink"],
 	assets: [
 		{
 			type: 'logo',

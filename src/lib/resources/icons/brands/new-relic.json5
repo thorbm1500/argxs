@@ -1,7 +1,7 @@
 {
 	name: 'New Relic',
 	href: 'https://newrelic.com',
-	tags: ["Tech","AI"],
+	tags: ["Business","AI"],
 	assets: [
 		{
 			type: 'icon',

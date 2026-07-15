@@ -1,7 +1,7 @@
 {
 	name: 'Arla',
 	href: 'https://www.arla.dk',
-	tags: ["Food"],
+	tags: ["Food & Drink"],
 	assets: [
 		{
 			type: 'logo',

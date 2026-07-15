@@ -1,6 +1,7 @@
 {
 	name: 'Jysk',
 	href: 'https://jysk.dk',
+	tags: ["E-Commerce","Shopping"],
 	assets: [
 		{
 			type: 'logo',

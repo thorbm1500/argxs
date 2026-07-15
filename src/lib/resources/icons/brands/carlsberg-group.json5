@@ -1,7 +1,7 @@
 {
 	name: 'Carlsberg Group',
 	href: 'https://carlsbergbritvic.co.uk',
-	tags: ["Food"],
+	tags: ["Food & Drink"],
 	assets: [
 		{
 			type: 'logo',

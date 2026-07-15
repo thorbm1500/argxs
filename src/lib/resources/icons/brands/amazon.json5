@@ -1,7 +1,7 @@
 {
     name: 'Amazon',
     href: 'https://www.amazon.com',
-    tags: ["Tech","E-Commerce"],
+    tags: ["Tech","E-Commerce","Shopping"],
     assets: [
         {
             type: 'logo',

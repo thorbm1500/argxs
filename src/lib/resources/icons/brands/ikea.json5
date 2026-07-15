@@ -1,6 +1,7 @@
 {
 	name: 'IKEA',
 	href: 'https://www.ikea.com',
+	tags: ["Shopping","E-Commerce"],
 	assets: [
 		{
 			type: 'logo',

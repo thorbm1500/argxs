@@ -31,6 +31,7 @@
         {
             name: 'Microsoft Teams',
             type: 'icon',
+            tags: ["Business"],
             default: {
                 path: 'microsoft-teams-icon.svg',
                 date_added: '2026/4/24',
@@ -49,6 +50,7 @@
         {
             name: 'Microsoft Azure',
             type: 'icon',
+            tags: ["Business"],
             default: {
                 path: 'microsoft-azure-icon.svg',
                 date_added: '2026/4/24',
