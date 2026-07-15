@@ -16,6 +16,12 @@
   - Changed modal box size
   - Page elements are now unclickable when the modal is open, and the background light is turned off, allowing the user to close the modal by clicking on any of the dark space behind it. This could previously accidentally switch to highlight other icons, if you were to click on top of an icon in the background. This change is made in an attempt to make navigating argxs feel more natural.
 ### x New [Brand Icons](https://argxs.com/icons/brands)
+- **[New]** Zealand - Academy of Technologies and Business
+- **[New]** CBS - Copenhagen Business School
+- **[New]** MIT - Massachusetts Institute of Technology
+- **[New]** Harvard University
+- **[New]** CORSAIR
+- **[New]** NZXT
 - **[New]** Twitch
 - **[New]** BLAST.tv
 - **[New]** Electronic Arts
@@ -33,6 +39,8 @@
 - **[New]** The Coca-Cola Company
   - Incl. Coca-Cola
   - Incl. Coca-Cola Store
+- **[New]** IKEA
+- **[New]** Kia
 
 ## Bug Fixes
 - **Highlighted Icon Modal**
@@ -46,5 +54,5 @@
 ## Dependencies
 - svelte: *5.56.4 ➜ 5.56.5*
 - @sveltejs/kit: *2.69.2 ➜ 2.69.3*
-- @humanspeak/svelte-markdown: *1.7.10 ➜ 1.8.3*
+- @humanspeak/svelte-markdown: *1.7.10 ➜ 1.8.4*
 - typescript-eslint: *8.63.0 ➜ 8.64.0*

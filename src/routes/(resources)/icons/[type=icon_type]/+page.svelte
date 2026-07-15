@@ -137,13 +137,13 @@
 		let result: ResourceIcon[] = [];
 
 		for (const resource of current) {
-			if (!resource.default.theme || resource.default.theme === theme || (resource.dark && (!resource.dark.theme || resource.dark.theme === theme))) {
+			if (!resource.default.theme || resource.default.theme === theme || resource.dark && (!resource.dark.theme || resource.dark.theme === theme)) {
 				result.push(resource);
 				continue;
 			}
 
 			for (const v of resource.variable) {
-				if (!v.theme || v.theme === $state.eager(theme)) {
+				if (!v.theme || v.theme === theme) {
 					result.push(resource);
 					break;
 				}
