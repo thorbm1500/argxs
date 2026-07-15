@@ -503,7 +503,7 @@
 						{#if iconMeta}
 							<div in:fade|global={{duration: prefersReducedMotion.current ? 0 : 200}} class="icon-meta">
 								<p class="meta last-updated" tabindex="-1">Last Modified {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.last_modified ?? '')).calendar()}</p>
-								<p class="meta date_added" tabindex="-1">Added {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.last_modified ?? '')).calendar()}</p>
+								<p class="meta date_added" tabindex="-1">Added {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
 								<div class="meta icon-source">
 									{#if highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.source}
 										<p>Sourced from</p>
