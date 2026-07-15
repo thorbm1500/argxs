@@ -1,0 +1,30 @@
+{
+    name: 'Kia',
+    href: 'https://kia.com',
+    tags: ["Automotive"],
+    assets: [
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'kia-logo.svg',
+                date_added: '2026/7/15',
+                version: '0.7.3',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'kia-logo-dark.svg',
+                date_added: '2026/7/15',
+                version: '0.7.3',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        }
+    ]
+}
