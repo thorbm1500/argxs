@@ -1,5 +1,5 @@
 {
-	name: 'BLAST.tv',
+	name: 'BLAST',
 	href: 'https://blast.tv',
 	tags: ["E-Sports","Gaming"],
 	assets: [
@@ -47,7 +47,29 @@
 					name: 'BLAST.tv',
 					href: 'https://blast.tv'
 				}
-			}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'blast-tv-variation-logo.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'BLAST.tv',
+						href: 'https://blast.tv'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'blast-tv-variation-logo-dark.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'BLAST.tv',
+						href: 'https://blast.tv'
+					}
+				}
+			]
 		}
 	]
 }
