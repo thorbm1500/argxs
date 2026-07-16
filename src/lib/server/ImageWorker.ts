@@ -180,9 +180,22 @@ async function processCleanup(list: ResourceIcon[], path: string): Promise<void>
 	for (const file of await readdir(DATA_IMAGE_PATH.concat('/png'))) {
 		const fileName: string = file.replace('.png','.svg');
 		if (!existingFiles.includes(fileName)) {
-			await Bun.file(DATA_IMAGE_PATH.concat('/png/',getPNGExtension(file))).delete();
-			await Bun.file(DATA_IMAGE_PATH.concat('/webp/',getWEBPExtension(file))).delete();
-			await Bun.file(DATA_IMAGE_PATH.concat('/jpeg/',getJPEGExtension(file))).delete();
+			try {
+				await Bun.file(DATA_IMAGE_PATH.concat('/png/',getPNGExtension(file))).delete();
+			}
+			catch (e) {
+				console.error(e);
+			}
+			try {
+				await Bun.file(DATA_IMAGE_PATH.concat('/webp/',getWEBPExtension(file))).delete();
+			} catch (e) {
+				console.error(e);
+			}
+			try {
+				await Bun.file(DATA_IMAGE_PATH.concat('/jpeg/',getJPEGExtension(file))).delete();
+			} catch (e) {
+				console.error(e);
+			}
 			i++;
 		}
 	}
