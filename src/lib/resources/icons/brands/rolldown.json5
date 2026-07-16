@@ -1,6 +1,7 @@
 {
     name: 'Rolldown',
     href: 'https://rolldown.rs',
+    tags: ["Development"],
     assets: [
         {
             type: 'icon',

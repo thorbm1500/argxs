@@ -1,6 +1,7 @@
 {
-    country: 'Kuwait',
+    name: 'Kuwait',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

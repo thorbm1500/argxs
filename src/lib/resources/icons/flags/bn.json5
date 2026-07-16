@@ -1,6 +1,7 @@
 {
-    country: 'Brunei',
+    name: 'Brunei',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

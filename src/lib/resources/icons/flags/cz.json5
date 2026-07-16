@@ -1,6 +1,7 @@
 {
-    country: 'Czech Republic',
+    name: 'Czech Republic',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

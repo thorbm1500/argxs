@@ -1,6 +1,7 @@
 {
-    country: 'Nauru',
+    name: 'Nauru',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

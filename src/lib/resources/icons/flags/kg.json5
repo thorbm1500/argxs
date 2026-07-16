@@ -1,6 +1,7 @@
 {
-    country: 'Kyrgyzstan',
+    name: 'Kyrgyzstan',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

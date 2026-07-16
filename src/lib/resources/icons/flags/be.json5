@@ -1,6 +1,7 @@
 {
-    country: 'Belgium',
+    name: 'Belgium',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

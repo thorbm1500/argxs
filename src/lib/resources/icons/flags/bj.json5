@@ -1,6 +1,7 @@
 {
-    country: 'Benin',
+    name: 'Benin',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

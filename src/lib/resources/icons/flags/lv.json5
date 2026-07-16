@@ -1,6 +1,7 @@
 {
-    country: 'Latvia',
+    name: 'Latvia',
     type: 'country',
+    tags: ["Europe","Baltic"],
     flags: [
         {
             default: {

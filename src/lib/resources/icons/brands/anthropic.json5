@@ -1,0 +1,82 @@
+{
+	name: 'Anthropic',
+	href: 'https://anthropic.com',
+	tags: ["AI","Tech"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'anthropic-icon.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Anthropic',
+					href: 'https://anthropic.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'anthropic-icon-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Anthropic',
+					href: 'https://anthropic.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'anthropic-logo.svg',
+				date_added: '2026/7/12',
+				last_modified: "2026-07-15T10:45+02:00",
+				version: '0.7.3',
+				source: {
+					name: 'Anthropic',
+					href: 'https://anthropic.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'anthropic-logo-dark.svg',
+				date_added: '2026/7/12',
+				last_modified: "2026-07-15T10:45+02:00",
+				version: '0.7.3',
+				source: {
+					name: 'Anthropic',
+					href: 'https://anthropic.com'
+				}
+			}
+		},
+		{
+			name: 'Claude',
+			href: 'https://claude.ai',
+			type: 'icon',
+			default: {
+				path: 'claude-icon.svg',
+				date_added: '2026/4/10',
+				version: '0.0.1'
+			}
+		},
+		{
+			name: 'Claude',
+			href: 'https://claude.ai',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'claude-logo.svg',
+				date_added: '2026/4/10',
+				version: '0.0.1'
+			},
+			dark: {
+				theme: 'dark',
+				path: 'claude-logo-dark.svg',
+				date_added: '2026/4/10',
+				version: '0.0.1'
+			}
+		}
+	]
+}

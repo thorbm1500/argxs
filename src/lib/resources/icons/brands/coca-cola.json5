@@ -1,0 +1,100 @@
+{
+	name: 'The Coca-Cola Company',
+	href: 'https://www.coca-cola.com',
+	tags: ["Food & Drink"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'coca-cola-company-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'The Coca-Cola Company',
+					href: 'https://www.coca-cola.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'coca-cola-company-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'The Coca-Cola Company',
+					href: 'https://www.coca-cola.com'
+				}
+			}
+		},
+		{
+			name: 'Coca-Cola',
+			type: 'logo',
+			default: {
+				path: 'coca-cola-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'The Coca-Cola Company',
+					href: 'https://www.coca-cola.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'coca-cola-logo-monochrome-black.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'The Coca-Cola Company',
+						href: 'https://www.coca-cola.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'coca-cola-logo-monochrome-white.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'The Coca-Cola Company',
+						href: 'https://www.coca-cola.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'Coca-Cola Store',
+			type: 'logo',
+			default: {
+				path: 'coca-cola-store-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'The Coca-Cola Company',
+					href: 'https://www.coca-cola.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'coca-cola-store-logo-monochrome-black.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'The Coca-Cola Company',
+						href: 'https://www.coca-cola.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'coca-cola-store-logo-monochrome-white.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'The Coca-Cola Company',
+						href: 'https://www.coca-cola.com'
+					}
+				}
+			]
+		}
+	]
+}

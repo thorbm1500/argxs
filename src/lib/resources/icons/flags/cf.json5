@@ -1,6 +1,7 @@
 {
-    country: 'Central African Republic',
+    name: 'Central African Republic',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

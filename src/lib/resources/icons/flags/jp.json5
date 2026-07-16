@@ -1,6 +1,7 @@
 {
-    country: 'Japan',
+    name: 'Japan',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
     name: 'Reddit',
     href: 'https://www.reddit.com',
+    tags: ["Social Media"],
     assets: [
         {
             type: 'icon',

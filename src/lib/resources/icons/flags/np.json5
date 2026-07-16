@@ -1,6 +1,7 @@
 {
-    country: 'Nepal',
+    name: 'Nepal',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

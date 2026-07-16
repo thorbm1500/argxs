@@ -1,6 +1,7 @@
 {
-    country: 'New Zealand',
+    name: 'New Zealand',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

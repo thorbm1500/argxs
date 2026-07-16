@@ -1,6 +1,7 @@
 {
 	name: 'Processing Foundation',
 	href: 'https://processingfoundation.org',
+	tags: ["Tech","Development","Education"],
 	assets: [
 		{
 			type: 'icon',

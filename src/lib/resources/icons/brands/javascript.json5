@@ -1,6 +1,7 @@
 {
 	name: 'JavaScript',
 	href: 'https://en.wikipedia.org/wiki/ECMAScript',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
-    country: 'Ghana',
+    name: 'Ghana',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
-    country: 'Honduras',
+    name: 'Honduras',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

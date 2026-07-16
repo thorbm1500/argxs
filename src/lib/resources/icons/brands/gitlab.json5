@@ -1,6 +1,7 @@
 {
 	name: 'GitLab',
 	href: 'https://about.gitlab.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

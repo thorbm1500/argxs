@@ -1,6 +1,7 @@
 {
     name: 'Rocket Lab',
     href: 'https://rocketlabcorp.com',
+    tags: ["Tech"],
     assets: [
         {
             type: 'logo',

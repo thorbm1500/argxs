@@ -1,6 +1,7 @@
 {
-	name: 'Balena',
+	name: 'balena',
 	href: 'https://www.balena.io',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',

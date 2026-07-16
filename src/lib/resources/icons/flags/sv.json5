@@ -1,6 +1,7 @@
 {
-    country: 'El Salvador',
+    name: 'El Salvador',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'El Salvador State Flag',
+            tags: ["North America","Government"],
             default: {
                 path: 'sv-state.svg',
                 date_added: '2026/4/14',

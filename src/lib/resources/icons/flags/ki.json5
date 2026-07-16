@@ -1,6 +1,7 @@
 {
-    country: 'Kiribati',
+    name: 'Kiribati',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

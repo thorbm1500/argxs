@@ -1,0 +1,157 @@
+{
+	name: 'Electronic Arts',
+	href: 'https://ea.com',
+	tags: ["Gaming"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'electronic-arts-icon.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://ea.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'electronic-arts-icon-monochrome-black.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'electronic-arts-icon-monochrome-white.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					path: 'electronic-arts-variant-icon.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'electronic-arts-variant-icon-monochrome-black.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'electronic-arts-variant-icon-monochrome-white.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'electronic-arts-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://ea.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'electronic-arts-logo-monochrome-black.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'electronic-arts-logo-monochrome-white.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					path: 'electronic-arts-variant-logo.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'electronic-arts-variant-logo-monochrome-black.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'electronic-arts-variant-logo-monochrome-white.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://ea.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'Electronic Arts Gothenburg',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'electronic-arts-gothenburg-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://ea.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'electronic-arts-gothenburg-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://ea.com'
+				}
+			}
+		}
+	]
+}

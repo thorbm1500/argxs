@@ -1,6 +1,7 @@
 {
 	name: 'Django',
 	href: 'https://djangoproject.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

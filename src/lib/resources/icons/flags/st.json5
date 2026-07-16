@@ -1,6 +1,7 @@
 {
-    country: 'São Tomé and Príncipe',
+    name: 'São Tomé and Príncipe',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

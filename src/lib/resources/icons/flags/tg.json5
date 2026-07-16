@@ -1,6 +1,7 @@
 {
-    country: 'Togo',
+    name: 'Togo',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

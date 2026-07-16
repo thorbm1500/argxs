@@ -1,6 +1,7 @@
 {
-    country: 'Sudan',
+    name: 'Sudan',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
 	name: 'Samsung',
 	href: 'https://www.samsung.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

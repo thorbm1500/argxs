@@ -1,6 +1,7 @@
 {
-    country: 'Tajikistan',
+    name: 'Tajikistan',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

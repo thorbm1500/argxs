@@ -1,6 +1,7 @@
 {
-    country: 'Maldives',
+    name: 'Maldives',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

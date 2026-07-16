@@ -1,6 +1,7 @@
 {
 	name: 'Vim',
 	href: 'https://www.vim.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

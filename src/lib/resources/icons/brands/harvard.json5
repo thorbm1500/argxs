@@ -1,0 +1,84 @@
+{
+    name: 'Harvard University',
+    href: 'https://www.harvard.edu',
+    tags: ["Education"],
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'harvard-icon.svg',
+                date_added: '2026/7/14',
+                version: '0.7.3',
+                source: {
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'harvard-logo.svg',
+                date_added: '2026/7/14',
+                version: '0.7.3',
+                source: {
+                    name: 'Harvard University',
+                    href: 'https://www.harvard.edu'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'harvard-logo-dark.svg',
+                date_added: '2026/7/14',
+                version: '0.7.3',
+                source: {
+                    name: 'Harvard University',
+                    href: 'https://www.harvard.edu'
+                }
+            },
+            variable: [
+                {
+                    theme: 'light',
+                    path: 'harvard-variation-logo.svg',
+                    date_added: '2026/7/14',
+                    version: '0.7.3',
+                    source: {
+                        name: 'Harvard University',
+                        href: 'https://www.harvard.edu'
+                    }
+                },
+                {
+                    theme: 'dark',
+                    path: 'harvard-variation-logo-dark.svg',
+                    date_added: '2026/7/14',
+                    version: '0.7.3',
+                    source: {
+                        name: 'Harvard University',
+                        href: 'https://www.harvard.edu'
+                    }
+                },
+                {
+                    theme: 'light',
+                    path: 'harvard-trademark-program-logo.svg',
+                    date_added: '2026/7/14',
+                    version: '0.7.3',
+                    source: {
+                        name: 'Harvard University',
+                        href: 'https://www.harvard.edu'
+                    }
+                },
+                {
+                    theme: 'dark',
+                    path: 'harvard-trademark-program-logo-dark.svg',
+                    date_added: '2026/7/14',
+                    version: '0.7.3',
+                    source: {
+                        name: 'Harvard University',
+                        href: 'https://www.harvard.edu'
+                    }
+                }
+            ]
+        }
+    ]
+}

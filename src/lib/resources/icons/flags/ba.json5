@@ -1,6 +1,8 @@
+
 {
-    country: 'Bosnia and Herzegovina',
+    name: 'Bosnia and Herzegovina',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

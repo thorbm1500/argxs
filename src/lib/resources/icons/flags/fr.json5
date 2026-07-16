@@ -1,6 +1,7 @@
 {
-    country: 'France',
+    name: 'France',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

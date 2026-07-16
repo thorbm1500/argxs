@@ -1,6 +1,7 @@
 {
-    country: 'Taiwan',
+    name: 'Taiwan',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

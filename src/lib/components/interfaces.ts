@@ -10,6 +10,8 @@ export type IconType = 'icon' | 'logo' | 'country' | 'state';
 export interface Icon {
 	/** The name of the icon */
 	name: string,
+	/** An external site linked to the icon */
+	href?: string,
 	/** The theme of the icon, if the icon has one. This is specifically for icons that are hard to see in other themes than what they have been made for, such as all white or all black icons<br>
 	 * `Note:` This should be left undefined, if the icon is visible in all themes */
 	theme?: string | PageTheme,
@@ -19,15 +21,14 @@ export interface Icon {
 	animated: boolean,
 	/** The path to the icon */
 	path: string,
-	/** An external site linked to the icon */
-	href?: string,
 	type?: IconType,
+	tags: string[],
 	/** The date of which the icon was added or updated */
 	date_added: string,
 	/** The date of which the icon was last modified. This value is equal to 'date_added' if no value has been set. */
 	last_modified: string,
 	/** The version of which the icon was added or updated */
-	version?: string,
+	version: string,
 	/** Whether the icon was added this version, and thus should be marked as "NEW" */
 	isNew: boolean,
 	/** The source of the icon */
@@ -84,36 +85,39 @@ export interface ResourceIcon {
 	variable: Icon[]
 }
 
-export interface Brand {
-	name: string,
-	href?: string,
-	type?: 'icon' | 'logo',
-	assets: BrandIcon[]
-}
-
-export interface BrandIcon {
+declare interface IconConfig {
 	/** The name of the icon */
 	name: string,
 	/** An external site linked to the icon */
 	href?: string,
 	/** The icon's type. Mostly used for sorting the icons */
-	type?: 'icon' | 'logo',
+	type?: 'icon' | 'logo' | 'country' | 'state',
+	tags: string[],
 	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
 	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
 	last_updated: number,
 	/** The default version of the icon. This will in most cases be the light themed version of the icon.<br>
 	 * `Note:` In the case that the icon only has one version of either light or dark, it shall be defined here */
 	default: Icon,
-	/** The dark themed version of the icon */
-	dark?: Icon,
 	/** A list of extra icons, in some way related to this icon */
 	variable: Icon[]
 }
 
+export interface Brand {
+	name: string,
+	href?: string,
+	tags: string[],
+	assets: BrandIcon[]
+}
+
+export interface BrandIcon extends IconConfig {
+	/** The dark themed version of the icon */
+	dark?: Icon,
+}
+
 export interface Flag {
-	/** The name of the country or flag
-	 * @todo Change from `country` to `name` */
-	country: string,
+	/** The name of the country or flag */
+	name: string,
 	/** An external site linked to the icon */
 	href?: string,
 	/** The icon's type. Mostly used for sorting the icons */
@@ -123,21 +127,7 @@ export interface Flag {
 	flags: FlagIcon[]
 }
 
-export interface FlagIcon {
-	/** The name of the icon */
-	name: string,
-	/** An external site linked to the icon */
-	href?: string,
-	/** The icon's type. Mostly used for sorting the icons */
-	type?: 'country' | 'state',
-	/** An epoch in milliseconds of the last time an icon of this collection was updated or added<br>
-	 * `Note:` This is to be set during loading, and not to be defined in the brand configurations */
-	last_updated: number,
-	/** The default version of the flag icon. */
-	default: Icon,
-	/** A list of extra flag icons, in some way related to this icon. Could be an anniversary version of a flag, or old versions of the flag */
-	variable: Icon[]
-}
+export interface FlagIcon extends IconConfig {}
 
 export interface ColorCombos {
 	combos: ColorCombo[];

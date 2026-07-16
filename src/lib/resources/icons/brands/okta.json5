@@ -1,6 +1,7 @@
 {
 	name: 'Okta',
 	href: 'https://www.okta.com',
+	tags: ["AI","Tech"],
 	assets: [
 		{
 			type: 'icon',

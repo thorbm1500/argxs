@@ -1,6 +1,7 @@
 {
 	name: 'Markdown',
 	href: 'https://daringfireball.net/projects/markdown/',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

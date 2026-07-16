@@ -1,6 +1,7 @@
 {
-    country: 'Palau',
+    name: 'Palau',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

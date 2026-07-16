@@ -1,6 +1,7 @@
 {
 	name: 'Duolingo',
 	href: 'https://duolingo.com',
+	tags: ["Education"],
 	assets: [
 		{
 			type: 'logo',

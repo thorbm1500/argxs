@@ -1,6 +1,7 @@
 {
-    country: 'Tuvalu',
+    name: 'Tuvalu',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

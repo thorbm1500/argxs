@@ -1,6 +1,7 @@
 {
 	name: 'Epic Games',
 	href: 'https://www.epicgames.com',
+	tags: ["Gaming"],
 	assets: [
 		{
 			type: 'icon',

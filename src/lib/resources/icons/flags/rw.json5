@@ -1,6 +1,7 @@
 {
-    country: 'Rwanda',
+    name: 'Rwanda',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

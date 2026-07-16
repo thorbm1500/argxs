@@ -1,6 +1,7 @@
 {
-    country: 'North Korea',
+    name: 'North Korea',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

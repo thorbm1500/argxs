@@ -1,6 +1,7 @@
 {
     name: 'InfluxData',
     href: 'https://www.influxdata.com',
+    tags: ["Development"],
     assets: [
         {
             type: 'icon',

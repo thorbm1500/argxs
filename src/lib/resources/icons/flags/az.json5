@@ -1,6 +1,7 @@
 {
-    country: 'Azerbaijan',
+    name: 'Azerbaijan',
     type: 'country',
+    tags: ["Europe","Asia"],
     flags: [
         {
             default: {

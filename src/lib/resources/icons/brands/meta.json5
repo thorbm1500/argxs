@@ -1,6 +1,7 @@
 {
     name: 'Meta',
     href: 'https://www.meta.com',
+    tags: ["Tech","Social Media"],
     assets: [
         {
             type: 'logo',

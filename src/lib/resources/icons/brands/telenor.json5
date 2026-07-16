@@ -1,6 +1,7 @@
 {
 	name: 'Telenor',
 	href: 'https://telenor.dk',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

@@ -1,6 +1,7 @@
 {
-    country: 'Barbados',
+    name: 'Barbados',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

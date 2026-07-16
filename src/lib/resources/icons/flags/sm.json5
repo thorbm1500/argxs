@@ -1,6 +1,7 @@
 {
-    country: 'San Marino',
+    name: 'San Marino',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

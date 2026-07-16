@@ -1,6 +1,7 @@
 {
 	name: 'Zendesk',
 	href: 'https://www.zendesk.com',
+	tags: ["AI"],
 	assets: [
 		{
 			type: 'icon',

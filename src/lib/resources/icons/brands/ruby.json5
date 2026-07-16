@@ -1,6 +1,7 @@
 {
 	name: 'Ruby',
 	href: 'https://ruby-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
-    country: 'Austria',
+    name: 'Austria',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'Austria State Flag',
+            tags: ["Europe","Government"],
             default: {
                 path: 'at-state.svg',
                 date_added: '2026/4/14',

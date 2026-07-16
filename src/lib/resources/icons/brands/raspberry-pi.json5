@@ -1,6 +1,7 @@
 {
 	name: 'Raspberry Pi',
 	href: 'https://www.raspberrypi.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

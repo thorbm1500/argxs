@@ -1,65 +1,71 @@
 {
-	name: 'Akamai',
-	href: 'https://www.akamai.com',
-	assets: [
-		{
-			type: 'icon',
-			default: {
-				path: 'akamai-icon.svg',
-				date_added: '2026/5/5',
+    name: 'Akamai',
+    href: 'https://www.akamai.com',
+    tags: ["Tech"],
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'akamai-icon.svg',
+                date_added: '2026/5/5',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.4.0',
                 source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			},
-			variable: [
-				{
-					theme: 'dark',
-					path: 'akamai-icon-dark.svg',
-					date_added: '2026/5/5',
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            variable: [
+                {
+                    theme: 'dark',
+                    path: 'akamai-icon-dark.svg',
+                    date_added: '2026/5/5',
+                    last_modified: "2026-07-15T10:45+02:00",
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                }
+            ]
+        },
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'akamai-logo.svg',
+                date_added: '2026/5/5',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.4.0',
                 source: {
-						name: 'Brandfetch',
-						href: 'https://brandfetch.com'
-					}
-				}
-			]
-		},
-		{
-			type: 'logo',
-			default: {
-				theme: 'light',
-				path: 'akamai-logo.svg',
-				date_added: '2026/5/5',
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'akamai-logo-dark.svg',
+                date_added: '2026/5/5',
+                last_modified: "2026-07-15T10:45+02:00",
                 version: '0.4.0',
                 source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			},
-			dark: {
-				theme: 'dark',
-				path: 'akamai-logo-dark.svg',
-				date_added: '2026/5/5',
-                version: '0.4.0',
-                source: {
-					name: 'Brandfetch',
-					href: 'https://brandfetch.com'
-				}
-			},
-			variable: [
-				{
-					theme: 'dark',
-					path: 'akamai-logo-monochrome-dark.svg',
-					date_added: '2026/5/5',
-                version: '0.4.0',
-                source: {
-						name: 'Brandfetch',
-						href: 'https://brandfetch.com'
-					}
-				}
-			]
-		}
-	]
+                    name: 'Brandfetch',
+                    href: 'https://brandfetch.com'
+                }
+            },
+            variable: [
+                {
+                    theme: 'dark',
+                    path: 'akamai-logo-monochrome-dark.svg',
+                    date_added: '2026/5/5',
+                    last_modified: "2026-07-15T10:45+02:00",
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                }
+            ]
+        }
+    ]
 }

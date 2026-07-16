@@ -1,6 +1,7 @@
 {
-    country: 'Slovenia',
+    name: 'Slovenia',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

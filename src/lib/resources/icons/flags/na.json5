@@ -1,6 +1,7 @@
 {
-    country: 'Namibia',
+    name: 'Namibia',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

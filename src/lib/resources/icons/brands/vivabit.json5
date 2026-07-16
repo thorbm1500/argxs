@@ -1,6 +1,7 @@
 {
 	name: 'VivaBit',
 	href: 'https://vivabit.io',
+	tags: ["Tech","Development"],
 	assets: [
 		{
 			type: 'icon',

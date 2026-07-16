@@ -1,6 +1,7 @@
 {
 	name: 'GitHub',
 	href: 'https://github.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

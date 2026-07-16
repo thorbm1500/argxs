@@ -1,6 +1,7 @@
 {
 	name: 'Mozilla',
 	href: 'https://mozilla.org',
+	tags: ["Tech","Development"],
 	assets: [
 		{
 			type: 'icon',

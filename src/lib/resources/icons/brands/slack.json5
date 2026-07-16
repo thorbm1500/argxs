@@ -1,6 +1,7 @@
 {
 	name: 'Slack',
 	href: 'https://www.slack.com',
+	tags: ["Tech","AI"],
 	assets: [
 		{
 			type: 'icon',

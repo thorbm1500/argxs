@@ -1,6 +1,7 @@
 {
-    country: 'Montenegro',
+    name: 'Montenegro',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

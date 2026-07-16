@@ -1,6 +1,7 @@
 {
 	name: 'ace.me',
 	href: 'https://www.ace.me',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',
@@ -8,7 +9,8 @@
 				theme: 'dark',
 				path: 'ace-me-icon.svg',
 				date_added: '2026/5/5',
-                version: '0.0.4',
+				last_modified: "2026-07-15T10:30+02:00",
+				version: '0.0.4',
 				source: {
 					name: 'Brandfetch',
 					href: 'https://brandfetch.com'
@@ -21,6 +23,7 @@
 				theme: 'dark',
 				path: 'ace-me-logo.svg',
 				date_added: '2026/5/5',
+				last_modified: "2026-07-15T10:30+02:00",
                 version: '0.0.4',
 				source: {
 					name: 'Brandfetch',

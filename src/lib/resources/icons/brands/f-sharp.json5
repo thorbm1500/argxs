@@ -1,6 +1,7 @@
 {
 	name: 'F#',
 	href: 'https://fsharp.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

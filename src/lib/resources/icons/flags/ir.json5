@@ -1,6 +1,7 @@
 {
-    country: 'Iran',
+    name: 'Iran',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

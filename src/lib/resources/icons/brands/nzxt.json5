@@ -1,0 +1,30 @@
+{
+	name: 'NZXT',
+	href: 'https://www.nzxt.com',
+	tags: ["Gaming","Tech"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'nzxt-logo.svg',
+				date_added: '2026/7/15',
+                version: '0.7.3',
+				source: {
+					name: 'NZXT',
+					href: 'https://www.nzxt.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'nzxt-logo-dark.svg',
+				date_added: '2026/7/15',
+				version: '0.7.3',
+				source: {
+					name: 'NZXT',
+					href: 'https://www.nzxt.com'
+				},
+			}
+		}
+	]
+}

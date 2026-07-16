@@ -1,6 +1,7 @@
 {
-    country: 'Saint Kitts and Nevis',
+    name: 'Saint Kitts and Nevis',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

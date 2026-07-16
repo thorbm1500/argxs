@@ -1,6 +1,7 @@
 {
-    country: 'Northern Cyprus',
+    name: 'Northern Cyprus',
     type: 'state',
+    tags: ["Asia"],
     flags: [
         {
             default: {

@@ -1,0 +1,66 @@
+{
+    name: 'Burger King',
+    href: 'https://www.bk.com',
+    tags: ["Food & Drink"],
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'burger-king-icon.svg',
+                date_added: '2026/7/15',
+                version: '0.7.3',
+                source: {
+                    name: 'Burger King',
+                    href: 'https://www.bk.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'burger-king-text-logo.svg',
+                date_added: '2026/7/15',
+                version: '0.7.3',
+                source: {
+                    name: 'Burger King',
+                    href: 'https://www.bk.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'burger-king-text-logo-dark.svg',
+                date_added: '2026/7/15',
+                version: '0.7.3',
+                source: {
+                    name: 'Burger King',
+                    href: 'https://www.bk.com'
+                }
+            }
+        },
+        {
+            name: 'Royal Perks',
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'burger-king-royal-perks-logo.svg',
+                date_added: '2026/7/15',
+                version: '0.7.3',
+                source: {
+                    name: 'Burger King',
+                    href: 'https://www.bk.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'burger-king-royal-perks-logo-dark.svg',
+                date_added: '2026/7/15',
+                version: '0.7.3',
+                source: {
+                    name: 'Burger King',
+                    href: 'https://www.bk.com'
+                }
+            }
+        }
+    ]
+}

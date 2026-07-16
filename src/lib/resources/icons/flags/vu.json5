@@ -1,6 +1,7 @@
 {
-    country: 'Vanuatu',
+    name: 'Vanuatu',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

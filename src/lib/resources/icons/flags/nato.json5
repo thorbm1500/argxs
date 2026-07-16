@@ -1,5 +1,7 @@
 {
-    country: 'Nato',
+    name: 'Nato',
+    type: 'organization',
+    tags: ["Organization"],
     flags: [
         {
             default: {

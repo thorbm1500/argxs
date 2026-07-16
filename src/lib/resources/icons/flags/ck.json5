@@ -1,6 +1,7 @@
 {
-    country: 'Cook Islands',
+    name: 'Cook Islands',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

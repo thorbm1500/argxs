@@ -1,6 +1,7 @@
 {
-    country: 'South Korea',
+    name: 'South Korea',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

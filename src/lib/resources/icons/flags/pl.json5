@@ -1,6 +1,7 @@
 {
-    country: 'Poland',
+    name: 'Poland',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'Poland State Flag',
+            tags: ["Europe","Government"],
             default: {
                 path: 'pl-state.svg',
                 date_added: '2026/5/12',

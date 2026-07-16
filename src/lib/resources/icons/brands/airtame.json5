@@ -1,6 +1,7 @@
 {
 	name: 'Airtame',
 	href: 'https://www.airtame.com',
+	tags: ["Tech","Business"],
 	assets: [
 		{
 			type: 'logo',
@@ -8,6 +9,7 @@
 				theme: 'light',
 				path: 'airtame-logo.svg',
 				date_added: '2026/5/12',
+				last_modified: "2026-07-15T10:30+02:00",
 				version: '0.5.2',
 				source: {
 					name: 'Brandfetch',
@@ -18,6 +20,7 @@
 				theme: 'dark',
 				path: 'airtame-logo-dark.svg',
 				date_added: '2026/5/12',
+				last_modified: "2026-07-15T10:30+02:00",
 				version: '0.5.2',
 				source: {
 					name: 'Brandfetch',

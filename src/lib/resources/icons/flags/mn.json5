@@ -1,6 +1,7 @@
 {
-    country: 'Mongolia',
+    name: 'Mongolia',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
-    country: 'Myanmar',
+    name: 'Myanmar',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

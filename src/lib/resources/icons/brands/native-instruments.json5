@@ -1,6 +1,7 @@
 {
 	name: 'Native Instruments',
 	href: 'https://www.native-instruments.com',
+	tags: ["Music"],
 	assets: [
 		{
 			type: 'icon',

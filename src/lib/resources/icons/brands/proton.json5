@@ -1,6 +1,7 @@
 {
 	name: 'Proton',
 	href: 'https://proton.me',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',
@@ -495,6 +496,7 @@
 		{
 			name: 'Proton Wallet',
 			type: 'icon',
+			tags: ["Tech","Finance"],
 			default: {
 				path: 'proton-wallet-icon.svg',
 				date_added: '2026/6/21',
@@ -520,6 +522,7 @@
 		{
 			name: 'Proton Wallet',
 			type: 'logo',
+			tags: ["Tech","Finance"],
 			default: {
 				theme: 'light',
 				path: 'proton-wallet-logo.svg',
@@ -640,6 +643,7 @@
 		{
 			name: 'Lumo AI',
 			type: 'icon',
+			tags: ["Tech","AI"],
 			default: {
 				path: 'proton-lumo-mascot-icon.svg',
 				date_added: '2026/6/20',
@@ -653,6 +657,7 @@
 		{
 			name: 'Lumo AI',
 			type: 'logo',
+			tags: ["Tech","AI"],
 			default: {
 				theme: 'light',
 				path: 'proton-lumo-logo.svg',
@@ -806,6 +811,7 @@
 		{
 			name: 'Lumo AI Mascot',
 			type: 'logo',
+			tags: ["AI"],
 			default: {
 				path: 'proton-lumo-mascot-logo.svg',
 				date_added: '2026/6/20',

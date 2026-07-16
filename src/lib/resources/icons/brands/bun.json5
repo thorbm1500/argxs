@@ -1,6 +1,7 @@
 {
 	name: 'Bun',
 	href: 'https://bun.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

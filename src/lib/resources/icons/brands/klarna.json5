@@ -1,6 +1,7 @@
 {
 	name: 'Klarna',
 	href: 'https://www.klarna.com',
+	tags: ["Finance"],
 	assets: [
 		{
 			type: 'logo',

@@ -1,6 +1,7 @@
 {
     name: 'Taja',
     href: 'https://www.tajahq.com',
+    tags: ["Finance"],
     assets: [
         {
             type: 'icon',
@@ -23,7 +24,29 @@
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
-            }
+            },
+            variable: [
+                {
+                    theme: 'light',
+                    path: 'taja-symbol-icon.svg',
+                    date_added: '2026/5/4',
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    theme: 'dark',
+                    path: 'taja-symbol-icon-dark.svg',
+                    date_added: '2026/5/4',
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                }
+            ]
         },
         {
             type: 'logo',
@@ -46,76 +69,49 @@
                     name: 'Brandfetch',
                     href: 'https://brandfetch.com'
                 }
-            }
-        },
-        {
-            type: 'logo',
-            default: {
-                theme: 'light',
-                path: 'taja-logo-variant.svg',
-                date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
             },
-            dark: {
-                theme: 'dark',
-                path: 'taja-logo-variant-dark.svg',
-                date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
+            variable: [
+                {
+                    theme: 'light',
+                    path: 'taja-logo-variant.svg',
+                    date_added: '2026/5/4',
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    theme: 'dark',
+                    path: 'taja-logo-variant-dark.svg',
+                    date_added: '2026/5/4',
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    theme: 'light',
+                    path: 'taja-symbol-logo.svg',
+                    date_added: '2026/5/4',
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
+                },
+                {
+                    theme: 'dark',
+                    path: 'taja-symbol-logo-dark.svg',
+                    date_added: '2026/5/4',
+                    version: '0.4.0',
+                    source: {
+                        name: 'Brandfetch',
+                        href: 'https://brandfetch.com'
+                    }
                 }
-            }
-        },
-        {
-            type: 'icon',
-            default: {
-                theme: 'light',
-                path: 'taja-symbol-icon.svg',
-                date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
-            },
-            dark: {
-                theme: 'dark',
-                path: 'taja-symbol-icon-dark.svg',
-                date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
-            }
-        },
-        {
-            type: 'icon',
-            default: {
-                theme: 'light',
-                path: 'taja-symbol-logo.svg',
-                date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
-            },
-            dark: {
-                theme: 'dark',
-                path: 'taja-symbol-logo-dark.svg',
-                date_added: '2026/5/4',
-                version: '0.4.0',
-                source: {
-                    name: 'Brandfetch',
-                    href: 'https://brandfetch.com'
-                }
-            }
+            ]
         }
     ]
 }

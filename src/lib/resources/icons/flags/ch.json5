@@ -1,6 +1,7 @@
 {
-    country: 'Switzerland',
+    name: 'Switzerland',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

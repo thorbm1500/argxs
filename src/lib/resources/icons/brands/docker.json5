@@ -1,6 +1,7 @@
 {
 	name: 'Docker',
 	href: 'https://www.docker.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

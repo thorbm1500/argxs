@@ -1,6 +1,7 @@
 {
-    country: 'Micronesia',
+    name: 'Micronesia',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

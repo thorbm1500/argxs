@@ -1,0 +1,5 @@
+<svg id="argxs" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#BF94FF" width="1200" height="1400" viewBox="0 0 600 700">
+  <polygon points="125 0 0 125 0 575 150 575 150 700 275 575 375 575 600 350 600 0 125 0"/>
+  <polygon points="450 425 550 325 550 50 150 50 150 425 250 425 250 525 350 425 450 425" fill="#FFF"/>
+  <path d="M300,150h50v150h-50v-150ZM475,150v150h-50v-150h50Z"/>
+</svg>

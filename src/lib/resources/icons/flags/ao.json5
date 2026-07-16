@@ -1,6 +1,7 @@
 {
-    country: 'Angola',
+    name: 'Angola',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

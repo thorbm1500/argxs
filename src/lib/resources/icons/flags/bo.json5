@@ -1,6 +1,7 @@
 {
-    country: 'Bolivia',
+    name: 'Bolivia',
     type: 'country',
+    tags: ["South America"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'Bolivia State Flag',
+            tags: ["South America","Government"],
             default: {
                 path: 'bo-state.svg',
                 date_added: '2026/4/14',

@@ -1,6 +1,7 @@
 {
-    country: 'Niue',
+    name: 'Niue',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

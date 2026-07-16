@@ -1,6 +1,7 @@
 {
-    country: 'India',
+    name: 'India',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

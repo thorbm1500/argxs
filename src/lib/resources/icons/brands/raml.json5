@@ -1,6 +1,7 @@
 {
 	name: 'RAML',
 	href: 'https://raml.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

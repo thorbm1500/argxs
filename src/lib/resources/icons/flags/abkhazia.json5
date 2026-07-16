@@ -1,6 +1,7 @@
 {
-    country: 'Abkhazia',
+    name: 'Abkhazia',
     type: 'country',
+    tags: ["Europe","Asia"],
     flags: [
         {
             default: {

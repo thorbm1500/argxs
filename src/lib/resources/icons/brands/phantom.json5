@@ -1,6 +1,7 @@
 {
     name: 'Phantom',
     href: 'https://phantom.com',
+    tags: ["Finance"],
     assets: [
         {
             type: 'icon',

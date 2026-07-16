@@ -1,6 +1,7 @@
 {
-    country: 'Sri Lanka',
+    name: 'Sri Lanka',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

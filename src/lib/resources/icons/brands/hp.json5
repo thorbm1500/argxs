@@ -1,6 +1,7 @@
 {
 	name: 'HP',
 	href: 'https://www.hp.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
 	name: 'Fortran',
 	href: 'https://fortran-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

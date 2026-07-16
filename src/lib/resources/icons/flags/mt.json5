@@ -1,6 +1,7 @@
 {
-    country: 'Malta',
+    name: 'Malta',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

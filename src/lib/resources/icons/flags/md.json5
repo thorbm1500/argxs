@@ -1,6 +1,7 @@
 {
-    country: 'Moldova',
+    name: 'Moldova',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

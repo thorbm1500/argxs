@@ -1,6 +1,7 @@
 {
-    country: 'Guinea-Bissau',
+    name: 'Guinea-Bissau',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

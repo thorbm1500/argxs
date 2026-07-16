@@ -1,6 +1,7 @@
 {
-    country: 'Slovakia',
+    name: 'Slovakia',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

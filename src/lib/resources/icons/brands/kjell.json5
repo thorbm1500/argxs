@@ -1,6 +1,7 @@
 {
     name: 'Kjell & Company',
     href: 'https://www.kjell.com',
+    tags: ["Shopping"],
     assets: [
         {
             type: 'logo',

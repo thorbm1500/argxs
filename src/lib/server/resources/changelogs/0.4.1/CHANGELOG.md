@@ -1,4 +1,4 @@
-# v0.4.1
+# Version 0.4.1
 #### 2026-05-07
 
 #### ***All notable changes to this project will be documented in the changelog.***

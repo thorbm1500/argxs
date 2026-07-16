@@ -1,6 +1,7 @@
 {
-    country: 'North Macedonia',
+    name: 'North Macedonia',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

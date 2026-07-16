@@ -1,6 +1,7 @@
 {
 	name: 'OK',
 	href: 'https://www.ok.dk',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

@@ -1,6 +1,7 @@
 {
 	name: 'Webflow',
 	href: 'https://webflow.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

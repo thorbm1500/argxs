@@ -1,6 +1,7 @@
 {
 	name: 'TOML',
 	href: 'https://toml.io',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

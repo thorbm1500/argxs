@@ -1,6 +1,7 @@
 {
 	name: 'PureScript',
 	href: 'https://www.purescript.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

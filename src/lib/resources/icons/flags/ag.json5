@@ -1,6 +1,7 @@
 {
-    country: 'Antigua and Barbuda',
+    name: 'Antigua and Barbuda',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
     name: 'VAIO',
     href: 'https://www.vaio.com',
+    tags: ["Tech"],
     assets: [
         {
             type: 'logo',

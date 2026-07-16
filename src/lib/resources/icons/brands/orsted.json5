@@ -1,6 +1,7 @@
 {
 	name: 'Ørsted',
 	href: 'https://www.orsted.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

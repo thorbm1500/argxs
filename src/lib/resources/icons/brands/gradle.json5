@@ -1,6 +1,7 @@
 {
 	name: 'Gradle',
 	href: 'https://gradle.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

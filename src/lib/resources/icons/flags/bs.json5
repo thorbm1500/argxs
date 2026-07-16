@@ -1,6 +1,7 @@
 {
-    country: 'Bahamas',
+    name: 'Bahamas',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

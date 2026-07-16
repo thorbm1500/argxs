@@ -1,6 +1,7 @@
 {
 	name: 'Typeform',
 	href: 'https://www.typeform.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

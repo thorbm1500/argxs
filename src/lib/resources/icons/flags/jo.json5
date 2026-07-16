@@ -1,6 +1,7 @@
 {
-    country: 'Jordan',
+    name: 'Jordan',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
-    country: 'Liechtenstein',
+    name: 'Liechtenstein',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

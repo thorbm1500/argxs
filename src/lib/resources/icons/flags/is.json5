@@ -1,6 +1,7 @@
 {
-    country: 'Iceland',
+    name: 'Iceland',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'Iceland State Flag',
+            tags: ["Europe","Government"],
             default: {
                 path: 'is-state.svg',
                 date_added: '2026/4/16',

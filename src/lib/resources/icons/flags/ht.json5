@@ -1,6 +1,7 @@
 {
-    country: 'Haiti',
+    name: 'Haiti',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'Haiti State Flag',
+            tags: ["North America","Government"],
             default: {
                 path: 'ht-state.svg',
                 date_added: '2026/4/14',

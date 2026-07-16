@@ -1,12 +1,14 @@
 {
 	name: 'Apidog',
 	href: 'https://apidog.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',
 			default: {
 				path: 'apidog-icon.svg',
 				date_added: '2026/5/23',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.0'
 			},
 			variable: [
@@ -14,18 +16,21 @@
 					theme: 'dark',
 					path: 'apidog-variant-icon-dark.svg',
 					date_added: '2026/5/23',
+					last_modified: "2026-07-15T10:45+02:00",
 					version: '0.7.0'
 				},
 				{
 					theme: 'light',
-					path: 'apidog-icon-black.svg',
+					path: 'apidog-icon-monochrome-black.svg',
 					date_added: '2026/5/23',
+					last_modified: "2026-07-15T10:45+02:00",
 					version: '0.7.0'
 				},
 				{
 					theme: 'dark',
-					path: 'apidog-icon-white.svg',
+					path: 'apidog-icon-monochrome-white.svg',
 					date_added: '2026/5/23',
+					last_modified: "2026-07-15T10:45+02:00",
 					version: '0.7.0'
 				}
 			]
@@ -36,12 +41,14 @@
 				theme: 'light',
 				path: 'apidog-logo.svg',
 				date_added: '2026/5/23',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.0'
 			},
 			dark: {
 				theme: 'dark',
 				path: 'apidog-logo-dark.svg',
 				date_added: '2026/5/23',
+				last_modified: "2026-07-15T10:45+02:00",
 				version: '0.7.0'
 			},
 			variable: [
@@ -49,18 +56,21 @@
 					theme: 'dark',
 					path: 'apidog-variant-logo-dark.svg',
 					date_added: '2026/5/23',
+					last_modified: "2026-07-15T10:45+02:00",
 					version: '0.7.0'
 				},
 				{
 					theme: 'light',
-					path: 'apidog-logo-black.svg',
+					path: 'apidog-logo-monochrome-black.svg',
 					date_added: '2026/5/23',
+					last_modified: "2026-07-15T10:45+02:00",
 					version: '0.7.0'
 				},
 				{
 					theme: 'dark',
-					path: 'apidog-logo-white.svg',
+					path: 'apidog-logo-monochrome-white.svg',
 					date_added: '2026/5/23',
+					last_modified: "2026-07-15T10:45+02:00",
 					version: '0.7.0'
 				}
 			]

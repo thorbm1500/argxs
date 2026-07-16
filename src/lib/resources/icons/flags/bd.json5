@@ -1,6 +1,7 @@
 {
-    country: 'Bangladesh',
+    name: 'Bangladesh',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

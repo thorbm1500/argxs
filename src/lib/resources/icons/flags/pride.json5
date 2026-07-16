@@ -1,6 +1,8 @@
 {
-    country: 'Pride',
+    name: 'Pride',
     href: 'https://www.un.org/en/lgbtiq-people',
+    type: 'other',
+    tags: ["Movement"],
     flags: [
         {
             default: {

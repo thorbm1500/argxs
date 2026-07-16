@@ -1,6 +1,7 @@
 {
-    country: 'Pakistan',
+    name: 'Pakistan',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

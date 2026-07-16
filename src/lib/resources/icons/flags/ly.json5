@@ -1,6 +1,7 @@
 {
-    country: 'Libya',
+    name: 'Libya',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

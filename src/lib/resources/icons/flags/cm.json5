@@ -1,6 +1,7 @@
 {
-    country: 'Cameroon',
+    name: 'Cameroon',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

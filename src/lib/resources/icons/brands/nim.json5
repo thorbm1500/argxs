@@ -1,6 +1,7 @@
 {
 	name: 'Nim',
 	href: 'https://nim-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

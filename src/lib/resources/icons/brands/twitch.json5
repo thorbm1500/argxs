@@ -1,0 +1,20 @@
+{
+	name: 'Twitch.tv',
+	href: 'https://www.twitch.tv',
+	tags: ["Gaming","E-Sports","Live Streaming","Entertainment"],
+	assets: [
+		{
+			name: 'Twitch',
+			type: 'icon',
+			default: {
+				path: 'twitch-icon.svg',
+				date_added: '2026/7/13',
+                version: '0.7.3',
+				source: {
+					name: 'Twitch',
+					href: 'https://www.twitch.tv'
+				}
+			}
+		}
+	]
+}

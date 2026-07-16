@@ -1,6 +1,7 @@
 {
 	name: 'Vue.js',
 	href: 'https://vuejs.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

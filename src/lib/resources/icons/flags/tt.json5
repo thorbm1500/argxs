@@ -1,6 +1,7 @@
 {
-    country: 'Trinidad and Tobago',
+    name: 'Trinidad and Tobago',
     type: 'country',
+    tags: ["South America"],
     flags: [
         {
             default: {

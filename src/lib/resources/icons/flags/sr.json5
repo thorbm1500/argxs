@@ -1,6 +1,7 @@
 {
-    country: 'Suriname',
+    name: 'Suriname',
     type: 'country',
+    tags: ["South America"],
     flags: [
         {
             default: {

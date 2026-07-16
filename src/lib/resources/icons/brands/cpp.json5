@@ -1,6 +1,7 @@
 {
 	name: 'C++',
 	href: 'https://isocpp.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

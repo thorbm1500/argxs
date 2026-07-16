@@ -1,6 +1,7 @@
 {
 	name: 'Ceylon',
 	href: 'https://projects.eclipse.org/projects/technology.ceylon',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

@@ -1,6 +1,7 @@
 {
-    country: 'Eswatini',
+    name: 'Eswatini',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
 	name: 'VK',
 	href: 'https://www.vk.com',
+	tags: ["Social Media"],
 	assets: [
 		{
 			type: 'icon',

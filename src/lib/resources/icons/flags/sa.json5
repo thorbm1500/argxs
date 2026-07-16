@@ -1,6 +1,7 @@
 {
-    country: 'Saudi Arabia',
+    name: 'Saudi Arabia',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
-    country: 'Bulgaria',
+    name: 'Bulgaria',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

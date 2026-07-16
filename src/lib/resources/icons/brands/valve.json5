@@ -1,6 +1,7 @@
 {
     name: 'Valve',
     href: 'https://www.valvesoftware.com',
+    tags: ["Gaming"],
     assets: [
         {
             type: 'logo',

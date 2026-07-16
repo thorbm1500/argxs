@@ -1,6 +1,7 @@
 {
     name: 'Shure',
     href: 'https://shure.com',
+    tags: ["Music"],
     assets: [
         {
             type: 'logo',

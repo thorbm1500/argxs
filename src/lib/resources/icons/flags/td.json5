@@ -1,6 +1,7 @@
 {
-    country: 'Chad',
+    name: 'Chad',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

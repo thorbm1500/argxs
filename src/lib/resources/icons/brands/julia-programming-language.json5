@@ -1,6 +1,7 @@
 {
 	name: 'Julia Programming Language',
 	href: 'https://julialang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

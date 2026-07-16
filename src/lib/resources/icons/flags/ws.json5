@@ -1,6 +1,7 @@
 {
-    country: 'Samoa',
+    name: 'Samoa',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

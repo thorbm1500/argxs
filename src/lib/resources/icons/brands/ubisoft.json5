@@ -1,0 +1,124 @@
+{
+	name: 'Ubisoft',
+	href: 'https://www.ubisoft.com',
+	tags: ["Gaming"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'ubisoft-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'ubisoft-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			}
+		},
+		{
+			name: 'Ubisoft Store',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'ubisoft-store-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'ubisoft-store-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'ubisoft-store-logo-horizontal.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Ubisoft',
+						href: 'https://www.ubisoft.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'ubisoft-store-logo-horizontal-dark.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Ubisoft',
+						href: 'https://www.ubisoft.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'Ubisoft+',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'ubisoft-plus-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'ubisoft-plus-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			}
+		},
+		{
+			name: 'Ubisoft Creators Program',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'ubisoft-creators-program-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'ubisoft-creators-program-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Ubisoft',
+					href: 'https://www.ubisoft.com'
+				}
+			}
+		}
+	]
+}

@@ -1,6 +1,7 @@
 {
 	name: 'Tailwind CSS',
 	href: 'https://tailwindcss.com',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
-    country: 'Sierra Leone',
+    name: 'Sierra Leone',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

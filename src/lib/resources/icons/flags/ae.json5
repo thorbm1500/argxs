@@ -1,6 +1,7 @@
 {
-    country: 'United Arab Emirates',
+    name: 'United Arab Emirates',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

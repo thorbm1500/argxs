@@ -1,6 +1,7 @@
 {
-    country: 'Albania',
+    name: 'Albania',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

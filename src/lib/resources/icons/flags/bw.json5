@@ -1,6 +1,7 @@
 {
-    country: 'Botswana',
+    name: 'Botswana',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

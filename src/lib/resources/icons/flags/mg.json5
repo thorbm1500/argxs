@@ -1,6 +1,7 @@
 {
-    country: 'Madagascar',
+    name: 'Madagascar',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

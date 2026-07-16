@@ -1,6 +1,7 @@
 {
-    country: 'Ethiopia',
+    name: 'Ethiopia',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

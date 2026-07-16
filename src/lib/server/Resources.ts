@@ -9,6 +9,8 @@ export class Resources {
 	readonly BRAND_ICONS: ResourceIcon[] = [];
 	readonly BRAND_ICONS_SORTED_NEW: ResourceIcon[] = [];
 	readonly BRAND_ICONS_SORTED_AtoZ: ResourceIcon[] = [];
+	readonly BRAND_ALL_TAGS: string[] = [];
+
 	BRAND_ICON_AMOUNT: number = 0;
 	BRAND_LOGO_AMOUNT: number = 0;
 	BRAND_TOTAL_AMOUNT: number = 0;
@@ -17,6 +19,7 @@ export class Resources {
 	readonly FLAG_ICONS: ResourceIcon[] = [];
 	readonly FLAG_ICONS_SORTED_NEW: ResourceIcon[] = [];
 	readonly FLAG_ICONS_SORTED_AtoZ: ResourceIcon[] = [];
+	readonly FLAG_ALL_TAGS: string[] = [];
 
 	FLAG_ICON_AMOUNT: number = 0;
 	FLAG_TOTAL_AMOUNT: number = 0;
@@ -44,7 +47,20 @@ export class Resources {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
 			this.BRAND_AMOUNT++;
 
+			if (!current.tags) current.tags = [];
+			else {
+				for (const tag of current.tags) {
+					if (!this.BRAND_ALL_TAGS.includes(tag)) this.BRAND_ALL_TAGS.push(tag);
+				}
+			}
+
 			for (const icon of current.assets) {
+				if (icon.tags) {
+					for (const tag of icon.tags) {
+						if (!this.BRAND_ALL_TAGS.includes(tag)) this.BRAND_ALL_TAGS.push(tag);
+					}
+				}
+
 				const resource = {
 					title: current.name,
 					name: icon.name ?? current.name,
@@ -53,7 +69,7 @@ export class Resources {
 					last_updated: 0,
 					latest_version: '0.0.0',
 					hasNewVariant: false,
-					tags: [], //TODO: Implement tags
+					tags: icon.tags ? icon.tags : current.tags,
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
 				} as ResourceIcon;
@@ -62,14 +78,16 @@ export class Resources {
 
 				let iconAmount = 1;
 
-				if (icon.default.animated === undefined) icon.default.animated = false;
-				icon.default.isNew = icon.default.version === VERSION;
-				if (!icon.default.last_modified) icon.default.last_modified = icon.default.date_added;
+				if (icon.default.animated === undefined) resource.default.animated = false;
+				resource.default.isNew = icon.default.version === VERSION;
+				if (!icon.default.last_modified) resource.default.last_modified = icon.default.date_added;
+				if (!icon.default.tags) resource.default.tags = resource.tags;
 
 				if (icon.dark) {
 					if (icon.dark.animated === undefined) icon.dark.animated = false;
 					icon.dark.isNew = icon.dark.version === VERSION;
 					if (!icon.dark.last_modified) icon.dark.last_modified = icon.dark.date_added;
+					if (!icon.dark.tags) icon.dark.tags = resource.tags;
 					resource.dark = icon.dark;
 					iconAmount++;
 				}
@@ -79,6 +97,7 @@ export class Resources {
 				for (const icon of resource.variable) {
 					if (icon.animated === undefined) icon.animated = false;
 					if (!icon.last_modified) icon.last_modified = icon.date_added;
+					if (!icon.tags) icon.tags = resource.tags;
 					icon.isNew = icon.version === VERSION;
 				}
 
@@ -102,15 +121,28 @@ export class Resources {
 		for (const flag of dir) {
 			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
 
+			if (!current.tags) current.tags = [];
+			else {
+				for (const tag of current.tags) {
+					if (!this.FLAG_ALL_TAGS.includes(tag)) this.FLAG_ALL_TAGS.push(tag);
+				}
+			}
+
 			for (const icon of current.flags) {
+				if (icon.tags) {
+					for (const tag of icon.tags) {
+						if (!this.FLAG_ALL_TAGS.includes(tag)) this.FLAG_ALL_TAGS.push(tag);
+					}
+				}
+
 				const resource: ResourceIcon = {
-					title: current.country,
-					name: icon.name ?? current.country,
+					title: current.name,
+					name: icon.name ?? current.name,
 					href: icon.href ?? current.href,
 					type: icon.type ? icon.type : (current.type ? current.type : 'undefined'),
 					last_updated: 0,
 					hasNewVariant: false,
-					tags: current.tags !== undefined ? current.tags : [],
+					tags: icon.tags ? icon.tags : current.tags,
 					default: icon.default,
 					variable: icon.variable !== undefined ? icon.variable : []
 				} as ResourceIcon;
@@ -119,11 +151,13 @@ export class Resources {
 
 				if (resource.default.animated === undefined) resource.default.animated = false;
 				if (!resource.default.last_modified) resource.default.last_modified = resource.default.date_added;
+				if (!resource.default.tags) resource.default.tags = resource.tags;
 				resource.default.isNew = resource.default.version === VERSION;
 
 				for (const flag of resource.variable) {
 					if (flag.animated === undefined) flag.animated = false;
 					if (!flag.last_modified) flag.last_modified = flag.date_added;
+					if (!flag.tags) flag.tags = resource.tags;
 					flag.isNew = flag.version === VERSION;
 				}
 

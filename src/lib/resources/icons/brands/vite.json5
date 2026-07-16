@@ -1,6 +1,7 @@
 {
     name: 'Vite',
     href: 'https://vite.dev',
+    tags: ["Development"],
     assets: [
         {
             type: 'icon',

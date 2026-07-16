@@ -1,6 +1,7 @@
 {
     name: 'Stripe',
     href: 'https://stripe.com',
+    tags: ["Finance"],
     assets: [
         {
             type: 'logo',

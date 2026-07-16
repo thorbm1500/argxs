@@ -1,6 +1,7 @@
 {
 	name: 'Hack',
 	href: 'https://hacklang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

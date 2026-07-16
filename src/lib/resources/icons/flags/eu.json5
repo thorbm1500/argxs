@@ -1,5 +1,7 @@
 {
-    country: 'Europe',
+    name: 'European Union',
+    type: 'other',
+    tags: ["Europe"],
     flags: [
         {
             default: {

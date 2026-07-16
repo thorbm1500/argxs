@@ -1,6 +1,7 @@
 {
 	name: 'C (Language)',
 	href: 'https://www.c-language.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,0 +1,133 @@
+{
+	name: 'Battlefield Franchise',
+	href: 'https://www.ea.com/games/battlefield',
+	tags: ["Gaming"],
+	assets: [
+		{
+			name: 'Battlefield 6',
+			href: 'https://www.ea.com/games/battlefield/battlefield-6',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'battlefield-6-variant-icon.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'battlefield-6-variant-icon-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			}
+		},
+		{
+			name: 'Battlefield 6',
+			href: 'https://www.ea.com/games/battlefield/battlefield-6',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'battlefield-6-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'battlefield-6-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			}
+		},
+		{
+			name: 'Battlefield 2042',
+			href: 'https://www.ea.com/games/battlefield/battlefield-2042',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'battlefield-2042-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'battlefield-2042-logo-dark.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'battlefield-2042-logo-horizontal.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://www.ea.com/games/battlefield'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'battlefield-2042-logo-horizontal-dark.svg',
+					date_added: '2026/7/12',
+					version: '0.7.3',
+					source: {
+						name: 'Electronic Arts',
+						href: 'https://www.ea.com/games/battlefield'
+					}
+				}
+			]
+		},
+		{
+			name: 'Battlefield 1',
+			href: 'https://www.ea.com/games/battlefield/battlefield-1',
+			type: 'logo',
+			default: {
+				path: 'battlefield-1-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			}
+		},
+		{
+			name: 'Battlefield 4',
+			href: 'https://www.ea.com/games/battlefield/battlefield-4',
+			type: 'logo',
+			default: {
+				path: 'battlefield-4-logo.svg',
+				date_added: '2026/7/12',
+				version: '0.7.3',
+				source: {
+					name: 'Electronic Arts',
+					href: 'https://www.ea.com/games/battlefield'
+				}
+			}
+		}
+	]
+}
+/* TODO: Add DICE, Ripple Effect, Criterion, Frostbite */

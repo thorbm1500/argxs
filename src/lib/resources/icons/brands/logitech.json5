@@ -1,6 +1,7 @@
 {
 	name: 'Logitech',
 	href: 'https://www.logitech.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'icon',

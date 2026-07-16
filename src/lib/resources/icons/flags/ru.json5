@@ -1,6 +1,7 @@
 {
-    country: 'Russia',
+    name: 'Russia',
     type: 'country',
+    tags: ["Europe","Asia"],
     flags: [
         {
             default: {

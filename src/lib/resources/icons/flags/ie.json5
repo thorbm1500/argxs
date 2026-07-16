@@ -1,6 +1,7 @@
 {
-    country: 'Ireland',
+    name: 'Ireland',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

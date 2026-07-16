@@ -1,6 +1,7 @@
 {
 	name: 'Python',
 	href: 'https://python.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

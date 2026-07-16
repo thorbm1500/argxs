@@ -1,6 +1,7 @@
 {
-    country: 'Cuba',
+    name: 'Cuba',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

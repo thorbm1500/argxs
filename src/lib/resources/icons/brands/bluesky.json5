@@ -1,6 +1,7 @@
 {
 	name: 'Bluesky',
 	href: 'https://bsky.app',
+	tags: ["Social Media"],
 	assets: [
 		{
 			type: 'icon',

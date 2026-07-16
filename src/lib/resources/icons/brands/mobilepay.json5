@@ -1,6 +1,7 @@
 {
 	name: 'MobilePay',
 	href: 'https://mobilepay.dk',
+	tags: ["Finance"],
 	assets: [
 		{
 			type: 'icon',

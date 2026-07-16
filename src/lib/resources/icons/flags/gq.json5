@@ -1,6 +1,7 @@
 {
-    country: 'Equatorial Guinea',
+    name: 'Equatorial Guinea',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

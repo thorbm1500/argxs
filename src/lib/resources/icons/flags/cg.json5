@@ -1,6 +1,7 @@
 {
-    country: 'Republic of the Congo',
+    name: 'Republic of the Congo',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

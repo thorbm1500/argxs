@@ -1,6 +1,7 @@
 {
-    country: 'Guinea',
+    name: 'Guinea',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

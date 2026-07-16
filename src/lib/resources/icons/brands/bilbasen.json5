@@ -1,6 +1,7 @@
 {
 	name: 'Bilbasen',
 	href: 'https://www.bilbasen.dk',
+	tags: ["Automotive"],
 	assets: [
 		{
 			type: 'logo',

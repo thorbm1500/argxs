@@ -1,6 +1,7 @@
 {
-    country: 'Malawi',
+    name: 'Malawi',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

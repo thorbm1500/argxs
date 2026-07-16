@@ -1,6 +1,7 @@
 {
-    country: 'Croatia',
+    name: 'Croatia',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

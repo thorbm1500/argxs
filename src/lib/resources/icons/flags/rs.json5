@@ -1,6 +1,7 @@
 {
-    country: 'Serbia',
+    name: 'Serbia',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'Serbia State Flag',
+            tags: ["Europe","Balkans","Government"],
             default: {
                 path: 'rs-state.svg',
                 date_added: '2026/5/12',

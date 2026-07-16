@@ -1,6 +1,7 @@
 {
-    country: 'Zimbabwe',
+    name: 'Zimbabwe',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
     name: 'FoundationDB',
     href: 'https://www.foundationdb.org',
+    tags: ["Development"],
     date_added: '2026/4/10',
     assets: [
         {

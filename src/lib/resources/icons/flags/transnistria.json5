@@ -1,6 +1,7 @@
 {
-    country: 'Transnistia',
+    name: 'Transnistria',
     type: 'state',
+    tags: ["Europe"],
     flags: [
         {
             default: {

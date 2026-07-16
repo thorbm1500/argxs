@@ -30,11 +30,6 @@ export const init: ServerInit = async () => {
 	if (Bun.env.NODE_ENV === 'production') {
 		// Run processing right away, to ensure all downloads are available to users.
 		await processImages();
-
-		/** The image worker should only be run/scheduled on the server, and not during development
-		 *  The worker is set to run at midnight, every day.
-		 *  All icons will be checked and processed, ensuring all of them have PNG,WEBP, and JPEG versions available */
-		Bun.cron('0 0 */1 * *', processImages);
 	}
 
 	console.info(`Initialization completed.\n[Status] VERSION: ${VERSION}`);

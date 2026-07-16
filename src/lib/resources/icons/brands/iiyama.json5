@@ -1,6 +1,7 @@
 {
     name: 'Iiyama',
     href: 'https://iiyama.com',
+    tags: ["Tech"],
     assets: [
         {
             type: 'logo',

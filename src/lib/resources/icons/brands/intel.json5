@@ -1,6 +1,7 @@
 {
 	name: 'Intel',
 	href: 'https://www.intel.com',
+	tags: ["Tech"],
 	assets: [
 		{
 			type: 'logo',

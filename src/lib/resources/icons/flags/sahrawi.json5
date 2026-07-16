@@ -1,6 +1,7 @@
 {
-    country: 'Sahrawi Arab Democratic Republic',
+    name: 'Sahrawi Arab Democratic Republic',
     type: 'state',
+    tags: ["Africa"],
     flags: [
         {
             default: {

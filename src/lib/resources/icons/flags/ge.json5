@@ -1,6 +1,7 @@
 {
-    country: 'Georgia',
+    name: 'Georgia',
     type: 'country',
+    tags: ["Europe","Asia"],
     flags: [
         {
             default: {

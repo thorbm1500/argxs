@@ -1,0 +1,44 @@
+{
+    name: 'Zealand',
+    href: 'https://www.zealand.dk',
+    tags: [
+        "Education"
+    ],
+    assets: [
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'zealand-erhvervsakademi-logo.svg',
+                date_added: '2026/7/14',
+                version: '0.7.3',
+                source: {
+                    name: 'Zealand',
+                    href: 'https://www.zealand.dk'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'zealand-erhvervsakademi-logo-dark.svg',
+                date_added: '2026/7/14',
+                version: '0.7.3',
+                source: {
+                    name: 'Zealand',
+                    href: 'https://www.zealand.dk'
+                }
+            },
+            variable: [
+                {
+                    theme: 'dark',
+                    path: 'zealand-erhvervsakademi-logo-monochrome-white.svg',
+                    date_added: '2026/7/14',
+                    version: '0.7.3',
+                    source: {
+                        name: 'Zealand',
+                        href: 'https://www.zealand.dk'
+                    }
+                }
+            ]
+        }
+    ]
+}

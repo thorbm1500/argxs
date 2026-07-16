@@ -1,6 +1,7 @@
 {
-    country: 'Vietnam',
+    name: 'Vietnam',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

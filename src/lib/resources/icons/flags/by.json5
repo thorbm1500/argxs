@@ -1,6 +1,7 @@
 {
-    country: 'Belarus',
+    name: 'Belarus',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

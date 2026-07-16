@@ -1,6 +1,7 @@
 {
-    country: 'Saint Vincent and the Grenadines',
+    name: 'Saint Vincent and the Grenadines',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

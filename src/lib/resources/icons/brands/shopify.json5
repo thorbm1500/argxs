@@ -1,6 +1,7 @@
 {
     name: 'Shopify',
     href: 'https://www.shopify.com',
+    tags: ["Development","Finance","E-Commerce"],
     assets: [
         {
             type: 'icon',

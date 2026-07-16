@@ -1,6 +1,7 @@
 {
-    country: 'Tunisia',
+    name: 'Tunisia',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

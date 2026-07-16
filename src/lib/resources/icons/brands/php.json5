@@ -1,6 +1,7 @@
 {
 	name: 'PHP',
 	href: 'https://www.php.net',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'logo',

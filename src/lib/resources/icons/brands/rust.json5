@@ -1,6 +1,7 @@
 {
 	name: 'Rust',
 	href: 'https://rust-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,6 +1,7 @@
 {
 	name: 'Elm',
 	href: 'https://elm-lang.org',
+	tags: ["Development"],
 	assets: [
 		{
 			type: 'icon',

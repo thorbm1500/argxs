@@ -1,6 +1,7 @@
 {
-    country: 'Bhutan',
+    name: 'Bhutan',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

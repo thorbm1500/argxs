@@ -1,6 +1,7 @@
 {
     name: 'Verkada',
     href: 'https://www.verkada.com',
+    tags: ["AI","Tech"],
     assets: [
         {
             type: 'icon',
