@@ -6,7 +6,7 @@
 		{
 			type: 'icon',
 			default: {
-				path: 'ønskeskyen-icon.svg',
+				path: 'onskeskyen-icon.svg',
 				date_added: '2026/7/8',
 				version: '0.7.2',
 				source: {
@@ -19,7 +19,7 @@
 			type: 'logo',
 			default: {
 				theme: 'light',
-				path: 'ønskeskyen-logo.svg',
+				path: 'onskeskyen-logo.svg',
 				date_added: '2026/7/8',
 				version: '0.7.2',
 				source: {
@@ -29,7 +29,7 @@
 			},
 			dark: {
 				theme: 'dark',
-				path: 'ønskeskyen-logo-dark.svg',
+				path: 'onskeskyen-logo-dark.svg',
 				date_added: '2026/7/8',
 				version: '0.7.2',
 				source: {
