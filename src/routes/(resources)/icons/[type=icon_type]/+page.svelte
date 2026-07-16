@@ -17,16 +17,16 @@
 	import { prefersReducedMotion } from 'svelte/motion';
 	import { MediaQuery } from 'svelte/reactivity';
 
-	hljs.registerLanguage('xml', xml);
-
-	let iconType: string = $derived(String(page.params.type));
-	let isLoaded: boolean = $state(false);
-
 	const { data } = $props();
 
 	const getTheme = getContext('theme') as Function;
 	let theme: PageTheme = $derived(getTheme !== undefined ? getTheme() : 'dark');
 	const sendToast: any = $derived(getContext('sendToast'));
+
+	hljs.registerLanguage('xml', xml);
+
+	let iconType: string = $derived(String(page.params.type));
+	let isLoaded: boolean = $state(false);
 
 	// - Sorting Variables
 	let iconsOnly: boolean = $state(false);
@@ -708,7 +708,7 @@
 		<div class="actions">
 			<div class="left">
 				<ul class="tag-list active">
-					{#each activeFilters as tag (tag.id)}
+					{#each $state.eager(activeFilters) as tag (tag.id)}
 						<li in:receive={{ key: tag.id }}
 								out:send={{ key: tag.id }}
 								animate:flip={{ duration: 200 }}>
@@ -721,7 +721,7 @@
 					{/each}
 				</ul>
 				<ul class="tag-list inactive">
-						{#each inactiveFilters as tag (tag.id)}
+						{#each $state.eager(inactiveFilters) as tag (tag.id)}
 							<li in:receive={{ key: tag.id }}
 							    out:send={{ key: tag.id }}
 							    animate:flip={{ duration: 200 }}>
@@ -751,7 +751,7 @@
 						}}">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M8 4h12v2.172a2 2 0 0 1 -.586 1.414l-3.914 3.914m-.5 3.5v4l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227" />
-									<path d="M3 3l18 18" />
+									<path d="M3 3l18 18"/>
 								</svg>
 							</button>
 						</GlassButton>
@@ -827,15 +827,13 @@
 							countriesOnly = false;
 							statesOnly = false;
 							animatedOnly = false;
-						}}">All
-						</button>
+						}}">All</button>
 					</GlassButton>
 					<GlassButton className="sort-action {animatedOnly ? 'active' : 'inactive'}">
 						<button type="button" class="sort-action {animatedOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							animatedOnly = !animatedOnly;
-							}}">Animated Only
-						</button>
+							}}">Animated Only</button>
 					</GlassButton>
 					{#if iconType === 'brands'}
 						<GlassButton className="sort-action {iconsOnly ? 'active' : 'inactive'}">
@@ -843,16 +841,14 @@
 							currentPage = 1;
 							iconsOnly = !iconsOnly;
 							if (iconsOnly) logosOnly = false;
-							}}">Icons Only
-							</button>
+							}}">Icons Only</button>
 						</GlassButton>
 						<GlassButton className="sort-action {logosOnly ? 'active' : 'inactive'}">
 							<button type="button" class="sort-action {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							logosOnly = !logosOnly;
 							if (logosOnly) iconsOnly = false;
-							}}">Logos Only
-							</button>
+							}}">Logos Only</button>
 						</GlassButton>
 					{:else if iconType === 'flags'}
 						<GlassButton className="sort-action {countriesOnly ? 'active' : 'inactive'}">
@@ -860,16 +856,14 @@
 							currentPage = 1;
 							countriesOnly = !countriesOnly;
 							if (countriesOnly) statesOnly = false;
-							}}">Countries Only
-							</button>
+							}}">Countries Only</button>
 						</GlassButton>
 						<GlassButton className="sort-action {statesOnly ? 'active' : 'inactive'}">
 							<button type="button" class="sort-action {statesOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							statesOnly = !statesOnly;
 							if (statesOnly) countriesOnly = false;
-							}}">States Only
-							</button>
+							}}">States Only</button>
 						</GlassButton>
 					{/if}
 				</div>
@@ -2144,6 +2138,8 @@
         .search-field, :global .search-field {
             position: relative !important;
             border-radius: .9rem;
+						width: 100%;
+            max-width: 18rem !important;
 
             svg {
                 position: absolute;
@@ -2201,8 +2197,19 @@
                     display: flex;
                     flex-flow: row wrap;
 										gap: .25rem;
-										width: calc(100% - 1.5rem);
+										width: calc(100% - 2rem);
+										max-width: 52rem;
 										margin-top: .2rem;
+
+										&.inactive {
+												height: fit-content;
+												max-height: 7rem !important;
+												padding: .25rem 0;
+												box-sizing: border-box;
+												overflow: scroll;
+												scrollbar-width: none;
+												mask-image: linear-gradient(to top, transparent 0%, black 7.5%, black 92.5%, transparent 100%);
+										}
                 }
             }
 
@@ -2344,5 +2351,14 @@
             opacity: .25;
         }
     }
+
+		@keyframes TaglistScrollAnimation {
+				0%,100% {
+						transform: scale(0);
+				}
+				50% {
+						transform: scale(1);
+				}
+		}
 </style>
 <!--suppress CssUnusedSymbol -->

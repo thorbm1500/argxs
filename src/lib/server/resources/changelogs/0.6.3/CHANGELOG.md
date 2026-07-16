@@ -1,4 +1,4 @@
-# v0.6.3
+# Version 0.6.3
 #### 2026-05-17
 
 ## Minor Changes

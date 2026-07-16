@@ -1,4 +1,4 @@
-# v0.7.2
+# Version 0.7.2
 #### 2026-07-12
 
 ## New Features
