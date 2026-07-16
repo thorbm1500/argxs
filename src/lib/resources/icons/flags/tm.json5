@@ -1,6 +1,7 @@
 {
     name: 'Turkmenistan',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

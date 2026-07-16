@@ -1,6 +1,7 @@
 {
     name: 'Mauritius',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

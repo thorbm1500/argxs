@@ -1,6 +1,7 @@
 {
     name: 'Liberia',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

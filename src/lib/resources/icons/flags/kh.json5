@@ -1,6 +1,7 @@
 {
     name: 'Cambodia',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

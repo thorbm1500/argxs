@@ -1,6 +1,7 @@
 {
     name: 'Indonesia',
     type: 'country',
+    tags: ["Asia","Oceania"],
     flags: [
         {
             default: {

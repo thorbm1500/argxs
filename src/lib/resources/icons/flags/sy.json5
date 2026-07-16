@@ -1,6 +1,7 @@
 {
     name: 'Syria',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

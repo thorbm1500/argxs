@@ -1,6 +1,7 @@
 {
     name: 'The Netherlands',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

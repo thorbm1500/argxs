@@ -1,6 +1,7 @@
 {
     name: 'Marshall Islands',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

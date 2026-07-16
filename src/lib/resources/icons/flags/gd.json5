@@ -1,6 +1,7 @@
 {
     name: 'Grenada',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

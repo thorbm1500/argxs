@@ -1,6 +1,7 @@
 {
     name: 'Zambia',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

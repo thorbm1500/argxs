@@ -1,6 +1,7 @@
 {
     name: 'Qatar',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

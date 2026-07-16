@@ -1,6 +1,7 @@
 {
     name: 'Mali',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

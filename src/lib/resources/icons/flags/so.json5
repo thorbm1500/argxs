@@ -1,6 +1,7 @@
 {
     name: 'Somalia',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

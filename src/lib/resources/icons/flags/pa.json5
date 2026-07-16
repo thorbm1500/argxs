@@ -1,6 +1,7 @@
 {
     name: 'Panama',
     type: 'country',
+    tags: ["North America","South America"],
     flags: [
         {
             default: {

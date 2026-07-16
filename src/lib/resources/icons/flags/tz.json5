@@ -1,6 +1,7 @@
 {
     name: 'Tanzania',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

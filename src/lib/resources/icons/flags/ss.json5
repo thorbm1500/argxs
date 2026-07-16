@@ -1,6 +1,7 @@
 {
     name: 'South Sudan',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

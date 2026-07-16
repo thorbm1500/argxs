@@ -1,6 +1,7 @@
 {
     name: 'Israel',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

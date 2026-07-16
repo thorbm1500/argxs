@@ -1,6 +1,7 @@
 {
     name: 'Somaliland',
     type: 'state',
+    tags: ["Africa"],
     flags: [
         {
             default: {

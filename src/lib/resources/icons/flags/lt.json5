@@ -1,6 +1,7 @@
 {
     name: 'Lithuania',
     type: 'country',
+    tags: ["Europe","Baltic"],
     flags: [
         {
             default: {

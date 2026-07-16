@@ -1,6 +1,7 @@
 {
     name: 'Burkina Faso',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

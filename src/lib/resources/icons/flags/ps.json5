@@ -2,6 +2,7 @@
     name: 'Palestine',
     type: 'country',
     href: 'https://crisisrelief.un.org/donate-opt-crisis',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

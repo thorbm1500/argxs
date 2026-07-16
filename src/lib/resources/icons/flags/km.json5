@@ -1,6 +1,7 @@
 {
     name: 'Comoros',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

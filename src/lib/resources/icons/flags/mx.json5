@@ -1,6 +1,7 @@
 {
     name: 'Mexico',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

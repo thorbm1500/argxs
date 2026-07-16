@@ -1,6 +1,7 @@
 {
     name: 'Timor-Leste',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

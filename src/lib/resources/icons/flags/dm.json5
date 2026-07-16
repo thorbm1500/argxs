@@ -1,6 +1,7 @@
 {
     name: 'Dominica',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

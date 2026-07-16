@@ -1,5 +1,7 @@
 {
     name: 'United Nations',
+    type: 'organization',
+    tags: ["Organization"],
     flags: [
         {
             default: {

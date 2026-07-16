@@ -56,7 +56,7 @@ export class Resources {
 
 			for (const icon of current.assets) {
 				if (icon.tags) {
-					for (const tag of current.tags) {
+					for (const tag of icon.tags) {
 						if (!this.BRAND_ALL_TAGS.includes(tag)) this.BRAND_ALL_TAGS.push(tag);
 					}
 				}
@@ -120,9 +120,21 @@ export class Resources {
 
 		for (const flag of dir) {
 			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
+
 			if (!current.tags) current.tags = [];
+			else {
+				for (const tag of current.tags) {
+					if (!this.FLAG_ALL_TAGS.includes(tag)) this.FLAG_ALL_TAGS.push(tag);
+				}
+			}
 
 			for (const icon of current.flags) {
+				if (icon.tags) {
+					for (const tag of icon.tags) {
+						if (!this.FLAG_ALL_TAGS.includes(tag)) this.FLAG_ALL_TAGS.push(tag);
+					}
+				}
+
 				const resource: ResourceIcon = {
 					title: current.name,
 					name: icon.name ?? current.name,

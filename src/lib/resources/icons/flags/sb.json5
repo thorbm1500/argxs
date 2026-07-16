@@ -1,6 +1,7 @@
 {
     name: 'Solomon Islands',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

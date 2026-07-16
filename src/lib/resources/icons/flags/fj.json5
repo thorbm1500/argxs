@@ -1,6 +1,7 @@
 {
     name: 'Fiji',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

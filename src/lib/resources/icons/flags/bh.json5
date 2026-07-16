@@ -1,6 +1,7 @@
 {
     name: 'Bahrain',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

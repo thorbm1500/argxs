@@ -1,6 +1,7 @@
 {
     name: 'Tonga',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

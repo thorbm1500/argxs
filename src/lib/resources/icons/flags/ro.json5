@@ -1,6 +1,7 @@
 {
     name: 'Romania',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

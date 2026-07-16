@@ -1,6 +1,7 @@
 {
     name: 'United States of America',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {
@@ -14,9 +15,9 @@
             }
         },
         {
+            name: 'Alabama',
+            type: 'state',
             default: {
-                name: 'Alabama',
-                type: 'state',
                 path: 'us-alabama.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -27,9 +28,9 @@
             }
         },
         {
+            name: 'Alaska',
+            type: 'state',
             default: {
-                name: 'Alaska',
-                type: 'state',
                 path: 'us-alaska.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -40,9 +41,9 @@
             }
         },
         {
+            name: 'Arizona',
+            type: 'state',
             default: {
-                name: 'Arizona',
-                type: 'state',
                 path: 'us-arizona.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -53,9 +54,9 @@
             }
         },
         {
+            name: 'Arkansas',
+            type: 'state',
             default: {
-                name: 'Arkansas',
-                type: 'state',
                 path: 'us-arkansas.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -66,9 +67,9 @@
             }
         },
         {
+            name: 'California',
+            type: 'state',
             default: {
-                name: 'California',
-                type: 'state',
                 path: 'us-california.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -79,9 +80,9 @@
             }
         },
         {
+            name: 'Colorado',
+            type: 'state',
             default: {
-                name: 'Colorado',
-                type: 'state',
                 path: 'us-colorado.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -92,9 +93,9 @@
             }
         },
         {
+            name: 'Connecticut',
+            type: 'state',
             default: {
-                name: 'Connecticut',
-                type: 'state',
                 path: 'us-connecticut.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -105,9 +106,9 @@
             }
         },
         {
+            name: 'Delaware',
+            type: 'state',
             default: {
-                name: 'Delaware',
-                type: 'state',
                 path: 'us-delaware.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -118,9 +119,9 @@
             }
         },
         {
+            name: 'Florida',
+            type: 'state',
             default: {
-                name: 'Florida',
-                type: 'state',
                 path: 'us-florida.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -131,9 +132,9 @@
             }
         },
         {
+            name: 'Georgia',
+            type: 'state',
             default: {
-                name: 'Georgia',
-                type: 'state',
                 path: 'us-georgia.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -144,9 +145,10 @@
             }
         },
         {
+            name: 'Hawaii',
+            type: 'state',
+            tags: ["Oceania"],
             default: {
-                name: 'Hawaii',
-                type: 'state',
                 path: 'us-hawaii.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -157,9 +159,9 @@
             }
         },
         {
+            name: 'Idaho',
+            type: 'state',
             default: {
-                name: 'Idaho',
-                type: 'state',
                 path: 'us-idaho.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -170,9 +172,9 @@
             }
         },
         {
+            name: 'Illinois',
+            type: 'state',
             default: {
-                name: 'Illinois',
-                type: 'state',
                 path: 'us-illinois.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -183,9 +185,9 @@
             }
         },
         {
+            name: 'Indiana',
+            type: 'state',
             default: {
-                name: 'Indiana',
-                type: 'state',
                 path: 'us-indiana.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -196,9 +198,9 @@
             }
         },
         {
+            name: 'Iowa',
+            type: 'state',
             default: {
-                name: 'Iowa',
-                type: 'state',
                 path: 'us-iowa.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -209,9 +211,9 @@
             }
         },
         {
+            name: 'Kansas',
+            type: 'state',
             default: {
-                name: 'Kansas',
-                type: 'state',
                 path: 'us-kansas.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
@@ -222,9 +224,9 @@
             }
         },
         {
+            name: 'Kentucky',
+            type: 'state',
             default: {
-                name: 'Kentucky',
-                type: 'state',
                 path: 'us-kentucky.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',

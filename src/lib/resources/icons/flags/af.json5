@@ -1,6 +1,7 @@
 {
     name: 'Afghanistan',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

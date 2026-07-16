@@ -1,6 +1,7 @@
 {
     name: 'Mozambique',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

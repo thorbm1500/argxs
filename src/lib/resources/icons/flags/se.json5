@@ -1,6 +1,7 @@
 {
     name: 'Sweden',
     type: 'country',
+    tags: ["Europe","Nordic","Scandinavia"],
     flags: [
         {
             default: {

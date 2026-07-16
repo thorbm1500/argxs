@@ -1,6 +1,7 @@
 {
     name: 'Hungary',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

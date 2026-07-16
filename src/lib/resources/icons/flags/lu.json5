@@ -1,6 +1,7 @@
 {
     name: 'Luxembourg',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
     name: 'Italy',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

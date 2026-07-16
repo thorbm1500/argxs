@@ -15,7 +15,7 @@
     "type": {
       "type": "string",
       "description": "The type of the entity defined, such as country, organization, etc.",
-      "enum": ["country","state","organization","other"]
+      "enum": ["country","state","region","organization","other"]
     },
     "tags": { "$ref": "#/$defs/tags" },
     "flags": {
@@ -47,7 +47,23 @@
       "description": "Tags related to the flag(s)",
       "items": {
         "type": "string",
-        "enum": ["Africa","Asia","Europe","North America","South America","Antarctica","Australia","Country","State","Organization"]
+        "enum": [
+          "Africa",
+          "Asia",
+          "Europe",
+          "North America",
+          "South America",
+          "Antarctica",
+          "Oceania",
+          "Scandinavia",
+          "Nordic",
+          "Baltic",
+          "Balkans",
+          "Middle East",
+          "Government",
+          "Organization",
+          "Movement"
+        ]
       },
       "minItems": 0,
       "uniqueItems": true

@@ -1,6 +1,7 @@
 {
     name: 'Algeria',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

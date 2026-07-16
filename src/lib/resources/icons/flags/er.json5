@@ -1,6 +1,7 @@
 {
     name: 'Eritrea',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

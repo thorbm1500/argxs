@@ -1,6 +1,7 @@
 {
-    name: 'Côte d\'Ivoire',
+    name: "Côte d'Ivoire",
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

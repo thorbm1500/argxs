@@ -1,6 +1,7 @@
 {
     name: 'Papua New Guinea',
     type: 'country',
+    tags: ["Oceania"],
     flags: [
         {
             default: {

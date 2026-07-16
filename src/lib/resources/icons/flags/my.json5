@@ -1,6 +1,7 @@
 {
     name: 'Malaysia',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

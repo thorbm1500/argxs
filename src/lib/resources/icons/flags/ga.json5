@@ -1,6 +1,7 @@
 {
     name: 'Gabon',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

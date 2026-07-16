@@ -1,6 +1,7 @@
 {
     name: 'Venezuela',
     type: 'country',
+    tags: ["South America"],
     flags: [
         {
             default: {
@@ -15,6 +16,7 @@
         },
         {
             name: 'Venezuela State Flag',
+            tags: ["South America","Government"],
             default: {
                 path: 've-state.svg',
                 date_added: '2026/5/21',

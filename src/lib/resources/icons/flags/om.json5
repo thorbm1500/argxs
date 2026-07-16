@@ -1,6 +1,7 @@
 {
     name: 'Oman',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

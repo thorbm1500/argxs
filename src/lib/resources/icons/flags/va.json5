@@ -1,6 +1,7 @@
 {
     name: 'Vatican City',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

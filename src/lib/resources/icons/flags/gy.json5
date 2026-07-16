@@ -1,6 +1,7 @@
 {
     name: 'Guyana',
     type: 'country',
+    tags: ["South America"],
     flags: [
         {
             default: {

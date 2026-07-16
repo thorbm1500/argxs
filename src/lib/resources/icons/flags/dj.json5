@@ -1,6 +1,7 @@
 {
     name: 'Djibouti',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

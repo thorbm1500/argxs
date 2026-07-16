@@ -1,6 +1,7 @@
 {
     name: 'Kenya',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
     name: 'Lebanon',
     type: 'country',
+    tags: ["Asia","Middle East"],
     flags: [
         {
             default: {

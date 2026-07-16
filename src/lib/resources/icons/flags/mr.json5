@@ -1,6 +1,7 @@
 {
     name: 'Mauritania',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

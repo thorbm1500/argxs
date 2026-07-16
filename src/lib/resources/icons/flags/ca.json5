@@ -1,6 +1,7 @@
 {
     name: 'Canada',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

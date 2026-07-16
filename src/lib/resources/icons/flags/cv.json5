@@ -1,6 +1,7 @@
 {
     name: 'Cape Verde',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

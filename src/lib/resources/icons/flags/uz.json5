@@ -1,6 +1,7 @@
 {
     name: 'Uzbekistan',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
     name: 'Monaco',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

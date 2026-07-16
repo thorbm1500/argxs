@@ -1,6 +1,7 @@
 {
     name: 'Colombia',
     type: 'country',
+    tags: ["South America"],
     flags: [
         {
             default: {

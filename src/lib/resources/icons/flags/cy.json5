@@ -1,6 +1,7 @@
 {
     name: 'Cyprus',
     type: 'country',
+    tags: ["Europe"],
     flags: [
         {
             default: {

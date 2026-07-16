@@ -1,6 +1,7 @@
 {
     name: 'Nicaragua',
     type: 'country',
+    tags: ["North America"],
     flags: [
         {
             default: {

@@ -1,6 +1,7 @@
 {
     name: 'Türkiye',
     type: 'country',
+    tags: ["Europe","Asia","Middle East","Balkans"],
     flags: [
         {
             default: {

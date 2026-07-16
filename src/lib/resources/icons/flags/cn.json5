@@ -1,6 +1,7 @@
 {
     name: 'China',
     type: 'country',
+    tags: ["Asia"],
     flags: [
         {
             default: {

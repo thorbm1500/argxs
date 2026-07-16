@@ -1,6 +1,7 @@
 {
     name: 'Burundi',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

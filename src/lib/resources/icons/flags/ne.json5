@@ -1,6 +1,7 @@
 {
     name: 'Niger',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

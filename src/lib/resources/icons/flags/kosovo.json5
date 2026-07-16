@@ -1,6 +1,7 @@
 {
     name: 'Kosovo',
     type: 'country',
+    tags: ["Europe","Balkans"],
     flags: [
         {
             default: {

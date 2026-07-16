@@ -1,6 +1,7 @@
 {
     name: 'South Africa',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

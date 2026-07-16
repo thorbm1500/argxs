@@ -1,6 +1,7 @@
 {
     name: 'Paraguay',
     type: 'country',
+    tags: ["South America"],
     flags: [
         {
             name: 'Paraguay (Front)',

@@ -1,6 +1,7 @@
 {
     name: 'Jamaica',
     type: 'country',
+    tags: ["Africa"],
     flags: [
         {
             default: {

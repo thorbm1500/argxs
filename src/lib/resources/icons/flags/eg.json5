@@ -1,6 +1,7 @@
 {
     name: 'Egypt',
     type: 'country',
+    tags: ["Africa","Middle East"],
     flags: [
         {
             default: {

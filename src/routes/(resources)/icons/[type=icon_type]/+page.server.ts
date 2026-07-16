@@ -32,7 +32,7 @@ export const load: PageServerLoad = async ({ params }) => {
 			icons: RESOURCES.FLAG_ICONS,
 			iconsSortedNew: RESOURCES.FLAG_ICONS_SORTED_NEW,
 			iconsSortedAtoZ: RESOURCES.FLAG_ICONS_SORTED_AtoZ,
-			iconTags: [],
+			iconTags: RESOURCES.FLAG_ALL_TAGS,
 			iconAmount: 0,
 			logoAmount: 0,
 			totalAmount: RESOURCES.FLAG_ICON_AMOUNT,

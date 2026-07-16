@@ -1,6 +1,7 @@
 {
     name: 'Kazakhstan',
     type: 'country',
+    tags: ["Asia","Europe"],
     flags: [
         {
             default: {
