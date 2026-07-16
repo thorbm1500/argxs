@@ -2,11 +2,12 @@
 #### 2026-07-16
 
 ## New Features
-### Tags
-Tags are now available when browsing flag & brand icons. Some tags have already been added, with more coming in the future.
+### Icon Tags
+Tags are now available when browsing flag & brand icons. More tags can be expected with every new version.
 
 ## Minor Changes
 - Changelog titles changed from "vX.X.X" to "Version X.X.X"
+- **Color Picker** has been adding to the plans
 - **Configuration**
   - Inlined the SvelteKit configuration inside the Vite configuration file
   - Changed property in flag configurations from 'country' to 'name'
@@ -14,12 +15,13 @@ Tags are now available when browsing flag & brand icons. Some tags have already 
   - Changed name of filter "Date Added" to "Version" to better reflect its actual sorting method
   - Generated images no longer target a minimum of 1000px on both width/height, but now instead target a total pixel count of 1.000.000. This change is made to account for oddly sized images, that would otherwise scale to a ridiculous size.
   - Stale images are now checked for and removed, to ensure to images are leftover and forgotten from changes made to its parent configuration.
-  - Renamed all assets for "Ønskeskyen" to "onskeskyen"
+  - Renamed all assets for "ønskeskyen" to "onskeskyen"
+  - Corrected various spelling mistakes, including correcting "Europe" to "European Union"
 - **Highlighted Icon Modal**
   - Adjusted text-sizing on Brand & Icon names
   - Changed modal box size
   - Page elements are now unclickable when the modal is open, and the background light is turned off, allowing the user to close the modal by clicking on any of the dark space behind it. This could previously accidentally switch to highlight other icons, if you were to click on top of an icon in the background. This change is made in an attempt to make navigating argxs feel more natural.
-### 81 New [Brand Icons](https://argxs.com/icons/brands)
+### 83 New [Brand Icons](https://argxs.com/icons/brands)
 - **[New]** Zealand - Academy of Technologies and Business
 - **[New]** CBS - Copenhagen Business School
 - **[New]** MIT - Massachusetts Institute of Technology
@@ -27,7 +29,7 @@ Tags are now available when browsing flag & brand icons. Some tags have already 
 - **[New]** CORSAIR
 - **[New]** NZXT
 - **[New]** Twitch
-- **[New]** BLAST.tv
+- **[New]** BLAST
 - **[New]** Electronic Arts
   - Incl. Electronic Arts Gothenburg
 - **[New]** Battlefield Franchise
@@ -40,6 +42,7 @@ Tags are now available when browsing flag & brand icons. Some tags have already 
   - Incl. Ubisoft+
   - Incl. Ubisoft Creators Program
 - **[New]** Anthropic
+- **[New]** Burger King
 - **[New]** The Coca-Cola Company
   - Incl. Coca-Cola
   - Incl. Coca-Cola Store
@@ -59,4 +62,5 @@ Tags are now available when browsing flag & brand icons. Some tags have already 
 - svelte: *5.56.4 ➜ 5.56.5*
 - @sveltejs/kit: *2.69.2 ➜ 2.69.3*
 - @humanspeak/svelte-markdown: *1.7.10 ➜ 1.8.4*
+- vite: *8.1.4 ➜ 8.1.5*
 - typescript-eslint: *8.63.0 ➜ 8.64.0*
