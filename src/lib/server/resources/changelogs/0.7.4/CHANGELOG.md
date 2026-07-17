@@ -2,11 +2,14 @@
 #### 2026-XX-XX
 
 ## Minor Changes
-  - *Empty*
+  - Highlighted Icon modal: Updated design of container
+
 ### x New [Brand Icons](https://argxs.com/icons/brands)
   - *Empty*
 
 ## Bug Fixes
+- Highlighted Icon modal: It is no longer possible to scroll away from the click blocking container when the background light is on
+- Fixed tags not updating when switching between Brand & Flag icons
 - Complete rework of image generation, fixing multiple issues, including: images with ridiculous resolutions, images failing to generate, images with incorrect resolution resulting in stretched images, and more.
 - **Added missing width/height attributes**
   - apple-icon.svg
