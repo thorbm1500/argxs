@@ -13,6 +13,17 @@
   - Fixed tags not updating when switching between Brand & Flag icons
   - Fixed search bar highlight not covering the entire search bar
   - Complete rework of image generation, fixing multiple issues, including: images with ridiculous resolutions, images failing to generate, images with incorrect resolution resulting in stretched images, and more.
+- **Added icons missing from configurations**
+  - new-relic-icon-monochrome-white.svg
+  - uber-max-logo.svg
+  - uber-max-logo-dark.svg
+  - rasperry-pi-logo.svg
+  - rasperry-pi-logo-dark.svg
+  - proton-pass-logo.svg
+  - proton-pass-logo-dark.svg
+  - proton-pass-bg-logo.svg
+  - proton-pass-bg-logo-dark.svg
+  - proton-lumo-mascot-bg-icon.svg
 - **Added missing width/height attributes**
   - apple-icon.svg
   - apple-icon-dark.svg
