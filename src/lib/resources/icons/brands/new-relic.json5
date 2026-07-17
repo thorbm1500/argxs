@@ -28,7 +28,7 @@
 			variable: [
 				{
 					theme: 'dark',
-					path: 'new-relic-logo-monochrome-white.svg',
+					path: 'new-relic-icon-monochrome-white.svg',
 					date_added: '2026/5/26',
 					version: '0.7.1',
 					source: {
