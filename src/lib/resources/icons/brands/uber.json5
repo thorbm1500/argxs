@@ -223,7 +223,7 @@
                     href: 'https://assets.uber.com/'
                 }
             },
-            variants: [
+            variable: [
                 {
                     theme: 'light',
                     path: 'uber-max-logo.svg',
