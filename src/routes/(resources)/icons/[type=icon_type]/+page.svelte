@@ -2159,6 +2159,8 @@
             }
 
             input {
+                width: 100%;
+
                 font-family: 'Geologica', 'Google Sans', sans-serif;
                 font-weight: 500;
                 color: var(--theme-text-third);

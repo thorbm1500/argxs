@@ -8,9 +8,11 @@
   - *Empty*
 
 ## Bug Fixes
-- Highlighted Icon modal: It is no longer possible to scroll away from the click blocking container when the background light is on
-- Fixed tags not updating when switching between Brand & Flag icons
-- Complete rework of image generation, fixing multiple issues, including: images with ridiculous resolutions, images failing to generate, images with incorrect resolution resulting in stretched images, and more.
+- **Icons**
+  - Highlighted Icon modal: It is no longer possible to scroll away from the click blocking container when the background light is on
+  - Fixed tags not updating when switching between Brand & Flag icons
+  - Fixed search bar highlight not covering the entire search bar
+  - Complete rework of image generation, fixing multiple issues, including: images with ridiculous resolutions, images failing to generate, images with incorrect resolution resulting in stretched images, and more.
 - **Added missing width/height attributes**
   - apple-icon.svg
   - apple-icon-dark.svg
