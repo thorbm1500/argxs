@@ -26,3 +26,4 @@ vite.config.ts.timestamp-*
 /bun.lock
 /.vscode/settings.json
 /.vscode/extensions.json
+/test.ts
