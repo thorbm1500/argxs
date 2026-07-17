@@ -3,68 +3,81 @@ import type { Icon, ResourceIcon } from '$lib/components/interfaces';
 import { formatNanoseconds } from '$lib/utilities';
 import { readdir } from "node:fs/promises";
 
-const IMAGE_RES_TARGET: number = 1000000;
-
-function getPNGExtension(filename: string): string {
-	return filename.replace('.svg', '.png');
+declare interface SizeAttributes {
+	w: number,
+	h: number
 }
 
-function getWEBPExtension(filename: string) {
-	return filename.replace('.svg', '.webp');
+function getExtension(filename: string, extension: string): string {
+	return filename.replace('.svg', extension);
 }
 
-function getJPEGExtension(filename: string) {
-	return filename.replace('.svg', '.jpeg');
+async function getSizeAttributes(path: string): Promise<SizeAttributes> {
+	const raw: string = await Bun.file(path).text();
+	const data: string = raw.slice(0, raw.indexOf('>') + 1);
+	const index: number = data.indexOf('viewBox') + 9;
+
+	const viewBox: number[] = data.slice(index, data.indexOf('"', index))
+		.split(' ')
+		.map(v => Number.parseFloat(v));
+
+	return { w: viewBox[2] ?? Number.NaN, h: viewBox[3] ?? Number.NaN };
 }
 
-function integerScaling(width: number, height: number): { w: number, h: number } {
-	let a: number = 1;
-	let b: number = 1;
+function integerScaling(attr: SizeAttributes): SizeAttributes {
+	let a: number = attr.w, b: number = attr.h;
 
-	width = width / 4;
-	height = height / 4;
+	for (let i = 100; i > 0; i--) {
+		if (!Number.isInteger(a / i) || !Number.isInteger(b / i)) continue;
 
-	if (width !== height) {
-		if (width < height) a = width / height;
-		else if (width > height) b = height / width;
-
-		if (a % .25 !== 0 || b % .25 !== 0) {
-			a = Math.round(a * 3);
-			b = Math.round(b * 3);
-		}
-
-		const multiplier: 2 | 3 = a % .25 === 0 || b % .25 === 0 ? 2 : 3;
-		for (let i = 0; i < 20; i++) {
-			if (a % 1 !== 0 || b % 1 !== 0) {
-				a *= multiplier;
-				b *= multiplier;
-			} else break;
-		}
+		a /= i; b /= i;
+		break;
 	}
 
-	let diff: number = Math.sqrt(IMAGE_RES_TARGET / (a * b));
-	diff = diff % 1 === 0 ? diff : Math.trunc(diff) + 1;
+	if (a == attr.w || b == attr.h) {
+		a /= 100; b /= 100;
+	}
 
-	return { w: diff * a, h: diff * b };
+	if (a < 1.0 || b < 1.0) {
+		a *= 10; b *= 10;
+	}
+
+	if (!Number.isInteger(a) || !Number.isInteger(b)) {
+		a = Math.round(a) * 10; b = Math.round(b) * 10;
+	}
+
+	while(Number.isInteger(a / 2) && Number.isInteger(b / 2)) {
+		a /= 2;
+		b /= 2;
+	}
+
+	attr.w = a; attr.h = b;
+	while (attr.w * attr.h < 1000000) {
+		attr.w += a;
+		attr.h += b;
+	}
+
+	return attr;
 }
 
-async function convertSVGtoPNG(icon: Icon, path: string): Promise<void> {
+async function convertSVGtoPNG(icon: Icon, path: string): Promise<boolean> {
 	try {
-		const size: string[] = (await Bun.$`inkscape/AppRun -W -H client/resources/icons/${path}/${icon.path}`.quiet().text()).split('\n');
-		let width: number = Number.parseFloat(size[0] ?? 'nan');
-		let height: number = Number.parseFloat(size[1] ?? 'nan');
+		const sizeAttributes: SizeAttributes = await getSizeAttributes(`client/resources/icons/${path}/${icon.path}`);
 
-		if (Number.isNaN(height) || Number.isNaN(width)) {
-			console.error('Failed to parse width/height. Result:', size);
-			return;
+		if (Number.isNaN(sizeAttributes.w) || Number.isNaN(sizeAttributes.h)) {
+			// noinspection ExceptionCaughtLocallyJS
+			throw new Error(`Failed to parse width/height. Results: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`)
 		}
 
-		let dimensions = integerScaling(width, height);
+		const dimensions: SizeAttributes = integerScaling(sizeAttributes);
 
-		await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getPNGExtension(icon.path)}`.quiet();
+		await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`.quiet();
 	} catch (err) {
 		console.error(err);
+		return false;
 	}
+
+	return true;
 }
 
 async function generateImage(icon: Icon, path: string): Promise<void> {
@@ -77,68 +90,55 @@ async function generateImage(icon: Icon, path: string): Promise<void> {
 		return;
 	}
 
-	const PNG_PATH: string = IMAGE_PATH.concat('png/', getPNGExtension(icon.path));
+	const PNG_FILENAME: string = getExtension(icon.path, '.png');
+	const PNG_PATH: string = IMAGE_PATH.concat('png/', PNG_FILENAME);
 
-	// Check if the PNG has already been generated.
+	icon.png = PNG_FILENAME;
+
 	if (!(await Bun.file(PNG_PATH).exists())) {
-		await convertSVGtoPNG(icon, path);
-
-		// Check again to make sure the PNG was generated successfully.
-		if (!(await Bun.file(PNG_PATH).exists())) {
-			console.error('[ERROR] Failed to generate PNG for:', icon.path);
+		if (await convertSVGtoPNG(icon, path)) console.info(`  → PNG Generated successfully for: ${icon.path}`);
+		else {
+			console.error(`[ERROR] Failed to generate PNG for: ${icon.path}`);
+			icon.png = undefined;
 			return;
-		} else {
-			console.info('  → PNG Generated successfully for:', icon.path);
 		}
 	}
 
-	icon.png = getPNGExtension(icon.path);
+	icon.webp = getExtension(icon.path, '.webp');
+	const WEBP_PATH: string = IMAGE_PATH.concat('webp/', icon.webp);
 
-	const WEBP_PATH: string = IMAGE_PATH.concat('webp/', getWEBPExtension(icon.path));
-	let isWEBPGenerated: boolean = await Bun.file(WEBP_PATH).exists();
-
-	// Check if the WEBP has already been generated.
-	if (!isWEBPGenerated) {
+	if (!(await Bun.file(WEBP_PATH).exists())) {
 		try {
 			await Bun.file(PNG_PATH).image().webp({ lossless: true }).write(WEBP_PATH);
+
+			if (await Bun.file(WEBP_PATH).exists()) console.info(`  → WEBP Generated successfully for: ${icon.path}`);
+			else {
+				// noinspection ExceptionCaughtLocallyJS
+				throw new Error(`[ERROR] Failed to generate WEBP for: ${icon.path}`);
+			}
 		} catch (e) {
 			console.error(e);
-		}
-
-		isWEBPGenerated = await Bun.file(WEBP_PATH).exists();
-
-		// Check again to make sure the WEBP was generated successfully.
-		if (!isWEBPGenerated) {
-			console.error('[ERROR] Failed to generate WEBP for:', icon.path);
-		} else {
-			console.info('  → WEBP Generated successfully for:', icon.path);
+			icon.webp = undefined;
 		}
 	}
 
-	if (isWEBPGenerated) icon.webp = getWEBPExtension(icon.path);
+	icon.jpeg = getExtension(icon.path, '.jpeg');
+	const JPEG_PATH: string = IMAGE_PATH.concat('jpeg/', icon.jpeg);
 
-	const JPEG_PATH: string = IMAGE_PATH.concat('jpeg/', getJPEGExtension(icon.path));
-	let isJPEGGenerated: boolean = await Bun.file(JPEG_PATH).exists();
-
-	// Check if the JPEG has already been generated.
-	if (!isJPEGGenerated) {
+	if (!(await Bun.file(JPEG_PATH).exists())) {
 		try {
 			await Bun.file(PNG_PATH).image().jpeg({ quality: 80 }).write(JPEG_PATH);
+
+			if (await Bun.file(JPEG_PATH).exists()) console.info(`  → JPEG Generated successfully for: ${icon.path}`);
+			else {
+				// noinspection ExceptionCaughtLocallyJS
+				throw new Error(`[ERROR] Failed to generate JPEG for: ${icon.path}`);
+			}
 		} catch (e) {
 			console.error(e);
-		}
-
-		isJPEGGenerated = await Bun.file(JPEG_PATH).exists();
-
-		// Check again to make sure the JPEG was generated successfully.
-		if (!isJPEGGenerated) {
-			console.error('[ERROR] Failed to generate JPEG for:', icon.path);
-		} else {
-			console.info('  → JPEG Generated successfully for:', icon.path);
+			icon.jpeg = undefined;
 		}
 	}
-
-	if(isJPEGGenerated) icon.jpeg = getJPEGExtension(icon.path);
 }
 
 async function processGeneration(list: ResourceIcon[], path: string): Promise<void> {
@@ -181,18 +181,18 @@ async function processCleanup(list: ResourceIcon[], path: string): Promise<void>
 		const fileName: string = file.replace('.png','.svg');
 		if (!existingFiles.includes(fileName)) {
 			try {
-				await Bun.file(DATA_IMAGE_PATH.concat('/png/',getPNGExtension(file))).delete();
+				await Bun.file(DATA_IMAGE_PATH.concat('/png/',getExtension(file, '.png'))).delete();
 			}
 			catch (e) {
 				console.error(e);
 			}
 			try {
-				await Bun.file(DATA_IMAGE_PATH.concat('/webp/',getWEBPExtension(file))).delete();
+				await Bun.file(DATA_IMAGE_PATH.concat('/webp/',getExtension(file, '.webp'))).delete();
 			} catch (e) {
 				console.error(e);
 			}
 			try {
-				await Bun.file(DATA_IMAGE_PATH.concat('/jpeg/',getJPEGExtension(file))).delete();
+				await Bun.file(DATA_IMAGE_PATH.concat('/jpeg/',getExtension(file, '.jpeg'))).delete();
 			} catch (e) {
 				console.error(e);
 			}

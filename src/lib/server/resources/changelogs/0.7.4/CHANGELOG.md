@@ -7,6 +7,7 @@
   - *Empty*
 
 ## Bug Fixes
+- Complete rework of image generation, fixing multiple issues, including: images with ridiculous resolutions, images failing to generate, images with incorrect resolution resulting in stretched images, and more.
 - **Added missing width/height attributes**
   - apple-icon.svg
   - apple-icon-dark.svg
