@@ -7,6 +7,29 @@
 			type: 'logo',
 			default: {
 				theme: 'light',
+				path: 'raspberry-pi-logo.svg',
+				date_added: '2026/5/27',
+				version: '0.7.1',
+				source: {
+					name: 'Raspberry Pi',
+					href: 'https://www.raspberrypi.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'raspberry-pi-logo-dark.svg',
+				date_added: '2026/5/27',
+				version: '0.7.1',
+				source: {
+					name: 'Raspberry Pi',
+					href: 'https://www.raspberrypi.org'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
 				path: 'raspberry-pi-foundation-logo.svg',
 				date_added: '2026/5/27',
 				version: '0.7.1',
