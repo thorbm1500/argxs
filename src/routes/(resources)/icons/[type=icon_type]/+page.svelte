@@ -10,7 +10,7 @@
 	import moment from 'moment';
 	import { copyToClipboard, generateHash } from '$lib/utilities';
 	import { page } from '$app/state';
-	import { beforeNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import GlassButton from '$lib/components/GlassButton.svelte';
 	import hljs from '@highlightjs/cdn-assets/es/core.min.js';
 	import xml from '@highlightjs/cdn-assets/es/languages/xml.min.js';
@@ -18,6 +18,13 @@
 	import { MediaQuery } from 'svelte/reactivity';
 
 	const { data } = $props();
+
+	afterNavigate(() => {
+		while(allFilters.length) {
+			allFilters.pop();
+		}
+		data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
+	});
 
 	const getTheme = getContext('theme') as Function;
 	let theme: PageTheme = $derived(getTheme !== undefined ? getTheme() : 'dark');
