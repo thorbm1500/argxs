@@ -66,5 +66,6 @@
 
 ## Dependencies
 - svelte: *5.56.5 ➜ 5.56.6*
+- @sveltejs/kit: *2.69.3 ➜ 2.70.0*
 - tailwindcss: *4.3.2 ➜ 4.3.3*
 - @tailwindcss/vite: *4.3.2 ➜ 4.3.3*
