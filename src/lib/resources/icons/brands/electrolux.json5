@@ -9,6 +9,7 @@
                 theme: 'light',
                 path: 'electrolux-icon.svg',
                 date_added: '2026/5/4',
+                last_modified: "2026-07-17T17:45+02:00",
                 version: '0.4.0',
                 source: {
                     name: 'Brandfetch',
@@ -19,6 +20,7 @@
                 theme: 'dark',
                 path: 'electrolux-icon-dark.svg',
                 date_added: '2026/5/4',
+                last_modified: "2026-07-17T17:45+02:00",
                 version: '0.4.0',
                 source: {
                     name: 'Brandfetch',

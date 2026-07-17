@@ -31,6 +31,7 @@
                 theme: 'light',
                 path: 'uber-logo.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -41,6 +42,7 @@
                 theme: 'dark',
                 path: 'uber-logo-dark.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -102,6 +104,7 @@
             default: {
                 path: 'uber-carshare-icon.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -115,6 +118,7 @@
             default: {
                 path: 'uber-eats-icon.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -129,6 +133,7 @@
                 theme: 'light',
                 path: 'uber-eats-logo.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -139,6 +144,7 @@
                 theme: 'dark',
                 path: 'uber-eats-logo-dark.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -222,7 +228,7 @@
                     theme: 'light',
                     path: 'uber-max-logo.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -232,7 +238,7 @@
                     theme: 'dark',
                     path: 'uber-max-logo-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -268,7 +274,7 @@
                     theme: 'light',
                     path: 'uber-black-logo.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -278,7 +284,7 @@
                     theme: 'dark',
                     path: 'uber-black-logo-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -314,7 +320,7 @@
                     theme: 'light',
                     path: 'uber-electric-logo.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -324,7 +330,7 @@
                     theme: 'dark',
                     path: 'uber-electric-logo-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -339,6 +345,7 @@
                 theme: 'light',
                 path: 'uber-scooter-stacked-logo.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -349,6 +356,7 @@
                 theme: 'dark',
                 path: 'uber-scooter-stacked-logo-dark.svg',
                 date_added: '2026/4/27',
+                last_modified: "2026-07-17T18:15+02:00",
 				version: '0.3.0',
                 source: {
                     name: 'Uber',
@@ -360,7 +368,8 @@
                     theme: 'light',
                     path: 'uber-scooter-logo.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+                    last_modified: "2026-07-17T18:15+02:00",
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -370,7 +379,8 @@
                     theme: 'dark',
                     path: 'uber-scooter-logo-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+                    last_modified: "2026-07-17T18:15+02:00",
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -406,7 +416,7 @@
                     theme: 'light',
                     path: 'uber-parcel-logo.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -416,7 +426,7 @@
                     theme: 'dark',
                     path: 'uber-parcel-logo-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -452,7 +462,7 @@
                     theme: 'light',
                     path: 'uber-ai-solutions-logo.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -462,7 +472,7 @@
                     theme: 'dark',
                     path: 'uber-ai-solutions-logo-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -498,7 +508,7 @@
                     theme: 'light',
                     path: 'uber-envios-logo.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -508,7 +518,7 @@
                     theme: 'dark',
                     path: 'uber-envios-logo-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -522,6 +532,7 @@
             default: {
                 theme: 'light',
                 path: 'pass-uber-eats-stacked-logo.svg',
+                last_modified: "2026-07-17T18:00+02:00",
                 date_added: '2026/4/27',
 				version: '0.3.0',
                 source: {
@@ -532,6 +543,7 @@
             dark: {
                 theme: 'dark',
                 path: 'pass-uber-eats-stacked-logo-dark.svg',
+                last_modified: "2026-07-17T18:00+02:00",
                 date_added: '2026/4/27',
 				version: '0.3.0',
                 source: {
@@ -543,8 +555,9 @@
                 {
                     theme: 'light',
                     path: 'pass-uber-eats-stacked-logo-monochrome-black.svg',
+                    last_modified: "2026-07-17T18:00+02:00",
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -553,8 +566,9 @@
                 {
                     theme: 'dark',
                     path: 'pass-uber-eats-stacked-logo-monochrome-white.svg',
+                    last_modified: "2026-07-17T18:00+02:00",
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -563,8 +577,9 @@
                 {
                     theme: 'light',
                     path: 'pass-uber-eats-logo.svg',
+                    last_modified: "2026-07-17T18:00+02:00",
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -573,8 +588,9 @@
                 {
                     theme: 'dark',
                     path: 'pass-uber-eats-logo-dark.svg',
+                    last_modified: "2026-07-17T18:00+02:00",
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -583,8 +599,9 @@
                 {
                     theme: 'light',
                     path: 'pass-uber-eats-logo-monochrome-black.svg',
+                    last_modified: "2026-07-17T18:00+02:00",
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -593,8 +610,9 @@
                 {
                     theme: 'dark',
                     path: 'pass-uber-eats-logo-monochrome-white.svg',
+                    last_modified: "2026-07-17T18:00+02:00",
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -619,7 +637,7 @@
                     theme: 'light',
                     path: 'uber-one-icon-monochrome-black.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -629,7 +647,7 @@
                     theme: 'dark',
                     path: 'uber-one-icon-monochrome-white.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -665,7 +683,7 @@
                     theme: 'light',
                     path: 'uber-one-logo-monochrome-black.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -675,7 +693,7 @@
                     theme: 'dark',
                     path: 'uber-one-logo-monochrome-white.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -711,7 +729,7 @@
                     theme: 'light',
                     path: 'uber-one-students-logo-monochrome-black.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -721,7 +739,7 @@
                     theme: 'dark',
                     path: 'uber-one-students-logo-monochrome-white.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -757,7 +775,7 @@
                     theme: 'light',
                     path: 'uber-one-exclusive-logo-monochrome-light.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -767,7 +785,7 @@
                     theme: 'dark',
                     path: 'uber-one-exclusive-logo-monochrome-dark.svg',
                     date_added: '2026/4/27',
-				version: '0.3.0',
+				    version: '0.3.0',
                     source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
@@ -777,8 +795,8 @@
                     theme: 'light',
                     path: 'uber-one-exclusive-french-logo.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -787,8 +805,8 @@
                     theme: 'dark',
                     path: 'uber-one-exclusive-french-logo-dark.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -797,8 +815,8 @@
                     theme: 'light',
                     path: 'uber-one-exclusive-german-logo.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -807,8 +825,8 @@
                     theme: 'dark',
                     path: 'uber-one-exclusive-german-logo-dark.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -817,8 +835,8 @@
                     theme: 'light',
                     path: 'uber-one-exclusive-spanish-logo.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -827,8 +845,8 @@
                     theme: 'dark',
                     path: 'uber-one-exclusive-spanish-logo-dark.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -837,8 +855,8 @@
                     theme: 'light',
                     path: 'uber-one-exclusive-spanish-var-logo.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -847,8 +865,8 @@
                     theme: 'dark',
                     path: 'uber-one-exclusive-spanish-var-logo-dark.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -857,8 +875,8 @@
                     theme: 'light',
                     path: 'uber-one-exclusive-japanese-logo.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }
@@ -867,8 +885,8 @@
                     theme: 'dark',
                     path: 'uber-one-exclusive-japanese-logo-dark.svg',
                     date_added: '2026/5/6',
-                version: '0.4.1',
-                source: {
+                    version: '0.4.1',
+                    source: {
                         name: 'Uber',
                         href: 'https://assets.uber.com/'
                     }

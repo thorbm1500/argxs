@@ -7,7 +7,62 @@
   - *Empty*
 
 ## Bug Fixes
-- *Empty*
+- **Added missing width/height attributes**
+  - apple-icon.svg
+  - apple-icon-dark.svg
+  - cloudflare-logo-dark.svg
+  - discord-icon.svg
+  - discord-icon-dark.svg
+  - discord-logo.svg
+  - discord-logo-dark.svg
+  - electrolux-icon.svg
+  - electrolux-icon-dark.svg
+  - flare-logo.svg
+  - flare-logo-dark.svg
+  - uber-logo.svg
+  - uber-logo-dark.svg
+  - uber-carshare-icon.svg
+  - uber-scooter-logo.svg
+  - uber-scooter-logo-dark.svg
+  - uber-scooter-stacked-logo.svg
+  - uber-scooter-stacked-logo-dark.svg
+  - uber-eats-icon.svg
+  - uber-eats-logo.svg
+  - uber-eats-logo-dark.svg
+  - pass-uber-eats-logo.svg
+  - pass-uber-eats-logo-dark.svg
+  - pass-uber-eats-logo-monochrome-black.svg
+  - pass-uber-eats-logo-monochrome-white.svg
+  - pass-uber-eats-stacked-logo.svg
+  - pass-uber-eats-stacked-logo-dark.svg
+  - pass-uber-eats-stacked-logo-monochrome-black.svg
+  - pass-uber-eats-stacked-logo-monochrome-white.svg
+  - reddit-symbol.svg
+  - reddit-symbol-dark.svg
+  - reddit-icon.svg
+  - reddit-icon-monochrome-black.svg
+  - reddit-icon-monochrome-white.svg
+  - reddit-icon-alternative.svg
+  - reddit-icon-alternative-monochrome-black.svg
+  - reddit-icon-alternative-monochrome-white.svg
+  - reddit-full-logo.svg
+  - reddit-full-logo-dark.svg
+  - reddit-logo.svg
+  - reddit-logo-monochrome-black.svg
+  - reddit-logo-monochrome-white.svg
+  - smeg-icon.svg
+  - smeg-icon-dark.svg
+  - starbucks-icon.svg
+  - starbucks-logo.svg
+  - starbucks-logo-monochrome-black.svg
+  - starbucks-logo-monochrome-white.svg
+  - visa-logo.svg
+  - visa-logo-monochrome-black.svg
+  - visa-logo-monochrome-white.svg
+  - volvo-icon.svg
+  - volvo-icon-dark.svg
+  - volvo-logo.svg
+  - volvo-logo-dark.svg
 
 ## Dependencies
 - svelte: *5.56.5 ➜ 5.56.6*
