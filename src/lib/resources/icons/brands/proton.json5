@@ -322,6 +322,52 @@
 			}
 		},
 		{
+			name: 'Proton Pass',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'proton-pass-logo.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'proton-pass-logo-dark.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'proton-pass-bg-logo.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'proton-pass-bg-logo-dark.svg',
+					date_added: '2026/6/20',
+					version: '0.7.2',
+					source: {
+						name: 'Proton',
+						href: 'https://proton.me'
+					}
+				}
+			]
+		},
+		{
 			name: 'Proton Authenticator',
 			type: 'icon',
 			default: {
@@ -646,6 +692,15 @@
 			tags: ["Tech","AI"],
 			default: {
 				path: 'proton-lumo-mascot-icon.svg',
+				date_added: '2026/6/20',
+				version: '0.7.2',
+				source: {
+					name: 'Proton',
+					href: 'https://proton.me'
+				}
+			},
+			dark: {
+				path: 'proton-lumo-mascot-bg-icon.svg',
 				date_added: '2026/6/20',
 				version: '0.7.2',
 				source: {
