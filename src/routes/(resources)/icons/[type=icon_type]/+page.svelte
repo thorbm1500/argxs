@@ -1347,7 +1347,7 @@
             height: 60vh;
             max-height: 30rem;
 
-            background: linear-gradient(to bottom, rgb(247 249 252 / .3) 0%, rgb(247 249 252 / .6) 100%);
+            background: linear-gradient(to bottom, rgb(247 249 252 / .5) 0%, rgb(247 249 252 / .75) 100%);
             border-radius: .9rem;
 
             pointer-events: all;
