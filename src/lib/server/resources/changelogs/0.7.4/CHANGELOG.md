@@ -10,4 +10,6 @@
 - *Empty*
 
 ## Dependencies
-- *Empty*
+- svelte: *5.56.5 ➜ 5.56.6*
+- tailwindcss: *4.3.2 ➜ 4.3.3*
+- @tailwindcss/vite: *4.3.2 ➜ 4.3.3*
