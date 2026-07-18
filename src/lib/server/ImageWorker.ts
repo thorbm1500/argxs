@@ -96,6 +96,7 @@ async function generateImage(icon: Icon, path: string): Promise<void> {
 	icon.png = PNG_FILENAME;
 
 	if (!(await Bun.file(PNG_PATH).exists())) {
+		console.log('  Generating PNG...');
 		if (await convertSVGtoPNG(icon, path)) console.info(`  → PNG Generated successfully for: ${icon.path}`);
 		else {
 			console.error(`[ERROR] Failed to generate PNG for: ${icon.path}`);
