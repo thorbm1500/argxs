@@ -527,56 +527,58 @@
 						<h1 class="title" tabindex="-1">Brand Colors</h1>
 						<div class="items">
 							{#each [{ type: 'Primary', colors: highlightedIcon.icon.config.colors?.primary ?? [] }, { type: 'Accent', colors: highlightedIcon.icon.config.colors?.accent ?? [] }, { type: 'General', colors: highlightedIcon.icon.config.colors?.colors ?? []}] as conf}
-								<div class="colors">
-									{#if highlightedIcon.icon.config.colors?.primary?.length || highlightedIcon.icon.config.colors?.accent?.length }
-										<h2 class="color-title" tabindex="-1">{conf.type}</h2>
-									{/if}
-									<div class="brand-colors">
-										{#each highlightedIcon.icon.config.colors?.colors as color (color)}
-											<div class="brand-color">
-												<div class="color" style="background: {color.hex};"></div>
-												<div class="details">
-													<div class="hex">
-														<div class="type">
-															HEX
-														</div>
-														<div class="value">
-															{color.hex}
-														</div>
-													</div>
-													<div class="rgb">
-														<div class="type">
-															RGB
-														</div>
-														<div class="value">
-															{color.rgb}
-														</div>
-													</div>
-													{#if color.cmyk}
-														<div class="cmyk">
+								{#if conf.colors.length}
+									<div class="colors">
+										{#if highlightedIcon.icon.config.colors?.primary?.length || highlightedIcon.icon.config.colors?.accent?.length }
+											<h2 class="color-title" tabindex="-1">{conf.type}</h2>
+										{/if}
+										<div class="brand-colors">
+											{#each conf.colors as color (color)}
+												<div class="brand-color">
+													<div class="color" style="background: {color.hex};"></div>
+													<div class="details">
+														<div class="hex">
 															<div class="type">
-																CMYK
+																HEX
 															</div>
 															<div class="value">
-																{color.cmyk}
+																{color.hex}
 															</div>
 														</div>
-													{/if}
-													{#if color.pantone}
-														<div class="pantone">
+														<div class="rgb">
 															<div class="type">
-																PANTONE
+																RGB
 															</div>
 															<div class="value">
-																{color.pantone}
+																{color.rgb}
 															</div>
 														</div>
-													{/if}
+														{#if color.cmyk}
+															<div class="cmyk">
+																<div class="type">
+																	CMYK
+																</div>
+																<div class="value">
+																	{color.cmyk}
+																</div>
+															</div>
+														{/if}
+														{#if color.pantone}
+															<div class="pantone">
+																<div class="type">
+																	PANTONE
+																</div>
+																<div class="value">
+																	{color.pantone}
+																</div>
+															</div>
+														{/if}
+													</div>
 												</div>
-											</div>
-										{/each}
+											{/each}
+										</div>
 									</div>
-								</div>
+								{/if}
 							{/each}
 						</div>
 						<h3 class="subtitle" tabindex="-1">{highlightedIcon.icon.config.name} ▪ Brand Guidelines</h3>
@@ -1457,6 +1459,7 @@
             border-radius: .9rem;
 
 						backdrop-filter: blur(4px) brightness(1);
+						background: none;
 
             pointer-events: all;
 
