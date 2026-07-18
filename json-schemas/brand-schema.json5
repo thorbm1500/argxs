@@ -63,7 +63,8 @@
           "Finance",
           "E-Commerce",
           "Shopping",
-          "Business"
+          "Business",
+          "Utility"
         ]
       },
       "minItems": 0,
