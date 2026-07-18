@@ -2,10 +2,18 @@
 #### 2026-XX-XX
 
 ## Minor Changes
+  - Sidebar now automatically shows and hides itself depending on the size of the screen
   - Highlighted Icon modal: Updated design of container
 
 ### x New [Brand Icons](https://argxs.com/icons/brands)
-  - *Empty*
+  - **[New]** Modrinth
+  - **[New]** OpenStreetMap
+  - **[New]** YouTube
+    - Incl. YouTube Premium
+    - Incl. YouTube Kids
+    - Incl. YouTube Music
+  - GitHub
+    - Incl. GitHub Universe 2026
 
 ## Bug Fixes
 - **Icons**
