@@ -1,7 +1,7 @@
 {
     name: 'Notion',
     href: 'https://www.notion.com',
-    tags: ["Enterprise"],
+    tags: ["Enterprise","AI"],
     assets: [
         {
             type: 'icon',
