@@ -63,8 +63,10 @@ function integerScaling(attr: SizeAttributes): SizeAttributes {
 async function convertSVGtoPNG(icon: Icon, path: string): Promise<boolean> {
 	try {
 		const sizeAttributes: SizeAttributes = await getSizeAttributes(`client/resources/icons/${path}/${icon.path}`);
+		console.info(`Raw dimensions: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`);
 
-		if (Number.isNaN(sizeAttributes.w) || Number.isNaN(sizeAttributes.h)) {
+		if (Number.isNaN(sizeAttributes.w) || !Number.isFinite(sizeAttributes.w)
+		|| Number.isNaN(sizeAttributes.h) || !Number.isFinite(sizeAttributes.h)) {
 			// noinspection ExceptionCaughtLocallyJS
 			console.error(`Failed to parse width/height. Results: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`);
 		} else {
