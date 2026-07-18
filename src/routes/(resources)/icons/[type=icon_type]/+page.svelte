@@ -1639,7 +1639,6 @@
                             display: flex;
                             flex-flow: row nowrap;
                             align-items: center;
-														align-self: center;
                             justify-content: flex-start;
 														gap: 4rem;
 
