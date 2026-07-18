@@ -64,7 +64,8 @@
           "E-Commerce",
           "Shopping",
           "Enterprise",
-          "Utility"
+          "Utility",
+          "News & Media"
         ]
       },
       "minItems": 0,
