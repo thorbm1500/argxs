@@ -50,21 +50,21 @@ function integerScaling(attr: SizeAttributes): SizeAttributes {
 	while(Number.isInteger(a / 2) && Number.isInteger(b / 2)) {
 		a /= 2;
 		b /= 2;
-		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless division loop!`);
+		if (i++ > 2000) throw new Error(`ImageWorker#integerScaling: Stuck in endless division loop!`);
 	}
 
 	i = 0;
 	attr.w = a; attr.h = b;
 	while (a < 1.0 || b < 1.0) {
 		a *= 10; b *= 10;
-		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! { a: ${a}, b: ${b} } [0]`);
+		if (i++ > 2000) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! { a: ${a}, b: ${b} } [0]`);
 	}
 
 	i = 0;
 	while (attr.w * attr.h < 1000000) {
 		attr.w += a;
 		attr.h += b;
-		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! { w: ${attr.w}, h: ${attr.h} } [1]`);
+		if (i++ > 2000) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! { w: ${attr.w}, h: ${attr.h} } [1]`);
 	}
 
 	return attr;
