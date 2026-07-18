@@ -27,16 +27,22 @@ async function getSizeAttributes(path: string): Promise<SizeAttributes> {
 function integerScaling(attr: SizeAttributes): SizeAttributes {
 	let a: number = attr.w, b: number = attr.h;
 
-	for (let i = 100; i > 0; i--) {
-		if (!Number.isInteger(a / i) || !Number.isInteger(b / i)) continue;
+	console.log(a,b);
 
-		a /= i; b /= i;
-		break;
+	if (Number.isInteger(a) && Number.isInteger(b) && a + b > 200) {
+		for (let i = 100; i > 0; i--) {
+			if (a / i > 0.0 && b / i > 0.0 && (!Number.isInteger(a / i) || !Number.isInteger(b / i))) continue;
+
+			a /= i; b /= i;
+			break;
+		}
+
+		if (a == attr.w || b == attr.h) {
+			a /= 100; b /= 100;
+		}
 	}
 
-	if (a == attr.w || b == attr.h) {
-		a /= 100; b /= 100;
-	}
+	console.log(a,b);
 
 	if (a < 1.0 || b < 1.0) {
 		a *= 10; b *= 10;
@@ -108,7 +114,7 @@ async function generateImage(icon: Icon, path: string): Promise<void> {
 
 	if (!(await Bun.file(PNG_PATH).exists())) {
 		console.log('  Generating PNG...');
-		if (await convertSVGtoPNG(icon, path)) console.info(`  → PNG Generated successfully for: ${icon.path}`);
+		if (await convertSVGtoPNG(icon, path)) console.info(`  → PNG Generated successfully`);
 		else {
 			console.error(`[ERROR] Failed to generate PNG for: ${icon.path}`);
 			icon.png = undefined;
@@ -123,7 +129,7 @@ async function generateImage(icon: Icon, path: string): Promise<void> {
 		try {
 			await Bun.file(PNG_PATH).image().webp({ lossless: true }).write(WEBP_PATH);
 
-			if (await Bun.file(WEBP_PATH).exists()) console.info(`  → WEBP Generated successfully for: ${icon.path}`);
+			if (await Bun.file(WEBP_PATH).exists()) console.info(`  → WEBP Generated successfully`);
 			else {
 				// noinspection ExceptionCaughtLocallyJS
 				throw new Error(`[ERROR] Failed to generate WEBP for: ${icon.path}`);
@@ -141,7 +147,7 @@ async function generateImage(icon: Icon, path: string): Promise<void> {
 		try {
 			await Bun.file(PNG_PATH).image().jpeg({ quality: 80 }).write(JPEG_PATH);
 
-			if (await Bun.file(JPEG_PATH).exists()) console.info(`  → JPEG Generated successfully for: ${icon.path}`);
+			if (await Bun.file(JPEG_PATH).exists()) console.info(`  → JPEG Generated successfully`);
 			else {
 				// noinspection ExceptionCaughtLocallyJS
 				throw new Error(`[ERROR] Failed to generate JPEG for: ${icon.path}`);
