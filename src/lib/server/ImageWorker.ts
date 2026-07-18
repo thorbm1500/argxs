@@ -70,7 +70,7 @@ async function convertSVGtoPNG(icon: Icon, path: string): Promise<boolean> {
 		} else {
 			const dimensions: SizeAttributes = integerScaling(sizeAttributes);
 
-			await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`.quiet();
+			await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`;
 			return true;
 		}
 	} catch (err) {
