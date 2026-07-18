@@ -1384,14 +1384,16 @@
         .glass-effect {
             position: absolute;
             width: 80vw;
-            max-width: 82rem;
+            max-width: 86rem;
 
             min-height: 24rem;
             height: 60vh;
-            max-height: 33rem;
+            max-height: calc(36rem - 1px);
 
             z-index: 40000;
             border-radius: .9rem;
+
+						background: none;
 
             &.a {
                 backdrop-filter: url('#highlighted-icon-distortion-filter') brightness(1.1) saturate(1.35) contrast(1.0025) url('#highlighted-icon-blur-filter') blur(4px);
@@ -1450,11 +1452,11 @@
             overflow: hidden !important;
 
             width: 80vw;
-            max-width: 82rem;
+            max-width: calc(86rem + 1px);
 
             min-height: 24rem;
             height: 60vh;
-            max-height: 33rem;
+            max-height: calc(36rem + 1px);
 
             border-radius: .9rem;
 
