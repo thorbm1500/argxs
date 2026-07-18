@@ -60,7 +60,8 @@ export class Resources {
 					hasNewVariant: false,
 					tags: icon.tags ? icon.tags : current.tags,
 					default: icon.default,
-					variable: icon.variable !== undefined ? icon.variable : []
+					variable: icon.variable !== undefined ? icon.variable : [],
+					config: current
 				} as ResourceIcon;
 
 				this.updateLatestDate(resource);
@@ -124,7 +125,8 @@ export class Resources {
 					hasNewVariant: false,
 					tags: icon.tags ? icon.tags : current.tags,
 					default: icon.default,
-					variable: icon.variable !== undefined ? icon.variable : []
+					variable: icon.variable !== undefined ? icon.variable : [],
+					config: current
 				} as ResourceIcon;
 
 				this.updateLatestDate(resource);

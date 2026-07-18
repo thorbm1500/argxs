@@ -82,7 +82,8 @@ export interface ResourceIcon {
 	/** The dark themed version of the icon */
 	dark?: Icon,
 	/** A list of extra icons, in some way related to this icon */
-	variable: Icon[]
+	variable: Icon[],
+	config: Brand | Flag
 }
 
 declare interface IconConfig {
@@ -103,11 +104,23 @@ declare interface IconConfig {
 	variable: Icon[]
 }
 
+export interface BrandColor {
+	hex: string,
+	rgb: string,
+	cmyk?: string,
+	pantone?: string
+}
+
 export interface Brand {
 	name: string,
 	href?: string,
 	tags: string[],
-	assets: BrandIcon[]
+	assets: BrandIcon[],
+	colors?: {
+		primary?: BrandColor[],
+		accent?: BrandColor[],
+		colors?: BrandColor[]
+	}
 }
 
 export interface BrandIcon extends IconConfig {
@@ -125,6 +138,12 @@ export interface Flag {
 	tags: string[],
 	/** Flags linked to the country, such as the country's national flag, state flags, etc. */
 	flags: FlagIcon[]
+	/** Note: Not to be used. Simply suppresses IDE errors */
+	colors?: {
+		primary?: BrandColor[],
+		accent?: BrandColor[],
+		colors?: BrandColor[]
+	}
 }
 
 export interface FlagIcon extends IconConfig {}
