@@ -1,6 +1,7 @@
 {
 	name: 'Salling Group',
 	href: 'https://www.sallinggroup.com',
+	tags: ["Shopping"],
 	assets: [
 		{
 			type: 'logo',

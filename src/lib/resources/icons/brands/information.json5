@@ -1,6 +1,7 @@
 {
 	name: 'Dagbladet Information',
 	href: 'https://www.information.dk',
+	tags: ["News & Media"],
 	assets: [
 		{
 			type: 'logo',

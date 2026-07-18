@@ -1,6 +1,7 @@
 {
 	name: 'TeamViewer',
 	href: 'https://teamviewer.com',
+	tags: ["Enterprise","Utility"],
 	assets: [
 		{
 			type: 'icon',

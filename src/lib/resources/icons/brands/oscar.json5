@@ -1,7 +1,7 @@
 {
 	name: 'Oscar Biludlejning',
 	href: 'https://hejoscar.dk',
-	tags: ["Automotive"],
+	tags: ["Automotive","E-Commerce"],
 	assets: [
 		{
 			type: 'logo',

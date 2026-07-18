@@ -1,7 +1,7 @@
 {
 	name: 'CrowdStrike',
 	href: 'https://crowdstrike.com',
-	tags: ["Tech"],
+	tags: ["Tech","Enterprise"],
 	assets: [
 		{
 			type: 'logo',
