@@ -49,5 +49,62 @@
 				},
 			}
 		}
-	]
+	],
+	colors: {
+		primary: [
+			{
+				hex: '#000000',
+				rgb: '0 0 0',
+				cmyk: '30 30 30 100'
+			},
+			{
+				hex: '#191919',
+				rgb: '25 25 25',
+				cmyk: '10 10 10 97'
+			},
+			{
+				hex: '#373638',
+				rgb: '55 54 56',
+				cmyk: '8 8 0 90',
+				pantone: 'Black 7'
+			},
+			{
+				hex: '#5F626B',
+				rgb: '95 98 107',
+				cmyk: '56 45 35 38',
+				pantone: 'Cool Grey 10'
+			},
+			{
+				hex: '#8C8C8E',
+				rgb: '140 140 200',
+				cmyk: '3 3 0 56',
+				pantone: '423'
+			},
+			{
+				hex: '#C1C6C8',
+				rgb: '193 198 200',
+				cmyk: '4 0 0 29',
+				pantone: '428'
+			},
+			{
+				hex: '#D4D8DA',
+				rgb: '212 216 218',
+				cmyk: '3 0 0 20',
+				pantone: '427'
+			},
+			{
+				hex: '#FFFFFF',
+				rgb: '255 255 255',
+				cmyk: '0 0 0 0'
+			}
+		],
+		accent: [
+			{
+				hex: '#ECE81A',
+				rgb: '236 232 26',
+				cmyk: '6 0 92 0',
+				pantone: '395 C, 395 U'
+			}
+		]
+	}
 }
