@@ -8,6 +8,7 @@
 			default: {
 				path: 'discord-icon.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-17T17:45+02:00",
 				version: '0.0.1',
 				source: {
 					name: 'Discord',
@@ -18,6 +19,7 @@
 				theme: 'dark',
 				path: 'discord-icon-dark.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-17T17:45+02:00",
 				version: '0.0.1',
 				source: {
 					name: 'Discord',
@@ -30,6 +32,7 @@
 			default: {
 				path: 'discord-logo.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-17T17:45+02:00",
 				version: '0.0.1',
 				source: {
 					name: 'Discord',
@@ -40,6 +43,7 @@
 				theme: 'dark',
 				path: 'discord-logo-dark.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-07-17T17:45+02:00",
 				version: '0.0.1',
 				source: {
 					name: 'Discord',
@@ -47,5 +51,24 @@
 				}
 			}
 		}
-	]
+	],
+	colors: {
+		colors: [
+			{
+				hex: '#5865F2',
+				rgb: '88 101 242',
+				cmyk: '64 58 0 5'
+			},
+			{
+				hex: '#E0E3FF',
+				rgb: '224 227 255',
+				cmyk: '12 11 0 0'
+			},
+			{
+				hex: '#000000',
+				rgb: '0 0 0',
+				cmyk: '0 0 0 100'
+			}
+		]
+	}
 }

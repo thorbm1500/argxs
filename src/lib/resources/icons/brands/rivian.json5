@@ -1,0 +1,72 @@
+{
+	name: 'Rivian',
+	href: 'https://rivian.com',
+	tags: ["Automotive"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'rivian-logo.svg',
+				date_added: '2026/7/18',
+                version: '0.7.4',
+                source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'rivian-logo-dark.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'Brandfetch',
+					href: 'https://brandfetch.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'rivian-logo-monochrome-black.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Rivian',
+						href: 'https://rivian.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'rivian-logo-monochrome-white.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Rivian',
+						href: 'https://rivian.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'rivian-variant-logo.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Rivian',
+						href: 'https://rivian.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'rivian-variant-logo-dark.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Rivian',
+						href: 'https://rivian.com'
+					}
+				}
+			]
+		}
+	]
+}

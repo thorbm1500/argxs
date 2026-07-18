@@ -30,6 +30,14 @@
         "required": ["type","default"],
         "minItems": 1
       }
+    },
+    "colors": {
+      "type": "object",
+      "properties": {
+        "primary": { "$ref": "#/$defs/colors" },
+        "accent": { "$ref": "#/$defs/colors" },
+        "colors": { "$ref": "#/$defs/colors" }
+      }
     }
   },
   "required": ["name","assets"],
@@ -63,7 +71,9 @@
           "Finance",
           "E-Commerce",
           "Shopping",
-          "Business"
+          "Enterprise",
+          "Utility",
+          "News & Media"
         ]
       },
       "minItems": 0,
@@ -128,6 +138,28 @@
         }
       },
       "required": ["path","date_added","version"]
+    },
+    "colors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9a-zA-Z]{3,6}$"
+          },
+          "rgb": {
+            "type": "string",
+            "pattern": "^[0-9]{1,3} [0-9]{1,3} [0-9]{1,3}$"
+          },
+          "cmyk": {
+            "type": "string",
+            "pattern": "^[0-9]{1,3} [0-9]{1,3} [0-9]{1,3} [0-9]{1,3}$"
+          },
+          "pantone": { "type": "string" }
+        },
+        "required": ["hex","rgb"]
+      }
     }
   }
 }

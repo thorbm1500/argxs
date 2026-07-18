@@ -1,7 +1,7 @@
 {
 	name: 'SeeSafe',
 	href: 'https://seesafe.dk',
-	tags: ["Tech"],
+	tags: ["Tech","Enterprise"],
 	assets: [
 		{
 			type: 'logo',

@@ -2,10 +2,13 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import type { Attachment } from 'svelte/attachments';
+	import { innerWidth } from 'svelte/reactivity/window';
 
 	let { theme = $bindable(), pageState = $bindable(), sidebarState = $bindable(), version = 'x.x.x', requests } = $props();
 
-	let isSidebarVisible = $derived(sidebarState);
+	let forceSidebar: boolean = $derived((innerWidth.current ?? 2000) > 2300);
+
+	let isSidebarVisible = $derived(forceSidebar || sidebarState);
 
 	// svelte-ignore state_referenced_locally
 	const formattedRequests = requests.total.toLocaleString('da-DK');

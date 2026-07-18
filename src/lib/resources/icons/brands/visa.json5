@@ -8,6 +8,7 @@
 			default: {
 				path: 'visa-logo.svg',
 				date_added: '2026/4/29',
+				last_modified: "2026-07-17T18:45+02:00",
 				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
@@ -19,6 +20,7 @@
 					theme: 'light',
 					path: 'visa-logo-monochrome-black.svg',
 					date_added: '2026/4/29',
+					last_modified: "2026-07-17T18:45+02:00",
 					version: '0.3.2',
 					source: {
 						name: 'Brandfetch',
@@ -29,6 +31,7 @@
 					theme: 'dark',
 					path: 'visa-logo-monochrome-white.svg',
 					date_added: '2026/4/29',
+					last_modified: "2026-07-17T18:45+02:00",
 					version: '0.3.2',
 					source: {
 						name: 'Brandfetch',

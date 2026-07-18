@@ -33,6 +33,7 @@
 				theme: 'dark',
 				path: 'cloudflare-logo-dark.svg',
 				date_added: '2026/4/11',
+				last_modified: "2026-07-17T16:00+02:00",
                 version: '0.0.2'
             }
 		}

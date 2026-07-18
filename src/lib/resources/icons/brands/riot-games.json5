@@ -1,0 +1,154 @@
+{
+	name: 'Riot Games',
+	href: 'https://www.riotgames.com',
+	tags: ["Gaming","E-Sports"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'riot-games-icon.svg',
+				date_added: '2026/7/18',
+                version: '0.7.4',
+                source: {
+					name: 'Riot Games',
+					href: 'https://www.riotgames.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'riot-games-icon-monochrome-black.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'riot-games-icon-monochrome-white.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'riot-games-variant-icon.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'riot-games-variant-icon-dark.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'riot-games-variant-icon-black.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'riot-games-variant-icon-white.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'riot-games-logo.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'Riot Games',
+					href: 'https://www.riotgames.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'riot-games-logo-monochrome-black.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'riot-games-logo-monochrome-white.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'Riot Games',
+						href: 'https://www.riotgames.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'Valorant',
+			href: 'https://playvalorant.com',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'riot-games-valorant-icon.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'Riot Games',
+					href: 'https://playvalorant.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'riot-games-valorant-icon-dark.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'Riot Games',
+					href: 'https://playvalorant.com'
+				}
+			}
+		},
+		{
+			name: 'League of Legends',
+			href: 'https://www.leagueoflegends.com',
+			type: 'icon',
+			default: {
+				path: 'riot-games-league-of-legends-icon.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'Riot Games',
+					href: 'https://www.leagueoflegends.com'
+				}
+			}
+		}
+	]
+}

@@ -36,7 +36,7 @@ export default defineConfig({
 			trustedOrigins: ['https://argxs.com','https://dev.argxs.com']
 		},
 		version: {
-			name: '0.7.3',
+			name: '0.7.4',
 			pollInterval: 120000
 		}
 	})]

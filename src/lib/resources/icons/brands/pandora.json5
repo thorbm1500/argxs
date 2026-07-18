@@ -1,6 +1,7 @@
 {
 	name: 'Pandora',
 	href: 'https://pandora.net',
+	tags: ["E-Commerce"],
 	assets: [
 		{
 			type: 'icon',

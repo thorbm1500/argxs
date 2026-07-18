@@ -1,0 +1,225 @@
+{
+	name: 'YouTube',
+	href: 'https://youtube.com',
+	tags: ["Entertainment","Social Media"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'youtube-icon.svg',
+				date_added: '2026/7/17',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'youtube-icon-monochrome-black.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'YouTube',
+						href: 'https://youtube.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'youtube-icon-monochrome-white.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'YouTube',
+						href: 'https://youtube.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'youtube-logo.svg',
+				date_added: '2026/7/17',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'youtube-logo-dark.svg',
+				date_added: '2026/7/17',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'youtube-logo-monochrome-black.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'YouTube',
+						href: 'https://youtube.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'youtube-logo-monochrome-white.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'YouTube',
+						href: 'https://youtube.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'YouTube',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'youtube-badge-logo.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'youtube-badge-logo-dark.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'youtube-badge-variant-logo.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'YouTube',
+						href: 'https://youtube.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'youtube-badge-variant-logo-dark.svg',
+					date_added: '2026/7/18',
+					version: '0.7.4',
+					source: {
+						name: 'YouTube',
+						href: 'https://youtube.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'YouTube Premium',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'youtube-premium-logo.svg',
+				date_added: '2026/7/17',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'youtube-premium-logo-dark.svg',
+				date_added: '2026/7/17',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			}
+		},
+		{
+			name: 'YouTube Kids',
+			type: 'icon',
+			default: {
+				path: 'youtube-kids-icon.svg',
+				date_added: '2026/7/17',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			}
+		},
+		{
+			name: 'YouTube Music',
+			type: 'icon',
+			default: {
+				path: 'youtube-music-icon.svg',
+				date_added: '2026/7/17',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			}
+		},
+		{
+			name: 'YouTube Music',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'youtube-music-badge-logo.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'youtube-music-badge-logo-dark.svg',
+				date_added: '2026/7/18',
+				version: '0.7.4',
+				source: {
+					name: 'YouTube',
+					href: 'https://youtube.com'
+				}
+			}
+		}
+	],
+	colors: {
+		primary: [
+			{
+				hex: '#FF0033',
+				rgb: '255 0 51',
+				cmyk: '0 100 80 0'
+			},
+			{
+				hex: '#212121',
+				rgb: '33 33 33',
+				cmyk: '0 0 0 87'
+			},
+			{
+				hex: '#FFFFFF',
+				rgb: '255 255 255',
+				cmyk: '0 0 0 0'
+			}
+		]
+	}
+}

@@ -1,6 +1,6 @@
 <!--svelte-ignore state_referenced_locally-->
 <script lang="ts">
-	import type { HighlightIcon, Icon, PageTheme, ResourceIcon } from '$lib/components/interfaces';
+	import type { HighlightIcon, Icon, PageTheme, ResourceIcon, Brand } from '$lib/components/interfaces';
 	import { flip } from 'svelte/animate';
 	import { getContext, onMount, tick } from 'svelte';
 	import BrandIconComponent from '$lib/components/BrandIconComponent.svelte';
@@ -10,7 +10,7 @@
 	import moment from 'moment';
 	import { copyToClipboard, generateHash } from '$lib/utilities';
 	import { page } from '$app/state';
-	import { beforeNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import GlassButton from '$lib/components/GlassButton.svelte';
 	import hljs from '@highlightjs/cdn-assets/es/core.min.js';
 	import xml from '@highlightjs/cdn-assets/es/languages/xml.min.js';
@@ -18,6 +18,13 @@
 	import { MediaQuery } from 'svelte/reactivity';
 
 	const { data } = $props();
+
+	afterNavigate(() => {
+		while(allFilters.length) {
+			allFilters.pop();
+		}
+		data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
+	});
 
 	const getTheme = getContext('theme') as Function;
 	let theme: PageTheme = $derived(getTheme !== undefined ? getTheme() : 'dark');
@@ -302,6 +309,7 @@
 	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon?.iconIndex[highlightedIcon.currentIcon] ?? undefined);
 	let hPreviousIcon: Icon | undefined = $state(undefined);
 	let iconContainerOpened: number | null = null;
+	let showBrandColors: boolean = $state(false);
 	let iconMeta: boolean = $state(false);
 	let backgroundLight: boolean = $state(localStorage.getItem('icons#background_light') !== null ? Boolean(localStorage.getItem('icons#background_light') === 'true') : !new MediaQuery('prefers-reduced-transparency', false).current);
 	let currentSVG = $state('');
@@ -391,6 +399,7 @@
 		highlightedIcon = undefined;
 		iconContainerOpened = null;
 		currentSVG = '';
+		showBrandColors = false;
 		iconMeta = false;
 	}
 
@@ -482,7 +491,7 @@
 						</svg>
 					{/if}
 				</button>
-				<button title="{iconMeta ? 'Hide' : 'Show'} icon meta" class="meta-button" onclick="{() => iconMeta = !iconMeta}">
+				<button title="{iconMeta ? 'Hide' : 'Show'} icon meta" class="meta-button" onclick="{() => { iconMeta = !iconMeta; showBrandColors = false }}">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M7 8l-4 4l4 4" />
 						{#if iconMeta}
@@ -491,16 +500,96 @@
 						{:else}
 							<path d="M17 8l4 4l-2.5 2.5" />
 							<path d="M14 4l-1.201 4.805m-.802 3.207l-2 7.988" />
-							<path in:draw={{delay: prefersReducedMotion.current ? 0 : 50, duration: prefersReducedMotion.current ? 0 : 250, easing: cubicOut}} d="M3 3l18 18" />
+							<path transition:draw={{ duration: prefersReducedMotion.current ? 0 : 200, easing: cubicOut}} d="M3 3l18 18" />
 						{/if}
 					</svg>
 				</button>
-				<div class="left">
-					{#key hCurrentIcon.path}
+				{#if highlightedIcon?.icon?.config.colors }
+					<button title="{showBrandColors ? 'Hide' : 'Show'} icon brand-colors" class="brand-colors-button" onclick="{() => { showBrandColors = !showBrandColors; iconMeta = false }}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							{#if showBrandColors}
+								<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
+								<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9" />
+								<path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12" />
+								<path d="M17 17l0 .01" />
+							{:else}
+								<path d="M13 13v4a4 4 0 0 0 6.832 2.825m1.168 -2.825v-12a2 2 0 0 0 -2 -2h-4a2 2 0 0 0 -2 2v4" />
+								<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.11 -.461m-2.13 1.874l-1.416 1.415a2 2 0 0 0 0 2.828l9 9" />
+								<path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12" />
+								<path d="M17 17v.01" />
+								<path transition:draw={{ duration: prefersReducedMotion.current ? 0 : 200, easing: cubicOut }} d="M3 3l18 18" />
+							{/if}
+						</svg>
+					</button>
+				{/if}
+				{#if showBrandColors}
+					<div class="h-brand-colors" in:fade|global={{ duration: prefersReducedMotion.current ? 0 : 250 }}>
+						<h1 class="title" tabindex="-1">Brand Colors</h1>
+						<div class="items">
+							{#each [{ type: 'Primary', colors: highlightedIcon.icon.config.colors?.primary ?? [] }, { type: 'Accent', colors: highlightedIcon.icon.config.colors?.accent ?? [] }, { type: 'General', colors: highlightedIcon.icon.config.colors?.colors ?? []}] as conf}
+								{#if conf.colors.length}
+									<div class="colors">
+										{#if highlightedIcon.icon.config.colors?.primary?.length || highlightedIcon.icon.config.colors?.accent?.length }
+											<h2 class="color-title" tabindex="-1">{conf.type}</h2>
+										{/if}
+										<div class="brand-colors">
+											{#each conf.colors as color (color)}
+												<div class="brand-color">
+													<div class="color" style="background: {color.hex};"></div>
+													<div class="details">
+														<div class="hex">
+															<div class="type">
+																HEX
+															</div>
+															<div class="value">
+																{color.hex}
+															</div>
+														</div>
+														<div class="rgb">
+															<div class="type">
+																RGB
+															</div>
+															<div class="value">
+																{color.rgb}
+															</div>
+														</div>
+														{#if color.cmyk}
+															<div class="cmyk">
+																<div class="type">
+																	CMYK
+																</div>
+																<div class="value">
+																	{color.cmyk}
+																</div>
+															</div>
+														{/if}
+														{#if color.pantone}
+															<div class="pantone">
+																<div class="type">
+																	PANTONE
+																</div>
+																<div class="value">
+																	{color.pantone}
+																</div>
+															</div>
+														{/if}
+													</div>
+												</div>
+											{/each}
+										</div>
+									</div>
+								{/if}
+							{/each}
+						</div>
+						<h3 class="subtitle" tabindex="-1">{highlightedIcon.icon.config.name} ▪ Brand Guidelines</h3>
+					</div>
+				{:else}
+					<div class="left">
+					{#key hCurrentIcon.path }
 						<div class="img-fx" inert>
 							<img in:fade|global={{duration: prefersReducedMotion.current ? 0 : 500}} src="/resources/icons/{iconType}/{hCurrentIcon?.path}" alt={hCurrentIcon?.name} loading="lazy" />
 						</div>
-						{#if iconMeta}
+						{#if iconMeta }
 							<div in:fade|global={{duration: prefersReducedMotion.current ? 0 : 200}} class="icon-meta">
 								<p class="meta last-updated" tabindex="-1">Last Modified {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.last_modified ?? '')).calendar()}</p>
 								<p class="meta date_added" tabindex="-1">Added {moment(Date.parse(highlightedIcon.iconIndex[highlightedIcon.currentIcon]?.date_added ?? '')).calendar()}</p>
@@ -517,7 +606,7 @@
 							<img in:fade|global={{duration: prefersReducedMotion.current ? 0 : 350}} src="/resources/icons/{iconType}/{hCurrentIcon?.path}" alt={hCurrentIcon?.name} loading="lazy" inert />
 						{/if}
 					{/key}
-					{#if highlightedIcon.iconIndex.length > 1}
+					{#if highlightedIcon.iconIndex.length > 1 }
 						<div class="current-icon-index" inert>
 							<p>{highlightedIcon.currentIcon + 1}/{highlightedIcon.iconIndex.length}</p>
 						</div>
@@ -526,7 +615,7 @@
 									currentSVG = '';
 									if (!highlightedIcon) return;
 									highlightedIcon.currentIcon = highlightedIcon.currentIcon > 0 ? highlightedIcon.currentIcon - 1 : highlightedIcon.iconIndex.length - 1;
-							}}">
+							}}" in:fade|global={{ duration: prefersReducedMotion.current ? 0 : 125 }}>
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 									<path
 										d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10a10 10 0 1 1 0 -20m2 13v-6a1 1 0 0 0 -1.707 -.708l-3 3a1 1 0 0 0 0 1.415l3 3a1 1 0 0 0 1.414 0l.083 -.094c.14 -.18 .21 -.396 .21 -.613" />
@@ -536,7 +625,7 @@
 									currentSVG = '';
 									if (!highlightedIcon) return;
 									if (highlightedIcon.currentIcon < highlightedIcon.iconIndex.length - 1) highlightedIcon.currentIcon++;
-									else highlightedIcon.currentIcon = 0;}}">
+									else highlightedIcon.currentIcon = 0;}}" in:fade|global={{ duration: prefersReducedMotion.current ? 0 : 125 }}>
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 									<path
 										d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-5.293 4.953a1 1 0 0 0 -1.707 .707v6c0 .217 .07 .433 .21 .613l.083 .094a1 1 0 0 0 1.414 0l3 -3a1 1 0 0 0 0 -1.414z" />
@@ -545,8 +634,8 @@
 						</div>
 					{/if}
 				</div>
-				<div class="separator" inert></div>
-				<div class="right">
+					<div class="separator" inert></div>
+					<div class="right" in:fade|global={{ duration: prefersReducedMotion.current ? 0 : 100 }}>
 					{#if highlightedIcon.icon.href || hCurrentIcon?.href}
 						<a class="brand-external {hCurrentIcon?.name || highlightedIcon.icon.title !== highlightedIcon.icon.name ? 'top' : 'bottom'} theme-transition"
 						   href={hCurrentIcon?.href ?? highlightedIcon.icon.href} rel="external" target="_blank" tabindex="2">
@@ -633,11 +722,12 @@
 						{/each}
 					</div>
 				</div>
+				{/if}
 			{/key}
 		</div>
 	</div>
 	{#if !backgroundLight}
-		<div style="position: absolute; z-index: 49999; top: 0; left: 0; width: 100vw; height: 100vh; background: none;"></div>
+		<div style="position: fixed; z-index: 49999; top: 0; left: 0; width: 100vw; height: 100vh; background: none;"></div>
 	{/if}
 {/if}
 
@@ -1188,6 +1278,44 @@
         }
     }
 
+		@media (prefers-reduced-motion: no-preference) {
+        .highlighted-icon {
+						.h-icon {
+                .h-brand-colors .items .brand-color .color {
+                    @starting-style {
+                        transform: scale(.925) !important;
+                        filter: blur(.1rem) brightness(.5) !important;
+                    }
+                    transform: scale(1);
+                    filter: none;
+                    transition: transform 275ms ease-out, filter 350ms ease-out;
+                }
+
+								.left img {
+                    @starting-style {
+                        transform: scale(.915) !important;
+                        filter: blur(.2rem) brightness(.5) !important;
+                    }
+                    transform: scale(1);
+                    filter: none;
+                    transition: transform 225ms ease-out, filter 350ms ease-out;
+								}
+						}
+
+            .glass-effect, .h-icon {
+                transform: scale(1);
+                opacity: 1;
+                transition: transform 175ms ease,
+                opacity 175ms ease;
+
+                @starting-style {
+                    transform: scale(.925);
+                    opacity: 0;
+                }
+            }
+				}
+		}
+
     .search-field :global .search-field {
         position: relative !important;
         z-index: 1000 !important;
@@ -1253,29 +1381,19 @@
             transition: background-color var(--theme-transition-single-on);
         }
 
-        .glass-effect, .h-icon {
-            transform: scale(1);
-            opacity: 1;
-            transition: transform 175ms ease,
-            opacity 175ms ease;
-
-            @starting-style {
-                transform: scale(.925);
-                opacity: 0;
-            }
-        }
-
         .glass-effect {
             position: absolute;
             width: 80vw;
-            max-width: 82rem;
+            max-width: 86rem;
 
             min-height: 24rem;
             height: 60vh;
-            max-height: 30rem;
+            max-height: calc(36rem - 1px);
 
             z-index: 40000;
             border-radius: .9rem;
+
+						background: none;
 
             &.a {
                 backdrop-filter: url('#highlighted-icon-distortion-filter') brightness(1.1) saturate(1.35) contrast(1.0025) url('#highlighted-icon-blur-filter') blur(4px);
@@ -1334,20 +1452,22 @@
             overflow: hidden !important;
 
             width: 80vw;
-            max-width: 82rem;
+            max-width: calc(86rem + 1px);
 
             min-height: 24rem;
             height: 60vh;
-            max-height: 30rem;
+            max-height: calc(36rem + 1px);
 
-            background: linear-gradient(to bottom, rgb(247 249 252 / .3) 0%, rgb(247 249 252 / .6) 100%);
             border-radius: .9rem;
+
+						backdrop-filter: blur(4px) brightness(1);
+						background: none;
 
             pointer-events: all;
 
             z-index: 49999;
 
-            .light-button, .close-button, .meta-button {
+            .light-button, .close-button, .meta-button, .brand-colors-button {
                 position: absolute;
                 top: 1rem;
             }
@@ -1361,12 +1481,20 @@
 
                 svg {
                     transform: translateY(1px);
-                    width: 1.45rem;
-                    height: 1.45rem;
                 }
             }
 
-            .light-button, .meta-button {
+            .brand-colors-button {
+                left: 4.475rem;
+
+                svg {
+										transform: translateY(1px);
+                    width: 1.45rem !important;
+                    height: 1.45rem !important;
+                }
+            }
+
+            .light-button, .meta-button, .brand-colors-button {
                 &:hover svg {
                     color: var(--theme-ui-icon-highlight);
 
@@ -1441,6 +1569,131 @@
                     }
                 }
             }
+
+						.h-brand-colors {
+								display: flex;
+								flex-flow: column nowrap;
+								justify-content: flex-start;
+
+								width: 100%;
+								height: 100%;
+								padding: 6% 2rem 4.65% 2.5rem;
+
+								background: oklch(from var(--theme-color-secondary) l c h / .03);
+
+								.title {
+										font-size: 2.5rem;
+										margin-bottom: .5rem;
+                    user-select: none;
+								}
+
+                .subtitle {
+										position: absolute;
+										bottom: 1.25rem;
+                    color: var(--theme-text-fourth);
+                    font-size: .75rem;
+                }
+
+								.items {
+										display: flex;
+										flex-flow: column nowrap;
+										align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 2.5rem;
+
+										width: inherit;
+										height: inherit;
+
+                    overflow: hidden;
+                    overflow-y: auto;
+
+										padding: .5rem 0;
+
+                    mask-image: linear-gradient(to top, transparent 0%, black 1%, black 99%, transparent 100%);
+
+										.colors {
+												display: flex;
+												flex-flow: column nowrap;
+												width: inherit;
+
+												padding: 0 .35rem;
+
+												mask-image: linear-gradient(to top, transparent 0%, black 4%, black 96%, transparent 100%);
+
+                       	&::after {
+                            content: '';
+                            height: .3rem;
+                            width: 100%;
+                            background-image: linear-gradient(to bottom, transparent 0%, transparent 10%, oklch(from var(--theme-color-secondary) l c h / .5) 40%, oklch(from var(--theme-color-secondary) l c h / 1) 50%, oklch(from var(--theme-color-secondary) l c h / .5) 60%, transparent 90%, transparent 100%);
+                        }
+
+												.color-title {
+														color: var(--theme-text-third);
+														margin-bottom: .25rem;
+                            user-select: none;
+														text-transform: uppercase;
+														font-size: .95rem;
+												}
+
+												.brand-colors {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            align-items: center;
+                            justify-content: flex-start;
+														gap: 4rem;
+
+                            width: fit-content;
+														max-width: 100%;
+                            height: fit-content;
+
+                            overflow: hidden;
+                            overflow-x: auto;
+
+														padding: .5rem .5rem 1rem .5rem;
+
+                            mask-image: linear-gradient(to right, transparent 0%, black .5%, black 99.5%, transparent 100%);
+												}
+
+                        .brand-color {
+														display: flex;
+														flex-flow: row nowrap;
+														align-items: center;
+														padding: .5rem 0;
+
+														.color {
+																border-radius: 1.05rem;
+																width: 4.1rem;
+																height: 4.1rem;
+																margin-right: 1.35rem;
+														}
+
+														.hex, .rgb, .cmyk, .pantone {
+																display: flex;
+																flex-flow: row nowrap;
+                                width: fit-content;
+																min-width: 14rem !important;
+																height: 100%;
+
+																font-size: .925rem;
+
+																.type {
+																		width: 5rem;
+																		color: var(--theme-text-third);
+																		font-weight: 650;
+																		user-select: none;
+																}
+																.value {
+																		color: var(--theme-text-primary);
+																		font-weight: 450;
+																		width: 8rem;
+																		text-align: end;
+																		user-select: all;
+																}
+														}
+                        }
+										}
+								}
+						}
 
             .right, .left {
                 display: flex;
@@ -2152,6 +2405,8 @@
             }
 
             input {
+                width: 100%;
+
                 font-family: 'Geologica', 'Google Sans', sans-serif;
                 font-weight: 500;
                 color: var(--theme-text-third);
@@ -2360,5 +2615,14 @@
 						transform: scale(1);
 				}
 		}
+
+    @keyframes ScrollAnimation {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
 </style>
 <!--suppress CssUnusedSymbol -->

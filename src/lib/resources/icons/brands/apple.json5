@@ -9,7 +9,7 @@
 				theme: 'light',
 				path: 'apple-icon.svg',
 				date_added: '2026/4/29',
-				last_modified: "2026-07-15T10:45+02:00",
+				last_modified: "2026-07-17T16:00+02:00",
 				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
@@ -20,7 +20,7 @@
 				theme: 'dark',
 				path: 'apple-icon-dark.svg',
 				date_added: '2026/4/29',
-				last_modified: "2026-07-15T10:45+02:00",
+				last_modified: "2026-07-17T16:00+02:00",
 				version: '0.3.2',
 				source: {
 					name: 'Brandfetch',
