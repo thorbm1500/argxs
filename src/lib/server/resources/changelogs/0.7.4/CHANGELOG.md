@@ -10,6 +10,7 @@
 ### x New [Brand Icons](https://argxs.com/icons/brands)
   - **[New]** Rivian
   - **[New]** Modrinth
+  - **[New]** Notion
   - **[New]** n8n
   - **[New]** OpenStreetMap
   - **[New]** YouTube
