@@ -205,7 +205,7 @@ async function processCleanup(list: ResourceIcon[], path: string): Promise<void>
 }
 
 export default async function processImages(): Promise<void> {
-	Bun.$.nothrow();
+	//Bun.$.nothrow();
 
 	const startTime: number = Bun.nanoseconds();
 	console.info('Image processing initiating...');
