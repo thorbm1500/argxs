@@ -2,12 +2,15 @@
 #### 2026-XX-XX
 
 ## Minor Changes
+  - **Icons**
+    - Tag "Business" changed to "Enterprise"
   - Sidebar now automatically shows and hides itself depending on the size of the screen
   - Highlighted Icon modal: Updated design of container
 
 ### x New [Brand Icons](https://argxs.com/icons/brands)
   - **[New]** Rivian
   - **[New]** Modrinth
+  - **[New]** n8n
   - **[New]** OpenStreetMap
   - **[New]** YouTube
     - Incl. YouTube Premium
