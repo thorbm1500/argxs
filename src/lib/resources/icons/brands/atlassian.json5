@@ -1,7 +1,7 @@
 {
 	name: 'Atlassian',
 	href: 'https://www.atlassian.com',
-	tags: ["Business"],
+	tags: ["Enterprise"],
 	assets: [
 		{
 			type: 'icon',

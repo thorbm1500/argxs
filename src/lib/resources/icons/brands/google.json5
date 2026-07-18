@@ -321,7 +321,7 @@
 			name: 'Google Workspace',
 			href: 'https://workspace.google.com',
 			type: 'logo',
-			tags: ["Business"],
+			tags: ["Enterprise"],
 			default: {
 				path: 'google-workspace-logo.svg',
 				date_added: '2026/4/25',
