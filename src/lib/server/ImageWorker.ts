@@ -46,15 +46,19 @@ function integerScaling(attr: SizeAttributes): SizeAttributes {
 		a = Math.round(a) * 10; b = Math.round(b) * 10;
 	}
 
+	let i = 0;
 	while(Number.isInteger(a / 2) && Number.isInteger(b / 2)) {
 		a /= 2;
 		b /= 2;
+		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless division loop!`);
 	}
 
+	i = 0;
 	attr.w = a; attr.h = b;
 	while (attr.w * attr.h < 1000000) {
 		attr.w += a;
 		attr.h += b;
+		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop!`);
 	}
 
 	return attr;
