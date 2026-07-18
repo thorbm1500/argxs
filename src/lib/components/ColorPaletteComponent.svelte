@@ -40,11 +40,11 @@
 			justify-content: space-between;
 
 			.box {
-				width: 4.5rem;
-				height: 4.5rem;
+				width: 4rem;
+				height: 4rem;
 				border-radius: 0.7rem;
 
-				background-color: #fff;
+				background-color: transparent;
 
 				cursor: copy;
 
