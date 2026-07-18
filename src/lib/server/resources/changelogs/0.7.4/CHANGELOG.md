@@ -1,15 +1,25 @@
 # Version 0.7.4
-#### 2026-XX-XX
+#### 2026-07-18
+
+## New Features
+### Brand Guidelines
+Brand Guidelines are now available. At the time of this release, only 4 brands have Brand Guidelines available.
+Brand Guidelines current only offer Brand Colors, and will only have these available if official brand guidelines have been published by the brand.
 
 ## Minor Changes
-  - **Icons**
-    - Tag "Business" changed to "Enterprise"
-  - Sidebar now automatically shows and hides itself depending on the size of the screen
-  - Highlighted Icon modal: Updated design of container
+- **Icons**
+  - Tag "Business" changed to "Enterprise"
+  - New animations making the experience feel smoother and more responsive
+- Sidebar now automatically shows and hides itself depending on the size of the screen
+- Highlighted Icon modal: Updated design of container
 
-### x New [Brand Icons](https://argxs.com/icons/brands)
+### New Brand Resources
+- **75 New Icons**
   - **[New]** Rivian
+  - **[New]** Fanatec
   - **[New]** Riot Games
+    - Incl. Valorant
+    - Incl. League of Legends
   - **[New]** Modrinth
   - **[New]** Notion
   - **[New]** n8n
@@ -20,6 +30,11 @@
     - Incl. YouTube Music
   - GitHub
     - Incl. GitHub Universe 2026
+- **New Brand Guidelines**
+  - Corsair Brand Guidelines
+  - Discord Brand Guidelines
+  - YouTube Brand Guidelines
+  - VK Brand Guidelines
 
 ## Bug Fixes
 - **Icons**
