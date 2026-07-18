@@ -57,14 +57,14 @@ function integerScaling(attr: SizeAttributes): SizeAttributes {
 	attr.w = a; attr.h = b;
 	while (a < 1.0 || b < 1.0) {
 		a *= 10; b *= 10;
-		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! [0]`);
+		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! { a: ${a}, b: ${b} } [0]`);
 	}
 
 	i = 0;
 	while (attr.w * attr.h < 1000000) {
 		attr.w += a;
 		attr.h += b;
-		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! [1]`);
+		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! { w: ${attr.w}, h: ${attr.h} } [1]`);
 	}
 
 	return attr;
@@ -73,7 +73,6 @@ function integerScaling(attr: SizeAttributes): SizeAttributes {
 async function convertSVGtoPNG(icon: Icon, path: string): Promise<boolean> {
 	try {
 		const sizeAttributes: SizeAttributes = await getSizeAttributes(`client/resources/icons/${path}/${icon.path}`);
-		console.info(`Raw dimensions: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`);
 
 		if (Number.isNaN(sizeAttributes.w) || !Number.isFinite(sizeAttributes.w)
 		|| Number.isNaN(sizeAttributes.h) || !Number.isFinite(sizeAttributes.h)) {
@@ -81,7 +80,6 @@ async function convertSVGtoPNG(icon: Icon, path: string): Promise<boolean> {
 			console.error(`Failed to parse width/height. Results: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`);
 		} else {
 			const dimensions: SizeAttributes = integerScaling(sizeAttributes);
-			console.info(`Generating PNG with dimensions: { w: ${dimensions.w}, h: ${dimensions.h} }`);
 
 			await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`.quiet();
 			return true;
@@ -218,7 +216,7 @@ async function processCleanup(list: ResourceIcon[], path: string): Promise<void>
 }
 
 export default async function processImages(): Promise<void> {
-	//Bun.$.nothrow();
+	Bun.$.nothrow();
 
 	const startTime: number = Bun.nanoseconds();
 	console.info('Image processing initiating...');
