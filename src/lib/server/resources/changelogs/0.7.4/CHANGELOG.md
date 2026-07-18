@@ -9,6 +9,7 @@
 
 ### x New [Brand Icons](https://argxs.com/icons/brands)
   - **[New]** Rivian
+  - **[New]** Riot Games
   - **[New]** Modrinth
   - **[New]** Notion
   - **[New]** n8n
