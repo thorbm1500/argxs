@@ -69,8 +69,9 @@ async function convertSVGtoPNG(icon: Icon, path: string): Promise<boolean> {
 			console.error(`Failed to parse width/height. Results: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`);
 		} else {
 			const dimensions: SizeAttributes = integerScaling(sizeAttributes);
+			console.info(`Generating PNG with dimensions: { w: ${dimensions.w}, h: ${dimensions.h} }`);
 
-			await Bun.$`inkscape/AppRun -w ${dimensions.w} -h ${dimensions.h} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`;
+			await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`.quiet();
 			return true;
 		}
 	} catch (err) {
