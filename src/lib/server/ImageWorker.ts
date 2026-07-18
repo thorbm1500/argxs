@@ -55,10 +55,16 @@ function integerScaling(attr: SizeAttributes): SizeAttributes {
 
 	i = 0;
 	attr.w = a; attr.h = b;
+	while (a < 1.0 || b < 1.0) {
+		a *= 10; b *= 10;
+		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! [0]`);
+	}
+
+	i = 0;
 	while (attr.w * attr.h < 1000000) {
 		attr.w += a;
 		attr.h += b;
-		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop!`);
+		if (i++ > 100) throw new Error(`ImageWorker#integerScaling: Stuck in endless multiplication loop! [1]`);
 	}
 
 	return attr;
