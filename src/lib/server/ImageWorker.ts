@@ -66,18 +66,18 @@ async function convertSVGtoPNG(icon: Icon, path: string): Promise<boolean> {
 
 		if (Number.isNaN(sizeAttributes.w) || Number.isNaN(sizeAttributes.h)) {
 			// noinspection ExceptionCaughtLocallyJS
-			throw new Error(`Failed to parse width/height. Results: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`)
+			console.error(`Failed to parse width/height. Results: { w: ${sizeAttributes.w}, h: ${sizeAttributes.h} }`);
+		} else {
+			const dimensions: SizeAttributes = integerScaling(sizeAttributes);
+
+			await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`.quiet();
+			return true;
 		}
-
-		const dimensions: SizeAttributes = integerScaling(sizeAttributes);
-
-		await Bun.$`inkscape/AppRun -w ${dimensions.w.toFixed()} -h ${dimensions.h.toFixed()} --export-png-compression=7 --export-type=png client/resources/icons/${path}/${icon.path} -o client/resources/data/icons/${path}/png/${getExtension(icon.path, '.png')}`.quiet();
 	} catch (err) {
 		console.error(err);
-		return false;
 	}
 
-	return true;
+	return false;
 }
 
 async function generateImage(icon: Icon, path: string): Promise<void> {
