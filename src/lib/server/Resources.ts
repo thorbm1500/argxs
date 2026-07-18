@@ -48,19 +48,8 @@ export class Resources {
 			this.BRAND_AMOUNT++;
 
 			if (!current.tags) current.tags = [];
-			else {
-				for (const tag of current.tags) {
-					if (!this.BRAND_ALL_TAGS.includes(tag)) this.BRAND_ALL_TAGS.push(tag);
-				}
-			}
 
 			for (const icon of current.assets) {
-				if (icon.tags) {
-					for (const tag of icon.tags) {
-						if (!this.BRAND_ALL_TAGS.includes(tag)) this.BRAND_ALL_TAGS.push(tag);
-					}
-				}
-
 				const resource = {
 					title: current.name,
 					name: icon.name ?? current.name,
@@ -111,6 +100,8 @@ export class Resources {
 
 		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
+
+		this.BRAND_ALL_TAGS.push(...(await Bun.file(root.concat('/json-schemas/brand-schema.json5')).json())["$defs"]["tags"]["items"]["enum"]);
 	}
 
 	private async loadFlagIcons(): Promise<void> {
@@ -122,19 +113,8 @@ export class Resources {
 			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
 
 			if (!current.tags) current.tags = [];
-			else {
-				for (const tag of current.tags) {
-					if (!this.FLAG_ALL_TAGS.includes(tag)) this.FLAG_ALL_TAGS.push(tag);
-				}
-			}
 
 			for (const icon of current.flags) {
-				if (icon.tags) {
-					for (const tag of icon.tags) {
-						if (!this.FLAG_ALL_TAGS.includes(tag)) this.FLAG_ALL_TAGS.push(tag);
-					}
-				}
-
 				const resource: ResourceIcon = {
 					title: current.name,
 					name: icon.name ?? current.name,
@@ -170,6 +150,8 @@ export class Resources {
 
 		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
+
+		this.FLAG_ALL_TAGS.push(...(await Bun.file(root.concat('/json-schemas/flag-schema.json5')).json())["$defs"]["tags"]["items"]["enum"]);
 	}
 
 	private updateLatestDate(icon: ResourceIcon): void {
