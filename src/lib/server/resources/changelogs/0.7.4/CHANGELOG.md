@@ -6,6 +6,7 @@
   - Highlighted Icon modal: Updated design of container
 
 ### x New [Brand Icons](https://argxs.com/icons/brands)
+  - **[New]** Rivian
   - **[New]** Modrinth
   - **[New]** OpenStreetMap
   - **[New]** YouTube
