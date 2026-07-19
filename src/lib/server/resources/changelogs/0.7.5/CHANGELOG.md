@@ -14,4 +14,4 @@
 - *Empty*
 
 ## Dependencies
-- *Empty*: *x.x.x ➜ x.x.x*
+- @sveltejs/kit: *2.70.0 ➜ 2.70.1*
