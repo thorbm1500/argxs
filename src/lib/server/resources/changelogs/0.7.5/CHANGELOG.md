@@ -6,9 +6,9 @@
 
 ### New Brand Resources
 - **x New Icons**
-  - *Empty*
+  - Twitch
 - **New Brand Guidelines**
-  - *Empty*
+  - Twitch
 
 ## Bug Fixes
 - *Empty*
