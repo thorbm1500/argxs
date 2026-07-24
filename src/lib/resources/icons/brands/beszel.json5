@@ -1,0 +1,41 @@
+{
+	name: 'Beszel',
+	href: 'https://beszel.dev',
+	tags: ["Tech","Enterprise"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'beszel-logo.svg',
+				date_added: '2026/7/19',
+                version: '0.8.0',
+                source: {
+					name: 'Beszel',
+					href: 'https://beszel.dev'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'beszel-logo-monochrome-black.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Beszel',
+						href: 'https://beszel.dev'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'beszel-logo-monochrome-white.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Beszel',
+						href: 'https://beszel.dev'
+					}
+				}
+			]
+		}
+	]
+}
