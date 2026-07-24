@@ -12,7 +12,6 @@
 	const { data } = $props();
 
 	let slider: HTMLDivElement | undefined = $state();
-	let sliderKnobPosX: number = $state(0);
 	let canvas: HTMLCanvasElement | undefined = $state();
 	let canvasRect: DOMRect | undefined = $derived(canvas?.getBoundingClientRect() ?? undefined);
 	let hexInput: HTMLInputElement | undefined = $state();
@@ -33,6 +32,8 @@
 	 * Allows the user to position the cursor inside the canvas, without the selected color updating. */
 	let _hsv = $state({ h: 237, s: 54, v: 100 });
 
+	let sliderKnobPosX: number = $state(0);
+
 	let inputHEX: string = $state('');
 	let inputRGB: string = $state('');
 	let inputHSL: string = $state('');
@@ -42,9 +43,11 @@
 	let color: Colord = $state(colord({ r: 117, g: 124, b: 255 }));
 	let colorScale: Function = $derived(chroma.scale([colord({ h: color.toHsv().h, s: 0, v: 100 }).toHex(),color.toHex()]));
 
-	let sliderColor: string = $derived(colord({ h: color.toHsv().h, s: 100, l: 100 }).toHex());
-
-	function updateColorUI(_color: Colord) {
+	function updateColorUI(_color: Colord, update_hsv: boolean = false) {
+		if (update_hsv) {
+			_hsv = _color.toHsv();
+			if (slider) sliderKnobPosX = _hsv.h * ((slider.getBoundingClientRect().width - slider.getBoundingClientRect().left) / 360);
+		}
 		inputHEX = _color.toHex().toUpperCase();
 		inputRGB = `${(_color.toRgb().r).toFixed(0)} ${(_color.toRgb().g).toFixed(0)} ${(_color.toRgb().b).toFixed(0)}`;
 		inputHSL = `${_color.toHsl().h} ${_color.toHsl().s}% ${_color.toHsl().l}%`;
@@ -139,11 +142,17 @@
 				if (hexInput.value.length > 7) hexInput.value = hexInput.value.substring(0,7);
 
 				// Sets the color if a paste was performed
-				if (event.inputType === 'insertFromPaste') color = colord(hexInput.value);
+				if (event.inputType === 'insertFromPaste') {
+					color = colord(hexInput.value);
+					updateColorUI(color, true);
+				}
 			});
 			hexInput.addEventListener('keypress', (event: KeyboardEvent) => {
 				// Sets the color if the Enter key was pressed
-				if (hexInput && event.key === 'Enter') color = colord(hexInput.value);
+				if (hexInput && event.key === 'Enter') {
+					color = colord(hexInput.value);
+					updateColorUI(color, true);
+				}
 			});
 		}
 		if (rgbInput) {
@@ -161,6 +170,7 @@
 				if (event.inputType === 'insertFromPaste') {
 					const values = rgbInput.value.split(' ');
 					color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') })
+					updateColorUI(color, true);
 				}
 			});
 			rgbInput.addEventListener('keypress', (event: KeyboardEvent) => {
@@ -168,6 +178,7 @@
 				if (rgbInput && event.key === 'Enter') {
 					const values = rgbInput.value.split(' ');
 					color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') })
+					updateColorUI(color, true);
 				}
 			});
 		}
@@ -179,14 +190,16 @@
 				// Sets the color if a paste was performed
 				if (event.inputType === 'insertFromPaste') {
 					const values = hslInput.value.split(' ');
-					color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') })
+					color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+					updateColorUI(color, true);
 				}
 			});
 			hslInput.addEventListener('keypress', (event: KeyboardEvent) => {
 				// Sets the color if the Enter key was pressed
 				if (hslInput && event.key === 'Enter') {
 					const values = hslInput.value.split(' ');
-					color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') })
+					color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+					updateColorUI(color, true);
 				}
 			});
 		}
@@ -278,9 +291,7 @@
 
     .color-picker-page {
         width: 100%;
-        height: 100%;
-
-        overflow: hidden;
+        height: fit-content;
 
         :global .content-header {
             padding-top: 5rem;
