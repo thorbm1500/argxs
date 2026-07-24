@@ -175,7 +175,7 @@
 		align-items:      center;
 		justify-content:  center;
 		
-		border-bottom:    1px solid rgba(from var(--theme-ui-line-highlight) r g b / .15);
+		border-bottom:    1px solid rgba(from var(--theme-ui-line-highlight) r g b / 1);
 		background-image: linear-gradient(to top, rgba(from var(--theme-ui-header) r g b / .1) 0%, rgba(from var(--theme-ui-header) r g b / .4) 25%, rgba(from var(--theme-ui-header) r g b / .85)
 		50%, var(--theme-ui-header) 100%), linear-gradient(to left, rgba(from var(--theme-ui-header) r g b / .95) 0%, transparent 5%, transparent 95%, rgba(from var(--theme-ui-header) r g b / .95) 100%);
 		backdrop-filter:  brightness(.9) grayscale(.25) blur(1px);
