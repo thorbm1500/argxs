@@ -20,7 +20,7 @@
 					theme: 'light',
 					path: 'twitch-icon-black.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -30,7 +30,7 @@
 					theme: 'dark',
 					path: 'twitch-icon-ice.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -40,7 +40,7 @@
 					theme: 'dark',
 					path: 'twitch-icon-white.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -53,7 +53,7 @@
 			default: {
 				path: 'twitch-logo.svg',
 				date_added: '2026/7/19',
-				version: '0.7.5',
+				version: '0.8.0',
 				source: {
 					name: 'Twitch',
 					href: 'https://www.twitch.tv'
@@ -63,7 +63,7 @@
 				{
 					path: 'twitch-logo-black.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -73,7 +73,7 @@
 					theme: 'dark',
 					path: 'twitch-logo-ice.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -83,7 +83,7 @@
 					theme: 'light',
 					path: 'twitch-logo-white.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -92,7 +92,7 @@
 				{
 					path: 'twitch-flat-logo.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -102,7 +102,7 @@
 					theme: 'light',
 					path: 'twitch-flat-logo-monochrome-black.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -112,7 +112,7 @@
 					theme: 'dark',
 					path: 'twitch-flat-logo-monochrome-ice.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
@@ -122,7 +122,7 @@
 					theme: 'dark',
 					path: 'twitch-flat-logo-monochrome-white.svg',
 					date_added: '2026/7/19',
-					version: '0.7.5',
+					version: '0.8.0',
 					source: {
 						name: 'Twitch',
 						href: 'https://www.twitch.tv'
