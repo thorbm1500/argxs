@@ -231,6 +231,7 @@
 	</div>
 	<div class="color-picker-cursor {isHovering ? 'active' : 'inactive'}" style="left: {cursorX}px; top: {cursorY}px" inert>
 		<div class="current-color" style="border-color: {color.toHex()}" inert></div>
+		<div class="inspected-color" style="border-color: {colord(_hsv).toHex()}" inert></div>
 		<div class="background" inert></div>
 	</div>
 	<div class="color-picker-content">
@@ -275,13 +276,13 @@
 						transition: 75ms ease, top 10ms ease-out, left 10ms ease-out;
 
 						&.active {
-								&, .current-color {
+								&, .current-color, .inspected-color {
                     opacity: 1 !important;
                     filter: none;
 								}
             }
 						&.inactive {
-                &, .current-color {
+                &, .current-color, .inspected-color {
                     opacity: 0;
                     filter: blur(3px);
 								}
@@ -310,35 +311,39 @@
 
             z-index: 500;
 
-						.current-color, .background {
+						.current-color, .inspected-color, .background {
                 position: absolute;
                 border-radius: 100%;
 								left: 0;
 								top: 0;
 						}
 
-						.current-color {
+						.current-color, .inspected-color {
                 width: 1.6rem;
                 height: 1.6rem;
 
-                border: 5px solid;
+                border: 8px solid;
 
                 box-sizing: border-box;
                 background: transparent;
 
-                transform: translate(3px, 3px);
+                transform: translate(2px, 2px);
 
                 z-index: 600;
 						}
 
+						.inspected-color {
+                mask-image: linear-gradient(135deg, transparent 0%, transparent 49.9%, #FFF 50%, #FFF 100%);
+								z-index: 601;
+						}
+
 						.background {
-                width: 2rem;
-                height: 2rem;
+                width: 1.875rem;
+                height: 1.875rem;
 
-                background: rgba(255 255 255 / .25);
-                backdrop-filter: invert(1) blur(3px);
+                backdrop-filter: grayscale(1) invert(1) brightness(.95);
 
-                mask-image: radial-gradient(circle 1rem, transparent 0%, transparent 55%, #FFF 60%, #FFF 100%);
+                mask-image: radial-gradient(circle 1rem, transparent 0%, transparent 17%, #FFF 20%, #FFF 100%);
 						}
 
 						&.inactive, &.active {
@@ -366,6 +371,12 @@
                 background: linear-gradient(#FFFFFF00, #000000FF), linear-gradient(0.25turn, #FFFFFFFF, #00000000), var(--picker-color-bg);
 
                 transition: border-radius 200ms ease-out;
+								transition-delay: 1s;
+
+								&:hover {
+										transition-timing-function: ease-out;
+                    transition-delay: 0s;
+								}
             }
 
             .slider {

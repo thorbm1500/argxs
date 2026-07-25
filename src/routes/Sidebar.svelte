@@ -108,7 +108,7 @@
 				</svg>
 				<p>COLORS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
+			<a {@attach tabIndexFocus} class={{ newly_added: true, selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M11 7l6 6" />
@@ -675,11 +675,20 @@
             }
         }
 
-        .newly_added::after {
-            content: 'NEW';
-            color: var(--theme-ui-white);
-            background: oklch(0.75 0.182 127.286);
-        }
+				.newly_added {
+						&:hover::after {
+								font-weight: 800;
+                color: var(--theme-color-primary);
+						}
+
+						&::after {
+                content: 'NEW';
+                color: var(--theme-color-accent);
+                background: none;
+                /*color: var(--theme-ui-white);
+								background: var(--theme-color-accent);*/
+            }
+				}
 
         .planned::after {
             content: 'PLANNED';
