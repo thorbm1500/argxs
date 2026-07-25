@@ -1,0 +1,13 @@
+telemetry = false
+
+[console]
+depth = 10
+
+[install]
+prodcution = true
+
+[install.cache]
+disable = true
+
+[run]
+bun = true
