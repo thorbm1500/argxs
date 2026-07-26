@@ -7,6 +7,7 @@
 ### New Brand Resources
 - **x New Icons**
   - Twitch
+  - Codeberg
 - **New Brand Guidelines**
   - Twitch
 

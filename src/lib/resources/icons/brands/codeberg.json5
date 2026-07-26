@@ -1,0 +1,86 @@
+{
+	name: 'Codeberg',
+	href: 'https://codeberg.org',
+	tags: ["Development"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'codeberg-icon.svg',
+				date_added: '2026/7/26',
+                version: '0.8.0',
+				source: {
+					name: 'Codeberg',
+					href: 'https://design.codeberg.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'codeberg-icon-dark.svg',
+				date_added: '2026/7/26',
+				version: '0.8.0',
+				source: {
+					name: 'Codeberg',
+					href: 'https://design.codeberg.org'
+				}
+			},
+			variable: [
+				{
+					path: 'codeberg-favicon.svg',
+					date_added: '2026/7/26',
+					version: '0.8.0',
+					source: {
+						name: 'Codeberg',
+						href: 'https://design.codeberg.org'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'codeberg-logo.svg',
+				date_added: '2026/7/26',
+				version: '0.8.0',
+				source: {
+					name: 'Codeberg',
+					href: 'https://design.codeberg.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'codeberg-logo-dark.svg',
+				date_added: '2026/7/26',
+				version: '0.8.0',
+				source: {
+					name: 'Codeberg',
+					href: 'https://design.codeberg.org'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'codeberg-stacked-logo.svg',
+					date_added: '2026/7/26',
+					version: '0.8.0',
+					source: {
+						name: 'Codeberg',
+						href: 'https://design.codeberg.org'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'codeberg-stacked-logo-dark.svg',
+					date_added: '2026/7/26',
+					version: '0.8.0',
+					source: {
+						name: 'Codeberg',
+						href: 'https://design.codeberg.org'
+					}
+				}
+			]
+		}
+	]
+}
