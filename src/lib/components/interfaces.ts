@@ -14,7 +14,7 @@ export interface Icon {
 	href?: string,
 	/** The theme of the icon, if the icon has one. This is specifically for icons that are hard to see in other themes than what they have been made for, such as all white or all black icons<br>
 	 * `Note:` This should be left undefined, if the icon is visible in all themes */
-	theme?: string | PageTheme,
+	theme?: PageTheme,
 	/** Whether the icon is animated or not<br>
 	 * `Default:` False<br>
 	 * `Note:` This should be left undefined, if the icon is not animated, as it will default to false during initiation */

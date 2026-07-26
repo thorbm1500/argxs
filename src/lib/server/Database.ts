@@ -28,7 +28,7 @@ export default class Database {
 	static async init(): Promise<void> {
 		if (!isProduction) return;
 
-		Bun.cron('@midnight', this.insertNewDay);
+		Bun.cron('@midnight', (): Promise<void> => this.insertNewDay());
 
 		await Database.SQL`CREATE TABLE IF NOT EXISTS metrics
                            (

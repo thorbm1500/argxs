@@ -54,6 +54,7 @@
 		message = req.message;
 		expiration = req.duration ?? 1500;
 		type = req.type ?? 'info';
+		//eslint-disable-next-line no-global-assign
 		status = req.status ?? 'info';
 		
 		currentToast = req;
@@ -118,8 +119,8 @@
 			padding:         0.5rem 0.85rem;
 			
 			color:           var(--theme-ui-white);
-			background:      color-mix(var(--theme-color-success), #0d0d0d 25%);
-			border:          1px solid var(--theme-color-success-light);
+			background:      color-mix(var(--theme-color-accent) 40%, #0D0D0D 60%);
+			border:          1px solid var(--theme-color-accent);
 			border-radius:   0.9rem;
 			
 			font-weight:     600;

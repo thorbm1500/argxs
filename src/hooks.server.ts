@@ -41,8 +41,7 @@ export const handle: Handle = async ({ event, resolve }): Promise<Response> => {
 
 	event.locals.requests = metricsHandler.getVisitorMetrics();
 
-	// noinspection ES6MissingAwait - Ignored purposefully.
-	metricsHandler.process(event);
+	void metricsHandler.process(event);
 
 	return resolve(event);
 };

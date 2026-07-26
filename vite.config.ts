@@ -18,6 +18,13 @@ export default defineConfig({
       "builtin": true,
       "browser": true,
       "svelte": true
+    },
+    rules: {
+      "no-unused-vars": ["error", {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^ignored"
+      }]
     }
   },
   plugins: [
