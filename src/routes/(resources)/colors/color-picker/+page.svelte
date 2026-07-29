@@ -1,15 +1,22 @@
-<!--TODO: Fix slider knob pos on paste-->
+<!--TODO: Fix slider only updating on cursor movements and not solo clicks -->
+<!--TODO: Fix slider not moving smoothly -->
+<!-- svelte-ignore a11y_mouse_events_have_key_events -->
 <script lang="ts">
-	import { MathUtils } from '$lib/utilities';
-	import { onMount } from 'svelte';
+	import { copyToClipboard, MathUtils } from '$lib/utilities';
+	import { innerWidth } from 'svelte/reactivity/window';
+	import { getContext, onMount } from 'svelte';
 	import { Colord, colord, random, extend } from 'colord';
 	import lchPlugin from "colord/plugins/lch";
 	import harmonies from "colord/plugins/harmonies";
 	import chroma from 'chroma-js';
+	import type { Action } from 'svelte/action';
 
 	extend([lchPlugin,harmonies]);
 
 	const { data } = $props();
+
+	const sendToast: Function | undefined = $derived(getContext('sendToast') as Function ?? undefined);
+	let scrollY: number = $derived((getContext('scrollY') as Function)?.() ?? 0);
 
 	let slider: HTMLDivElement | undefined = $state();
 	let canvas: HTMLCanvasElement | undefined = $state();
@@ -40,8 +47,11 @@
 	let inputLCH: string = $state('');
 	let inputOKLCH: string = $state('');
 
-	let color: Colord = $state(colord({ r: 117, g: 124, b: 255 }));
-	let colorScale: Function = $derived(chroma.scale([colord({ h: color.toHsv().h, s: 0, v: 100 }).toHex(),color.toHex()]));
+	let color: Colord = $state(colord({ h: 237, s: 54, v: 100 }));
+	let colorName: string = $derived(chroma(color.toHex()).name());
+	let colorShade = (shade: number) => chroma(color.toHex()).shade(shade);
+	let colorMix = (type: 'analogous' | 'tetradic' | 'split-complementary', mix: number, harmony: number = 0) => chroma(color.toHex()).mix(color.harmonies(type)[harmony]?.toHex() ?? '#000', mix);
+	let showMainColorShade: boolean = $state(true);
 
 	function updateColorUI(_color: Colord, update_hsv: boolean = false) {
 		if (update_hsv) {
@@ -56,7 +66,7 @@
 	}
 
 	// svelte-ignore state_referenced_locally
-	updateColorUI(color);
+	updateColorUI(color, true);
 
 	function updateCursorPos() {
 		if (!canvasRect) {
@@ -64,9 +74,15 @@
 			isHovering = false;
 			return;
 		}
+		if (!slider) {
+			// Disables hovering as no slider is present
+			isSliderActive = false;
+			return;
+		}
 
 		const X = cursorX - canvasRect.left;
-		const Y = cursorY - canvasRect.top;
+		// Subtracting scrollY ensures the cursor follows page scrolling
+		const Y = cursorY - (canvasRect.top - scrollY);
 
 		isHovering = X < canvasRect.width && X > 0 && Y < canvasRect.height && Y > 0;
 
@@ -78,62 +94,122 @@
 		clientY = MathUtils.clamp(Y, 0, canvasRect.height);
 	}
 
+	function updateSlider() {
+		if (!slider) return;
+		sliderKnobPosX = MathUtils.clamp(cursorX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
+		const _color = color.toHsv();
+		_color.h = MathUtils.clamp(MathUtils.clamp(sliderKnobPosX / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
+		if (color.toHslString() !== colord(_color).toHslString()) {
+			_hsv.h = _color.h;
+			color = colord(_color);
+			updateColorUI(color, true);
+		}
+	}
+
+	function updateCursorVariables(event: MouseEvent | TouchEvent | number[], updateCursorPosition: boolean = false) {
+		if (event instanceof MouseEvent) {
+			cursorX = event.clientX;
+			cursorY = event.clientY;
+			if (updateCursorPosition) updateCursorPos();
+		} else if (event instanceof TouchEvent && event.touches[0]) {
+			for (const t of event.changedTouches) {
+				cursorX = t.clientX;
+				cursorY = t.clientY;
+				if (updateCursorPosition) updateCursorPos();
+			}
+		}
+	}
+
+	function userDragEvent(event: MouseEvent | TouchEvent) {
+		updateCursorVariables(event);
+		updateCursorPos();
+		if (isSliderActive) updateSlider();
+	}
+
 	onMount(() => {
 		if (!canvas || !slider || !document) return;
 		sliderKnobPosX = ((slider.getBoundingClientRect().left - slider.getBoundingClientRect().width) / 360) * -237;
 
-		// Updates the current cursor position, as long as the canvas is present
-		document.addEventListener('mousemove', (event: MouseEvent) => {
-			cursorX = event.clientX;
-			cursorY = event.clientY;
-			updateCursorPos();
-
-			if (isSliderActive && slider) {
-				sliderKnobPosX = MathUtils.clamp(event.clientX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
-				const _color = color.toHsv();
-				_color.h = MathUtils.clamp(MathUtils.clamp(sliderKnobPosX / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
-				if (color.toHslString() !== colord(_color).toHslString()) {
-					_hsv.h = _color.h;
-					color = colord(_color);
-					updateColorUI(color);
-				}
-			}
-		});
-
-		document.addEventListener('mousedown', (event: MouseEvent) => {
-			// Ensuring that dragging will only be set true as long as the canvas exists
-			isDragging = canvas !== undefined;
-
-			if (isSliderActive && slider) {
-				sliderKnobPosX = MathUtils.clamp(event.clientX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
-				const _color = color.toHsv();
-				_color.h = MathUtils.clamp(MathUtils.clamp(sliderKnobPosX / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
-				if (color.toHslString() !== colord(_color).toHslString()) {
-					_hsv.h = _color.h;
-					color = colord(_color);
-					updateColorUI(color);
-				}
-			}
-		});
-
-		// Disables dragging, aka live updating of the selected color
-		document.addEventListener('mouseup', () => {
-			isDragging = false;
+		// Disables all user inputs
+		const endUserInput = () => {
 			isSliderActive = false;
-		});
+			isHovering = false;
+			isDragging = false;
+		}
+		document.addEventListener('mouseup', endUserInput);
+		document.addEventListener('touchend', endUserInput);
+		canvas.addEventListener('touchend', endUserInput);
+		slider.addEventListener('touchend', endUserInput);
 
-		canvas.addEventListener('mousemove', (event: MouseEvent) => {
-			if (!canvas || !canvasRect) return;
+		document.addEventListener('mousemove', (event: MouseEvent) => {
+			updateCursorVariables(event);
+			if (isSliderActive) updateSlider();
+		})
+
+		document.addEventListener('scroll', (event) => {
+			if (isDragging && event.cancelable) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+		})
+
+		canvas.addEventListener('touchstart', (event: TouchEvent) => {
+			isHovering = true;
+			isDragging = true;
+
+			userDragEvent(event);
+		});
+		canvas.addEventListener('mousedown', (event: MouseEvent) => {
+			isHovering = true;
+			isDragging = true;
+
+			userDragEvent(event);
+		});
+		canvas.addEventListener('touchmove', (event: TouchEvent) => {
+			isHovering = true;
+			isDragging = true;
+
+			userDragEvent(event);
 
 			_hsv.s = canvasRect ? MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100 : 54;
 			_hsv.v = canvasRect ? MathUtils.clamp((canvasRect.height - clientY) / canvasRect.height, 0, 1) * 100 : 100;
 		});
+		canvas.addEventListener('mousemove', (event: MouseEvent) => {
+			isHovering = true;
 
-		slider.addEventListener('mousedown', () => isSliderActive = true);
+			userDragEvent(event);
 
+			_hsv.s = canvasRect ? MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100 : 54;
+			_hsv.v = canvasRect ? MathUtils.clamp((canvasRect.height - clientY) / canvasRect.height, 0, 1) * 100 : 100;
+		});
+		canvas.addEventListener('mouseleave', () => isHovering = false);
+
+		slider.addEventListener('touchstart', (event: TouchEvent) => {
+			isSliderActive = true;
+			updateCursorVariables(event, true);
+		});
+		slider.addEventListener('mousedown', (event: MouseEvent) => {
+			isSliderActive = true;
+			updateCursorVariables(event, true);
+		});
+		slider.addEventListener('touchmove', (event: TouchEvent) => {
+			if (!slider) return;
+			isSliderActive = true;
+			if (event.cancelable) event.preventDefault();
+
+			updateCursorVariables(event, true);
+
+			for (const t of event.changedTouches) {
+				updateCursorVariables([t.clientX, t.clientY], true);
+				if (isSliderActive) updateSlider();
+			}
+		});
+
+		//TODO: Add missing inputs. Create formatting of all inputs
 		if (hexInput) {
 			hexInput.addEventListener('input', (event: InputEvent) => {
 				if (!hexInput || event.data === null) return;
+				//TODO: Check if formatting of user input is correct
 				// Ensures pasting is possible even when a full 7 character hex string is present
 				if (event.inputType === 'insertFromPaste') hexInput.value = event.data
 
@@ -158,6 +234,7 @@
 		if (rgbInput) {
 			rgbInput.addEventListener('input', (event: InputEvent) => {
 				if (!rgbInput) return;
+				//TODO: Check if formatting of user input is correct
 				if (event.inputType === 'insertText') {
 					if (rgbInput.value.length === 3) rgbInput.value += ' ';
 				}
@@ -185,7 +262,8 @@
 		if (hslInput) {
 			hslInput.addEventListener('input', (event: InputEvent) => {
 				if (!hslInput) return;
-				hslInput.value = hslInput.value;
+				//TODO: Format input from user
+				//hslInput.value = hslInput.value;
 
 				// Sets the color if a paste was performed
 				if (event.inputType === 'insertFromPaste') {
@@ -196,6 +274,7 @@
 			});
 			hslInput.addEventListener('keypress', (event: KeyboardEvent) => {
 				// Sets the color if the Enter key was pressed
+				//TODO: Format input from user
 				if (hslInput && event.key === 'Enter') {
 					const values = hslInput.value.split(' ');
 					color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
@@ -207,19 +286,34 @@
 
 	$effect(() => {
 		// Updates selected color to current inspected color
-		if (!isSliderActive && isHovering && isDragging && canvasRect) {
+		if (!isSliderActive && isHovering && canvasRect && (((innerWidth.current ?? 1920) <= 430) || isDragging)) {
 			const _color = colord(_hsv);
 			if (color.toLchString() !== _color.toLchString()) {
 				color = _color;
-				updateColorUI(color);
+				updateColorUI(color, true);
 			}
 		}
 	});
+
+	const mouseEventListeners: Action = (node: HTMLElement) => {
+		node.addEventListener('mouseenter', () => showMainColorShade = false);
+		node.addEventListener('mouseleave', () => showMainColorShade = true);
+		return { destroy() {} };
+	}
+
+	const copyToClipboardOnClick: Action<HTMLDivElement, { value: unknown } | undefined> = (node: HTMLElement, obj?: { value: unknown }) => {
+		if (!obj) return;
+		node.addEventListener('click', () => {
+			copyToClipboard(String(obj.value).toUpperCase());
+			sendToast({ message: 'Copied', type: 'copy', status: 'success' });
+		});
+		return { destroy() {} };
+	}
 </script>
 
 <svelte:head>
 	<meta charset="utf-8">
-	<title>{data.seo.title}</title>
+	<title>{data.seo.title}{colorName.length ? colorName : 'Color Picker'}</title>
 	{#if data.seo.description}
 		<meta name="description" content={data.seo.description} />
 	{/if}
@@ -229,79 +323,257 @@
 	<div class="page-header">
 		<h1 class="title">Color Picker</h1>
 	</div>
-	<div class="color-picker-cursor {isHovering ? 'active' : 'inactive'}" style="left: {cursorX}px; top: {cursorY}px" inert>
+	<div class="color-picker-cursor {isHovering ? 'active' : 'inactive'}" style="left: {cursorX}px; top: {cursorY}px" draggable="true" inert>
 		<div class="current-color" style="border-color: {color.toHex()}" inert></div>
 		<div class="inspected-color" style="border-color: {colord(_hsv).toHex()}" inert></div>
 		<div class="background" inert></div>
 	</div>
 	<div class="color-picker-content">
 		<canvas bind:this={canvas} class="color-picker" id="color-picker" style="--picker-color-bg: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}; border-radius: {isHovering ? '.25rem' : '.9rem'}"></canvas>
+		<div class="actions">
+			<button class="action random" title="Randomize" onclick="{() => {
+				color =  random();
+				updateColorUI(color, true);
+			}}">Randomize</button>
+		</div>
 		<div bind:this={slider} class="slider">
-			<div class="slider-knob" style="--pos-x: {$state.eager(sliderKnobPosX) - 16}px; --rot-x: {$state.eager(sliderKnobPosX) - 16}deg; --slider-color: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}"></div>
+			<div class="slider-knob" style="--pos-x: {$state.eager(sliderKnobPosX) - 16}px; --rot-x: {$state.eager(sliderKnobPosX) - 16}deg; background: {colord({ h: color.hue(), s: 100, v: 100 }).toHex()}"></div>
 		</div>
 		<div class="values">
 			<div class="value hex">
 				<h3 class="title">HEX</h3>
-				<input bind:this={hexInput} bind:value={inputHEX} class="input hex" type="text">
+				<input bind:this={hexInput} bind:value={inputHEX} class="input hex" type="text"  size="7">
 			</div>
 			<div class="value rgb">
 				<h3 class="title">RGB</h3>
-				<input bind:this={rgbInput} bind:value={inputRGB} class="input rgb" type="text">
+				<input bind:this={rgbInput} bind:value={inputRGB} class="input rgb" type="text" size="11">
 			</div>
 			<div class="value hsl">
 				<h3 class="title">HSL</h3>
-				<input bind:this={hslInput} bind:value={inputHSL} class="input hsl" type="text">
+				<input bind:this={hslInput} bind:value={inputHSL} class="input hsl" type="text" size="13">
 			</div>
 			<div class="value lch">
 				<h3 class="title">LCH</h3>
-				<input bind:this={lchInput} bind:value={inputLCH} class="input lch" type="text">
+				<input bind:this={lchInput} bind:value={inputLCH} class="input lch" type="text" size="17">
 			</div>
 			<div class="value oklch">
 				<h3 class="title">OKLCH</h3>
-				<input bind:this={oklchInput} bind:value={inputOKLCH} class="input oklch" type="text">
+				<input bind:this={oklchInput} bind:value={inputOKLCH} class="input oklch" type="text" size="17">
 			</div>
 		</div>
 		<div class="previews">
-			<div class="preview scale" style="background-image: linear-gradient(to right, {color.harmonies('analogous').map((c) => c.toHex()).join(', ')})"></div>
-			<div class="preview scale" style="background-image: linear-gradient(to right, {color.harmonies('rectangle').map((c) => c.toHex()).join(', ')})"></div>
-			<div class="preview color" style="background: {color.toHex()}"></div>
+			<div class="preview scale">
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-1) }} use:mouseEventListeners data-preview-color={String(colorShade(-1)).toUpperCase()} style="--bg-color: {colorShade(-1)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.9) }} use:mouseEventListeners data-preview-color={String(colorShade(-.9)).toUpperCase()} style="--bg-color: {colorShade(-.9)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.8) }} use:mouseEventListeners data-preview-color={String(colorShade(-.8)).toUpperCase()} style="--bg-color: {colorShade(-.8)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.7) }} use:mouseEventListeners data-preview-color={String(colorShade(-.7)).toUpperCase()} style="--bg-color: {colorShade(-.7)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.6) }} use:mouseEventListeners data-preview-color={String(colorShade(-.6)).toUpperCase()} style="--bg-color: {colorShade(-.6)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.5) }} use:mouseEventListeners data-preview-color={String(colorShade(-.5)).toUpperCase()} style="--bg-color: {colorShade(-.5)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.4) }} use:mouseEventListeners data-preview-color={String(colorShade(-.4)).toUpperCase()} style="--bg-color: {colorShade(-.4)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.3) }} use:mouseEventListeners data-preview-color={String(colorShade(-.3)).toUpperCase()} style="--bg-color: {colorShade(-.3)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(-.2) }} use:mouseEventListeners data-preview-color={String(colorShade(-.2)).toUpperCase()} style="--bg-color: {colorShade(-.2)}; background: var(--bg-color)"></div>
+				<div class="color selected" use:copyToClipboardOnClick={{ value: color.toHex() }} data-preview-color={color.toHex().toUpperCase()} style="--bg-color: {color.toHex()}; background: var(--bg-color); --text-active: {showMainColorShade ? 1 : 0};"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.2) }} use:mouseEventListeners data-preview-color={String(colorShade(.2)).toUpperCase()} style="--bg-color: {colorShade(.2)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.3) }} use:mouseEventListeners data-preview-color={String(colorShade(.3)).toUpperCase()} style="--bg-color: {colorShade(.3)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.4) }} use:mouseEventListeners data-preview-color={String(colorShade(.4)).toUpperCase()} style="--bg-color: {colorShade(.4)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.5) }} use:mouseEventListeners data-preview-color={String(colorShade(.5)).toUpperCase()} style="--bg-color: {colorShade(.5)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.6) }} use:mouseEventListeners data-preview-color={String(colorShade(.6)).toUpperCase()} style="--bg-color: {colorShade(.6)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.7) }} use:mouseEventListeners data-preview-color={String(colorShade(.7)).toUpperCase()} style="--bg-color: {colorShade(.7)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.8) }} use:mouseEventListeners data-preview-color={String(colorShade(.8)).toUpperCase()} style="--bg-color: {colorShade(.8)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.9) }} use:mouseEventListeners data-preview-color={String(colorShade(.9)).toUpperCase()} style="--bg-color: {colorShade(.9)}; background: var(--bg-color)"></div>
+				<div class="color" use:copyToClipboardOnClick={{ value: colorShade(.95) }} use:mouseEventListeners data-preview-color={String(colorShade(.95)).toUpperCase()} style="--bg-color: {colorShade(.95)}; background: var(--bg-color)"></div>
+			</div>
+			<div class="preview harmony">
+				<h1 class="harmony-type">Analogous</h1>
+				<div class="harmonies">
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', 1) }} data-preview-color={String(colorMix('analogous', 1)).toUpperCase()} style="--bg-color: {colorMix('analogous', 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .9) }} data-preview-color={String(colorMix('analogous', .9)).toUpperCase()} style="--bg-color: {colorMix('analogous', .9)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .8) }} data-preview-color={String(colorMix('analogous', .8)).toUpperCase()} style="--bg-color: {colorMix('analogous', .8)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .7) }} data-preview-color={String(colorMix('analogous', .7)).toUpperCase()} style="--bg-color: {colorMix('analogous', .7)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .6) }} data-preview-color={String(colorMix('analogous', .6)).toUpperCase()} style="--bg-color: {colorMix('analogous', .6)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .5) }} data-preview-color={String(colorMix('analogous', .5)).toUpperCase()} style="--bg-color: {colorMix('analogous', .5)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .4) }} data-preview-color={String(colorMix('analogous', .4)).toUpperCase()} style="--bg-color: {colorMix('analogous', .4)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .3) }} data-preview-color={String(colorMix('analogous', .3)).toUpperCase()} style="--bg-color: {colorMix('analogous', .3)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .2) }} data-preview-color={String(colorMix('analogous', .2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .1) }} data-preview-color={String(colorMix('analogous', .1)).toUpperCase()} style="--bg-color: {colorMix('analogous', .1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: color.toHex() }} data-preview-color={color.toHex().toUpperCase()} style="--bg-color: {color.toHex()}; background: var(--bg-color); --text-active: {showMainColorShade ? 1 : 0};"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .1, 2) }} data-preview-color={String(colorMix('analogous', .1, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .1, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .2, 2) }} data-preview-color={String(colorMix('analogous', .2, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .2, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .3, 2) }} data-preview-color={String(colorMix('analogous', .3, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .3, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .4, 2) }} data-preview-color={String(colorMix('analogous', .4, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .4, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .5, 2) }} data-preview-color={String(colorMix('analogous', .5, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .5, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .6, 2) }} data-preview-color={String(colorMix('analogous', .6, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .6, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .7, 2) }} data-preview-color={String(colorMix('analogous', .7, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .7, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .8, 2) }} data-preview-color={String(colorMix('analogous', .8, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .8, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', .9, 2) }} data-preview-color={String(colorMix('analogous', .9, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', .9, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('analogous', 1, 2) }} data-preview-color={String(colorMix('analogous', 1, 2)).toUpperCase()} style="--bg-color: {colorMix('analogous', 1, 2)}; background: var(--bg-color)"></div>
+				</div>
+				<h1 class="harmony-type">Tetradic</h1>
+				<div class="harmonies">
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', 1, 1) }} data-preview-color={String(colorMix('tetradic', 1, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', 1, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .9, 1) }} data-preview-color={String(colorMix('tetradic', .9, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .9, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .8, 1) }} data-preview-color={String(colorMix('tetradic', .8, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .8, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .7, 1) }} data-preview-color={String(colorMix('tetradic', .7, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .7, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .6, 1) }} data-preview-color={String(colorMix('tetradic', .6, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .6, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .5, 1) }} data-preview-color={String(colorMix('tetradic', .5, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .5, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .4, 1) }} data-preview-color={String(colorMix('tetradic', .4, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .4, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .3, 1) }} data-preview-color={String(colorMix('tetradic', .3, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .3, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .2, 1) }} data-preview-color={String(colorMix('tetradic', .2, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .2, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .1, 1) }} data-preview-color={String(colorMix('tetradic', .1, 1)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .1, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: color.toHex() }} data-preview-color={color.toHex().toUpperCase()} style="--bg-color: {color.toHex()}; background: var(--bg-color); --text-active: {showMainColorShade ? 1 : 0};"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .1, 2) }} data-preview-color={String(colorMix('tetradic', .1, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .1, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .2, 2) }} data-preview-color={String(colorMix('tetradic', .2, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .2, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .3, 2) }} data-preview-color={String(colorMix('tetradic', .3, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .3, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .4, 2) }} data-preview-color={String(colorMix('tetradic', .4, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .4, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .5, 2) }} data-preview-color={String(colorMix('tetradic', .5, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .5, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .6, 2) }} data-preview-color={String(colorMix('tetradic', .6, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .6, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .7, 2) }} data-preview-color={String(colorMix('tetradic', .7, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .7, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .8, 2) }} data-preview-color={String(colorMix('tetradic', .8, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .8, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', .9, 2) }} data-preview-color={String(colorMix('tetradic', .9, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', .9, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('tetradic', 1, 2) }} data-preview-color={String(colorMix('tetradic', 1, 2)).toUpperCase()} style="--bg-color: {colorMix('tetradic', 1, 2)}; background: var(--bg-color)"></div>
+				</div>
+				<h1 class="harmony-type">Split-Complementary</h1>
+				<div class="harmonies">
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', 1, 1) }} data-preview-color={String(colorMix('split-complementary', 1, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', 1, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .9, 1) }} data-preview-color={String(colorMix('split-complementary', .9, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .9, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .8, 1) }} data-preview-color={String(colorMix('split-complementary', .8, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .8, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .7, 1) }} data-preview-color={String(colorMix('split-complementary', .7, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .7, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .6, 1) }} data-preview-color={String(colorMix('split-complementary', .6, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .6, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .5, 1) }} data-preview-color={String(colorMix('split-complementary', .5, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .5, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .4, 1) }} data-preview-color={String(colorMix('split-complementary', .4, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .4, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .3, 1) }} data-preview-color={String(colorMix('split-complementary', .3, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .3, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .2, 1) }} data-preview-color={String(colorMix('split-complementary', .2, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .2, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .1, 1) }} data-preview-color={String(colorMix('split-complementary', .1, 1)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .1, 1)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: color.toHex() }} data-preview-color={color.toHex().toUpperCase()} style="--bg-color: {color.toHex()}; background: var(--bg-color); --text-active: {showMainColorShade ? 1 : 0};"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .1, 2) }} data-preview-color={String(colorMix('split-complementary', .1, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .1, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .2, 2) }} data-preview-color={String(colorMix('split-complementary', .2, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .2, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .3, 2) }} data-preview-color={String(colorMix('split-complementary', .3, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .3, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .4, 2) }} data-preview-color={String(colorMix('split-complementary', .4, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .4, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .5, 2) }} data-preview-color={String(colorMix('split-complementary', .5, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .5, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .6, 2) }} data-preview-color={String(colorMix('split-complementary', .6, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .6, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .7, 2) }} data-preview-color={String(colorMix('split-complementary', .7, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .7, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .8, 2) }} data-preview-color={String(colorMix('split-complementary', .8, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .8, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', .9, 2) }} data-preview-color={String(colorMix('split-complementary', .9, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', .9, 2)}; background: var(--bg-color)"></div>
+					<div class="color" use:copyToClipboardOnClick={{ value: colorMix('split-complementary', 1, 2) }} data-preview-color={String(colorMix('split-complementary', 1, 2)).toUpperCase()} style="--bg-color: {colorMix('split-complementary', 1, 2)}; background: var(--bg-color)"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
 <style>
-    /* Desktop & Tablet */
-    @media (width >= 44rem) {
+    /* Desktop & Tablet (Page specific) */
+    @media (width >= 30.5rem) {
         .color-picker-cursor {
-						transition: 75ms ease, top 10ms ease-out, left 10ms ease-out;
+            transition: 75ms ease, top 10ms ease-out, left 10ms ease-out;
 
-						&.active {
-								&, .current-color, .inspected-color {
+            &.active {
+                &, .current-color, .inspected-color {
                     opacity: 1 !important;
                     filter: none;
-								}
+                }
             }
-						&.inactive {
+            &.inactive {
                 &, .current-color, .inspected-color {
                     opacity: 0;
                     filter: blur(3px);
+                }
+            }
+        }
+		}
+
+    /* Desktop & Tablet (Page specific) */
+    @media (width >= 59rem) {
+        :root {
+            --max-width: min(84rem, 80vw);
+        }
+
+        .color-picker-page .values {
+            flex-flow: row nowrap;
+            justify-content: center;
+        }
+
+        .preview, .preview.harmony .harmonies {
+            .color {
+								width: 5vw;
+								aspect-ratio: 1;
+
+                &::after {
+										font-size: .9rem;
 								}
+                &.selected::before {
+										font-size: 1.2rem;
+								}
+            }
+
+            .selected {
+								min-width: 3.25rem;
+                width: 6vw !important;
             }
 				}
     }
 
-    .color-picker-page {
-        width: 100%;
-        height: fit-content;
-
-        :global .content-header {
-            padding-top: 5rem;
+    /* Phone (Page specific) */
+    @media (width <= 59rem) {
+        :root {
+            --max-width: min(76rem, 75vw);
         }
 
+        .color-picker-page .values {
+						flex-flow: column nowrap;
+						align-items: center;
+				}
+
+        .preview, .preview.harmony .harmonies {
+            .color {
+                width: 5vw;
+                aspect-ratio: .5;
+            }
+
+            .selected {
+                min-width: 2.5rem;
+                width: 6vw !important;
+								max-height: 11vw;
+            }
+
+            & .color, &.harmony .harmonies .color {
+                &::after {
+										filter: blur(2px);
+								}
+                &:hover::after, &.selected:hover::before {
+										filter: none;
+								}
+                &:hover::after {
+                    font-size: .9rem;
+								}
+                &.selected:hover::before {
+										font-size: 1.05rem;
+								}
+                &.selected::before {
+                    font-size: 1rem;
+                }
+            }
+        }
+		}
+
+		:global html {
+				/* Prevents the input text to be selected when the user is dragging the slider */
+				user-select: none;
+		}
+
+    .color-picker-page {
+        width: var(--max-width);
+        height: fit-content;
+				margin: 0 auto;
+				padding-top: 1px;
+
 				.page-header {
-						padding: 3rem 0;
+            width: 100%;
+						padding: min(3rem, 4vw) 0;
+
 						.title {
-								font-size: 3rem;
+								margin-left: 2rem;
+								font-size: min(3.5rem, 5vw);
 						}
 				}
 
@@ -361,12 +633,15 @@
             height: 100%;
 
             .color-picker {
+                width: inherit;
+                height: inherit;
+
                 min-width: 200px;
-                width: 100%;
                 max-width: min(92rem, 86vw);
                 min-height: 200px;
-                height: 100%;
                 max-height: 50vh;
+
+								border: solid 3px color-mix(var(--theme-ui-line-highlight) 40%, var(--theme-color-primary-reverse) 60%);
 
                 background: linear-gradient(#FFFFFF00, #000000FF), linear-gradient(0.25turn, #FFFFFFFF, #00000000), var(--picker-color-bg);
 
@@ -380,14 +655,25 @@
             }
 
             .slider {
-                height: .75rem;
-                min-width: 200px;
-                width: 100%;
-                max-width: min(76rem, 70vw);
+                height: min(.5rem, .8vw);
+                width: 95%;
+                margin-top: 4.5rem;
+
+                pointer-events: bounding-box;
+								cursor: pointer;
 
                 border-radius: .35rem;
 
-                margin-top: 2.5rem;
+                .slider-knob {
+                    height: min(1.65rem, 3vw);
+                    width: min(1.65rem, 3vw);
+                    border-radius: 100%;
+                    border: 3px solid var(--theme-ui-offwhite);
+                    transform: translate(var(--pos-x), max(-.5rem, -1vw));
+
+                    transition: transform 35ms ease;
+                }
+
                 background: linear-gradient(to right,
                 hsl(0deg, 100%, 50%),
                 hsl(10deg, 100%, 50%),
@@ -426,77 +712,12 @@
                 hsl(340deg, 100%, 50%),
                 hsl(350deg, 100%, 50%),
                 hsl(360deg, 100%, 50%));
-
-                .slider-knob {
-                    height: 2rem;
-                    width: 2rem;
-                    border-radius: 100%;
-                    background: light-dark(rgba(0 0 0 / .2), rgba(255 255 255 / .25));
-                    backdrop-filter: blur(3px) brightness(1.1);
-                    transform: translateX(var(--pos-x)) translateY(-9px) rotate(var(--rot-x));
-
-                    transition: 200ms ease, transform 50ms ease, rotate 0ms;
-
-                    pointer-events: bounding-box;
-
-										&::after {
-												content: "";
-												width: inherit;
-												height: inherit;
-												position: absolute;
-												border-radius: inherit;
-
-												filter: blur(3px) brightness(1.16);
-												transform: rotate(45deg);
-
-												mask-type: luminance;
-												mask-image: radial-gradient(2rem 3.65rem, transparent 21%, rgba(255 255 255 / 1) 50%),
-																		linear-gradient(to right, transparent 50%, rgba(255 255 255 / .75) 100%);
-												background: var(--theme-color-primary);
-
-                        transition: 250ms ease, transform 50ms ease, background 50ms ease;
-										}
-
-                    &:hover, &:active {
-                        filter: brightness(1.4);
-                        transition: 250ms ease, transform 50ms ease, background 50ms ease;
-
-                        &::after {
-                            filter: brightness(1.2);
-                            background: var(--slider-color) !important;
-                        }
-                    }
-                }
             }
-
-            .previews {
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: center;
-                align-items: center;
-
-                .preview {
-                    border-radius: .9rem;
-
-                    margin-top: 1.5rem;
-
-										&.color {
-                        width: 8rem;
-                        height: 8rem;
-										}
-
-										&.scale {
-												width: 30vw;
-												max-width: 34rem;
-												height: 4rem;
-										}
-                }
-						}
 
             .values {
                 display: flex;
-                flex-flow: row nowrap;
                 margin-top: 1.5rem;
+                width: 100%;
 
                 .value {
                     display: flex;
@@ -504,7 +725,7 @@
                     align-items: center;
                     justify-content: flex-start;
 
-                    width: fit-content;
+                    width: 20%;
                     padding: 0 .5rem;
                     margin: 0 .25rem;
 
@@ -526,6 +747,128 @@
                     }
                 }
             }
+
+            .previews {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+
+                min-width: 200px;
+                width: 100%;
+                max-width: min(76rem, 70vw);
+
+                .preview, .preview.harmony .harmonies {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+
+                    width: fit-content;
+                    height: fit-content;
+                    max-width: inherit;
+                }
+
+                .preview {
+                    width: 100%;
+                    margin-top: 3rem;
+										margin-bottom: 1rem;
+										padding-bottom: 1rem;
+
+										&.harmony {
+												display: flex;
+												flex-flow: column nowrap;
+                        max-width: min(76rem, 70vw);
+
+												.harmony-type {
+														align-self: start;
+														margin-bottom: .2rem;
+												}
+
+                        .harmonies {
+														margin-bottom: 2rem;
+
+														.color::after {
+                                transform: translateY(1.5rem) !important;
+														}
+												}
+										}
+
+                    &.harmony .harmonies .color {
+												&:hover::after {
+														font-weight: 600 !important;
+												}
+										}
+
+                    .color {
+                        cursor: cell;
+
+                        --border-radius: .5rem;
+
+                        &:first-child {
+                            border-top-left-radius: var(--border-radius);
+                            border-bottom-left-radius: var(--border-radius);
+                        }
+
+                        &:last-child {
+                            border-top-right-radius: var(--border-radius);
+                            border-bottom-right-radius: var(--border-radius);
+                        }
+
+                        &.selected {
+                            border-radius: var(--border-radius);
+                            box-shadow: -.15rem 0 1.5rem rgba(from color-mix(var(--bg-color) 50%, #000 50%) r g b / .25);
+                            z-index: 650;
+
+                            &:hover::after {
+                                transform: none;
+                                opacity: 0 !important;
+                            }
+                        }
+
+                        perspective: 0;
+                        transition: z-index 3s 3s linear, transform 500ms, border-radius 500ms;
+                        transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+                        &:hover {
+                            transform: scale(1.25);
+                            transition: transform 350ms, z-index 0ms, border-radius 200ms;
+                            transition-timing-function: linear(0, 0.002 0.2%, 0.008 0.4%, 0.029 0.8%, 0.073 1.3%, 0.13 1.8%, 0.258 2.7%, 0.686 5.4%, 0.807 6.3%, 0.908 7.2%, 0.987 8.1%, 1.051 9.1%, 1.091 10.1%, 1.103 10.6%, 1.112 11.2%, 1.115 11.7%, 1.116 12.2%, 1.112 12.8%, 1.106 13.4%, 1.089 14.5%, 1.033 17.6%, 1.007 19.5%, 0.993 21.2%, 0.987 23.1%, 0.987 25%, 0.998 30.9%, 1.001 35%, 1 46.8%, 1);
+                            box-shadow: -.15rem 0 1.5rem rgba(from color-mix(var(--bg-color) 50%, #000 50%) r g b / .25);
+                            border-radius: var(--border-radius);
+
+                            z-index: 700;
+
+                            &::after {
+                                opacity: 1;
+                                font-weight: 700;
+                                transition: opacity 150ms ease, font-weight 150ms ease, font-size 150ms ease;
+                            }
+                        }
+
+                        &::after, &.selected::before {
+                            pointer-events: none;
+                            content: attr(data-preview-color);
+                            transform: translateY(2rem);
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            justify-self: center;
+                            will-change: transform;
+
+                            color: var(--theme-color-primary);
+                            font-weight: 400;
+
+                            opacity: 0;
+                            transition: opacity 250ms ease, font-weight 300ms ease, font-size 300ms ease, filter 200ms ease;
+                        }
+
+                        &.selected::before {
+                            opacity: var(--text-active, 1);
+                            font-weight: 700;
+                        }
+                    }
+                }
+						}
         }
     }
 </style>

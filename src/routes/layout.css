@@ -74,8 +74,8 @@
 	--theme-color-aware:                  oklch(0.843 0.162 92.182);
 	--theme-color-alert:                  oklch(58.6% 0.253 17.585);
 	--theme-color-alert-light:            oklch(0.662 0.232 11.291);
-	--theme-color-success:                oklch(84.1% 0.238 128.85);
-	--theme-color-success-light:          oklch(89.2% 0.223 127.706);
+	--theme-color-success: 				  oklch(0.323 0.099 146.035);
+	--theme-color-success-light: 		  oklch(0.913 0.241 129.257);
 	
 	--theme-text-primary:                 #0D0D0D;
 	--theme-text-secondary:               #31353F;
@@ -86,6 +86,7 @@
 	--theme-ui-line:                      #DDE1E8;
 	--theme-ui-line-highlight: 			  #CFD3D9;
 	--theme-ui-white:                     #F7F9FC;
+	--theme-ui-offwhite: 				  #E9EFF3;
 	--theme-ui-black:                     #0D0D0D;
 	--theme-ui-container:                 #ECEEF3;
 	--theme-ui-container-hover:           #E6E9EF;

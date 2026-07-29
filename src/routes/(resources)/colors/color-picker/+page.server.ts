@@ -7,7 +7,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	return {
 		theme: locals.theme ?? 'dark',
 		seo: {
-			title: 'argxs ▪ Color Picker'
+			title: 'argxs ▪ '
 		} as SEO
 	};
 };
