@@ -12,6 +12,9 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - **x New Icons**
   - Twitch
   - Codeberg
+  - Hallon
+  - Tele2
+  - Telia
 - **New Brand Guidelines**
   - Twitch
 
@@ -24,3 +27,4 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - @sveltejs/kit: *2.70.0 ➜ 2.70.1*
 - svelte: *5.56.6 ➜ 5.56.8*
 - publint: *0.3.21 ➜ 0.3.22*
+- globals: *17.7.0 ➜ 17.8.0*
