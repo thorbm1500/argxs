@@ -1,0 +1,30 @@
+{
+	name: 'Tele2',
+	href: 'https://www.tele2.se',
+	tags: ["Tech","Utility"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'tele2-logo.svg',
+				date_added: '2026/7/29',
+                version: '0.8.0',
+				source: {
+					name: 'Tele2',
+					href: 'https://www.tele2.se'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'tele2-logo-dark.svg',
+				date_added: '2026/7/29',
+				version: '0.8.0',
+				source: {
+					name: 'Tele2',
+					href: 'https://www.tele2.se'
+				}
+			}
+		}
+	]
+}
