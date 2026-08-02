@@ -10,11 +10,21 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 
 ### New Brand Resources
 - **x New Icons**
+  - **[New]** Codeberg
+  - **[New]** Hallon
+  - **[New]** Tele2
+  - **[New]** Telia
+  - **[New]** Telmore
+  - **[New]** City Gross
+  - **[New]** ICA
+    - Incl. ICA Banken
+    - Incl. ICA Försäkring
+    - Incl. Apotek Hjärtat
+  - **[New]** Sony
+    - Incl. PlayStation
+    - Incl. PlayStation Store
+  - **[New]** Crowdin
   - Twitch
-  - Codeberg
-  - Hallon
-  - Tele2
-  - Telia
 - **New Brand Guidelines**
   - Twitch
 
@@ -22,9 +32,9 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - *Empty*
 
 ## Dependencies
-- **[New]** vite-plus: *0.2.6*
+- **[New]** vite-plus: *0.2.7*
 - @humanspeak/svelte-markdown: *1.8.4 ➜ 1.8.5*
-- @sveltejs/kit: *2.70.0 ➜ 2.70.1*
+- @sveltejs/kit: *2.70.0 ➜ 2.70.2*
 - svelte: *5.56.6 ➜ 5.56.8*
 - publint: *0.3.21 ➜ 0.3.22*
 - globals: *17.7.0 ➜ 17.8.0*
