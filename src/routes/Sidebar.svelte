@@ -39,7 +39,7 @@
 
 	<section class="sidebar-section">
 		<div class="nav-top">
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/' }} href="/">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/' }} href="/">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M12.9823 2.764C12.631 2.49075 12.4553 2.35412 12.2613 2.3016C12.0902 2.25526 11.9098 2.25526 11.7387 2.3016C11.5447 2.35412 11.369 2.49075 11.0177 2.764L4.23539 8.03912C3.78202 8.39175 3.55534 8.56806 3.39203 8.78886C3.24737 8.98444 3.1396 9.20478 3.07403 9.43905C3 9.70352 3 9.9907 3 10.5651V17.8C3 18.9201 3 19.4801 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.0799 21 6.2 21H8.2C8.48003 21 8.62004 21 8.727 20.9455C8.82108 20.8976 8.89757 20.8211 8.9455 20.727C9 20.62 9 20.48 9 20.2V13.6C9 13.0399 9 12.7599 9.10899 12.546C9.20487 12.3578 9.35785 12.2049 9.54601 12.109C9.75992 12 10.0399 12 10.6 12H13.4C13.9601 12 14.2401 12 14.454 12.109C14.6422 12.2049 14.7951 12.3578 14.891 12.546C15 12.7599 15 13.0399 15 13.6V20.2C15 20.48 15 20.62 15.0545 20.727C15.1024 20.8211 15.1789 20.8976 15.273 20.9455C15.38 21 15.52 21 15.8 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4801 21 18.9201 21 17.8V10.5651C21 9.9907 21 9.70352 20.926 9.43905C20.8604 9.20478 20.7526 8.98444 20.608 8.78886C20.4447 8.56806 20.218 8.39175 19.7646 8.03913L12.9823 2.764Z" />
 				</svg>
@@ -51,7 +51,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Core Concept</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/privacy' }} href="/privacy">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/privacy' }} href="/privacy">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M3 11h18" />
@@ -62,7 +62,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Privacy</p>
 			</a>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/changelog' }} href="/changelog">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/changelog' }} href="/changelog">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" />
@@ -74,7 +74,7 @@
 		</div>
 
 		<div class="nav-section">
-			<div class="title {page.url.pathname.startsWith('/icons') ? 'selected' : ''}" inert>
+			<div class={{ title: true, selected: page.url.pathname.startsWith('/icons') }} inert>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M3 6.5a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0" />
 					<path d="M2.5 21h8l-4 -7l-4 7" />
@@ -84,13 +84,13 @@
 				</svg>
 				<p>ICONS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/icons/flags' }} href="/icons/flags">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/icons/flags' }} href="/icons/flags">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M4 15C4 15 5 14 8 14C11 14 13 16 16 16C19 16 20 15 20 15V4C20 4 19 5 16 5C13 5 11 3 8 3C5 3 4 4 4 4M4 22L4 2" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Flags</p>
 			</a>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/icons/brands' }} href="/icons/brands">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/icons/brands' }} href="/icons/brands">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M12.9996 10.9999L3.49964 20.4999M14.0181 3.53838C15.2361 4.34658 16.4068 5.29941 17.5008 6.3934C18.6042 7.49683 19.564 8.67831 20.3767 9.90766M9.2546 7.89605L6.37973 6.93776C6.04865 6.8274 5.68398 6.89763 5.41756 7.12306L2.56041 9.54065C1.97548 10.0356 2.14166 10.9775 2.86064 11.2424L5.56784 12.2398M11.6807 18.3524L12.6781 21.0596C12.943 21.7786 13.8849 21.9448 14.3798 21.3599L16.7974 18.5027C17.0228 18.2363 17.0931 17.8716 16.9827 17.5405L16.0244 14.6657M19.3482 2.27063L14.4418 3.08838C13.9119 3.17668 13.426 3.43709 13.0591 3.82932L6.446 10.8985C4.73185 12.7308 4.77953 15.5924 6.55378 17.3667C8.32803 19.1409 11.1896 19.1886 13.022 17.4744L20.0911 10.8614C20.4834 10.4944 20.7438 10.0085 20.8321 9.47869L21.6498 4.57222C21.8754 3.21858 20.7019 2.04503 19.3482 2.27063Z" />
 				</svg>
@@ -99,7 +99,7 @@
 		</div>
 
 		<div class="nav-section">
-			<div class="title {page.url.pathname.startsWith('/colors') ? 'selected' : ''}" inert>
+			<div class={{ title: true, selected: page.url.pathname.startsWith('/colors') }} inert>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
 					<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9" />
@@ -108,7 +108,7 @@
 				</svg>
 				<p>COLORS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ newly_added: true, selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
+			<a {@attach tabIndexFocus} class={{ page: true, newly_added: true, selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M11 7l6 6" />
@@ -122,7 +122,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Colors</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
 				<svg style="transform:rotate(20deg) translate(-.2rem, -.05rem);" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
 					<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9" />
@@ -152,7 +152,7 @@
 		</div>
 
 		<div class="nav-section">
-			<div class="title {page.url.pathname.startsWith('/cheat-sheets') ? 'selected' : ''}" inert>
+			<div class={{ title: true, selected: page.url.pathname.startsWith('/cheat-sheets') }} inert>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
 					<path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
@@ -162,7 +162,7 @@
 				</svg>
 				<p>CHEAT SHEETS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/cheat-sheets/transition-easing' }} href="/cheat-sheets/transition-easing">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/cheat-sheets/transition-easing' }} href="/cheat-sheets/transition-easing">
 				<svg viewBox="0 0 24 24" fill="currentColor">
 					<path stroke="none" fill="none" d="M0 0h24v24H0z" />
 					<path
@@ -206,7 +206,7 @@
 		</div>
 
 		<div class="nav-section">
-			<div class="title {page.url.pathname.startsWith('/other') ? 'selected' : ''}" inert>
+			<div class={{ title: true, selected: page.url.pathname.startsWith('/other') }} inert>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M21 12v-4.01a1.98 1.98 0 0 0 -1 -1.717l-7 -4.008a2.02 2.02 0 0 0 -2 0l-7 4.008c-.619 .355 -1 1.01 -1 1.718v8.018c0 .709 .381 1.363 1 1.717l7 4.008c.62 .354 1.38 .354 2 0" />
 					<path d="M12 22v-10" />
@@ -216,7 +216,7 @@
 				</svg>
 				<p>OTHER</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ selected: page.url.pathname === '/other/typography' }} href="/other/typography">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/other/typography' }} href="/other/typography">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M4 7C4 6.06812 4 5.60218 4.15224 5.23463C4.35523 4.74458 4.74458 4.35523 5.23463 4.15224C5.60218 4 6.06812 4 7 4H17C17.9319 4 18.3978 4 18.7654 4.15224C19.2554 4.35523 19.6448 4.74458 19.8478 5.23463C20 5.60218 20 6.06812 20 7M9 20H15M12 4V20" />
@@ -230,19 +230,20 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">External</p>
 			</div>
+			<a {@attach tabIndexFocus} class={{ page: true }} href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
+				<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+					<path transform="scale(64)" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" />
+				</svg>
+				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">View Source Code</p>
+			</a>
 		</div>
 
 		<div class="sidebar-footer">
-			<nav class="github">
-				<a {@attach tabIndexFocus} href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
-					<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
-						<path transform="scale(64)"
-						      d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" />
-					</svg>
-					GitHub
-				</a>
-			</nav>
 			<div class="metrics" inert>
+				<div class="metrics-value">
+					<p class="value copy">{formattedRequests}</p>
+					<p class="value">{formattedRequests}</p>
+				</div>
 				<div class="metrics-text">
 					<p class="title">Visitor Count</p>
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -252,12 +253,35 @@
 						      d="M15 2L16.1786 5.06442C16.4606 5.79765 16.6016 6.16426 16.8209 6.47264C17.0153 6.74595 17.254 6.98475 17.5274 7.17909C17.8357 7.39836 18.2024 7.53937 18.9356 7.82138L22 9L18.9356 10.1786C18.2024 10.4606 17.8357 10.6016 17.5274 10.8209C17.254 11.0153 17.0153 11.254 16.8209 11.5274C16.6016 11.8357 16.4606 12.2024 16.1786 12.9356L15 16L13.8214 12.9356C13.5394 12.2024 13.3984 11.8357 13.1791 11.5274C12.9847 11.254 12.746 11.0153 12.4726 10.8209C12.1643 10.6016 11.7976 10.4606 11.0644 10.1786L8 9L11.0644 7.82138C11.7976 7.53937 12.1643 7.39836 12.4726 7.17909C12.746 6.98475 12.9847 6.74595 13.1791 6.47264C13.3984 6.16426 13.5394 5.79765 13.8214 5.06442L15 2Z" />
 					</svg>
 				</div>
-				<div class="metrics-value">
-					{#each requestChars as char}
-						<p class="value {char === '.' ? 'dot' : 'number'}">{char}</p>
-					{/each}
-				</div>
 			</div>
+			<a class="human-made-badge" title="" href="https://thisishumanmade.org" target="_blank" rel="noopener noreferrer">
+				<svg fill="currentColor" viewBox="0 0 437.99 183.88">
+					<path d="M220.56,112.17c-19.96,0-21.73,11.88-21.73,23.06v37.6c0,1.95.98,3.02,2.66,3.02h9.93c1.77,0,2.66-.89,2.66-2.66v-7.72c0-1.77.98-2.66,2.66-2.66h7.63c1.77,0,2.66.89,2.66,2.66v7.72c0,1.77.98,2.66,2.66,2.66h9.93c1.77,0,2.66-1.06,2.66-3.02v-37.6c0-11.17-1.77-23.06-21.73-23.06ZM227.03,144.8c0,1.77-.89,2.66-2.66,2.75h-7.63c-1.68,0-2.66-.98-2.66-2.66v-9.67c0-4.26.62-6.39,6.47-6.39s6.47,2.13,6.47,6.39v9.58Z"/>
+					<path d="M273.15,113.76h-19.78c-1.77.09-2.66.98-2.66,2.75v56.67c0,1.69.98,2.66,2.66,2.66h19.78c16.67,0,22.17-6.83,22.17-21.37v-19.42c0-14.54-5.5-21.29-22.17-21.29ZM279.8,154.56c0,5.32-2.13,6.03-6.39,6.03h-4.79c-1.69,0-2.66-.98-2.66-2.66v-26.25c0-1.77.98-2.66,2.66-2.66h4.79c4.26,0,6.39.53,6.39,6.03v19.51Z"/>
+					<path d="M343.21,113.76h-37.25c-1.68,0-2.66.89-2.66,2.66v56.76c0,1.69.98,2.66,2.66,2.66h37.25c1.77,0,2.66-.89,2.66-2.66v-9.93c0-1.77-.89-2.66-2.66-2.66h-21.46c-1.69,0-2.66-.98-2.66-2.66v-2.84c0-1.77.98-2.66,2.66-2.66h13.75c1.77,0,2.66-.98,2.66-2.66v-9.93c0-1.77-.89-2.66-2.66-2.66h-13.75c-1.69,0-2.66-.98-2.66-2.66v-2.84c0-1.77.98-2.66,2.66-2.66h21.46c1.77,0,2.66-.98,2.66-2.66v-9.93c0-1.77-.89-2.66-2.66-2.66Z"/>
+					<path d="M223.57,39.18h-9.93c-1.68,0-2.66.89-2.66,2.66v34.76c0,6.83-.44,11-7.01,11s-7.01-4.17-7.01-11v-34.76c0-1.77-.89-2.66-2.66-2.66h-9.93c-1.68,0-2.66.89-2.66,2.66v39.47c0,5.85,1.24,21.55,22.26,21.55s22.26-15.7,22.26-21.55v-39.47c0-1.77-.89-2.66-2.66-2.66Z"/>
+					<path d="M280.69,63.65v34.94c0,1.69.98,2.66,2.66,2.66h9.93c1.77,0,2.66-.98,2.66-2.66v-56.76c0-1.77-.89-2.66-2.66-2.66h-18.36c-1.6,0-2.48.89-2.84,2.39l-6.3,25.81c-.18.89-.89.89-1.06,0l-6.3-25.81c-.35-1.51-1.24-2.39-2.84-2.39h-18.36c-1.77,0-2.66.89-2.66,2.66v56.76c0,1.69.89,2.66,2.66,2.66h9.93c1.77,0,2.66-.98,2.66-2.66v-34.94c0-.62.8-.71.98-.09l8.6,35.39c.35,1.51,1.33,2.31,2.93,2.31h5.85c1.6,0,2.57-.8,2.93-2.31l8.6-35.39c.18-.62.98-.53.98.09Z"/>
+					<path d="M332.57,92.48v7.72c0,1.77.98,2.66,2.66,2.66h9.93c1.77,0,2.66-1.06,2.66-3.02v-37.6c0-11.17-1.77-23.06-21.73-23.06s-21.73,11.88-21.73,23.06v37.6c0,1.95.98,3.02,2.66,3.02h9.93c1.77,0,2.66-.89,2.66-2.66v-7.72c0-1.77.98-2.66,2.66-2.66h7.63c1.77,0,2.66.89,2.66,2.66ZM322.28,74.56c-1.69,0-2.66-.98-2.66-2.66v-9.67c0-4.26.62-6.39,6.47-6.39s6.47,2.13,6.47,6.39v9.58c0,1.77-.89,2.66-2.66,2.75h-7.63Z"/>
+					<path d="M400.76,39.18h-9.93c-1.69,0-2.66.89-2.66,2.66v28.65c0,.89-.71,1.06-1.06.27l-12.06-29.53c-.62-1.42-1.6-2.04-3.1-2.04h-13.04c-1.68,0-2.66.89-2.66,2.66v56.76c0,1.69.98,2.66,2.66,2.66h9.93c1.77,0,2.66-.98,2.66-2.66v-28.65c0-.89.71-1.06,1.06-.27l12.06,29.53c.62,1.42,1.6,2.04,3.1,2.04h13.04c1.77,0,2.66-.98,2.66-2.66v-56.76c0-1.77-.89-2.66-2.66-2.66Z"/>
+					<path d="M428.02,39.99c1.68.93,2.99,2.23,3.92,3.89.93,1.66,1.4,3.56,1.4,5.7s-.47,4-1.4,5.68c-.93,1.68-2.24,2.99-3.92,3.92-1.68.93-3.59,1.4-5.73,1.4s-4.05-.47-5.73-1.4c-1.68-.93-3-2.24-3.95-3.92-.95-1.68-1.43-3.57-1.43-5.68s.47-4.04,1.43-5.7c.95-1.66,2.27-2.96,3.95-3.89,1.68-.93,3.59-1.4,5.73-1.4s4.05.47,5.73,1.4ZM428.14,55.49c1.46-1.49,2.19-3.46,2.19-5.91s-.73-4.41-2.19-5.9c-1.46-1.49-3.41-2.24-5.85-2.24s-4.4.75-5.85,2.24c-1.46,1.49-2.19,3.46-2.19,5.9s.73,4.41,2.19,5.91c1.46,1.49,3.41,2.24,5.85,2.24s4.39-.75,5.85-2.24ZM426.69,49.43c-.36.54-.84.95-1.45,1.22l2.6,4.17h-4.17l-2.04-3.77h-.31v3.77h-3.67v-10.79h5.65c1.19,0,2.14.32,2.85.97.71.65,1.07,1.49,1.07,2.55,0,.71-.18,1.34-.53,1.88ZM421.27,48.57h1.43c.54,0,.81-.25.81-.76,0-.47-.27-.71-.81-.71h-1.43v1.48Z"/>
+					<path d="M135.55,14.74c0-.65-.33-.98-.98-.98h-4.56c-.62,0-.98-.36-.98-.98v-3.65c0-.65.36-.98.98-.98h16.69c.65,0,.98.33.98.98v3.65c0,.62-.33.98-.98.98h-4.56c-.62,0-.98.33-.98.98v15.26c0,.62-.33.98-.98.98h-3.65c-.62,0-.98-.36-.98-.98v-15.26Z"/>
+					<path d="M154.27,8.16c.62,0,.98.36.98.98v8.15c0,.62.36.98.98.98h3.13c.65,0,.98-.36.98-.98v-8.15c0-.62.36-.98.98-.98h3.65c.65,0,.98.33.98.98v20.86c0,.62-.33.98-.98.98h-3.65c-.62,0-.98-.36-.98-.98v-5.15c0-.65-.33-.98-.98-.98h-3.13c-.62,0-.98.33-.98.98v5.15c0,.62-.33.98-.98.98h-3.65c-.62,0-.98-.36-.98-.98V9.14c0-.65.33-.98.98-.98h3.65Z"/>
+					<path d="M173.77,8.16c.65,0,.98.33.98.98v20.86c0,.62-.33.98-.98.98h-3.59c-.62,0-.98-.36-.98-.98V9.14c0-.65.36-.98.98-.98h3.59Z"/>
+					<path d="M189.38,16.24c-.65.13-.98-.16-1.08-.82-.23-1.34-1.3-2.18-2.84-2.18-1.27,0-2.05.75-1.92,1.5.46,2.54,10.76,2.48,10.76,9.98,0,.98-1.11,6.75-8.83,6.75-6.85,0-8.31-4.5-8.48-7.04-.03-.59.26-.95.85-1.08l3.68-.82c.65-.13,1.01.16,1.08.85.13,1.57,1.34,2.48,2.87,2.48s2.77-.95,2.58-1.83c-.62-2.77-10.43-2.15-10.43-9.65-.03-.98.55-6.75,7.86-6.75,6.72,0,8.28,4.37,8.48,6.72.03.59-.26.95-.85,1.08l-3.72.82Z"/>
+					<path d="M211,8.16c.65,0,.98.33.98.98v20.86c0,.62-.33.98-.98.98h-3.59c-.62,0-.98-.36-.98-.98V9.14c0-.65.36-.98.98-.98h3.59Z"/>
+					<path d="M226.62,16.24c-.65.13-.98-.16-1.08-.82-.23-1.34-1.3-2.18-2.84-2.18-1.27,0-2.05.75-1.92,1.5.46,2.54,10.76,2.48,10.76,9.98,0,.98-1.11,6.75-8.83,6.75-6.85,0-8.31-4.5-8.48-7.04-.03-.59.26-.95.85-1.08l3.68-.82c.65-.13,1.01.16,1.08.85.13,1.57,1.34,2.48,2.87,2.48s2.77-.95,2.58-1.83c-.62-2.77-10.43-2.15-10.43-9.65-.03-.98.55-6.75,7.86-6.75,6.72,0,8.28,4.37,8.48,6.72.03.59-.26.95-.85,1.08l-3.72.82Z"/>
+					<path d="M371.3,171.13c0-.65.32-.97.97-.97h3.63c.62,0,.97.32.97.97v3.63c0,.62-.36.97-.97.97h-3.63c-.65,0-.97-.36-.97-.97v-3.63Z"/>
+					<path d="M369.59,151.8c2.14,0,7.87.45,7.87,8.13s-5.73,8.13-7.87,8.13h-8.1c-2.14,0-7.87-.45-7.87-8.13s5.73-8.13,7.87-8.13h8.1ZM363.21,157.37c-2.49,0-4.01.16-4.01,2.56s1.52,2.56,4.01,2.56h4.66c2.49,0,4.02-.16,4.02-2.56s-1.52-2.56-4.02-2.56h-4.66Z"/>
+					<path d="M375.12,131.83c.84-.45,1.75.06,1.75,1.07v3.69c0,.32-.16.61-.45.74l-6.51,3.37c-.1.06-.16.16-.16.26v1.3c0,.58.42,1,1,1h5.12c.58,0,1,.42,1,1v3.63c0,.58-.42,1-1,1h-20.66c-.58,0-1-.42-1-1v-7.09c0-5.76,2.46-8.1,7.77-8.1,3.01,0,5.12.75,6.35,2.46.1.13.26.16.42.1l6.38-3.43ZM359.78,142.25c0,.58.42,1,1,1h2.4c.58,0,1-.42,1-1v-1.65c0-1.55-.19-2.33-2.2-2.33s-2.2.78-2.2,2.33v1.65Z"/>
+					<path d="M361.49,130.02c-2.14,0-7.87-.45-7.87-8.13,0-6.8,4.47-7.93,6.99-8.1.58-.03.94.26,1.07.84l.81,3.66c.13.65-.16,1-.84,1.07-1.55.13-2.46.68-2.46,2.53,0,2.4,1.52,2.56,4.01,2.56h4.66c2.49,0,4.02-.16,4.02-2.56s-1.52-2.56-3.11-2.56v1.88c0,.62-.36.97-.97.97h-2.59c-.65,0-.97-.36-.97-.97v-6.48c0-.65.32-.97.97-.97h4.37c2.14,0,7.87.45,7.87,8.13s-5.73,8.13-7.87,8.13h-8.1Z"/>
+					<path d="M187.74,113.76h-18.36c-1.6,0-2.48.89-2.84,2.39l-6.3,25.81c-.18.89-.89.89-1.06,0l-6.3-25.81c-.35-1.51-1.24-2.39-2.84-2.39h-15.85c1.32,11.51-.47,22.94-5.17,33.31v26.11c0,1.69.89,2.66,2.66,2.66h9.93c1.77,0,2.66-.98,2.66-2.66v-34.94c0-.62.8-.71.98-.09l8.6,35.39c.35,1.51,1.33,2.31,2.93,2.31h5.85c1.6,0,2.57-.8,2.93-2.31l8.6-35.39c.18-.62.98-.53.98.09v34.94c0,1.69.98,2.66,2.66,2.66h9.93c1.77,0,2.66-.98,2.66-2.66v-56.76c0-1.77-.89-2.66-2.66-2.66Z"/>
+					<path d="M170.72,39.18h-9.93c-1.69,0-2.66.98-2.66,2.66v22.17c0,1.68-.89,2.66-2.66,2.66h-8.51c-1.69,0-2.66-.98-2.66-2.66v-22.17c0-1.69-.98-2.66-2.66-2.66h-9.93c-1.77,0-2.66.89-2.66,2.66v45.14l2.89,14.28h9.7c1.77,0,2.66-.98,2.66-2.66v-14.01c0-1.77.98-2.66,2.66-2.66h8.51c1.77,0,2.66.89,2.66,2.66v14.01c0,1.69.98,2.66,2.66,2.66h9.93c1.77,0,2.66-.98,2.66-2.66v-56.76c0-1.77-.89-2.66-2.66-2.66Z"/>
+					<path d="M82.68,177.84c-.26.05-.51.1-.77.15-31.43,5.94-61.82-14.8-67.76-46.22l-6.79-33.49c-.94-4.65,2.07-9.19,6.72-10.13s9.19,2.07,10.13,6.72l6.81,33.6c4.2,22.22,25.58,36.81,47.69,32.63,10.7-1.99,19.99-8.1,26.13-17.1,6.14-9,8.41-19.86,6.39-30.57l-12.24-60.42c-.94-4.65,2.07-9.19,6.72-10.13s9.19,2.07,10.13,6.72l12.27,60.54c2.9,15.34-.33,30.77-9.06,43.57-8.58,12.58-21.48,21.14-36.37,24.16Z"/>
+					<path d="M93.01,61.57l-8.11-40.02c-.94-4.65-5.48-7.66-10.13-6.72s-7.66,5.48-6.72,10.13l5.36,26.44c7.27,1.52,14.27,4.98,19.61,10.17Z"/>
+					<path d="M56.95,51.34h.07s.07-.03.07-.03c.15-.03.29-.06.44-.09,2.62-.53,5.34-.76,8.1-.71l-6.92-34.16c-.94-4.65-5.48-7.66-10.13-6.72s-7.66,5.48-6.72,10.13l6.92,34.15c2.64-1.17,5.39-2.04,8.18-2.57Z"/>
+					<path d="M81.4,60.15c-7.06-3.67-15.32-4.9-22.73-3.4-.13.03-.26.05-.39.08l-.14.03-.14.03c-.13.03-.26.05-.39.08-5.14,1.04-10.14,3.45-14.42,6.88l-6.59-32.51c-.94-4.65-5.48-7.66-10.14-6.72s-7.66,5.48-6.72,10.13l11.63,57.4.58,2.88,6.79,33.5c.94,4.65,5.48,7.66,10.14,6.72s7.66-5.48,6.72-10.13l-6.79-33.5-.56-2.77c-1.11-5.87,5.43-13.54,12.76-15.03.06-.01.12-.02.17-.03l.25-.05.22-.04.25-.05c3.58-.79,7.92-.12,11.54,1.77,3.37,1.75,5.64,4.33,6.21,6.96l7.37,36.37c.94,4.65,5.48,7.66,10.14,6.72,4.65-.94,7.66-5.48,6.72-10.13l-7.39-36.48c-1.68-7.76-7.18-14.57-15.11-18.69Z"/>
+				</svg>
+			</a>
 			<p class="version-text">version {version}</p>
 		</div>
 	</section>
@@ -269,6 +293,7 @@
     @media (width >= 44rem) {
         :root {
             --sidebar-width: 18rem !important;
+						--min-height: calc(100vh - var(--header-height) - 2.5rem);
         }
 
         @keyframes ButtonHighlightAnim {
@@ -380,7 +405,8 @@
 
             padding: 1.5rem 1.25rem;
 
-            height: calc(100vh - var(--header-height) - 2.5rem);
+            min-height: var(--min-height);
+            height: fit-content;
             width: var(--sidebar-width);
             background: linear-gradient(0deg, var(--theme-ui-sidebar) 0%, rgba(from var(--theme-ui-sidebar) r g b / .925) 100%);
             backdrop-filter: blur(.175rem) saturate(1.1) contrast(1.25);
@@ -390,6 +416,11 @@
             .sidebar-footer {
                 width: calc(var(--sidebar-width) - 2px);
                 bottom: calc(1.25rem + 1px);
+                transform: translateY(1rem);
+
+                .human-made-badge {
+                    width: 50%;
+                }
             }
 
             .nav-section, .nav-top {
@@ -400,7 +431,7 @@
                     letter-spacing: .03rem;
                 }
 
-                a, .planned, .in_progress {
+                .page, .planned, .in_progress, .github a {
                     padding: .85rem .45rem .8rem .45rem;
                     font-size: .95rem;
                     text-wrap: nowrap;
@@ -469,10 +500,10 @@
 
                 padding: 1.5rem 0;
                 background: none;
-                transform: translateY(-1rem);
+                transform: translateY(.75rem);
 
-                .github {
-                    visibility: visible;
+                .human-made-badge {
+                    width: 40%;
                 }
 
                 .version-text {
@@ -480,7 +511,7 @@
                 }
             }
 
-            a, .planned, .in_progress {
+            .page, .planned, .in_progress, .github a {
                 padding: 1.3rem .85rem;
                 font-size: 1.15rem;
                 font-weight: 700;
@@ -493,7 +524,7 @@
                 }
             }
 
-            .planned, .in_progress, a.newly_added {
+            .planned, .in_progress, .newly_added {
                 &::after {
                     font-size: .75rem;
                 }
@@ -503,7 +534,7 @@
 
 
     .nav-section, .nav-top {
-        a:hover, .selected, .planned:hover, .in_progress:hover {
+        .page:hover, .selected, .planned:hover, .in_progress:hover {
             .text {
                 background-image: radial-gradient(circle at 10% 20%, rgb(174 110 204) 0%, rgb(62 175 229) 28.8%, rgb(45 208 51) 45.6%, rgb(224 196 16) 65.9%, rgb(255 143 28) 75.8%, rgb(222 70 70) 80%, rgb(255 123 249) 85.7%);
             }
@@ -511,7 +542,7 @@
     }
 
     .dark .nav-section, .dark .nav-top {
-        a:hover, .selected, .planned:hover, .in_progress:hover {
+        .page:hover, .selected, .planned:hover, .in_progress:hover {
             .text {
                 background-image: radial-gradient(circle at 10% 20%, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
             }
@@ -567,6 +598,8 @@
 
                 margin-bottom: .35rem;
 
+								background: none !important;
+
                 &::after {
                     height: 2px;
                     content: '';
@@ -596,7 +629,7 @@
             cursor: no-drop;
         }
 
-        a, .planned, .in_progress {
+        .page, .planned, .in_progress, .github a {
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
@@ -622,13 +655,13 @@
         }
 
         @media (prefers-reduced-transparency: reduce) {
-            .selected, a:hover, .planned:hover, .in_progress:hover {
+            .selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
                 background: linear-gradient(to left, var(--theme-ui-sidebar-highlight) 15%, color-mix(var(--theme-ui-sidebar-highlight),
                 var(--theme-color-primary) 5%) 100%) !important;
             }
         }
 
-        a.selected, a:hover, .planned:hover, .in_progress:hover {
+        .selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
             background: linear-gradient(to left, rgba(from var(--theme-ui-sidebar-highlight) r g b / .75) 15%, color-mix(rgba(from var(--theme-ui-sidebar-highlight) r g b / .5),
             var(--theme-color-primary) 5%) 100%);
             transition: var(--theme-transition-on);
@@ -704,26 +737,22 @@
         }
 
         .sidebar-footer {
-            height: fit-content;
+						height: 100%;
             width: 100%;
 
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
 
-            margin-top: .75rem;
-            margin-bottom: -1rem;
-
-            .github {
-                svg {
-                    width: 1.25rem;
-                    height: 1.25rem;
-                }
-            }
+            margin-top: auto;
+            margin-bottom: .5rem;
 
             .metrics {
-                margin-bottom: .25rem;
+								display: flex;
+								flex-flow: column nowrap;
+								align-items: center;
+
                 width: fit-content;
                 height: fit-content;
 
@@ -731,82 +760,87 @@
                     display: flex;
                     align-items: center;
                     gap: .12rem;
-
-                    font-family: 'Funnel Sans', sans-serif;
-                    font-size: .85rem;
-                    font-weight: 850;
-                    margin-bottom: .145rem;
+                    color: var(--theme-text-fourth);
 
                     .title {
-                        color: var(--theme-text-fourth);
-                        font-family: 'Funnel Sans', sans-serif;
-                        shape-rendering: geometricPrecision;
+                        color: inherit;
+                        font-family: 'Funnel Display', sans-serif;
+                        font-size: .85rem;
+                        font-weight: 900;
                     }
 
                     svg {
-                        color: var(--theme-text-fourth);
+                        color: inherit;
                         height: 1rem;
                         width: 1rem;
-                        margin-bottom: .175rem;
+                        margin-bottom: .15rem;
                         transform: rotate(-10.5deg);
+                        shape-rendering: geometricPrecision;
                     }
                 }
 
                 .metrics-value {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    align-items: end;
-                    justify-content: center;
+										display: flex;
+										flex-flow: column nowrap;
+										align-items: center;
+										justify-content: center;
 
-                    font-family: 'Bricolage Grotesque', sans-serif;
-                    font-size: 1.25rem;
-                    font-weight: 1000;
+										width: fit-content;
+										margin-bottom: -.65rem;
 
                     .value {
-                        display: flex;
-                        flex-flow: row nowrap;
-                        justify-content: center;
-                        margin: 0 .125rem;
-                        width: fit-content;
+                        color: light-dark(var(--theme-text-secondary),var(--theme-text-third));
+                        font-family: 'Bricolage Grotesque Variable', sans-serif;
+                        font-size: 2.5rem;
+                        font-weight: 1000;
+                        z-index: 100;
 
-                        color: var(--theme-text-third);
+                        overflow: hidden !important;
+                        white-space: nowrap;
+                        animation: revealAnimationText 2s ease;
 
-                        background: linear-gradient(to top, rgba(from var(--theme-text-fourth) r g b / .4) 0%, rgba(from var(--theme-text-fourth) r g b / .6) 100%);
-                        border: 1px solid var(--theme-text-fourth);
-                        border-radius: .25rem;
-                    }
+												&.copy {
+														animation: revealAnimationFx 2s ease;
+														position: absolute;
+														font-size: 3rem;
+                            color: var(--theme-text-fourth);
+														mask-image: linear-gradient(to right, #FFFFFF55 0%, #FFFFFF30 50%, #FFFFFF80 100%);
 
-                    .number {
-                        display: flex;
-                        align-items: center;
-                        height: 2rem;
-                        width: 1.15rem;
-                    }
-
-                    .dot {
-                        color: transparent;
-                        align-items: center;
-                        height: .725rem;
-                        width: .725rem;
-                    }
-
-                    .dot::after {
-                        position: relative;
-                        content: '.';
-                        right: 3px;
-                        top: -5px;
-                        color: var(--theme-text-third);
+                            transform: rotate(-5deg);
+														z-index: 0;
+												}
                     }
                 }
             }
 
+						.human-made-badge {
+								justify-self: end;
+								margin-top: 1rem;
+
+								svg {
+										color: var(--theme-text-third);
+								}
+
+								&:hover svg {
+										color: var(--theme-color-primary);
+								}
+						}
+
             .version-text {
-                margin-top: .25rem;
+								justify-self: flex-end;
+                margin-top: .75rem;
+
                 color: var(--theme-text-fourth);
                 font-family: 'JetBrainsMono', sans-serif;
                 font-size: .75rem;
                 font-weight: 700;
                 opacity: .5;
+                transition: 75ms ease;
+
+								&:hover {
+										color: var(--theme-text-secondary);
+										transition: 75ms ease;
+								}
             }
         }
     }
@@ -817,6 +851,23 @@
         }
         100% {
             background-position-x: calc(var(--bg-x) * -1);
+        }
+    }
+
+    @keyframes revealAnimationText {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+    @keyframes revealAnimationFx {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
         }
     }
 </style>
