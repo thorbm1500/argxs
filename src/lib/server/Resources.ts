@@ -1,7 +1,7 @@
 import type { Brand, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 import { compareVersionTags } from '$lib/utilities';
-import { VERSION } from '../../hooks.server.ts';
+import { RESOURCES, VERSION } from '../../hooks.server.ts';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
 
@@ -21,8 +21,11 @@ export class Resources {
 	readonly FLAG_ICONS_SORTED_AtoZ: ResourceIcon[] = [];
 	readonly FLAG_ALL_TAGS: string[] = [];
 
-	FLAG_ICON_AMOUNT: number = 0;
 	FLAG_TOTAL_AMOUNT: number = 0;
+	FLAG_AMOUNT: number = 0;
+
+	TOTAL_ICON_AMOUNT: number = 0;
+	TOTAL_ICON_AMOUNT_ROUNDED: number = 0;
 
 	readonly COLOR_COMBOS: ColorCombo[] = [];
 	COLOR_COMBO_AMOUNT: number = 0;
@@ -34,6 +37,9 @@ export class Resources {
 		console.info('Initializing resources...');
 		await this.loadBrandIcons();
 		await this.loadFlagIcons();
+		this.TOTAL_ICON_AMOUNT = this.BRAND_TOTAL_AMOUNT + this.FLAG_TOTAL_AMOUNT;
+		this.TOTAL_ICON_AMOUNT_ROUNDED = this.TOTAL_ICON_AMOUNT - (this.TOTAL_ICON_AMOUNT % 50);
+
 		await this.loadColorCombos();
 		await this.loadChangeLogs();
 		console.info(`Resource loading completed [${((Bun.nanoseconds() - startTime) / 1000000).toFixed(0)}ms]`);
@@ -45,7 +51,6 @@ export class Resources {
 
 		for (const brand of await fs.readdir(path)) {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
-			this.BRAND_AMOUNT++;
 
 			if (!current.tags) current.tags = [];
 
@@ -99,6 +104,8 @@ export class Resources {
 			}
 		}
 
+		this.BRAND_AMOUNT = this.BRAND_ICONS.length;
+
 		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 
@@ -143,12 +150,12 @@ export class Resources {
 					flag.isNew = flag.version === VERSION;
 				}
 
-				this.FLAG_ICON_AMOUNT += resource.variable.length + 1;
+				this.FLAG_TOTAL_AMOUNT += resource.variable.length + 1;
 				this.FLAG_ICONS.push(resource);
 			}
 		}
 
-		this.FLAG_TOTAL_AMOUNT = this.FLAG_ICONS.length;
+		this.FLAG_AMOUNT = this.FLAG_ICONS.length;
 
 		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));

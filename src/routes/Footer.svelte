@@ -26,19 +26,11 @@
 		</svg>
 	</a>
 	<p class="subtitle" inert>All rights reserved.</p>
-	<p class="disclaimer"><a href="/">argxs</a> is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any brands showcased on this website, or any of their
-		affiliates.</p>
+	<p class="disclaimer"><a href="/">argxs</a> is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any brands showcased on this website, or any of their affiliates.</p>
 </section>
 
 <!--suppress CssUnusedSymbol - Suppress incorrect warnings for unused selectors, due to dynamic addition of said selectors -->
 <style>
-    .footer-section.unscrollable {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 100vw;
-    }
-
     .footer-section {
         display: flex;
         flex-flow: column nowrap;
@@ -47,6 +39,7 @@
 
         height: fit-content;
         width: 100%;
+				overflow: visible;
 
         padding-top: 2.5rem;
         padding-bottom: 1.5rem;
@@ -55,6 +48,13 @@
 
         user-select: none;
         box-sizing: border-box !important;
+
+				&.unscrollable {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100vw;
+        }
 
         .sponsor {
             display: flex;
@@ -100,7 +100,5 @@
                 }
             }
         }
-
-
     }
 </style>
