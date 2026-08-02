@@ -4,6 +4,51 @@
 	tags: ["AI","Enterprise","Development"],
 	assets: [
 		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'crowdin-icon.svg',
+				date_added: '2026/8/2',
+				version: '0.8.0',
+				source: {
+					name: 'Crowdin',
+					href: 'https://crowdin.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'crowdin-icon-dark.svg',
+				date_added: '2026/8/2',
+				version: '0.8.0',
+				source: {
+					name: 'Crowdin',
+					href: 'https://crowdin.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'crowdin-small-icon.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'Crowdin',
+						href: 'https://crowdin.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'crowdin-small-icon-dark.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'Crowdin',
+						href: 'https://crowdin.com'
+					}
+				}
+			]
+		},
+		{
 			type: 'logo',
 			default: {
 				theme: 'light',
@@ -24,7 +69,52 @@
 					name: 'Crowdin',
 					href: 'https://crowdin.com'
 				}
-			}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'crowdin-stacked-logo.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'Crowdin',
+						href: 'https://crowdin.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'crowdin-stacked-logo-dark.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'Crowdin',
+						href: 'https://crowdin.com'
+					}
+				},
+				{
+					path: 'crowdin-badge-logo.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'Crowdin',
+						href: 'https://crowdin.com'
+					}
+				}
+			]
 		}
-	]
+	],
+	colors: {
+		primary: [
+			{
+				hex: '#263238',
+				rgb: '38 50 56',
+				pantone: '433 CP'
+			},
+			{
+				hex: '#FFFFFF',
+				rgb: '255 255 255',
+				pantone: 'P 179-1 C'
+			},
+		]
+	}
 }
