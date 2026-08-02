@@ -1,0 +1,95 @@
+{
+	name: 'This Is Human Made',
+	href: 'https://www.thisishumanmade.org',
+	tags: ["Development"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'thisishumanmade-icon.svg',
+				date_added: '2026/8/2',
+				version: '0.8.0',
+				source: {
+					name: 'This Is Human Made',
+					href: 'https://www.thisishumanmade.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'thisishumanmade-icon-dark.svg',
+				date_added: '2026/8/2',
+				version: '0.8.0',
+				source: {
+					name: 'This Is Human Made',
+					href: 'https://www.thisishumanmade.org'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'thisishumanmade-logo.svg',
+				date_added: '2026/8/2',
+                version: '0.8.0',
+				source: {
+					name: 'This Is Human Made',
+					href: 'https://www.thisishumanmade.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'thisishumanmade-logo-dark.svg',
+				date_added: '2026/8/2',
+				version: '0.8.0',
+				source: {
+					name: 'This Is Human Made',
+					href: 'https://www.thisishumanmade.org'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'thisishumanmade-variant-logo.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'This Is Human Made',
+						href: 'https://www.thisishumanmade.org'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'thisishumanmade-variant-logo-dark.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'This Is Human Made',
+						href: 'https://www.thisishumanmade.org'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'thisishumanmade-variant-transparent-logo.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'This Is Human Made',
+						href: 'https://www.thisishumanmade.org'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'thisishumanmade-variant-transparent-logo-dark.svg',
+					date_added: '2026/8/2',
+					version: '0.8.0',
+					source: {
+						name: 'This Is Human Made',
+						href: 'https://www.thisishumanmade.org'
+					}
+				}
+			]
+		}
+	]
+}
