@@ -62,6 +62,10 @@
 	};
 </script>
 
+<svelte:head>
+	<meta charset="utf-8">
+</svelte:head>
+
 <ToastComponent bind:sendFunction={sendToast} />
 
 {#if scrollY > 750}

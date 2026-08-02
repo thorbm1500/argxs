@@ -1,8 +1,18 @@
+import { RESOURCES } from '../../hooks.server.ts';
+
 export type PageTheme = 'light' | 'dark';
 
 export interface SEO {
 	title: string,
 	description?: string
+}
+
+export function getDefaultSEODescription(): string {
+	return "[Human-Made] Your #1 source of Web Development resources! Offering more than +" + `${RESOURCES.TOTAL_ICON_AMOUNT_ROUNDED}` + " SVG brand logos & icons, country flags, and more. Always Free. Always Open Source.";
+}
+
+export function getDefaultSEOTitle(): string {
+	return "argxs ▪ Web Resources";
 }
 
 export type IconType = 'icon' | 'logo' | 'country' | 'state';
