@@ -1,0 +1,19 @@
+{
+	name: 'City Gross',
+	href: 'https://www.citygross.se',
+	tags: ["Food & Drink","Shopping"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'city-gross-logo.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'City Gross',
+					href: 'https://www.citygross.se'
+				}
+			}
+		}
+	]
+}
