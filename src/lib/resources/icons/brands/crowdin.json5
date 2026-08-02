@@ -1,0 +1,30 @@
+{
+	name: 'Crowdin',
+	href: 'https://crowdin.com',
+	tags: ["AI","Enterprise","Development"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'crowdin-logo.svg',
+				date_added: '2026/8/2',
+                version: '0.8.0',
+				source: {
+					name: 'Crowdin',
+					href: 'https://crowdin.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'crowdin-logo-dark.svg',
+				date_added: '2026/8/2',
+				version: '0.8.0',
+				source: {
+					name: 'Crowdin',
+					href: 'https://crowdin.com'
+				}
+			}
+		}
+	]
+}
