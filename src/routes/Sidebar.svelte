@@ -665,13 +665,19 @@
         @media (prefers-reduced-transparency: reduce) {
             .selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
                 background: linear-gradient(to left, var(--theme-ui-sidebar-highlight) 15%, color-mix(var(--theme-ui-sidebar-highlight),
-                var(--theme-color-primary) 5%) 100%) !important;
+                var(--theme-color-primary) 5%) 100%);
+            }
+        }
+
+        @media (prefers-reduced-transparency: no-preference) {
+            .selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
+                background: linear-gradient(to left, rgba(from var(--theme-ui-sidebar-highlight) r g b / .75) 15%, color-mix(rgba(from var(--theme-ui-sidebar-highlight) r g b / .5) 97.5%,
+                var(--theme-color-primary) 2.5%) 100%);
+                transition: var(--theme-transition-on);
             }
         }
 
         .page.selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
-            background: linear-gradient(to left, rgba(from var(--theme-ui-sidebar-highlight) r g b / .75) 15%, color-mix(rgba(from var(--theme-ui-sidebar-highlight) r g b / .5),
-            var(--theme-color-primary) 5%) 100%);
             transition: var(--theme-transition-on);
 
             .text {
