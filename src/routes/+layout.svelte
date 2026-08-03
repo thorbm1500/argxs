@@ -17,12 +17,14 @@
 	
 	let pageState: boolean = $state(false);
 	let sidebarState: boolean = $state(false);
+	let screenSizeWarning: boolean = $state(false);
 	
 	onMount(() => setTimeout(() => pageState = true, 1500));
 	afterNavigate(() => setTimeout(() => pageState = true, 1000));
 	beforeNavigate(({ willUnload, to }) => {
 		pageState = false;
 		sidebarState = false;
+		screenSizeWarning = false;
 		if (updated.current && !willUnload && to?.url) {
 			location.href = to.url.href;
 		} else {
@@ -65,6 +67,34 @@
 <svelte:head>
 	<meta charset="utf-8">
 </svelte:head>
+
+{#if !screenSizeWarning }
+	<div class="screen-size-warning {theme}">
+		<div class="message">
+			<div class="title">
+				<h1>Sorry!</h1>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M9 10l.01 0" />
+					<path d="M15 10l.01 0" />
+					<path d="M9.5 15.25a3.5 3.5 0 0 1 5 0" />
+					<path stroke="var(--theme-color-accent)" d="M17.566 17.606a2 2 0 1 0 2.897 .03l-1.463 -1.636l-1.434 1.606" />
+					<path d="M20.865 13.517a8.937 8.937 0 0 0 .135 -1.517a9 9 0 1 0 -9 9c.69 0 1.36 -.076 2 -.222" />
+				</svg>
+			</div>
+			<div class="subtitle">
+				<h3>This page is not optimized for mobile use.</h3>
+				<button class="continue transition-default" title="" onclick={() => screenSizeWarning = true}>
+					<h4 class="transition-default">Continue anyway</h4>
+					<svg class="transition-default" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M5 12l14 0" />
+						<path d="M15 16l4 -4" />
+						<path d="M15 8l4 4" />
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+{/if}
 
 <ToastComponent bind:sendFunction={sendToast} />
 
@@ -137,6 +167,72 @@
             padding: 3rem 2rem 0 2rem;
         }
     }
+
+		@media (width > 700px) {
+				.screen-size-warning {
+						display: none !important;
+				}
+		}
+
+    .screen-size-warning {
+				overflow: hidden;
+				background: var(--theme-ui-background);
+
+        z-index: 999999;
+
+				.message {
+						width: 100%;
+						height: 100%;
+
+            flex-flow: column nowrap;
+						align-items: center;
+						justify-content: center;
+
+						padding-top: 2rem;
+
+						&, .title, .subtitle {
+                display: flex;
+						}
+
+						.title {
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: center;
+								gap: .25rem;
+
+								font-size: 2rem;
+
+								svg {
+										height: 2.5rem;
+								}
+						}
+						.subtitle {
+                flex-flow: column nowrap;
+
+								.continue {
+										display: flex;
+										flex-flow: row nowrap;
+										justify-content: center;
+
+										margin-top: 2rem;
+
+										h4 {
+                        font-size: .925rem;
+										}
+
+										h4, svg {
+                        color: var(--theme-text-fourth);
+										}
+
+										&:hover {
+												h4, svg {
+                            color: var(--theme-text-secondary);
+												}
+										}
+								}
+						}
+				}
+		}
 
     .btt-parent .btt {
         &.back-to-top, &.effect-a, &.effect-b, &.effect-c, &.effect-e, &.effect-f, &.effect-h {
@@ -301,7 +397,7 @@
         }
     }
 
-    .main-container {
+		.main-container, .screen-size-warning {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -311,7 +407,9 @@
         height: 100vh;
         width: 100vw;
         box-sizing: border-box;
+		}
 
+    .main-container {
         /*noinspection CssOverwrittenProperties*/
         overflow-y: scroll;
         /*noinspection CssOverwrittenProperties*/
