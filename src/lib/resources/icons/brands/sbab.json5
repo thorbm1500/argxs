@@ -1,0 +1,130 @@
+{
+	name: 'SBAB',
+	href: 'https://sbab.se',
+	tags: ["Finance"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'sbab-logo.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'SBAB',
+					href: 'https://sbab.se'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'sbab-logo-dark.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'SBAB',
+					href: 'https://sbab.se'
+				}
+			}
+		},
+		{
+			name: 'Booli',
+			href: 'https://www.booli.se',
+			type: 'icon',
+			tags: ["Real Estate"],
+			default: {
+				theme: 'light',
+				path: 'booli-icon.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'Booli',
+					href: 'https://www.booli.se'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'booli-icon-dark.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'Booli',
+					href: 'https://www.booli.se'
+				}
+			}
+		},
+		{
+			name: 'Booli',
+			href: 'https://www.booli.se',
+			type: 'logo',
+			tags: ["Real Estate"],
+			default: {
+				theme: 'light',
+				path: 'booli-logo.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'Booli',
+					href: 'https://www.booli.se'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'booli-logo-dark.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'Booli',
+					href: 'https://www.booli.se'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'booli-sbab-variant-logo.svg',
+					date_added: '2026/8/3',
+					version: '0.8.0',
+					source: {
+						name: 'SBAB',
+						href: 'https://sbab.se'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'booli-sbab-variant-logo-dark.svg',
+					date_added: '2026/8/3',
+					version: '0.8.0',
+					source: {
+						name: 'SBAB',
+						href: 'https://sbab.se'
+					}
+				}
+			]
+		},
+		{
+			name: 'Hittamäklare',
+			href: 'https://www.booli.se/hitta-maklare',
+			type: 'logo',
+			tags: ["Real Estate"],
+			default: {
+				theme: 'light',
+				path: 'booli-hittamaklare-sbab-variant-logo.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'SBAB',
+					href: 'https://sbab.se'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'booli-hittamaklare-sbab-variant-logo-dark.svg',
+				date_added: '2026/8/3',
+				version: '0.8.0',
+				source: {
+					name: 'SBAB',
+					href: 'https://sbab.se'
+				}
+			}
+		}
+	]
+}

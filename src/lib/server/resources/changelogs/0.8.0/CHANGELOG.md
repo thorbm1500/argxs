@@ -12,6 +12,8 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 ### New Brand Resources
 - **x New Icons**
   - **[New]** Codeberg
+  - **[New]** SBAB
+    - Incl. Booli & Hittamäklare
   - **[New]** Hallon
   - **[New]** Tele2
   - **[New]** Telia
