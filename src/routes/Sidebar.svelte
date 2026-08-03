@@ -362,15 +362,8 @@
                     transform: translateX(0);
                     transition: filter 80ms 12ms ease,
                     transform 275ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+                    transition-delay: 10ms !important;
                 }
-            }
-
-            .sidebar-section {
-                opacity: 0;
-
-                filter: blur(4px);
-                transform: translateX(calc(var(--sidebar-width) * -1));
-                transition: 400ms 100ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
             }
         }
 
@@ -405,6 +398,9 @@
 
             padding: 1.5rem 1.25rem;
 
+            opacity: 0;
+            filter: blur(4px);
+
             min-height: var(--min-height);
             height: fit-content;
             width: var(--sidebar-width);
@@ -412,6 +408,9 @@
             backdrop-filter: blur(.175rem) saturate(1.1) contrast(1.25);
             border: 1px solid var(--theme-ui-line);
             border-radius: .75rem;
+
+            transform: translateX(calc(var(--sidebar-width) * -1));
+            transition: 400ms 350ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 
             .sidebar-footer {
                 width: calc(var(--sidebar-width) - 2px);
