@@ -6,7 +6,8 @@
 The codebase now makes use of linting and formatting, provided by [**Vite+**](https://viteplus.dev), to make the codebase stronger and cleaner to work with.
 
 ## Minor Changes
-- *Empty*
+### Icons
+- **[New Tag]** Real Estate
 
 ### New Brand Resources
 - **x New Icons**
