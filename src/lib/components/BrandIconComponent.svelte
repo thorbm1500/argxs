@@ -341,7 +341,7 @@
 			border:         2px solid var(--theme-ui-white);
 			opacity:        .6;
 			mix-blend-mode: overlay;
-			filter:         blur(.075rem) contrast(2) brightness(1.5);
+			filter:         blur(.05rem) contrast(2) brightness(1.5);
 			mask-image:     linear-gradient(-20deg, transparent 0%, black 50%, transparent 100%);
 			width:          calc(100% + 2px);
 			height:         calc(100% + 2px);
