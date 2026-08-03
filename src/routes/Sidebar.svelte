@@ -255,7 +255,7 @@
 				</div>
 			</div>
 			<a class="human-made-badge" title="" href="https://thisishumanmade.org" target="_blank" rel="noopener noreferrer">
-				<svg fill="currentColor" viewBox="0 0 437.99 183.88">
+				<svg class="transition-default" fill="currentColor" viewBox="0 0 437.99 183.88">
 					<path d="M220.56,112.17c-19.96,0-21.73,11.88-21.73,23.06v37.6c0,1.95.98,3.02,2.66,3.02h9.93c1.77,0,2.66-.89,2.66-2.66v-7.72c0-1.77.98-2.66,2.66-2.66h7.63c1.77,0,2.66.89,2.66,2.66v7.72c0,1.77.98,2.66,2.66,2.66h9.93c1.77,0,2.66-1.06,2.66-3.02v-37.6c0-11.17-1.77-23.06-21.73-23.06ZM227.03,144.8c0,1.77-.89,2.66-2.66,2.75h-7.63c-1.68,0-2.66-.98-2.66-2.66v-9.67c0-4.26.62-6.39,6.47-6.39s6.47,2.13,6.47,6.39v9.58Z"/>
 					<path d="M273.15,113.76h-19.78c-1.77.09-2.66.98-2.66,2.75v56.67c0,1.69.98,2.66,2.66,2.66h19.78c16.67,0,22.17-6.83,22.17-21.37v-19.42c0-14.54-5.5-21.29-22.17-21.29ZM279.8,154.56c0,5.32-2.13,6.03-6.39,6.03h-4.79c-1.69,0-2.66-.98-2.66-2.66v-26.25c0-1.77.98-2.66,2.66-2.66h4.79c4.26,0,6.39.53,6.39,6.03v19.51Z"/>
 					<path d="M343.21,113.76h-37.25c-1.68,0-2.66.89-2.66,2.66v56.76c0,1.69.98,2.66,2.66,2.66h37.25c1.77,0,2.66-.89,2.66-2.66v-9.93c0-1.77-.89-2.66-2.66-2.66h-21.46c-1.69,0-2.66-.98-2.66-2.66v-2.84c0-1.77.98-2.66,2.66-2.66h13.75c1.77,0,2.66-.98,2.66-2.66v-9.93c0-1.77-.89-2.66-2.66-2.66h-13.75c-1.69,0-2.66-.98-2.66-2.66v-2.84c0-1.77.98-2.66,2.66-2.66h21.46c1.77,0,2.66-.98,2.66-2.66v-9.93c0-1.77-.89-2.66-2.66-2.66Z"/>
@@ -282,7 +282,7 @@
 					<path d="M81.4,60.15c-7.06-3.67-15.32-4.9-22.73-3.4-.13.03-.26.05-.39.08l-.14.03-.14.03c-.13.03-.26.05-.39.08-5.14,1.04-10.14,3.45-14.42,6.88l-6.59-32.51c-.94-4.65-5.48-7.66-10.14-6.72s-7.66,5.48-6.72,10.13l11.63,57.4.58,2.88,6.79,33.5c.94,4.65,5.48,7.66,10.14,6.72s7.66-5.48,6.72-10.13l-6.79-33.5-.56-2.77c-1.11-5.87,5.43-13.54,12.76-15.03.06-.01.12-.02.17-.03l.25-.05.22-.04.25-.05c3.58-.79,7.92-.12,11.54,1.77,3.37,1.75,5.64,4.33,6.21,6.96l7.37,36.37c.94,4.65,5.48,7.66,10.14,6.72,4.65-.94,7.66-5.48,6.72-10.13l-7.39-36.48c-1.68-7.76-7.18-14.57-15.11-18.69Z"/>
 				</svg>
 			</a>
-			<p class="version-text">version {version}</p>
+			<p class="version-text transition-default">version {version}</p>
 		</div>
 	</section>
 </section>
@@ -590,13 +590,13 @@
                 flex-flow: row nowrap;
                 align-items: center;
                 justify-content: flex-start;
-                width: 100%;
-                text-wrap: nowrap;
                 gap: .25rem;
 
+                width: 100%;
                 height: 1.5rem;
-
                 margin-bottom: .35rem;
+
+                text-wrap: nowrap;
 
 								background: none !important;
 
@@ -610,9 +610,12 @@
                 }
 
                 p {
-                    font-family: 'Funnel Sans', sans-serif;
+                    font-family: 'Funnel Sans Italic', sans-serif;
                     color: var(--theme-text-fourth);
                     width: fit-content;
+                    font-weight: 700;
+										margin-left: .1rem;
+										margin-bottom: .1rem;
                 }
 
                 svg {
@@ -622,6 +625,12 @@
                     color: var(--theme-text-fourth);
                     padding-bottom: .1rem;
                 }
+
+								&.selected {
+                    p, svg {
+                        color: var(--theme-text-secondary);
+                    }
+								}
             }
         }
 
@@ -661,7 +670,7 @@
             }
         }
 
-        .selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
+        .page.selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
             background: linear-gradient(to left, rgba(from var(--theme-ui-sidebar-highlight) r g b / .75) 15%, color-mix(rgba(from var(--theme-ui-sidebar-highlight) r g b / .5),
             var(--theme-color-primary) 5%) 100%);
             transition: var(--theme-transition-on);
