@@ -27,7 +27,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		return {
 			seo: {
 				title: 'argxs ▪ Flag Icons',
-				description: `Browse a total of ${RESOURCES.FLAG_AMOUNT} different countries*, consisting of ${RESOURCES.FLAG_TOTAL_AMOUNT} different flags. * This includes all 193 member states and 2 general observers of the United Nations, as well as de facto states, and other famous flags.`
+				description: `Browse a total of ${RESOURCES.FLAG_TOTAL_AMOUNT} different flags. * This includes all 193 member states and 2 general observers of the United Nations, as well as de facto states, and other famous flags.`
 			} as SEO,
 			icons: RESOURCES.FLAG_ICONS,
 			iconsSortedNew: RESOURCES.FLAG_ICONS_SORTED_NEW,
