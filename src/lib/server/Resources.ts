@@ -119,6 +119,7 @@ export class Resources {
 
 		for (const flag of dir) {
 			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
+			this.FLAG_AMOUNT++;
 
 			if (!current.tags) current.tags = [];
 
@@ -154,8 +155,6 @@ export class Resources {
 				this.FLAG_ICONS.push(resource);
 			}
 		}
-
-		this.FLAG_AMOUNT = this.FLAG_ICONS.length;
 
 		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));

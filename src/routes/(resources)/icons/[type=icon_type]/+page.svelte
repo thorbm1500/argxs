@@ -20,7 +20,7 @@
 	const { data } = $props();
 
 	afterNavigate(() => {
-		while(allFilters.length) {
+		if (allFilters.length) {
 			allFilters.pop();
 		}
 		data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
@@ -765,7 +765,7 @@
 					<div class="description">
 						<span>This collection is made up of</span>
 						<span class="callout"> {data.entryAmount} </span>
-						<span>different countries & nations, states & de facto states, and other famous entities!</span><br>
+						<span>different countries & nations, states & de facto states and other famous entities, movements, organisations and more!</span><br>
 						<span>This includes <strong>all</strong></span>
 						<span class="callout"> 193 </span>
 						<span>member states and</span>
