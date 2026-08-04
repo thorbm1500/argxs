@@ -1,4 +1,3 @@
-<!--TODO: Fix slider only updating on cursor movements and not solo clicks -->
 <!-- svelte-ignore a11y_mouse_events_have_key_events -->
 <script lang="ts">
 	import { copyToClipboard, MathUtils } from '$lib/utilities';
@@ -152,23 +151,16 @@
 			}
 		})
 
-		canvas.addEventListener('touchstart', (event: TouchEvent) => {
+		const canvasInputEventHandler = (event: MouseEvent | TouchEvent) => {
 			isHovering = true;
 			isDragging = true;
 
 			userDragEvent(event);
-		});
-		canvas.addEventListener('mousedown', (event: MouseEvent) => {
-			isHovering = true;
-			isDragging = true;
-
-			userDragEvent(event);
-		});
+		}
+		canvas.addEventListener('touchstart', canvasInputEventHandler);
+		canvas.addEventListener('mousedown', canvasInputEventHandler);
 		canvas.addEventListener('touchmove', (event: TouchEvent) => {
-			isHovering = true;
-			isDragging = true;
-
-			userDragEvent(event);
+			canvasInputEventHandler(event);
 
 			_hsv.s = canvasRect ? MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100 : 54;
 			_hsv.v = canvasRect ? MathUtils.clamp((canvasRect.height - clientY) / canvasRect.height, 0, 1) * 100 : 100;
@@ -186,14 +178,19 @@
 		slider.addEventListener('touchstart', (event: TouchEvent) => {
 			isSliderActive = true;
 			updateCursorVariables(event, true);
+			updateSlider();
 		});
 		slider.addEventListener('mousedown', (event: MouseEvent) => {
 			isSliderActive = true;
 			updateCursorVariables(event, true);
+			updateSlider();
 		});
 		slider.addEventListener('touchmove', (event: TouchEvent) => {
-			if (!slider) return;
-			isSliderActive = true;
+			if (!slider) {
+				isSliderActive = false;
+				return;
+			} else isSliderActive = true;
+
 			if (event.cancelable) event.preventDefault();
 
 			updateCursorVariables(event, true);
