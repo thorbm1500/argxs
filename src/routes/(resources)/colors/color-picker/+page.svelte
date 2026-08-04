@@ -1,5 +1,4 @@
 <!--TODO: Fix slider only updating on cursor movements and not solo clicks -->
-<!--TODO: Fix slider not moving smoothly -->
 <!-- svelte-ignore a11y_mouse_events_have_key_events -->
 <script lang="ts">
 	import { copyToClipboard, MathUtils } from '$lib/utilities';
@@ -53,10 +52,10 @@
 	let colorMix = (type: 'analogous' | 'tetradic' | 'split-complementary', mix: number, harmony: number = 0) => chroma(color.toHex()).mix(color.harmonies(type)[harmony]?.toHex() ?? '#000', mix);
 	let showMainColorShade: boolean = $state(true);
 
-	function updateColorUI(_color: Colord, update_hsv: boolean = false) {
+	function updateColorUI(_color: Colord, update_hsv: boolean) {
 		if (update_hsv) {
 			_hsv = _color.toHsv();
-			if (slider) sliderKnobPosX = _hsv.h * ((slider.getBoundingClientRect().width - slider.getBoundingClientRect().left) / 360);
+			if (slider) sliderKnobPosX = _hsv.h * (slider.getBoundingClientRect().width / 360);
 		}
 		inputHEX = _color.toHex().toUpperCase();
 		inputRGB = `${(_color.toRgb().r).toFixed(0)} ${(_color.toRgb().g).toFixed(0)} ${(_color.toRgb().b).toFixed(0)}`;
@@ -69,14 +68,13 @@
 	updateColorUI(color, true);
 
 	function updateCursorPos() {
-		if (!canvasRect) {
-			// Disables hovering as no canvas is present
-			isHovering = false;
-			return;
-		}
 		if (!slider) {
 			// Disables hovering as no slider is present
 			isSliderActive = false;
+		}
+		if (!canvasRect) {
+			// Disables hovering as no canvas is present
+			isHovering = false;
 			return;
 		}
 
@@ -95,14 +93,16 @@
 	}
 
 	function updateSlider() {
+		console.debug('slider#updateSlider');
 		if (!slider) return;
 		sliderKnobPosX = MathUtils.clamp(cursorX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
+
 		const _color = color.toHsv();
 		_color.h = MathUtils.clamp(MathUtils.clamp(sliderKnobPosX / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
 		if (color.toHslString() !== colord(_color).toHslString()) {
 			_hsv.h = _color.h;
 			color = colord(_color);
-			updateColorUI(color, true);
+			updateColorUI(color, false);
 		}
 	}
 
@@ -289,8 +289,9 @@
 		if (!isSliderActive && isHovering && canvasRect && (((innerWidth.current ?? 1920) <= 430) || isDragging)) {
 			const _color = colord(_hsv);
 			if (color.toLchString() !== _color.toLchString()) {
+				const shouldSliderUpdate = color.hue() !== _color.hue();
 				color = _color;
-				updateColorUI(color, true);
+				updateColorUI(color, shouldSliderUpdate);
 			}
 		}
 	});
@@ -332,7 +333,7 @@
 		<canvas bind:this={canvas} class="color-picker" id="color-picker" style="--picker-color-bg: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}; border-radius: {isHovering ? '.25rem' : '.9rem'}"></canvas>
 		<div class="actions">
 			<button class="action random" title="Randomize" onclick="{() => {
-				color =  random();
+				color = random();
 				updateColorUI(color, true);
 			}}">Randomize</button>
 		</div>
