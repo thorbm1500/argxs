@@ -15,6 +15,9 @@
 
 	const sendToast: Function | undefined = $derived(getContext('sendToast') as Function ?? undefined);
 	let scrollY: number = $derived((getContext('scrollY') as Function)?.() ?? 0);
+	let currentScreenWidth: number = $derived(innerWidth.current ?? 0);
+	// svelte-ignore state_referenced_locally
+	let activeScreenWidth: number = $state(currentScreenWidth);
 
 	let slider: HTMLDivElement | undefined = $state();
 	let canvas: HTMLCanvasElement | undefined = $state();
@@ -51,8 +54,8 @@
 	let colorMix = (type: 'analogous' | 'tetradic' | 'split-complementary', mix: number, harmony: number = 0) => chroma(color.toHex()).mix(color.harmonies(type)[harmony]?.toHex() ?? '#000', mix);
 	let showMainColorShade: boolean = $state(true);
 
-	function updateColorUI(_color: Colord, update_hsv: boolean) {
-		if (update_hsv) {
+	function updateColorUI(_color: Colord, updateSlider: boolean) {
+		if (updateSlider) {
 			_hsv = _color.toHsv();
 			if (slider) sliderKnobPosX = _hsv.h * (slider.getBoundingClientRect().width / 360);
 		}
@@ -281,8 +284,13 @@
 	});
 
 	$effect(() => {
+		// Updates slider position if screen is resized
+		if (activeScreenWidth !== currentScreenWidth && currentScreenWidth !== 0) {
+			updateColorUI(color, true);
+			activeScreenWidth = currentScreenWidth;
+		}
 		// Updates selected color to current inspected color
-		if (!isSliderActive && isHovering && canvasRect && (((innerWidth.current ?? 1920) <= 430) || isDragging)) {
+		else if (!isSliderActive && isHovering && canvasRect && (((innerWidth.current ?? 1920) <= 430) || isDragging)) {
 			const _color = colord(_hsv);
 			if (color.toLchString() !== _color.toLchString()) {
 				const shouldSliderUpdate = color.hue() !== _color.hue();
