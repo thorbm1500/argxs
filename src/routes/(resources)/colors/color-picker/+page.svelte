@@ -412,23 +412,23 @@
 		<div class="values">
 			<div class="value hex">
 				<h3 class="title">HEX</h3>
-				<input bind:this={hexInput} bind:value={inputHEX} class="input hex" type="text"  size="7">
+				<input bind:this={hexInput} bind:value={inputHEX} class="input hex" type="text"  size="8">
 			</div>
 			<div class="value rgb">
 				<h3 class="title">RGB</h3>
-				<input bind:this={rgbInput} bind:value={inputRGB} class="input rgb" type="text" size="11">
+				<input bind:this={rgbInput} bind:value={inputRGB} class="input rgb" type="text" size="12">
 			</div>
 			<div class="value hsl">
 				<h3 class="title">HSL</h3>
-				<input bind:this={hslInput} bind:value={inputHSL} class="input hsl" type="text" size="13">
+				<input bind:this={hslInput} bind:value={inputHSL} class="input hsl" type="text" size="14">
 			</div>
 			<div class="value lch">
 				<h3 class="title">LCH</h3>
-				<input bind:this={lchInput} bind:value={inputLCH} class="input lch" type="text" size="17">
+				<input bind:this={lchInput} bind:value={inputLCH} class="input lch" type="text" size="18">
 			</div>
 			<div class="value oklch">
 				<h3 class="title">OKLCH</h3>
-				<input bind:this={oklchInput} bind:value={inputOKLCH} class="input oklch" type="text" size="17">
+				<input bind:this={oklchInput} bind:value={inputOKLCH} class="input oklch" type="text" size="18">
 			</div>
 		</div>
 		<div class="previews">
@@ -644,6 +644,10 @@
 						.title {
 								margin-left: 2rem;
 								font-size: min(3.5rem, 5vw);
+
+                background-image: var(--theme-text-gradient);
+                background-clip: text;
+                color: transparent;
 						}
 				}
 
@@ -874,6 +878,7 @@
                     }
 
                     .input {
+                        font-family: 'Geologica', 'Google Sans', sans-serif;
                         text-align: center;
 
                         width: fit-content;
