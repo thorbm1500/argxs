@@ -93,7 +93,6 @@
 	}
 
 	function updateSlider() {
-		console.debug('slider#updateSlider');
 		if (!slider) return;
 		sliderKnobPosX = MathUtils.clamp(cursorX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
 
