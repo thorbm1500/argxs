@@ -8,6 +8,9 @@
 	import harmonies from "colord/plugins/harmonies";
 	import chroma from 'chroma-js';
 	import type { Action } from 'svelte/action';
+	import { prefersReducedMotion } from 'svelte/motion';
+	import { circOut } from 'svelte/easing';
+	import { draw } from 'svelte/transition';
 
 	extend([lchPlugin,harmonies]);
 
@@ -15,6 +18,7 @@
 
 	const sendToast: Function | undefined = $derived(getContext('sendToast') as Function ?? undefined);
 	let scrollY: number = $derived((getContext('scrollY') as Function)?.() ?? 0);
+	let pageLoad: boolean = $state(false);
 	let currentScreenWidth: number = $derived(innerWidth.current ?? 0);
 	// svelte-ignore state_referenced_locally
 	let activeScreenWidth: number = $state(currentScreenWidth);
@@ -129,6 +133,8 @@
 
 	onMount(() => {
 		if (!canvas || !slider || !document) return;
+		pageLoad = true;
+
 		sliderKnobPosX = ((slider.getBoundingClientRect().left - slider.getBoundingClientRect().width) / 360) * -237;
 
 		// Disables all user inputs
@@ -283,6 +289,14 @@
 		}
 	});
 
+	function adjustColor(brightness: number, type: 'brightness' | 'saturation') {
+		let _color = color.toHsv();
+		if (type === 'brightness') _color.v *= brightness;
+		else _color.s *= brightness
+		color = colord(_color);
+		updateColorUI(color, true);
+	}
+
 	$effect(() => {
 		// Updates slider position if screen is resized
 		if (activeScreenWidth !== currentScreenWidth && currentScreenWidth !== 0) {
@@ -336,10 +350,61 @@
 	<div class="color-picker-content">
 		<canvas bind:this={canvas} class="color-picker" id="color-picker" style="--picker-color-bg: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}; border-radius: {isHovering ? '.25rem' : '.9rem'}"></canvas>
 		<div class="actions">
+			<div class="actions-parent">
+				<div class="title">
+					<svg class="transition-default" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						{#key pageLoad}
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut}} d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 375}} d="M12 3l0 17" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 475}} d="M12 9l4.65 -4.65" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 575}} d="M12 14.3l7.37 -7.37" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 675}} d="M12 19.6l8.85 -8.85" />
+						{/key}
+					</svg>
+					<h4>Brightness</h4>
+				</div>
+				<button class="action brightness" title="Decrease brightness by 25%" onclick="{() => adjustColor(.75, 'brightness')}">
+					<h4 class="transition-default">-25%</h4>
+				</button>
+				<button class="action brightness" title="Increase brightness by 25%" onclick="{() => adjustColor(1.25, 'brightness')}">
+					<h4 class="transition-default">+25%</h4>
+				</button>
+			</div>
+			<div class="actions-parent">
+				<div class="title">
+					<svg class="transition-default" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						{#key pageLoad}
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut}} d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 375}} d="M12 17a5 5 0 0 0 0 -10v10" />
+						{/key}
+					</svg>
+					<h4>Saturation</h4>
+				</div>
+				<button class="action saturation" title="Decrease saturation by 25%" onclick="{() => adjustColor(.75, 'saturation')}">
+					<h4 class="transition-default">-25%</h4>
+				</button>
+				<button class="action saturation" title="Increase saturation by 25%" onclick="{() => adjustColor(1.25, 'saturation')}">
+					<h4 class="transition-default">+25%</h4>
+				</button>
+			</div>
 			<button class="action random" title="Randomize" onclick="{() => {
 				color = random();
 				updateColorUI(color, true);
-			}}">Randomize</button>
+			}}">
+				{#key pageLoad}
+					<svg class="transition-default" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 300}} d="M20 21h-4v-4" />
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut}} d="M16 21l5 -5" />
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 500}} d="M6.5 9.504l-3.5 -2l2 -3.504" />
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 200}} d="M3 7.504l6.83 -1.87" />
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 700}} d="M4 16l4 -1l1 4" />
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 400}} d="M8 15l-3.5 6" />
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 900}} d="M21 5l-.5 4l-4 -.5" />
+						<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: circOut, delay: 600}} d="M20.5 9l-4.5 -5.5" />
+					</svg>
+				{/key}
+				<h4 class="transition-default">Randomize</h4>
+			</button>
 		</div>
 		<div bind:this={slider} class="slider">
 			<div class="slider-knob" style="--pos-x: {$state.eager(sliderKnobPosX) - 16}px; --rot-x: {$state.eager(sliderKnobPosX) - 16}deg; background: {colord({ h: color.hue(), s: 100, v: 100 }).toHex()}"></div>
@@ -658,6 +723,72 @@
                     transition-delay: 0s;
 								}
             }
+
+						.actions {
+                gap: 1rem;
+
+                width: 100%;
+								max-width: var(--max-width);
+                height: fit-content;
+                padding: 0 .5rem;
+
+                box-sizing: border-box;
+
+                margin-top: .75rem;
+
+								overflow: hidden;
+						}
+
+            .actions-parent {
+                gap: .4rem;
+
+								.title {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+                    justify-content: center;
+										gap: .2rem;
+										font-size: 1.025rem;
+
+										svg {
+												color: var(--theme-text-third);
+										}
+								}
+						}
+
+						.actions-parent .title, .actions .action {
+                svg {
+                    height: 1.4rem;
+                }
+						}
+
+						.actions, .actions-parent {
+								display: flex;
+								flex-flow: row nowrap;
+								align-items: center;
+								justify-content: flex-end;
+
+								.action {
+										display: flex;
+										flex-flow: row nowrap;
+										align-items: center;
+										justify-content: center;
+										gap: .2rem;
+										font-size: 1.025rem;
+
+										h4, svg {
+                        color: var(--theme-text-third);
+										}
+
+                    &:hover h4, &:hover svg {
+                        color: var(--theme-text-secondary);
+                    }
+
+										&:active h4, &:active svg {
+                        color: var(--theme-color-accent);
+										}
+								}
+						}
 
             .slider {
                 height: min(.5rem, .8vw);
