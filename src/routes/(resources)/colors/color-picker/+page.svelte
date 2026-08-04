@@ -1,3 +1,4 @@
+<!-- TODO: General code cleanup before next release -->
 <!-- svelte-ignore a11y_mouse_events_have_key_events -->
 <script lang="ts">
 	import { copyToClipboard, MathUtils } from '$lib/utilities';
@@ -11,6 +12,7 @@
 	import { prefersReducedMotion } from 'svelte/motion';
 	import { circOut } from 'svelte/easing';
 	import { draw } from 'svelte/transition';
+	import { preventDefault } from 'svelte/legacy';
 
 	extend([lchPlugin,harmonies]);
 
@@ -63,7 +65,7 @@
 			_hsv = _color.toHsv();
 			if (slider) sliderKnobPosX = _hsv.h * (slider.getBoundingClientRect().width / 360);
 		}
-		inputHEX = _color.toHex().toUpperCase();
+		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
 		inputRGB = `${(_color.toRgb().r).toFixed(0)} ${(_color.toRgb().g).toFixed(0)} ${(_color.toRgb().b).toFixed(0)}`;
 		inputHSL = `${_color.toHsl().h} ${_color.toHsl().s}% ${_color.toHsl().l}%`;
 		inputLCH = `${_color.toLch().l}% ${_color.toLch().c.toFixed(2)} ${_color.toLch().h.toFixed(2)}`;
@@ -210,83 +212,145 @@
 			}
 		});
 
-		//TODO: Add missing inputs. Create formatting of all inputs
-		if (hexInput) {
-			hexInput.addEventListener('input', (event: InputEvent) => {
-				if (!hexInput || event.data === null) return;
-				//TODO: Check if formatting of user input is correct
-				// Ensures pasting is possible even when a full 7 character hex string is present
-				if (event.inputType === 'insertFromPaste') hexInput.value = event.data
+		// ### HEX
+		hexInput?.addEventListener('input', (event: InputEvent) => {
+			if (!hexInput || event.data === null) return;
+			// Ensures pasting is possible even when a full 7 character hex string is present
+			if (event.inputType === 'insertFromPaste') inputHEX = event.data
 
-				// Formats the field
-				hexInput.value = '#' +  hexInput.value.replaceAll(new RegExp(/[^0-9a-fA-F]/, 'g'), '').toUpperCase();
-				if (hexInput.value.length > 7) hexInput.value = hexInput.value.substring(0,7);
+			// Formats the field
+			inputHEX = '#' +  inputHEX.replaceAll(new RegExp(/[^0-9a-fA-F]/, 'g'), '').toUpperCase();
+			if (inputHEX.length > 7) inputHEX = inputHEX.substring(0,7);
 
-				// Sets the color if a paste was performed
-				if (event.inputType === 'insertFromPaste') {
-					color = colord(hexInput.value);
-					updateColorUI(color, true);
-				}
-			});
-			hexInput.addEventListener('keypress', (event: KeyboardEvent) => {
-				// Sets the color if the Enter key was pressed
-				if (hexInput && event.key === 'Enter') {
-					color = colord(hexInput.value);
-					updateColorUI(color, true);
-				}
-			});
-		}
-		if (rgbInput) {
-			rgbInput.addEventListener('input', (event: InputEvent) => {
-				if (!rgbInput) return;
-				//TODO: Check if formatting of user input is correct
-				if (event.inputType === 'insertText') {
-					if (rgbInput.value.length === 3) rgbInput.value += ' ';
-				}
-				else if (event.inputType.includes('deleteContent')) {
+			// Sets the color if a paste was performed and the HEX is at least 3 characters
+			if (event.inputType === 'insertFromPaste' && inputHEX.length > 3) {
+				color = colord(inputHEX);
+				updateColorUI(color, true);
+			}
+		});
+		hexInput?.addEventListener('keypress', (event: KeyboardEvent) => {
+			// Sets the color if the Enter key was pressed
+			if (hexInput && event.key === 'Enter') {
+				color = colord(inputHEX);
+				updateColorUI(color, true);
+			}
+		});
 
-				}
-				rgbInput.value = rgbInput.value.toUpperCase();
+		// ### RGB
+		rgbInput?.addEventListener('input', (event: InputEvent) => {
+			if (!rgbInput || event.data === null) return;
+			if (event.inputType === 'insertText') {
+				event.preventDefault();
+				rgbInput.value += event.data;
+			}
+			if (inputRGB.length > 11) inputRGB = inputRGB.substring(0,11);
 
-				// Sets the color if a paste was performed
-				if (event.inputType === 'insertFromPaste') {
-					const values = rgbInput.value.split(' ');
-					color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') })
-					updateColorUI(color, true);
-				}
-			});
-			rgbInput.addEventListener('keypress', (event: KeyboardEvent) => {
-				// Sets the color if the Enter key was pressed
-				if (rgbInput && event.key === 'Enter') {
-					const values = rgbInput.value.split(' ');
-					color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') })
-					updateColorUI(color, true);
-				}
-			});
-		}
-		if (hslInput) {
-			hslInput.addEventListener('input', (event: InputEvent) => {
-				if (!hslInput) return;
-				//TODO: Format input from user
-				//hslInput.value = hslInput.value;
+			const inputChar: string[] = inputRGB.replaceAll(new RegExp(/[^0-9( )]/, 'g'), '').replaceAll(new RegExp(/\s+/, 'g'), ' ').split('');
+			inputRGB = '';
 
-				// Sets the color if a paste was performed
-				if (event.inputType === 'insertFromPaste') {
-					const values = hslInput.value.split(' ');
-					color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-					updateColorUI(color, true);
+			let numbersPlaced = 0;
+			let spacesPlaced = 0;
+			for (const char of inputChar) {
+				if (spacesPlaced === 2 && numbersPlaced === 3) break;
+
+				// Char == space
+				if (spacesPlaced < 2 && char === ' ') {
+					inputRGB = inputRGB.trimEnd() + ' ';
+					numbersPlaced = 0;
+					spacesPlaced++;
 				}
-			});
-			hslInput.addEventListener('keypress', (event: KeyboardEvent) => {
-				// Sets the color if the Enter key was pressed
-				//TODO: Format input from user
-				if (hslInput && event.key === 'Enter') {
-					const values = hslInput.value.split(' ');
-					color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-					updateColorUI(color, true);
+
+				// Char == number
+				else if (/[0-9]/.test(char)) {
+					if (numbersPlaced > 2) {
+						if (spacesPlaced === 2) break;
+						numbersPlaced = 0;
+						spacesPlaced++;
+						inputRGB = inputRGB.trimEnd() + ' ';
+					}
+
+					numbersPlaced++;
+					inputRGB += char;
 				}
-			});
-		}
+			}
+
+			// Sets the color
+			if (event.inputType === 'insertFromPaste') {
+				const values = inputRGB.split(' ');
+				color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') });
+				updateColorUI(color, true);
+			}
+		});
+		rgbInput?.addEventListener('keypress', (event: KeyboardEvent) => {
+			// Sets the color if the Enter key was pressed
+			if (rgbInput && event.key === 'Enter') {
+				const values = rgbInput.value.split(' ');
+				color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') })
+				updateColorUI(color, true);
+			}
+		});
+
+		//TODO: Create formatting of all inputs
+		// ### HSL
+		hslInput?.addEventListener('input', (event: InputEvent) => {
+			if (!hslInput || event.data === null) return;
+			//hslInput.value = hslInput.value;
+
+			// Sets the color if a paste was performed
+			if (event.inputType === 'insertFromPaste') {
+				const values = hslInput.value.split(' ');
+				color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+				updateColorUI(color, true);
+			}
+		});
+		hslInput?.addEventListener('keypress', (event: KeyboardEvent) => {
+			// Sets the color if the Enter key was pressed
+			if (hslInput && event.key === 'Enter') {
+				const values = hslInput.value.split(' ');
+				color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+				updateColorUI(color, true);
+			}
+		});
+
+		// ### LCH
+		lchInput?.addEventListener('input', (event: InputEvent) => {
+			if (!lchInput || event.data === null) return;
+
+			// Sets the color if a paste was performed
+			if (event.inputType === 'insertFromPaste') {
+				// const values = lchInput.value.split(' ');
+				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+				// updateColorUI(color, true);
+			}
+		});
+		hslInput?.addEventListener('keypress', (event: KeyboardEvent) => {
+			// Sets the color if the Enter key was pressed
+			if (hslInput && event.key === 'Enter') {
+				// const values = hslInput.value.split(' ');
+				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+				// updateColorUI(color, true);
+			}
+		});
+
+		// ### OKLCH
+		oklchInput?.addEventListener('input', (event: InputEvent) => {
+			if (!oklchInput || event.data === null) return;
+
+			// Sets the color if a paste was performed
+			if (event.inputType === 'insertFromPaste') {
+				// const values = oklchInput.value.split(' ');
+				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+				// updateColorUI(color, true);
+			}
+		});
+		oklchInput?.addEventListener('keypress', (event: KeyboardEvent) => {
+			// Sets the color if the Enter key was pressed
+			if (oklchInput && event.key === 'Enter') {
+				// const values = oklchInput.value.split(' ');
+				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
+				// updateColorUI(color, true);
+			}
+		});
 	});
 
 	function adjustColor(brightness: number, type: 'brightness' | 'saturation') {

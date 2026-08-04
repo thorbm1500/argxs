@@ -7,6 +7,7 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 
 ## Minor Changes
 ### Icons
+- Improved accessibility to users with prefers-reduced-motion enabled
 - **[New Tag]** Real Estate
 
 ### New Brand Resources
@@ -35,7 +36,7 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
     - Real Estate
 
 ## Bug Fixes
-- *Empty*
+- Sidebar should be less glitchy now
 
 ## Dependencies
 - **[New]** vite-plus: *0.2.7*
