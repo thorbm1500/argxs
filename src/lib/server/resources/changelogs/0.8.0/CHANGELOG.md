@@ -30,6 +30,9 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
   - Twitch
 - **New Brand Guidelines**
   - Twitch
+- **New Tags**
+  - Home
+    - Real Estate
 
 ## Bug Fixes
 - *Empty*
