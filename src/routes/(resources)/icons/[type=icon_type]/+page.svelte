@@ -828,7 +828,7 @@
 				<div class="sorting">
 					{#if sorting !== 'default' || (iconsOnly || logosOnly || countriesOnly || statesOnly || animatedOnly)}
 						<GlassButton className="sort-action">
-							<button type="button" transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => {
+							<button type="button" transition:fade={{duration: prefersReducedMotion.current ? 0 : 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => {
 							sorting = 'default';
 							order = 'desc';
 							saveCurrentSorting();
@@ -968,14 +968,14 @@
 				{#key search}
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<g>
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M14.986 3.51a9 9 0 1 0 1.514 16.284c2.489 -1.437 4.181 -3.978 4.5 -6.794" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M10 10h.01" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M14 8h.01" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M12 15c1 -1.333 2 -2 3 -2">
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M14.986 3.51a9 9 0 1 0 1.514 16.284c2.489 -1.437 4.181 -3.978 4.5 -6.794" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M10 10h.01" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M14 8h.01" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M12 15c1 -1.333 2 -2 3 -2">
 								<animateTransform attributeName="transform" attributeType="XML" dur="5s" keyTimes="0; 0.05; 0.2; 1" repeatCount="indefinite" type="rotate" values="0; 0; 2; 0" />
 							</path>
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M20 9v.01" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M20 6a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483">
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M20 9v.01" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M20 6a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483">
 								<animateTransform attributeName="transform" attributeType="XML" dur="4s" keyTimes="0; 0.05; 0.1; 1" repeatCount="indefinite" type="rotate" values="0; 1.25; 0; 0" />
 							</path>
 							<animateTransform attributeName="transform" attributeType="XML" dur="5s" keyTimes="0; 0.2; 0.5; 0.8; 1" repeatCount="indefinite" type="rotate" values="0; 3; 0; -3; 0" />
