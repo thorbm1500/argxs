@@ -214,26 +214,22 @@
 		});
 
 		// ### HEX
+		function applyHEX(data: string) {
+			const _color = colord(data);
+			let isValid = _color.isValid();
+			if (isValid) color = _color;
+
+			updateColorUI(color, isValid);
+		}
+
 		hexInput?.addEventListener('input', (event: InputEvent) => {
-			if (!hexInput || event.data === null) return;
-			// Ensures pasting is possible even when a full 7 character hex string is present
-			if (event.inputType === 'insertFromPaste') inputHEX = event.data
-
-			// Formats the field
-			inputHEX = '#' +  inputHEX.replaceAll(new RegExp(/[^0-9a-fA-F]/, 'g'), '').toUpperCase();
-			if (inputHEX.length > 7) inputHEX = inputHEX.substring(0,7);
-
-			// Sets the color if a paste was performed and the HEX is at least 3 characters
-			if (event.inputType === 'insertFromPaste' && inputHEX.length > 3) {
-				color = colord(inputHEX);
-				updateColorUI(color, true);
+			if (event.data !== null && event.inputType === 'insertFromPaste') {
+				applyHEX(event.data);
 			}
 		});
 		hexInput?.addEventListener('keypress', (event: KeyboardEvent) => {
-			// Sets the color if the Enter key was pressed
-			if (hexInput && event.key === 'Enter') {
-				color = colord(inputHEX);
-				updateColorUI(color, true);
+			if (event.key === 'Enter') {
+				applyHEX(inputHEX);
 			}
 		});
 
