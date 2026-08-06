@@ -263,48 +263,37 @@
 			}
 		});
 
-		//TODO: Create formatting of all inputs
 		// ### HSL
 		function applyHSL(data: string) {
 			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s]/,'g'), '').replaceAll(new RegExp(/\s{2,}/, 'g'),' ').split(' ');
-			if (!values[0]) return;
+			let isValid = false;
+			if (values[0]) {
+				const _hsl = color.toHsl();
 
-			const _color = color.toHsl();
-			_color.h = Number.parseInt(values[0]);
-			_color.s = values[1] ? Number.parseInt(values[1]) : _color.s;
-			_color.l = values[2] ? Number.parseInt(values[2]) : _color.l;
-			color = colord(_color);
-			updateColorUI(color, true);
+				_hsl.h = Number.parseInt(values[0]);
+				if (values[1]) _hsl.s = Number.parseInt(values[1]);
+				if (values[2]) _hsl.l = Number.parseInt(values[2]);
+
+				const _color = colord(_hsl);
+				isValid = _color.isValid();
+				if (isValid) color = _color;
+			}
+
+			updateColorUI(color, isValid);
 		}
 
 		hslInput?.addEventListener('input', (event: InputEvent) => {
-			if (!hslInput || event.data === null) return;
-			// Sets the color if a paste was performed
-			if (event.inputType === 'insertFromPaste') {
+			if (event.data !== null && event.inputType === 'insertFromPaste') {
 				applyHSL(event.data);
-			} else {
-				if (/^(hsl\()?([0-9]|[1-9][0-9]|[1-3][0-9]{1,2}),?\s?([0-9]|[1-9][0-9]|[1-3][0-9]{1,2})%?,?\s?([0-9]|[1-9][0-9]|[1-3][0-9]{1,2})%?\)?$/.test(inputHSL)) {
-					applyHSL(inputHSL);
-					return;
-				}
-
-				// Cancels user input if action is illegal
-				if (/[^0-9\s%]/.test(event.data)
-					|| inputHSL.charAt(-1) === ' ' && event.data === ' '
-					|| inputHSL.charAt(-1) === '%' && event.data === '%') {
-					inputHSL = inputHSL.slice(0,inputHSL.lastIndexOf(event.data)) + inputHSL.slice(inputHSL.lastIndexOf(event.data)).replace(event.data, '');
-				}
-				// Enforces single spaces
-				inputHSL = inputHSL.replaceAll(new RegExp(/\s{2,}/,'g'), ' ');
 			}
 		});
 		hslInput?.addEventListener('keypress', (event: KeyboardEvent) => {
-			// Sets the color if the Enter key was pressed
-			if (hslInput && inputHSL.length !== 0 && event.key === 'Enter') {
+			if (event.key === 'Enter') {
 				applyHSL(inputHSL);
 			}
 		});
 
+		//TODO: Create formatting of all inputs
 		// ### LCH
 		lchInput?.addEventListener('input', (event: InputEvent) => {
 			if (!lchInput || event.data === null) return;
