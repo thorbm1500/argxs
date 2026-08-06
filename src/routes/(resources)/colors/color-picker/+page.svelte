@@ -67,7 +67,8 @@
 		}
 		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
 		inputRGB = `${(_color.toRgb().r).toFixed(0)} ${(_color.toRgb().g).toFixed(0)} ${(_color.toRgb().b).toFixed(0)}`;
-		inputHSL = `${_color.toHsl().h} ${_color.toHsl().s}% ${_color.toHsl().l}%`;
+		//inputHSL = `${_color.toHsl().h} ${_color.toHsl().s}% ${_color.toHsl().l}%`;
+		inputHSL = _color.toHslString().slice(4, -1).replaceAll(',','');
 		inputLCH = `${_color.toLch().l}% ${_color.toLch().c.toFixed(2)} ${_color.toLch().h.toFixed(2)}`;
 		inputOKLCH = `${(chroma(_color.toHex()).oklch()[0] ?? 0).toFixed(4)} ${(chroma(_color.toHex()).oklch()[1] ?? 0).toFixed(4)} ${(chroma(_color.toHex()).oklch()[2] ?? 0).toFixed(2)}`;
 	}
@@ -237,78 +238,74 @@
 		});
 
 		// ### RGB
+		function applyRGB(data: string) {
+			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s]/,'g'), '').replaceAll(new RegExp(/\s{2,}/, 'g'),' ').split(' ');
+			let isValid = false;
+			if (values[0]) {
+				const _rgb = color.toRgb();
+
+				_rgb.r = Number.parseInt(values[0]);
+				if (values[1]) _rgb.g = Number.parseInt(values[1]);
+				if (values[2]) _rgb.b = Number.parseInt(values[2]);
+
+				const _color = colord(_rgb);
+				isValid = _color.isValid();
+				if (isValid) color = _color;
+			}
+
+			updateColorUI(color, isValid);
+		}
+
 		rgbInput?.addEventListener('input', (event: InputEvent) => {
-			if (!rgbInput || event.data === null) return;
-			if (event.inputType === 'insertText') {
-				event.preventDefault();
-				rgbInput.value += event.data;
-			}
-			if (inputRGB.length > 11) inputRGB = inputRGB.substring(0,11);
-
-			const inputChar: string[] = inputRGB.replaceAll(new RegExp(/[^0-9( )]/, 'g'), '').replaceAll(new RegExp(/\s+/, 'g'), ' ').split('');
-			inputRGB = '';
-
-			let numbersPlaced = 0;
-			let spacesPlaced = 0;
-			for (const char of inputChar) {
-				if (spacesPlaced === 2 && numbersPlaced === 3) break;
-
-				// Char == space
-				if (spacesPlaced < 2 && char === ' ') {
-					inputRGB = inputRGB.trimEnd() + ' ';
-					numbersPlaced = 0;
-					spacesPlaced++;
-				}
-
-				// Char == number
-				else if (/[0-9]/.test(char)) {
-					if (numbersPlaced > 2) {
-						if (spacesPlaced === 2) break;
-						numbersPlaced = 0;
-						spacesPlaced++;
-						inputRGB = inputRGB.trimEnd() + ' ';
-					}
-
-					numbersPlaced++;
-					inputRGB += char;
-				}
-			}
-
-			// Sets the color
-			if (event.inputType === 'insertFromPaste') {
-				const values = inputRGB.split(' ');
-				color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') });
-				updateColorUI(color, true);
+			if (event.data !== null && event.inputType === 'insertFromPaste') {
+				applyRGB(event.data);
 			}
 		});
 		rgbInput?.addEventListener('keypress', (event: KeyboardEvent) => {
-			// Sets the color if the Enter key was pressed
-			if (rgbInput && event.key === 'Enter') {
-				const values = rgbInput.value.split(' ');
-				color = colord({ r: Number.parseInt(values[0] ?? '0'), g: Number.parseInt(values[1] ?? ''), b: Number.parseInt(values[2] ?? '') })
-				updateColorUI(color, true);
+			if (event.key === 'Enter') {
+				applyRGB(inputRGB);
 			}
 		});
 
 		//TODO: Create formatting of all inputs
 		// ### HSL
+		function applyHSL(data: string) {
+			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s]/,'g'), '').replaceAll(new RegExp(/\s{2,}/, 'g'),' ').split(' ');
+			if (!values[0]) return;
+
+			const _color = color.toHsl();
+			_color.h = Number.parseInt(values[0]);
+			_color.s = values[1] ? Number.parseInt(values[1]) : _color.s;
+			_color.l = values[2] ? Number.parseInt(values[2]) : _color.l;
+			color = colord(_color);
+			updateColorUI(color, true);
+		}
+
 		hslInput?.addEventListener('input', (event: InputEvent) => {
 			if (!hslInput || event.data === null) return;
-			//hslInput.value = hslInput.value;
-
 			// Sets the color if a paste was performed
 			if (event.inputType === 'insertFromPaste') {
-				const values = hslInput.value.split(' ');
-				color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-				updateColorUI(color, true);
+				applyHSL(event.data);
+			} else {
+				if (/^(hsl\()?([0-9]|[1-9][0-9]|[1-3][0-9]{1,2}),?\s?([0-9]|[1-9][0-9]|[1-3][0-9]{1,2})%?,?\s?([0-9]|[1-9][0-9]|[1-3][0-9]{1,2})%?\)?$/.test(inputHSL)) {
+					applyHSL(inputHSL);
+					return;
+				}
+
+				// Cancels user input if action is illegal
+				if (/[^0-9\s%]/.test(event.data)
+					|| inputHSL.charAt(-1) === ' ' && event.data === ' '
+					|| inputHSL.charAt(-1) === '%' && event.data === '%') {
+					inputHSL = inputHSL.slice(0,inputHSL.lastIndexOf(event.data)) + inputHSL.slice(inputHSL.lastIndexOf(event.data)).replace(event.data, '');
+				}
+				// Enforces single spaces
+				inputHSL = inputHSL.replaceAll(new RegExp(/\s{2,}/,'g'), ' ');
 			}
 		});
 		hslInput?.addEventListener('keypress', (event: KeyboardEvent) => {
 			// Sets the color if the Enter key was pressed
-			if (hslInput && event.key === 'Enter') {
-				const values = hslInput.value.split(' ');
-				color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-				updateColorUI(color, true);
+			if (hslInput && inputHSL.length !== 0 && event.key === 'Enter') {
+				applyHSL(inputHSL);
 			}
 		});
 
