@@ -43,9 +43,9 @@
 
 	/** Internal variables, to keep the inspected color updated realtime.
 	 * Allows the user to position the cursor inside the canvas, without the selected color updating. */
-	let _hsv = $state({ h: 237, s: 54, v: 100 });
+	let _hsv = $state({ h: 237, s: 54, v: 100, a: 1 });
 
-	let sliderKnobPosX: number = $state(0);
+	let sliderKnobPosX: number = $state(237);
 
 	let inputHEX: string = $state('');
 	let inputRGB: string = $state('');
@@ -53,7 +53,7 @@
 	let inputLCH: string = $state('');
 	let inputOKLCH: string = $state('');
 
-	let color: Colord = $state(colord({ h: 237, s: 54, v: 100 }));
+	let color: Colord = $state(colord('#757CFF'));
 	let colorName: string = $derived(chroma(color.toHex()).name());
 	let colorShade = (shade: number) => chroma(color.toHex()).shade(shade);
 	let colorMix = (type: 'analogous' | 'tetradic' | 'split-complementary', mix: number, harmony: number = 0) => chroma(color.toHex()).mix(color.harmonies(type)[harmony]?.toHex() ?? '#000', mix);
@@ -62,17 +62,15 @@
 	function updateColorUI(_color: Colord, updateSlider: boolean) {
 		if (updateSlider) {
 			_hsv = _color.toHsv();
-			if (slider) sliderKnobPosX = _hsv.h * (slider.getBoundingClientRect().width / 360);
 		}
+		if (slider) sliderKnobPosX = _hsv.h * (slider.getBoundingClientRect().width / 360);
+
 		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
 		inputRGB = `${(_color.toRgb().r).toFixed(0)} ${(_color.toRgb().g).toFixed(0)} ${(_color.toRgb().b).toFixed(0)}`;
 		inputHSL = _color.toHslString().slice(4, -1).replaceAll(',','');
 		inputLCH = `${_color.toLch().l}% ${_color.toLch().c.toFixed(2)} ${_color.toLch().h.toFixed(2)}`;
 		inputOKLCH = `${(chroma(_color.toHex()).oklch()[0] ?? 0).toFixed(4)} ${(chroma(_color.toHex()).oklch()[1] ?? 0).toFixed(4)} ${(chroma(_color.toHex()).oklch()[2] ?? 0).toFixed(2)}`;
 	}
-
-	// svelte-ignore state_referenced_locally
-	updateColorUI(color, true);
 
 	function updateCursorPos() {
 		if (!slider) {
@@ -136,7 +134,7 @@
 		if (!canvas || !slider || !document) return;
 		pageLoad = true;
 
-		sliderKnobPosX = ((slider.getBoundingClientRect().left - slider.getBoundingClientRect().width) / 360) * -237;
+		updateColorUI(color, false);
 
 		// Disables all user inputs
 		const endUserInput = () => {
