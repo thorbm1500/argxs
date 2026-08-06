@@ -12,7 +12,6 @@
 	import { prefersReducedMotion } from 'svelte/motion';
 	import { circOut } from 'svelte/easing';
 	import { draw } from 'svelte/transition';
-	import { preventDefault } from 'svelte/legacy';
 
 	extend([lchPlugin,harmonies]);
 
@@ -67,7 +66,6 @@
 		}
 		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
 		inputRGB = `${(_color.toRgb().r).toFixed(0)} ${(_color.toRgb().g).toFixed(0)} ${(_color.toRgb().b).toFixed(0)}`;
-		//inputHSL = `${_color.toHsl().h} ${_color.toHsl().s}% ${_color.toHsl().l}%`;
 		inputHSL = _color.toHslString().slice(4, -1).replaceAll(',','');
 		inputLCH = `${_color.toLch().l}% ${_color.toLch().c.toFixed(2)} ${_color.toLch().h.toFixed(2)}`;
 		inputOKLCH = `${(chroma(_color.toHex()).oklch()[0] ?? 0).toFixed(4)} ${(chroma(_color.toHex()).oklch()[1] ?? 0).toFixed(4)} ${(chroma(_color.toHex()).oklch()[2] ?? 0).toFixed(2)}`;
@@ -295,14 +293,14 @@
 
 		// ### LCH
 		function applyLCH(data: string) {
-			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s.]/,'g'), '').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
+			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s.]/,'g'), '').replaceAll(new RegExp(/\.\.+/,'g'), '.').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
 			let isValid = false;
 			if (values[0]) {
 				const _lch = color.toLch();
 
-				_lch.l = Number.parseInt(values[0]);
-				if (values[1]) _lch.c = Number.parseInt(values[1]);
-				if (values[2]) _lch.h = Number.parseInt(values[2]);
+				_lch.l = Number.parseFloat(values[0]);
+				if (values[1]) _lch.c = Number.parseFloat(values[1]);
+				if (values[2]) _lch.h = Number.parseFloat(values[2]);
 
 				const _color = colord(_lch);
 				isValid = _color.isValid();
@@ -323,24 +321,41 @@
 			}
 		});
 
-		//TODO: Create formatting of all inputs
 		// ### OKLCH
-		oklchInput?.addEventListener('input', (event: InputEvent) => {
-			if (!oklchInput || event.data === null) return;
+		function applyOKLCH(data: string) {
+			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s.]/,'g'), '').replaceAll(new RegExp(/\.\.+/,'g'), '.').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
 
-			// Sets the color if a paste was performed
-			if (event.inputType === 'insertFromPaste') {
-				// const values = oklchInput.value.split(' ');
-				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-				// updateColorUI(color, true);
+			const currentOKLCH = chroma(color.toHex()).oklch();
+			const _oklch = {
+				l: 0,
+				c: 0,
+				h: 0
+			}
+
+			_oklch.l = Number.parseFloat(values[0] ?? 'NaN');
+			if (Number.isNaN(_oklch.l)) _oklch.l = currentOKLCH[0];
+
+			_oklch.c = Number.parseFloat(values[1] ?? 'NaN');
+			if (Number.isNaN(_oklch.c)) _oklch.c = currentOKLCH[1];
+
+			_oklch.h = Number.parseFloat(values[2] ?? 'NaN');
+			if (Number.isNaN(_oklch.h)) _oklch.h = currentOKLCH[2];
+
+			const _color = colord(chroma.oklch(_oklch.l, _oklch.c, _oklch.h).hex('rgb'));
+			let isValid = _color.isValid();
+			if (isValid) color = _color;
+
+			updateColorUI(color, isValid);
+		}
+
+		oklchInput?.addEventListener('input', (event: InputEvent) => {
+			if (event.data !== null && event.inputType === 'insertFromPaste') {
+				applyOKLCH(event.data);
 			}
 		});
 		oklchInput?.addEventListener('keypress', (event: KeyboardEvent) => {
-			// Sets the color if the Enter key was pressed
-			if (oklchInput && event.key === 'Enter') {
-				// const values = oklchInput.value.split(' ');
-				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-				// updateColorUI(color, true);
+			if (event.key === 'Enter') {
+				applyOKLCH(inputOKLCH);
 			}
 		});
 	});
