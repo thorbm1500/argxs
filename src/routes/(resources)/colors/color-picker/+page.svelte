@@ -235,7 +235,7 @@
 
 		// ### RGB
 		function applyRGB(data: string) {
-			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s]/,'g'), '').replaceAll(new RegExp(/\s{2,}/, 'g'),' ').split(' ');
+			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s]/,'g'), '').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
 			let isValid = false;
 			if (values[0]) {
 				const _rgb = color.toRgb();
@@ -265,7 +265,7 @@
 
 		// ### HSL
 		function applyHSL(data: string) {
-			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s]/,'g'), '').replaceAll(new RegExp(/\s{2,}/, 'g'),' ').split(' ');
+			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s]/,'g'), '').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
 			let isValid = false;
 			if (values[0]) {
 				const _hsl = color.toHsl();
@@ -293,27 +293,37 @@
 			}
 		});
 
-		//TODO: Create formatting of all inputs
 		// ### LCH
+		function applyLCH(data: string) {
+			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s.]/,'g'), '').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
+			let isValid = false;
+			if (values[0]) {
+				const _lch = color.toLch();
+
+				_lch.l = Number.parseInt(values[0]);
+				if (values[1]) _lch.c = Number.parseInt(values[1]);
+				if (values[2]) _lch.h = Number.parseInt(values[2]);
+
+				const _color = colord(_lch);
+				isValid = _color.isValid();
+				if (isValid) color = _color;
+			}
+
+			updateColorUI(color, isValid);
+		}
+
 		lchInput?.addEventListener('input', (event: InputEvent) => {
-			if (!lchInput || event.data === null) return;
-
-			// Sets the color if a paste was performed
-			if (event.inputType === 'insertFromPaste') {
-				// const values = lchInput.value.split(' ');
-				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-				// updateColorUI(color, true);
+			if (event.data !== null && event.inputType === 'insertFromPaste') {
+				applyLCH(event.data);
 			}
 		});
-		hslInput?.addEventListener('keypress', (event: KeyboardEvent) => {
-			// Sets the color if the Enter key was pressed
-			if (hslInput && event.key === 'Enter') {
-				// const values = hslInput.value.split(' ');
-				// color = colord({ h: Number.parseInt(values[0] ?? '0'), s: Number.parseInt(values[1] ?? ''), l: Number.parseInt(values[2] ?? '') });
-				// updateColorUI(color, true);
+		lchInput?.addEventListener('keypress', (event: KeyboardEvent) => {
+			if (event.key === 'Enter') {
+				applyLCH(inputLCH);
 			}
 		});
 
+		//TODO: Create formatting of all inputs
 		// ### OKLCH
 		oklchInput?.addEventListener('input', (event: InputEvent) => {
 			if (!oklchInput || event.data === null) return;
