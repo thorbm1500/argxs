@@ -14,6 +14,7 @@ This readme was last updated: 07/08/2026
     - [x] OKLCH
   - [x] Add reactivity to screen resizing 
   - [x] Fix incorrect color calculations
+  - [ ] Add old rainbow glow effect to new logo in header
 ### Future Tasks
 - [x] Design logo for argxs
 - [x] Make brand guidelines for argxs
