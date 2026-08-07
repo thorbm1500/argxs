@@ -47,6 +47,7 @@ export class Resources {
 
 	private async loadBrandIcons(): Promise<void> {
 		console.info('Loading brand icons...');
+
 		const path: string = root.concat('/icons/brands');
 
 		for (const brand of await fs.readdir(path)) {
@@ -114,8 +115,9 @@ export class Resources {
 
 	private async loadFlagIcons(): Promise<void> {
 		console.info('Loading flag icons...');
+
 		const path: string = root.concat('/icons/flags');
-		const dir: string[] = await fs.readdir(path);
+		const dir: string[] = await fs.readdir(path)
 
 		for (const flag of dir) {
 			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
