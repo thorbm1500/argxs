@@ -235,6 +235,19 @@
                     href: 'https://en.wikipedia.org'
                 }
             }
+        },
+        {
+            name: 'Louisiana',
+            type: 'state',
+            default: {
+                path: 'us-louisiana.svg',
+                date_added: '2026/8/7',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
         }
     ]
 }

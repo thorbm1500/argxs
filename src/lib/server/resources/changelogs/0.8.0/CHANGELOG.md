@@ -10,6 +10,11 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - Improved accessibility to users with prefers-reduced-motion enabled
 - **[New Tag]** Real Estate
 
+### New Flag Resources
+- **x New Icons**
+  - United States of America
+    - **[New]** Louisiana State Flag
+
 ### New Brand Resources
 - **x New Icons**
   - **[New]** Codeberg
