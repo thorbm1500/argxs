@@ -1,4 +1,3 @@
-<!-- TODO: General code cleanup before next release -->
 <!-- svelte-ignore a11y_mouse_events_have_key_events -->
 <script lang="ts">
 	import { copyToClipboard, MathUtils } from '$lib/utilities';
@@ -12,6 +11,7 @@
 	import { prefersReducedMotion } from 'svelte/motion';
 	import { circOut } from 'svelte/easing';
 	import { draw } from 'svelte/transition';
+	import { Tween } from 'svelte/motion';
 
 	extend([lchPlugin,harmonies]);
 
@@ -40,12 +40,13 @@
 	let cursorY: number = $state(0);
 	let clientX: number = $state(0);
 	let clientY: number = $state(0);
+	let selectedColorX = new Tween(0, { duration: 250, easing: circOut });
+	let selectedColorY = new Tween(0, { duration: 250, easing: circOut });
+	let sliderKnobPosX = new Tween(0, { duration: 250, easing: circOut });
 
 	/** Internal variables, to keep the inspected color updated realtime.
 	 * Allows the user to position the cursor inside the canvas, without the selected color updating. */
 	let _hsv = $state({ h: 237, s: 54, v: 100, a: 1 });
-
-	let sliderKnobPosX: number = $state(237);
 
 	let inputHEX: string = $state('');
 	let inputRGB: string = $state('');
@@ -55,15 +56,19 @@
 
 	let color: Colord = $state(colord('#757CFF'));
 	let colorName: string = $derived(chroma(color.toHex()).name());
-	let colorShade = (shade: number) => chroma(color.toHex()).shade(shade);
-	let colorMix = (type: 'analogous' | 'tetradic' | 'split-complementary', mix: number, harmony: number = 0) => chroma(color.toHex()).mix(color.harmonies(type)[harmony]?.toHex() ?? '#000', mix);
+	const colorShade = (shade: number) => chroma(color.toHex()).shade(shade);
+	const colorMix = (type: 'analogous' | 'tetradic' | 'split-complementary', mix: number, harmony: number = 0) => chroma(color.toHex()).mix(color.harmonies(type)[harmony]?.toHex() ?? '#000', mix);
 	let showMainColorShade: boolean = $state(true);
 
 	function updateColorUI(_color: Colord, updateSlider: boolean) {
-		if (updateSlider) {
-			_hsv = _color.toHsv();
+		if (updateSlider) _hsv = _color.toHsv();
+		if (slider) sliderKnobPosX.target = _color.toHsv().h * (slider.getBoundingClientRect().width / 360);
+
+		if (canvas) {
+			// Requires calling canvas.getBoundingClientRect() directly as canvasRect doesn't update quick enough to allow realtime resizing
+			selectedColorX.target = canvas.getBoundingClientRect().left + (_color.toHsv().s * (canvas.getBoundingClientRect().width / 100));
+			selectedColorY.target = (_color.toHsv().v * (canvas.getBoundingClientRect().height / 100) * -1) + canvas.getBoundingClientRect().height;
 		}
-		if (slider) sliderKnobPosX = _hsv.h * (slider.getBoundingClientRect().width / 360);
 
 		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
 		inputRGB = `${(_color.toRgb().r).toFixed(0)} ${(_color.toRgb().g).toFixed(0)} ${(_color.toRgb().b).toFixed(0)}`;
@@ -73,36 +78,32 @@
 	}
 
 	function updateCursorPos() {
-		if (!slider) {
-			// Disables hovering as no slider is present
-			isSliderActive = false;
+		if (!slider) isSliderActive = false;
+		if (!canvasRect) isHovering = false;
+		else {
+			const X = cursorX - canvasRect.left;
+			const Y = cursorY - (canvasRect.top - scrollY);
+
+			isHovering = X < canvasRect.width && X > 0 && Y < canvasRect.height && Y > 0;
+
+			if (isHovering || isDragging) {
+				if (isDragging) {
+					_hsv.s = canvasRect ? MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100 : 54;
+					_hsv.v = canvasRect ? MathUtils.clamp((canvasRect.height - clientY) / canvasRect.height, 0, 1) * 100 : 100;
+				}
+
+				clientX = MathUtils.clamp(X, 0, canvasRect.width);
+				clientY = MathUtils.clamp(Y, 0, canvasRect.height);
+			}
 		}
-		if (!canvasRect) {
-			// Disables hovering as no canvas is present
-			isHovering = false;
-			return;
-		}
-
-		const X = cursorX - canvasRect.left;
-		// Subtracting scrollY ensures the cursor follows page scrolling
-		const Y = cursorY - (canvasRect.top - scrollY);
-
-		isHovering = X < canvasRect.width && X > 0 && Y < canvasRect.height && Y > 0;
-
-		/** Return early if cursor is not positioned within the canvas.
-		 * Ensures the selected color is only updated from values within the canvas */
-		if (!isHovering) return;
-
-		clientX = MathUtils.clamp(X, 0, canvasRect.width);
-		clientY = MathUtils.clamp(Y, 0, canvasRect.height);
 	}
 
 	function updateSlider() {
 		if (!slider) return;
-		sliderKnobPosX = MathUtils.clamp(cursorX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
+		sliderKnobPosX.target = MathUtils.clamp(cursorX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
 
 		const _color = color.toHsv();
-		_color.h = MathUtils.clamp(MathUtils.clamp(sliderKnobPosX / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
+		_color.h = MathUtils.clamp(MathUtils.clamp(sliderKnobPosX.target / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
 		if (color.toHslString() !== colord(_color).toHslString()) {
 			_hsv.h = _color.h;
 			color = colord(_color);
@@ -125,8 +126,7 @@
 	}
 
 	function userDragEvent(event: MouseEvent | TouchEvent) {
-		updateCursorVariables(event);
-		updateCursorPos();
+		updateCursorVariables(event, true);
 		if (isSliderActive) updateSlider();
 	}
 
@@ -148,16 +148,16 @@
 		slider.addEventListener('touchend', endUserInput);
 
 		document.addEventListener('mousemove', (event: MouseEvent) => {
-			updateCursorVariables(event);
+			if (isDragging) userDragEvent(event);
+			else updateCursorVariables(event);
 			if (isSliderActive) updateSlider();
-		})
-
+		});
 		document.addEventListener('scroll', (event) => {
 			if (isDragging && event.cancelable) {
 				event.preventDefault();
 				event.stopPropagation();
 			}
-		})
+		});
 
 		const canvasInputEventHandler = (event: MouseEvent | TouchEvent) => {
 			isHovering = true;
@@ -167,19 +167,10 @@
 		}
 		canvas.addEventListener('touchstart', canvasInputEventHandler);
 		canvas.addEventListener('mousedown', canvasInputEventHandler);
-		canvas.addEventListener('touchmove', (event: TouchEvent) => {
-			canvasInputEventHandler(event);
-
-			_hsv.s = canvasRect ? MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100 : 54;
-			_hsv.v = canvasRect ? MathUtils.clamp((canvasRect.height - clientY) / canvasRect.height, 0, 1) * 100 : 100;
-		});
+		canvas.addEventListener('touchmove', (event: TouchEvent) => canvasInputEventHandler(event));
 		canvas.addEventListener('mousemove', (event: MouseEvent) => {
 			isHovering = true;
-
 			userDragEvent(event);
-
-			_hsv.s = canvasRect ? MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100 : 54;
-			_hsv.v = canvasRect ? MathUtils.clamp((canvasRect.height - clientY) / canvasRect.height, 0, 1) * 100 : 100;
 		});
 		canvas.addEventListener('mouseleave', () => isHovering = false);
 
@@ -373,7 +364,7 @@
 			activeScreenWidth = currentScreenWidth;
 		}
 		// Updates selected color to current inspected color
-		else if (!isSliderActive && isHovering && canvasRect && (((innerWidth.current ?? 1920) <= 430) || isDragging)) {
+		else if (!isSliderActive && isDragging) {
 			const _color = colord(_hsv);
 			if (color.toLchString() !== _color.toLchString()) {
 				const shouldSliderUpdate = color.hue() !== _color.hue();
@@ -407,17 +398,13 @@
 	{/if}
 </svelte:head>
 
-<section class="color-picker-page" style="cursor: {isHovering ? 'none' : 'auto'}">
+<section class="color-picker-page">
 	<div class="page-header">
 		<h1 class="title">Color Picker</h1>
 	</div>
-	<div class="color-picker-cursor {isHovering ? 'active' : 'inactive'}" style="left: {cursorX}px; top: {cursorY}px" draggable="true" inert>
-		<div class="current-color" style="border-color: {color.toHex()}" inert></div>
-		<div class="inspected-color" style="border-color: {colord(_hsv).toHex()}" inert></div>
-		<div class="background" inert></div>
-	</div>
+	<div class="color-picker-cursor" style="left: {selectedColorX.current}px; top: {selectedColorY.current - scrollY + (canvasRect?.top ?? 0)}px; --current-color: {color.toHex()}; border-color: {colord(color).invert().toHex()}" draggable="true" inert></div>
 	<div class="color-picker-content">
-		<canvas bind:this={canvas} class="color-picker" id="color-picker" style="--picker-color-bg: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}; border-radius: {isHovering ? '.25rem' : '.9rem'}"></canvas>
+		<canvas bind:this={canvas} class="color-picker" id="color-picker" style="--picker-color-bg: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}; border-radius: {isHovering ? '.25rem' : '.9rem'};"></canvas>
 		<div class="actions">
 			<div class="actions-parent">
 				<div class="title">
@@ -476,7 +463,7 @@
 			</button>
 		</div>
 		<div bind:this={slider} class="slider">
-			<div class="slider-knob" style="--pos-x: {$state.eager(sliderKnobPosX) - 16}px; --rot-x: {$state.eager(sliderKnobPosX) - 16}deg; background: {colord({ h: color.hue(), s: 100, v: 100 }).toHex()}"></div>
+			<div class="slider-knob" style="--pos-x: {$state.eager(sliderKnobPosX.current) - 16}px; --rot-x: {sliderKnobPosX.current - 16}deg; background: {colord({ h: color.hue(), s: 100, v: 100 }).toHex()}"></div>
 		</div>
 		<div class="values">
 			<div class="value hex">
@@ -602,26 +589,6 @@
 
 <style>
     /* Desktop & Tablet (Page specific) */
-    @media (width >= 30.5rem) {
-        .color-picker-cursor {
-            transition: 75ms ease, top 10ms ease-out, left 10ms ease-out;
-
-            &.active {
-                &, .current-color, .inspected-color {
-                    opacity: 1 !important;
-                    filter: none;
-                }
-            }
-            &.inactive {
-                &, .current-color, .inspected-color {
-                    opacity: 0;
-                    filter: blur(3px);
-                }
-            }
-        }
-		}
-
-    /* Desktop & Tablet (Page specific) */
     @media (width >= 59rem) {
         :root {
             --max-width: min(84rem, 80vw);
@@ -722,48 +689,16 @@
 
         .color-picker-cursor {
             position: fixed;
-            transform: translate(-16px, -16px);
+            transform: translate(-10px, -10px);
+            width: 24px;
+            height: 24px;
+            border-radius: 100%;
 
-            z-index: 500;
+            border: 4px solid;
 
-						.current-color, .inspected-color, .background {
-                position: absolute;
-                border-radius: 100%;
-								left: 0;
-								top: 0;
-						}
+            background: var(--current-color);
 
-						.current-color, .inspected-color {
-                width: 1.6rem;
-                height: 1.6rem;
-
-                border: 8px solid;
-
-                box-sizing: border-box;
-                background: transparent;
-
-                transform: translate(2px, 2px);
-
-                z-index: 600;
-						}
-
-						.inspected-color {
-                mask-image: linear-gradient(135deg, transparent 0%, transparent 49.9%, #FFF 50%, #FFF 100%);
-								z-index: 601;
-						}
-
-						.background {
-                width: 1.875rem;
-                height: 1.875rem;
-
-                backdrop-filter: grayscale(1) invert(1) brightness(.95);
-
-                mask-image: radial-gradient(circle 1rem, transparent 0%, transparent 17%, #FFF 20%, #FFF 100%);
-						}
-
-						&.inactive, &.active {
-                opacity: 0;
-						}
+            z-index: 500 !important;
         }
 
         .color-picker-content {
@@ -788,8 +723,9 @@
 
                 background: linear-gradient(#FFFFFF00, #000000FF), linear-gradient(0.25turn, #FFFFFFFF, #00000000), var(--picker-color-bg);
 
-                transition: border-radius 200ms ease-out;
-								transition-delay: 1s;
+								cursor: pointer;
+
+                transition: border-radius 200ms 1s ease-out;
 
 								&:hover {
 										transition-timing-function: ease-out;
@@ -877,7 +813,7 @@
                     height: min(1.65rem, 3vw);
                     width: min(1.65rem, 3vw);
                     border-radius: 100%;
-                    border: 3px solid var(--theme-ui-offwhite);
+                    border: 4px solid var(--theme-ui-offwhite);
                     transform: translate(var(--pos-x), max(-.5rem, -1vw));
 
                     transition: transform 35ms ease;
