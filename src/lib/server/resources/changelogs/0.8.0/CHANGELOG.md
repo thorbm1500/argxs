@@ -38,9 +38,10 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
     - Incl. WARDOGS
   - Twitch
 - **New Brand Guidelines**
+  - argxs
   - Twitch
 - **New Tags**
-  - Home
+  - **Home**
     - Real Estate
 
 ## Bug Fixes
