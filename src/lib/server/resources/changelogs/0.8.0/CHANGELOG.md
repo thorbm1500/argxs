@@ -39,7 +39,7 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - Sidebar should be less glitchy now
 
 ## Dependencies
-- **[New]** vite-plus: *0.2.8*
+- **[New]** vite-plus: *0.2.7*
 - @humanspeak/svelte-markdown: *1.8.4 ➜ 1.8.5*
 - @sveltejs/kit: *2.70.0 ➜ 2.70.2*
 - svelte: *5.56.6 ➜ 5.56.8*
