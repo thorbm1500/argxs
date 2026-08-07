@@ -17,6 +17,7 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 
 ### New Brand Resources
 - **x New Icons**
+  - **[New]** argxs
   - **[New]** Codeberg
   - **[New]** SBAB
     - Incl. Booli & Hittamäklare
