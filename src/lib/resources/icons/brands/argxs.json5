@@ -1,6 +1,6 @@
 {
 	name: 'argxs',
-	href: 'https://www.argxs.com',
+	href: 'https://argxs.com',
 	tags: ["Development","Utility"],
 	assets: [
 		{
@@ -12,7 +12,7 @@
 				version: '0.8.0',
 				source: {
 					name: 'argxs',
-					href: 'https://www.argxs.com'
+					href: 'https://argxs.com'
 				}
 			},
 			dark: {
@@ -22,7 +22,7 @@
 				version: '0.8.0',
 				source: {
 					name: 'argxs',
-					href: 'https://www.argxs.com'
+					href: 'https://argxs.com'
 				}
 			}
 		},
@@ -35,7 +35,7 @@
                 version: '0.8.0',
 				source: {
 					name: 'argxs',
-					href: 'https://www.argxs.com'
+					href: 'https://argxs.com'
 				}
 			},
 			dark: {
@@ -45,7 +45,7 @@
 				version: '0.8.0',
 				source: {
 					name: 'argxs',
-					href: 'https://www.argxs.com'
+					href: 'https://argxs.com'
 				}
 			}
 		}
