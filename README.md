@@ -3,8 +3,7 @@
 This readme was last updated: 07/08/2026
 ## to-do-list
 ### Before Next Release
-- [ ] Finish new page: [**Colors#ColorPicker**](https://argxs.com/colors/color-picker)
-  - [ ] General code cleanup
+- [x] Finish new page: [**Colors#ColorPicker**](https://argxs.com/colors/color-picker)
   - [x] Implement all inputs
     - [x] HEX
     - [x] RGB
@@ -13,7 +12,6 @@ This readme was last updated: 07/08/2026
     - [x] OKLCH
   - [x] Add reactivity to screen resizing 
   - [x] Fix incorrect color calculations
-- [ ] Polish Brand Colors design & layout in [**Icons#Brands**](https://argxs.com/icons/brands)
 ### Future Tasks
 - [ ] Write actual readme
 - [ ] Design logo and brand guidelines for argxs
@@ -31,3 +29,4 @@ This readme was last updated: 07/08/2026
 - [ ] Start work on new page: CSS Guide
 - [ ] Start work on new page: External
 - [ ] General work on page responsiveness (Keep in mind: argxs is built *specifically* and only for desktops)
+- [ ] Polish Brand Colors design & layout in [**Icons#Brands**](https://argxs.com/icons/brands)
