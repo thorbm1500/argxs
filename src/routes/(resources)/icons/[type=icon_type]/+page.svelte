@@ -19,11 +19,15 @@
 
 	const { data } = $props();
 
-	afterNavigate(() => {
-		if (allFilters.length) {
+	beforeNavigate(() => {
+		while (allFilters.length) {
 			allFilters.pop();
 		}
-		data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
+	});
+	afterNavigate(() => {
+		if (!allFilters.length) {
+			data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
+		}
 	});
 
 	const getTheme = getContext('theme') as Function;
