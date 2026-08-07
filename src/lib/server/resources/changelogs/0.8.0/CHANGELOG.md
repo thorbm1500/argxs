@@ -33,6 +33,8 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
     - Incl. PlayStation
     - Incl. PlayStation Store
   - **[New]** Crowdin
+  - **[New]** BULKHEAD
+    - Incl. WARDOGS
   - Twitch
 - **New Brand Guidelines**
   - Twitch
