@@ -39,9 +39,10 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - Sidebar should be less glitchy now
 
 ## Dependencies
-- **[New]** vite-plus: *0.2.7*
+- **[New]** vite-plus: *0.2.8*
 - @humanspeak/svelte-markdown: *1.8.4 ➜ 1.8.5*
 - @sveltejs/kit: *2.70.0 ➜ 2.70.2*
 - svelte: *5.56.6 ➜ 5.56.8*
-- publint: *0.3.21 ➜ 0.3.22*
-- globals: *17.7.0 ➜ 17.8.0*
+- publint: *0.3.21 ➜ 0.3.23*
+- globals: *17.7.0 ➜ 17.9.0*
+- typescript-eslint: *8.65.0 ➜ 8.66.0*
