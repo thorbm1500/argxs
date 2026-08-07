@@ -1,16 +1,16 @@
 # Development Information
 **Next Release: 0.8.0**<br>
-This readme was last updated: 04/08/2026
+This readme was last updated: 07/08/2026
 ## to-do-list
 ### Before Next Release
 - [ ] Finish new page: [**Colors#ColorPicker**](https://argxs.com/colors/color-picker)
   - [ ] General code cleanup
-  - [ ] Implement all inputs
-    - [ ] HEX
-    - [ ] RGB
-    - [ ] HSL
-    - [ ] LCH
-    - [ ] OKLCH
+  - [x] Implement all inputs
+    - [x] HEX
+    - [x] RGB
+    - [x] HSL
+    - [x] LCH
+    - [x] OKLCH
   - [x] Add reactivity to screen resizing 
   - [x] Fix incorrect color calculations
 - [ ] Polish Brand Colors design & layout in [**Icons#Brands**](https://argxs.com/icons/brands)
