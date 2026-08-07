@@ -16,8 +16,8 @@ This readme was last updated: 07/08/2026
   - [x] Fix incorrect color calculations
 ### Future Tasks
 - [x] Design logo for argxs
+- [x] Make brand guidelines for argxs
 - [ ] Write actual readme
-- [ ] Make brand guidelines for argxs
 - [ ] Update design of 404 Page
 - [ ] Bugfix: Some SVG images fail to generate, due to various issues
 - [ ] Rework page: Color Combos
