@@ -1,6 +1,5 @@
 [<img width="2050" height="708" alt="argxs-logo-dark" src="https://github.com/user-attachments/assets/6846bfdd-71ac-4337-b70c-f9f9ee14c3a2" />](https://argxs.com)
 
-
 # Development Information
 **Next Release: 0.8.0**<br>
 This readme was last updated: 07/08/2026
@@ -16,8 +15,9 @@ This readme was last updated: 07/08/2026
   - [x] Add reactivity to screen resizing 
   - [x] Fix incorrect color calculations
 ### Future Tasks
+- [x] Design logo for argxs
 - [ ] Write actual readme
-- [ ] Design logo and brand guidelines for argxs
+- [ ] Make brand guidelines for argxs
 - [ ] Update design of 404 Page
 - [ ] Bugfix: Some SVG images fail to generate, due to various issues
 - [ ] Rework page: Color Combos
