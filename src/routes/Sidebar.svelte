@@ -732,8 +732,6 @@
                 content: 'NEW';
                 color: var(--theme-color-accent);
                 background: none;
-                /*color: var(--theme-ui-white);
-								background: var(--theme-color-accent);*/
             }
 				}
 

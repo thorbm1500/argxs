@@ -70,21 +70,28 @@
 	}
 }
 
+/* Global */
+:root {
+	--theme-color-accent:	#757CFF;
+	--theme-color-white:	#F7F9FC;
+	--theme-color-offwhite:	#E9EFF3;
+	--theme-color-black:	#0D0D0D;
+}
+
 /* Light Theme */
 :root {
 	color-scheme:                         light;
 	
-	--theme-color-primary-reverse:        #F7F9FC;
-	--theme-color-primary:                #0D0D0D;
+	--theme-color-primary-reverse:        var(--theme-color-white);
+	--theme-color-primary:                var(--theme-color-black);
 	--theme-color-secondary:              #727E94;
-	--theme-color-accent:                 #757CFF;
 	--theme-color-aware:                  oklch(0.843 0.162 92.182);
 	--theme-color-alert:                  oklch(58.6% 0.253 17.585);
 	--theme-color-alert-light:            oklch(0.662 0.232 11.291);
 	--theme-color-success: 				  oklch(0.323 0.099 146.035);
 	--theme-color-success-light: 		  oklch(0.913 0.241 129.257);
 	
-	--theme-text-primary:                 #0D0D0D;
+	--theme-text-primary:                 var(--theme-color-black);
 	--theme-text-secondary:               #31353F;
 	--theme-text-third:                   #727E94;
 	--theme-text-fourth:                  #C1C9D5;
@@ -92,12 +99,9 @@
 	
 	--theme-ui-line:                      #DDE1E8;
 	--theme-ui-line-highlight: 			  #CFD3D9;
-	--theme-ui-white:                     #F7F9FC;
-	--theme-ui-offwhite: 				  #E9EFF3;
-	--theme-ui-black:                     #0D0D0D;
 	--theme-ui-container:                 #ECEEF3;
 	--theme-ui-container-hover:           #E6E9EF;
-	--theme-ui-background:                #F7F9FC;
+	--theme-ui-background:                var(--theme-color-white);
 	--theme-ui-header:                    #EFF1F3;
 	--theme-ui-sidebar:                   #F3F4F6;
 	--theme-ui-sidebar-highlight:         #ECEEF1;
@@ -120,14 +124,14 @@
 	
 	--theme-color-aware:                  oklch(0.785 0.158 90.154);
 	
-	--theme-text-primary:                 #F7F9FC;
+	--theme-text-primary:                 var(--theme-color-primary);
 	--theme-text-secondary:               #E1E6EE;
 	--theme-text-third:                   #C1C9D5;
 	--theme-text-fourth: 				  #363C49;
 	--theme-text-new:                     #F5F0FF;
 	
-	--theme-color-primary-reverse:        #0D0D0D;
-	--theme-color-primary:                #F7F9FC;
+	--theme-color-primary-reverse:        var(--theme-color-black);
+	--theme-color-primary:                var(--theme-color-white);
 	--theme-ui-container:                 #16181E;
 	--theme-ui-container-hover:           #1F212A;
 	--theme-ui-background:                #111217;

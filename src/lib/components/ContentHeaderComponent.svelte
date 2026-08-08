@@ -13,7 +13,7 @@
 					{@html content}
 				{/if}
 			{:else}
-				<p>argxs currently showcases <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);">{amount}</strong> different {type}</p>
+				<p>argxs currently showcases <strong style="color: color-mix(var(--theme-color-accent) 80%, var(--theme-color-white) 20%);">{amount}</strong> different {type}</p>
 			{/if}
 		</div>
 	</div>

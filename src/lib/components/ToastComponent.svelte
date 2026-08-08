@@ -118,7 +118,7 @@
 			
 			padding:         0.5rem 0.85rem;
 			
-			color:           var(--theme-ui-white);
+			color:           var(--theme-color-white);
 			background:      color-mix(var(--theme-color-accent) 40%, #0D0D0D 60%);
 			border:          1px solid var(--theme-color-accent);
 			border-radius:   0.9rem;

@@ -813,7 +813,7 @@
                     height: min(1.65rem, 3vw);
                     width: min(1.65rem, 3vw);
                     border-radius: 100%;
-                    border: 4px solid var(--theme-ui-offwhite);
+                    border: 4px solid var(--theme-color-offwhite);
                     transform: translate(var(--pos-x), max(-.5rem, -1vw));
 
                     transition: transform 35ms ease;

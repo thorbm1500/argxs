@@ -329,7 +329,7 @@
 		}
 		
 		&::before {
-			border:         1px solid rgba(from var(--theme-ui-black) r g b / .5);
+			border:         1px solid rgba(from var(--theme-color-black) r g b / .5);
 			mix-blend-mode: overlay;
 			filter:         blur(.05rem) contrast(2) brightness(1.5);
 			mask-image:     linear-gradient(20deg, transparent 20%, black 50%, transparent 80%);
@@ -338,7 +338,7 @@
 		}
 		
 		&::after {
-			border:         2px solid var(--theme-ui-white);
+			border:         2px solid var(--theme-color-white);
 			opacity:        .6;
 			mix-blend-mode: overlay;
 			filter:         blur(.05rem) contrast(2) brightness(1.5);

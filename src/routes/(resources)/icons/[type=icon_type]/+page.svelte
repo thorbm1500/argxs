@@ -1930,7 +1930,7 @@
                         font-size: .8rem;
                         font-weight: 700;
 
-                        color: var(--theme-ui-white);
+                        color: var(--theme-color-white);
                         border: 1px solid rgba(from var(--theme-ui-line) r g b / .5);
                         border-radius: .6rem;
                         background: light-dark(#5E70F1, #343D79);
@@ -1941,7 +1941,7 @@
                         svg {
                             height: .975rem;
                             width: .975rem;
-                            color: var(--theme-ui-white);
+                            color: var(--theme-color-white);
                             margin-bottom: .1rem;
                         }
 
@@ -2016,7 +2016,7 @@
 
                         svg {
                             position: relative;
-                            color: var(--theme-ui-white);
+                            color: var(--theme-color-white);
 
                             z-index: 1500 !important;
                         }
@@ -2029,7 +2029,7 @@
                             height: 100%;
 
                             backdrop-filter: blur(2px) grayscale(.1);
-                            background: rgba(from var(--theme-ui-black) r g b / .2);
+                            background: rgba(from var(--theme-color-black) r g b / .2);
                             border-radius: .5rem;
 
                             z-index: 500 !important;
@@ -2337,10 +2337,10 @@
 
                     padding: .025rem .125rem;
 
-                    background: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);
+                    background: color-mix(var(--theme-color-accent) 80%, var(--theme-color-white) 20%);
 
                     font-weight: 900;
-                    color: var(--theme-ui-white);
+                    color: var(--theme-color-white);
 
                     .number {
                         display: inline-flex;
@@ -2369,7 +2369,7 @@
                     color: var(--theme-text-third);
 
                     &.callout {
-                        color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);
+                        color: color-mix(var(--theme-color-accent) 80%, var(--theme-color-white) 20%);
                     }
                 }
             }
