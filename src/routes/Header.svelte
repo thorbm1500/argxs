@@ -43,6 +43,13 @@
 
 <section class="header-section {theme}">
 	<div class="content">
+		<div style="position: fixed; width: 100%; height: 100%; display: flex; align-items: center; filter: blur(.3rem); opacity: .8;">
+			<div class="argxs fx" inert>
+				<svg fill="none" width="100%" height="100%" viewBox="0 0 1025 354">
+					<rect x="0" y="0" width="1025" height="354"/>
+				</svg>
+			</div>
+		</div>
 		<a href="/" class="argxs" title="" tabindex="-1">
 			<svg id="https://argxs.com" fill="currentColor" width="100%" height="100%" viewBox="0 0 1025 354">
 				<rect x="0" y="0" width="1025" height="354" fill="none"/>
@@ -207,37 +214,14 @@
                 height: 1.5rem;
                 width: fit-content;
 								margin-left: 1.5rem;
-
-                color: var(--theme-color-primary-reverse);
-
-                /* animation: argxsAnim 12s infinite; */
-
-								svg {
-										padding: 0 .1rem;
-								}
             }
 
-            /*.argxs::before {
-                position: absolute;
-
-                filter: blur(.3rem);
-                opacity: .8;
-                content: 'argxs';
-
-                font-size: 1.35rem;
-                font-weight: 600;
-                font-family: 'Lexend Variable', sans-serif;
-
-                color: transparent;
-                background-clip: text;
-
-                padding: 1.5rem;
-
-                background-repeat: no-repeat;
-                background-color: transparent;
-
-                animation: argxsAnim 12s infinite;
-            }*/
+            .argxs.fx {
+                position: inherit;
+                mask-image: url('$lib/argxs-logo-mask.svg');
+								opacity: 0;
+                animation: argxsAnim 20s infinite;
+            }
 
             a {
                 display: flex;
@@ -297,19 +281,22 @@
     }
 
     @keyframes argxsAnim {
-        0%, 5%, 100% {
-            background-position: -6rem 0;
-        }
-        18%, 29%, 30% {
-            background-position: 6rem 0;
-        }
-        0%, 25%, 100% {
-            background-image: radial-gradient(circle at 35% 45%, transparent 0%);
-        }
-        5%, 15%, 20% {
+        from, to {
             transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.050);
             background-image: radial-gradient(circle at 35% 45%, transparent 0%, rgb(222, 168, 248) 5%, rgb(168, 222, 248) 15.8%, rgb(189, 250, 205) 23.6%, rgb(243, 250, 189) 35%, transparent 50%, rgb(250, 227, 189) 65%, rgb(248, 172, 172) 70%, rgb(254, 211, 252) 80%, transparent 100%);
         }
+				0%, 5%, 100% {
+            background-position: -10rem 0;
+        }
+        30%, 42.5% {
+            background-position: 10rem 0;
+        }
+				4%, 37.5% {
+						opacity: 0;
+				}
+				10%, 20% {
+						opacity: 1;
+				}
     }
 
     /* Navigation Light effect */
