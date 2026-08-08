@@ -1069,10 +1069,10 @@
 					Inlining an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are inlined directly in the html, so they can be safely omitted.
 					<ul>
 						<li>
-							xmlns | Fx. xmlns="http://www.w3.org/2000/svg"
+							xmlns="http://www.w3.org/2000/svg"
 						</li>
 						<li>
-							version | Fx. version="1.1"
+							version | Fx. version="1.0"
 						</li>
 					</ul>
 				</li>
