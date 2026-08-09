@@ -130,6 +130,28 @@
 		if (isSliderActive) updateSlider();
 	}
 
+	function getChromaObjFromOKLCH(data: string): chroma.Color {
+		const values: string[] = data.replaceAll(new RegExp(/[^0-9\s.]/,'g'), '').replaceAll(new RegExp(/\.\.+/,'g'), '.').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
+
+		const currentOKLCH = chroma(color.toHex()).oklch();
+		const _oklch = {
+			l: 0,
+			c: 0,
+			h: 0
+		}
+
+		_oklch.l = Number.parseFloat(values[0] ?? 'NaN');
+		if (Number.isNaN(_oklch.l)) _oklch.l = currentOKLCH[0];
+
+		_oklch.c = Number.parseFloat(values[1] ?? 'NaN');
+		if (Number.isNaN(_oklch.c)) _oklch.c = currentOKLCH[1];
+
+		_oklch.h = Number.parseFloat(values[2] ?? 'NaN');
+		if (Number.isNaN(_oklch.h)) _oklch.h = currentOKLCH[2];
+
+		return chroma.oklch(_oklch.l, _oklch.c, _oklch.h);
+	}
+
 	onMount(() => {
 		if (!canvas || !slider || !document) return;
 		pageLoad = true;
@@ -312,25 +334,9 @@
 
 		// ### OKLCH
 		function applyOKLCH(data: string) {
-			const values: string[] = data.replaceAll(new RegExp(/[^0-9\s.]/,'g'), '').replaceAll(new RegExp(/\.\.+/,'g'), '.').replaceAll(new RegExp(/,\s*|\s{2,}/, 'g'),' ').trim().split(' ');
+			const chroma = getChromaObjFromOKLCH(data);
 
-			const currentOKLCH = chroma(color.toHex()).oklch();
-			const _oklch = {
-				l: 0,
-				c: 0,
-				h: 0
-			}
-
-			_oklch.l = Number.parseFloat(values[0] ?? 'NaN');
-			if (Number.isNaN(_oklch.l)) _oklch.l = currentOKLCH[0];
-
-			_oklch.c = Number.parseFloat(values[1] ?? 'NaN');
-			if (Number.isNaN(_oklch.c)) _oklch.c = currentOKLCH[1];
-
-			_oklch.h = Number.parseFloat(values[2] ?? 'NaN');
-			if (Number.isNaN(_oklch.h)) _oklch.h = currentOKLCH[2];
-
-			const _color = colord(chroma.oklch(_oklch.l, _oklch.c, _oklch.h).hex('rgb'));
+			const _color = colord(chroma.hex('rgb'));
 			let isValid = _color.isValid();
 			if (isValid) color = _color;
 
@@ -378,6 +384,10 @@
 		node.addEventListener('mouseenter', () => showMainColorShade = false);
 		node.addEventListener('mouseleave', () => showMainColorShade = true);
 		return { destroy() {} };
+	}
+
+	function copyColorValue(value: unknown) {
+		copyToClipboard(value).then(() => sendToast?.({ message: 'Copied', type: 'copy', status: 'success' }));
 	}
 
 	const copyToClipboardOnClick: Action<HTMLDivElement, { value: unknown } | undefined> = (node: HTMLElement, obj?: { value: unknown }) => {
@@ -467,23 +477,63 @@
 		</div>
 		<div class="values">
 			<div class="value hex">
-				<h3 class="title">HEX</h3>
+				<div class="title">
+					<h3>HEX</h3>
+					<button title="Copy HEX" class="copy-color" onclick="{() => copyColorValue(inputHEX)}">
+						<svg class="transition-default" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />
+							<path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+						</svg>
+					</button>
+				</div>
 				<input bind:this={hexInput} bind:value={inputHEX} class="input hex" type="text"  size="8">
 			</div>
 			<div class="value rgb">
-				<h3 class="title">RGB</h3>
+				<div class="title">
+					<h3>RGB</h3>
+					<button title="Copy RGB" class="copy-color" onclick="{() => copyColorValue(color.toRgbString())}">
+						<svg class="transition-default" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />
+							<path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+						</svg>
+					</button>
+				</div>
 				<input bind:this={rgbInput} bind:value={inputRGB} class="input rgb" type="text" size="12">
 			</div>
 			<div class="value hsl">
-				<h3 class="title">HSL</h3>
+				<div class="title">
+					<h3>HSL</h3>
+					<button title="Copy HSL" class="copy-color" onclick="{() => copyColorValue(color.toHslString())}">
+						<svg class="transition-default" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />
+							<path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+						</svg>
+					</button>
+				</div>
 				<input bind:this={hslInput} bind:value={inputHSL} class="input hsl" type="text" size="14">
 			</div>
 			<div class="value lch">
-				<h3 class="title">LCH</h3>
+				<div class="title">
+					<h3>LCH</h3>
+					<button title="Copy LCH" class="copy-color" onclick="{() => copyColorValue(color.toLchString())}">
+						<svg class="transition-default" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />
+							<path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+						</svg>
+					</button>
+				</div>
 				<input bind:this={lchInput} bind:value={inputLCH} class="input lch" type="text" size="18">
 			</div>
 			<div class="value oklch">
-				<h3 class="title">OKLCH</h3>
+				<div class="title">
+					<h3>OKLCH</h3>
+					<button title="Copy OKLCH" class="copy-color" onclick="{() => copyColorValue(getChromaObjFromOKLCH(inputOKLCH).css('oklch'))}">
+						<svg class="transition-default" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />
+							<path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+						</svg>
+					</button>
+				</div>
 				<input bind:this={oklchInput} bind:value={inputOKLCH} class="input oklch" type="text" size="18">
 			</div>
 		</div>
@@ -877,9 +927,29 @@
                     user-select: none;
 
                     .title {
+												display: flex;
+												flex-flow: row nowrap;
+												align-items: center;
+												justify-content: center;
+												gap: .25rem;
+
                         color: var(--theme-text-third);
                         font-weight: 650;
 
+												margin-left: 1.35rem;
+
+												.copy-color {
+														width: 1.1rem;
+														height: 1.1rem;
+
+														svg {
+                                color: var(--theme-text-fourth);
+														}
+
+														&:hover svg {
+																color: var(--theme-text-secondary);
+														}
+												}
                     }
 
                     .input {
