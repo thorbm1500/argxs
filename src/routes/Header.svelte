@@ -110,27 +110,6 @@
                     }
                 }
             }
-
-            &::after {
-                position: fixed;
-                width: 100vw;
-                height: 2.85rem;
-                top: calc(var(--header-height) + 3.5rem);
-                left: 0;
-                padding: .25rem .5rem;
-                background-image: linear-gradient(to bottom, var(--theme-ui-header) 0%, rgba(from var(--theme-ui-header) r g b / .25) 100%);
-                color: var(--theme-text-primary);
-                text-justify: inter-character;
-                text-align: center;
-
-                content: 'This site is not optimized for mobile usage. Visit on Desktop for the full experience.';
-                font-size: .85rem;
-                font-weight: 600;
-
-                opacity: .65;
-
-                z-index: 9999999 !important;
-            }
         }
     }
 
@@ -213,14 +192,15 @@
             .argxs {
                 height: 1.5rem;
                 width: fit-content;
-								margin-left: 1.5rem;
+								margin-left: 1.3rem;
+								padding: 0 .2rem;
             }
 
             .argxs.fx {
                 position: inherit;
                 mask-image: url('$lib/argxs-logo-mask.svg');
 								opacity: 0;
-                animation: argxsAnim 20s infinite;
+                animation: logoLightAnimation 20s infinite;
             }
 
             a {
@@ -278,25 +258,6 @@
             backdrop-filter: blur(2px) blur(1px) brightness(1.15);
             z-index: 999993 !important;
         }
-    }
-
-    @keyframes argxsAnim {
-        from, to {
-            transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.050);
-            background-image: radial-gradient(circle at 35% 45%, transparent 0%, rgb(222, 168, 248) 5%, rgb(168, 222, 248) 15.8%, rgb(189, 250, 205) 23.6%, rgb(243, 250, 189) 35%, transparent 50%, rgb(250, 227, 189) 65%, rgb(248, 172, 172) 70%, rgb(254, 211, 252) 80%, transparent 100%);
-        }
-				0%, 5%, 100% {
-            background-position: -10rem 0;
-        }
-        30%, 42.5% {
-            background-position: 10rem 0;
-        }
-				4%, 37.5% {
-						opacity: 0;
-				}
-				10%, 20% {
-						opacity: 1;
-				}
     }
 
     /* Navigation Light effect */
@@ -390,6 +351,28 @@
                 width: 30vw !important;
                 background-position-x: -15vw;
             }
+        }
+    }
+
+    @keyframes logoLightAnimation {
+        from, to {
+            transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.050);
+            background-image: radial-gradient(circle at 35% 45%, transparent 0%, rgb(222, 168, 248) 5%, rgb(168, 222, 248) 15.8%, rgb(189, 250, 205) 23.6%, rgb(243, 250, 189) 35%, transparent 50%, rgb(250, 227, 189) 65%, rgb(248, 172, 172) 70%, rgb(254, 211, 252) 80%, transparent 100%);
+        }
+        0%, 5%, 100% {
+            background-position: -10rem 0;
+        }
+        30%, 42.5% {
+            background-position: 10rem 0;
+        }
+        50% {
+            background-position: 11rem 0;
+        }
+        4%, 37% {
+            opacity: 0;
+        }
+        10%, 20% {
+            opacity: 1;
         }
     }
 </style>
