@@ -609,7 +609,7 @@
                 }
 
                 p {
-                    font-family: 'Funnel Sans Italic', sans-serif;
+                    font-family: 'Funnel Sans', sans-serif;
                     color: var(--theme-text-fourth);
                     width: fit-content;
                     font-weight: 700;
@@ -646,8 +646,8 @@
             border-radius: .8rem;
             margin-bottom: .2rem;
 
-            font-family: 'Funnel Display', sans-serif;
-            font-weight: 750;
+            font-family: 'Funnel Sans', sans-serif;
+            font-weight: 700;
             transition: var(--theme-transition-off);
 
             svg {
@@ -747,18 +747,18 @@
         .outdated {
             &:hover::after {
                 font-weight: 800;
-                color: var(--theme-color-primary);
+                color: var(--theme-color-alert);
             }
 
             &::after {
                 content: 'OUTDATED';
-                color: var(--theme-color-alert-light);
+                color: var(--theme-color-alert);
 								opacity: .5;
                 background: none;
             }
 
 						&:hover::after, &.selected::after {
-                color: var(--theme-color-alert-light);
+                color: var(--theme-color-alert);
 								opacity: 1;
 						}
         }
