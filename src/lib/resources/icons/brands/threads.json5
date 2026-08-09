@@ -8,30 +8,78 @@
             default: {
                 theme: 'light',
                 path: 'threads-icon.svg',
-                date_added: '2026/4/10',
-                version: '0.0.1'
+                date_added: '2026/8/9',
+                version: '0.8.0',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com'
+                }
             },
             dark: {
                 theme: 'dark',
                 path: 'threads-icon-dark.svg',
-                date_added: '2026/4/10',
-                version: '0.0.1'
-            }
+                date_added: '2026/8/9',
+                version: '0.8.0',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com'
+                }
+            },
+            variable: [
+                {
+                    name: 'Old Threads',
+                    theme: 'light',
+                    path: 'threads-old-icon.svg',
+                    date_added: '2026/4/10',
+                    version: '0.0.1'
+                },
+                {
+                    name: 'Old Threads',
+                    theme: 'dark',
+                    path: 'threads-old-icon-dark.svg',
+                    date_added: '2026/4/10',
+                    version: '0.0.1'
+                }
+            ]
         },
         {
             type: 'logo',
             default: {
                 theme: 'light',
                 path: 'threads-logo.svg',
-                date_added: '2026/4/10',
-                version: '0.0.1'
+                date_added: '2026/8/9',
+                version: '0.8.0',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com'
+                }
             },
             dark: {
                 theme: 'dark',
                 path: 'threads-logo-dark.svg',
-                date_added: '2026/4/10',
-                version: '0.0.1'
-            }
+                date_added: '2026/8/9',
+                version: '0.8.0',
+                source: {
+                    name: 'Meta',
+                    href: 'https://www.meta.com'
+                }
+            },
+            variable: [
+                {
+                    name: 'Old Threads',
+                    theme: 'light',
+                    path: 'threads-old-logo.svg',
+                    date_added: '2026/4/10',
+                    version: '0.0.1'
+                },
+                {
+                    name: 'Old Threads',
+                    theme: 'dark',
+                    path: 'threads-old-logo-dark.svg',
+                    date_added: '2026/4/10',
+                    version: '0.0.1'
+                }
+            ]
         }
     ]
 }
