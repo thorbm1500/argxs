@@ -1637,6 +1637,7 @@
                             user-select: none;
 														text-transform: uppercase;
 														font-size: .95rem;
+                            font-family: 'Funnel Sans', sans-serif;
 												}
 
 												.brand-colors {
@@ -1685,6 +1686,7 @@
 																		color: var(--theme-text-third);
 																		font-weight: 650;
 																		user-select: none;
+                                    font-family: 'Funnel Sans', sans-serif;
 																}
 																.value {
 																		color: var(--theme-text-primary);
@@ -1692,6 +1694,7 @@
 																		width: 8rem;
 																		text-align: end;
 																		user-select: all;
+                                    font-family: 'Funnel Sans', sans-serif;
 																}
 														}
                         }
