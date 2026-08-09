@@ -1,7 +1,7 @@
 {
     name: 'Microsoft',
     href: 'https://www.microsoft.com',
-    tags: ["Tech"],
+    tags: ["Tech","Software"],
     assets: [
         {
             type: 'icon',

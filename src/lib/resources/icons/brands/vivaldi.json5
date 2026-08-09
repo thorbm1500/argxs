@@ -1,6 +1,7 @@
 {
 	name: 'Vivaldi',
 	href: 'https://vivaldi.com',
+	tags: ["Software"],
 	assets: [
 		{
 			type: 'icon',

@@ -1,7 +1,7 @@
 {
 	name: 'Riot Games',
 	href: 'https://www.riotgames.com',
-	tags: ["Gaming","E-Sports"],
+	tags: ["Gaming","E-Sports","Software"],
 	assets: [
 		{
 			type: 'icon',

@@ -19,6 +19,7 @@
             name: 'Steam',
             href: 'https://store.steampowered.com',
             type: 'logo',
+            tags: ["Gaming","Software"],
             default: {
                 theme: 'light',
                 path: 'steam-logo.svg',

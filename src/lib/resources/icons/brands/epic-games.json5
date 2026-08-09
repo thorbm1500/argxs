@@ -29,6 +29,7 @@
 		{
 			name: 'Unreal Engine',
 			type: 'logo',
+			tags: ["Gaming","Software"],
 			default: {
 				theme: 'light',
 				path: 'epic-games-unreal-engine-logo.svg',

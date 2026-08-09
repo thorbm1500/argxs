@@ -1,7 +1,7 @@
 {
 	name: 'balena',
 	href: 'https://www.balena.io',
-	tags: ["Tech"],
+	tags: ["Software","Utility"],
 	assets: [
 		{
 			type: 'icon',

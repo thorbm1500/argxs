@@ -1,7 +1,7 @@
 {
     name: 'Arduino',
     href: 'https://www.arduino.cc',
-    tags: ["Tech","Development"],
+    tags: ["Tech","Development","Software"],
     assets: [
         {
             type: 'logo',

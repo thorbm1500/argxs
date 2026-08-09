@@ -1,7 +1,7 @@
 {
     name: 'Threads',
     href: 'https://www.threads.com',
-    tags: ["Social Media"],
+    tags: ["Social Media","Software"],
     assets: [
         {
             type: 'icon',

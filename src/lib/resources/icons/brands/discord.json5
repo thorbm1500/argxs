@@ -1,7 +1,7 @@
 {
 	name: 'Discord',
 	href: 'https://discord.com',
-	tags: ["Social Media","Gaming"],
+	tags: ["Social Media","Gaming","Software"],
 	assets: [
 		{
 			type: 'icon',

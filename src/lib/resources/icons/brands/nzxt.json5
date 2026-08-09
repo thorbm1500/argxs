@@ -1,7 +1,7 @@
 {
 	name: 'NZXT',
 	href: 'https://www.nzxt.com',
-	tags: ["Gaming","Tech"],
+	tags: ["Gaming","Tech","Software"],
 	assets: [
 		{
 			type: 'logo',

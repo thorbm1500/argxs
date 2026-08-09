@@ -1,7 +1,7 @@
 {
     name: 'Windows',
     href: 'https://www.microsoft.com/windows',
-    tags: ["Tech"],
+    tags: ["Tech","Software"],
     assets: [
         {
             name: 'Windows 11',
