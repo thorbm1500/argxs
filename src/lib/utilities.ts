@@ -1,5 +1,5 @@
 export async function copyToClipboard(value: unknown): Promise<boolean> {
-	if (!navigator.hasOwnProperty('clipboard') || typeof value !== 'string' && String(value).length === 0) return false;
+	if (typeof value !== 'string' && String(value).length === 0) return false;
 
 	try {
 		await navigator.clipboard.writeText(String(value));
