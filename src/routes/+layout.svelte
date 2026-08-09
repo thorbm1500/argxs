@@ -1,5 +1,5 @@
 <script lang="ts">
-	import './layout.css';
+	import '$lib/styles/layout.css';
 	import Header from './Header.svelte';
 	import Sidebar from './Sidebar.svelte';
 	import Footer from './Footer.svelte';
@@ -64,10 +64,6 @@
 	};
 </script>
 
-<svelte:head>
-	<meta charset="utf-8">
-</svelte:head>
-
 {#if !screenSizeWarning }
 	<div class="screen-size-warning {theme}">
 		<div class="message">
@@ -96,7 +92,7 @@
 	</div>
 {/if}
 
-<ToastComponent bind:sendFunction={sendToast} />
+<ToastComponent bind:theme={theme} bind:sendFunction={sendToast} />
 
 {#if (innerWidth.current ?? 1920) > 700 && scrollY > 750}
 	<div class="{theme} btt-parent {scrollY > ((innerHeight.current ?? 1080) * .25) ? 'active' : 'inactive'}">
