@@ -45,7 +45,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Home</p>
 			</a>
-			<div class={{ in_progress: true }} inert>
+			<div class={{ tag: true, in_progress: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M13 2L4.09344 12.6879C3.74463 13.1064 3.57023 13.3157 3.56756 13.4925C3.56524 13.6461 3.63372 13.7923 3.75324 13.8889C3.89073 14 4.16316 14 4.70802 14H12L11 22L19.9065 11.3121C20.2553 10.8936 20.4297 10.6843 20.4324 10.5075C20.4347 10.3539 20.3663 10.2077 20.2467 10.1111C20.1092 10 19.8368 10 19.292 10H12L13 2Z" />
 				</svg>
@@ -108,7 +108,7 @@
 				</svg>
 				<p>COLORS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, newly_added: true, selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
+			<a {@attach tabIndexFocus} class={{ page: true, newly_added: true, tag: true, selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M11 7l6 6" />
@@ -116,13 +116,13 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Color Picker</p>
 			</a>
-			<div class={{ in_progress: true }} inert>
+			<div class={{ tag: true, in_progress: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M8.99997 11.2224L12.7778 15.0002M7.97485 20.975C6.60801 22.3419 4 22.0002 2 22.0002C3.0251 20.0002 1.65827 17.3921 3.0251 16.0253C4.39194 14.6585 6.60801 14.6585 7.97485 16.0253C9.34168 17.3921 9.34168 19.6082 7.97485 20.975ZM11.9216 15.9248L21.0587 6.05671C21.8635 5.18755 21.8375 3.83776 20.9999 3.00017C20.1624 2.16258 18.8126 2.13663 17.9434 2.94141L8.07534 12.0785C7.5654 12.5507 7.31043 12.7868 7.16173 13.0385C6.80514 13.6423 6.79079 14.3887 7.12391 15.0057C7.26283 15.2631 7.50853 15.5088 7.99995 16.0002C8.49136 16.4916 8.73707 16.7373 8.99438 16.8762C9.6114 17.2093 10.3578 17.195 10.9616 16.8384C11.2134 16.6897 11.4494 16.4347 11.9216 15.9248Z" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Colors</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
+			<a {@attach tabIndexFocus} class={{ page: true, outdated: true, tag: true, selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
 				<svg style="transform:rotate(20deg) translate(-.2rem, -.05rem);" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
 					<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9" />
@@ -130,7 +130,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Combos</p>
 			</a>
-			<div class={{ planned: true }} inert>
+			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
 					<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9" />
@@ -139,7 +139,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Palettes</p>
 			</div>
-			<div class={{ planned: true }} inert>
+			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M2 12C2 17.5228 6.47715 22 12 22C13.6569 22 15 20.6569 15 19V18.5C15 18.0356 15 17.8034 15.0257 17.6084C15.2029 16.2622 16.2622 15.2029 17.6084 15.0257C17.8034 15 18.0356 15 18.5 15H19C20.6569 15 22 13.6569 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12Z" />
@@ -162,7 +162,7 @@
 				</svg>
 				<p>CHEAT SHEETS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/cheat-sheets/transition-easing' }} href="/cheat-sheets/transition-easing">
+			<a {@attach tabIndexFocus} class={{ page: true, outdated: true, tag: true, selected: page.url.pathname === '/cheat-sheets/transition-easing' }} href="/cheat-sheets/transition-easing">
 				<svg viewBox="0 0 24 24" fill="currentColor">
 					<path stroke="none" fill="none" d="M0 0h24v24H0z" />
 					<path
@@ -171,14 +171,14 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Transition Easing</p>
 			</a>
-			<div class={{ planned: true }} inert>
+			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M12 2.50008V12.0001M12 12.0001L20.5 7.27779M12 12.0001L3.5 7.27779M12 12.0001V21.5001M20.5 16.7223L12.777 12.4318C12.4934 12.2742 12.3516 12.1954 12.2015 12.1645C12.0685 12.1372 11.9315 12.1372 11.7986 12.1645C11.6484 12.1954 11.5066 12.2742 11.223 12.4318L3.5 16.7223M21 16.0586V7.94153C21 7.59889 21 7.42757 20.9495 7.27477C20.9049 7.13959 20.8318 7.01551 20.7354 6.91082C20.6263 6.79248 20.4766 6.70928 20.177 6.54288L12.777 2.43177C12.4934 2.27421 12.3516 2.19543 12.2015 2.16454C12.0685 2.13721 11.9315 2.13721 11.7986 2.16454C11.6484 2.19543 11.5066 2.27421 11.223 2.43177L3.82297 6.54288C3.52345 6.70928 3.37369 6.79248 3.26463 6.91082C3.16816 7.01551 3.09515 7.13959 3.05048 7.27477C3 7.42757 3 7.59889 3 7.94153V16.0586C3 16.4013 3 16.5726 3.05048 16.7254C3.09515 16.8606 3.16816 16.9847 3.26463 17.0893C3.37369 17.2077 3.52345 17.2909 3.82297 17.4573L11.223 21.5684C11.5066 21.726 11.6484 21.8047 11.7986 21.8356C11.9315 21.863 12.0685 21.863 12.2015 21.8356C12.3516 21.8047 12.4934 21.726 12.777 21.5684L20.177 17.4573C20.4766 17.2909 20.6263 17.2077 20.7354 17.0893C20.8318 16.9847 20.9049 16.8606 20.9495 16.7254C21 16.5726 21 16.4013 21 16.0586Z" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Flexbox Layout</p>
 			</div>
-			<div class={{planned: true }} inert>
+			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" />
 					<path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" />
@@ -192,7 +192,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Grid Layout</p>
 			</div>
-			<div class={{planned: true }} inert>
+			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M14 3v4a1 1 0 0 0 1 1h4" />
@@ -216,14 +216,14 @@
 				</svg>
 				<p>OTHER</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/other/typography' }} href="/other/typography">
+			<a {@attach tabIndexFocus} class={{ page: true, outdated: true, tag: true, selected: page.url.pathname === '/other/typography' }} href="/other/typography">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M4 7C4 6.06812 4 5.60218 4.15224 5.23463C4.35523 4.74458 4.74458 4.35523 5.23463 4.15224C5.60218 4 6.06812 4 7 4H17C17.9319 4 18.3978 4 18.7654 4.15224C19.2554 4.35523 19.6448 4.74458 19.8478 5.23463C20 5.60218 20 6.06812 20 7M9 20H15M12 4V20" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Typography</p>
 			</a>
-			<div class={{ planned: true }} inert>
+			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path
 						d="M9.99999 13C10.4294 13.5741 10.9773 14.0491 11.6065 14.3929C12.2357 14.7367 12.9315 14.9411 13.6466 14.9923C14.3618 15.0435 15.0796 14.9403 15.7513 14.6897C16.4231 14.4392 17.0331 14.047 17.54 13.54L20.54 10.54C21.4508 9.59695 21.9547 8.33394 21.9434 7.02296C21.932 5.71198 21.4061 4.45791 20.4791 3.53087C19.552 2.60383 18.298 2.07799 16.987 2.0666C15.676 2.0552 14.413 2.55918 13.47 3.46997L11.75 5.17997M14 11C13.5705 10.4258 13.0226 9.95078 12.3934 9.60703C11.7642 9.26327 11.0685 9.05885 10.3533 9.00763C9.63819 8.95641 8.9204 9.0596 8.24864 9.31018C7.57688 9.56077 6.96687 9.9529 6.45999 10.46L3.45999 13.46C2.5492 14.403 2.04522 15.666 2.05662 16.977C2.06801 18.288 2.59385 19.542 3.52089 20.4691C4.44793 21.3961 5.702 21.9219 7.01298 21.9333C8.32396 21.9447 9.58697 21.4408 10.53 20.53L12.24 18.82" />
@@ -444,7 +444,7 @@
                     }
                 }
 
-                .planned, .in_progress, .newly_added {
+                .tag {
                     &::after {
                         font-size: .6rem;
                         font-weight: 750;
@@ -523,7 +523,7 @@
                 }
             }
 
-            .planned, .in_progress, .newly_added {
+            .tag, .planned, .in_progress {
                 &::after {
                     font-size: .75rem;
                 }
@@ -533,7 +533,7 @@
 
 
     .nav-section, .nav-top {
-        .page:hover, .selected, .planned:hover, .in_progress:hover {
+        .page:hover, .page.selected {
             .text {
                 background-image: radial-gradient(circle at 10% 20%, rgb(174 110 204) 0%, rgb(62 175 229) 28.8%, rgb(45 208 51) 45.6%, rgb(224 196 16) 65.9%, rgb(255 143 28) 75.8%, rgb(222 70 70) 80%, rgb(255 123 249) 85.7%);
             }
@@ -541,7 +541,7 @@
     }
 
     .dark .nav-section, .dark .nav-top {
-        .page:hover, .selected, .planned:hover, .in_progress:hover {
+        .page:hover, .page.selected {
             .text {
                 background-image: radial-gradient(circle at 10% 20%, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);
             }
@@ -633,10 +633,6 @@
             }
         }
 
-        .planned, .in_progress {
-            cursor: no-drop;
-        }
-
         .page, .planned, .in_progress, .github a {
             display: flex;
             flex-flow: row nowrap;
@@ -650,34 +646,41 @@
             border-radius: .8rem;
             margin-bottom: .2rem;
 
-            color: var(--theme-text-secondary);
-
             font-family: 'Funnel Display', sans-serif;
             font-weight: 750;
             transition: var(--theme-transition-off);
 
             svg {
-                color: var(--theme-text-fourth);
                 transition: 75ms ease-in;
             }
         }
 
+				.page, .page svg, .github a, .github svg {
+            color: var(--theme-text-secondary);
+				}
+
+				.planned, .in_progress {
+            &:hover, svg {
+                color: var(--theme-text-fourth) !important;
+						}
+				}
+
         @media (prefers-reduced-transparency: reduce) {
-            .selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
+            .selected, .page:hover, .github:hover a {
                 background: linear-gradient(to left, var(--theme-ui-sidebar-highlight) 15%, color-mix(var(--theme-ui-sidebar-highlight),
                 var(--theme-color-primary) 5%) 100%);
             }
         }
 
         @media (prefers-reduced-transparency: no-preference) {
-            .selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
+            .selected, .page:hover, .github:hover a {
                 background: linear-gradient(to left, rgba(from var(--theme-ui-sidebar-highlight) r g b / .75) 15%, color-mix(rgba(from var(--theme-ui-sidebar-highlight) r g b / .5) 97.5%,
                 var(--theme-color-primary) 2.5%) 100%);
                 transition: var(--theme-transition-on);
             }
         }
 
-        .page.selected, .page:hover, .planned:hover, .in_progress:hover, .github:hover a {
+        .page.selected, .page:hover, .github:hover a {
             transition: var(--theme-transition-on);
 
             .text {
@@ -695,7 +698,7 @@
             }
         }
 
-        .planned, .in_progress, .newly_added {
+        .tag {
             &::after {
                 display: flex;
                 align-items: center;
@@ -704,11 +707,10 @@
                 padding: .15rem .45rem;
 
                 transform: translateX(.3rem);
-                background: var(--theme-sidebar-tag-background);
-                border-radius: .625rem;
+                background: none;
 
-                color: var(--theme-text-secondary);
-                font-family: 'Lexend Variable', sans-serif;
+                color: var(--theme-text-fourth);
+                font-family: 'Funnel Display', sans-serif;
 
                 transition: var(--theme-transition-off);
 
@@ -720,6 +722,14 @@
             &:hover::after {
                 transition: var(--theme-transition-on);
             }
+
+						&.planned, &.in_progress {
+                cursor: no-drop !important;
+
+                p, &:hover::after, &::after {
+                    color: var(--theme-text-fourth) !important;
+                }
+						}
         }
 
 				.newly_added {
@@ -731,9 +741,27 @@
 						&::after {
                 content: 'NEW';
                 color: var(--theme-color-accent);
-                background: none;
             }
 				}
+
+        .outdated {
+            &:hover::after {
+                font-weight: 800;
+                color: var(--theme-color-primary);
+            }
+
+            &::after {
+                content: 'OUTDATED';
+                color: var(--theme-color-alert-light);
+								opacity: .5;
+                background: none;
+            }
+
+						&:hover::after, &.selected::after {
+                color: var(--theme-color-alert-light);
+								opacity: 1;
+						}
+        }
 
         .planned::after {
             content: 'PLANNED';
@@ -741,11 +769,6 @@
 
         .in_progress::after {
             content: 'IN PROGRESS';
-            transform: translateX(.5rem);
-        }
-
-        .planned:hover::after {
-            background: var(--theme-sidebar-tag-hover-background);
         }
 
         .sidebar-footer {
