@@ -66,8 +66,9 @@
 
 		if (canvas) {
 			// Requires calling canvas.getBoundingClientRect() directly as canvasRect doesn't update quick enough to allow realtime resizing
-			selectedColorX.target = canvas.getBoundingClientRect().left + (_color.toHsv().s * (canvas.getBoundingClientRect().width / 100));
-			selectedColorY.target = (_color.toHsv().v * (canvas.getBoundingClientRect().height / 100) * -1) + canvas.getBoundingClientRect().height;
+			selectedColorX.target = Number.parseFloat((canvas.getBoundingClientRect().left + (_color.toHsv().s * (canvas.getBoundingClientRect().width / 100))).toFixed(2));
+			const topOffset = scrollY > canvas.getBoundingClientRect().top ? scrollY - canvas.getBoundingClientRect().top : canvas.getBoundingClientRect().top - scrollY;
+			selectedColorY.target = Number.parseFloat((topOffset + (_color.toHsv().v * (canvas.getBoundingClientRect().height / 100) * -1) + canvas.getBoundingClientRect().height).toFixed(2));
 		}
 
 		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
@@ -366,8 +367,8 @@
 	$effect(() => {
 		// Updates slider position if screen is resized
 		if (activeScreenWidth !== currentScreenWidth && currentScreenWidth !== 0) {
-			updateColorUI(color, true);
 			activeScreenWidth = currentScreenWidth;
+			updateColorUI(color, true);
 		}
 		// Updates selected color to current inspected color
 		else if (!isSliderActive && isDragging) {
@@ -412,8 +413,8 @@
 	<div class="page-header">
 		<h1 class="title">Color Picker</h1>
 	</div>
-	<div class="color-picker-cursor" style="left: {selectedColorX.current}px; top: {selectedColorY.current - scrollY + (canvasRect?.top ?? 0)}px; --current-color: {color.toHex()}; border-color: {colord(color).invert().toHex()}" draggable="true" inert></div>
 	<div class="color-picker-content">
+		<div class="color-picker-cursor" style="left: {selectedColorX.current}px; top: {selectedColorY.current}px; --current-color: {color.toHex()}; border-color: {colord(color).invert().toHex()}" draggable="true" inert></div>
 		<canvas bind:this={canvas} class="color-picker" id="color-picker" style="--picker-color-bg: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}; border-radius: {isHovering ? '.25rem' : '.9rem'};"></canvas>
 		<div class="actions">
 			<div class="actions-parent">
