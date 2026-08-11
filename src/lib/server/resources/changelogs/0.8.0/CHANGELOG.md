@@ -16,8 +16,19 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 
 ### New Flag Resources
 - **x New Icons**
-  - United States of America
-    - **[New]** Louisiana State Flag
+  - United States of America State Flags
+    - **[New]** Louisiana 
+    - **[New]** Maine
+    - **[New]** Maryland
+    - **[New]** Massachusetts
+    - **[New]** Michigan
+    - **[New]** Minnesota
+    - **[New]** Mississippi
+    - **[New]** Missouri
+    - **[New]** Montana
+    - **[New]** Nebraska
+    - **[New]** Nevada
+    - **[New]** New Hampshire
 
 ### New Brand Resources
 - **x New Icons**

@@ -248,6 +248,149 @@
                     href: 'https://en.wikipedia.org'
                 }
             }
+        },
+        {
+            name: 'Maine',
+            type: 'state',
+            default: {
+                path: 'us-maine.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Maryland',
+            type: 'state',
+            default: {
+                path: 'us-maryland.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Massachusetts',
+            type: 'state',
+            default: {
+                path: 'us-massachusetts.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Michigan',
+            type: 'state',
+            default: {
+                path: 'us-michigan.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Minnesota',
+            type: 'state',
+            default: {
+                path: 'us-minnesota.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Mississippi',
+            type: 'state',
+            default: {
+                path: 'us-mississippi.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Missouri',
+            type: 'state',
+            default: {
+                path: 'us-missouri.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Montana',
+            type: 'state',
+            default: {
+                path: 'us-montana.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Nebraska',
+            type: 'state',
+            default: {
+                path: 'us-nebraska.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Nevada',
+            type: 'state',
+            default: {
+                path: 'us-nevada.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'New Hampshire',
+            type: 'state',
+            default: {
+                path: 'us-new-hampshire.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
         }
     ]
 }

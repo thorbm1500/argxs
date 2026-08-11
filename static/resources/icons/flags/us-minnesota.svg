@@ -1,0 +1,11 @@
+<svg id="https://argxs.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFF" width="1500" height="900" viewBox="0 0 1000 600">
+    <path fill="#52C9E8" d="M0 0h1000v600H0z"/>
+    <path fill="#002D5D" d="M0 0h560L390 300l170 300H0Z"/>
+    <g id="argxs_us_minnesota_attr_2">
+        <path id="argxs_us_minnesota_attr_1" d="m210 190 v90 l45 20 45-20z" transform="rotate(22.5 210 190)"/>
+        <use xlink:href="#argxs_us_minnesota_attr_1" transform="rotate(180 210, 300)"/>
+    </g>
+    <use xlink:href="#argxs_us_minnesota_attr_2" transform="rotate(45 210 300)"/>
+    <use xlink:href="#argxs_us_minnesota_attr_2" transform="rotate(135 210 300)"/>
+    <use xlink:href="#argxs_us_minnesota_attr_2" transform="rotate(270 210 300)"/>
+</svg>
