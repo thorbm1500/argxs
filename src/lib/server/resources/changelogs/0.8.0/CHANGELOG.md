@@ -111,4 +111,4 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - svelte: *5.56.6 ➜ 5.56.8*
 - publint: *0.3.21 ➜ 0.3.23*
 - globals: *17.7.0 ➜ 17.9.0*
-- typescript-eslint: *8.65.0 ➜ 8.66.0*
+- typescript-eslint: *8.65.0 ➜ 8.67.0*
