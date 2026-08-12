@@ -15,8 +15,8 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 - **[New Tag]** Software
 
 ### New Flag Resources
-- **x New Icons**
-  - United States of America State Flags
+- **34? New Flags**
+  - **The remaining 33 state flags of the United States of America**
     - **[New]** Louisiana 
     - **[New]** Maine
     - **[New]** Maryland
@@ -29,6 +29,29 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
     - **[New]** Nebraska
     - **[New]** Nevada
     - **[New]** New Hampshire
+    - **[New]** New Jersey
+    - **[New]** New Mexico
+    - **[New]** New York
+    - **[New]** North Carolina
+    - **[New]** North Dakota
+    - **[New]** Ohio
+    - **[New]** Oklahoma
+    - **[New]** Oregon
+      - Front (observe) & Back (reserve)
+    - **[New]** Pennsylvania
+    - **[New]** Rhode Island
+    - **[New]** South Carolina
+    - **[New]** South Dakota
+    - **[New]** Tennessee
+    - **[New]** Texas
+    - **[New]** Utah
+    - **[New]** Vermont
+    - **[New]** Virginia
+    - **[New]** Washington
+    - **[New]** West Virginia
+    - **[New]** Wisconsin
+    - **[New]** Wyoming
+
 
 ### New Brand Resources
 - **x New Icons**

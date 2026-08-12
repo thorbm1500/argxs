@@ -391,6 +391,290 @@
                     href: 'https://en.wikipedia.org'
                 }
             }
+        },
+        {
+            name: 'New Jersey',
+            type: 'state',
+            default: {
+                path: 'us-new-jersey.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'New Mexico',
+            type: 'state',
+            default: {
+                path: 'us-new-mexico.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'New York',
+            type: 'state',
+            default: {
+                path: 'us-new-york.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'North Carolina',
+            type: 'state',
+            default: {
+                path: 'us-north-carolina.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'North Dakota',
+            type: 'state',
+            default: {
+                path: 'us-north-dakota.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Ohio',
+            type: 'state',
+            default: {
+                path: 'us-ohio.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Oklahoma',
+            type: 'state',
+            default: {
+                path: 'us-oklahoma.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Oregon (Front)',
+            default: {
+                path: 'us-oregon-obverse.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Oregon (Back)',
+                    path: 'us-oregon-reserve.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Pennsylvania',
+            type: 'state',
+            default: {
+                path: 'us-pennsylvania.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Rhode Island',
+            type: 'state',
+            default: {
+                path: 'us-rhode-island.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'South Carolina',
+            type: 'state',
+            default: {
+                path: 'us-south-carolina.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'South Dakota',
+            type: 'state',
+            default: {
+                path: 'us-south-dakota.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Tennessee',
+            type: 'state',
+            default: {
+                path: 'us-tennessee.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Texas',
+            type: 'state',
+            default: {
+                path: 'us-texas.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Utah',
+            type: 'state',
+            default: {
+                path: 'us-utah.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Vermont',
+            type: 'state',
+            default: {
+                path: 'us-vermont.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Virginia',
+            type: 'state',
+            default: {
+                path: 'us-virginia.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Washington',
+            type: 'state',
+            default: {
+                path: 'us-washington.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'West Virginia',
+            type: 'state',
+            default: {
+                path: 'us-west-virginia.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Wisconsin',
+            type: 'state',
+            default: {
+                path: 'us-wisconsin.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Wyoming',
+            type: 'state',
+            default: {
+                path: 'us-wyoming.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
         }
     ]
 }
