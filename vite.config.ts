@@ -4,6 +4,7 @@ import { sveltekit } from "@sveltejs/kit/vite";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import adapter from "svelte-adapter-bun";
 
+// @ts-ignore
 export default defineConfig({
   lint: {
     ignorePatterns: ["**.d.ts", "static", "src/lib/resources", "src/lib/fonts", "src/lib/server/resources"],
@@ -28,6 +29,7 @@ export default defineConfig({
     }
   },
   plugins: [
+    // @ts-ignore
     tailwindcss(),
     sveltekit({
       preprocess: vitePreprocess(),
@@ -58,7 +60,7 @@ export default defineConfig({
         },
       },
       csrf: {
-        trustedOrigins: ["https://argxs.com", "https://dev.argxs.com"],
+        trustedOrigins: ["https://argxs.dev", "https://dev.argxs.dev"],
       },
       version: {
         name: "0.8.0",
