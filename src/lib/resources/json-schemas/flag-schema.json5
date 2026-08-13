@@ -15,7 +15,7 @@
     "type": {
       "type": "string",
       "description": "The type of the entity defined, such as country, organization, etc.",
-      "enum": ["country","state","region","organization","other"]
+      "enum": ["country","state","district","region","organization","other"]
     },
     "tags": { "$ref": "#/$defs/tags" },
     "flags": {

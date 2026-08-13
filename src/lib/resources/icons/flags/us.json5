@@ -25,7 +25,29 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Alabama Sesquicentennial (1969)',
+                    path: 'us-commemorative-alabama-sesquicentennial.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                },
+                {
+                    name: 'Alabama Bicentennial (2019)',
+                    path: 'us-commemorative-alabama-bicentennial.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Alaska',
@@ -260,7 +282,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Maine Merchant & Marine',
+                    path: 'us-ensign-maine.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Maryland',
@@ -286,7 +320,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Massachusetts Naval & Maritime',
+                    path: 'us-ensign-massachusetts.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Michigan',
@@ -544,7 +590,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'South Carolina Naval Militia',
+                    path: 'us-ensign-south-carolina.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'South Dakota',
@@ -668,6 +726,19 @@
             type: 'state',
             default: {
                 path: 'us-wyoming.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'District of Columbia (Washington, DC)',
+            type: 'district',
+            default: {
+                path: 'us-district-columbia.svg',
                 date_added: '2026/8/12',
                 version: '0.8.0',
                 source: {

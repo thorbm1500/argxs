@@ -1061,9 +1061,14 @@
 		</h1>
 		<div class="subtitle">
 			<ul>
-				<li>
-					All SVGs are manually cleaned up and optimized, before being showcased. This is done for 2 reasons:<br>
-					Ensuring no SVGs overlap and conflict due to having attributes with matching names, and for a hope of minimizing the amount of redundant data being transferred across the internet.
+				<li style="--text-green: light-dark(color-mix(var(--theme-color-success-dark) 50%, var(--theme-color-success) 50%),var(--theme-color-success))">
+					All SVGs are manually cleaned up and optimized, before being showcased. This is done to ensure that no SVGs overlap and conflict due to having attributes with matching names, and as an attempt at minimizing the amount of redundant data being transferred across the internet. But what does an optimization look like? We'll use the flag for the US state New York as an example.<br>
+					This is how the manual processing affected the SVG, <i>without</i> altering the final product.
+					<ul>
+						<li><strong style="opacity:.75;">[</strong><strong style="color:var(--text-green)">↓</strong> <strong style="color:var(--text-green)">12.15%</strong><strong style="opacity:.75;">]</strong> Size: <strong style="color: var(--theme-color-alert)">606.29kB</strong> ➔ <strong style="color:var(--text-green)">540.56kB</strong></li>
+						<li><strong style="opacity:.75;">[</strong><strong style="color:var(--text-green)">↓</strong> <i></i> <strong style="color:var(--text-green)">4.20%</strong><strong style="opacity:.75;">]</strong> Line Count: <strong style="color: var(--theme-color-alert)">635</strong> ➔ <strong style="color:var(--text-green)">609</strong></li>
+						<li><strong style="opacity:.75;">[</strong><strong style="color:var(--text-green)">↓</strong> <strong style="color:var(--text-green)">12.15%</strong><strong style="opacity:.75;">]</strong> Character Count: <strong style="color: var(--theme-color-alert)">606.289</strong> ➔ <strong style="color:var(--text-green)">540.563</strong></li>
+					</ul>
 				</li>
 				<li>
 					Inlining an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are inlined directly in the html, so they can be safely omitted.
