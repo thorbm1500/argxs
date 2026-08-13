@@ -33,7 +33,7 @@ export default defineConfig({
 			}
 		},
 		csrf: {
-			trustedOrigins: ['https://argxs.com','https://dev.argxs.com']
+			trustedOrigins: ['https://argxs.dev','https://dev.argxs.dev','https://argxs.com','https://dev.argxs.com']
 		},
 		version: {
 			name: '0.7.4',
