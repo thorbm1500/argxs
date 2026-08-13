@@ -2,9 +2,10 @@
 
 # Development Information
 **Next Release: 0.8.0**<br>
-This readme was last updated: 07/08/2026
+This readme was last updated: 14/08/2026
 ## to-do-list
 ### Before Next Release
+- [ ] Finalize update
 - [x] Finish new page: [**Colors#ColorPicker**](https://argxs.com/colors/color-picker)
   - [x] Implement all inputs
     - [x] HEX
@@ -14,7 +15,7 @@ This readme was last updated: 07/08/2026
     - [x] OKLCH
   - [x] Add reactivity to screen resizing 
   - [x] Fix incorrect color calculations
-  - [ ] Add old rainbow glow effect to new logo in header
+  - [x] Add old rainbow glow effect to new logo in header
 ### Future Tasks
 - [x] Design logo for argxs
 - [x] Make brand guidelines for argxs
