@@ -20,6 +20,8 @@
 	const { data } = $props();
 
 	beforeNavigate(() => {
+		search = '';
+		searchbarValue = '';
 		while (allFilters.length) {
 			allFilters.pop();
 		}
