@@ -2,30 +2,31 @@
 
 # Development Information
 **Next Release: 0.8.0**<br>
-This readme was last updated: 14/08/2026
+Expected Release Date: 15/08/2026
+This readme was last updated: 15/08/2026
 ## to-do-list
 ### Before Next Release
 - [ ] Finalize update
-- [ ] Add Native American Flags
+- [x] Add Native American Flags
   - [x] Navajo Nation
   - [x] Cherokee Nation
-  - [ ] Choctaw Nation
-  - [ ] Chinook Nation
-  - [ ] Osage Nation
-  - [ ] Organized Village of Kake
-  - [ ] Nothern Arapaho or the Wind River Indian Reservation
-  - [ ] Pueblo of Zia
-  - [ ] Chickasaw Nation
-  - [ ] Nothern Cheyenne Indian Reservation
-  - [ ] Robinson Rancheria of Pomo Indians of California
-  - [ ] Pine Ridge Reservation
-  - [ ] Ninilchik Village Tribe
-  - [ ] Miccosukee
-  - [ ] Sac and Fox Nation
-  - [ ] Pascua Yaqui Tribe
-  - [ ] Viejas Group of Capitan Grande Band of Mission Indians
-  - [ ] Colorado River Indian Tribes
-  - [ ] Haudenosaunee Confederacy
+  - [x] Choctaw Nation
+  - [x] Chinook Nation
+  - [x] Osage Nation
+  - [x] Organized Village of Kake
+  - [x] Nothern Arapaho or the Wind River Indian Reservation
+  - [x] Pueblo of Zia
+  - [x] Chickasaw Nation
+  - [x] Nothern Cheyenne Indian Reservation
+  - [x] Robinson Rancheria of Pomo Indians of California
+  - [x] Pine Ridge Reservation
+  - [x] Ninilchik Village Tribe
+  - [x] Miccosukee
+  - [x] Sac and Fox Nation
+  - [x] Pascua Yaqui Tribe
+  - [x] Viejas Group of Capitan Grande Band of Mission Indians
+  - [x] Colorado River Indian Tribes
+  - [x] Haudenosaunee Confederacy
 - [x] Finish new page: [**Colors#ColorPicker**](https://argxs.com/colors/color-picker)
   - [x] Implement all inputs
     - [x] HEX
