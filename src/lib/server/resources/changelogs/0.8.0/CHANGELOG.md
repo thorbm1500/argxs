@@ -1,5 +1,5 @@
 # Version 0.8.0
-#### 2026-XX-XX
+#### 2026-08-14
 
 ## New Domain & Migration to [Cloudflare](https://cloudflare.com)
 **argxs** is now served under **argxs.dev**. With this change argxs.com now redirects to [argxs.dev](https://argxs.dev).<br>
@@ -8,6 +8,15 @@ With this change argxs has also been migrated to Cloudflare for better safety fo
 A logo & icon has been made for **argxs**, replacing the old personal favicon and the header logo
 
 ## Minor Changes
+- Addition of [ThisIsHumanMade](https://thisishumanmade.org) badge
+- Addition of screen size warning on smaller screens. *More information on this will be added on the upcoming page [Core Concept](https://argxs.dev/concept)*
+- The codebase now makes use of linting and formatting, provided by [**Vite+**](https://viteplus.dev), to make the codebase stronger and cleaner to work with.
+- General updates to the design, for a more consistent design
+### Changelogs
+- Updated page title from "Changelog" to "Changelogs"
+### Sidebar
+- Updated design, making the design cleaner and easier to navigate
+- Updated layout for a cleaner and less congested look
 ### Icons
 - Improved accessibility to users with prefers-reduced-motion enabled
 - Updated existing Google logo to an SVG sourced directly from [Google](https://google.com)
@@ -17,21 +26,24 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
 - **[New Tag]** Software
 
 ### New Flag Resources
-- **34? New Flags**
-  - **The remaining 33 state flags of the United States of America**
+- **x New Flags**
+  - **United States of America State Flags**
     - **[New]** Louisiana 
     - **[New]** Maine
+      - Incl. Maine Bicentennial Flag (2020)
     - **[New]** Maryland
     - **[New]** Massachusetts
     - **[New]** Michigan
     - **[New]** Minnesota
     - **[New]** Mississippi
+      - Incl. Mississippi Bicentennial Flag (2017)
     - **[New]** Missouri
     - **[New]** Montana
     - **[New]** Nebraska
     - **[New]** Nevada
     - **[New]** New Hampshire
     - **[New]** New Jersey
+      - Incl. New Jersey Tricentennial Flag (1964)
     - **[New]** New Mexico
     - **[New]** New York
     - **[New]** North Carolina
@@ -47,13 +59,19 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
     - **[New]** Tennessee
     - **[New]** Texas
     - **[New]** Utah
+      - Incl. Utah Quasquicentennial Flag (2021)
     - **[New]** Vermont
     - **[New]** Virginia
     - **[New]** Washington
     - **[New]** West Virginia
     - **[New]** Wisconsin
     - **[New]** Wyoming
-
+    - Alabama
+      - Incl. Alabama Sesquicentennial Flag (1969)
+      - Incl. Alabama Bicentennial Flag (2019)
+    - Illinois
+      - Incl. Illinois Centennial Flag (1918)
+      - Incl. Illinois Sesquicentennial Flag (1968)
 
 ### New Brand Resources
 - **x New Icons**
@@ -80,10 +98,11 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
   - Threads
     - Updated logo & icon to the new Threads rebrand - Old logo & icons renamed to "Old Threads"
   - Twitch
+    - Replaced all existing logos & icons with SVGs sourced directly from [Twitch](https://twitch.tv)
   - Google
     - Incl. White Monochrome Google Logo
   - Docker
-    - Replaced existing logo & icon
+    - Replaced existing logo & icon with SVGs sourced directly from [Docker](https://docker.com)
     - Added all new icons and logos
     - Incl. Docker Docs
   - NVIDIA
@@ -130,7 +149,10 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
     - Bluesky
 
 ## Bug Fixes
-- Sidebar should be less glitchy now
+### Sidebar
+- A delay has been added to the animation, which should make the sidebar less glitchy
+### Changelogs
+- Fixed an issue causing different font weights on links
 
 ## Dependencies
 - **[New]** vite-plus: *0.2.7*
