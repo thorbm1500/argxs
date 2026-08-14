@@ -1,9 +1,11 @@
 # Version 0.8.0
 #### 2026-XX-XX
 
-## Major Changes
-### Addition of **Vite+**
-The codebase now makes use of linting and formatting, provided by [**Vite+**](https://viteplus.dev), to make the codebase stronger and cleaner to work with.
+## New Domain & Migration to [Cloudflare](https://cloudflare.com)
+**argxs** is now served under **argxs.dev**. With this change argxs.com now redirects to [argxs.dev](https://argxs.dev).<br>
+With this change argxs has also been migrated to Cloudflare for better safety for the users and for a better performance delivering the site
+## New Logo & Icon
+A logo & icon has been made for **argxs**, replacing the old personal favicon and the header logo
 
 ## Minor Changes
 ### Icons
