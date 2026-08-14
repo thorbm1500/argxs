@@ -1,0 +1,21 @@
+<svg id="https://argxs.dev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#002768" width="1800" height="1080" viewBox="0 0 720 432">
+    <rect width="720" height="432" fill="#FFF"/>
+    <rect width="720" height="144" y="144"/>
+    <path d="M90,162 125.091327,270 33.22104,203.252329H146.77896L54.908673,270z" fill="#FFF"/>
+    <g id="argxs_us_illinois_centennial_attr_1">
+        <path id="argxs_us_illinois_centennial_attr_2" d="M36,13 44.122992,38 22.856722,22.54915H49.143278L27.877008,38z"/>
+        <use xlink:href="#argxs_us_illinois_centennial_attr_2" y="32"/>
+        <use xlink:href="#argxs_us_illinois_centennial_attr_2" x="36" y="32"/>
+    </g>
+    <use xlink:href="#argxs_us_illinois_centennial_attr_2" x="36" y="64"/>
+    <use xlink:href="#argxs_us_illinois_centennial_attr_1" y="64"/>
+    <use xlink:href="#argxs_us_illinois_centennial_attr_1" x="72" y="64"/>
+    <g id="argxs_us_illinois_centennial_attr_3">
+        <use xlink:href="#argxs_us_illinois_centennial_attr_2" y="285"/>
+        <use xlink:href="#argxs_us_illinois_centennial_attr_2" x="36" y="285"/>
+        <use xlink:href="#argxs_us_illinois_centennial_attr_2" y="317"/>
+    </g>
+    <use xlink:href="#argxs_us_illinois_centennial_attr_2" x="36" y="317"/>
+    <use xlink:href="#argxs_us_illinois_centennial_attr_3" x="72"/>
+    <use xlink:href="#argxs_us_illinois_centennial_attr_3" y="64"/>
+</svg>

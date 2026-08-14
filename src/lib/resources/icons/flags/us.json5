@@ -204,7 +204,29 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Illinois Centennial (1918)',
+                    path: 'us-commemorative-illinois-centennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                },
+                {
+                    name: 'Illinois Sesquicentennial (1968)',
+                    path: 'us-commemorative-illinois-sesquicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Indiana',
@@ -217,7 +239,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Indiana Centennial (1916)',
+                    path: 'us-commemorative-indiana-centennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Iowa',
@@ -288,6 +322,16 @@
                     name: 'Maine Merchant & Marine',
                     path: 'us-ensign-maine.svg',
                     date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                },
+                {
+                    name: 'Maine Bicentennial (2020)',
+                    path: 'us-commemorative-maine-bicentennial.svg',
+                    date_added: '2026/8/14',
                     version: '0.8.0',
                     source: {
                         name: 'Wikipedia',
@@ -371,7 +415,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Mississippi Bicentennial (2017)',
+                    path: 'us-commemorative-mississippi-bicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Missouri',
@@ -449,7 +505,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'New Jersey Tricentennial (1964)',
+                    path: 'us-commemorative-new-jersey-tricentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'New Mexico',
@@ -641,7 +709,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Texas Sesquicentennial (1986)',
+                    path: 'us-commemorative-texas-sesquicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Utah',
@@ -654,7 +734,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Utah Quasquicentennial (2021)',
+                    path: 'us-commemorative-utah-quasquicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Vermont',
@@ -746,6 +838,46 @@
                     href: 'https://en.wikipedia.org'
                 }
             }
+        },
+        {
+            name: 'Navajo',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-navajo.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'The Cherokee Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-cherokee-nation.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Great Seal of the Cherokee Nation',
+                    path: 'us-na-cherokee-nation-seal.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         }
     ]
 }
