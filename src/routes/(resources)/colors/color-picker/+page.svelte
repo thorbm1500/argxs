@@ -234,7 +234,7 @@
 
 		hexInput?.addEventListener('input', (event: InputEvent) => {
 			if (event.data !== null && event.inputType === 'insertFromPaste') {
-				applyHEX(event.data);
+				applyHEX(event.data.startsWith('#') ? event.data : '#'.concat(event.data));
 			}
 		});
 		hexInput?.addEventListener('keypress', (event: KeyboardEvent) => {
