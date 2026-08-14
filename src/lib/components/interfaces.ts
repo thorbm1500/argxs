@@ -8,11 +8,11 @@ export interface SEO {
 }
 
 export function getDefaultSEODescription(): string {
-	return "[Human-Made] Your #1 source of Web Development resources! Offering more than +" + `${RESOURCES.TOTAL_ICON_AMOUNT_ROUNDED}` + " SVG brand logos & icons, country flags, and more. Always Free. Always Open Source.";
+	return "[Human-Made] Your #1 source of Web Development Resources! Offering more than +" + `${RESOURCES.TOTAL_ICON_AMOUNT_ROUNDED}` + " SVG brand logos & icons, country flags, and more. Always Free. Always Open Source.";
 }
 
 export function getDefaultSEOTitle(): string {
-	return "argxs ▪ Web Resources";
+	return "argxs ▪ Web Development Resources";
 }
 
 export type IconType = 'icon' | 'logo' | 'country' | 'state';

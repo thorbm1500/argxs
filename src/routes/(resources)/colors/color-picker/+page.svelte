@@ -403,7 +403,7 @@
 
 <svelte:head>
 	<meta charset="utf-8">
-	<title>{data.seo.title}{colorName.length ? colorName : 'Color Picker'}</title>
+	<title>{data.seo.title}{colorName.length ? colorName : 'Color Picker'} | Web Development Resources</title>
 	{#if data.seo.description}
 		<meta name="description" content={data.seo.description} />
 	{/if}
