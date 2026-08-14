@@ -2,7 +2,7 @@
 
 # Development Information
 **Next Release: 0.8.0**<br>
-Expected Release Date: 15/08/2026
+Expected Release Date: **15/08/2026**<br>
 This readme was last updated: 15/08/2026
 ## to-do-list
 ### Before Next Release
