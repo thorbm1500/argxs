@@ -878,6 +878,244 @@
                     }
                 }
             ]
+        },
+        {
+            name: 'Choctaw',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-choctaw.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Chinook Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-chinook.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Osage Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-osage.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Organized Village of Kake',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-kake.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Northern Arapaho of the Wind River Indian Reservation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-arapaho.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Zia Pueblo',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-zia-pueblo.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Chickasaw Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-chickasaw.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Northern Cheyenne Indian Reservation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-northern-cheyenne.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Robinson Rancheria of Pomo Indians of California',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-robinson-rancheria.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Pine Ridge Reservation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-pine-ridge.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Ninilchik Village Tribe',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-ninilchik-village-tribe.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Miccosukee Tribe of Indians of Florida',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-miccosukee-tribe.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Sac and Fox Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-sac-and-fox-nation.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Pascua Yaqui Tribe of Arizona',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-pascua-yaqui-tribe.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Viejas Group of Capitan Grande Band of Mission Indians',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-viejas-band.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Colorado River Indian Tribes',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-colorado-river-indian-tribes.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Haudenosaunee Confederacy (Iroquois Confederacy)',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-haudenosaunee-confederacy.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
         }
     ]
 }
