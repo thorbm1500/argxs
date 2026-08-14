@@ -18,12 +18,15 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
 - Updated design, making the design cleaner and easier to navigate
 - Updated layout for a cleaner and less congested look
 ### Icons
+- Added clearing of user search when navigation between Brand & Flag icons
 - Improved accessibility to users with prefers-reduced-motion enabled
 - Updated existing Google logo to an SVG sourced directly from [Google](https://google.com)
 - Updated existing Docker logo & icon to SVGs sourced directly from [Docker](https://docker.com)
 - Updated general design to be more consistent
 - **[New Tag]** Real Estate
 - **[New Tag]** Software
+- **Highlighted Icon Modal**
+  - Added scrolling to icon name when hovering, allowing abnormally long names to still be readable regardless of screen size
 
 ### New Flag Resources
 - **x New Flags**
