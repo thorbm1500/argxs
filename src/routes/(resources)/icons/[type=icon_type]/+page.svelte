@@ -314,6 +314,12 @@
 	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
 	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon?.iconIndex[highlightedIcon.currentIcon] ?? undefined);
 	let hPreviousIcon: Icon | undefined = $state(undefined);
+	let hCurrentBrandNameParentElement: HTMLDivElement | undefined = $state();
+	let hCurrentBrandNameElement: HTMLHeadingElement | undefined = $state();
+	let hCurrentBrandNameScroll: number = $derived.by(() => {
+		if (!(hCurrentBrandNameParentElement && hCurrentBrandNameElement) || (hCurrentBrandNameParentElement.offsetWidth >= hCurrentBrandNameElement.offsetWidth)) return 0;
+		return hCurrentBrandNameElement.offsetWidth - hCurrentBrandNameParentElement.offsetWidth;
+	});
 	let iconContainerOpened: number | null = null;
 	let showBrandColors: boolean = $state(false);
 	let iconMeta: boolean = $state(false);
@@ -466,7 +472,7 @@
 			</div>
 			<div class="glass-effect f"></div>
 		</div>
-		<div class="h-icon">
+		<div class="h-icon" style="@keyframes ScrollTextAnimation {`{ from { transform: translate(0); } to { transform: translate(${hCurrentBrandNameScroll}px); } } }`}">
 			{#key hCurrentIcon}
 				<!--svelte-ignore a11y_autofocus-->
 				<button title="Close" class="close-button" onclick={closeHighlightContainer} tabindex="1">
@@ -662,16 +668,15 @@
 							{/if}
 						</a>
 					{/if}
-					<div class="name" tabindex="-1"
-					     style="transform:translateY({!hCurrentIcon?.name && highlightedIcon.icon.title === highlightedIcon.icon.name && !hCurrentIcon?.href && !highlightedIcon.icon.href ? 1 : 0}rem)">
+					<div class="name" bind:this={hCurrentBrandNameParentElement} tabindex="-1" style="--current-scroll: -{hCurrentBrandNameScroll}px;transform:translateY({!hCurrentIcon?.name && highlightedIcon.icon.title === highlightedIcon.icon.name && !hCurrentIcon?.href && !highlightedIcon.icon.href ? 1 : 0}rem);">
 						{#if hCurrentIcon?.name}
-							<h1 class="icon-name" tabindex="-1">{hCurrentIcon.name}</h1>
+							<h1 class="icon-name" bind:this={hCurrentBrandNameElement} tabindex="-1">{hCurrentIcon.name}</h1>
 							<h3 class="brand-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else if highlightedIcon.icon.title !== highlightedIcon.icon.name}
-							<h1 class="icon-name" tabindex="-1">{highlightedIcon.icon.name}</h1>
+							<h1 class="icon-name" bind:this={hCurrentBrandNameElement} tabindex="-1">{highlightedIcon.icon.name}</h1>
 							<h3 class="brand-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else}
-							<h1 class="icon-name" style="transform: translateY(.2rem)" tabindex="-1">{highlightedIcon.icon.title}</h1>
+							<h1 class="icon-name" bind:this={hCurrentBrandNameElement} tabindex="-1">{highlightedIcon.icon.title}</h1>
 						{/if}
 					</div>
 					<div class="actions" tabindex="-1">
@@ -1850,18 +1855,24 @@
                     align-items: flex-start;
                     justify-content: flex-start;
                     height: 4.35rem;
-                    max-width: 100%;
-                    overflow: visible;
+										max-width: 100%;
+                    overflow: hidden;
+                    box-sizing: border-box;
 
-                    text-wrap: nowrap !important;
+                    text-wrap: nowrap;
 
                     .icon-name {
                         font-size: 2rem;
-                        height: 3.15rem;
-                        max-width: 100%;
+                        height: 2.6rem;
+                        width: fit-content;
+												box-sizing: border-box;
+												transform: translateY(.2rem);
+                        transition: transform 3s ease;
 
-                        overflow: hidden;
-                        text-overflow: ellipsis;
+												&:hover {
+														transform: translateY(.2rem) translate(var(--current-scroll)) !important;
+														transition: transform 3s linear;
+												}
                     }
 
                     .brand-name {
@@ -2636,6 +2647,15 @@
         }
         100% {
             opacity: 0;
+        }
+    }
+
+    @keyframes textScrollAnimation {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(var(--scroll-amount));
         }
     }
 </style>
