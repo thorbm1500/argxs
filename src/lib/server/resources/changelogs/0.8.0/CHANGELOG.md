@@ -85,11 +85,15 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
     - Added all new icons and logos
     - Incl. Docker Docs
   - NVIDIA
-    - Replaced all existing logos & icons
+    - Replaced all existing logos & icons with SVGs sourced directly from [NVIDIA](https://www.nvidia.com)
+  - Bun
+    - Replaced existing icon with SVG sourced directly from [Bun](https://bun.com)
+    - Added all new icons and logos
 - **New Brand Guidelines**
   - argxs
   - Twitch
   - FreeCAD
+  - Bun
 - **New Tags**
   - **[New]** Real Estate
     - Home
