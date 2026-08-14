@@ -128,10 +128,12 @@ The codebase now makes use of linting and formatting, provided by [**Vite+**](ht
 
 ## Dependencies
 - **[New]** vite-plus: *0.2.7*
-- @humanspeak/svelte-markdown: *1.8.4 ➜ 1.8.5*
+- @humanspeak/svelte-markdown: *1.8.4 ➜ 1.8.6*
 - @sveltejs/kit: *2.70.0 ➜ 2.70.2*
 - @sveltejs/vite-plugin-svelte: *7.2.0 ➜ 7.3.0*
-- svelte: *5.56.6 ➜ 5.56.8*
+- svelte: *5.56.6 ➜ 5.56.9*
 - publint: *0.3.21 ➜ 0.3.23*
-- globals: *17.7.0 ➜ 17.9.0*
+- globals: *17.7.0 ➜ 17.11.0*
 - typescript-eslint: *8.65.0 ➜ 8.67.0*
+- highlight.js: *11.11.1 ➜ 11.12.0*
+- @highlight.js/cdn-assets: *11.11.1 ➜ 11.12.0*
