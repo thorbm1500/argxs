@@ -1,7 +1,7 @@
 import type { Brand, ChangeLog, ColorCombo, ColorCombos, Flag, ResourceIcon } from '$lib/components/interfaces';
 import * as fs from 'node:fs/promises';
 import { compareVersionTags } from '$lib/utilities';
-import { RESOURCES, VERSION } from '../../hooks.server.ts';
+import { VERSION } from '../../hooks.server.ts';
 
 const root: string = process.cwd() + (process.cwd().endsWith('/') ? '' : '/') + (Bun.env.NODE_ENV === 'production' ? 'resources' : 'src/lib/resources');
 
