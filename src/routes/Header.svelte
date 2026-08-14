@@ -43,7 +43,7 @@
 
 <section class="header-section {theme}">
 	<div class="content">
-		<div style="position: fixed; width: 100%; height: 100%; display: flex; align-items: center; filter: blur(.3rem); opacity: .8;">
+		<div style="position: fixed; width: 100%; height: 100%; display: flex; align-items: center; filter: blur(.3rem); opacity: .8;" inert>
 			<div class="argxs fx" inert>
 				<svg fill="none" width="100%" height="100%" viewBox="0 0 1025 354">
 					<rect x="0" y="0" width="1025" height="354"/>
