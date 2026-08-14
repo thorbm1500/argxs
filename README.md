@@ -6,6 +6,26 @@ This readme was last updated: 14/08/2026
 ## to-do-list
 ### Before Next Release
 - [ ] Finalize update
+- [ ] Add Native American Flags
+  - [x] Navajo Nation
+  - [x] Cherokee Nation
+  - [ ] Choctaw Nation
+  - [ ] Chinook Nation
+  - [ ] Osage Nation
+  - [ ] Organized Village of Kake
+  - [ ] Nothern Arapaho or the Wind River Indian Reservation
+  - [ ] Pueblo of Zia
+  - [ ] Chickasaw Nation
+  - [ ] Nothern Cheyenne Indian Reservation
+  - [ ] Robinson Rancheria of Pomo Indians of California
+  - [ ] Pine Ridge Reservation
+  - [ ] Ninilchik Village Tribe
+  - [ ] Miccosukee
+  - [ ] Sac and Fox Nation
+  - [ ] Pascua Yaqui Tribe
+  - [ ] Viejas Group of Capitan Grande Band of Mission Indians
+  - [ ] Colorado River Indian Tribes
+  - [ ] Haudenosaunee Confederacy
 - [x] Finish new page: [**Colors#ColorPicker**](https://argxs.com/colors/color-picker)
   - [x] Implement all inputs
     - [x] HEX
