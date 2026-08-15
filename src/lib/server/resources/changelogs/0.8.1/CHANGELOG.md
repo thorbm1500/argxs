@@ -10,10 +10,10 @@
 
 ### New Brand Resources
 - **x New Icons**
-  - **Empty**
+  - **[New]** DuckDuckGo
 
 - **New Brand Guidelines**
-  - **Empty**
+  - DuckDuckGo
 
 ## Bug Fixes
 - **Empty**
