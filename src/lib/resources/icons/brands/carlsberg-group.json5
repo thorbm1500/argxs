@@ -9,6 +9,7 @@
 				theme: 'light',
 				path: 'carlsberg-group-logo.svg',
 				date_added: '2026/5/12',
+				last_modified: "2026-08-14T16:45+02:00",
 				version: '0.5.2',
 				source: {
 					name: 'Brandfetch',
@@ -19,6 +20,7 @@
 				theme: 'dark',
 				path: 'carlsberg-group-logo-dark.svg',
 				date_added: '2026/5/12',
+				last_modified: "2026-08-14T16:45+02:00",
 				version: '0.5.2',
 				source: {
 					name: 'Brandfetch',

@@ -16,8 +16,25 @@
 			default: {
 				path: 'google-logo.svg',
 				date_added: '2026/4/10',
-				version: '0.0.1'
-			}
+				last_modified: "2026-08-09T18:00+02:00",
+				version: '0.0.1',
+				source: {
+					name: 'Google',
+					href: 'https://google.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'dark',
+					path: 'google-logo-dark.svg',
+					date_added: '2026/8/9',
+					version: '0.8.0',
+					source: {
+						name: 'Google',
+						href: 'https://google.com'
+					}
+				}
+			]
 		},
 		{
 			name: 'Google Chrome',

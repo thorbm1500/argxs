@@ -1,8 +1,18 @@
+import { RESOURCES } from '../../hooks.server.ts';
+
 export type PageTheme = 'light' | 'dark';
 
 export interface SEO {
 	title: string,
 	description?: string
+}
+
+export function getDefaultSEODescription(): string {
+	return "[Human-Made] Your #1 source of Web Development Resources! Offering more than +" + `${RESOURCES.TOTAL_ICON_AMOUNT_ROUNDED}` + " SVG brand logos & icons, country flags, and more. Always Free. Always Open Source.";
+}
+
+export function getDefaultSEOTitle(): string {
+	return "argxs ▪ Web Development Resources";
 }
 
 export type IconType = 'icon' | 'logo' | 'country' | 'state';
@@ -14,7 +24,7 @@ export interface Icon {
 	href?: string,
 	/** The theme of the icon, if the icon has one. This is specifically for icons that are hard to see in other themes than what they have been made for, such as all white or all black icons<br>
 	 * `Note:` This should be left undefined, if the icon is visible in all themes */
-	theme?: string | PageTheme,
+	theme?: PageTheme,
 	/** Whether the icon is animated or not<br>
 	 * `Default:` False<br>
 	 * `Note:` This should be left undefined, if the icon is not animated, as it will default to false during initiation */

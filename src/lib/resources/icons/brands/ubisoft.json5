@@ -1,7 +1,7 @@
 {
 	name: 'Ubisoft',
 	href: 'https://www.ubisoft.com',
-	tags: ["Gaming"],
+	tags: ["Gaming","Software"],
 	assets: [
 		{
 			type: 'logo',

@@ -10,12 +10,14 @@
                 theme: 'light',
                 path: 'foundation-db-icon.svg',
                 date_added: '2026/4/24',
+                last_modified: "2026-08-14T16:45+02:00",
                 version: '0.2.11'
             },
             dark: {
                 theme: 'dark',
                 path: 'foundation-db-icon-dark.svg',
                 date_added: '2026/4/24',
+                last_modified: "2026-08-14T16:45+02:00",
                 version: '0.2.11'
             }
         },
@@ -25,12 +27,14 @@
                 theme: 'light',
                 path: 'foundation-db-logo.svg',
                 date_added: '2026/4/24',
+                last_modified: "2026-08-14T16:45+02:00",
                 version: '0.2.11'
             },
             dark: {
                 theme: 'dark',
                 path: 'foundation-db-logo-dark.svg',
                 date_added: '2026/4/24',
+                last_modified: "2026-08-14T16:45+02:00",
                 version: '0.2.11'
             }
         }

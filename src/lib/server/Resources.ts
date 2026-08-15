@@ -21,8 +21,11 @@ export class Resources {
 	readonly FLAG_ICONS_SORTED_AtoZ: ResourceIcon[] = [];
 	readonly FLAG_ALL_TAGS: string[] = [];
 
-	FLAG_ICON_AMOUNT: number = 0;
 	FLAG_TOTAL_AMOUNT: number = 0;
+	FLAG_AMOUNT: number = 0;
+
+	TOTAL_ICON_AMOUNT: number = 0;
+	TOTAL_ICON_AMOUNT_ROUNDED: number = 0;
 
 	readonly COLOR_COMBOS: ColorCombo[] = [];
 	COLOR_COMBO_AMOUNT: number = 0;
@@ -34,6 +37,9 @@ export class Resources {
 		console.info('Initializing resources...');
 		await this.loadBrandIcons();
 		await this.loadFlagIcons();
+		this.TOTAL_ICON_AMOUNT = this.BRAND_TOTAL_AMOUNT + this.FLAG_TOTAL_AMOUNT;
+		this.TOTAL_ICON_AMOUNT_ROUNDED = this.TOTAL_ICON_AMOUNT - (this.TOTAL_ICON_AMOUNT % 50);
+
 		await this.loadColorCombos();
 		await this.loadChangeLogs();
 		console.info(`Resource loading completed [${((Bun.nanoseconds() - startTime) / 1000000).toFixed(0)}ms]`);
@@ -41,11 +47,11 @@ export class Resources {
 
 	private async loadBrandIcons(): Promise<void> {
 		console.info('Loading brand icons...');
+
 		const path: string = root.concat('/icons/brands');
 
 		for (const brand of await fs.readdir(path)) {
 			const current: Brand = Bun.JSON5.parse(await Bun.file(path.concat('/', brand)).text()) as Brand;
-			this.BRAND_AMOUNT++;
 
 			if (!current.tags) current.tags = [];
 
@@ -99,6 +105,8 @@ export class Resources {
 			}
 		}
 
+		this.BRAND_AMOUNT = this.BRAND_ICONS.length;
+
 		this.BRAND_ICONS_SORTED_NEW.push(...this.BRAND_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.BRAND_ICONS_SORTED_AtoZ.push(...this.BRAND_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));
 
@@ -107,11 +115,13 @@ export class Resources {
 
 	private async loadFlagIcons(): Promise<void> {
 		console.info('Loading flag icons...');
+
 		const path: string = root.concat('/icons/flags');
-		const dir: string[] = await fs.readdir(path);
+		const dir: string[] = await fs.readdir(path)
 
 		for (const flag of dir) {
 			const current = Bun.JSON5.parse(await Bun.file(path.concat('/', flag)).text()) as Flag;
+			this.FLAG_AMOUNT++;
 
 			if (!current.tags) current.tags = [];
 
@@ -143,12 +153,10 @@ export class Resources {
 					flag.isNew = flag.version === VERSION;
 				}
 
-				this.FLAG_ICON_AMOUNT += resource.variable.length + 1;
+				this.FLAG_TOTAL_AMOUNT += resource.variable.length + 1;
 				this.FLAG_ICONS.push(resource);
 			}
 		}
-
-		this.FLAG_TOTAL_AMOUNT = this.FLAG_ICONS.length;
 
 		this.FLAG_ICONS_SORTED_NEW.push(...this.FLAG_ICONS.toSorted((a, b) => compareVersionTags(a.latest_version, b.latest_version)));
 		this.FLAG_ICONS_SORTED_AtoZ.push(...this.FLAG_ICONS.toSorted((a, b) => a.name.localeCompare(b.name)));

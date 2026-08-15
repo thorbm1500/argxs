@@ -1,5 +1,5 @@
 export async function copyToClipboard(value: unknown): Promise<boolean> {
-	if (!navigator?.clipboard || typeof value !== 'string' && String(value).length === 0) return false;
+	if (typeof value !== 'string' && String(value).length === 0) return false;
 
 	try {
 		await navigator.clipboard.writeText(String(value));
@@ -115,4 +115,10 @@ export function formatNanoseconds(start: number, end: number): string {
 
 	// Years
 	return `${((time * 4) / 365).toFixed(1)}y`;
+}
+
+export class MathUtils {
+	static clamp(value: number, min: number, max: number): number {
+		return Math.min(Math.max(min, value), max);
+	}
 }

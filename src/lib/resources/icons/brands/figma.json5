@@ -1,7 +1,7 @@
 {
     name: 'Figma',
     href: 'https://www.figma.com',
-    tags: ["Development"],
+    tags: ["Development","Software"],
     assets: [
         {
             type: 'icon',

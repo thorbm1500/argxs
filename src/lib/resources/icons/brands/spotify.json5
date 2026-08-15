@@ -1,7 +1,7 @@
 {
     name: 'Spotify',
     href: 'https://spotify.com',
-    tags: ["Music","Entertainment"],
+    tags: ["Music","Entertainment","Software"],
     assets: [
         {
             type: 'icon',

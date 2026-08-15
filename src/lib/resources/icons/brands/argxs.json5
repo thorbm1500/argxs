@@ -1,0 +1,74 @@
+{
+	name: 'argxs',
+	href: 'https://argxs.com',
+	tags: ["Development","Utility"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'argxs-icon.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'argxs',
+					href: 'https://argxs.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'argxs-icon-dark.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'argxs',
+					href: 'https://argxs.com'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'argxs-logo.svg',
+				date_added: '2026/8/7',
+                version: '0.8.0',
+				source: {
+					name: 'argxs',
+					href: 'https://argxs.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'argxs-logo-dark.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'argxs',
+					href: 'https://argxs.com'
+				}
+			}
+		}
+	],
+	colors: {
+		primary: [
+			{
+				hex: '#0D0D0D',
+				rgb: '13 13 13',
+				cmyk: '0 0 0 95'
+			},
+			{
+				hex: '#F7F9FC',
+				rgb: '247 249 252',
+				cmyk: '2 1 0 1'
+			}
+		],
+		accent: [
+			{
+				hex: '#757CFF',
+				rgb: '117 124 255',
+				cmyk: '54 51 0 0'
+			}
+		]
+	}
+}

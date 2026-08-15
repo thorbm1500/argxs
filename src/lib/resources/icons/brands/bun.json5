@@ -8,8 +8,98 @@
 			default: {
 				path: 'bun-icon.svg',
 				date_added: '2026/4/25',
-				version: '0.2.12'
+				last_modified: "2026-08-14T16:00+02:00",
+				version: '0.2.12',
+				source: {
+					name: 'Bun',
+					href: 'https://bun.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'bun-variant-icon.svg',
+					date_added: '2026/8/14',
+					version: '0.8.0',
+					source: {
+						name: 'Bun',
+						href: 'https://bun.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'bun-variant-icon-dark.svg',
+					date_added: '2026/8/14',
+					version: '0.8.0',
+					source: {
+						name: 'Bun',
+						href: 'https://bun.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'bun-variant-icon-monochrome-light.svg',
+					date_added: '2026/8/14',
+					version: '0.8.0',
+					source: {
+						name: 'Bun',
+						href: 'https://bun.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'bun-variant-icon-monochrome-dark.svg',
+					date_added: '2026/8/14',
+					version: '0.8.0',
+					source: {
+						name: 'Bun',
+						href: 'https://bun.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'bun-wordmark-logo.svg',
+				date_added: '2026/8/14',
+				version: '0.8.0',
+				source: {
+					name: 'Bun',
+					href: 'https://bun.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'bun-wordmark-logo-dark.svg',
+				date_added: '2026/8/14',
+				version: '0.8.0',
+				source: {
+					name: 'Bun',
+					href: 'https://bun.com'
+				}
 			}
 		}
-	]
+	],
+	colors: {
+		colors: [
+			{
+				hex: '#FBF0DF',
+				rgb: '251 240 223'
+			},
+			{
+				hex: '#F472B6',
+				rgb: '244 114 182'
+			},
+			{
+				hex: '#14151A',
+				rgb: '20 21 26'
+			},
+			{
+				hex: '#FEBBD0',
+				rgb: '254 187 208'
+			}
+		]
+	}
 }

@@ -1,0 +1,91 @@
+{
+	name: 'Sony',
+	href: 'https://sony.com',
+	tags: ["Tech","Entertainment"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'sony-logo.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'Sony',
+					href: 'https://sony.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'sony-logo-dark.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'Sony',
+					href: 'https://sony.com'
+				}
+			}
+		},
+		{
+			name: 'PlayStation',
+			href: 'https://www.playstation.com',
+			type: 'icon',
+			default: {
+				path: 'playstation-icon.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'PlayStation',
+					href: 'https://www.playstation.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'playstation-icon-monochrome-black.svg',
+					date_added: '2026/7/30',
+					version: '0.8.0',
+					source: {
+						name: 'PlayStation',
+						href: 'https://www.playstation.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'playstation-icon-monochrome-white.svg',
+					date_added: '2026/7/30',
+					version: '0.8.0',
+					source: {
+						name: 'PlayStation',
+						href: 'https://www.playstation.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'PlayStation Store',
+			href: 'https://store.playstation.com',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'playstation-store-logo.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'PlayStation',
+					href: 'https://www.playstation.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'playstation-store-logo-dark.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'PlayStation',
+					href: 'https://www.playstation.com'
+				}
+			}
+		}
+	]
+}

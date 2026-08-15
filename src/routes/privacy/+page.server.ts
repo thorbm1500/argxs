@@ -7,7 +7,7 @@ export const ssr = true;
 export const load: PageServerLoad = async ({cookies}) => {
 	return {
 		seo: {
-			title: 'argxs ▪ Privacy Policy'
+			title: 'argxs ▪ Privacy Policy | Web Development Resources'
 		} as SEO,
 		optedOut: cookies.get(SiteCookies.OptOut)
 	};

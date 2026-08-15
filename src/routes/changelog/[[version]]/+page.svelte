@@ -38,7 +38,7 @@
 </svelte:head>
 
 <section class="changelog-sec">
-	<ContentHeaderComponent title="Changelog" custom={true} />
+	<ContentHeaderComponent title="Changelogs" custom={true} />
 	
 	{#each data.changelogs as changelog}
 		<div id={changelog.version} class="markdown">
@@ -149,7 +149,13 @@
 			border-bottom:  1px solid var(--theme-ui-line);
 			
 			color:          var(--theme-text-primary);
-			
+
+				h1, h2, h3, h4 {
+            a {
+                font-weight: inherit;
+            }
+				}
+
 			h1 {
 				margin-bottom: -.45rem;
 			}

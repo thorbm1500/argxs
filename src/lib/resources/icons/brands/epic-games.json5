@@ -29,10 +29,12 @@
 		{
 			name: 'Unreal Engine',
 			type: 'logo',
+			tags: ["Gaming","Software"],
 			default: {
 				theme: 'light',
 				path: 'epic-games-unreal-engine-logo.svg',
 				date_added: '2026/7/2',
+				last_modified: "2026-08-14T16:45+02:00",
 				version: '0.7.2',
 				source: {
 					name: 'Epic Games',
@@ -43,6 +45,7 @@
 				theme: 'dark',
 				path: 'epic-games-unreal-engine-logo-dark.svg',
 				date_added: '2026/7/2',
+				last_modified: "2026-08-14T16:45+02:00",
 				version: '0.7.2',
 				source: {
 					name: 'Epic Games',

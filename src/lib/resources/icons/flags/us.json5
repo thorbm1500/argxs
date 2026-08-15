@@ -25,7 +25,29 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Alabama Sesquicentennial (1969)',
+                    path: 'us-commemorative-alabama-sesquicentennial.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                },
+                {
+                    name: 'Alabama Bicentennial (2019)',
+                    path: 'us-commemorative-alabama-bicentennial.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Alaska',
@@ -182,7 +204,29 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Illinois Centennial (1918)',
+                    path: 'us-commemorative-illinois-centennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                },
+                {
+                    name: 'Illinois Sesquicentennial (1968)',
+                    path: 'us-commemorative-illinois-sesquicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Indiana',
@@ -195,7 +239,19 @@
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'
                 }
-            }
+            },
+            variable: [
+                {
+                    name: 'Indiana Centennial (1916)',
+                    path: 'us-commemorative-indiana-centennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
         },
         {
             name: 'Iowa',
@@ -230,6 +286,831 @@
                 path: 'us-kentucky.svg',
                 date_added: '2026/5/26',
                 version: '0.7.1',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Louisiana',
+            type: 'state',
+            default: {
+                path: 'us-louisiana.svg',
+                date_added: '2026/8/7',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Maine',
+            type: 'state',
+            default: {
+                path: 'us-maine.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Maine Merchant & Marine',
+                    path: 'us-ensign-maine.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                },
+                {
+                    name: 'Maine Bicentennial (2020)',
+                    path: 'us-commemorative-maine-bicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Maryland',
+            type: 'state',
+            default: {
+                path: 'us-maryland.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Massachusetts',
+            type: 'state',
+            default: {
+                path: 'us-massachusetts.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Massachusetts Naval & Maritime',
+                    path: 'us-ensign-massachusetts.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Michigan',
+            type: 'state',
+            default: {
+                path: 'us-michigan.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Minnesota',
+            type: 'state',
+            default: {
+                path: 'us-minnesota.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Mississippi',
+            type: 'state',
+            default: {
+                path: 'us-mississippi.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Mississippi Bicentennial (2017)',
+                    path: 'us-commemorative-mississippi-bicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Missouri',
+            type: 'state',
+            default: {
+                path: 'us-missouri.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Montana',
+            type: 'state',
+            default: {
+                path: 'us-montana.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Nebraska',
+            type: 'state',
+            default: {
+                path: 'us-nebraska.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Nevada',
+            type: 'state',
+            default: {
+                path: 'us-nevada.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'New Hampshire',
+            type: 'state',
+            default: {
+                path: 'us-new-hampshire.svg',
+                date_added: '2026/8/10',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'New Jersey',
+            type: 'state',
+            default: {
+                path: 'us-new-jersey.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'New Jersey Tricentennial (1964)',
+                    path: 'us-commemorative-new-jersey-tricentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'New Mexico',
+            type: 'state',
+            default: {
+                path: 'us-new-mexico.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'New York',
+            type: 'state',
+            default: {
+                path: 'us-new-york.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'North Carolina',
+            type: 'state',
+            default: {
+                path: 'us-north-carolina.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'North Dakota',
+            type: 'state',
+            default: {
+                path: 'us-north-dakota.svg',
+                date_added: '2026/8/11',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Ohio',
+            type: 'state',
+            default: {
+                path: 'us-ohio.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Oklahoma',
+            type: 'state',
+            default: {
+                path: 'us-oklahoma.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Oregon (Front)',
+            default: {
+                path: 'us-oregon-obverse.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Oregon (Back)',
+                    path: 'us-oregon-reserve.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Pennsylvania',
+            type: 'state',
+            default: {
+                path: 'us-pennsylvania.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Rhode Island',
+            type: 'state',
+            default: {
+                path: 'us-rhode-island.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'South Carolina',
+            type: 'state',
+            default: {
+                path: 'us-south-carolina.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'South Carolina Naval Militia',
+                    path: 'us-ensign-south-carolina.svg',
+                    date_added: '2026/8/12',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'South Dakota',
+            type: 'state',
+            default: {
+                path: 'us-south-dakota.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Tennessee',
+            type: 'state',
+            default: {
+                path: 'us-tennessee.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Texas',
+            type: 'state',
+            default: {
+                path: 'us-texas.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Texas Sesquicentennial (1986)',
+                    path: 'us-commemorative-texas-sesquicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Utah',
+            type: 'state',
+            default: {
+                path: 'us-utah.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Utah Quasquicentennial (2021)',
+                    path: 'us-commemorative-utah-quasquicentennial.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Vermont',
+            type: 'state',
+            default: {
+                path: 'us-vermont.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Virginia',
+            type: 'state',
+            default: {
+                path: 'us-virginia.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Washington',
+            type: 'state',
+            default: {
+                path: 'us-washington.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'West Virginia',
+            type: 'state',
+            default: {
+                path: 'us-west-virginia.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Wisconsin',
+            type: 'state',
+            default: {
+                path: 'us-wisconsin.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Wyoming',
+            type: 'state',
+            default: {
+                path: 'us-wyoming.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'District of Columbia (Washington, DC)',
+            type: 'district',
+            default: {
+                path: 'us-district-columbia.svg',
+                date_added: '2026/8/12',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Navajo',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-navajo.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'The Cherokee Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-cherokee-nation.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            },
+            variable: [
+                {
+                    name: 'Great Seal of the Cherokee Nation',
+                    path: 'us-na-cherokee-nation-seal.svg',
+                    date_added: '2026/8/14',
+                    version: '0.8.0',
+                    source: {
+                        name: 'Wikipedia',
+                        href: 'https://en.wikipedia.org'
+                    }
+                }
+            ]
+        },
+        {
+            name: 'Choctaw',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-choctaw.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Chinook Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-chinook.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Osage Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-osage.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Organized Village of Kake',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-kake.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Northern Arapaho of the Wind River Indian Reservation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-arapaho.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Zia Pueblo',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-zia-pueblo.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Chickasaw Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-chickasaw.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Northern Cheyenne Indian Reservation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-northern-cheyenne.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Robinson Rancheria of Pomo Indians of California',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-robinson-rancheria.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Pine Ridge Reservation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-pine-ridge.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Ninilchik Village Tribe',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-ninilchik-village-tribe.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Miccosukee Tribe of Indians of Florida',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-miccosukee-tribe.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Sac and Fox Nation',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-sac-and-fox-nation.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Pascua Yaqui Tribe of Arizona',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-pascua-yaqui-tribe.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Viejas Group of Capitan Grande Band of Mission Indians',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-viejas-band.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Colorado River Indian Tribes',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-colorado-river-indian-tribes.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
+        },
+        {
+            name: 'Haudenosaunee Confederacy (Iroquois Confederacy)',
+            type: 'other',
+            tags: ["Native American","North America"],
+            default: {
+                path: 'us-na-haudenosaunee-confederacy.svg',
+                date_added: '2026/8/14',
+                version: '0.8.0',
                 source: {
                     name: 'Wikipedia',
                     href: 'https://en.wikipedia.org'

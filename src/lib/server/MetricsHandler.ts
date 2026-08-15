@@ -14,7 +14,7 @@ export default class MetricsHandler {
 	private static visitorCache: Map<string, number> = new Map();
 
 	// noinspection JSUnusedGlobalSymbols
-	static readonly garbageCollection = Bun.cron('@hourly', MetricsHandler.collect);
+	static readonly garbageCollection: Bun.CronJob = Bun.cron('@hourly', (): void => MetricsHandler.collect());
 
 	static async init(): Promise<void> {
 		MetricsHandler.requestsTotal = await Database.getTotalVisitorAmount();
@@ -53,8 +53,8 @@ export default class MetricsHandler {
 			if (!cache || Date.now() > cache) {
 				MetricsHandler.requestsTotal++;
 				MetricsHandler.requestsToday++;
-				// noinspection ES6MissingAwait
-				Database.incrementVisitorCount(MetricsHandler.requestsTotal, MetricsHandler.requestsToday);
+
+				void Database.incrementVisitorCount(MetricsHandler.requestsTotal, MetricsHandler.requestsToday);
 
 				console.log(`[${new Date(Date.now()).toLocaleTimeString()}] Visitor Count\n   + Today: ${MetricsHandler.requestsToday} | Total: ${MetricsHandler.requestsTotal}`);
 			}

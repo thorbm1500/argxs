@@ -6,7 +6,7 @@ export const ssr = true;
 export const load: PageServerLoad = async () => {
 	return {
 		seo: {
-			title: 'argxs ▪ External'
+			title: 'argxs ▪ External | Web Development Resources'
 		} as SEO
 	};
 };

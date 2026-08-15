@@ -1,0 +1,30 @@
+{
+	name: 'Hallon',
+	href: 'https://www.hallon.se',
+	tags: ["Tech","Utility"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'hallon-logo.svg',
+				date_added: '2026/7/29',
+                version: '0.8.0',
+				source: {
+					name: 'Hallon',
+					href: 'https://hallon.se'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'hallon-logo-dark.svg',
+				date_added: '2026/7/29',
+				version: '0.8.0',
+				source: {
+					name: 'Hallon',
+					href: 'https://hallon.se'
+				}
+			}
+		}
+	]
+}

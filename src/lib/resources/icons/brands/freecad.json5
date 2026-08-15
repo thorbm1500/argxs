@@ -1,0 +1,70 @@
+{
+	name: 'FreeCAD',
+	href: 'https://www.freecad.org',
+	tags: ["Software"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'freecad-icon.svg',
+				date_added: '2026/8/9',
+				version: '0.8.0',
+				source: {
+					name: 'FreeCAD',
+					href: 'https://www.freecad.org'
+				}
+			}
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'freecad-logo.svg',
+				date_added: '2026/8/9',
+                version: '0.8.0',
+				source: {
+					name: 'FreeCAD',
+					href: 'https://www.freecad.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'freecad-logo-dark.svg',
+				date_added: '2026/8/9',
+				version: '0.8.0',
+				source: {
+					name: 'FreeCAD',
+					href: 'https://www.freecad.org'
+				}
+			}
+		}
+	],
+	colors: {
+		primary: [
+			{
+				hex: '#418FDE',
+				rgb: '65 143 222',
+				cmyk: '73 36 0 13',
+				pantone: 'PMS 279 C'
+			},
+			{
+				hex: '#FF585D',
+				rgb: '255 88 93',
+				cmyk: '0 64 64 0',
+				pantone: 'PMS 178 C'
+			},
+			{
+				hex: '#CB333B',
+				rgb: '203 51 59',
+				cmyk: '0 75 72 18',
+				pantone: 'PMS 1797 C'
+			},
+			{
+				hex: '#212529',
+				rgb: '33 37 41',
+				cmyk: '0 0 16 82',
+				pantone: 'PMS BLACK C'
+			}
+		]
+	}
+}

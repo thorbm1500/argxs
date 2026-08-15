@@ -19,11 +19,17 @@
 
 	const { data } = $props();
 
-	afterNavigate(() => {
-		while(allFilters.length) {
+	beforeNavigate(() => {
+		search = '';
+		searchbarValue = '';
+		while (allFilters.length) {
 			allFilters.pop();
 		}
-		data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
+	});
+	afterNavigate(() => {
+		if (!allFilters.length) {
+			data.iconTags.forEach(tag => allFilters.push({ id: (generateHash(tag)), tag, active: false }));
+		}
 	});
 
 	const getTheme = getContext('theme') as Function;
@@ -308,6 +314,12 @@
 	let highlightedIcon: HighlightIcon | undefined = $state(undefined);
 	let hCurrentIcon: Icon | undefined = $derived.by(() => highlightedIcon?.iconIndex[highlightedIcon.currentIcon] ?? undefined);
 	let hPreviousIcon: Icon | undefined = $state(undefined);
+	let hCurrentBrandNameParentElement: HTMLDivElement | undefined = $state();
+	let hCurrentBrandNameElement: HTMLHeadingElement | undefined = $state();
+	let hCurrentBrandNameScroll: number = $derived.by(() => {
+		if (!(hCurrentBrandNameParentElement && hCurrentBrandNameElement) || (hCurrentBrandNameParentElement.offsetWidth >= hCurrentBrandNameElement.offsetWidth)) return 0;
+		return hCurrentBrandNameElement.offsetWidth - hCurrentBrandNameParentElement.offsetWidth;
+	});
 	let iconContainerOpened: number | null = null;
 	let showBrandColors: boolean = $state(false);
 	let iconMeta: boolean = $state(false);
@@ -460,7 +472,7 @@
 			</div>
 			<div class="glass-effect f"></div>
 		</div>
-		<div class="h-icon">
+		<div class="h-icon" style="@keyframes ScrollTextAnimation {`{ from { transform: translate(0); } to { transform: translate(${hCurrentBrandNameScroll}px); } } }`}">
 			{#key hCurrentIcon}
 				<!--svelte-ignore a11y_autofocus-->
 				<button title="Close" class="close-button" onclick={closeHighlightContainer} tabindex="1">
@@ -656,16 +668,15 @@
 							{/if}
 						</a>
 					{/if}
-					<div class="name" tabindex="-1"
-					     style="transform:translateY({!hCurrentIcon?.name && highlightedIcon.icon.title === highlightedIcon.icon.name && !hCurrentIcon?.href && !highlightedIcon.icon.href ? 1 : 0}rem)">
+					<div class="name" bind:this={hCurrentBrandNameParentElement} tabindex="-1" style="--current-scroll: -{hCurrentBrandNameScroll}px;transform:translateY({!hCurrentIcon?.name && highlightedIcon.icon.title === highlightedIcon.icon.name && !hCurrentIcon?.href && !highlightedIcon.icon.href ? 1 : 0}rem);">
 						{#if hCurrentIcon?.name}
-							<h1 class="icon-name" tabindex="-1">{hCurrentIcon.name}</h1>
+							<h1 class="icon-name" bind:this={hCurrentBrandNameElement} tabindex="-1">{hCurrentIcon.name}</h1>
 							<h3 class="brand-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else if highlightedIcon.icon.title !== highlightedIcon.icon.name}
-							<h1 class="icon-name" tabindex="-1">{highlightedIcon.icon.name}</h1>
+							<h1 class="icon-name" bind:this={hCurrentBrandNameElement} tabindex="-1">{highlightedIcon.icon.name}</h1>
 							<h3 class="brand-name" tabindex="-1">{highlightedIcon.icon.title}</h3>
 						{:else}
-							<h1 class="icon-name" style="transform: translateY(.2rem)" tabindex="-1">{highlightedIcon.icon.title}</h1>
+							<h1 class="icon-name" bind:this={hCurrentBrandNameElement} tabindex="-1">{highlightedIcon.icon.title}</h1>
 						{/if}
 					</div>
 					<div class="actions" tabindex="-1">
@@ -765,7 +776,7 @@
 					<div class="description">
 						<span>This collection is made up of</span>
 						<span class="callout"> {data.entryAmount} </span>
-						<span>different countries & nations, states & de facto states, and other famous entities!</span><br>
+						<span>different countries & nations, states & de facto states and other famous entities, movements, organisations and more!</span><br>
 						<span>This includes <strong>all</strong></span>
 						<span class="callout"> 193 </span>
 						<span>member states and</span>
@@ -828,7 +839,7 @@
 				<div class="sorting">
 					{#if sorting !== 'default' || (iconsOnly || logosOnly || countriesOnly || statesOnly || animatedOnly)}
 						<GlassButton className="sort-action">
-							<button type="button" transition:fade={{duration: 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => {
+							<button type="button" transition:fade={{duration: prefersReducedMotion.current ? 0 : 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => {
 							sorting = 'default';
 							order = 'desc';
 							saveCurrentSorting();
@@ -968,14 +979,14 @@
 				{#key search}
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<g>
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M14.986 3.51a9 9 0 1 0 1.514 16.284c2.489 -1.437 4.181 -3.978 4.5 -6.794" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M10 10h.01" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M14 8h.01" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M12 15c1 -1.333 2 -2 3 -2">
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M14.986 3.51a9 9 0 1 0 1.514 16.284c2.489 -1.437 4.181 -3.978 4.5 -6.794" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M10 10h.01" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M14 8h.01" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M12 15c1 -1.333 2 -2 3 -2">
 								<animateTransform attributeName="transform" attributeType="XML" dur="5s" keyTimes="0; 0.05; 0.2; 1" repeatCount="indefinite" type="rotate" values="0; 0; 2; 0" />
 							</path>
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M20 9v.01" />
-							<path in:draw|global={{duration: 750, easing: cubicOut}} d="M20 6a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483">
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M20 9v.01" />
+							<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 750, easing: cubicOut}} d="M20 6a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483">
 								<animateTransform attributeName="transform" attributeType="XML" dur="4s" keyTimes="0; 0.05; 0.1; 1" repeatCount="indefinite" type="rotate" values="0; 1.25; 0; 0" />
 							</path>
 							<animateTransform attributeName="transform" attributeType="XML" dur="5s" keyTimes="0; 0.2; 0.5; 0.8; 1" repeatCount="indefinite" type="rotate" values="0; 3; 0; -3; 0" />
@@ -1057,18 +1068,23 @@
 		</h1>
 		<div class="subtitle">
 			<ul>
-				<li>
-					All SVGs are manually cleaned up and optimized, before being showcased. This is done for 2 reasons:<br>
-					Ensuring no SVGs overlap and conflict due to having attributes with matching names, and for a hope of minimizing the amount of redundant data being transferred across the internet.
+				<li style="--text-green: light-dark(color-mix(var(--theme-color-success-dark) 50%, var(--theme-color-success) 50%),var(--theme-color-success))">
+					All SVGs are manually cleaned up and optimized, before being showcased. This is done to ensure that no SVGs overlap and conflict due to having attributes with matching names, and as an attempt at minimizing the amount of redundant data being transferred across the internet. But what does an optimization look like? We'll use the flag for the US state New York as an example.<br>
+					This is how the manual processing affected the SVG, <i>without</i> altering the final product.
+					<ul>
+						<li><strong style="opacity:.75;">[</strong><strong style="color:var(--text-green)">↓</strong> <strong style="color:var(--text-green)">12.15%</strong><strong style="opacity:.75;">]</strong> Size: <strong style="color: var(--theme-color-alert)">606.29kB</strong> ➔ <strong style="color:var(--text-green)">540.56kB</strong></li>
+						<li><strong style="opacity:.75;">[</strong><strong style="color:var(--text-green)">↓</strong> <i></i> <strong style="color:var(--text-green)">4.20%</strong><strong style="opacity:.75;">]</strong> Line Count: <strong style="color: var(--theme-color-alert)">635</strong> ➔ <strong style="color:var(--text-green)">609</strong></li>
+						<li><strong style="opacity:.75;">[</strong><strong style="color:var(--text-green)">↓</strong> <strong style="color:var(--text-green)">12.15%</strong><strong style="opacity:.75;">]</strong> Character Count: <strong style="color: var(--theme-color-alert)">606.289</strong> ➔ <strong style="color:var(--text-green)">540.563</strong></li>
+					</ul>
 				</li>
 				<li>
 					Inlining an SVG? Remove these attributes! Browsers do not need these attributes when rendering SVGs that are inlined directly in the html, so they can be safely omitted.
 					<ul>
 						<li>
-							xmlns | Fx. xmlns="http://www.w3.org/2000/svg"
+							xmlns="http://www.w3.org/2000/svg"
 						</li>
 						<li>
-							version | Fx. version="1.1"
+							version | Fx. version="1.0"
 						</li>
 					</ul>
 				</li>
@@ -1633,6 +1649,7 @@
                             user-select: none;
 														text-transform: uppercase;
 														font-size: .95rem;
+                            font-family: 'Funnel Sans', sans-serif;
 												}
 
 												.brand-colors {
@@ -1681,6 +1698,7 @@
 																		color: var(--theme-text-third);
 																		font-weight: 650;
 																		user-select: none;
+                                    font-family: 'Funnel Sans', sans-serif;
 																}
 																.value {
 																		color: var(--theme-text-primary);
@@ -1688,6 +1706,7 @@
 																		width: 8rem;
 																		text-align: end;
 																		user-select: all;
+                                    font-family: 'Funnel Sans', sans-serif;
 																}
 														}
                         }
@@ -1836,18 +1855,24 @@
                     align-items: flex-start;
                     justify-content: flex-start;
                     height: 4.35rem;
-                    max-width: 100%;
-                    overflow: visible;
+										max-width: 100%;
+                    overflow: hidden;
+                    box-sizing: border-box;
 
-                    text-wrap: nowrap !important;
+                    text-wrap: nowrap;
 
                     .icon-name {
                         font-size: 2rem;
-                        height: 3.15rem;
-                        max-width: 100%;
+                        height: 2.6rem;
+                        width: fit-content;
+												box-sizing: border-box;
+												transform: translateY(.2rem);
+                        transition: transform 3s ease;
 
-                        overflow: hidden;
-                        text-overflow: ellipsis;
+												&:hover {
+														transform: translateY(.2rem) translate(var(--current-scroll)) !important;
+														transition: transform 3s linear;
+												}
                     }
 
                     .brand-name {
@@ -1926,7 +1951,7 @@
                         font-size: .8rem;
                         font-weight: 700;
 
-                        color: var(--theme-ui-white);
+                        color: var(--theme-color-white);
                         border: 1px solid rgba(from var(--theme-ui-line) r g b / .5);
                         border-radius: .6rem;
                         background: light-dark(#5E70F1, #343D79);
@@ -1937,7 +1962,7 @@
                         svg {
                             height: .975rem;
                             width: .975rem;
-                            color: var(--theme-ui-white);
+                            color: var(--theme-color-white);
                             margin-bottom: .1rem;
                         }
 
@@ -2012,7 +2037,7 @@
 
                         svg {
                             position: relative;
-                            color: var(--theme-ui-white);
+                            color: var(--theme-color-white);
 
                             z-index: 1500 !important;
                         }
@@ -2025,7 +2050,7 @@
                             height: 100%;
 
                             backdrop-filter: blur(2px) grayscale(.1);
-                            background: rgba(from var(--theme-ui-black) r g b / .2);
+                            background: rgba(from var(--theme-color-black) r g b / .2);
                             border-radius: .5rem;
 
                             z-index: 500 !important;
@@ -2333,10 +2358,10 @@
 
                     padding: .025rem .125rem;
 
-                    background: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);
+                    background: color-mix(var(--theme-color-accent) 80%, var(--theme-color-white) 20%);
 
                     font-weight: 900;
-                    color: var(--theme-ui-white);
+                    color: var(--theme-color-white);
 
                     .number {
                         display: inline-flex;
@@ -2365,7 +2390,7 @@
                     color: var(--theme-text-third);
 
                     &.callout {
-                        color: color-mix(var(--theme-color-accent) 80%, var(--theme-ui-white) 20%);
+                        color: color-mix(var(--theme-color-accent) 80%, var(--theme-color-white) 20%);
                     }
                 }
             }
@@ -2555,7 +2580,7 @@
                         1.352 25.5%, 1.363 26.8%, 1.372 28.2%, 1.377 29.6%, 1.379 31.1%, 1.378 32.6%, 1.374 34.2%, 1.367 35.9%, 1.357 37.6%, 1.337 40.4%, 1.307 43.7%, 1.176 56.1%, 1.121 61.8%, 1.096 64.8%, 1.074 67.8%, 1.056 70.7%, 1.04 73.7%, 1.029 76.3%, 1.02 79%, 1.013 81.8%, 1.007 84.7%, 1.001 91%, 1);
 
                 &:hover {
-                    color: var(--theme-color-success) !important;
+                    color: var(--theme-color-accent) !important;
                     transform: translateX(.1rem) translateY(-.125rem) scale(1.15) rotate(5deg);
                     transition: color 50ms ease,
                     transform 300ms linear(0, 0.291 2.7%, 0.544 5.5%, 0.761 8.4%, 0.947 11.5%, 1.027 13.1%, 1.096 14.7%, 1.16 16.4%, 1.213 18.1%, 1.26 19.9%, 1.298 21.7%, 1.329 23.6%,
@@ -2622,6 +2647,15 @@
         }
         100% {
             opacity: 0;
+        }
+    }
+
+    @keyframes textScrollAnimation {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(var(--scroll-amount));
         }
     }
 </style>

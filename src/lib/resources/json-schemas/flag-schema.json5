@@ -13,9 +13,7 @@
       "description": "An external link related to the flag(s)"
     },
     "type": {
-      "type": "string",
-      "description": "The type of the entity defined, such as country, organization, etc.",
-      "enum": ["country","state","region","organization","other"]
+      "$ref": "#/$defs/type"
     },
     "tags": { "$ref": "#/$defs/tags" },
     "flags": {
@@ -25,6 +23,7 @@
         "properties": {
           "name": { "$ref": "#/$defs/name" },
           "href": { "$ref": "#/$defs/href" },
+          "type": { "$ref": "#/$defs/type" },
           "tags": { "$ref": "#/$defs/tags" },
           "default": { "$ref": "#/$defs/icon" },
           "variable": {
@@ -51,6 +50,7 @@
           "Africa",
           "Asia",
           "Europe",
+          "Native American",
           "North America",
           "South America",
           "Antarctica",
@@ -65,8 +65,20 @@
           "Movement"
         ]
       },
-      "minItems": 0,
+      "minItems": 1,
       "uniqueItems": true
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the entity the flag belongs to, such as country, state, organization, etc.",
+      "enum": [
+        "country",
+        "state",
+        "district",
+        "region",
+        "organization",
+        "other"
+      ]
     },
     "date": {
       "type": "string",

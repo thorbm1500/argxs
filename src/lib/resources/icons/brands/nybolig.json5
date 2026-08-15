@@ -1,6 +1,7 @@
 {
 	name: 'Nybolig',
 	href: 'https://www.nybolig.dk',
+	tags: ["Real Estate"],
 	assets: [
 		{
 			type: 'logo',

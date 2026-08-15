@@ -7,7 +7,7 @@ export const ssr = false;
 export const load: PageServerLoad = async () => {
 	return {
 		seo: {
-			title: 'argxs ▪ Changelogs'
+			title: 'argxs ▪ Changelogs | Web Development Resources'
 		} as SEO,
 		changelogs: RESOURCES.CHANGELOGS
 	};

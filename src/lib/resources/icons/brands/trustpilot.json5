@@ -1,0 +1,30 @@
+{
+	name: 'Trustpilot',
+	href: 'https://www.trustpilot.com',
+	tags: ["Enterprise","Utility"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'trustpilot-logo.svg',
+				date_added: '2026/8/2',
+                version: '0.8.0',
+				source: {
+					name: 'Trustpilot',
+					href: 'https://www.trustpilot.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'trustpilot-logo-dark.svg',
+				date_added: '2026/8/2',
+				version: '0.8.0',
+				source: {
+					name: 'Trustpilot',
+					href: 'https://www.trustpilot.com'
+				}
+			}
+		}
+	]
+}

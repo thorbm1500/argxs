@@ -1,20 +1,156 @@
 {
-	name: 'Twitch.tv',
+	name: 'Twitch',
 	href: 'https://www.twitch.tv',
 	tags: ["Gaming","E-Sports","Live Streaming","Entertainment"],
 	assets: [
 		{
-			name: 'Twitch',
 			type: 'icon',
 			default: {
 				path: 'twitch-icon.svg',
 				date_added: '2026/7/13',
+				last_modified: "2026-07-19T11:30+02:00",
                 version: '0.7.3',
 				source: {
 					name: 'Twitch',
 					href: 'https://www.twitch.tv'
 				}
-			}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'twitch-icon-black.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'twitch-icon-ice.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'twitch-icon-white.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'twitch-logo.svg',
+				date_added: '2026/7/19',
+				version: '0.8.0',
+				source: {
+					name: 'Twitch',
+					href: 'https://www.twitch.tv'
+				}
+			},
+			variable: [
+				{
+					path: 'twitch-logo-black.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'twitch-logo-ice.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'twitch-logo-white.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					path: 'twitch-flat-logo.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'twitch-flat-logo-monochrome-black.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'twitch-flat-logo-monochrome-ice.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'twitch-flat-logo-monochrome-white.svg',
+					date_added: '2026/7/19',
+					version: '0.8.0',
+					source: {
+						name: 'Twitch',
+						href: 'https://www.twitch.tv'
+					}
+				}
+			]
 		}
-	]
+	],
+	colors: {
+		primary: [
+			{
+				hex: '#9146FF',
+				rgb: '145 70 255',
+				cmyk: '57 60 0 0',
+				pantone: '814C'
+			},
+			{
+				hex: '#000000',
+				rgb: '0 0 0',
+				cmyk: '100 80 40 90',
+				pantone: 'Black 6C'
+			},
+			{
+				hex: '#F0F0FF',
+				rgb: '240 240 255',
+				cmyk: '4 4 0 0',
+				pantone: '656C'
+			}
+		]
+	}
 }

@@ -10,7 +10,7 @@
 	import(`$lib/resources/other/typography/${cssImport}/fonts.css`);
 
 	function getCurrentText(): string {
-		const text = !!activePangram ? activePangram : defaultPangram;
+		const text = activePangram ? activePangram : defaultPangram;
 		if (isLowercase) {
 			return String(text).toLowerCase();
 		} else if (isUppercase) {

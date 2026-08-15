@@ -1,0 +1,30 @@
+{
+	name: 'Telia',
+	href: 'https://www.telia.se',
+	tags: ["Tech","Utility"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'telia-logo.svg',
+				date_added: '2026/7/29',
+                version: '0.8.0',
+				source: {
+					name: 'Telia',
+					href: 'https://www.telia.se'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'telia-logo-dark.svg',
+				date_added: '2026/7/29',
+				version: '0.8.0',
+				source: {
+					name: 'Telia',
+					href: 'https://www.telia.se'
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,124 @@
+{
+	name: 'BULKHEAD',
+	href: 'https://bulkhead.com',
+	tags: ["Gaming","Development"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'bulkhead-icon.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'BULKHEAD',
+					href: 'https://bulkhead.com'
+				}
+			},
+			variable: [
+				{
+					path: 'bulkhead-variant-icon.svg',
+					date_added: '2026/8/7',
+					version: '0.8.0',
+					source: {
+						name: 'BULKHEAD',
+						href: 'https://bulkhead.com'
+					}
+				},
+				{
+					path: 'bulkhead-variant-2-icon.svg',
+					date_added: '2026/8/7',
+					version: '0.8.0',
+					source: {
+						name: 'BULKHEAD',
+						href: 'https://bulkhead.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'dark',
+				path: 'bulkhead-logo.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'BULKHEAD',
+					href: 'https://bulkhead.com'
+				}
+			}
+		},
+		{
+			name: 'WARDOGS',
+			href: 'https://bulkhead.com/games/wardogs',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'bulkhead-wardogs-icon.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'BULKHEAD',
+					href: 'https://bulkhead.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'bulkhead-wardogs-icon-dark.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'BULKHEAD',
+					href: 'https://bulkhead.com'
+				}
+			}
+		},
+		{
+			name: 'WARDOGS',
+			href: 'https://bulkhead.com/games/wardogs',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'bulkhead-wardogs-logo.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'BULKHEAD',
+					href: 'https://bulkhead.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'bulkhead-wardogs-logo-dark.svg',
+				date_added: '2026/8/7',
+				version: '0.8.0',
+				source: {
+					name: 'BULKHEAD',
+					href: 'https://bulkhead.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'bulkhead-wardogs-typography-logo.svg',
+					date_added: '2026/8/7',
+					version: '0.8.0',
+					source: {
+						name: 'BULKHEAD',
+						href: 'https://bulkhead.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'bulkhead-wardogs-typography-logo-dark.svg',
+					date_added: '2026/8/7',
+					version: '0.8.0',
+					source: {
+						name: 'BULKHEAD',
+						href: 'https://bulkhead.com'
+					}
+				}
+			]
+		}
+	]
+}

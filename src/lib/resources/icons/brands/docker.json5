@@ -1,22 +1,119 @@
 {
 	name: 'Docker',
 	href: 'https://www.docker.com',
-	tags: ["Development"],
+	tags: ["Development","Software"],
 	assets: [
 		{
 			type: 'icon',
 			default: {
+				theme: 'light',
 				path: 'docker-icon.svg',
 				date_added: '2026/4/10',
-				version: '0.0.1'
-			}
+				last_modified: "2026-08-09T18:45+02:00",
+				version: '0.0.1',
+				source: {
+					name: 'Docker',
+					href: 'https://www.docker.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'docker-icon-dark.svg',
+				date_added: '2026/8/9',
+				version: '0.8.0',
+				source: {
+					name: 'Docker',
+					href: 'https://www.docker.com'
+				}
+			},
+			variable: [
+				{
+					path: 'docker-variant-icon.svg',
+					date_added: '2026/8/9',
+					version: '0.8.0',
+					source: {
+						name: 'Docker',
+						href: 'https://www.docker.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'docker-variant-2-icon.svg',
+					date_added: '2026/8/9',
+					version: '0.8.0',
+					source: {
+						name: 'Docker',
+						href: 'https://www.docker.com'
+					}
+				},
+				{
+					path: 'docker-bg-icon.svg',
+					date_added: '2026/8/9',
+					version: '0.8.0',
+					source: {
+						name: 'Docker',
+						href: 'https://www.docker.com'
+					}
+				}
+			]
 		},
 		{
 			type: 'logo',
 			default: {
+				theme: 'light',
 				path: 'docker-logo.svg',
 				date_added: '2026/4/10',
-				version: '0.0.1'
+				last_modified: "2026-08-09T19:00+02:00",
+				version: '0.0.1',
+				source: {
+					name: 'Docker',
+					href: 'https://www.docker.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'docker-logo-dark.svg',
+				date_added: '2026/8/9',
+				version: '0.8.0',
+				source: {
+					name: 'Docker',
+					href: 'https://www.docker.com'
+				}
+			},
+			variable: [
+				{
+					path: 'docker-variant-logo.svg',
+					date_added: '2026/8/9',
+					version: '0.8.0',
+					source: {
+						name: 'Docker',
+						href: 'https://www.docker.com'
+					}
+				},
+				{
+					theme: 'light',
+					path: 'docker-variant-2-logo.svg',
+					date_added: '2026/8/9',
+					version: '0.8.0',
+					source: {
+						name: 'Docker',
+						href: 'https://www.docker.com'
+					}
+				}
+			]
+		},
+		{
+			name: 'Docker Docs',
+			type: 'logo',
+			default: {
+				theme: 'dark',
+				path: 'docker-docs-logo.svg',
+				date_added: '2026/8/9',
+				version: '0.8.0',
+				source: {
+					name: 'Docker',
+					href: 'https://www.docker.com'
+				}
 			}
 		}
 	]

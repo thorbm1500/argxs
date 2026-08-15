@@ -73,5 +73,335 @@
 				}
 			}
 		}
-	]
+	],
+	colors: {
+		primary: [
+			{
+				hex: '#0A241B',
+				rgb: '10 36 27',
+				cmyk: '100 0 81 66',
+				pantone: '3435'
+			},
+			{
+				hex: '#08872B',
+				rgb: '8 135 43',
+				cmyk: '94 0 68 47',
+				pantone: '362'
+			},
+			{
+				hex: '#0FBF3E',
+				rgb: '15 191 62',
+				cmyk: '92 0 67 25',
+				pantone: '360'
+			},
+			{
+				hex: '#5FED83',
+				rgb: '95 237 131',
+				cmyk: '59 0 45 7',
+				pantone: '2268'
+			},
+			{
+				hex: '#8CF2A6',
+				rgb: '140 242 166',
+				cmyk: '42 0 31 5',
+				pantone: '7487'
+			},
+			{
+				hex: '#BFFFD1',
+				rgb: '191 255 209',
+				cmyk: '20 0 30 0',
+				pantone: '7486'
+			},
+			{
+				hex: '#000000',
+				rgb: '0 0 0',
+				cmyk: '10 0 0 100',
+				pantone: 'Black 3'
+			},
+			{
+				hex: '#121613',
+				rgb: '18 22 19',
+				cmyk: '18 0 14 91',
+				pantone: 'Process Black'
+			},
+			{
+				hex: '#353D37',
+				rgb: '53 61 55',
+				cmyk: '13 0 10 76',
+				pantone: '418'
+			},
+			{
+				hex: '#5A615C',
+				rgb: '90 97 92',
+				cmyk: '7 0 5 62',
+				pantone: '417'
+			},
+			{
+				hex: '#77827A',
+				rgb: '119 130 122',
+				cmyk: '9 0 6 49',
+				pantone: '416'
+			},
+			{
+				hex: '#96A199',
+				rgb: '150 161 153',
+				cmyk: '7 0 5 37',
+				pantone: '415'
+			},
+			{
+				hex: '#B6BFB8',
+				rgb: '182 191 184',
+				cmyk: '5 0 4 25',
+				pantone: 'Cool Gray 4'
+			},
+			{
+				hex: '#C4CCC6',
+				rgb: '196 204 198',
+				cmyk: '4 0 3 20',
+				pantone: '441'
+			},
+			{
+				hex: '#D2D9D4',
+				rgb: '210 217 212',
+				cmyk: '3 0 2 15',
+				pantone: '427'
+			},
+			{
+				hex: '#E4EBE6',
+				rgb: '228 235 230',
+				cmyk: '3 0 2 8',
+				pantone: 'Cool Gray 2'
+			},
+			{
+				hex: '#F2F5F3',
+				rgb: '242 245 243',
+				cmyk: '1 0 1 4',
+				pantone: 'Cool Gray 1'
+			},
+			{
+				hex: '#FFFFFF',
+				rgb: '255 255 255',
+				cmyk: '0 0 0 0',
+				pantone: 'White'
+			}
+		],
+		colors: [
+			{
+				hex: '#0A241B',
+				rgb: '10 36 27',
+				cmyk: '100 0 81 66',
+				pantone: '3435'
+			},
+			{
+				hex: '#08872B',
+				rgb: '8 135 43',
+				cmyk: '94 0 68 47',
+				pantone: '362'
+			},
+			{
+				hex: '#0FBF3E',
+				rgb: '15 191 62',
+				cmyk: '92 0 67 25',
+				pantone: '360'
+			},
+			{
+				hex: '#5FED83',
+				rgb: '95 237 131',
+				cmyk: '59 0 45 7',
+				pantone: '2268'
+			},
+			{
+				hex: '#8CF2A6',
+				rgb: '140 242 166',
+				cmyk: '42 0 31 5',
+				pantone: '7487'
+			},
+			{
+				hex: '#BFFFD1',
+				rgb: '191 255 209',
+				cmyk: '20 0 30 0',
+				pantone: '7486'
+			},
+			{
+				hex: '#30081F',
+				rgb: '48 8 31',
+				cmyk: '0 83 36 81',
+				pantone: '262'
+			},
+			{
+				hex: '#952866',
+				rgb: '149 40 102',
+				cmyk: '0 73 32 42',
+				pantone: '228'
+			},
+			{
+				hex: '#CA2186',
+				rgb: '202 33 134',
+				cmyk: '0 84 34 21',
+				pantone: '233'
+			},
+			{
+				hex: '#FF4AC0',
+				rgb: '255 74 192',
+				cmyk: '0 71 25 0',
+				pantone: '232'
+			},
+			{
+				hex: '#FF80D2',
+				rgb: '255 128 100',
+				cmyk: '0 50 18 0',
+				pantone: '223'
+			},
+			{
+				hex: '#FFC8FE',
+				rgb: '255 200 254',
+				cmyk: '0 22 0 0',
+				pantone: '250'
+			},
+			{
+				hex: '#160048',
+				rgb: '22 0 72',
+				cmyk: '69 100 0 71',
+				pantone: '2765'
+			},
+			{
+				hex: '#26115F',
+				rgb: '38 17 95',
+				cmyk: '60 82 0 63',
+				pantone: '2755'
+			},
+			{
+				hex: '#43179E',
+				rgb: '67 23 158',
+				cmyk: '58 86 0 38',
+				pantone: 'Violet'
+			},
+			{
+				hex: '#8534F3',
+				rgb: '133 52 243',
+				cmyk: '45 79 0 5',
+				pantone: '2665'
+			},
+			{
+				hex: '#B870FF',
+				rgb: '184 112 255',
+				cmyk: '28 56 0 0',
+				pantone: '2577'
+			},
+			{
+				hex: '#C898FD',
+				rgb: '200 152 253',
+				cmyk: '21 40 0 0',
+				pantone: '2635'
+			},
+			{
+				hex: '#500A00',
+				rgb: '80 10 0',
+				cmyk: '0 88 100 69',
+				pantone: '1815'
+			},
+			{
+				hex: '#801E0F',
+				rgb: '128 30 15',
+				cmyk: '0 77 88 50',
+				pantone: '1805'
+			},
+			{
+				hex: '#C53211',
+				rgb: '197 50 17',
+				cmyk: '0 75 91 23',
+				pantone: '485'
+			},
+			{
+				hex: '#FE4C25',
+				rgb: '254 76 37',
+				cmyk: '0 63 91 0',
+				pantone: '1655'
+			},
+			{
+				hex: '#F08A3A',
+				rgb: '240 138 58',
+				cmyk: '0 43 76 6',
+				pantone: '157'
+			},
+			{
+				hex: '#F4A876',
+				rgb: '244 168 118',
+				cmyk: '0 31 52 4',
+				pantone: '1555'
+			},
+			{
+				hex: '#001C4D',
+				rgb: '0 28 77',
+				cmyk: '100 64 0 70',
+				pantone: '3597'
+			},
+			{
+				hex: '#212183',
+				rgb: '33 33 131',
+				cmyk: '75 75 0 49',
+				pantone: '2728'
+			},
+			{
+				hex: '#0527FC',
+				rgb: '5 39 252',
+				cmyk: '98 85 0 1',
+				pantone: '2935'
+			},
+			{
+				hex: '#1A61FE',
+				rgb: '0 110 219',
+				cmyk: '100 50 0 14',
+				pantone: '285'
+			},
+			{
+				hex: '#3094FF',
+				rgb: '48 148 255',
+				cmyk: '81 42 0 0',
+				pantone: '279'
+			},
+			{
+				hex: '#9EECFF',
+				rgb: '158 236 255',
+				cmyk: '38 7 0 0',
+				pantone: '290'
+			},
+			{
+				hex: '#703100',
+				rgb: '112 49 0',
+				cmyk: '0 56 100 43',
+				pantone: '1615'
+			},
+			{
+				hex: '#D67200',
+				rgb: '214 114 0',
+				cmyk: '0 42 100 1',
+				pantone: '138'
+			},
+			{
+				hex: '#D89D00',
+				rgb: '219 157 0',
+				cmyk: '0 18 100 0',
+				pantone: '7406'
+			},
+			{
+				hex: '#D8BD0E',
+				rgb: '216 189 14',
+				cmyk: '0 12 94 15',
+				pantone: '611'
+			},
+			{
+				hex: '#D3FA37',
+				rgb: '211 250 55',
+				cmyk: '10 0 74 0',
+				pantone: '387'
+			},
+			{
+				hex: '#DCFF96',
+				rgb: '220 255 150',
+				cmyk: '14 0 41 0',
+				pantone: '372'
+			}
+		]
+	}
 }

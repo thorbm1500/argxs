@@ -1,6 +1,7 @@
 {
 	name: 'Home',
 	href: 'https://home.dk',
+	tags: ["Real Estate"],
 	assets: [
 		{
 			type: 'logo',

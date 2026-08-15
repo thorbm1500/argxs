@@ -1,0 +1,30 @@
+{
+	name: 'Telmore',
+	href: 'https://telmore.dk',
+	tags: ["Tech","Utility"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'telmore-logo.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'Telmore',
+					href: 'https://telmore.dk'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'telmore-logo-dark.svg',
+				date_added: '2026/7/30',
+				version: '0.8.0',
+				source: {
+					name: 'Telmore',
+					href: 'https://telmore.dk'
+				}
+			}
+		}
+	]
+}

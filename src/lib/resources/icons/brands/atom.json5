@@ -1,7 +1,7 @@
 {
 	name: 'Atom',
 	href: 'https://github.blog/news-insights/product-news/sunsetting-atom/',
-	tags: ["Development"],
+	tags: ["Development","Software"],
 	assets: [
 		{
 			type: 'icon',
