@@ -6,6 +6,7 @@ This readme was last updated: 15/08/2026
 ## to-do-list
 ### Before Next Release
 - [ ] Bugfix: Some SVG images fail to generate, due to various issues
+- [ ] Bugfix: Sidebar overflowing when screen height gets too small, instead of compressing and becoming scrollable, making it impossible to navigate with mouse & keyboard
 - [ ] Add custom 404 page
 - [ ] Add sitemap.xml
 - [ ] Add more icons (Mostly flags)
