@@ -12,9 +12,11 @@
 - **x New Icons**
   - **[New]** DuckDuckGo
   - **[New]** ProRata.AI
+  - **[New]** NetBird
 
 - **New Brand Guidelines**
   - DuckDuckGo
+  - NetBird
 
 ## Bug Fixes
 - **Empty**
