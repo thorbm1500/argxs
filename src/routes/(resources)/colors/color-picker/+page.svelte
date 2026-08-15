@@ -18,9 +18,10 @@
 
 	const { data } = $props();
 
-	const sendToast: Function | undefined = $derived(getContext('sendToast') as Function ?? undefined);
-	let scrollY: number = $derived((getContext('scrollY') as Function)?.() ?? 0);
 	let pageLoad: boolean = $state(false);
+
+	const sendToast: Function | undefined = $derived(getContext('sendToast') as Function ?? undefined);
+	let currentScrollY: number = $derived((getContext('scrollY') as Function)?.() ?? 0);
 	let currentScreenWidth: number = $derived(innerWidth.current ?? 0);
 	let activeScreenWidth: number = $state(innerWidth.current ?? 0);
 
@@ -74,8 +75,8 @@
 
 		const canvasRect = getCanvasRect();
 		if (canvasRect.width !== 0) {
-			canvasCursorTargetPosition.x = Number.parseFloat((canvasRect.left + (_color.toHsv().s * (canvasRect.width / 100))).toFixed(2));
-			canvasCursorTargetPosition.y = Number.parseFloat(((canvasRect.top) + (_hsv.v * (canvasRect.height / 100) * -1) + canvasRect.height).toFixed(2));
+			canvasCursorTargetPosition.x = Number.parseFloat((_color.toHsv().s * (canvasRect.width / 100)).toFixed(2));
+			canvasCursorTargetPosition.y = Number.parseFloat(((_color.toHsv().v * (canvasRect.height / 100) * -1) + canvasRect.height).toFixed(2));
 		}
 
 		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
@@ -91,11 +92,12 @@
 			const canvasRect = getCanvasRect();
 			if (canvasRect.width === 0) {
 				isHovering = false;
+				isDragging = false;
 				return;
 			}
 
 			const X = cursorX - canvasRect.left;
-			const Y = cursorY - (canvasRect.top - scrollY);
+			const Y = cursorY - canvasRect.top;
 
 			isHovering = X < canvasRect.width && X > 0 && Y < canvasRect.height && Y > 0;
 
@@ -106,9 +108,6 @@
 				if (isDragging) {
 					_hsv.s = MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100;
 					_hsv.v = (1 - MathUtils.clamp(clientY / canvasRect.height, 0, 1)) * 100;
-
-					canvasCursorTargetPosition.x = clientX + canvasRect.left;
-					canvasCursorTargetPosition.y = clientY + canvasRect.top;
 				}
 			}
 		}
@@ -399,8 +398,11 @@
 	}
 
 	$effect(() => {
-		canvasCursor.x.target = canvasCursorTargetPosition.x;
-		canvasCursor.y.target = canvasCursorTargetPosition.y - scrollY;
+		// Enables reactivity for scrolling. If removed, the cursor will not update its Y position when the page is scrolled
+		if (currentScrollY) {}
+
+		canvasCursor.x.target = canvasCursorTargetPosition.x + getCanvasRect().left;
+		canvasCursor.y.target = canvasCursorTargetPosition.y + getCanvasRect().top;
 
 		// Updates slider position if screen is resized
 		if (activeScreenWidth !== currentScreenWidth && currentScreenWidth !== 0) {
