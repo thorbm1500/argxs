@@ -1,0 +1,20 @@
+{
+    name: 'ProRata.AI',
+    href: 'https://prorata.ai',
+    tags: ["AI","Utility"],
+    assets: [
+        {
+            type: 'logo',
+            default: {
+                theme: 'dark',
+                path: 'prorata-ai-logo.svg',
+                date_added: '2026/8/16',
+                version: '0.8.1',
+                source: {
+                    name: 'ProRata.AI',
+                    href: 'https://prorata.ai'
+                }
+            }
+        }
+    ]
+}
