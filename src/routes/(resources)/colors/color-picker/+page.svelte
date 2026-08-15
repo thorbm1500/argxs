@@ -13,6 +13,7 @@
 	import { draw } from 'svelte/transition';
 	import { Tween } from 'svelte/motion';
 
+	// Enable Colord plugins
 	extend([lchPlugin,harmonies]);
 
 	const { data } = $props();
@@ -21,17 +22,14 @@
 	let scrollY: number = $derived((getContext('scrollY') as Function)?.() ?? 0);
 	let pageLoad: boolean = $state(false);
 	let currentScreenWidth: number = $derived(innerWidth.current ?? 0);
-	// svelte-ignore state_referenced_locally
-	let activeScreenWidth: number = $state(currentScreenWidth);
+	let activeScreenWidth: number = $state(innerWidth.current ?? 0);
 
 	let slider: HTMLDivElement | undefined = $state();
 	let canvas: HTMLCanvasElement | undefined = $state();
-	let canvasRect: DOMRect | undefined = $derived(canvas?.getBoundingClientRect() ?? undefined);
-	let hexInput: HTMLInputElement | undefined = $state();
-	let rgbInput: HTMLInputElement | undefined = $state();
-	let hslInput: HTMLInputElement | undefined = $state();
-	let lchInput: HTMLInputElement | undefined = $state();
-	let oklchInput: HTMLInputElement | undefined = $state();
+	const getCanvasRect = (): DOMRect | { left: number, width: number, top: number, height: number } => {
+		if (!canvas) return { left: 0, width: 0, top: 0, height: 0 }
+		else return canvas.getBoundingClientRect();
+	}
 
 	let isSliderActive: boolean = $state(false);
 	let isHovering: boolean = $state(false);
@@ -40,13 +38,23 @@
 	let cursorY: number = $state(0);
 	let clientX: number = $state(0);
 	let clientY: number = $state(0);
-	let selectedColorX = new Tween(0, { duration: 250, easing: circOut });
-	let selectedColorY = new Tween(0, { duration: 250, easing: circOut });
-	let sliderKnobPosX = new Tween(0, { duration: 250, easing: circOut });
+
+	const canvasCursor = $state({
+		x: new Tween(0, { duration: 250, easing: circOut }),
+		y: new Tween(0, { duration: 250, easing: circOut })
+	});
+	const canvasCursorTargetPosition = $state({ x: -1, y: -1 });
+	let colorSliderPosition = new Tween(0, { duration: 250, easing: circOut });
 
 	/** Internal variables, to keep the inspected color updated realtime.
 	 * Allows the user to position the cursor inside the canvas, without the selected color updating. */
 	let _hsv = $state({ h: 237, s: 54, v: 100, a: 1 });
+
+	let hexInput: HTMLInputElement | undefined = $state();
+	let rgbInput: HTMLInputElement | undefined = $state();
+	let hslInput: HTMLInputElement | undefined = $state();
+	let lchInput: HTMLInputElement | undefined = $state();
+	let oklchInput: HTMLInputElement | undefined = $state();
 
 	let inputHEX: string = $state('');
 	let inputRGB: string = $state('');
@@ -62,13 +70,12 @@
 
 	function updateColorUI(_color: Colord, updateSlider: boolean) {
 		if (updateSlider) _hsv = _color.toHsv();
-		if (slider) sliderKnobPosX.target = _color.toHsv().h * (slider.getBoundingClientRect().width / 360);
+		if (slider) colorSliderPosition.target = _color.toHsv().h * (slider.getBoundingClientRect().width / 360);
 
-		if (canvas) {
-			// Requires calling canvas.getBoundingClientRect() directly as canvasRect doesn't update quick enough to allow realtime resizing
-			selectedColorX.target = Number.parseFloat((canvas.getBoundingClientRect().left + (_color.toHsv().s * (canvas.getBoundingClientRect().width / 100))).toFixed(2));
-			const topOffset = scrollY > canvas.getBoundingClientRect().top ? scrollY - canvas.getBoundingClientRect().top : canvas.getBoundingClientRect().top - scrollY;
-			selectedColorY.target = Number.parseFloat((topOffset + (_color.toHsv().v * (canvas.getBoundingClientRect().height / 100) * -1) + canvas.getBoundingClientRect().height).toFixed(2));
+		const canvasRect = getCanvasRect();
+		if (canvasRect.width !== 0) {
+			canvasCursorTargetPosition.x = Number.parseFloat((canvasRect.left + (_color.toHsv().s * (canvasRect.width / 100))).toFixed(2));
+			canvasCursorTargetPosition.y = Number.parseFloat(((canvasRect.top) + (_hsv.v * (canvasRect.height / 100) * -1) + canvasRect.height).toFixed(2));
 		}
 
 		inputHEX = _color.toHex().toUpperCase().substring(0, 7);
@@ -80,31 +87,39 @@
 
 	function updateCursorPos() {
 		if (!slider) isSliderActive = false;
-		if (!canvasRect) isHovering = false;
 		else {
+			const canvasRect = getCanvasRect();
+			if (canvasRect.width === 0) {
+				isHovering = false;
+				return;
+			}
+
 			const X = cursorX - canvasRect.left;
 			const Y = cursorY - (canvasRect.top - scrollY);
 
 			isHovering = X < canvasRect.width && X > 0 && Y < canvasRect.height && Y > 0;
 
 			if (isHovering || isDragging) {
-				if (isDragging) {
-					_hsv.s = canvasRect ? MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100 : 54;
-					_hsv.v = canvasRect ? MathUtils.clamp((canvasRect.height - clientY) / canvasRect.height, 0, 1) * 100 : 100;
-				}
-
 				clientX = MathUtils.clamp(X, 0, canvasRect.width);
 				clientY = MathUtils.clamp(Y, 0, canvasRect.height);
+
+				if (isDragging) {
+					_hsv.s = MathUtils.clamp(clientX / canvasRect.width, 0, 1) * 100;
+					_hsv.v = (1 - MathUtils.clamp(clientY / canvasRect.height, 0, 1)) * 100;
+
+					canvasCursorTargetPosition.x = clientX + canvasRect.left;
+					canvasCursorTargetPosition.y = clientY + canvasRect.top;
+				}
 			}
 		}
 	}
 
 	function updateSlider() {
 		if (!slider) return;
-		sliderKnobPosX.target = MathUtils.clamp(cursorX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
+		colorSliderPosition.target = MathUtils.clamp(cursorX - slider.getBoundingClientRect().left, 0, slider.getBoundingClientRect().width);
 
 		const _color = color.toHsv();
-		_color.h = MathUtils.clamp(MathUtils.clamp(sliderKnobPosX.target / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
+		_color.h = MathUtils.clamp(MathUtils.clamp(colorSliderPosition.target / slider.getBoundingClientRect().width, 0, 1) * 360, 0, 359.999);
 		if (color.toHslString() !== colord(_color).toHslString()) {
 			_hsv.h = _color.h;
 			color = colord(_color);
@@ -364,23 +379,6 @@
 		updateColorUI(color, true);
 	}
 
-	$effect(() => {
-		// Updates slider position if screen is resized
-		if (activeScreenWidth !== currentScreenWidth && currentScreenWidth !== 0) {
-			activeScreenWidth = currentScreenWidth;
-			updateColorUI(color, true);
-		}
-		// Updates selected color to current inspected color
-		else if (!isSliderActive && isDragging) {
-			const _color = colord(_hsv);
-			if (color.toLchString() !== _color.toLchString()) {
-				const shouldSliderUpdate = color.hue() !== _color.hue();
-				color = _color;
-				updateColorUI(color, shouldSliderUpdate);
-			}
-		}
-	});
-
 	const mouseEventListeners: Action = (node: HTMLElement) => {
 		node.addEventListener('mouseenter', () => showMainColorShade = false);
 		node.addEventListener('mouseleave', () => showMainColorShade = true);
@@ -399,6 +397,26 @@
 		});
 		return { destroy() {} };
 	}
+
+	$effect(() => {
+		canvasCursor.x.target = canvasCursorTargetPosition.x;
+		canvasCursor.y.target = canvasCursorTargetPosition.y - scrollY;
+
+		// Updates slider position if screen is resized
+		if (activeScreenWidth !== currentScreenWidth && currentScreenWidth !== 0) {
+			activeScreenWidth = currentScreenWidth;
+			updateColorUI(color, true);
+		}
+		// Updates selected color to current inspected color
+		else if (!isSliderActive && isDragging) {
+			const _color = colord(_hsv);
+			if (color.toLchString() !== _color.toLchString()) {
+				const shouldSliderUpdate = color.hue() !== _color.hue();
+				color = _color;
+				updateColorUI(color, shouldSliderUpdate);
+			}
+		}
+	});
 </script>
 
 <svelte:head>
@@ -414,7 +432,7 @@
 		<h1 class="title">Color Picker</h1>
 	</div>
 	<div class="color-picker-content">
-		<div class="color-picker-cursor" style="left: {selectedColorX.current}px; top: {selectedColorY.current}px; --current-color: {color.toHex()}; border-color: {colord(color).invert().toHex()}" draggable="true" inert></div>
+		<div class="color-picker-cursor" style="left: {canvasCursor.x.current}px; top: {canvasCursor.y.current}px; --current-color: {color.toHex()}; border-color: {colord(color).invert().toHex()}" draggable="true" inert></div>
 		<canvas bind:this={canvas} class="color-picker" id="color-picker" style="--picker-color-bg: {colord({ h: color.toHsv().h, s: 100, v: 100 }).toHex()}; border-radius: {isHovering ? '.25rem' : '.9rem'};"></canvas>
 		<div class="actions">
 			<div class="actions-parent">
@@ -474,7 +492,7 @@
 			</button>
 		</div>
 		<div bind:this={slider} class="slider">
-			<div class="slider-knob" style="--pos-x: {$state.eager(sliderKnobPosX.current) - 16}px; --rot-x: {sliderKnobPosX.current - 16}deg; background: {colord({ h: color.hue(), s: 100, v: 100 }).toHex()}"></div>
+			<div class="slider-knob" style="--pos-x: {$state.eager(colorSliderPosition.current) - 16}px; --rot-x: {colorSliderPosition.current - 16}deg; background: {colord({ h: color.hue(), s: 100, v: 100 }).toHex()}"></div>
 		</div>
 		<div class="values">
 			<div class="value hex">

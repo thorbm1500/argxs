@@ -10,7 +10,7 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
 ## Minor Changes
 - Addition of [ThisIsHumanMade](https://thisishumanmade.org) badge
 - Addition of screen size warning on smaller screens. *More information on this will be added on the upcoming page [Core Concept](https://argxs.dev/concept)*
-- The codebase now makes use of linting and formatting, provided by [**Vite+**](https://viteplus.dev), to make the codebase stronger and cleaner to work with.
+- The codebase now makes use of linting and formatting, provided by [**Vite+**](https://viteplus.dev), to make the codebase stronger and cleaner to work with
 - General updates to the design, for a more consistent design
 ### Changelogs
 - Updated page title from "Changelog" to "Changelogs"
@@ -150,6 +150,8 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
     - Bluesky
 
 ## Bug Fixes
+### Hotfix
+- Fixed an issue where scrolling the page would cause an incorrect position of the canvas cursor on [Colors#Color-Picker](https://argxs.dev/colors/color-picker). Along with this hotfix, the code has been greatly cleaned up on [Colors#Color-Picker](https://argxs.dev/colors/color-picker) to avoid similar issues in the future. A general testing *should* have been performed before release. [I](https://github.com/thorbm1500) apologize for any inconvenience this might have caused.
 ### Sidebar
 - A delay has been added to the animation, which should make the sidebar less glitchy
 ### Changelogs
