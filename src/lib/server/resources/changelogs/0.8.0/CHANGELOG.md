@@ -1,8 +1,8 @@
 # Version 0.8.0
-#### 2026-08-14
+#### 2026-08-15
 
 ## New Domain & Migration to [Cloudflare](https://cloudflare.com)
-**argxs** is now served under **argxs.dev**. With this change argxs.com now redirects to [argxs.dev](https://argxs.dev).<br>
+**argxs** is now served under **argxs.dev** and argxs.com now redirects to [argxs.dev](https://argxs.dev).<br>
 With this change argxs has also been migrated to Cloudflare for better safety for the users and for a better performance delivering the site
 ## New Logo & Icon
 A logo & icon has been made for **argxs**, replacing the old personal favicon and the header logo
@@ -20,8 +20,6 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
 ### Icons
 - Added clearing of user search when navigation between Brand & Flag icons
 - Improved accessibility to users with prefers-reduced-motion enabled
-- Updated existing Google logo to an SVG sourced directly from [Google](https://google.com)
-- Updated existing Docker logo & icon to SVGs sourced directly from [Docker](https://docker.com)
 - Updated general design to be more consistent
 - **[New Tag]** Real Estate
 - **[New Tag]** Software
@@ -29,7 +27,7 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
   - Added scrolling to icon name when hovering, allowing abnormally long names to still be readable regardless of screen size
 
 ### New Flag Resources
-- **x New Flags**
+- **68 New Flags**
   - **United States of America State Flags**
     - **[New]** Louisiana 
     - **[New]** Maine
@@ -77,7 +75,7 @@ A logo & icon has been made for **argxs**, replacing the old personal favicon an
       - Incl. Illinois Sesquicentennial Flag (1968)
 
 ### New Brand Resources
-- **x New Icons**
+- **107 New Icons**
   - **[New]** argxs
   - **[New]** Codeberg
   - **[New]** SBAB
