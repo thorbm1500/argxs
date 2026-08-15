@@ -11,6 +11,7 @@
 ### New Brand Resources
 - **x New Icons**
   - **[New]** DuckDuckGo
+  - **[New]** ProRata.AI
 
 - **New Brand Guidelines**
   - DuckDuckGo
