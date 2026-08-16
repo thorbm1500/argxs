@@ -8,6 +8,7 @@ body:
       value: |
         > [!NOTE]
         > Please update the title to showcase the type of icon, and its name.
+        > e.g. "[Icon Resource] [Brand] Formula One"
         
         > [!WARNING]
         > Please stick to one specific brand/flag per issue. Multi-brand/-flag issues will be closed without further inspection.
