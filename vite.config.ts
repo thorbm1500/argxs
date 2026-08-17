@@ -56,7 +56,10 @@ export default defineConfig({
       },
       csp: {
         directives: {
-          "script-src": ["self"],
+          "script-src": ["self","unsafe-inline","https://cdn.argxs.dev","https://static.cloudflareinsights.com"],
+          "connect-src": ["self","unsafe-inline","https://cdn.argxs.dev","https://static.cloudflareinsights.com"],
+          "style-src": ["self","unsafe-inline","https://cdn.argxs.dev"],
+          "img-src": ["self","https://cdn.argxs.dev"],
         },
       },
       csrf: {
