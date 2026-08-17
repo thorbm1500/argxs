@@ -8,7 +8,7 @@
 			default: {
 				path: 'duckduckgo-icon.svg',
 				date_added: '2026/8/16',
-				version: '0.8.1',
+				version: '0.9.0',
 				source: {
 					name: 'DuckDuckGo',
 					href: 'https://duckduckgo.com'
@@ -21,7 +21,7 @@
 				theme: 'light',
 				path: 'duckduckgo-logo.svg',
 				date_added: '2026/8/16',
-				version: '0.8.1',
+				version: '0.9.0',
 				source: {
 					name: 'DuckDuckGo',
 					href: 'https://duckduckgo.com'
@@ -31,7 +31,7 @@
 				theme: 'dark',
 				path: 'duckduckgo-logo-dark.svg',
 				date_added: '2026/8/16',
-				version: '0.8.1',
+				version: '0.9.0',
 				source: {
 					name: 'DuckDuckGo',
 					href: 'https://duckduckgo.com'
@@ -42,7 +42,7 @@
 					theme: 'light',
 					path: 'duckduckgo-stacked-logo.svg',
 					date_added: '2026/8/16',
-					version: '0.8.1',
+					version: '0.9.0',
 					source: {
 						name: 'DuckDuckGo',
 						href: 'https://duckduckgo.com'
@@ -52,7 +52,7 @@
 					theme: 'dark',
 					path: 'duckduckgo-stacked-logo-dark.svg',
 					date_added: '2026/8/16',
-					version: '0.8.1',
+					version: '0.9.0',
 					source: {
 						name: 'DuckDuckGo',
 						href: 'https://duckduckgo.com'

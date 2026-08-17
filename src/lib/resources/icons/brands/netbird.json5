@@ -8,7 +8,7 @@
             default: {
                 path: 'netbird-icon.svg',
                 date_added: '2026/8/16',
-                version: '0.8.1',
+                version: '0.9.0',
                 source: {
                     name: 'NetBird',
                     href: 'https://netbird.io'
@@ -21,7 +21,7 @@
                 theme: 'light',
                 path: 'netbird-logo.svg',
                 date_added: '2026/8/16',
-                version: '0.8.1',
+                version: '0.9.0',
                 source: {
                     name: 'NetBird',
                     href: 'https://netbird.io'
@@ -31,7 +31,7 @@
                 theme: 'dark',
                 path: 'netbird-logo-dark.svg',
                 date_added: '2026/8/16',
-                version: '0.8.1',
+                version: '0.9.0',
                 source: {
                     name: 'NetBird',
                     href: 'https://netbird.io'
