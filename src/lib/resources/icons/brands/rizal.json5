@@ -1,0 +1,97 @@
+{
+	name: 'rizal˙',
+	href: 'https://rizalrenaldi.com',
+	tags: ["Creativity"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'rizal-icon.svg',
+				date_added: '2026/8/17',
+				version: '0.9.0',
+				source: {
+					name: 'rizal˙',
+					href: 'https://rizalrenaldi.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'rizal-icon-dark.svg',
+				date_added: '2026/8/17',
+				version: '0.9.0',
+				source: {
+					name: 'rizal˙',
+					href: 'https://rizalrenaldi.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'rizal-icon-black.svg',
+					date_added: '2026/8/17',
+					version: '0.9.0',
+					source: {
+						name: 'rizal˙',
+						href: 'https://rizalrenaldi.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'rizal-icon-white.svg',
+					date_added: '2026/8/17',
+					version: '0.9.0',
+					source: {
+						name: 'rizal˙',
+						href: 'https://rizalrenaldi.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'rizal-logo.svg',
+				date_added: '2026/8/17',
+                version: '0.9.0',
+				source: {
+					name: 'rizal˙',
+					href: 'https://rizalrenaldi.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'rizal-logo-dark.svg',
+				date_added: '2026/8/17',
+				version: '0.9.0',
+				source: {
+					name: 'rizal˙',
+					href: 'https://rizalrenaldi.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'rizal-logo-black.svg',
+					date_added: '2026/8/17',
+					version: '0.9.0',
+					source: {
+						name: 'rizal˙',
+						href: 'https://rizalrenaldi.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'rizal-logo-white.svg',
+					date_added: '2026/8/17',
+					version: '0.9.0',
+					source: {
+						name: 'rizal˙',
+						href: 'https://rizalrenaldi.com'
+					}
+				}
+			]
+		}
+	]
+}
