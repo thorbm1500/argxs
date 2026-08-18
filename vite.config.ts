@@ -32,7 +32,7 @@ export default defineConfig({
     // @ts-ignore
     tailwindcss(),
     sveltekit({
-      preprocess: vitePreprocess(),
+      preprocess: vitePreprocess({ script: true }),
       adapter: adapter({
         precompress: false,
       }),
@@ -59,7 +59,7 @@ export default defineConfig({
           "script-src": ["self","unsafe-inline","https://cdn.argxs.dev","https://static.cloudflareinsights.com"],
           "connect-src": ["self","unsafe-inline","https://cdn.argxs.dev","https://static.cloudflareinsights.com"],
           "style-src": ["self","unsafe-inline","https://cdn.argxs.dev"],
-          "img-src": ["self","https://cdn.argxs.dev"],
+          "img-src": ["self","unsafe-inline","https://cdn.argxs.dev"],
         },
       },
       csrf: {
