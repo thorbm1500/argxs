@@ -107,13 +107,13 @@
 				</svg>
 				<p>COLORS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, tag: true, selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
+			<a {@attach tabIndexFocus} class={{ page: true, tag: true, selected: page.url.pathname === '/colors/picker' }} href="/colors/picker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M11 7l6 6" />
 					<path d="M4 16l11.7 -11.7a1 1 0 0 1 1.4 0l2.6 2.6a1 1 0 0 1 0 1.4l-11.7 11.7h-4v-4" />
 				</svg>
-				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Color Picker</p>
+				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Picker</p>
 			</a>
 			<div class={{ tag: true, in_progress: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
