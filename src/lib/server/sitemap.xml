@@ -36,15 +36,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://argxs.dev/colors/generator</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://argxs.dev/colors/combos</loc>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://argxs.dev/cheat-sheets/transition-easing</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://argxs.dev/other/typography</loc>
         <changefreq>monthly</changefreq>
     </url>
 </urlset>
