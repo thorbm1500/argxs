@@ -89,13 +89,13 @@
 			case Color.ORANGE:
 				switch (type) {
 					case Color.RED: { return rgb.r > 140 }
-					case Color.GREEN: { return rgb.r / rgb.g > 3.25 && rgb.g < 70 && rgb.g > 25 }
+					case Color.GREEN: { return rgb.g > 35 && rgb.g < 90 && rgb.r / rgb.g > 2.75 }
 					default: { return rgb.b < 10 }
 				}
 			case Color.YELLOW:
 				switch (type) {
-					case Color.RED: { return rgb.r > 230 }
-					case Color.GREEN: { return rgb.g > 205 && rgb.r / rgb.g > 1 }
+					case Color.RED: { return rgb.r > 165 }
+					case Color.GREEN: { return rgb.g > 150 && rgb.r / rgb.g < 1.15 && rgb.r / rgb.g > 1}
 					default: { return rgb.b < 2 }
 				}
 			case Color.GREEN: {
@@ -114,9 +114,9 @@
 			}
 			case Color.PURPLE: {
 				switch (type) {
-					case Color.RED: { return (rgb.b / rgb.r > 1.05) && rgb.r > 40 }
+					case Color.RED: { return (rgb.b / rgb.r < 1.05 && rgb.b / rgb.r > 1.0) && rgb.r > 40 }
 					case Color.GREEN: { return rgb.b / rgb.g > 1.5 && rgb.g < 150 }
-					default: { return rgb.b > 40 }
+					default: { return rgb.b > 60 }
 				}
 			}
 			default: { return true }
@@ -227,23 +227,23 @@
 <section class="color-palette-content">
 	<section class="header">
 		<h1 class="title">Color Generator</h1>
-		<div class="actions">
-			<GlassButton className="regenerate">
-				<button class="regenerate" onclick="{() => generateColors()}">Regenerate</button>
-			</GlassButton>
-		</div>
 	</section>
-	<section class="filters">
-		{#each allColors() as color}
-			<button class={{ filter: true, active: filter.color.current === color.name, "transition-default": true }} onclick="{() => {
+	<section class="sub-header">
+		<div class="filters">
+			{#each allColors() as color}
+				<button class={{ filter: true, active: filter.color.current === color.name, "transition-default": true }} onclick="{() => {
 				if (filter.color.current !== color.name) {
 					filter.color.target = getColorFromString(color.name)
 				} else filter.color.target = null;
 			}}">
-				<div class="circle" style="background: {color.preview};"></div>
-				<p class="name">{color.name}</p>
-			</button>
-		{/each}
+					<div class="circle" style="background: {color.preview};"></div>
+					<p class="name">{color.name}</p>
+				</button>
+			{/each}
+		</div>
+		<div class="actions">
+			<button class="regenerate" onclick="{() => generateColors()}">Generate New Colors</button>
+		</div>
 	</section>
 	<section class="color-palette-sec">
 		<div class="color-row">
@@ -409,74 +409,112 @@
 						}
 				}
 
-				.filters {
+				.sub-header {
 						display: flex;
-						flex-flow: row wrap;
-						gap: .25rem;
+						flex-flow: row nowrap;
 
-						width: fit-content;
+						align-items: center;
+						justify-content: space-between;
 
-						margin-bottom: .5rem;
+            margin-bottom: .5rem;
 
-						.filter {
-								display: flex;
-								flex-flow: row nowrap;
-								align-items: center;
-								justify-content: space-between;
-								gap: .25rem;
+						.actions {
+								.regenerate {
+                    width: fit-content;
+                    height: 2.5rem;
 
-								width: 7.25rem;
-								height: 2.5rem;
+										box-sizing: border-box;
+										padding: 0 .75rem;
 
-								background: var(--theme-ui-button);
-								border: 1px solid var(--theme-ui-button-border);
-								border-radius: .9rem;
+                    background: var(--theme-ui-button);
+                    border: 1px solid var(--theme-ui-button-border);
+                    border-radius: .9rem;
 
-								.circle {
-										width: .6rem;
-										height: .6rem;
-										border-radius: 100%;
-										margin-left: 1rem;
-										opacity: .7;
-								}
+                    color: var(--theme-text-secondary);
+                    font-family: 'Funnel Sans', sans-serif;
+                    font-size: 1rem;
 
-								.name {
-										margin-right: 1rem;
-
-                    color: var(--theme-text-fourth);
-										font-family: 'Funnel Sans', sans-serif;
-										font-size: 1rem;
-								}
-
-								&.active {
-										background: var(--theme-ui-button-active);
-                    border-color: var(--theme-ui-button-border-active);
-
-										.circle {
-                        opacity: 1;
-										}
-										.name {
-												color: var(--theme-text-primary) !important;
-										}
-								}
-
-                &:active {
-                    background: var(--theme-ui-button-click) !important;
-                    border-color: var(--theme-ui-button-border-click) !important;
-                }
-
-								&:hover {
-										background: var(--theme-ui-button-hover);
-										border-color: var(--theme-ui-button-border-hover);
-
-                    .circle {
-                        opacity: 1;
+                    &:active {
+                        background: var(--theme-ui-button-click) !important;
+                        border-color: var(--theme-ui-button-border-click) !important;
                     }
-										.name {
-                        color: var(--theme-text-third);
-										}
+
+                    &:hover {
+                        background: var(--theme-ui-button-hover);
+                        border-color: var(--theme-ui-button-border-hover);
+
+                        color: var(--theme-text-primary);
+                    }
 								}
 						}
+
+            .filters {
+                display: flex;
+                flex-flow: row wrap;
+                gap: .25rem;
+
+                width: fit-content;
+
+                .filter {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: .25rem;
+
+                    width: 7.25rem;
+                    height: 2.5rem;
+
+                    background: var(--theme-ui-button);
+                    border: 1px solid var(--theme-ui-button-border);
+                    border-radius: .9rem;
+
+                    .circle {
+                        width: .6rem;
+                        height: .6rem;
+                        border-radius: 100%;
+                        margin-left: 1rem;
+                        opacity: .7;
+                    }
+
+                    .name {
+                        margin-right: 1rem;
+
+                        color: var(--theme-text-fourth);
+                        font-family: 'Funnel Sans', sans-serif;
+                        font-size: 1rem;
+                    }
+
+                    &.active {
+                        background: var(--theme-ui-button-active);
+                        border-color: var(--theme-ui-button-border-active);
+
+                        .circle {
+                            opacity: 1;
+                        }
+                        .name {
+                            color: var(--theme-text-primary) !important;
+                        }
+                    }
+
+                    &:active {
+                        background: var(--theme-ui-button-click) !important;
+                        border-color: var(--theme-ui-button-border-click) !important;
+                    }
+
+                    &:hover {
+                        background: var(--theme-ui-button-hover);
+                        border-color: var(--theme-ui-button-border-hover);
+
+                        .circle {
+                            opacity: 1;
+                        }
+                        .name {
+                            color: var(--theme-text-third);
+                        }
+                    }
+                }
+            }
 				}
 
         .color-palette-sec {
