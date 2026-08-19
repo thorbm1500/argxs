@@ -2,7 +2,7 @@
 
 # Development Information
 **Next Release: 0.8.1**<br>
-This readme was last updated: 15/08/2026
+This readme was last updated: 19/08/2026
 ## to-do-list
 ### Before Next Release
 - [x] Add sitemap.xml
@@ -13,7 +13,6 @@ This readme was last updated: 15/08/2026
 - [ ] Start work on: Core Concept
 ### Future Tasks
 - [ ] Write actual readme
-- [ ] Change from using cookies to Local Storage for privacy opt-out, as cookies are too unreliable to fully respect a user's choice.
 - [ ] Rework page: Color Combos
 - [ ] Rework page: Transition Easing
 - [ ] Rework page: Typography
