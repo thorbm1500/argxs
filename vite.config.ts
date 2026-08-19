@@ -58,8 +58,7 @@ export default defineConfig({
         directives: {
           "script-src": ["self","unsafe-inline","https://cdn.argxs.dev","https://static.cloudflareinsights.com"],
           "connect-src": ["self","unsafe-inline","https://cdn.argxs.dev","https://static.cloudflareinsights.com"],
-          "style-src": ["self","unsafe-inline","https://cdn.argxs.dev"],
-          "img-src": ["self","unsafe-inline","https://cdn.argxs.dev"],
+          "style-src": ["self","unsafe-inline","https://cdn.argxs.dev"]
         },
       },
       csrf: {
@@ -70,5 +69,5 @@ export default defineConfig({
         pollInterval: 120000,
       },
     }),
-  ],
+  ]
 });
