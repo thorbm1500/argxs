@@ -1,7 +1,7 @@
 [<img width="2050" height="708" alt="argxs-logo-dark" src="https://github.com/user-attachments/assets/6846bfdd-71ac-4337-b70c-f9f9ee14c3a2" />](https://argxs.com)
 
 # Development Information
-**Next Release: 0.8.1**<br>
+**Next Release: 0.9.0**<br>
 This readme was last updated: 19/08/2026
 ## to-do-list
 ### Before Next Release
