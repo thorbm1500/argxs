@@ -333,7 +333,10 @@
     .color-palette-content {
 				height: fit-content;
 				width: 100%;
+				max-width: 96rem;
+
 				padding: 2rem;
+				margin: 0 auto;
 
 				.header {
 						display: flex;
@@ -345,67 +348,6 @@
 
 						.title {
 								font-size: 3rem;
-						}
-
-						.actions {
-								display: flex;
-
-								.regenerate {
-                    padding: .15rem .35rem .15rem .2rem;
-										user-select: none;
-								}
-
-                .regenerate, :global .regenerate {
-                    position: relative !important;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: .25rem;
-
-                    padding: .3rem .45rem .3rem .25rem;
-                    border-radius: .9rem;
-
-                    font-size: .925rem;
-                    font-weight: 800;
-                    text-wrap: nowrap;
-
-                    cursor: pointer;
-
-                    z-index: 999;
-
-                    transition: var(--theme-transition-off);
-
-                    svg {
-                        width: 1.35rem;
-                        height: 1.35rem;
-                    }
-
-                    &:hover {
-                        transform: scale(1.025);
-                        filter: brightness(1.15);
-                        transition: var(--theme-transition-on);
-                    }
-
-                    &:active {
-                        transform: scale(.975);
-                    }
-
-                    &.inactive {
-                        filter: grayscale(.75);
-                        opacity: .5;
-                    }
-
-                    & > div {
-                        top: 0;
-                        left: 0;
-                    }
-                }
-
-								button {
-										font-size: 1.15rem;
-										font-weight: 500;
-								}
 						}
 				}
 
