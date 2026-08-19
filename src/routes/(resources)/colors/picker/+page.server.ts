@@ -1,5 +1,6 @@
 import type { PageServerLoad } from './$types';
-import { getDefaultSEODescription, type SEO } from '$lib/components/interfaces';
+import { type SEO } from '$lib/components/interfaces';
+import { getDefaultSEODescription } from '$lib/server/internalInterfaces';
 
 export const ssr = true;
 
