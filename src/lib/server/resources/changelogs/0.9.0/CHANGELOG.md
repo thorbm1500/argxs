@@ -26,6 +26,8 @@
 
 ## Bug Fixes
 - **Empty**
+- **Colors**
+  - Fixed incorrect values copied, when copying color shades on [colors#color-picker](https://argxs.dev/colors/picker)
 
 ## Dependencies
 - **Empty**
