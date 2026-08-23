@@ -6,7 +6,7 @@
 - Hardened Content-Security-Policy by also adding headers inside the application
 - **Icons**
   - **Flags**
-    - Removed ve-state.svg, due to making use of inlined base64 images
+    - Removed ve-state.svg, for inefficiency due to making use of inlined base64 images
 
 ### New Flag Resources
 - **x New Flags**
@@ -25,7 +25,6 @@
   - NetBird
 
 ## Bug Fixes
-- **Empty**
 - **Colors**
   - Fixed incorrect values copied, when copying color shades on [colors#color-picker](https://argxs.dev/colors/picker)
 
