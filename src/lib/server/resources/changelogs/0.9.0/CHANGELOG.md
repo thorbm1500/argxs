@@ -30,4 +30,10 @@
   - Fixed incorrect values copied, when copying color shades on [colors#color-picker](https://argxs.dev/colors/picker)
 
 ## Dependencies
-- **Empty**
+- bun: *1.3.14 ➜ 1.4.0*
+- @types/bun: *1.3.14 ➜ 1.4.0*
+- publint: *0.3.23 ➜ 0.3.24*
+- @humanspeak/svelte-markdown: *1.8.6 ➜ 1.8.7*
+- svelte: *5.56.9 ➜ 5.56.10*
+- @sveltejs/kit: *2.70.2 ➜ 2.70.3*
+- colord: *2.9.2 ➜ 2.10.0*
