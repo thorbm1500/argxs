@@ -10,7 +10,9 @@
 
 ### New Flag Resources
 - **x New Flags**
-  - **Empty**
+  - **[New]** Skåne (Scania)
+  - United States of America
+    - Incl. U.S. President
 
 ### New Brand Resources
 - **x New Icons**
