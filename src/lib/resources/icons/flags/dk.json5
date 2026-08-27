@@ -21,6 +21,7 @@
             default: {
                 path: 'dk-state.svg',
                 date_added: '2026/4/14',
+                last_modified: "2026-08-24T11:00+02:00",
                 version: '0.0.5',
                 source: {
                     name: 'Wikipedia',
