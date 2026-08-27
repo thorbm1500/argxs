@@ -25,6 +25,9 @@
   - NetBird
 
 ## Bug Fixes
+- **Icons**
+  - **Flags**
+    - Denmark State Flag: Fixed lines overflowing flag borders
 - **Colors**
   - Fixed incorrect values copied, when copying color shades on [colors#color-picker](https://argxs.dev/colors/picker)
 
