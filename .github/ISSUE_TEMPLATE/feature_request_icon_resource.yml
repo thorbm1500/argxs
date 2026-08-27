@@ -1,0 +1,52 @@
+name: "Icon Feature Request: Add New Resource"
+description: Use this template to request the addition of a new resource for an existing icon.
+title: "[Icon Resource] [<brand_or_flag>] <add_title_here>"
+labels: ["feature request","new resource","awaiting review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!NOTE]
+        > Please update the title to showcase the type of icon, and its name.
+        > e.g. "[Icon Resource] [Brand] Formula One"
+        
+        > [!WARNING]
+        > Please stick to one specific brand/flag per issue. Multi-brand/-flag issues will be closed without further inspection.
+        > You're free to make as many issues as you want.
+        ---
+
+        Hey! Thank you for wanting to contribute to argxs!
+        Please fill out the form below, and your request will be reviewed as soon as possible.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Icon Type
+      options:
+        - Brand
+        - Flag
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name of Icon Brand/Flag
+      description: The name should be written exactly as presented on argxs to avoid confusion.
+      placeholder: e.g. "OpenStreetMap"
+    validations:
+      required: true
+  - type: textarea
+    id: icon
+    attributes:
+      label: Resource Information
+      description: |
+        What resource(s) do you want to add?
+        Rather too much information than too little. Feature requests with vague descriptions take longer to implement.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional Information
+      description: |
+        Got any additional information? Leave it here.
+      placeholder: |
+        Upload SVGs, insert links to sites/resources externally, etc.

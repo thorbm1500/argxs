@@ -1,0 +1,57 @@
+name: "Icon Feature Request: Add New Icon"
+description: Use this template to request the addition of a new icon.
+title: "[New Icon] [<brand_or_flag>] <add_title_here>"
+labels: ["feature request","new icon","awaiting review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!NOTE]
+        > Please update the title to showcase the type of icon, and its name.
+        > e.g. "[New Icon] [Brand] Formula One"
+        
+        > [!WARNING]
+        > Please stick to one specific brand/flag per issue. Multi-brand/-flag issues will be closed without further inspection.
+        > You're free to make as many issues as you want.
+        ---
+
+        Hey! Thank you for wanting to contribute to argxs!
+        Please fill out the form below, and your request will be reviewed as soon as possible.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Icon Type
+      options:
+        - Brand
+        - Flag
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name of Icon Brand/Flag
+      description: |
+        When requesting addition of new Brands: The brand name should be written as it is defined by the brand. Do not rely on logos for proofreading, instead look for the brand name in written text, such as page titles, "about us" sections, etc.
+      placeholder: |
+        Do: "argxs", Dont: "Argxs"
+        Do: "OpenStreetMap", Dont: "Openstreetmap"
+        Do: "ProRata.AI", Dont: "ProRata"
+    validations:
+      required: true
+  - type: textarea
+    id: icon
+    attributes:
+      label: Brand/Flag Information
+      description: |
+        Do you have any specific logos/icons/flags/etc in mind that you want added?
+        Is there a specific reason where you want the brand/flag added?
+        Rather too much information than too little. Feature requests with vague descriptions take longer to implement.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional Information
+      description: |
+        Got any additional information? Leave it here.
+      placeholder: |
+        Upload SVGs, insert links to sites/resources externally, etc.
