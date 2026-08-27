@@ -11,7 +11,7 @@ const metricsHandler = new MetricsHandler();
 export const VERSION: string = await Bun.file('./package.json').json().then((pkg) => pkg.version);
 export const RESOURCES: Resources = new Resources();
 
-export const SITEMAP: string = (await Bun.file(!building && Bun.env.NODE_ENV === 'production' ? './sitemap.xml' : 'src/lib/server/sitemap.xml').text()).trim();
+export const SITEMAP: string = (await Bun.file(!building && Bun.env.NODE_ENV === 'production' ? './sitemap.xml' : 'static/sitemap.xml').text()).trim();
 
 export const handleError: HandleServerError = async ({ error }) => {
 	console.error(Bun.inspect(error, { colors: true, compact: false, depth: 50, sorted: false }));

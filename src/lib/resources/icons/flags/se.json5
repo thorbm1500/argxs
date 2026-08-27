@@ -10,8 +10,8 @@
                 last_modified: "2026-08-24T11:15+02:00",
                 version: '0.0.5',
                 source: {
-                    name: 'Wikipedia',
-                    href: 'https://en.wikipedia.org'
+                    name: 'argxs',
+                    href: 'https://argxs.dev'
                 }
             }
         }

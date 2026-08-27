@@ -1,21 +1,26 @@
 # Version 0.9.0
-#### 20xx-xx-xx
+#### 2026-08-27
+
+# New Pages
+- [colors#generator](https://argxs.dev/colors/generator) is now live!
+- [concept](https://argxs.dev/concept) is now live!
 
 ## Minor Changes
 - Added [Sitemap](https://argxs.dev/sitemap.xml)
 - Hardened Content-Security-Policy by also adding headers inside the application
 - **Icons**
   - **Flags**
+    - Remade the Swedish flag
     - Removed ve-state.svg, for inefficiency due to making use of inlined base64 images
 
 ### New Flag Resources
-- **x New Flags**
+- **2 New Flags**
   - **[New]** Skåne (Scania)
   - United States of America
     - Incl. U.S. President
 
 ### New Brand Resources
-- **x New Icons**
+- **33 New Icons**
   - **[New]** DuckDuckGo
   - **[New]** ProRata.AI
   - **[New]** NetBird

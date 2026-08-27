@@ -23,9 +23,9 @@
 			For more than a decade, I have been designing, and in the more recent years developing websites, and one problem has persisted throughout this entire time; Never having a proper system, and constantly having to look for the same resources, over and over again.
 			Sure, I could've just saved that one logo somewhere I would remember before continuing with my design, but did I do that? No.. Cause things have to be fast and efficient, and spending time on keeping a proper structure is not fast.<br>
 			<strong>So I made argxs. A free and Open Source all-in-one toolkit</strong>.<br><br>
-			The point of argxs is to be the <i>only</i> place needed to get, regardless of what type of resource is needed.
+			The point of argxs is to be the <i>only</i> site needed, regardless of what type of resource is needed.
 			During the beginning of argxs, the focus has been primarily on icons, as that has been the biggest issue for me; Having to look for the same SVGs, over and over again.
-			argxs now offers a generous <i>& optimized</i> collection of icons, and focus will now start being put elsewhere, to get argxs to where it should be.
+			argxs now offers a generous <i>and optimized</i> collection of icons, and focus will now start being put elsewhere, to get argxs to where it should be.
 		</span>
 	</div>
 	<div class="part faq">
@@ -46,7 +46,7 @@
 				Q. Can I use *<i>insert resource here</i>* in my project/product?
 			</h2>
 			<h3>
-				<strong>A.</strong> All assets & resources provided by argxs are provided as is, and all rights are still held by the respective owners. argxs simply collects all in one place for ease of use. This means that if you wish to use a logo from fx. GitHub, you would have to contact GitHub to ask for permission.
+				<strong>A.</strong> All assets & resources provided by argxs are provided as is, and all rights are still held by the respective owners. argxs simply collects all in one place for ease of use.
 			</h3>
 		</div>
 		<div class="question">
@@ -78,7 +78,7 @@
 				Q. Does argxs offer an API?
 			</h2>
 			<h3>
-				<strong>A.</strong> argxs does not currently offer an API. An API might be opened behind a paywall one day, though this is not certain yet.<br><i>Note: The API would only exist as a convenience tool and wouldn't actually offer any new features in itself, thereby keeping argxs true to its tagline "Always Free. Always Open Source".</i> The paywall would only be to pay for any costs generated from the API, such as e.g. Cloudflare Worker requests
+				<strong>A.</strong> argxs does not currently offer an API. An API might be made available one day, though this is not certain yet.<br><i>Note: The API would only exist as a convenience tool and wouldn't actually offer any new features in itself, thereby keeping argxs true to its tagline "Always Free. Always Open Source", despite the API likely being behind a paywall.</i>
 			</h3>
 		</div>
 		<div class="question">
