@@ -1,5 +1,6 @@
 import { VERSION } from '../hooks.server.ts';
-import { getDefaultSEODescription, getDefaultSEOTitle, type SEO } from '$lib/components/interfaces';
+import { type SEO } from '$lib/components/interfaces';
+import { getDefaultSEODescription, getDefaultSEOTitle } from '$lib/server/internalInterfaces';
 
 export const ssr = true;
 

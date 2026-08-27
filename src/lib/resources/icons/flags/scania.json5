@@ -1,0 +1,18 @@
+{
+    name: 'Skåne',
+    type: 'region',
+    tags: ["Europe","Nordic","Scandinavia"],
+    flags: [
+        {
+            default: {
+                path: 'scania.svg',
+                date_added: '2026/8/24',
+                version: '0.9.0',
+                source: {
+                    name: 'argxs',
+                    href: 'https://argxs.dev'
+                }
+            }
+        }
+    ]
+}

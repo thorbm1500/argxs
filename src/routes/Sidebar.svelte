@@ -44,12 +44,12 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Home</p>
 			</a>
-			<div class={{ tag: true, in_progress: true }} tabindex="-1">
+			<a {@attach tabIndexFocus} class={{ page: true, newly_added: true, tag: true, selected: page.url.pathname === '/concept' }} href="/concept">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M13 2L4.09344 12.6879C3.74463 13.1064 3.57023 13.3157 3.56756 13.4925C3.56524 13.6461 3.63372 13.7923 3.75324 13.8889C3.89073 14 4.16316 14 4.70802 14H12L11 22L19.9065 11.3121C20.2553 10.8936 20.4297 10.6843 20.4324 10.5075C20.4347 10.3539 20.3663 10.2077 20.2467 10.1111C20.1092 10 19.8368 10 19.292 10H12L13 2Z" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Core Concept</p>
-			</div>
+			</a>
 			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/privacy' }} href="/privacy">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -96,7 +96,6 @@
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%;">Brands</p>
 			</a>
 		</div>
-
 		<div class="nav-section">
 			<div class={{ title: true, selected: page.url.pathname.startsWith('/colors') }} inert>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -107,20 +106,20 @@
 				</svg>
 				<p>COLORS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, newly_added: true, tag: true, selected: page.url.pathname === '/colors/color-picker' }} href="/colors/color-picker">
+			<a {@attach tabIndexFocus} class={{ page: true, tag: true, selected: page.url.pathname === '/colors/picker' }} href="/colors/picker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M11 7l6 6" />
 					<path d="M4 16l11.7 -11.7a1 1 0 0 1 1.4 0l2.6 2.6a1 1 0 0 1 0 1.4l-11.7 11.7h-4v-4" />
 				</svg>
-				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Color Picker</p>
+				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Picker</p>
 			</a>
-			<div class={{ tag: true, in_progress: true }} tabindex="-1">
+			<a {@attach tabIndexFocus} class={{ page: true, newly_added: true, tag: true, selected: page.url.pathname === '/colors/generator' }} href="/colors/generator">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M8.99997 11.2224L12.7778 15.0002M7.97485 20.975C6.60801 22.3419 4 22.0002 2 22.0002C3.0251 20.0002 1.65827 17.3921 3.0251 16.0253C4.39194 14.6585 6.60801 14.6585 7.97485 16.0253C9.34168 17.3921 9.34168 19.6082 7.97485 20.975ZM11.9216 15.9248L21.0587 6.05671C21.8635 5.18755 21.8375 3.83776 20.9999 3.00017C20.1624 2.16258 18.8126 2.13663 17.9434 2.94141L8.07534 12.0785C7.5654 12.5507 7.31043 12.7868 7.16173 13.0385C6.80514 13.6423 6.79079 14.3887 7.12391 15.0057C7.26283 15.2631 7.50853 15.5088 7.99995 16.0002C8.49136 16.4916 8.73707 16.7373 8.99438 16.8762C9.6114 17.2093 10.3578 17.195 10.9616 16.8384C11.2134 16.6897 11.4494 16.4347 11.9216 15.9248Z" />
 				</svg>
-				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Colors</p>
-			</div>
+				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Generator</p>
+			</a>
 			<a {@attach tabIndexFocus} class={{ page: true, outdated: true, tag: true, selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
 				<svg style="transform:rotate(20deg) translate(-.2rem, -.05rem);" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
@@ -213,17 +212,23 @@
 				</svg>
 				<p>OTHER</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, outdated: true, tag: true, selected: page.url.pathname === '/other/typography' }} href="/other/typography">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<div class={{ tag: true, outdated: true, planned: true }} tabindex="-1">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M4 7C4 6.06812 4 5.60218 4.15224 5.23463C4.35523 4.74458 4.74458 4.35523 5.23463 4.15224C5.60218 4 6.06812 4 7 4H17C17.9319 4 18.3978 4 18.7654 4.15224C19.2554 4.35523 19.6448 4.74458 19.8478 5.23463C20 5.60218 20 6.06812 20 7M9 20H15M12 4V20" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Typography</p>
-			</a>
+			</div>
 			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M9.99999 13C10.4294 13.5741 10.9773 14.0491 11.6065 14.3929C12.2357 14.7367 12.9315 14.9411 13.6466 14.9923C14.3618 15.0435 15.0796 14.9403 15.7513 14.6897C16.4231 14.4392 17.0331 14.047 17.54 13.54L20.54 10.54C21.4508 9.59695 21.9547 8.33394 21.9434 7.02296C21.932 5.71198 21.4061 4.45791 20.4791 3.53087C19.552 2.60383 18.298 2.07799 16.987 2.0666C15.676 2.0552 14.413 2.55918 13.47 3.46997L11.75 5.17997M14 11C13.5705 10.4258 13.0226 9.95078 12.3934 9.60703C11.7642 9.26327 11.0685 9.05885 10.3533 9.00763C9.63819 8.95641 8.9204 9.0596 8.24864 9.31018C7.57688 9.56077 6.96687 9.9529 6.45999 10.46L3.45999 13.46C2.5492 14.403 2.04522 15.666 2.05662 16.977C2.06801 18.288 2.59385 19.542 3.52089 20.4691C4.44793 21.3961 5.702 21.9219 7.01298 21.9333C8.32396 21.9447 9.58697 21.4408 10.53 20.53L12.24 18.82" />
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">External</p>
+			</div>
+			<div class={{ tag: true, planned: true }} tabindex="-1">
+				<svg fill="currentColor" width="1773" height="1248" viewBox="0 0 126.644 96">
+					<path d="M81.15,0c-1.2376,2.1973-2.3489,4.4704-3.3591,6.794-9.5975-1.4396-19.3718-1.4396-28.9945,0-.985-2.3236-2.1216-4.5967-3.3591-6.794-9.0166,1.5407-17.8059,4.2431-26.1405,8.0568C2.779,32.5304-1.6914,56.3725.5312,79.8863c9.6732,7.1476,20.5083,12.603,32.0505,16.0884,2.6014-3.4854,4.8998-7.1981,6.8698-11.0623-3.738-1.3891-7.3497-3.1318-10.8098-5.1523.9092-.6567,1.7932-1.3386,2.6519-1.9953,20.281,9.547,43.7696,9.547,64.0758,0,.8587.7072,1.7427,1.3891,2.6519,1.9953-3.4601,2.0457-7.0718,3.7632-10.835,5.1776,1.97,3.8642,4.2683,7.5769,6.8698,11.0623,11.5419-3.4854,22.3769-8.9156,32.0509-16.0631,2.626-27.2771-4.496-50.9172-18.817-71.8548C98.9811,4.2684,90.1918,1.5659,81.1752.0505l-.0252-.0505ZM42.2802,65.4144c-6.2383,0-11.4159-5.6575-11.4159-12.6535s4.9755-12.6788,11.3907-12.6788,11.5169,5.708,11.4159,12.6788c-.101,6.9708-5.026,12.6535-11.3907,12.6535ZM84.3576,65.4144c-6.2637,0-11.3907-5.6575-11.3907-12.6535s4.9755-12.6788,11.3907-12.6788,11.4917,5.708,11.3906,12.6788c-.101,6.9708-5.026,12.6535-11.3906,12.6535Z"/>
+				</svg>
+				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Discord</p>
 			</div>
 			<a {@attach tabIndexFocus} class={{ page: true }} href="https://github.com/thorbm1500/argxs" target="_blank" rel="external">
 				<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
@@ -654,7 +659,7 @@
 
 				.planned, .in_progress {
             &:hover, svg {
-                color: var(--theme-text-fourth) !important;
+                color: var(--theme-text-fourth);
 						}
 				}
 
@@ -720,7 +725,7 @@
                 cursor: no-drop !important;
 
                 p, &:hover::after, &::after {
-                    color: var(--theme-text-fourth) !important;
+                    color: var(--theme-text-fourth);
                 }
 						}
         }
@@ -740,18 +745,18 @@
         .outdated {
             &:hover::after {
                 font-weight: 800;
-                color: var(--theme-color-alert);
+                color: var(--theme-color-alert) !important;
             }
 
             &::after {
-                content: 'OUTDATED';
-                color: var(--theme-color-alert);
+                content: 'OUTDATED' !important;
+                color: var(--theme-color-alert) !important;
 								opacity: .5;
                 background: none;
             }
 
 						&:hover::after, &.selected::after {
-                color: var(--theme-color-alert);
+                color: var(--theme-color-alert) !important;
 								opacity: 1;
 						}
         }

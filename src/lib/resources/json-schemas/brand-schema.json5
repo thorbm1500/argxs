@@ -75,7 +75,8 @@
           "Shopping",
           "Enterprise",
           "Utility",
-          "News & Media"
+          "News & Media",
+          "Creativity"
         ]
       },
       "minItems": 0,

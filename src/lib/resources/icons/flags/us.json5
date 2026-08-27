@@ -1116,6 +1116,20 @@
                     href: 'https://en.wikipedia.org'
                 }
             }
+        },
+        {
+            name: 'U.S. President',
+            type: 'other',
+            tags: ["North America"],
+            default: {
+                path: 'us-office-president.svg',
+                date_added: '2026/8/24',
+                version: '0.9.0',
+                source: {
+                    name: 'Wikipedia',
+                    href: 'https://en.wikipedia.org'
+                }
+            }
         }
     ]
 }

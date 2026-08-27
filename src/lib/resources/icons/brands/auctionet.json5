@@ -1,0 +1,30 @@
+{
+	name: 'Auctionet',
+	href: 'https://auctionet.com',
+	tags: ["Shopping"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'auctionet-logo.svg',
+				date_added: '2026/8/16',
+                version: '0.9.0',
+				source: {
+					name: 'Auctionet',
+					href: 'https://auctionet.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'auctionet-logo-dark.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Auctionet',
+					href: 'https://auctionet.com'
+				}
+			}
+		}
+	]
+}

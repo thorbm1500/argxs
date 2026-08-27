@@ -1,0 +1,79 @@
+{
+	name: 'Borger.dk',
+	href: 'https://www.borger.dk',
+	tags: ["Utility"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'borger-dk-logo.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Borger.dk',
+					href: 'https://www.borger.dk'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'borger-dk-logo-dark.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Borger.dk',
+					href: 'https://www.borger.dk'
+				}
+			}
+		},
+		{
+			name: 'Digital Post',
+			type: 'icon',
+			default: {
+				path: 'digital-post-icon.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Borger.dk',
+					href: 'https://www.borger.dk'
+				}
+			}
+		},
+		{
+			name: 'Digital Post',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'digital-post-logo.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Borger.dk',
+					href: 'https://www.borger.dk'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'digital-post-logo-dark.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Borger.dk',
+					href: 'https://www.borger.dk'
+				}
+			},
+			variable: [
+				{
+					theme: 'dark',
+					path: 'digital-post-logo-white.svg',
+					date_added: '2026/8/16',
+					version: '0.9.0',
+					source: {
+						name: 'Borger.dk',
+						href: 'https://www.borger.dk'
+					}
+				}
+			]
+		}
+	]
+}

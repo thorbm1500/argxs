@@ -1,4 +1,5 @@
-<svg id="https://argxs.dev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107 56" preserveAspectRatio="xMidYMid meet">
-    <path fill="#c8102e" d="M0 0h107L62 24v8l45 24H0z"/>
-    <path d="M28 0v62M0 28h62" stroke="#fff" stroke-width="8"/>
+<svg id="https://argxs.dev" xmlns="http://www.w3.org/2000/svg" width="1070" height="560" viewBox="0 0 107 56">
+    <path fill="#C8102E" d="M0 0h107L62 24v8l45 24H0z"/>
+    <rect width="8" height="100%" fill="#FFF" x="24" y="0" />
+    <rect width="62" height="8" fill="#FFF" x="0" y="24" />
 </svg>

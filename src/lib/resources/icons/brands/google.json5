@@ -6,7 +6,7 @@
 		{
 			type: 'icon',
 			default: {
-				path: 'google-icon.svg',
+				path: 'google-variant-icon.svg',
 				date_added: '2026/4/10',
 				version: '0.0.1'
 			}
@@ -59,14 +59,63 @@
 			}
 		},
 		{
+			name: 'Google Search Central',
+			href: 'https://developers.google.com/search',
+			type: 'icon',
+			tags: ["Development","Utility"],
+			default: {
+				path: 'google-search-central-icon.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Google',
+					href: 'https://google.com'
+				}
+			},
+			variable: [
+				{
+					path: 'google-search-central-square-icon.svg',
+					date_added: '2026/8/16',
+					version: '0.9.0',
+					source: {
+						name: 'Google',
+						href: 'https://google.com'
+					}
+				}
+			]
+		},
+		{
 			name: 'Google Search Console',
 			href: 'https://search.google.com/search-console/about',
 			type: 'icon',
-			tags: ["Development"],
+			tags: ["Development","Utility"],
 			default: {
 				path: 'google-search-console-icon.svg',
-				date_added: '2026/4/25',
-				version: '0.2.12'
+				date_added: '2026/8/16',
+				version: '0.9.0',
+				source: {
+					name: 'Google',
+					href: 'https://google.com'
+				}
+			},
+			variable: [
+				{
+					name: 'Google Search Console (Old)',
+					path: 'google-search-console-old-icon.svg',
+					date_added: '2026/4/25',
+					version: '0.2.12'
+				}
+			]
+		},
+		{
+			name: 'Google Search Console',
+			href: 'https://search.google.com/search-console/about',
+			type: 'logo',
+			tags: ["Development","Utility"],
+			default: {
+				path: 'google-search-console-logo.svg',
+				date_added: '2026/8/16',
+				version: '0.9.0'
 			}
 		},
 		{
@@ -236,6 +285,21 @@
 				path: 'google-ad-sense-icon.svg',
 				date_added: '2026/4/25',
 				version: '0.2.13'
+			}
+		},
+		{
+			name: 'My Ad Center',
+			href: 'https://myadcenter.google.com',
+			type: 'icon',
+			tags: ["Utility"],
+			default: {
+				path: 'google-my-ad-center-icon.svg',
+				date_added: '2026/8/17',
+				version: '0.9.0',
+				source: {
+					name: 'Google',
+					href: 'https://myadcenter.google.com'
+				}
 			}
 		},
 		{

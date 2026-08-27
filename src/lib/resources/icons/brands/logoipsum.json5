@@ -1,0 +1,42 @@
+{
+	name: 'Logoipsum',
+	href: 'https://logoipsum.com',
+	tags: ["Creativity","Utility"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'logoipsum-icon.svg',
+				date_added: '2026/8/17',
+				version: '0.9.0',
+				source: {
+					name: 'Logoipsum',
+					href: 'https://logoipsum.com'
+				}
+			},
+			variable: [
+				{
+					path: 'logoipsum-icon-grey.svg',
+					date_added: '2026/8/17',
+					version: '0.9.0',
+					source: {
+						name: 'Logoipsum',
+						href: 'https://logoipsum.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'logoipsum-logo.svg',
+				date_added: '2026/8/17',
+                version: '0.9.0',
+				source: {
+					name: 'Logoipsum',
+					href: 'https://logoipsum.com'
+				}
+			}
+		}
+	]
+}

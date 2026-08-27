@@ -1,0 +1,66 @@
+{
+    name: 'NetBird',
+    href: 'https://netbird.io',
+    tags: ["AI","Utility"],
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'netbird-icon.svg',
+                date_added: '2026/8/16',
+                version: '0.9.0',
+                source: {
+                    name: 'NetBird',
+                    href: 'https://netbird.io'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'netbird-logo.svg',
+                date_added: '2026/8/16',
+                version: '0.9.0',
+                source: {
+                    name: 'NetBird',
+                    href: 'https://netbird.io'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'netbird-logo-dark.svg',
+                date_added: '2026/8/16',
+                version: '0.9.0',
+                source: {
+                    name: 'NetBird',
+                    href: 'https://netbird.io'
+                }
+            }
+        }
+    ],
+    colors: {
+        primary: [
+            {
+                hex: '#F68330',
+                rgb: '246 131 48'
+            },
+            {
+                hex: '#F35E32',
+                rgb: '243 94 50'
+            },
+            {
+                hex: '#F8784F',
+                rgb: '248 120 79'
+            },
+            {
+                hex: '#0A0A0A',
+                rgb: '10 10 10'
+            },
+            {
+                hex: '#C1C1C1',
+                rgb: '193 193 193'
+            }
+        ]
+    }
+}
