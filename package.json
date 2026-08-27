@@ -38,7 +38,7 @@
         "svelte-adapter-bun": "^1.0.1",
         "tailwindcss": "^4.3.3",
         "typescript": "^6.0.3",
-        "typescript-eslint": "^8.67.0",
+        "typescript-eslint": "^8.68.0",
         "vite": "npm:@voidzero-dev/vite-plus-core@0.2.6"
     },
     "keywords": [
@@ -46,7 +46,7 @@
     ],
     "dependencies": {
         "@highlightjs/cdn-assets": "^11.12.0",
-        "@humanspeak/svelte-markdown": "^1.8.7",
+        "@humanspeak/svelte-markdown": "^1.8.8",
         "@sveltejs/kit": "^2.70.3",
         "@types/chroma-js": "^3.1.2",
         "chroma-js": "^3.2.0",
