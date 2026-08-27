@@ -19,8 +19,15 @@
   - **[New]** DuckDuckGo
   - **[New]** ProRata.AI
   - **[New]** NetBird
+  - **[New]** Logoipsum
+  - **[New]** Rizal
+  - **[New]** Auctionet
   - **[New]** Borger.dk
     - Incl. Digital Post
+  - Google
+    - Incl. Google Search Central
+    - Incl. Google Search Console
+    - Incl. My Ad Center
 
 - **New Brand Guidelines**
   - DuckDuckGo
