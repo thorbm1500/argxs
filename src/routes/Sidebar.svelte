@@ -291,7 +291,7 @@
     @media (width >= 44rem) {
         :root {
             --sidebar-width: 18rem !important;
-	        --min-height: calc(100vh - var(--header-height) - 2.5rem);
+	        	--min-height: calc(100vh - var(--header-height) - 2.5rem);
         }
 
         @keyframes ButtonHighlightAnim {

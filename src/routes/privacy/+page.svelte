@@ -1,6 +1,4 @@
 <script lang="ts">
-	import GlassButton from '$lib/components/GlassButton.svelte';
-	
 	const { data } = $props();
 
 	const lastUpdated: string = '25.04.2026';
@@ -41,7 +39,7 @@
 			</defs>
 			<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 			<path fill="url(#gradient)"
-			      d="M11.998 2l.118 .007l.059 .008l.061 .013l.111 .034a.993 .993 0 0 1 .217 .112l.104 .082l.255 .218a11 11 0 0 0 7.189 2.537l.342 -.01a1 1 0 0 1 1.005 .717a13 13 0 0 1 -9.208 16.25a1 1 0 0 1 -.502 0a13 13 0 0 1 -9.209 -16.25a1 1 0 0 1 1.005 -.717a11 11 0 0 0 7.531 -2.527l.263 -.225l.096 -.075a.993 .993 0 0 1 .217 -.112l.112 -.034a.97 .97 0 0 1 .119 -.021l.115 -.007zm.002 7a2 2 0 0 0 -1.995 1.85l-.005 .15l.005 .15a2 2 0 0 0 .995 1.581v1.769l.007 .117a1 1 0 0 0 1.993 -.117l.001 -1.768a2 2 0 0 0 -1.001 -3.732z" />
+						d="M11.998 2l.118 .007l.059 .008l.061 .013l.111 .034a.993 .993 0 0 1 .217 .112l.104 .082l.255 .218a11 11 0 0 0 7.189 2.537l.342 -.01a1 1 0 0 1 1.005 .717a13 13 0 0 1 -9.208 16.25a1 1 0 0 1 -.502 0a13 13 0 0 1 -9.209 -16.25a1 1 0 0 1 1.005 -.717a11 11 0 0 0 7.531 -2.527l.263 -.225l.096 -.075a.993 .993 0 0 1 .217 -.112l.112 -.034a.97 .97 0 0 1 .119 -.021l.115 -.007zm.002 7a2 2 0 0 0 -1.995 1.85l-.005 .15l.005 .15a2 2 0 0 0 .995 1.581v1.769l.007 .117a1 1 0 0 0 1.993 -.117l.001 -1.768a2 2 0 0 0 -1.001 -3.732z" />
 		</svg>
 		<h1>Privacy</h1>
 		<h3>Last Updated {lastUpdated}</h3>
@@ -98,17 +96,15 @@
 		<h2>Do you still wish to opt out of site analytics?</h2>
 		<span><strong style="color:var(--theme-color-accent);font-weight:900;">argxs</strong> believes in owning your own data. Clicking the button below ensures that we wont process any data related to your person in the future. This is done by simple providing you with a cookie "argxs_do_not_track". The server checks for the cookie when a request is received, and skips processing analytics, if the cookie is present.</span>
 		<div class="actions">
-			<GlassButton className="opt-out-button {$state.eager(optedOut) ? 'out' : 'in'}" marginTop={0}>
-				<button class="opt-out-button {$state.eager(optedOut) ? 'out' : 'in'}" title="Opt in & out of cookies" onclick="{() => optOut()}">
-					<p>
-						{#if !hasChanged}
-							{#if optedOut}Opt In{:else}Opt Out{/if}
-						{:else}
-							{#if optedOut}Opt Back In{:else}Opt Back Out{/if}
-						{/if}
-					</p>
-				</button>
-			</GlassButton>
+			<button class="opt-out-button {optedOut ? 'out' : 'in'}" title="Opt in & out of cookies" onclick="{optOut}">
+				<p>
+					{#if !hasChanged}
+						{#if optedOut}Opt In{:else}Opt Out{/if}
+					{:else}
+						{#if optedOut}Opt Back In{:else}Opt Back Out{/if}
+					{/if}
+				</p>
+			</button>
 			{#if !hasChanged && optedOut }
 				<span class="opted-out">You're already opted out.</span>
 			{:else if hasChanged }
@@ -122,13 +118,14 @@
     /* Desktop & Tablet */
     @media (width >= 44rem) {
         .privacy-sec {
-	        padding-top: 4.5rem;
+            padding-top: 4.5rem;
+
             .top {
                 margin-bottom: 1.5rem;
-	            
-	            h3 {
-		            font-size: .9rem;
-	            }
+
+                h3 {
+                    font-size: .9rem;
+                }
             }
 
             .part {
@@ -149,38 +146,38 @@
                     font-size: 1.25rem;
                 }
             }
-	        
-	        .privacy-icon {
-		        transform: translateY(-2.75rem) translateX(-2rem) rotate(-22.5deg);
-	        }
+
+            .privacy-icon {
+                transform: translateY(-2.75rem) translateX(-2rem) rotate(-22.5deg);
+            }
         }
     }
 
     /* Phone */
     @media (width < 44rem) {
         .privacy-sec {
-	        padding-top: 1rem;
-	        
+            padding-top: 1rem;
+
             .top {
                 margin-bottom: 2.5rem;
-	            
-	            h1 {
-		            margin-top: 1rem;
-		            transform: translateY(.75rem);
-	            }
-	            
-	            h3 {
-		            font-size: .8rem;
-		            margin-top: 0;
-		            transform: translateX(.7rem);
-		            opacity: .75;
-	            }
+
+                h1 {
+                    margin-top: 1rem;
+                    transform: translateY(.75rem);
+                }
+
+                h3 {
+                    font-size: .8rem;
+                    margin-top: 0;
+                    transform: translateX(.7rem);
+                    opacity: .75;
+                }
             }
 
             .part {
                 margin-bottom: 2.5rem;
-	            line-height: 1.25 !important;
-	            letter-spacing: normal;
+                line-height: 1.25 !important;
+                letter-spacing: normal;
 
                 h2 {
                     text-align: start;
@@ -189,7 +186,7 @@
 
                 span, a {
                     font-size: .85rem;
-	                font-weight: 600;
+                    font-weight: 600;
                 }
 
                 ol {
@@ -209,11 +206,11 @@
                     font-size: 1.15rem;
                 }
             }
-	        
-	        .privacy-icon {
-		        justify-self: end;
-		        transform: translateY(-1rem) translateX(.5rem) rotate(15deg);
-	        }
+
+            .privacy-icon {
+                justify-self: end;
+                transform: translateY(-1rem) translateX(.5rem) rotate(15deg);
+            }
         }
     }
 
@@ -236,7 +233,7 @@
             h3 {
                 font-weight: 800;
                 color: var(--theme-text-third);
-	            align-self: start;
+                align-self: start;
             }
         }
 
@@ -269,92 +266,68 @@
 
         .part.opt-out {
             margin-top: 3rem;
-	        
-	        .actions {
-		        display: flex;
-		        align-items: baseline;
-		        justify-content: flex-start;
-		        gap: .65rem;
-		        
-		        margin-top: 1rem;
-		        
-		        .opt-out-button, :global .opt-out-button {
-			        position: relative !important;
-			        
-			        display:         flex;
-			        align-items:     baseline;
-			        justify-content: center;
-			        gap:             .25rem;
-			        
-			        padding:         .3rem .45rem .3rem .3rem;
-			        
-			        width: fit-content;
-			        height: fit-content;
-			        
-			        font-size: 1.05rem;
-			        font-weight: 700;
-			        text-wrap: nowrap;
-			        
-			        z-index: 999;
-			        
-			        border-radius: .9rem;
-			        
-			        p {
-				        color: var(--theme-text-secondary);
-				        transition: var(--theme-transition-off);
-			        }
-			        
-			        cursor: pointer;
-			        
-			        transition: var(--theme-transition-off);
-			        
-			        &:hover {
-				        p {
-					        transition: var(--theme-transition-on);
-				        }
-			        }
-			        
-			        &.out {
-				        &:hover p {
-					        color: var(--theme-color-success);
-					        filter: drop-shadow(0 0 .25rem rgba(from var(--theme-color-success) r g b / .15));
-				        }
-			        }
-			        
-			        &.in {
-				        &:hover p {
-					        color: var(--theme-color-alert);
-					        filter: drop-shadow(0 0 .25rem rgba(from var(--theme-color-alert) r g b / .15));
-				        }
-			        }
-			        
-			        &:hover {
-				        filter: brightness(1.2);
-				        transition: var(--theme-transition-on);
-			        }
-			        
-			        &:active {
-				        transform: scale(0.975);
-			        }
-			        
-			        & > div {
-				        top:  0;
-				        left: 0;
-			        }
-		        }
-		        
-		        .opted-out {
-			        font-size: .9rem;
-			        font-style: italic;
-			        font-weight: 700;
-			        
-			        color: var(--theme-text-third);
-		        }
-		        
-		        .opted-out.changed {
-			        color: var(--theme-color-success);
-		        }
-	        }
+
+            .actions {
+                display: flex;
+                align-items: baseline;
+                justify-content: flex-start;
+                gap: .65rem;
+
+                margin-top: 1rem;
+
+                .opt-out-button {
+                    padding: .4rem .65rem;
+
+                    width: fit-content;
+                    height: fit-content;
+
+                    text-wrap: nowrap;
+
+                    background: var(--theme-ui-button);
+                    border: 1px solid var(--theme-ui-button-border);
+                    border-radius: .9rem;
+
+                    cursor: pointer;
+
+                    p {
+                        color: var(--theme-text-secondary);
+                    }
+
+                    &.out {
+                        &:hover p {
+                            color: var(--theme-color-success);
+                            filter: drop-shadow(0 0 .25rem rgba(from var(--theme-color-success) r g b / .15));
+                        }
+                    }
+
+                    &.in {
+                        &:hover p {
+                            color: var(--theme-color-alert);
+                            filter: drop-shadow(0 0 .25rem rgba(from var(--theme-color-alert) r g b / .15));
+                        }
+                    }
+
+                    &:hover {
+                        filter: brightness(1.2);
+                    }
+
+                    &:active {
+                        transform: scale(0.975);
+                    }
+                }
+
+                .opted-out {
+                    font-size: .9rem;
+                    font-style: italic;
+                    font-weight: 700;
+
+                    color: var(--theme-text-third);
+                }
+
+                .opted-out.changed {
+                    color: var(--theme-color-success);
+                }
+            }
         }
 
         .privacy-icon {
