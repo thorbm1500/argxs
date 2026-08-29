@@ -3,6 +3,7 @@
 
 ## Minor Changes
 - Added type attribute to favicon entry in site head
+- Icons now show as "NEW" if added within the same minor version
 
 ### New Flag Resources
 - **x New Flags**
