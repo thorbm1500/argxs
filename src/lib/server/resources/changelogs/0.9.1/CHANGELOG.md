@@ -5,6 +5,7 @@
 - Added type attribute to favicon entry in site head
 - Icons now show as "NEW" if added within the same minor version
 - RGB lightbar in the header is now visible at all times, instead of fading in and out
+- General design updates across the entire site, for a more consistent user-experience
 - **Colors**
   - **Generator**
     - Color values can now be copied by clicking on them
