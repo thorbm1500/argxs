@@ -785,7 +785,6 @@
 					</div>
 				{/if}
 			</div>
-			<GlassButton className="search-field">
 				<form class="search-field" onsubmit="{(e) => {
 					e.preventDefault();
 					search = searchbarValue;
@@ -804,7 +803,6 @@
 									 }, 500);
 					}}">
 				</form>
-			</GlassButton>
 		</div>
 		<div class="actions">
 			<div class="left">
@@ -813,11 +811,9 @@
 						<li in:receive={{ key: tag.id }}
 								out:send={{ key: tag.id }}
 								animate:flip={{ duration: 200 }}>
-							<GlassButton className="sort-action active tag">
 								<button class="sort-action active" onclick="{() => {
 										allFilters.forEach((t) => {if (t.id === tag.id) t.active = false});
 									}}"># {tag.tag}</button>
-							</GlassButton>
 						</li>
 					{/each}
 				</ul>
@@ -826,11 +822,9 @@
 							<li in:receive={{ key: tag.id }}
 							    out:send={{ key: tag.id }}
 							    animate:flip={{ duration: 200 }}>
-								<GlassButton className="sort-action inactive tag">
 									<button class="sort-action inactive" onclick="{() => {
 										allFilters.forEach((t) => {if (t.id === tag.id) t.active = true});
 									}}"># {tag.tag}</button>
-								</GlassButton>
 							</li>
 						{/each}
 				</ul>
@@ -838,7 +832,6 @@
 			<div class="right">
 				<div class="sorting">
 					{#if sorting !== 'default' || (iconsOnly || logosOnly || countriesOnly || statesOnly || animatedOnly)}
-						<GlassButton className="sort-action">
 							<button type="button" transition:fade={{duration: prefersReducedMotion.current ? 0 : 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => {
 							sorting = 'default';
 							order = 'desc';
@@ -855,9 +848,7 @@
 									<path d="M3 3l18 18"/>
 								</svg>
 							</button>
-						</GlassButton>
 					{/if}
-					<GlassButton className="sort-action">
 						<button type="button" class="sort-action" onclick="{() =>  {
 							if (sorting !== 'alphabet') {
 								sorting = 'alphabet';
@@ -887,8 +878,6 @@
 							</svg>
 							Name
 						</button>
-					</GlassButton>
-					<GlassButton className="sort-action">
 						<button type="button" class="sort-action" onclick="{() =>  {
 							if (sorting !== 'time') {
 								sorting = 'time';
@@ -917,10 +906,8 @@
 							</svg>
 							Version
 						</button>
-					</GlassButton>
 				</div>
 				<div class="filter">
-					<GlassButton className="sort-action {!(iconsOnly || logosOnly || countriesOnly || statesOnly) ? 'active' : 'inactive'}">
 						<button type="button" class="sort-action {!(iconsOnly || logosOnly || countriesOnly || statesOnly) ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							iconsOnly = false;
@@ -929,43 +916,32 @@
 							statesOnly = false;
 							animatedOnly = false;
 						}}">All</button>
-					</GlassButton>
-					<GlassButton className="sort-action {animatedOnly ? 'active' : 'inactive'}">
 						<button type="button" class="sort-action {animatedOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							animatedOnly = !animatedOnly;
 							}}">Animated Only</button>
-					</GlassButton>
 					{#if iconType === 'brands'}
-						<GlassButton className="sort-action {iconsOnly ? 'active' : 'inactive'}">
 							<button type="button" class="sort-action {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							iconsOnly = !iconsOnly;
 							if (iconsOnly) logosOnly = false;
 							}}">Icons Only</button>
-						</GlassButton>
-						<GlassButton className="sort-action {logosOnly ? 'active' : 'inactive'}">
 							<button type="button" class="sort-action {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							logosOnly = !logosOnly;
 							if (logosOnly) iconsOnly = false;
 							}}">Logos Only</button>
-						</GlassButton>
 					{:else if iconType === 'flags'}
-						<GlassButton className="sort-action {countriesOnly ? 'active' : 'inactive'}">
 							<button type="button" class="sort-action {countriesOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							countriesOnly = !countriesOnly;
 							if (countriesOnly) statesOnly = false;
 							}}">Countries Only</button>
-						</GlassButton>
-						<GlassButton className="sort-action {statesOnly ? 'active' : 'inactive'}">
 							<button type="button" class="sort-action {statesOnly ? 'active' : 'inactive'}" onclick="{() => {
 							currentPage = 1;
 							statesOnly = !statesOnly;
 							if (statesOnly) countriesOnly = false;
 							}}">States Only</button>
-						</GlassButton>
 					{/if}
 				</div>
 			</div>
@@ -2413,11 +2389,11 @@
             z-index: 1;
         }
 
-        .search-field, :global .search-field {
-            position: relative !important;
-            border-radius: .9rem;
+        .search-field {
 						width: 100%;
             max-width: 18rem !important;
+
+            background: var(--theme-ui-button);
 
             svg {
                 position: absolute;
@@ -2438,13 +2414,15 @@
 
                 padding: .5rem 1rem .5rem 2.25rem;
 
+                border: 1px solid var(--theme-ui-button-border);
+                border-radius: .9rem;
+
                 &:hover {
-                    backdrop-filter: brightness(.5);
                     color: var(--theme-text-secondary);
                 }
 
                 &:focus {
-                    backdrop-filter: brightness(.9);
+                    border-color: var(--theme-ui-line-glow);
                     color: var(--theme-text-primary);
                 }
 
@@ -2467,12 +2445,6 @@
             z-index: 500;
 
             .left {
-                width: 100%;
-
-								.sort-action {
-                    padding: .15rem .35rem .15rem .2rem;
-								}
-
                 .tag-list {
                     display: flex;
                     flex-flow: row wrap;
@@ -2496,26 +2468,28 @@
             .right {
                 display: flex;
                 flex-flow: column nowrap;
-                gap: .5rem;
+                gap: .3rem;
 
                 .sorting, .filter {
                     display: flex;
                     flex-flow: row nowrap;
                     align-items: center;
                     justify-content: flex-end;
-                    gap: .5rem;
+                    gap: .3rem;
                 }
             }
 
-            .sort-action, :global .sort-action {
-                position: relative !important;
-
+            .sort-action {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: .25rem;
 
-                padding: .3rem .45rem .3rem .25rem;
+                padding: .4rem .6rem;
+								width: fit-content;
+
+                background: var(--theme-ui-button);
+                border: 1px solid var(--theme-ui-button-border);
                 border-radius: .9rem;
 
                 font-size: .925rem;
@@ -2534,23 +2508,21 @@
                 }
 
                 &:hover {
-                    transform: scale(1.025);
-                    filter: brightness(1.15);
-                    transition: var(--theme-transition-on);
+                    background: var(--theme-ui-button-hover);
+                    border-color: var(--theme-ui-button-border-hover);
                 }
+
+								&.active {
+                    border-color: var(--theme-ui-line-glow);
+								}
 
                 &:active {
                     transform: scale(.975);
+										border-color: var(--theme-ui-line-glow);
                 }
 
                 &.inactive {
-                    filter: grayscale(.75);
-                    opacity: .5;
-                }
-
-                & > div {
-                    top: 0;
-                    left: 0;
+                    filter: grayscale(.4);
                 }
             }
         }
