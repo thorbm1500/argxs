@@ -1,8 +1,8 @@
 <script lang="ts">
-	import GlassButton from '$lib/components/GlassButton.svelte';
 	import { type Colord, colord } from 'colord';
 	import chroma from 'chroma-js';
 	import { onMount } from 'svelte';
+	import ColorGeneratorCard from '$lib/components/ColorGeneratorCard.svelte';
 
 	const { data } = $props();
 
@@ -248,82 +248,42 @@
 	<section class="color-palette-sec">
 		<div class="color-row">
 			{#each colors.slice(0,3) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(3,5) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(5,9) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(9,10) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(10,13) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(13,15) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(15,19) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(19,20) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 	</section>
@@ -481,30 +441,6 @@
 
                 width: 100%;
                 height: fit-content;
-
-                .color {
-                    flex: 1;
-                    width: 100%;
-										height: 20rem;
-
-                    background: var(--current-color);
-										border-radius: .9rem;
-
-										padding: 1.5rem;
-										box-sizing: border-box;
-
-										.value {
-												font-weight: 700;
-												font-family: 'Funnel Display', sans-serif;
-										}
-
-										&.dark .value {
-												color: var(--theme-color-white) !important
-										}
-										&.light .value {
-                        color: var(--theme-color-black) !important;
-										}
-                }
             }
         }
     }
