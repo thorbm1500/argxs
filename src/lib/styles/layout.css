@@ -72,10 +72,12 @@
 
 /* Global */
 :root {
-	--theme-color-accent:	oklch(0.646 0.191 277.325);
-	--theme-color-white: 	oklch(0.981 0.005 258.324);
-	--theme-color-offwhite: oklch(0.949 0.008 236.562);
-	--theme-color-black:	oklch(0.159 0 0);
+	--theme-color-accent:		oklch(0.646 0.191 277.325);
+	--theme-color-accent-light: oklch(0.784 0.112 281.244);
+	--theme-color-accent-dark:	oklch(0.453 0.166 274.339);
+	--theme-color-white: 		oklch(0.981 0.005 258.324);
+	--theme-color-offwhite: 	oklch(0.949 0.008 236.562);
+	--theme-color-black:		oklch(0.159 0 0);
 }
 
 /* Light Theme */
@@ -102,6 +104,7 @@
 	
 	--theme-ui-line:						oklch(0.909 0.01 261.788);
 	--theme-ui-line-highlight:				oklch(0.866 0.009 258.338);
+	--theme-ui-line-glow:					var(--theme-color-accent-light);
 	--theme-ui-container:					oklch(0.949 0.007 268.546);
 	--theme-ui-container-hover:				oklch(0.933 0.009 264.521);
 	--theme-ui-background:					var(--theme-color-white);
@@ -158,6 +161,7 @@
 	--theme-ui-header:						oklch(0.189 0.014 278.565);
 	--theme-ui-line:						oklch(0.321 0.033 274.705);
 	--theme-ui-line-highlight:				oklch(0.354 0.02 257.265);
+	--theme-ui-line-glow:					var(--theme-color-accent-dark);
 	--theme-ui-sidebar:						oklch(0.21 0.012 270.771);
 	--theme-ui-sidebar-highlight:			oklch(0.26 0.016 264.241);
 	

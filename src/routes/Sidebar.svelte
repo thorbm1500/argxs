@@ -310,6 +310,8 @@
             width: 6px;
             left: 0;
 
+						filter: drop-shadow(0 0 3px rgba(from var(--theme-ui-line-glow) r g b / .15));
+
             &.button-anim .toggle-sidebar-button svg {
                 animation: ButtonHighlightAnim 8s ease;
             }
