@@ -13,19 +13,6 @@
                     href: 'https://en.wikipedia.org'
                 }
             }
-        },
-        {
-            name: 'Venezuela State Flag',
-            tags: ["South America","Government"],
-            default: {
-                path: 've-state.svg',
-                date_added: '2026/5/21',
-                version: '0.6.5',
-                source: {
-                    name: 'Wikipedia',
-                    href: 'https://en.wikipedia.org'
-                }
-            }
         }
     ]
 }

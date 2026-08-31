@@ -20,6 +20,9 @@
 
 ## Bug Fixes
 - Sidebar no longer overflows on odd screen sizes
+- **Icons**
+  - Removed config entry for "ve-state.svg", due to asset being removed in previous version
+  - Correct asset name in config entry for Google from "google-variant-icon.svg" to "google-icon.svg"
 
 ## Dependencies
 - @jridgewell/sourcemap-codec: *1.5.5 ➜ 1.6.0*
@@ -27,3 +30,4 @@
 - @humanspeak/memory-cache: *1.1.2 ➜ 1.2.0*
 - svelte: *5.56.10 ➜ 5.57.0*
 - devalue: *5.9.1 ➜ 5.9.2*
+- ignore: *7.0.6 ➜ 7.0.8*

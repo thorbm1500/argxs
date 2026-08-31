@@ -6,8 +6,9 @@
 		{
 			type: 'icon',
 			default: {
-				path: 'google-variant-icon.svg',
+				path: 'google-icon.svg',
 				date_added: '2026/4/10',
+				last_modified: "2026-08-31T14:00+02:00",
 				version: '0.0.1'
 			}
 		},
