@@ -284,4 +284,22 @@ body {
 		fill-color:   var(--theme-color-primary);
 		color:        var(--theme-color-primary);
 	}
+
+	.default-button {
+		width: fit-content;
+
+		background: var(--theme-ui-button);
+		border: 1px solid var(--theme-ui-button-border);
+		border-radius: .9rem;
+
+		&:active {
+			background: var(--theme-ui-button-click) !important;
+			border-color: var(--theme-ui-button-border-click) !important;
+		}
+
+		&:hover {
+			background: var(--theme-ui-button-hover);
+			border-color: var(--theme-ui-button-border-hover);
+		}
+	}
 }

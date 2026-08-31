@@ -231,7 +231,7 @@
 	<section class="sub-header">
 		<div class="filters">
 			{#each allColors() as color}
-				<button class={{ filter: true, active: filter.color.current === color.name, "transition-default": true }} onclick="{() => {
+				<button class={{ filter: true, active: filter.color.current === color.name, "default-button": true, "transition-default": true }} onclick="{() => {
 				if (filter.color.current !== color.name) {
 					filter.color.target = getColorFromString(color.name)
 				} else filter.color.target = null;
@@ -242,7 +242,7 @@
 			{/each}
 		</div>
 		<div class="actions">
-			<button class="regenerate" onclick="{() => generateColors()}">Generate New Colors</button>
+			<button class="regenerate default-button" onclick="{() => generateColors()}">Generate New Colors</button>
 		</div>
 	</section>
 	<section class="color-palette-sec">
@@ -322,15 +322,10 @@
 
 						.actions {
 								.regenerate {
-                    width: fit-content;
                     height: 2.5rem;
 
 										box-sizing: border-box;
 										padding: 0 .75rem;
-
-                    background: var(--theme-ui-button);
-                    border: 1px solid var(--theme-ui-button-border);
-                    border-radius: .9rem;
 
                     color: var(--theme-text-secondary);
                     font-family: 'Funnel Sans', sans-serif;
@@ -367,10 +362,6 @@
                     width: 7.25rem;
                     height: 2.5rem;
 
-                    background: var(--theme-ui-button);
-                    border: 1px solid var(--theme-ui-button-border);
-                    border-radius: .9rem;
-
                     .circle {
                         width: .6rem;
                         height: .6rem;
@@ -399,15 +390,7 @@
                         }
                     }
 
-                    &:active {
-                        background: var(--theme-ui-button-click) !important;
-                        border-color: var(--theme-ui-button-border-click) !important;
-                    }
-
                     &:hover {
-                        background: var(--theme-ui-button-hover);
-                        border-color: var(--theme-ui-button-border-hover);
-
                         .circle {
                             opacity: 1;
                         }

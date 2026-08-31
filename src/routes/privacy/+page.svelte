@@ -96,7 +96,7 @@
 		<h2>Do you still wish to opt out of site analytics?</h2>
 		<span><strong style="color:var(--theme-color-accent);font-weight:900;">argxs</strong> believes in owning your own data. Clicking the button below ensures that we wont process any data related to your person in the future. This is done by simple providing you with a cookie "argxs_do_not_track". The server checks for the cookie when a request is received, and skips processing analytics, if the cookie is present.</span>
 		<div class="actions">
-			<button class="opt-out-button {optedOut ? 'out' : 'in'}" title="Opt in & out of cookies" onclick="{optOut}">
+			<button class="opt-out-button {optedOut ? 'out' : 'in'} default-button" title="Opt in & out of cookies" onclick="{optOut}">
 				<p>
 					{#if !hasChanged}
 						{#if optedOut}Opt In{:else}Opt Out{/if}
@@ -278,14 +278,9 @@
                 .opt-out-button {
                     padding: .4rem .65rem;
 
-                    width: fit-content;
                     height: fit-content;
 
                     text-wrap: nowrap;
-
-                    background: var(--theme-ui-button);
-                    border: 1px solid var(--theme-ui-button-border);
-                    border-radius: .9rem;
 
                     cursor: pointer;
 
