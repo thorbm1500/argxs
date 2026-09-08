@@ -1,0 +1,42 @@
+{
+    name: 'BisectHosting',
+    href: 'https://bisecthosting.com',
+    tags: ["Gaming","Utility"],
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                path: 'bisecthosting-icon.svg',
+                date_added: '2026/9/8',
+                version: '0.9.1',
+                source: {
+                    name: 'BisectHosting',
+                    href: 'https://bisecthosting.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'bisecthosting-logo.svg',
+                date_added: '2026/9/8',
+                version: '0.9.1',
+                source: {
+                    name: 'BisectHosting',
+                    href: 'https://bisecthosting.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'bisecthosting-logo-dark.svg',
+                date_added: '2026/9/8',
+                version: '0.9.1',
+                source: {
+                    name: 'BisectHosting',
+                    href: 'https://bisecthosting.com'
+                }
+            }
+        }
+    ]
+}
