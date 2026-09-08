@@ -785,7 +785,6 @@
 					</div>
 				{/if}
 			</div>
-			<GlassButton className="search-field">
 				<form class="search-field" onsubmit="{(e) => {
 					e.preventDefault();
 					search = searchbarValue;
@@ -804,7 +803,6 @@
 									 }, 500);
 					}}">
 				</form>
-			</GlassButton>
 		</div>
 		<div class="actions">
 			<div class="left">
@@ -813,11 +811,9 @@
 						<li in:receive={{ key: tag.id }}
 								out:send={{ key: tag.id }}
 								animate:flip={{ duration: 200 }}>
-							<GlassButton className="sort-action active tag">
-								<button class="sort-action active" onclick="{() => {
+								<button class="sort-action active default-button" onclick="{() => {
 										allFilters.forEach((t) => {if (t.id === tag.id) t.active = false});
 									}}"># {tag.tag}</button>
-							</GlassButton>
 						</li>
 					{/each}
 				</ul>
@@ -826,11 +822,9 @@
 							<li in:receive={{ key: tag.id }}
 							    out:send={{ key: tag.id }}
 							    animate:flip={{ duration: 200 }}>
-								<GlassButton className="sort-action inactive tag">
-									<button class="sort-action inactive" onclick="{() => {
+									<button class="sort-action inactive default-button" onclick="{() => {
 										allFilters.forEach((t) => {if (t.id === tag.id) t.active = true});
 									}}"># {tag.tag}</button>
-								</GlassButton>
 							</li>
 						{/each}
 				</ul>
@@ -838,8 +832,7 @@
 			<div class="right">
 				<div class="sorting">
 					{#if sorting !== 'default' || (iconsOnly || logosOnly || countriesOnly || statesOnly || animatedOnly)}
-						<GlassButton className="sort-action">
-							<button type="button" transition:fade={{duration: prefersReducedMotion.current ? 0 : 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action" onclick="{() => {
+							<button type="button" transition:fade={{duration: prefersReducedMotion.current ? 0 : 325, easing: quartInOut}} title="Clear Sort Filter" class="sort-action default-button" onclick="{() => {
 							sorting = 'default';
 							order = 'desc';
 							saveCurrentSorting();
@@ -855,10 +848,8 @@
 									<path d="M3 3l18 18"/>
 								</svg>
 							</button>
-						</GlassButton>
 					{/if}
-					<GlassButton className="sort-action">
-						<button type="button" class="sort-action" onclick="{() =>  {
+						<button type="button" class="sort-action default-button" onclick="{() =>  {
 							if (sorting !== 'alphabet') {
 								sorting = 'alphabet';
 								order = 'asc';
@@ -887,9 +878,7 @@
 							</svg>
 							Name
 						</button>
-					</GlassButton>
-					<GlassButton className="sort-action">
-						<button type="button" class="sort-action" onclick="{() =>  {
+						<button type="button" class="sort-action default-button" onclick="{() =>  {
 							if (sorting !== 'time') {
 								sorting = 'time';
 								order = 'asc';
@@ -917,11 +906,9 @@
 							</svg>
 							Version
 						</button>
-					</GlassButton>
 				</div>
 				<div class="filter">
-					<GlassButton className="sort-action {!(iconsOnly || logosOnly || countriesOnly || statesOnly) ? 'active' : 'inactive'}">
-						<button type="button" class="sort-action {!(iconsOnly || logosOnly || countriesOnly || statesOnly) ? 'active' : 'inactive'}" onclick="{() => {
+						<button type="button" class="sort-action {!(iconsOnly || logosOnly || countriesOnly || statesOnly) ? 'active' : 'inactive'} default-button" onclick="{() => {
 							currentPage = 1;
 							iconsOnly = false;
 							logosOnly = false;
@@ -929,43 +916,32 @@
 							statesOnly = false;
 							animatedOnly = false;
 						}}">All</button>
-					</GlassButton>
-					<GlassButton className="sort-action {animatedOnly ? 'active' : 'inactive'}">
-						<button type="button" class="sort-action {animatedOnly ? 'active' : 'inactive'}" onclick="{() => {
+						<button type="button" class="sort-action {animatedOnly ? 'active' : 'inactive'} default-button" onclick="{() => {
 							currentPage = 1;
 							animatedOnly = !animatedOnly;
 							}}">Animated Only</button>
-					</GlassButton>
 					{#if iconType === 'brands'}
-						<GlassButton className="sort-action {iconsOnly ? 'active' : 'inactive'}">
-							<button type="button" class="sort-action {iconsOnly ? 'active' : 'inactive'}" onclick="{() => {
+							<button type="button" class="sort-action {iconsOnly ? 'active' : 'inactive'} default-button" onclick="{() => {
 							currentPage = 1;
 							iconsOnly = !iconsOnly;
 							if (iconsOnly) logosOnly = false;
 							}}">Icons Only</button>
-						</GlassButton>
-						<GlassButton className="sort-action {logosOnly ? 'active' : 'inactive'}">
-							<button type="button" class="sort-action {logosOnly ? 'active' : 'inactive'}" onclick="{() => {
+							<button type="button" class="sort-action {logosOnly ? 'active' : 'inactive'} default-button" onclick="{() => {
 							currentPage = 1;
 							logosOnly = !logosOnly;
 							if (logosOnly) iconsOnly = false;
 							}}">Logos Only</button>
-						</GlassButton>
 					{:else if iconType === 'flags'}
-						<GlassButton className="sort-action {countriesOnly ? 'active' : 'inactive'}">
-							<button type="button" class="sort-action {countriesOnly ? 'active' : 'inactive'}" onclick="{() => {
+							<button type="button" class="sort-action {countriesOnly ? 'active' : 'inactive'} default-button" onclick="{() => {
 							currentPage = 1;
 							countriesOnly = !countriesOnly;
 							if (countriesOnly) statesOnly = false;
 							}}">Countries Only</button>
-						</GlassButton>
-						<GlassButton className="sort-action {statesOnly ? 'active' : 'inactive'}">
-							<button type="button" class="sort-action {statesOnly ? 'active' : 'inactive'}" onclick="{() => {
+							<button type="button" class="sort-action {statesOnly ? 'active' : 'inactive'} default-button" onclick="{() => {
 							currentPage = 1;
 							statesOnly = !statesOnly;
 							if (statesOnly) countriesOnly = false;
 							}}">States Only</button>
-						</GlassButton>
 					{/if}
 				</div>
 			</div>
@@ -1010,52 +986,31 @@
 	</section>
 
 	<div class="pagination-actions" style="{noSearchResult ? 'display:none' : ''}">
-		<GlassButton className="action pagination {currentPage > 3 ? '' : 'hide'}">
-			<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'}" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">1</button>
-		</GlassButton>
+		<button title="First Page" class="action {currentPage > 3 ? 'shown' : 'hidden'} default-button" onclick="{() => currentPage = 1}" tabindex="{currentPage > 3 ? 0 : -1}">1</button>
 		<div class="separator {currentPage > 3 ? 'shown' : 'hidden'}" inert>
 			<div class="circle"></div>
 			<div class="circle"></div>
 			<div class="circle"></div>
 		</div>
-		<GlassButton className="action pagination {currentPage > 2 ? '' : 'hide'}">
-			<button class="action pagination {currentPage > 2 ? 'shown' : 'hidden'}" onclick="{() => currentPage -= 2}"
-			        tabindex="{currentPage > 2 ? 0 : -1}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
-		</GlassButton>
-		<GlassButton className="action pagination {currentPage > 1 ? '' : 'hide'}">
-			<button class="action pagination {currentPage > 1 ? 'shown' : 'hidden'}" onclick="{() => currentPage--}"
-			        tabindex="{currentPage > 1 ? 0 : -1}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
-		</GlassButton>
-		<GlassButton className="action current-page">
-			<p class="action current-page" inert>{currentPage}</p>
-		</GlassButton>
-		<GlassButton className="action pagination {currentPage < maxPage ? '' : 'hide'}">
-			<button class="action pagination {currentPage < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage++}"
-			        tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
-		</GlassButton>
-		<GlassButton className="action pagination {(currentPage + 1) < maxPage ? '' : 'hide'}">
-			<button class="action pagination {(currentPage + 1) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage += 2}"
-			        tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
-		</GlassButton>
+		<button class="action pagination {currentPage > 2 ? 'shown' : 'hidden'} default-button" onclick="{() => currentPage -= 2}" tabindex="{currentPage > 2 ? 0 : -1}">{currentPage > 2 ? currentPage - 2 : ' '}</button>
+		<button class="action pagination {currentPage > 1 ? 'shown' : 'hidden'} default-button" onclick="{() => currentPage--}" tabindex="{currentPage > 1 ? 0 : -1}">{currentPage > 1 ? currentPage - 1 : ' '}</button>
+		<p class="action current-page default-button" inert>{currentPage}</p>
+		<button class="action pagination {currentPage < maxPage ? 'shown' : 'hidden'} default-button" onclick="{() => currentPage++}" tabindex="{currentPage < maxPage ? 0 : -1}">{currentPage < maxPage ? currentPage + 1 : ' '}</button>
+		<button class="action pagination {(currentPage + 1) < maxPage ? 'shown' : 'hidden'} default-button" onclick="{() => currentPage += 2}" tabindex="{(currentPage + 1) < maxPage ? 0 : -1}">{(currentPage + 1) < maxPage ? currentPage + 2 : ' '}</button>
 		<div class="separator {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" inert>
 			<div class="circle"></div>
 			<div class="circle"></div>
 			<div class="circle"></div>
 		</div>
-		<GlassButton className="action pagination {(currentPage + 2) < maxPage ? '' : 'hide'}">
-			<button title="Last Page" class="action pagination {(currentPage + 2) < maxPage ? 'shown' : 'hidden'}" onclick="{() => currentPage = maxPage}"
-			        tabindex="{(currentPage + 2) < maxPage ? 0 : -1}">{maxPage}</button>
-		</GlassButton>
-		<GlassButton className="item-amount">
-			<button class="item-amount" onclick={() => {
+		<button title="Last Page" class="action pagination {(currentPage + 2) < maxPage ? 'shown' : 'hidden'} default-button" onclick="{() => currentPage = maxPage}" tabindex="{(currentPage + 2) < maxPage ? 0 : -1}">{maxPage}</button>
+		<button class="item-amount default-button transition-default" onclick={() => {
 							if (currentPage !== 1) currentPage = 1;
 							if (pagOffset === 24) pagOffset = 96;
 							else if (pagOffset === 48) pagOffset = 24;
 							else pagOffset = 48;
 							localStorage.setItem('icons#pagination_offset',String(pagOffset))}}>
 				Items: {pagOffset}
-			</button>
-		</GlassButton>
+		</button>
 	</div>
 
 	<div class="resource-info">
@@ -2197,30 +2152,10 @@
             }
 
             .circle {
-                mask-image: linear-gradient(135deg, transparent 10%, black 90%);
-                mask-type: alpha;
-
-                background-image: radial-gradient(ellipse 52.5% 52.5% at center, #FFFFFF11 27.5%, #FFFFFFAA 72.5%, #FFFFFFAA 77.5%, #FFFFFF22 100%);
-                border-radius: 100%;
+                background: var(--theme-ui-button-border);
+                border-radius: .2rem;
                 width: 8px;
-                height: 8px;
-
-                z-index: 10;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-
-                    mask-image: linear-gradient(-45deg, transparent 10%, black 90%);
-                    mask-type: alpha;
-
-                    background-image: radial-gradient(ellipse 52.5% 52.5% at center, transparent 27.5%, #000000AA 72.5%, #000000AA 77.5%, transparent 100%);
-                    border-radius: 100%;
-                    width: 8px;
-                    height: 8px;
-
-                    z-index: 15;
-                }
+                height: 4px;
             }
         }
 
@@ -2295,24 +2230,13 @@
             }
         }
 
-        :global .item-amount {
+        .item-amount {
             position: absolute;
             right: 0;
 
-            width: 6.25rem;
-            height: 2.5rem;
-
             font-weight: 600;
 
-            border-radius: .9rem;
-
-            transition: var(--theme-transition-off);
-
-            &:hover {
-                filter: brightness(1.15);
-
-                transition: var(--theme-transition-on);
-            }
+            padding: .4rem .75rem;
         }
     }
 
@@ -2413,11 +2337,11 @@
             z-index: 1;
         }
 
-        .search-field, :global .search-field {
-            position: relative !important;
-            border-radius: .9rem;
+        .search-field {
 						width: 100%;
             max-width: 18rem !important;
+
+            background: var(--theme-ui-button);
 
             svg {
                 position: absolute;
@@ -2438,13 +2362,15 @@
 
                 padding: .5rem 1rem .5rem 2.25rem;
 
+                border: 1px solid var(--theme-ui-button-border);
+                border-radius: .9rem;
+
                 &:hover {
-                    backdrop-filter: brightness(.5);
                     color: var(--theme-text-secondary);
                 }
 
                 &:focus {
-                    backdrop-filter: brightness(.9);
+                    border-color: var(--theme-ui-line-glow);
                     color: var(--theme-text-primary);
                 }
 
@@ -2467,12 +2393,6 @@
             z-index: 500;
 
             .left {
-                width: 100%;
-
-								.sort-action {
-                    padding: .15rem .35rem .15rem .2rem;
-								}
-
                 .tag-list {
                     display: flex;
                     flex-flow: row wrap;
@@ -2496,27 +2416,24 @@
             .right {
                 display: flex;
                 flex-flow: column nowrap;
-                gap: .5rem;
+                gap: .3rem;
 
                 .sorting, .filter {
                     display: flex;
                     flex-flow: row nowrap;
                     align-items: center;
                     justify-content: flex-end;
-                    gap: .5rem;
+                    gap: .3rem;
                 }
             }
 
-            .sort-action, :global .sort-action {
-                position: relative !important;
-
+            .sort-action {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: .25rem;
 
-                padding: .3rem .45rem .3rem .25rem;
-                border-radius: .9rem;
+                padding: .4rem .6rem;
 
                 font-size: .925rem;
                 font-weight: 800;
@@ -2533,24 +2450,12 @@
                     height: 1.35rem;
                 }
 
-                &:hover {
-                    transform: scale(1.025);
-                    filter: brightness(1.15);
-                    transition: var(--theme-transition-on);
-                }
+								&.active {
+                    border-color: var(--theme-ui-line-glow);
+								}
 
                 &:active {
                     transform: scale(.975);
-                }
-
-                &.inactive {
-                    filter: grayscale(.75);
-                    opacity: .5;
-                }
-
-                & > div {
-                    top: 0;
-                    left: 0;
                 }
             }
         }

@@ -114,18 +114,12 @@
     }
 
     @keyframes HeaderLightbarAnimation {
-        0%, 35%, 65%, 100% {
-            filter: brightness(.35);
-        }
-        40% {
-            left: 0;
-        }
-        45%, 55% {
-            filter: brightness(1);
-        }
-        60% {
+				from {
+						left: 0;
+				}
+				to {
             left: -100vw;
-        }
+				}
     }
 
     .dark.header-lightbar {
@@ -147,7 +141,7 @@
         background-repeat: repeat;
         background-size: 100vw;
 
-        animation: HeaderLightbarAnimation 30s linear infinite !important;
+        animation: HeaderLightbarAnimation 3s linear infinite !important;
 
         z-index: 1000000 !important;
     }

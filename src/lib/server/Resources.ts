@@ -72,16 +72,16 @@ export class Resources {
 
 				this.updateLatestDate(resource);
 
-				let iconAmount = 1;
+				let iconAmount: number = 1;
 
 				if (icon.default.animated === undefined) resource.default.animated = false;
-				resource.default.isNew = icon.default.version === VERSION;
+				resource.default.isNew = icon.default.version.slice(0,icon.default.version.lastIndexOf('.')) === VERSION.slice(0,VERSION.lastIndexOf('.'));
 				if (!icon.default.last_modified) resource.default.last_modified = icon.default.date_added;
 				if (!icon.default.tags) resource.default.tags = resource.tags;
 
 				if (icon.dark) {
 					if (icon.dark.animated === undefined) icon.dark.animated = false;
-					icon.dark.isNew = icon.dark.version === VERSION;
+					icon.dark.isNew = icon.dark.version.slice(0,icon.dark.version.lastIndexOf('.')) === VERSION.slice(0,VERSION.lastIndexOf('.'));
 					if (!icon.dark.last_modified) icon.dark.last_modified = icon.dark.date_added;
 					if (!icon.dark.tags) icon.dark.tags = resource.tags;
 					resource.dark = icon.dark;
@@ -94,7 +94,7 @@ export class Resources {
 					if (icon.animated === undefined) icon.animated = false;
 					if (!icon.last_modified) icon.last_modified = icon.date_added;
 					if (!icon.tags) icon.tags = resource.tags;
-					icon.isNew = icon.version === VERSION;
+					icon.isNew = icon.version.slice(0,icon.version.lastIndexOf('.')) === VERSION.slice(0,VERSION.lastIndexOf('.'));
 				}
 
 				if (resource.type === 'icon') this.BRAND_ICON_AMOUNT += iconAmount;
@@ -150,7 +150,7 @@ export class Resources {
 					if (flag.animated === undefined) flag.animated = false;
 					if (!flag.last_modified) flag.last_modified = flag.date_added;
 					if (!flag.tags) flag.tags = resource.tags;
-					flag.isNew = flag.version === VERSION;
+					flag.isNew = flag.version.slice(0,flag.version.lastIndexOf('.')) === VERSION.slice(0,VERSION.lastIndexOf('.'));
 				}
 
 				this.FLAG_TOTAL_AMOUNT += resource.variable.length + 1;
@@ -173,7 +173,7 @@ export class Resources {
 			}
 		}
 
-		icon.hasNewVariant = icon.latest_version === VERSION;
+		icon.hasNewVariant = icon.latest_version?.slice(0,icon.latest_version.lastIndexOf('.')) === VERSION.slice(0,VERSION.lastIndexOf('.'));
 
 		if (icon.default.date_added) {
 			const current = Date.parse(icon.default.date_added);

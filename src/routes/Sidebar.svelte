@@ -291,7 +291,7 @@
     @media (width >= 44rem) {
         :root {
             --sidebar-width: 18rem !important;
-						--min-height: calc(100vh - var(--header-height) - 2.5rem);
+	        	--min-height: calc(100vh - var(--header-height) - 2.5rem);
         }
 
         @keyframes ButtonHighlightAnim {
@@ -309,6 +309,8 @@
             height: 100vh;
             width: 6px;
             left: 0;
+
+						filter: drop-shadow(0 0 3px rgba(from var(--theme-ui-line-glow) r g b / .15));
 
             &.button-anim .toggle-sidebar-button svg {
                 animation: ButtonHighlightAnim 8s ease;
@@ -391,7 +393,8 @@
         }
 
         .sidebar-section {
-            bottom: 1.25rem;
+	        top: calc(var(--header-height) + 1rem);
+	        max-height: calc(100vh - var(--header-height) - 2.5rem);
             left: 1.25rem;
 
             padding: 1.5rem 1.25rem;
@@ -481,10 +484,10 @@
             height: calc(100vh - var(--header-height));
             width: 100vw;
             border: none;
-            bottom: 0;
+            top: var(--header-height);
             background: var(--theme-ui-sidebar);
 
-            padding: 3.75rem 1.1rem 0 1.1rem;
+            padding: 2rem 1.1rem 0 1.1rem;
 
             .title {
                 font-size: .9rem;

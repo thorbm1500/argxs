@@ -1,8 +1,8 @@
 <script lang="ts">
-	import GlassButton from '$lib/components/GlassButton.svelte';
 	import { type Colord, colord } from 'colord';
 	import chroma from 'chroma-js';
 	import { onMount } from 'svelte';
+	import ColorGeneratorCard from '$lib/components/ColorGeneratorCard.svelte';
 
 	const { data } = $props();
 
@@ -231,7 +231,7 @@
 	<section class="sub-header">
 		<div class="filters">
 			{#each allColors() as color}
-				<button class={{ filter: true, active: filter.color.current === color.name, "transition-default": true }} onclick="{() => {
+				<button class={{ filter: true, active: filter.color.current === color.name, "default-button": true, "transition-default": true }} onclick="{() => {
 				if (filter.color.current !== color.name) {
 					filter.color.target = getColorFromString(color.name)
 				} else filter.color.target = null;
@@ -242,88 +242,48 @@
 			{/each}
 		</div>
 		<div class="actions">
-			<button class="regenerate" onclick="{() => generateColors()}">Generate New Colors</button>
+			<button class="regenerate default-button" onclick="{() => generateColors()}">Generate New Colors</button>
 		</div>
 	</section>
 	<section class="color-palette-sec">
 		<div class="color-row">
 			{#each colors.slice(0,3) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(3,5) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(5,9) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(9,10) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(10,13) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(13,15) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(15,19) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 		<div class="color-row">
 			{#each colors.slice(19,20) as color}
-				<div class="color {color.dark ? 'dark' : 'light'}" style="--current-color: {color.hex};">
-					<p class="value">{color.hex}</p>
-					<p class="value">{color.rgb}</p>
-					<p class="value">{color.hsl}</p>
-					<p class="value">{color.oklch}</p>
-				</div>
+				<ColorGeneratorCard {color} />
 			{/each}
 		</div>
 	</section>
@@ -362,15 +322,10 @@
 
 						.actions {
 								.regenerate {
-                    width: fit-content;
                     height: 2.5rem;
 
 										box-sizing: border-box;
 										padding: 0 .75rem;
-
-                    background: var(--theme-ui-button);
-                    border: 1px solid var(--theme-ui-button-border);
-                    border-radius: .9rem;
 
                     color: var(--theme-text-secondary);
                     font-family: 'Funnel Sans', sans-serif;
@@ -407,10 +362,6 @@
                     width: 7.25rem;
                     height: 2.5rem;
 
-                    background: var(--theme-ui-button);
-                    border: 1px solid var(--theme-ui-button-border);
-                    border-radius: .9rem;
-
                     .circle {
                         width: .6rem;
                         height: .6rem;
@@ -439,15 +390,7 @@
                         }
                     }
 
-                    &:active {
-                        background: var(--theme-ui-button-click) !important;
-                        border-color: var(--theme-ui-button-border-click) !important;
-                    }
-
                     &:hover {
-                        background: var(--theme-ui-button-hover);
-                        border-color: var(--theme-ui-button-border-hover);
-
                         .circle {
                             opacity: 1;
                         }
@@ -481,30 +424,6 @@
 
                 width: 100%;
                 height: fit-content;
-
-                .color {
-                    flex: 1;
-                    width: 100%;
-										height: 20rem;
-
-                    background: var(--current-color);
-										border-radius: .9rem;
-
-										padding: 1.5rem;
-										box-sizing: border-box;
-
-										.value {
-												font-weight: 700;
-												font-family: 'Funnel Display', sans-serif;
-										}
-
-										&.dark .value {
-												color: var(--theme-color-white) !important
-										}
-										&.light .value {
-                        color: var(--theme-color-black) !important;
-										}
-                }
             }
         }
     }

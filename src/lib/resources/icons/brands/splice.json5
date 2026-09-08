@@ -1,0 +1,53 @@
+{
+    name: 'Splice',
+    href: 'https://splice.com',
+    tags: ["Music","Software"],
+    assets: [
+        {
+            type: 'icon',
+            default: {
+                theme: 'light',
+                path: 'splice-icon.svg',
+                date_added: '2026/9/8',
+                version: '0.9.1',
+                source: {
+                    name: 'Splice',
+                    href: 'https://splice.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'splice-icon-dark.svg',
+                date_added: '2026/9/8',
+                version: '0.9.1',
+                source: {
+                    name: 'Splice',
+                    href: 'https://splice.com'
+                }
+            }
+        },
+        {
+            type: 'logo',
+            default: {
+                theme: 'light',
+                path: 'splice-logo.svg',
+                date_added: '2026/9/8',
+                version: '0.9.1',
+                source: {
+                    name: 'Splice',
+                    href: 'https://splice.com'
+                }
+            },
+            dark: {
+                theme: 'dark',
+                path: 'splice-logo-dark.svg',
+                date_added: '2026/9/8',
+                version: '0.9.1',
+                source: {
+                    name: 'Splice',
+                    href: 'https://splice.com'
+                }
+            }
+        }
+    ]
+}
