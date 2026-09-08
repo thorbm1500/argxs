@@ -1,13 +1,11 @@
 [<img width="2050" height="708" alt="argxs-logo-dark" src="https://github.com/user-attachments/assets/6846bfdd-71ac-4337-b70c-f9f9ee14c3a2" />](https://argxs.com)
 
 # Development Information
-**Next Release: 0.9.1**<br>
-This readme was last updated: 28/08/2026
+**Next Release: 0.9.2**<br>
+This readme was last updated: 08/09/2026
 ## to-do-list
 ### Before Next Release
 - [ ] Bugfix: Some SVG images fail to generate, due to various issues
-- [ ] Bugfix: Sidebar overflowing when screen height gets too small, instead of compressing and becoming scrollable, making it impossible to navigate with mouse & keyboard
-- [ ] Bugfix: Mobile View: Top of sidebar is too far up, making it impossible to click the home button
 - [ ] Add custom 404 page
 - [ ] Add more icons (Mostly flags)
 ### Future Tasks
