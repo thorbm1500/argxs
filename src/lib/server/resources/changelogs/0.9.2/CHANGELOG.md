@@ -4,6 +4,10 @@
 ## Minor Changes
 - **Empty**
 
+### New Brand Resources
+- **x New Icons**
+  - **[New]** **xREALM**
+
 ## Bug Fixes
 - **Empty**
 
