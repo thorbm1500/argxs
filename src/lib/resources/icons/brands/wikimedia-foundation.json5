@@ -1,0 +1,271 @@
+{
+	name: 'Wikimedia Foundation',
+	href: 'https://www.wikimedia.org',
+	tags: ["News & Media"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'wikimedia-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'wikimedia-icon-light.svg',
+					date_added: '2026/11/11',
+					version: '0.9.2',
+					source: {
+						name: 'Wikimedia Foundation',
+						href: 'https://www.wikimedia.org'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'wikimedia-icon-dark.svg',
+					date_added: '2026/11/11',
+					version: '0.9.2',
+					source: {
+						name: 'Wikimedia Foundation',
+						href: 'https://www.wikimedia.org'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'wikimedia-logo.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'wikimedia-logo-dark.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikipedia',
+			href: 'https://www.wikipedia.org',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'wikipedia-logo.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'wikipedia-logo-dark.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikipedia',
+			href: 'https://www.wikipedia.org',
+			type: 'icon',
+			default: {
+				path: 'wikipedia-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wiktionary',
+			href: 'https://www.wiktionary.org',
+			type: 'icon',
+			default: {
+				path: 'wiktionary-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikiquote',
+			href: 'https://www.wikiquote.org',
+			type: 'icon',
+			default: {
+				path: 'wikiquote-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikibooks',
+			href: 'https://www.wikibooks.org',
+			type: 'icon',
+			default: {
+				path: 'wikibooks-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikimedia Commons',
+			href: 'https://commons.wikimedia.org',
+			type: 'icon',
+			default: {
+				path: 'wikimedia-commons-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikisource',
+			href: 'https://wikisource.org',
+			type: 'icon',
+			default: {
+				path: 'wikisource-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikiversity',
+			href: 'https://www.wikiversity.org',
+			type: 'icon',
+			default: {
+				path: 'wikiversity-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikispecies',
+			href: 'https://species.wikimedia.org',
+			type: 'icon',
+			default: {
+				path: 'wikispecies-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikidata',
+			href: 'https://www.wikidata.org',
+			type: 'icon',
+			default: {
+				path: 'wikidata-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikifunctions',
+			href: 'https://www.wikifunctions.org',
+			type: 'icon',
+			default: {
+				path: 'wikifunctions-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'MediaWiki',
+			href: 'https://www.mediawiki.org',
+			type: 'icon',
+			default: {
+				path: 'mediawiki-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Wikivoyage',
+			href: 'https://www.wikivoyage.org',
+			type: 'icon',
+			default: {
+				path: 'wikivoyage-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		},
+		{
+			name: 'Meta-Wiki',
+			href: 'https://meta.wikimedia.org',
+			type: 'icon',
+			default: {
+				path: 'meta-wiki-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Wikimedia Foundation',
+					href: 'https://www.wikimedia.org'
+				}
+			}
+		}
+	]
+}
