@@ -2,15 +2,33 @@
 #### 2026-xx-xx
 
 ## Minor Changes
-- **Empty**
+- **Colors**
+  - **Combos**
+    - Updated design of page
+    - Removed 'outdated' tag
+- **Icons**
+  - Fixed incorrect direction of arrow when sorting by version
 
 ### New Brand Resources
 - **x New Icons**
   - **[New]** **xREALM**
   - **[New]** **Blueprint**
+  - **[New]** Wikimedia Foundation
+    - Incl. Wikipedia
+    - Incl. Wiktionary
+    - Incl. Wikiquote
+    - Incl. Wikibooks
+    - Incl. Commons
+    - Incl. Wikisource
+    - Incl. Wikiversity
+    - Incl. Wikispecies
+    - Incl. Wikidata
+    - Incl. Wikifunctions
+    - Incl. MediaWiki
+    - Incl. Wikivoyage
+    - Incl. Meta-Wiki
+  - **Salling Group**
+    - **[New]** Netto
 
 ## Bug Fixes
-- **Empty**
-
-## Dependencies
 - **Empty**

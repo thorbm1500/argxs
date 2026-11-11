@@ -120,7 +120,7 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Generator</p>
 			</a>
-			<a {@attach tabIndexFocus} class={{ page: true, outdated: true, tag: true, selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
+			<a {@attach tabIndexFocus} class={{ page: true, tag: true, selected: page.url.pathname === '/colors/combos' }} href="/colors/combos">
 				<svg style="transform:rotate(20deg) translate(-.2rem, -.05rem);" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2" />
 					<path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9" />

@@ -20,85 +20,86 @@
 </section>
 
 <style>
-	/* Desktop & Tablet */
-	@media (width >= 44rem) {
-		.content-header {
-			.text {
-				.title {
-					font-size: 3rem;
-				}
-				
-				.subtitle {
-					font-size: 0.95rem;
-				}
-			}
-		}
-	}
-	
-	/* Phone */
-	@media (width < 44rem) {
-		.content-header {
-			.text {
-				.title {
-					font-size: 2rem;
-				}
-				
-				.subtitle {
-					font-size: 0.8rem;
-				}
-			}
-		}
-	}
-	
-	.content-header {
-		display:         flex;
-		flex-flow:       row nowrap;
-		align-items:     flex-end;
-		justify-content: space-between;
-		
-		width: fit-content;
-		
-		padding-bottom:  2rem;
-		user-select:     none;
-		
-		z-index: 500;
-		
-		.text {
-			z-index: 500;
-			
-			.title {
-				background-image: var(--theme-text-gradient);
-				background-clip:  text;
-				color:            transparent;
-				
-				text-wrap: nowrap;
-				
-				max-height:       6.75rem;
-			}
-			
-			.subtitle {
-				font-family: 'Geologica', 'Google Sans', sans-serif;
-				font-weight: 500;
-				
-				color:       var(--theme-text-third);
-			}
-		}
-		
-		&::before {
-			content: '';
-			position: absolute;
-			mix-blend-mode: soft-light;
-			
-			top: -7.5vh;
-			right: -10vw;
-			width: 120vw;
-			height: 40vh;
-			
-			background-image: linear-gradient(to bottom, var(--theme-color-primary) 0%, transparent 100%);
-			transform: rotate(3deg);
-			filter: blur(6rem);
-			
-			z-index: 1;
-		}
-	}
+    /* Desktop & Tablet */
+    @media (width >= 44rem) {
+        .content-header {
+            .text {
+                .title {
+                    font-size: 3rem;
+                }
+
+                .subtitle {
+                    font-size: 0.95rem;
+                }
+            }
+        }
+    }
+
+    /* Phone */
+    @media (width < 44rem) {
+        .content-header {
+            .text {
+                .title {
+                    font-size: 2rem;
+                }
+
+                .subtitle {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+
+    .content-header {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        width: fit-content;
+
+        padding-bottom: 2rem;
+        user-select: none;
+
+        z-index: 500;
+
+        .text {
+            z-index: 500;
+
+            .title {
+                background-image: var(--theme-text-gradient);
+                background-clip: text;
+                color: transparent;
+
+                text-wrap: nowrap;
+
+                max-height: 6.75rem;
+            }
+
+            .subtitle {
+                font-family: 'Geologica', 'Google Sans', sans-serif;
+                font-weight: 500;
+
+                color: var(--theme-text-third);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            mix-blend-mode: soft-light;
+
+            top: -7.5vh;
+            right: -10vw;
+            width: 120vw;
+            height: 40vh;
+
+            background-image: linear-gradient(to bottom, var(--theme-color-primary) 0%, transparent 100%);
+            transform: rotate(3deg);
+            filter: blur(6rem);
+
+            z-index: 1;
+            pointer-events: none !important;
+        }
+    }
 </style>
