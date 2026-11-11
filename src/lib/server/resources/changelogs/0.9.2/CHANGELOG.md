@@ -7,6 +7,7 @@
 ### New Brand Resources
 - **x New Icons**
   - **[New]** **xREALM**
+  - **[New]** **Blueprint**
 
 ## Bug Fixes
 - **Empty**
