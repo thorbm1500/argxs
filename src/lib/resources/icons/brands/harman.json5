@@ -1,0 +1,20 @@
+{
+	name: 'HARMAN',
+	href: 'https://www.harman.com/',
+	tags: ["Sound"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'dark',
+				path: 'harman-logo.svg',
+				date_added: '2026/10/11',
+                version: '0.9.2',
+                source: {
+					name: 'HARMAN',
+					href: 'https://www.harman.com/'
+				}
+			}
+		}
+	]
+}
