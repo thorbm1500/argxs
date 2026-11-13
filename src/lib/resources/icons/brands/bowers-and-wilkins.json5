@@ -1,0 +1,30 @@
+{
+	name: 'Bowers & Wilkins',
+	href: 'https://www.bowerswilkins.com',
+	tags: ["Sound"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'bowers-and-wilkins-logo.svg',
+				date_added: '2026/10/11',
+                version: '0.9.2',
+                source: {
+					name: 'Bowers & Wilkins',
+					href: 'https://www.bowerswilkins.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'bowers-and-wilkins-logo-dark.svg',
+				date_added: '2026/10/11',
+				version: '0.9.2',
+				source: {
+					name: 'Bowers & Wilkins',
+					href: 'https://www.bowerswilkins.com'
+				}
+			}
+		}
+	]
+}
