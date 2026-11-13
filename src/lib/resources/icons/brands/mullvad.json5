@@ -1,0 +1,32 @@
+{
+	name: 'Mullvad',
+	href: 'https://mullvad.net',
+	tags: ["Tech","Software","Utilities"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'mullvad-icon.svg',
+				date_added: '2026/10/11',
+                version: '0.9.2',
+                source: {
+					name: 'Mullvad',
+					href: 'https://mullvad.net'
+				}
+			}
+		},
+		{
+			name: 'Mullvad Browser',
+			type: 'icon',
+			default: {
+				path: 'mullvad-browser-icon.svg',
+				date_added: '2026/10/11',
+				version: '0.9.2',
+				source: {
+					name: 'Mullvad',
+					href: 'https://mullvad.net'
+				}
+			}
+		}
+	]
+}
