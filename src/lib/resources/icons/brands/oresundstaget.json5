@@ -1,0 +1,29 @@
+{
+	name: 'Öresundståget',
+	href: 'https://www.oresundstag.se/',
+	tags: ["Public Transport"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'oresundstaget-logo.svg',
+				date_added: '2026/10/11',
+				version: '0.9.2',
+				source: {
+					name: 'Öresundståget',
+					href: 'https://www.oresundstag.se/'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'oresundstaget-logo-dark.svg',
+				date_added: '2026/10/11',
+				version: '0.9.2',
+				source: {
+					name: 'Öresundståget',
+					href: 'https://www.oresundstag.se/'
+				}
+			}
+		}
+	]
+}
