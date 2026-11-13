@@ -1,0 +1,78 @@
+{
+	name: 'Kahoot',
+	href: 'https://kahoot.it',
+	tags: ["Education","Gaming"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'kahoot-logo.svg',
+				date_added: '2026/11/12',
+				version: '0.9.2',
+				source: {
+					name: 'Kahoot',
+					href: 'https://kahoot.it'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'kahoot-logo-dark.svg',
+				date_added: '2026/11/12',
+				version: '0.9.2',
+				source: {
+					name: 'Kahoot',
+					href: 'https://kahoot.it'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'kahoot-alt-logo.svg',
+					date_added: '2026/11/12',
+					version: '0.9.2',
+					source: {
+						name: 'Kahoot',
+						href: 'https://kahoot.it'
+					}
+				}
+			]
+		},
+		{
+			name: 'Kahoot',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'kahoot-go-logo.svg',
+				date_added: '2026/11/12',
+				version: '0.9.2',
+				source: {
+					name: 'Kahoot',
+					href: 'https://kahoot.it'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'kahoot-go-logo-dark.svg',
+				date_added: '2026/11/12',
+				version: '0.9.2',
+				source: {
+					name: 'Kahoot',
+					href: 'https://kahoot.it'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'kahoot-go-alt-logo.svg',
+					date_added: '2026/11/12',
+					version: '0.9.2',
+					source: {
+						name: 'Kahoot',
+						href: 'https://kahoot.it'
+					}
+				}
+			]
+		}
+	]
+}
