@@ -11,8 +11,18 @@
 
 ### New Brand Resources
 - **x New Icons**
-  - **[New]** **xREALM**
-  - **[New]** **Blueprint**
+  - **[New]** xREALM
+  - **[New]** Blueprint
+  - **[New]** Dali
+  - **[New]** Bowers & Wilkins
+  - **[New]** Denon
+  - **[New]** Harman
+  - **[New]** Kahoot
+  - **[New]** Salesforce
+  - **[New]** Polisen
+  - **[New]** Öresundståg
+  - **[New]** Mullvad
+    - Incl. Mullvad Browser
   - **[New]** Wikimedia Foundation
     - Incl. Wikipedia
     - Incl. Wiktionary
@@ -27,7 +37,7 @@
     - Incl. MediaWiki
     - Incl. Wikivoyage
     - Incl. Meta-Wiki
-  - **Salling Group**
+  - Salling Group
     - **[New]** Netto
 
 ## Bug Fixes
