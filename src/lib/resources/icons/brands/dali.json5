@@ -1,0 +1,19 @@
+{
+	name: 'Dali',
+	href: 'https://www.dali-speakers.com',
+	tags: ["Sound"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'dali-logo.svg',
+				date_added: '2026/10/11',
+                version: '0.9.2',
+                source: {
+					name: 'Dali',
+					href: 'https://www.dali-speakers.com'
+				}
+			}
+		}
+	]
+}
