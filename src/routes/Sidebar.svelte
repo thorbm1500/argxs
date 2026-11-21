@@ -95,6 +95,12 @@
 				</svg>
 				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%;">Brands</p>
 			</a>
+			<a {@attach tabIndexFocus} class={{ page: true, tag: true, newly_added: true }} rel="external" target="_blank" href="https://iconify.design">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 5a1 1 0 0 1 0 2h-6a1 1 0 0 0 -1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1 -1v-6a1 1 0 0 1 2 0v6a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3zm3 -2h5l.075 .003l.126 .017l.111 .03l.111 .044l.098 .052l.096 .067l.09 .08q .054 .053 .097 .112l.071 .11l.054 .114l.035 .105l.03 .148l.006 .118v5a1 1 0 0 1 -2 0v-2.586l-7.293 7.293a1 1 0 0 1 -1.414 -1.414l7.291 -7.293h-2.584a1 1 0 0 1 0 -2" />
+				</svg>
+				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%;">Icons</p>
+			</a>
 		</div>
 		<div class="nav-section">
 			<div class={{ title: true, selected: page.url.pathname.startsWith('/colors') }} inert>
@@ -106,7 +112,7 @@
 				</svg>
 				<p>COLORS</p>
 			</div>
-			<a {@attach tabIndexFocus} class={{ page: true, tag: true, selected: page.url.pathname === '/colors/picker' }} href="/colors/picker">
+			<a {@attach tabIndexFocus} class={{ page: true, selected: page.url.pathname === '/colors/picker' }} href="/colors/picker">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M11 7l6 6" />
@@ -212,12 +218,12 @@
 				</svg>
 				<p>OTHER</p>
 			</div>
-			<div class={{ tag: true, outdated: true, planned: true }} tabindex="-1">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M4 7C4 6.06812 4 5.60218 4.15224 5.23463C4.35523 4.74458 4.74458 4.35523 5.23463 4.15224C5.60218 4 6.06812 4 7 4H17C17.9319 4 18.3978 4 18.7654 4.15224C19.2554 4.35523 19.6448 4.74458 19.8478 5.23463C20 5.60218 20 6.06812 20 7M9 20H15M12 4V20" />
+			<a {@attach tabIndexFocus} class={{ page: true, tag: true, newly_added: true }} rel="external" target="_blank" href="https://fonts.google.com">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 5a1 1 0 0 1 0 2h-6a1 1 0 0 0 -1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1 -1v-6a1 1 0 0 1 2 0v6a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3zm3 -2h5l.075 .003l.126 .017l.111 .03l.111 .044l.098 .052l.096 .067l.09 .08q .054 .053 .097 .112l.071 .11l.054 .114l.035 .105l.03 .148l.006 .118v5a1 1 0 0 1 -2 0v-2.586l-7.293 7.293a1 1 0 0 1 -1.414 -1.414l7.291 -7.293h-2.584a1 1 0 0 1 0 -2" />
 				</svg>
-				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%">Typography</p>
-			</div>
+				<p class="text" style="--bg-x: {Math.floor(Math.random() * 500) + 1000}%;">Typography</p>
+			</a>
 			<div class={{ tag: true, planned: true }} tabindex="-1">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M9.99999 13C10.4294 13.5741 10.9773 14.0491 11.6065 14.3929C12.2357 14.7367 12.9315 14.9411 13.6466 14.9923C14.3618 15.0435 15.0796 14.9403 15.7513 14.6897C16.4231 14.4392 17.0331 14.047 17.54 13.54L20.54 10.54C21.4508 9.59695 21.9547 8.33394 21.9434 7.02296C21.932 5.71198 21.4061 4.45791 20.4791 3.53087C19.552 2.60383 18.298 2.07799 16.987 2.0666C15.676 2.0552 14.413 2.55918 13.47 3.46997L11.75 5.17997M14 11C13.5705 10.4258 13.0226 9.95078 12.3934 9.60703C11.7642 9.26327 11.0685 9.05885 10.3533 9.00763C9.63819 8.95641 8.9204 9.0596 8.24864 9.31018C7.57688 9.56077 6.96687 9.9529 6.45999 10.46L3.45999 13.46C2.5492 14.403 2.04522 15.666 2.05662 16.977C2.06801 18.288 2.59385 19.542 3.52089 20.4691C4.44793 21.3961 5.702 21.9219 7.01298 21.9333C8.32396 21.9447 9.58697 21.4408 10.53 20.53L12.24 18.82" />
