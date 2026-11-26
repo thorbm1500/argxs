@@ -1,16 +1,20 @@
 # Version 0.9.2
-#### 2026-xx-xx
+#### 2026-11-26
 
 ## Minor Changes
+- **Sidebar**
+  - **[New]** A new icons#icons has been added and redirects to Iconify
+  - Removed 'outdated' tag from [colors#combos](https://argxs.dev/colors/combos)
+  - other#typography now redirects to Google Fonts, to narrow the scope of **argxs**
+  - Removed other#discord
 - **Colors**
   - **Combos**
     - Updated design of page
-    - Removed 'outdated' tag
 - **Icons**
   - Fixed incorrect direction of arrow when sorting by version
 
 ### New Brand Resources
-- **x New Icons**
+- **55 New Icons**
   - **[New]** xREALM
   - **[New]** Blueprint
   - **[New]** Dali
@@ -39,6 +43,5 @@
     - Incl. Meta-Wiki
   - Salling Group
     - **[New]** Netto
-
-## Bug Fixes
-- **Empty**
+  - Docker (Rebrand)
+    - Incl. Docker Docs
