@@ -1,0 +1,19 @@
+{
+	name: 'Polisen',
+	href: 'https://polisen.se',
+	tags: ["Government"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				path: 'polisen-logo.svg',
+				date_added: '2026/10/11',
+                version: '0.9.2',
+                source: {
+					name: 'Polisen',
+					href: 'https://polisen.se'
+				}
+			}
+		}
+	]
+}

@@ -76,7 +76,10 @@
           "Enterprise",
           "Utility",
           "News & Media",
-          "Creativity"
+          "Creativity",
+          "Government",
+          "Public Transport",
+          "Sound"
         ]
       },
       "minItems": 0,

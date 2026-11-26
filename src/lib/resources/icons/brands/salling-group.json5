@@ -25,6 +25,54 @@
 					href: 'https://brandfetch.com'
 				}
 			}
+		},
+		{
+			name: 'Netto',
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'netto-logo.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Netto',
+					href: 'https://netto.dk'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'netto-logo-dark.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Netto',
+					href: 'https://netto.dk'
+				}
+			}
+		},
+		{
+			name: 'Netto',
+			type: 'icon',
+			default: {
+				theme: 'light',
+				path: 'netto-icon.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Netto',
+					href: 'https://netto.dk'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'netto-icon-dark.svg',
+				date_added: '2026/11/11',
+				version: '0.9.2',
+				source: {
+					name: 'Netto',
+					href: 'https://netto.dk'
+				}
+			}
 		}
 	]
 }

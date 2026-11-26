@@ -1,0 +1,53 @@
+{
+	name: 'xREALM',
+	href: 'https://xrealm.com',
+	tags: ["Gaming","Utility"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'xrealm-icon.svg',
+				date_added: '2026/9/10',
+				version: '0.9.2',
+				source: {
+					name: 'xREALM',
+					href: 'https://xrealm.com'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'xrealm-icon-black.svg',
+					date_added: '2026/9/10',
+					version: '0.9.2',
+					source: {
+						name: 'xREALM',
+						href: 'https://xrealm.com'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'xrealm-icon-white.svg',
+					date_added: '2026/9/10',
+					version: '0.9.2',
+					source: {
+						name: 'xREALM',
+						href: 'https://xrealm.com'
+					}
+				}
+			]
+		},
+		{
+			type: 'logo',
+			default: {
+				path: 'xrealm-logo.svg',
+				date_added: '2026/9/10',
+                version: '0.9.2',
+				source: {
+					name: 'xREALM',
+					href: 'https://xrealm.com'
+				}
+			}
+		}
+	]
+}

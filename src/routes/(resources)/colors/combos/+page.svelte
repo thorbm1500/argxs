@@ -37,6 +37,68 @@
 
 	<div class="combos">
 		{#if combo}
+			<div class="actions">
+				<div class="extras">
+					<button class="random-button default-button" title="Show random combo" onclick="{() => current = Math.floor(Math.random() * max)}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M18 4l3 3l-3 3" />
+							<path d="M18 20l3 -3l-3 -3" />
+							<path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" />
+							<path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" />
+						</svg>
+						Random
+					</button>
+					<button class="default-button" title="Autoplay through all combos. Interval: 1.5s" onclick="{() => {autoplay = !autoplay; autoPlayer.refresh();}}">
+						{#if !autoplay}
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
+							</svg>
+						{:else}
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M9 4h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2z" />
+								<path d="M17 4h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2z" />
+							</svg>
+						{/if}
+						AutoPlay
+					</button>
+				</div>
+				<div class="combo-switcher">
+					<button class="default-button" title="First" disabled={current === 0} onclick="{() => current = 0}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M5 12h6m3 0h1.5m3 0h.5" />
+							<path d="M5 12l6 6" />
+							<path d="M5 12l6 -6" />
+						</svg>
+						First
+					</button>
+					<button class="default-button" title="Previous" onclick="{() => current = current - 1 < 0 ? max : current - 1}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M19 12H5M5 12L12 19M5 12L12 5" />
+						</svg>
+						Previous
+					</button>
+					<p class="current-combo default-button">{$state.eager(current) + 1}</p>
+					<button class="default-button" title="Next" onclick="{() => current = current + 1 > max ? 0 : current + 1}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M5 12H19M19 12L12 5M19 12L12 19" />
+						</svg>
+						Next
+					</button>
+					<button class="default-button" title="Last" disabled={current === max} onclick="{() => current = max}">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M5 12h.5m3 0h1.5m3 0h6" />
+							<path d="M13 18l6 -6" />
+							<path d="M13 6l6 6" />
+						</svg>
+						Last
+					</button>
+				</div>
+			</div>
 			<div class="combo">
 				<div class="color first" style="--hex: {combo.first.hex}; --text-hex: {combo.second.hex}">
 					<p class="text">argxs</p>
@@ -69,62 +131,6 @@
 					{/key}
 				</div>
 			</div>
-			<div class="actions">
-				<div class="combo-switcher">
-					<button title="First" disabled={current === 0} onclick="{() => current = 0}">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-							<path d="M5 12h6m3 0h1.5m3 0h.5" />
-							<path d="M5 12l6 6" />
-							<path d="M5 12l6 -6" />
-						</svg>
-					</button>
-					<button title="Previous" onclick="{() => current = current - 1 < 0 ? max : current - 1}">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M19 12H5M5 12L12 19M5 12L12 5" />
-						</svg>
-					</button>
-					<p class="current-combo">{$state.eager(current) + 1}</p>
-					<button title="Next" onclick="{() => current = current + 1 > max ? 0 : current + 1}">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M5 12H19M19 12L12 5M19 12L12 19" />
-						</svg>
-					</button>
-					<button title="Last" disabled={current === max} onclick="{() => current = max}">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-							<path d="M5 12h.5m3 0h1.5m3 0h6" />
-							<path d="M13 18l6 -6" />
-							<path d="M13 6l6 6" />
-						</svg>
-					</button>
-				</div>
-				<div class="extras">
-					<button class="random-button" title="Show random combo" onclick="{() => current = Math.floor(Math.random() * max)}">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-							<path d="M18 4l3 3l-3 3" />
-							<path d="M18 20l3 -3l-3 -3" />
-							<path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" />
-							<path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" />
-						</svg>
-					</button>
-					<button title="Autoplay through all combos. Interval: 1.5s" onclick="{() => {autoplay = !autoplay; autoPlayer.refresh();}}">
-						{#if !autoplay}
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-								<path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
-							</svg>
-						{:else}
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-								<path d="M9 4h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2z" />
-								<path d="M17 4h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2z" />
-							</svg>
-						{/if}
-					</button>
-				</div>
-			</div>
 		{/if}
 	</div>
 </section>
@@ -132,29 +138,29 @@
 <style>
     /* Desktop & Tablet */
     @media (width >= 44rem) {
-	    .color-combos-sec {
-		    padding-top: 4rem;
-	    }
+        .color-combos-sec {
+            padding-top: 4rem;
+        }
     }
 
     /* Phone */
     @media (width < 44rem) {
-	    .color-combos-sec {
-		    padding-top: 2rem;
-	    }
+        .color-combos-sec {
+            padding-top: 2rem;
+        }
     }
 
     .color-combos-sec {
-	    width: 100%;
-	    
+        width: 100%;
+
         .combos {
             display: flex;
             flex-flow: column nowrap;
-	        align-items: center;
-	        justify-content: center;
+            align-items: center;
+            justify-content: center;
 
             height: fit-content;
-	        width: 100%;
+            width: 100%;
         }
 
         .combo {
@@ -163,8 +169,8 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
-	        width: 100%;
-	        
+            width: 100%;
+
             height: fit-content;
 
             margin: 1.5rem 0;
@@ -176,11 +182,11 @@
                 flex-flow: column;
                 align-items: center;
                 justify-content: center;
-	            flex: 1 0;
+                flex: 1 0;
 
                 height: 40vh;
                 min-height: 8rem;
-                
+
                 background: var(--hex);
                 border-radius: .65rem;
                 border: 6px solid color-mix(var(--hex), black 10%);
@@ -190,17 +196,17 @@
                 transition: background 125ms var(--theme-cubic-out),
                 border-color 50ms linear;
 
-								.values {
-										position: absolute;
-										height: 0;
-										width: 0;
-										overflow: visible;
+                .values {
+                    position: absolute;
+                    height: 0;
+                    width: 0;
+                    overflow: visible;
 
-										display: flex;
+                    display: flex;
 
-										align-items: flex-start;
-										justify-content: center;
-								}
+                    align-items: flex-start;
+                    justify-content: center;
+                }
 
                 .value {
                     position: absolute;
@@ -210,11 +216,11 @@
                     font-weight: 500;
                     font-size: .8rem;
                     letter-spacing: .15rem;
-										top: 1.5rem;
+                    top: 1.5rem;
 
-										height: 1rem;
+                    height: 1rem;
 
-										cursor: copy;
+                    cursor: copy;
 
                     transition: color 125ms var(--theme-cubic-out);
                 }
@@ -222,8 +228,8 @@
                 .value.rgb {
                     top: 2.6rem;
                 }
-	            
-	            perspective: 200px;
+
+                perspective: 200px;
 
                 .text {
                     color: var(--text-hex);
@@ -234,108 +240,78 @@
                     transition: color 125ms var(--theme-cubic-out);
 
                     user-select: none;
-	                
-	                &::before {
-		                position: absolute;
-		                content: 'argxs';
-		                transform: scale(4) rotate3d(20,0,0,40deg) scale(2);
-		                mask-image: linear-gradient(40deg, #02020220 0%, transparent 100%);
-		                opacity: .25;
-		                filter: blur(.025rem) brightness(.95);
-		                padding-bottom: .25rem;
-		                
-		                color: var(--text-hex);
-		                font-size: 2.15rem;
-		                font-family: 'Funnel Display', sans-serif;
-		                font-weight: 800;
-		                
-		                transition: color 125ms var(--theme-cubic-out);
-		                
-		                user-select: none;
-	                }
+
+                    &::before {
+                        position: absolute;
+                        content: 'argxs';
+                        transform: scale(4) rotate3d(20, 0, 0, 40deg) scale(2);
+                        mask-image: linear-gradient(40deg, #02020220 0%, transparent 100%);
+                        opacity: .25;
+                        filter: blur(.025rem) brightness(.95);
+                        padding-bottom: .25rem;
+
+                        color: var(--text-hex);
+                        font-size: 2.15rem;
+                        font-family: 'Funnel Display', sans-serif;
+                        font-weight: 800;
+
+                        transition: color 125ms var(--theme-cubic-out);
+
+                        user-select: none;
+                    }
                 }
             }
         }
 
         .actions {
-	        margin-top: .5rem;
-            color: var(--theme-color-primary);
-            user-select: none;
+						display: flex;
+						flex-flow: column wrap;
+						align-items: start;
+						justify-content: center;
+						width: 100%;
+						gap: 1rem;
+
+            margin-top: .5rem;
+
+						.current-combo {
+								padding: .25rem .75rem;
+								font-weight: 800;
+						}
 
             button {
-                cursor: pointer;
-            }
-
-            .combo-switcher {
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
                 justify-content: center;
-                gap: 1.25rem;
+                gap: .25rem;
+                padding: 0.25rem 0.5rem;
 
-                button:first-child, button:last-child {
-                    svg {
-                        width: 1.75rem;
-                        height: 1.75rem;
-                        stroke-width: 2.5;
-                    }
+                svg {
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    stroke-width: 2;
                 }
+            }
 
-                button {
-                    color: var(--theme-color-primary);
-                    transition: 650ms 50ms;
-                    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-
-                    svg {
-                        width: 2.15rem;
-                        height: 2.15rem;
-                        stroke-width: 3;
-
-                        transition: 650ms 50ms,
-                        transform 175ms,
-                        stroke-width 175ms;
-                        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-                    }
-                }
-
-                button:active {
-                    color: var(--theme-color-accent);
-
-                    transition: none;
-
-                    svg {
-                        transform: scale(.875);
-                        stroke-width: 4.5;
-                        transition: none;
-                    }
-                }
+            .combo-switcher, .extras {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: center;
+                justify-content: center;
+                gap: .5rem;
 
                 button[disabled] {
                     color: var(--theme-text-fourth);
                     cursor: default;
-                }
 
-                .current-combo {
-                    position: relative;
-                    overflow: visible;
-
-                    width: 8rem;
-                    text-align: center;
-
-                    font-family: 'Funnel Display', sans-serif;
-                    font-weight: 900;
-                    font-size: 2.5rem;
+										svg {
+                        color: var(--theme-text-fourth);
+										}
                 }
             }
 
             .extras {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-
-                margin-top: .75rem;
+                font-size: .9rem;
             }
         }
     }

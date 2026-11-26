@@ -1,0 +1,30 @@
+{
+	name: 'Denon',
+	href: 'https://denon.com',
+	tags: ["Sound"],
+	assets: [
+		{
+			type: 'logo',
+			default: {
+				theme: 'light',
+				path: 'denon-logo.svg',
+				date_added: '2026/10/11',
+                version: '0.9.2',
+                source: {
+					name: 'Denon',
+					href: 'https://denon.com'
+				}
+			},
+			dark: {
+				theme: 'dark',
+				path: 'denon-logo-dark.svg',
+				date_added: '2026/10/11',
+				version: '0.9.2',
+				source: {
+					name: 'Denon',
+					href: 'https://denon.com'
+				}
+			}
+		}
+	]
+}

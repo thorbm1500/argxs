@@ -47,7 +47,7 @@
 	let countriesOnly: boolean = $state(false);
 	let statesOnly: boolean = $state(false);
 	let animatedOnly: boolean = $state(false);
-	let sorting: string | 'default' | 'time' | 'alphabet' = $state(localStorage.getItem('icons#sorting') ?? 'default');
+	let sorting: string | 'default' | 'version' | 'alphabet' = $state(localStorage.getItem('icons#sorting') ?? 'default');
 	let order: string | 'desc' | 'asc' = $state(localStorage.getItem('icons#sorting_order') ?? 'desc');
 	let search: string = $state('');
 	let searchbarValue: string = $state('');
@@ -100,7 +100,7 @@
 		let current = [];
 
 		switch (sorting) {
-			case 'time': {
+			case 'version': {
 				if (order === 'desc') current = data.iconsSortedNew.toReversed();
 				else current = data.iconsSortedNew;
 				break;
@@ -879,8 +879,8 @@
 							Name
 						</button>
 						<button type="button" class="sort-action default-button" onclick="{() =>  {
-							if (sorting !== 'time') {
-								sorting = 'time';
+							if (sorting !== 'version') {
+								sorting = 'version';
 								order = 'asc';
 							}
 							else if (order === 'desc') sorting = 'default';
@@ -888,14 +888,14 @@
 							saveCurrentSorting();
 						}}">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								{#if sorting === 'time'}
+								{#if sorting === 'version'}
 									<path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448" />
 									<path d="M12 7v5l2.5 2.5" />
 									<path d="M19 22v-6" />
 									{#if order === 'asc'}
-										<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M22 19l-3 -3l-3 3" />
-									{:else}
 										<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M22 19l-3 3l-3 -3" />
+									{:else}
+										<path in:draw|global={{duration: prefersReducedMotion.current ? 0 : 350}} d="M22 19l-3 -3l-3 3" />
 									{/if}
 								{:else}
 									<path d="M20.943 13.016a9 9 0 1 0 -8.915 7.984" />

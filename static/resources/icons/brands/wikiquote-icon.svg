@@ -1,0 +1,17 @@
+<svg id="https://argxs.dev" xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="-64.5 -177.5 300 355">
+    <defs>
+        <radialGradient id="argxs_wikiquote_attr_1" gradientUnits="userSpaceOnUse" r="59.1" cx="0" cy="0">
+            <stop offset="0" stop-color="#00003B"/>
+            <stop offset="1" stop-color="#002F64"/>
+        </radialGradient>
+        <clipPath id="argxs_wikiquote_attr_2">
+            <path d="M-25 0l300 300L575 0 275-300z"/>
+        </clipPath>
+    </defs>
+    <circle r="59.1" fill="url(#argxs_wikiquote_attr_1)"/>
+    <g clip-path="url(#argxs_wikiquote_attr_2)" fill="none">
+        <circle r="101" stroke="#003B6F" stroke-width="29"/>
+        <circle r="156.5" stroke="#3B6FA0" stroke-width="30.4"/>
+        <circle r="215.7" stroke="#6FA0D0" stroke-width="31.4"/>
+    </g>
+</svg>

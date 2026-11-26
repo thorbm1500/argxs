@@ -1,0 +1,41 @@
+{
+	name: 'Blueprint',
+	href: 'https://blueprint.zip',
+	tags: ["Gaming","Utility"],
+	assets: [
+		{
+			type: 'icon',
+			default: {
+				path: 'blueprint-icon.svg',
+				date_added: '2026/10/5',
+				version: '0.9.2',
+				source: {
+					name: 'Blueprint',
+					href: 'https://blueprint.zip'
+				}
+			},
+			variable: [
+				{
+					theme: 'light',
+					path: 'blueprint-icon-light.svg',
+					date_added: '2026/10/5',
+					version: '0.9.2',
+					source: {
+						name: 'Blueprint',
+						href: 'https://blueprint.zip'
+					}
+				},
+				{
+					theme: 'dark',
+					path: 'blueprint-icon-dark.svg',
+					date_added: '2026/10/5',
+					version: '0.9.2',
+					source: {
+						name: 'Blueprint',
+						href: 'https://blueprint.zip'
+					}
+				}
+			]
+		}
+	]
+}
